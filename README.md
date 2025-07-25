@@ -1,28 +1,18 @@
 # SADE - Sistema de Avaliação e Desempenho Educacional
 
-Sistema completo para análise de desempenho educacional desenvolvido em PHP com SQLite.
+Sistema simplificado para análise de desempenho educacional desenvolvido em PHP com SQLite. Esta versão oferece apenas dashboard e relatórios básicos, sem autenticação.
 
 ## 🚀 Características
 
 - **Backend:** PHP 8.3+ com SQLite
 - **Frontend:** Bootstrap 5 + Chart.js  
-- **Segurança:** Autenticação por sessão, proteção CSRF
 - **Responsivo:** Interface mobile-friendly
-- **Multi-usuário:** Sistema de permissões (Admin/Usuário)
+- **APIs:** Endpoints em PHP para alimentar os gráficos
 
 ## 📋 Funcionalidades
-
-### 👤 Administradores
-- ✅ Dashboard completo com estatísticas
-- ✅ Processamento automático de arquivos CSV
-- ✅ Gerenciamento completo de usuários
-- ✅ Relatórios avançados com filtros e gráficos
-- ✅ Controle total do sistema
-
-### 👥 Usuários
-- ✅ Dashboard com visão resumida
-- ✅ Acesso a relatórios com filtros
-- ✅ Visualização de dados permitidos
+- ✅ Dashboard com estatísticas gerais
+- ✅ Processamento de arquivos CSV existentes
+- ✅ Relatórios com filtros e gráficos interativos
 
 ## 🛠️ Instalação
 
@@ -44,36 +34,28 @@ git clone https://github.com/pauloheg33/sade.git
 cd sade
 ```
 
-2. Execute o script de configuração:
-```bash
-php setup.php
-```
-
-3. Inicie o servidor:
+2. Inicie o servidor:
 ```bash
 php -S localhost:8000
 ```
 
-4. Acesse: http://localhost:8000
+3. Acesse: http://localhost:8000
 
-## 🔐 Acesso Inicial
+## 🔐 Acesso
 
-- **URL:** http://localhost:8000
-- **Email:** admin@sade.local
-- **Senha:** admin123
+Com o servidor rodando, acesse `http://localhost:8000` para visualizar o dashboard.
 
 ## 📁 Estrutura do Projeto
 
 ```
 sade/
-├── config.php              # Configurações e autenticação
+├── config.php              # Configurações principais
 ├── index.php               # Dashboard principal
-├── login.php               # Sistema de login
-├── logout.php              # Logout seguro
-├── processar.php           # Processamento de arquivos (Admin)
-├── usuarios.php            # Gerenciamento de usuários (Admin)
-├── relatorios.php          # Relatórios com filtros
-├── setup.php               # Script de configuração inicial
+├── processar_dados.php     # Processamento simples dos CSVs
+├── relatorio_desempenho.php# Relatório por questão
+├── relatorios.php          # Relatórios resumidos
+├── api/                    # Endpoints de dados
+├── includes/               # Classes e funções
 ├── includes/
 │   ├── functions.php       # Classes principais do sistema
 │   └── processador.php     # Processamento de arquivos CSV
@@ -150,15 +132,12 @@ João Silva,Avaliação Matemática,Escola ABC,9º A,75.5,A,B,C...
 Para atualizar o sistema:
 ```bash
 git pull origin main
-php setup.php  # Se necessário
 ```
 
 ## 📝 Logs e Debugging
 
 O sistema registra atividades em:
-- Logs de login/logout
 - Logs de processamento
-- Logs de criação/edição de usuários
 
 ## 🤝 Contribuição
 
@@ -177,7 +156,6 @@ Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalh
 Para suporte e dúvidas:
 - Abra uma [Issue](https://github.com/pauloheg33/sade/issues)
 - Consulte a documentação no código
-- Execute `php setup.php` para reconfigurar
 
 ---
 

@@ -1,0 +1,20 @@
+name: PHP Lint
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  phplint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+      - name: Lint PHP
+        run: |
+          find . -name '*.php' -print0 | xargs -0 -n 1 php -l
