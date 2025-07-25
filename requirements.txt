@@ -1,4 +1,21 @@
+# Django Framework
 Django>=5.2.4,<6.0
+
+# Utilities
 python-dotenv>=1.0.0
+
+# Data Processing
 pandas>=2.0.0
 openpyxl>=3.1.0
+
+# Production Dependencies (Optional)
+# psycopg2-binary>=2.9.0  # PostgreSQL adapter
+# gunicorn>=21.0.0        # WSGI server
+# whitenoise>=6.5.0       # Static files serving
+# redis>=4.6.0            # Caching
+
+# Development Dependencies (install with pip install -r requirements-dev.txt)
+# django-debug-toolbar>=4.0.0
+# pytest-django>=4.5.0
+# black>=23.0.0
+# flake8>=6.0.0

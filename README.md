@@ -1,151 +1,273 @@
-# SADE - Sistema de Avaliação e Dados Educacionais
+# SADE - Sistema de Avaliação e Desempenho Educacional
 
-Sistema web desenvolvido em Django para gerenciamento e análise de dados educacionais, permitindo o upload e processamento de dados de avaliações através de arquivos CSV.
+[![Django](https://img.shields.io/badge/Django-5.2.4-green.svg)](https://www.djangoproject.com/)
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-MIT-red.svg)](LICENSE)
 
-## Funcionalidades
+## 📊 Sobre o Projeto
 
-- ✅ **Sistema de Autenticação**: Login seguro para administradores
-- ✅ **Upload de Dados**: Importação via arquivo CSV
-- ✅ **Painel Administrativo**: Interface completa para gerenciamento
-- ✅ **Dashboard**: Visualização de estatísticas e relatórios
-- ✅ **Gestão de Dados**: Escolas, turmas, alunos, disciplinas e avaliações
+O SADE é um sistema web desenvolvido em Django para análise de desempenho educacional, focado em identificar dificuldades de aprendizado através da análise detalhada de questões que os alunos mais erram.
 
-## Modelos de Dados
+### 🎯 Principais Funcionalidades
 
-- **Escola**: Instituições de ensino
-- **Turma**: Classes organizadas por escola, nome e ano
-- **Aluno**: Estudantes vinculados às turmas
-- **Disciplina**: Matérias avaliadas
-- **Questão**: Questões das avaliações por disciplina
-- **Resposta**: Respostas dos alunos às questões
+- **📈 Análise por Turmas**: Relatórios detalhados mostrando quais questões cada turma tem mais dificuldade
+- **📋 Análise por Questões**: Ranking global das questões mais difíceis em todas as turmas
+- **🏫 Dashboard Moderno**: Interface intuitiva com estatísticas em tempo real
+- **📤 Upload CSV**: Processamento automático de dados de avaliações
+- **🔐 Sistema de Login**: Autenticação segura para acesso ao sistema
+- **⚙️ Configurações**: Painel completo para personalização do sistema
 
-## Instalação
+## 🚀 Instalação e Configuração
 
 ### Pré-requisitos
-- Python 3.8+
-- Django 5.2+
 
-### Passos
+- Python 3.8 ou superior
+- pip (gerenciador de pacotes Python)
+- Git
 
-1. **Clone o repositório**
-   ```bash
-   git clone <url-do-repositorio>
-   cd sade
-   ```
-
-2. **Crie um ambiente virtual**
-   ```bash
-   python -m venv venv
-   venv\Scripts\activate  # Windows
-   # ou
-   source venv/bin/activate  # Linux/Mac
-   ```
-
-3. **Instale as dependências**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Configure as variáveis de ambiente** (opcional)
-   ```bash
-   cp .env.example .env
-   # Edite o arquivo .env com suas configurações
-   ```
-
-5. **Execute as migrações**
-   ```bash
-   python manage.py migrate
-   ```
-
-6. **Crie um superusuário**
-   ```bash
-   python manage.py createsuperuser
-   ```
-
-7. **Execute o servidor**
-   ```bash
-   python manage.py runserver
-   ```
-
-## Formato do Arquivo CSV
-
-O arquivo CSV deve conter as seguintes colunas obrigatórias:
-
-| Coluna | Descrição | Exemplo |
-|--------|-----------|---------|
-| Escola | Nome da escola | "Escola ABC" |
-| Turma | Nome da turma | "3A" |
-| Ano | Ano letivo | "2025" |
-| Aluno | Nome do aluno | "João Silva" |
-| Disciplina | Nome da disciplina | "Matemática" |
-| Questão X | Respostas (X = número) | "A", "B", "C", etc. |
-
-### Exemplo de CSV:
-```csv
-Escola,Turma,Ano,Aluno,Disciplina,Questão 1,Questão 2,Questão 3
-Escola ABC,3A,2025,João Silva,Matemática,A,B,C
-Escola ABC,3A,2025,Maria Santos,Matemática,B,A,C
-Escola XYZ,2B,2025,Pedro Costa,Português,C,C,A
-```
-
-## URLs Principais
-
-- `/` - Página inicial com estatísticas gerais
-- `/dashboard/` - Dashboard administrativo
-- `/upload-csv/` - Upload de arquivos CSV
-- `/login/` - Login do sistema
-- `/admin/` - Painel administrativo do Django
-
-## Configurações de Segurança
-
-O sistema inclui configurações de segurança para produção:
-
-- Configuração via variáveis de ambiente
-- HTTPS obrigatório em produção
-- Cookies seguros
-- Proteção XSS e CSRF
-- Headers de segurança
-
-## Desenvolvimento
-
-### Estrutura do Projeto
-```
-sade/
-├── dashboard/          # App principal
-│   ├── models.py      # Modelos de dados
-│   ├── views.py       # Views e lógica
-│   ├── admin.py       # Configuração do admin
-│   ├── urls.py        # URLs do app
-│   └── templates/     # Templates HTML
-├── sade/              # Configurações do projeto
-├── manage.py          # Comando Django
-├── requirements.txt   # Dependências
-└── README.md         # Este arquivo
-```
-
-### Comandos Úteis
+### 1. Clone o Repositório
 
 ```bash
-# Aplicar migrações
-python manage.py migrate
-
-# Criar migrações
-python manage.py makemigrations
-
-# Executar servidor de desenvolvimento
-python manage.py runserver
-
-# Acessar shell do Django
-python manage.py shell
-
-# Coletar arquivos estáticos (produção)
-python manage.py collectstatic
+git clone https://github.com/pauloheg33/sade.git
+cd sade
 ```
 
-## Licença
+### 2. Crie um Ambiente Virtual
 
-Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+```bash
+python -m venv venv
 
-## Suporte
+# No Linux/Mac
+source venv/bin/activate
 
-Para suporte ou dúvidas, entre em contato com a equipe de desenvolvimento.
+# No Windows
+venv\Scripts\activate
+```
+
+### 3. Instale as Dependências
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure as Variáveis de Ambiente
+
+```bash
+# Copie o arquivo de exemplo
+cp .env.example .env
+
+# Edite o arquivo .env com suas configurações
+nano .env
+```
+
+### 5. Execute as Migrações
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+### 6. Crie um Superusuário
+
+```bash
+python manage.py createsuperuser
+```
+
+### 7. Execute o Servidor
+
+```bash
+python manage.py runserver
+```
+
+Acesse: `http://localhost:8000`
+
+## 📝 Como Usar
+
+### 1. Acesso ao Sistema
+
+- **URL de Login**: `http://localhost:8000/login/`
+- **Credenciais de Demo**: 
+  - Usuário: `admin`
+  - Senha: `admin123` (ou use suas credenciais de superusuário)
+
+### 2. Upload de Dados
+
+1. Acesse **Upload de CSV** no menu
+2. Selecione um arquivo CSV com o formato:
+   ```
+   Nome do aluno,Nome da turma,Nome do teste,P. 1 Resposta,P. 2 Resposta,...
+   João Silva,5º ANO A - ESCOLA EXEMPLO 2025/2026,MATEMÁTICA,A,B,C,D,...
+   ```
+3. Aguarde o processamento
+
+### 3. Visualização de Relatórios
+
+#### Relatório por Turmas
+- Mostra questões mais difíceis para cada turma
+- Identifica onde focar o reforço pedagógico
+- Estatísticas completas por turma
+
+#### Relatório por Questões
+- Ranking das questões mais difíceis globalmente
+- Análise de dificuldade por disciplina
+- Recomendações pedagógicas
+
+## 🏗️ Estrutura do Projeto
+
+```
+sade/
+├── dashboard/                 # App principal
+│   ├── models.py             # Modelos de dados
+│   ├── views.py              # Views otimizadas
+│   ├── admin.py              # Configuração do admin
+│   ├── urls.py               # Rotas
+│   ├── services/             # Lógica de negócio
+│   │   ├── csv_processor.py  # Processamento de CSV
+│   │   ├── reports.py        # Geração de relatórios
+│   │   └── statistics.py     # Cálculos estatísticos
+│   └── templates/            # Templates HTML
+├── sade/                     # Configurações do projeto
+│   ├── settings.py           # Configurações principais
+│   ├── urls.py               # URLs raiz
+│   └── wsgi.py               # WSGI para produção
+├── requirements.txt          # Dependências
+├── .env.example             # Exemplo de configurações
+└── README.md                # Esta documentação
+```
+
+## 🔧 Configurações Avançadas
+
+### Banco de Dados
+
+Para produção, configure PostgreSQL no `.env`:
+
+```env
+DJANGO_ENVIRONMENT=production
+DB_NAME=sade_prod
+DB_USER=sade_user
+DB_PASSWORD=sua_senha_segura
+DB_HOST=localhost
+DB_PORT=5432
+```
+
+### Cache
+
+Para melhor performance, configure Redis:
+
+```env
+CACHE_LOCATION=127.0.0.1:11211
+```
+
+### Segurança
+
+Em produção, configure:
+
+```env
+DJANGO_DEBUG=False
+DJANGO_SECRET_KEY=sua_chave_secreta_super_segura
+SECURE_SSL_REDIRECT=True
+SESSION_COOKIE_SECURE=True
+CSRF_COOKIE_SECURE=True
+```
+
+## 📊 API Endpoints
+
+### Autenticação
+- `POST /login/` - Login do usuário
+- `POST /logout/` - Logout do usuário
+
+### Dashboard
+- `GET /home/` - Dashboard principal
+- `GET /api/dashboard-stats/` - Estatísticas para gráficos
+
+### Relatórios
+- `GET /relatorio-turmas/` - Relatório por turmas
+- `GET /relatorio-questoes/` - Relatório por questões
+- `GET /api/turma-dados/<id>/` - Dados específicos de uma turma
+
+### Sistema
+- `GET /health/` - Health check da aplicação
+
+## 🎨 Interface
+
+O sistema possui uma interface moderna e responsiva com:
+
+- **Bootstrap 5.3**: Framework CSS moderno
+- **Font Awesome**: Ícones vetoriais
+- **Chart.js**: Gráficos interativos
+- **Design Responsivo**: Funciona em desktop e mobile
+
+## 🧪 Testes
+
+```bash
+# Executar testes
+python manage.py test
+
+# Com coverage
+pip install coverage
+coverage run --source='.' manage.py test
+coverage report
+```
+
+## 📈 Performance
+
+### Otimizações Implementadas
+
+- **Cache de 5 minutos** para estatísticas do dashboard
+- **Select related** em queries do banco
+- **Paginação** em listagens grandes
+- **Compressão** de arquivos estáticos
+- **Índices** no banco de dados
+
+### Monitoramento
+
+- Health check endpoint: `/health/`
+- Logs estruturados em `django_errors.log`
+- Métricas de performance no admin
+
+## 🤝 Contribuição
+
+1. Fork o projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+## 👥 Equipe
+
+- **Desenvolvedor Principal**: Paulo Henrique
+- **GitHub**: [@pauloheg33](https://github.com/pauloheg33)
+
+## 🆘 Suporte
+
+Para suporte e dúvidas:
+
+1. Abra uma [Issue](https://github.com/pauloheg33/sade/issues)
+2. Consulte a [Wiki](https://github.com/pauloheg33/sade/wiki)
+3. Entre em contato pelo email: [seu-email@example.com]
+
+## 🔄 Changelog
+
+### v2.0.0 (Atual)
+- ✅ Refatoração completa do código
+- ✅ Implementação de services (csv_processor, reports, statistics)
+- ✅ Admin otimizado com filtros e buscas avançadas
+- ✅ Cache implementado para melhor performance
+- ✅ Interface moderna com Bootstrap 5.3
+- ✅ Sistema de login e autenticação
+- ✅ Relatórios detalhados por turma e questão
+- ✅ API endpoints para integrações
+- ✅ Documentação completa
+
+### v1.0.0
+- ✅ Sistema básico de upload CSV
+- ✅ Dashboard inicial
+- ✅ Modelos básicos de dados
+
+---
+
+**⭐ Se este projeto foi útil para você, considere dar uma estrela no GitHub!**

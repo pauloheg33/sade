@@ -1,0 +1,244 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %}Configurações - SADE{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="h3 mb-0">
+                    <i class="fas fa-cog text-primary me-2"></i>
+                    Configurações do Sistema
+                </h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                        <li class="breadcrumb-item active">Configurações</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <i class="fas fa-check-circle me-2"></i>{{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="row">
+        <div class="col-md-8">
+            <form method="post" class="mb-4">
+                {% csrf_token %}
+                
+                <!-- Configurações Gerais -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-sliders-h me-2"></i>
+                            Configurações Gerais
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="nome_sistema" class="form-label">Nome do Sistema</label>
+                                    <input type="text" class="form-control" id="nome_sistema" name="nome_sistema" value="SADE - Sistema de Avaliação">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="ano_letivo" class="form-label">Ano Letivo</label>
+                                    <input type="number" class="form-control" id="ano_letivo" name="ano_letivo" value="2025" min="2020" max="2030">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="periodo_avaliacao" class="form-label">Período de Avaliação</label>
+                                    <select class="form-select" id="periodo_avaliacao" name="periodo_avaliacao">
+                                        <option value="1_bimestre">1º Bimestre</option>
+                                        <option value="2_bimestre" selected>2º Bimestre</option>
+                                        <option value="3_bimestre">3º Bimestre</option>
+                                        <option value="4_bimestre">4º Bimestre</option>
+                                        <option value="anual">Avaliação Anual</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="timezone" class="form-label">Fuso Horário</label>
+                                    <select class="form-select" id="timezone" name="timezone">
+                                        <option value="America/Sao_Paulo" selected>Brasília (GMT-3)</option>
+                                        <option value="America/Manaus">Manaus (GMT-4)</option>
+                                        <option value="America/Rio_Branco">Rio Branco (GMT-5)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Configurações de Avaliação -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-clipboard-check me-2"></i>
+                            Configurações de Avaliação
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="nota_minima" class="form-label">Nota Mínima (%)</label>
+                                    <input type="number" class="form-control" id="nota_minima" name="nota_minima" value="60" min="0" max="100">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="questoes_faceis" class="form-label">Questões Fáceis (% acerto)</label>
+                                    <input type="number" class="form-control" id="questoes_faceis" name="questoes_faceis" value="80" min="0" max="100">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="questoes_dificeis" class="form-label">Questões Difíceis (% acerto)</label>
+                                    <input type="number" class="form-control" id="questoes_dificeis" name="questoes_dificeis" value="60" min="0" max="100">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="mostrar_gabarito" name="mostrar_gabarito" checked>
+                            <label class="form-check-label" for="mostrar_gabarito">
+                                Mostrar gabarito nos relatórios
+                            </label>
+                        </div>
+                        
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="exportar_individual" name="exportar_individual">
+                            <label class="form-check-label" for="exportar_individual">
+                                Permitir exportação de dados individuais
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Configurações de Relatórios -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-chart-bar me-2"></i>
+                            Configurações de Relatórios
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="itens_por_pagina" class="form-label">Itens por Página</label>
+                                    <select class="form-select" id="itens_por_pagina" name="itens_por_pagina">
+                                        <option value="10">10 itens</option>
+                                        <option value="25" selected>25 itens</option>
+                                        <option value="50">50 itens</option>
+                                        <option value="100">100 itens</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="formato_data" class="form-label">Formato de Data</label>
+                                    <select class="form-select" id="formato_data" name="formato_data">
+                                        <option value="dd/mm/yyyy" selected>DD/MM/AAAA</option>
+                                        <option value="mm/dd/yyyy">MM/DD/AAAA</option>
+                                        <option value="yyyy-mm-dd">AAAA-MM-DD</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="auto_backup" name="auto_backup" checked>
+                            <label class="form-check-label" for="auto_backup">
+                                Backup automático dos dados
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save me-2"></i>Salvar Configurações
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-4">
+            <!-- Informações do Sistema -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Informações do Sistema
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <strong>Versão:</strong> 2.0.0<br>
+                        <strong>Última Atualização:</strong> 25/07/2025<br>
+                        <strong>Status:</strong> <span class="badge bg-success">Operacional</span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <strong>Banco de Dados:</strong><br>
+                        <small class="text-muted">SQLite - Local</small>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <strong>Estatísticas:</strong><br>
+                        <small>• {{ total_escolas|default:0 }} Escolas cadastradas</small><br>
+                        <small>• {{ total_turmas|default:0 }} Turmas ativas</small><br>
+                        <small>• {{ total_alunos|default:0 }} Alunos registrados</small><br>
+                        <small>• {{ total_respostas|default:0 }} Respostas processadas</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ações Rápidas -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-bolt me-2"></i>
+                        Ações Rápidas
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a href="{% url 'upload_csv' %}" class="btn btn-outline-primary">
+                            <i class="fas fa-upload me-2"></i>Upload CSV
+                        </a>
+                        <a href="{% url 'relatorio_turmas' %}" class="btn btn-outline-success">
+                            <i class="fas fa-chart-line me-2"></i>Relatório Turmas
+                        </a>
+                        <a href="{% url 'relatorio_questoes' %}" class="btn btn-outline-info">
+                            <i class="fas fa-question-circle me-2"></i>Análise Questões
+                        </a>
+                        <button class="btn btn-outline-warning" onclick="window.print()">
+                            <i class="fas fa-print me-2"></i>Imprimir
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

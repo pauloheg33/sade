@@ -1,0 +1,376 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %}Relatório por Questões - SADE{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="h3 mb-0">
+                    <i class="fas fa-question-circle text-primary me-2"></i>
+                    Análise Detalhada por Questões
+                </h1>
+                <div>
+                    <button class="btn btn-outline-secondary me-2" onclick="window.print()">
+                        <i class="fas fa-print me-2"></i>Imprimir
+                    </button>
+                    <a href="{% url 'home' %}" class="btn btn-primary">
+                        <i class="fas fa-home me-2"></i>Voltar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filtros e Resumo -->
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">
+                        <i class="fas fa-filter me-2"></i>Filtros de Análise
+                    </h6>
+                    <form method="get" class="row g-3">
+                        <div class="col-md-4">
+                            <label for="disciplina" class="form-label">Disciplina</label>
+                            <select class="form-select" id="disciplina" name="disciplina">
+                                <option value="">Todas as Disciplinas</option>
+                                <option value="Português">Português</option>
+                                <option value="Matemática">Matemática</option>
+                                <option value="História">História</option>
+                                <option value="Geografia">Geografia</option>
+                                <option value="Ciências">Ciências</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="dificuldade" class="form-label">Nível de Dificuldade</label>
+                            <select class="form-select" id="dificuldade" name="dificuldade">
+                                <option value="">Todos os Níveis</option>
+                                <option value="Difícil">Difícil (< 60%)</option>
+                                <option value="Média">Média (60-80%)</option>
+                                <option value="Fácil">Fácil (> 80%)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="ordenar" class="form-label">Ordenar por</label>
+                            <select class="form-select" id="ordenar" name="ordenar">
+                                <option value="acertos_asc">Menor % Acertos</option>
+                                <option value="acertos_desc">Maior % Acertos</option>
+                                <option value="questao">Número da Questão</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-search me-2"></i>Aplicar Filtros
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-primary text-white">
+                <div class="card-body text-center">
+                    <h6 class="card-title">Resumo da Análise</h6>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="h4 mb-0">{{ questoes_dados|length }}</div>
+                            <small>Questões</small>
+                        </div>
+                        <div class="col-6">
+                            <div class="h4 mb-0">
+                                {% if questoes_dados %}
+                                    {% for questao in questoes_dados %}{{ questao.percentual_acerto|add:0 }}{% if not forloop.last %}+{% endif %}{% endfor %}
+                                    {% widthratio questoes_dados|length 1 1 as total_questoes %}
+                                    {% if total_questoes > 0 %}
+                                        {% widthratio "0" 1 1 as soma %}
+                                        {% for questao in questoes_dados %}{% widthratio soma questao.percentual_acerto|add:soma 1 as soma %}{% endfor %}
+                                        {% widthratio soma total_questoes 1 %}%
+                                    {% endif %}
+                                {% else %}0%{% endif %}
+                            </div>
+                            <small>Média Acertos</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top 10 Questões Mais Difíceis -->
+    <div class="card mb-4">
+        <div class="card-header bg-danger text-white">
+            <h5 class="card-title mb-0">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                Top 10 Questões com Maior Dificuldade (Que os Alunos Mais Erraram)
+            </h5>
+        </div>
+        <div class="card-body">
+            {% if questoes_dificeis %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Ranking</th>
+                                <th>Questão</th>
+                                <th>Disciplina</th>
+                                <th>Total Respostas</th>
+                                <th>Acertos</th>
+                                <th>Erros</th>
+                                <th>% Acerto</th>
+                                <th>% Erro</th>
+                                <th>Análise</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for questao in questoes_dificeis %}
+                            <tr class="{% if questao.percentual_acerto < 40 %}table-danger{% elif questao.percentual_acerto < 60 %}table-warning{% endif %}">
+                                <td>
+                                    <span class="badge bg-dark fs-6">#{{ forloop.counter }}</span>
+                                </td>
+                                <td>
+                                    <span class="badge bg-secondary">Q{{ questao.numero }}</span>
+                                </td>
+                                <td>
+                                    <span class="badge bg-info">{{ questao.disciplina }}</span>
+                                </td>
+                                <td class="text-center">{{ questao.total_respostas }}</td>
+                                <td class="text-center">
+                                    <span class="text-success fw-bold">{{ questao.total_acertos }}</span>
+                                </td>
+                                <td class="text-center">
+                                    <span class="text-danger fw-bold">{{ questao.total_respostas|add:"-"|add:questao.total_acertos }}</span>
+                                </td>
+                                <td class="text-center">
+                                    <span class="fw-bold">{{ questao.percentual_acerto }}%</span>
+                                </td>
+                                <td class="text-center">
+                                    <span class="text-danger fw-bold">{{ questao.percentual_acerto|add:"-100"|add:"100" }}%</span>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="progress me-2" style="width: 100px; height: 20px;">
+                                            <div class="progress-bar bg-danger" role="progressbar" style="width: {{ questao.percentual_acerto|add:"-100"|add:"100" }}%"></div>
+                                        </div>
+                                        {% if questao.percentual_acerto < 40 %}
+                                            <span class="badge bg-danger">Crítico</span>
+                                        {% elif questao.percentual_acerto < 60 %}
+                                            <span class="badge bg-warning">Difícil</span>
+                                        {% else %}
+                                            <span class="badge bg-success">Normal</span>
+                                        {% endif %}
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Análise Pedagógica -->
+                <div class="alert alert-danger mt-4">
+                    <h6><i class="fas fa-graduation-cap me-2"></i>Análise Pedagógica - Questões Críticas:</h6>
+                    <div class="row">
+                        {% for questao in questoes_dificeis %}
+                            {% if questao.percentual_acerto < 60 %}
+                                <div class="col-md-6 mb-2">
+                                    <div class="card border-danger">
+                                        <div class="card-body p-2">
+                                            <strong>Q{{ questao.numero }} - {{ questao.disciplina }}</strong><br>
+                                            <small>{{ questao.percentual_acerto }}% de acertos | {{ questao.percentual_acerto|add:"-100"|add:"100" }}% de erros</small><br>
+                                            <span class="badge bg-danger">Requer intervenção pedagógica urgente</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% else %}
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i>
+                    Nenhuma questão encontrada para análise.
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Análise Detalhada por Questão -->
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title mb-0">
+                <i class="fas fa-chart-bar me-2"></i>
+                Análise Completa por Questão
+            </h5>
+        </div>
+        <div class="card-body">
+            {% if questoes_dados %}
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Questão</th>
+                                <th>Disciplina</th>
+                                <th>Turmas</th>
+                                <th>Total Respostas</th>
+                                <th>Acertos</th>
+                                <th>Erros</th>
+                                <th>% Acerto</th>
+                                <th>Nível</th>
+                                <th>Status</th>
+                                <th>Progresso Visual</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for questao in questoes_dados %}
+                            <tr>
+                                <td>
+                                    <span class="badge bg-secondary fs-6">Q{{ questao.numero }}</span>
+                                </td>
+                                <td>
+                                    <span class="badge bg-info">{{ questao.disciplina }}</span>
+                                </td>
+                                <td class="text-center">{{ questao.turmas_count }}</td>
+                                <td class="text-center">{{ questao.total_respostas }}</td>
+                                <td class="text-center">
+                                    <span class="text-success fw-bold">{{ questao.total_acertos }}</span>
+                                </td>
+                                <td class="text-center">
+                                    <span class="text-danger fw-bold">{{ questao.total_respostas|add:"-"|add:questao.total_acertos }}</span>
+                                </td>
+                                <td class="text-center">
+                                    <span class="fw-bold">{{ questao.percentual_acerto }}%</span>
+                                </td>
+                                <td>
+                                    {% if questao.percentual_acerto < 60 %}
+                                        <span class="badge bg-danger">Difícil</span>
+                                    {% elif questao.percentual_acerto < 80 %}
+                                        <span class="badge bg-warning">Média</span>
+                                    {% else %}
+                                        <span class="badge bg-success">Fácil</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if questao.percentual_acerto < 40 %}
+                                        <i class="fas fa-exclamation-triangle text-danger" title="Crítico"></i>
+                                        <small class="text-danger">Crítico</small>
+                                    {% elif questao.percentual_acerto < 60 %}
+                                        <i class="fas fa-exclamation-circle text-warning" title="Atenção"></i>
+                                        <small class="text-warning">Atenção</small>
+                                    {% elif questao.percentual_acerto < 80 %}
+                                        <i class="fas fa-check-circle text-info" title="Satisfatório"></i>
+                                        <small class="text-info">Satisfatório</small>
+                                    {% else %}
+                                        <i class="fas fa-thumbs-up text-success" title="Excelente"></i>
+                                        <small class="text-success">Excelente</small>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <div class="progress" style="height: 25px;">
+                                        {% if questao.percentual_acerto < 60 %}
+                                            <div class="progress-bar bg-danger" role="progressbar" style="width: {{ questao.percentual_acerto }}%">
+                                                {{ questao.percentual_acerto }}%
+                                            </div>
+                                        {% elif questao.percentual_acerto < 80 %}
+                                            <div class="progress-bar bg-warning" role="progressbar" style="width: {{ questao.percentual_acerto }}%">
+                                                {{ questao.percentual_acerto }}%
+                                            </div>
+                                        {% else %}
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: {{ questao.percentual_acerto }}%">
+                                                {{ questao.percentual_acerto }}%
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Estatísticas Finais -->
+                <div class="row mt-4">
+                    <div class="col-md-3">
+                        <div class="card border-danger">
+                            <div class="card-body text-center">
+                                <h5 class="text-danger">
+                                    {% for questao in questoes_dados %}{% if questao.percentual_acerto < 60 %}1{% else %}0{% endif %}{% endfor %}
+                                </h5>
+                                <small>Questões Difíceis</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card border-warning">
+                            <div class="card-body text-center">
+                                <h5 class="text-warning">
+                                    {% for questao in questoes_dados %}{% if questao.percentual_acerto >= 60 and questao.percentual_acerto < 80 %}1{% else %}0{% endif %}{% endfor %}
+                                </h5>
+                                <small>Questões Médias</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card border-success">
+                            <div class="card-body text-center">
+                                <h5 class="text-success">
+                                    {% for questao in questoes_dados %}{% if questao.percentual_acerto >= 80 %}1{% else %}0{% endif %}{% endfor %}
+                                </h5>
+                                <small>Questões Fáceis</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card border-info">
+                            <div class="card-body text-center">
+                                <h5 class="text-info">{{ questoes_dados|length }}</h5>
+                                <small>Total Questões</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="alert alert-warning text-center">
+                    <i class="fas fa-exclamation-triangle fa-2x mb-3"></i>
+                    <h5>Nenhuma questão encontrada</h5>
+                    <p>Não foram encontradas questões com dados para análise.</p>
+                    <a href="{% url 'upload_csv' %}" class="btn btn-primary">
+                        <i class="fas fa-upload me-2"></i>Fazer Upload de Dados
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<style>
+.progress {
+    border-radius: 10px;
+}
+
+.table th {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+@media print {
+    .btn, .breadcrumb, .alert-info {
+        display: none !important;
+    }
+    
+    .card {
+        border: 1px solid #000 !important;
+        page-break-inside: avoid;
+    }
+}
+</style>
+{% endblock %}
