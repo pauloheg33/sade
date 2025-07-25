@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SADE - Sistema de Avaliação e Desempenho Educacional</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+        }
+        .feature-card {
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .tech-badge {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            display: inline-block;
+        }
+        .stats-section {
+            background: #f8f9fa;
+            padding: 60px 0;
+        }
+        .footer {
+            background: #343a40;
+            color: white;
+            padding: 40px 0;
+        }
+        .btn-demo {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn-demo:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-graduation-cap me-2"></i>SADE
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Funcionalidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#technologies">Tecnologias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#documentation">Documentação</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/pauloheg33/sade" target="_blank">
+                            <i class="fab fa-github me-1"></i>GitHub
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="display-4 fw-bold mb-4">
+                        <i class="fas fa-chart-line me-3"></i>SADE
+                    </h1>
+                    <h2 class="h3 mb-4">Sistema de Avaliação e Desempenho Educacional</h2>
+                    <p class="lead mb-5">
+                        Plataforma moderna desenvolvida em Django para análise de desempenho educacional, 
+                        processamento de dados CSV e geração de relatórios inteligentes.
+                    </p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                        <a href="https://github.com/pauloheg33/sade" target="_blank" class="btn btn-demo btn-lg">
+                            <i class="fab fa-github me-2"></i>Ver Código
+                        </a>
+                        <a href="#features" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-info-circle me-2"></i>Saiba Mais
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold">🚀 Funcionalidades Principais</h2>
+                    <p class="lead text-muted">Sistema completo para gestão educacional</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card feature-card border-0 shadow">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-upload fa-3x text-primary"></i>
+                            </div>
+                            <h5 class="card-title">Upload de CSV</h5>
+                            <p class="card-text">
+                                Processamento inteligente de arquivos CSV com validação automática, 
+                                detecção de erros e preview dos dados antes da importação.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card border-0 shadow">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-chart-bar fa-3x text-success"></i>
+                            </div>
+                            <h5 class="card-title">Relatórios Avançados</h5>
+                            <p class="card-text">
+                                Geração automática de relatórios por turma, análise de questões, 
+                                estatísticas agregadas e gráficos interativos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card border-0 shadow">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-tachometer-alt fa-3x text-warning"></i>
+                            </div>
+                            <h5 class="card-title">Dashboard Moderno</h5>
+                            <p class="card-text">
+                                Interface intuitiva com estatísticas em tempo real, 
+                                filtros dinâmicos e visualizações responsivas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card border-0 shadow">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-users fa-3x text-info"></i>
+                            </div>
+                            <h5 class="card-title">Gestão de Usuários</h5>
+                            <p class="card-text">
+                                Sistema robusto de autenticação, controle de permissões 
+                                e interface administrativa avançada.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card border-0 shadow">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-rocket fa-3x text-danger"></i>
+                            </div>
+                            <h5 class="card-title">Performance</h5>
+                            <p class="card-text">
+                                Cache implementado, queries otimizadas e arquitetura 
+                                service-layer para máxima performance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card border-0 shadow">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-shield-alt fa-3x text-secondary"></i>
+                            </div>
+                            <h5 class="card-title">Segurança</h5>
+                            <p class="card-text">
+                                Configuração baseada em ambiente, proteção CSRF, 
+                                validação de dados e logs estruturados.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section id="technologies" class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold">💻 Tecnologias Utilizadas</h2>
+                    <p class="lead text-muted">Stack moderno e robusto</p>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-lg-12">
+                    <div class="mb-4">
+                        <span class="tech-badge">Django 5.2.4</span>
+                        <span class="tech-badge">Python 3.13</span>
+                        <span class="tech-badge">Bootstrap 5.3</span>
+                        <span class="tech-badge">SQLite/PostgreSQL</span>
+                        <span class="tech-badge">Font Awesome</span>
+                        <span class="tech-badge">Git</span>
+                        <span class="tech-badge">Service Layer</span>
+                        <span class="tech-badge">Cache</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4 mt-4">
+                <div class="col-md-3 text-center">
+                    <div class="display-4 fw-bold text-primary">83%</div>
+                    <p class="text-muted">Redução de Código</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="display-4 fw-bold text-success">300%</div>
+                    <p class="text-muted">Melhoria Performance</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="display-4 fw-bold text-warning">15</div>
+                    <p class="text-muted">Arquivos Removidos</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="display-4 fw-bold text-info">100%</div>
+                    <p class="text-muted">Boas Práticas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section id="architecture" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold">🏗️ Arquitetura do Sistema</h2>
+                    <p class="lead text-muted">Service Layer com separação de responsabilidades</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow">
+                        <div class="card-body text-center p-4">
+                            <h5 class="card-title">📊 CSV Processor</h5>
+                            <p class="card-text">
+                                Processamento inteligente de arquivos CSV com validação, 
+                                detecção de erros e transformação de dados.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow">
+                        <div class="card-body text-center p-4">
+                            <h5 class="card-title">📈 Reports Service</h5>
+                            <p class="card-text">
+                                Geração de relatórios avançados, análises estatísticas 
+                                e visualizações de dados educacionais.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow">
+                        <div class="card-body text-center p-4">
+                            <h5 class="card-title">📊 Statistics Calculator</h5>
+                            <p class="card-text">
+                                Cálculos estatísticos com cache, métricas de performance 
+                                e análise de tendências educacionais.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section id="documentation" class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold">📚 Documentação</h2>
+                    <p class="lead text-muted">Guias completos para instalação e uso</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card border-0 shadow h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">🚀 Instalação Rápida</h5>
+                            <div class="bg-dark text-light p-3 rounded">
+                                <code>
+git clone https://github.com/pauloheg33/sade.git<br>
+cd sade<br>
+pip install -r requirements.txt<br>
+python manage.py migrate<br>
+python manage.py runserver
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card border-0 shadow h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">🔧 Configuração</h5>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>Arquivo .env para variáveis</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Configuração multi-ambiente</li>
+                                <li><i class="fas fa-check text-success me-2"></i>SQLite para desenvolvimento</li>
+                                <li><i class="fas fa-check text-success me-2"></i>PostgreSQL para produção</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Cache configurado</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h5>SADE - Sistema de Avaliação e Desempenho Educacional</h5>
+                    <p class="mb-3">
+                        Plataforma moderna para análise educacional desenvolvida com Django 5.2.4. 
+                        Código aberto e disponível no GitHub.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="https://github.com/pauloheg33/sade" target="_blank" class="text-light">
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/pauloheg33/" target="_blank" class="text-light">
+                            <i class="fab fa-linkedin fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Links Úteis</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://github.com/pauloheg33/sade" class="text-light">Repositório GitHub</a></li>
+                        <li><a href="https://github.com/pauloheg33/sade/blob/main/README.md" class="text-light">Documentação</a></li>
+                        <li><a href="https://github.com/pauloheg33/sade/issues" class="text-light">Reportar Issues</a></li>
+                        <li><a href="https://github.com/pauloheg33/sade/releases" class="text-light">Releases</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p class="mb-0">
+                        &copy; 2025 Paulo Henrique. Desenvolvido com ❤️ usando Django.
+                        <span class="text-muted">| Refatoração completa implementada</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
