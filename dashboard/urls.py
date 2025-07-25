@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .views_processamento import teste_processamento
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -8,4 +9,5 @@ urlpatterns = [
     path('api/grafico-desempenho/', views.grafico_desempenho, name='grafico_desempenho'),
     path('upload-csv/', views.upload_csv, name='upload_csv'),
     path('login/', views.custom_login, name='custom_login'),
+    path('teste-processamento/', teste_processamento, name='teste_processamento'),
 ] 
