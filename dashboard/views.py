@@ -6,11 +6,12 @@ from django.contrib import messages
 from .models import Escola, Turma, Aluno, Disciplina, Questao, Resposta, Gabarito, UploadResultado, AnaliseDesempenho
 from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect
-from django.db.models import Count, Q, Avg, Sum
+from django.db.models import Count, Q, Avg, Sum, Case, When, IntegerField, FloatField, F
 from django.db.models.functions import Round
 import json
 from datetime import datetime, timedelta
 from django.utils import timezone
+from io import BytesIO
 
 # Create your views here.
 
@@ -350,37 +351,463 @@ def grafico_desempenho(request):
 @staff_member_required
 def relatorio_desempenho(request):
     """
-    Página específica para relatórios de desempenho com gráficos
+    Página específica para relatórios de desempenho com gráficos e filtros avançados
     """
-    # Buscar turmas e disciplinas disponíveis
-    turmas = Turma.objects.filter(aluno__resposta__isnull=False).distinct().order_by('escola__nome', 'nome')
-    disciplinas = Disciplina.objects.filter(questao__resposta__isnull=False).distinct().order_by('nome')
-    
-    # Se foi selecionada uma turma e disciplina específica
-    turma_selecionada = None
-    disciplina_selecionada = None
-    dados_grafico = None
-    
+    # Parâmetros de filtro
+    escola_id = request.GET.get('escola')
     turma_id = request.GET.get('turma')
     disciplina_id = request.GET.get('disciplina')
+    ano_escolar = request.GET.get('ano_escolar')
+    data_inicio = request.GET.get('data_inicio')
+    data_fim = request.GET.get('data_fim')
     
-    if turma_id and disciplina_id:
-        try:
+    # Buscar dados disponíveis para filtros
+    escolas = Escola.objects.filter(turma__aluno__resposta__isnull=False).distinct().order_by('nome')
+    turmas = Turma.objects.filter(aluno__resposta__isnull=False).distinct().order_by('escola__nome', 'nome')
+    disciplinas = Disciplina.objects.filter(questao__resposta__isnull=False).distinct().order_by('nome')
+    anos_escolares = Turma.objects.filter(aluno__resposta__isnull=False).values_list('ano', flat=True).distinct()
+    
+    # Aplicar filtros progressivos
+    if escola_id:
+        turmas = turmas.filter(escola_id=escola_id)
+    
+    # Objetos selecionados
+    escola_selecionada = None
+    turma_selecionada = None
+    disciplina_selecionada = None
+    
+    try:
+        if escola_id:
+            escola_selecionada = Escola.objects.get(id=escola_id)
+        if turma_id:
             turma_selecionada = Turma.objects.get(id=turma_id)
+        if disciplina_id:
             disciplina_selecionada = Disciplina.objects.get(id=disciplina_id)
-            dados_grafico = calcular_desempenho_questoes(turma_selecionada, disciplina_selecionada)
-        except (Turma.DoesNotExist, Disciplina.DoesNotExist):
-            messages.error(request, 'Turma ou disciplina não encontrada.')
+    except (Escola.DoesNotExist, Turma.DoesNotExist, Disciplina.DoesNotExist):
+        messages.error(request, 'Filtro selecionado não encontrado.')
+    
+    # Dados para relatórios
+    dados_relatorio = None
+    estatisticas_gerais = None
+    
+    if turma_selecionada or disciplina_selecionada or escola_selecionada:
+        dados_relatorio = gerar_dados_relatorio_filtrado(
+            escola=escola_selecionada,
+            turma=turma_selecionada,
+            disciplina=disciplina_selecionada,
+            ano_escolar=ano_escolar,
+            data_inicio=data_inicio,
+            data_fim=data_fim
+        )
+        
+        estatisticas_gerais = calcular_estatisticas_gerais(
+            escola=escola_selecionada,
+            turma=turma_selecionada,
+            disciplina=disciplina_selecionada,
+            ano_escolar=ano_escolar
+        )
     
     context = {
+        'escolas': escolas,
         'turmas': turmas,
         'disciplinas': disciplinas,
+        'anos_escolares': anos_escolares,
+        'escola_selecionada': escola_selecionada,
         'turma_selecionada': turma_selecionada,
         'disciplina_selecionada': disciplina_selecionada,
-        'dados_grafico': json.dumps(dados_grafico) if dados_grafico else None,
+        'ano_escolar_selecionado': ano_escolar,
+        'dados_relatorio': dados_relatorio,
+        'estatisticas_gerais': estatisticas_gerais,
+        'filtros_aplicados': any([escola_id, turma_id, disciplina_id, ano_escolar]),
     }
     
-    return render(request, 'dashboard/relatorio_desempenho.html', context)
+    return render(request, 'dashboard/relatorio_moderno.html', context)
+
+
+@staff_member_required
+def exportar_relatorio_pdf(request):
+    """Exporta relatório em PDF"""
+    try:
+        # Importações do reportlab dentro da função
+        from reportlab.lib import colors
+        from reportlab.lib.pagesizes import A4
+        from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
+        from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+        from reportlab.lib.units import inch
+        
+        # Obter filtros da sessão ou parâmetros GET
+        filtros = {
+            'escola': request.GET.get('escola'),
+            'turma': request.GET.get('turma'),
+            'disciplina': request.GET.get('disciplina'),
+            'ano_escolar': request.GET.get('ano_escolar'),
+            'data_inicio': request.GET.get('data_inicio'),
+            'data_fim': request.GET.get('data_fim'),
+        }
+        
+        # Gerar dados do relatório
+        dados_relatorio = gerar_dados_relatorio_filtrado(filtros)
+        estatisticas_gerais = calcular_estatisticas_gerais(filtros)
+        
+        # Criar PDF
+        buffer = BytesIO()
+        doc = SimpleDocTemplate(buffer, pagesize=A4, rightMargin=72, leftMargin=72, topMargin=72, bottomMargin=18)
+        
+        # Estilos
+        styles = getSampleStyleSheet()
+        title_style = ParagraphStyle(
+            'CustomTitle',
+            parent=styles['Heading1'],
+            fontSize=24,
+            spaceAfter=30,
+            alignment=1,  # Centro
+            textColor=colors.HexColor('#667eea')
+        )
+        
+        subtitle_style = ParagraphStyle(
+            'CustomSubtitle',
+            parent=styles['Heading2'],
+            fontSize=16,
+            spaceAfter=20,
+            textColor=colors.HexColor('#333333')
+        )
+        
+        normal_style = ParagraphStyle(
+            'CustomNormal',
+            parent=styles['Normal'],
+            fontSize=10,
+            spaceAfter=12
+        )
+        
+        # Elementos do PDF
+        story = []
+        
+        # Título
+        title = Paragraph("RELATÓRIO DE DESEMPENHO EDUCACIONAL", title_style)
+        story.append(title)
+        story.append(Spacer(1, 20))
+        
+        # Data de geração
+        data_geracao = timezone.now().strftime("%d/%m/%Y às %H:%M")
+        story.append(Paragraph(f"<b>Data de Geração:</b> {data_geracao}", normal_style))
+        story.append(Spacer(1, 20))
+        
+        # Filtros aplicados
+        if any(filtros.values()):
+            story.append(Paragraph("FILTROS APLICADOS", subtitle_style))
+            for chave, valor in filtros.items():
+                if valor:
+                    chave_formatada = chave.replace('_', ' ').title()
+                    story.append(Paragraph(f"<b>{chave_formatada}:</b> {valor}", normal_style))
+            story.append(Spacer(1, 20))
+        
+        # Estatísticas Gerais
+        if estatisticas_gerais:
+            story.append(Paragraph("ESTATÍSTICAS GERAIS", subtitle_style))
+            
+            stats_data = [
+                ['Métrica', 'Valor'],
+                ['Média Geral', f"{estatisticas_gerais['media_geral']}%"],
+                ['Total de Alunos', str(estatisticas_gerais['total_alunos'])],
+                ['Total de Respostas', str(estatisticas_gerais['total_respostas'])],
+                ['Total de Acertos', str(estatisticas_gerais['total_acertos'])],
+                ['Total de Erros', str(estatisticas_gerais['total_erros'])],
+                ['Melhor Desempenho', f"{estatisticas_gerais['melhor_desempenho']}%"],
+            ]
+            
+            stats_table = Table(stats_data, colWidths=[3*inch, 2*inch])
+            stats_table.setStyle(TableStyle([
+                ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#667eea')),
+                ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+                ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+                ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                ('FONTSIZE', (0, 0), (-1, 0), 12),
+                ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+                ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
+                ('GRID', (0, 0), (-1, -1), 1, colors.black)
+            ]))
+            story.append(stats_table)
+            story.append(Spacer(1, 30))
+        
+        # Desempenho por Aluno
+        if dados_relatorio and 'desempenho_alunos' in dados_relatorio:
+            story.append(Paragraph("DESEMPENHO POR ALUNO", subtitle_style))
+            
+            aluno_data = [['Aluno', 'Turma', 'Questões', 'Acertos', 'Percentual']]
+            for aluno in dados_relatorio['desempenho_alunos'][:20]:  # Limitar a 20 alunos
+                aluno_data.append([
+                    str(aluno['aluno__nome']),
+                    str(aluno['aluno__turma__nome']),
+                    str(aluno['total_questoes']),
+                    str(aluno['acertos']),
+                    f"{aluno['percentual']:.1f}%"
+                ])
+            
+            aluno_table = Table(aluno_data, colWidths=[2.5*inch, 1.5*inch, 1*inch, 1*inch, 1*inch])
+            aluno_table.setStyle(TableStyle([
+                ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#28a745')),
+                ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+                ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+                ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                ('FONTSIZE', (0, 0), (-1, 0), 10),
+                ('FONTSIZE', (0, 1), (-1, -1), 8),
+                ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+                ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
+                ('GRID', (0, 0), (-1, -1), 1, colors.black)
+            ]))
+            story.append(aluno_table)
+            story.append(Spacer(1, 30))
+        
+        # Questões Difíceis
+        if dados_relatorio and 'questoes_dificeis' in dados_relatorio and dados_relatorio['questoes_dificeis']:
+            story.append(Paragraph("QUESTÕES MAIS DIFÍCEIS", subtitle_style))
+            
+            questoes_data = [['Questão', 'Resposta Correta', 'Percentual de Erro']]
+            for questao in dados_relatorio['questoes_dificeis'][:10]:
+                questoes_data.append([
+                    f"Questão {questao['questao__numero']}",
+                    str(questao['questao__resposta_correta']),
+                    f"{questao['percentual_erro']:.1f}%"
+                ])
+            
+            questoes_table = Table(questoes_data, colWidths=[2*inch, 2*inch, 2*inch])
+            questoes_table.setStyle(TableStyle([
+                ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#dc3545')),
+                ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+                ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+                ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                ('FONTSIZE', (0, 0), (-1, 0), 10),
+                ('FONTSIZE', (0, 1), (-1, -1), 8),
+                ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+                ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
+                ('GRID', (0, 0), (-1, -1), 1, colors.black)
+            ]))
+            story.append(questoes_table)
+        
+        # Gerar PDF
+        doc.build(story)
+        buffer.seek(0)
+        
+        # Retornar resposta
+        response = HttpResponse(buffer.getvalue(), content_type='application/pdf')
+        response['Content-Disposition'] = f'attachment; filename="relatorio_desempenho_{timezone.now().strftime("%Y%m%d_%H%M")}.pdf"'
+        
+        return response
+        
+    except Exception as e:
+        messages.error(request, f'Erro ao gerar PDF: {str(e)}')
+        return redirect('relatorio_desempenho')
+
+
+@staff_member_required
+def api_dados_relatorio(request):
+    """API para retornar dados do relatório em JSON para gráficos dinâmicos"""
+    try:
+        filtros = {
+            'escola': request.GET.get('escola'),
+            'turma': request.GET.get('turma'),
+            'disciplina': request.GET.get('disciplina'),
+            'ano_escolar': request.GET.get('ano_escolar'),
+            'data_inicio': request.GET.get('data_inicio'),
+            'data_fim': request.GET.get('data_fim'),
+        }
+        
+        dados_relatorio = gerar_dados_relatorio_filtrado(filtros)
+        estatisticas_gerais = calcular_estatisticas_gerais(filtros)
+        
+        # Preparar dados para os gráficos
+        response_data = {
+            'estatisticas_gerais': estatisticas_gerais,
+            'grafico_questoes': {
+                'labels': [f"Q{q['questao__numero']}" for q in dados_relatorio.get('desempenho_questoes', [])],
+                'acertos': [q['percentual_acerto'] for q in dados_relatorio.get('desempenho_questoes', [])],
+                'erros': [q['percentual_erro'] for q in dados_relatorio.get('desempenho_questoes', [])]
+            },
+            'grafico_alunos': {
+                'labels': [a['aluno__nome'][:15] for a in dados_relatorio.get('desempenho_alunos', [])[:10]],
+                'percentuais': [a['percentual'] for a in dados_relatorio.get('desempenho_alunos', [])[:10]]
+            },
+            'grafico_turmas': {
+                'labels': [t['aluno__turma__nome'] for t in dados_relatorio.get('desempenho_turmas', [])],
+                'medias': [t['media_turma'] for t in dados_relatorio.get('desempenho_turmas', [])]
+            },
+            'questoes_dificeis': dados_relatorio.get('questoes_dificeis', [])[:5],
+            'questoes_faceis': dados_relatorio.get('questoes_faceis', [])[:5]
+        }
+        
+        return JsonResponse(response_data)
+        
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
+
+def gerar_dados_relatorio_filtrado(escola=None, turma=None, disciplina=None, ano_escolar=None, data_inicio=None, data_fim=None):
+    """
+    Gera dados para relatórios com base nos filtros aplicados
+    """
+    from django.db.models import Q, Avg, Count, Sum, Case, When, IntegerField
+    from datetime import datetime
+    
+    # Base queryset
+    respostas = Resposta.objects.select_related('aluno', 'questao', 'aluno__turma', 'aluno__turma__escola')
+    
+    # Aplicar filtros
+    if escola:
+        respostas = respostas.filter(aluno__turma__escola=escola)
+    
+    if turma:
+        respostas = respostas.filter(aluno__turma=turma)
+    
+    if disciplina:
+        respostas = respostas.filter(questao__gabarito__disciplina=disciplina)
+    
+    if ano_escolar:
+        respostas = respostas.filter(aluno__turma__ano=ano_escolar)
+    
+    if data_inicio:
+        try:
+            data_inicio_dt = datetime.strptime(data_inicio, '%Y-%m-%d')
+            respostas = respostas.filter(upload_resultado__data_upload__gte=data_inicio_dt)
+        except ValueError:
+            pass
+    
+    if data_fim:
+        try:
+            data_fim_dt = datetime.strptime(data_fim, '%Y-%m-%d')
+            respostas = respostas.filter(upload_resultado__data_upload__lte=data_fim_dt)
+        except ValueError:
+            pass
+    
+    if not respostas.exists():
+        return None
+    
+    # 1. Desempenho por Questão
+    desempenho_questoes = (
+        respostas.values('questao__numero', 'questao__resposta_correta', 'questao__gabarito__disciplina__nome')
+        .annotate(
+            total_respostas=Count('id'),
+            acertos=Sum(Case(When(correta=True, then=1), default=0, output_field=IntegerField())),
+            erros=Sum(Case(When(correta=False, then=1), default=0, output_field=IntegerField()))
+        )
+        .annotate(
+            percentual_acerto=Case(
+                When(total_respostas=0, then=0),
+                default=100.0 * F('acertos') / F('total_respostas'),
+                output_field=FloatField()
+            ),
+            percentual_erro=Case(
+                When(total_respostas=0, then=0),
+                default=100.0 * F('erros') / F('total_respostas'),
+                output_field=FloatField()
+            )
+        )
+        .order_by('questao__numero')
+    )
+    
+    # 2. Desempenho por Aluno
+    desempenho_alunos = (
+        respostas.values('aluno__nome', 'aluno__turma__nome', 'aluno__turma__escola__nome')
+        .annotate(
+            total_questoes=Count('id'),
+            acertos=Sum(Case(When(correta=True, then=1), default=0, output_field=IntegerField())),
+            percentual=Case(
+                When(total_questoes=0, then=0),
+                default=100.0 * F('acertos') / F('total_questoes'),
+                output_field=FloatField()
+            )
+        )
+        .order_by('-percentual', 'aluno__nome')
+    )
+    
+    # 3. Desempenho por Turma
+    desempenho_turmas = (
+        respostas.values('aluno__turma__nome', 'aluno__turma__escola__nome', 'aluno__turma__ano')
+        .annotate(
+            total_alunos=Count('aluno', distinct=True),
+            total_respostas=Count('id'),
+            acertos=Sum(Case(When(correta=True, then=1), default=0, output_field=IntegerField())),
+            media_turma=Case(
+                When(total_respostas=0, then=0),
+                default=100.0 * F('acertos') / F('total_respostas'),
+                output_field=FloatField()
+            )
+        )
+        .order_by('-media_turma', 'aluno__turma__nome')
+    )
+    
+    # 4. Questões mais difíceis (maior índice de erro)
+    questoes_dificeis = list(desempenho_questoes.filter(percentual_erro__gt=40).order_by('-percentual_erro')[:10])
+    
+    # 5. Questões mais fáceis (maior índice de acerto)
+    questoes_faceis = list(desempenho_questoes.filter(percentual_acerto__gt=80).order_by('-percentual_acerto')[:10])
+    
+    return {
+        'desempenho_questoes': list(desempenho_questoes),
+        'desempenho_alunos': list(desempenho_alunos),
+        'desempenho_turmas': list(desempenho_turmas),
+        'questoes_dificeis': questoes_dificeis,
+        'questoes_faceis': questoes_faceis,
+        'total_respostas': respostas.count(),
+        'total_alunos': respostas.values('aluno').distinct().count(),
+        'total_questoes': respostas.values('questao').distinct().count()
+    }
+
+def calcular_estatisticas_gerais(escola=None, turma=None, disciplina=None, ano_escolar=None):
+    """
+    Calcula estatísticas gerais para o relatório
+    """
+    from django.db.models import Avg, Count, Max, Min
+    
+    # Base queryset
+    respostas = Resposta.objects.select_related('aluno', 'questao')
+    
+    # Aplicar filtros
+    if escola:
+        respostas = respostas.filter(aluno__turma__escola=escola)
+    if turma:
+        respostas = respostas.filter(aluno__turma=turma)
+    if disciplina:
+        respostas = respostas.filter(questao__gabarito__disciplina=disciplina)
+    if ano_escolar:
+        respostas = respostas.filter(aluno__turma__ano=ano_escolar)
+    
+    if not respostas.exists():
+        return None
+    
+    # Calcular estatísticas
+    total_respostas = respostas.count()
+    total_acertos = respostas.filter(correta=True).count()
+    media_geral = (total_acertos / total_respostas * 100) if total_respostas > 0 else 0
+    
+    # Estatísticas por aluno
+    alunos_stats = (
+        respostas.values('aluno')
+        .annotate(
+            total=Count('id'),
+            acertos=Count('id', filter=Q(correta=True)),
+            percentual=Case(
+                When(total=0, then=0),
+                default=100.0 * F('acertos') / F('total'),
+                output_field=FloatField()
+            )
+        )
+        .aggregate(
+            media_alunos=Avg('percentual'),
+            melhor_aluno=Max('percentual'),
+            pior_aluno=Min('percentual'),
+            total_alunos=Count('aluno', distinct=True)
+        )
+    )
+    
+    return {
+        'media_geral': round(media_geral, 2),
+        'total_respostas': total_respostas,
+        'total_acertos': total_acertos,
+        'total_erros': total_respostas - total_acertos,
+        'media_alunos': round(alunos_stats['media_alunos'] or 0, 2),
+        'melhor_desempenho': round(alunos_stats['melhor_aluno'] or 0, 2),
+        'pior_desempenho': round(alunos_stats['pior_aluno'] or 0, 2),
+        'total_alunos': alunos_stats['total_alunos']
+    }
 
 import re
 

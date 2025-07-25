@@ -1,0 +1,690 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %}Relatórios e Análises - SADE{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card bg-gradient-dark text-white border-0 shadow-lg">
+                <div class="card-body py-4">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h1 class="display-6 fw-bold mb-2">
+                                <i class="bi bi-graph-up-arrow me-3"></i>
+                                Relatórios e Análises
+                            </h1>
+                            <p class="lead mb-0 opacity-75">
+                                Análise detalhada de desempenho com filtros avançados
+                            </p>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            {% if filtros_aplicados %}
+                                <span class="badge bg-success fs-6">
+                                    <i class="bi bi-funnel me-1"></i>
+                                    Filtros Aplicados
+                                </span>
+                            {% else %}
+                                <span class="badge bg-warning fs-6">
+                                    <i class="bi bi-funnel me-1"></i>
+                                    Sem Filtros
+                                </span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mensagens -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                <i class="bi bi-{% if message.tags == 'success' %}check-circle{% elif message.tags == 'error' %}x-circle{% elif message.tags == 'warning' %}exclamation-triangle{% else %}info-circle{% endif %} me-2"></i>
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Filtros Avançados -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-funnel me-2"></i>
+                        Filtros de Análise
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form method="GET" id="filtrosForm">
+                        <div class="row g-3">
+                            <!-- Filtro por Escola -->
+                            <div class="col-md-3">
+                                <label for="escola" class="form-label fw-semibold">
+                                    <i class="bi bi-building me-1"></i>
+                                    Escola
+                                </label>
+                                <select name="escola" id="escola" class="form-select">
+                                    <option value="">Todas as Escolas</option>
+                                    {% for escola in escolas %}
+                                        <option value="{{ escola.id }}" 
+                                                {% if escola_selecionada and escola.id == escola_selecionada.id %}selected{% endif %}>
+                                            {{ escola.nome }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <!-- Filtro por Turma -->
+                            <div class="col-md-3">
+                                <label for="turma" class="form-label fw-semibold">
+                                    <i class="bi bi-collection me-1"></i>
+                                    Turma
+                                </label>
+                                <select name="turma" id="turma" class="form-select">
+                                    <option value="">Todas as Turmas</option>
+                                    {% for turma in turmas %}
+                                        <option value="{{ turma.id }}" 
+                                                {% if turma_selecionada and turma.id == turma_selecionada.id %}selected{% endif %}>
+                                            {{ turma.nome }} - {{ turma.escola.nome }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <!-- Filtro por Disciplina -->
+                            <div class="col-md-3">
+                                <label for="disciplina" class="form-label fw-semibold">
+                                    <i class="bi bi-book me-1"></i>
+                                    Disciplina
+                                </label>
+                                <select name="disciplina" id="disciplina" class="form-select">
+                                    <option value="">Todas as Disciplinas</option>
+                                    {% for disciplina in disciplinas %}
+                                        <option value="{{ disciplina.id }}" 
+                                                {% if disciplina_selecionada and disciplina.id == disciplina_selecionada.id %}selected{% endif %}>
+                                            {{ disciplina.nome }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <!-- Filtro por Ano Escolar -->
+                            <div class="col-md-3">
+                                <label for="ano_escolar" class="form-label fw-semibold">
+                                    <i class="bi bi-calendar me-1"></i>
+                                    Ano Escolar
+                                </label>
+                                <select name="ano_escolar" id="ano_escolar" class="form-select">
+                                    <option value="">Todos os Anos</option>
+                                    {% for ano in anos_escolares %}
+                                        <option value="{{ ano }}" 
+                                                {% if ano_escolar_selecionado == ano %}selected{% endif %}>
+                                            {{ ano|capfirst }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row g-3 mt-2">
+                            <!-- Filtro por Data Início -->
+                            <div class="col-md-3">
+                                <label for="data_inicio" class="form-label fw-semibold">
+                                    <i class="bi bi-calendar-event me-1"></i>
+                                    Data Início
+                                </label>
+                                <input type="date" name="data_inicio" id="data_inicio" class="form-control" 
+                                       value="{{ request.GET.data_inicio }}">
+                            </div>
+
+                            <!-- Filtro por Data Fim -->
+                            <div class="col-md-3">
+                                <label for="data_fim" class="form-label fw-semibold">
+                                    <i class="bi bi-calendar-check me-1"></i>
+                                    Data Fim
+                                </label>
+                                <input type="date" name="data_fim" id="data_fim" class="form-control" 
+                                       value="{{ request.GET.data_fim }}">
+                            </div>
+
+                            <!-- Botões de Ação -->
+                            <div class="col-md-6 d-flex align-items-end">
+                                <button type="submit" class="btn btn-primary me-2">
+                                    <i class="bi bi-search me-1"></i>
+                                    Aplicar Filtros
+                                </button>
+                                <a href="{% url 'relatorio_desempenho' %}" class="btn btn-outline-secondary me-2">
+                                    <i class="bi bi-arrow-clockwise me-1"></i>
+                                    Limpar
+                                </a>
+                                {% if dados_relatorio %}
+                                <a href="{% url 'exportar_relatorio_pdf' %}?{{ request.GET.urlencode }}" class="btn btn-success">
+                                    <i class="bi bi-download me-1"></i>
+                                    Exportar PDF
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Estatísticas Gerais -->
+    {% if estatisticas_gerais %}
+    <div class="row g-4 mb-4">
+        <div class="col-md-2">
+            <div class="card border-0 shadow-sm text-center h-100">
+                <div class="card-body">
+                    <div class="bg-primary bg-opacity-10 rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                        <i class="bi bi-graph-up text-primary"></i>
+                    </div>
+                    <h4 class="text-primary mb-1">{{ estatisticas_gerais.media_geral }}%</h4>
+                    <small class="text-muted">Média Geral</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card border-0 shadow-sm text-center h-100">
+                <div class="card-body">
+                    <div class="bg-success bg-opacity-10 rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                        <i class="bi bi-people text-success"></i>
+                    </div>
+                    <h4 class="text-success mb-1">{{ estatisticas_gerais.total_alunos }}</h4>
+                    <small class="text-muted">Alunos</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card border-0 shadow-sm text-center h-100">
+                <div class="card-body">
+                    <div class="bg-info bg-opacity-10 rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                        <i class="bi bi-chat-dots text-info"></i>
+                    </div>
+                    <h4 class="text-info mb-1">{{ estatisticas_gerais.total_respostas }}</h4>
+                    <small class="text-muted">Respostas</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card border-0 shadow-sm text-center h-100">
+                <div class="card-body">
+                    <div class="bg-warning bg-opacity-10 rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                        <i class="bi bi-check-circle text-warning"></i>
+                    </div>
+                    <h4 class="text-warning mb-1">{{ estatisticas_gerais.total_acertos }}</h4>
+                    <small class="text-muted">Acertos</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card border-0 shadow-sm text-center h-100">
+                <div class="card-body">
+                    <div class="bg-danger bg-opacity-10 rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                        <i class="bi bi-x-circle text-danger"></i>
+                    </div>
+                    <h4 class="text-danger mb-1">{{ estatisticas_gerais.total_erros }}</h4>
+                    <small class="text-muted">Erros</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card border-0 shadow-sm text-center h-100">
+                <div class="card-body">
+                    <div class="bg-purple bg-opacity-10 rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                        <i class="bi bi-star text-purple"></i>
+                    </div>
+                    <h4 class="text-purple mb-1">{{ estatisticas_gerais.melhor_desempenho }}%</h4>
+                    <small class="text-muted">Melhor</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Dados dos Relatórios -->
+    {% if dados_relatorio %}
+    <div class="row g-4">
+        <!-- Gráfico de Desempenho por Questão -->
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-transparent border-0 pb-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">
+                            <i class="bi bi-bar-chart text-primary me-2"></i>
+                            Desempenho por Questão
+                        </h5>
+                        <div class="btn-group btn-group-sm">
+                            <button type="button" class="btn btn-outline-primary active" onclick="toggleGrafico('questoes')">Questões</button>
+                            <button type="button" class="btn btn-outline-primary" onclick="toggleGrafico('alunos')">Alunos</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <canvas id="graficoDesempenho" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top 10 - Questões Difíceis/Fáceis -->
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-transparent border-0 pb-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h6 class="card-title mb-0">
+                            <i class="bi bi-exclamation-triangle text-warning me-2"></i>
+                            Questões Difíceis
+                        </h6>
+                        <button class="btn btn-sm btn-outline-primary" onclick="toggleQuestoes()">
+                            <i class="bi bi-arrow-repeat"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body" id="questoesContainer">
+                    <div id="questoesDificeis" class="questoes-section">
+                        {% if dados_relatorio.questoes_dificeis %}
+                            <div class="space-y-2">
+                                {% for questao in dados_relatorio.questoes_dificeis %}
+                                <div class="d-flex align-items-center p-2 bg-light rounded">
+                                    <div class="me-3">
+                                        <div class="bg-danger bg-opacity-10 rounded-circle p-1">
+                                            <i class="bi bi-question-circle text-danger small"></i>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-0 small fw-semibold">Questão {{ questao.questao__numero }}</h6>
+                                        <small class="text-muted">Gabarito: {{ questao.questao__resposta_correta }}</small>
+                                    </div>
+                                    <span class="badge bg-danger">{{ questao.percentual_erro|floatformat:1 }}%</span>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div class="text-center py-3 text-muted">
+                                <i class="bi bi-check-circle display-6"></i>
+                                <p class="mt-2 small">Nenhuma questão com dificuldade</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div id="questoesFaceis" class="questoes-section" style="display: none;">
+                        {% if dados_relatorio.questoes_faceis %}
+                            <div class="space-y-2">
+                                {% for questao in dados_relatorio.questoes_faceis %}
+                                <div class="d-flex align-items-center p-2 bg-light rounded">
+                                    <div class="me-3">
+                                        <div class="bg-success bg-opacity-10 rounded-circle p-1">
+                                            <i class="bi bi-check-circle text-success small"></i>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-0 small fw-semibold">Questão {{ questao.questao__numero }}</h6>
+                                        <small class="text-muted">Gabarito: {{ questao.questao__resposta_correta }}</small>
+                                    </div>
+                                    <span class="badge bg-success">{{ questao.percentual_acerto|floatformat:1 }}%</span>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div class="text-center py-3 text-muted">
+                                <i class="bi bi-x-circle display-6"></i>
+                                <p class="mt-2 small">Nenhuma questão fácil</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabelas de Dados -->
+    <div class="row g-4 mt-2">
+        <!-- Desempenho por Aluno -->
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-transparent border-0 pb-0">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-people text-success me-2"></i>
+                        Desempenho por Aluno
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive" style="max-height: 400px;">
+                        <table class="table table-hover">
+                            <thead class="table-light sticky-top">
+                                <tr>
+                                    <th>Aluno</th>
+                                    <th class="text-center">Questões</th>
+                                    <th class="text-center">Acertos</th>
+                                    <th class="text-center">%</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for aluno in dados_relatorio.desempenho_alunos %}
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h6 class="mb-0">{{ aluno.aluno__nome }}</h6>
+                                            <small class="text-muted">{{ aluno.aluno__turma__nome }}</small>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">{{ aluno.total_questoes }}</td>
+                                    <td class="text-center">{{ aluno.acertos }}</td>
+                                    <td class="text-center">
+                                        <span class="badge {% if aluno.percentual >= 70 %}bg-success{% elif aluno.percentual >= 50 %}bg-warning{% else %}bg-danger{% endif %}">
+                                            {{ aluno.percentual|floatformat:1 }}%
+                                        </span>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desempenho por Turma -->
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-transparent border-0 pb-0">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-collection text-info me-2"></i>
+                        Desempenho por Turma
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive" style="max-height: 400px;">
+                        <table class="table table-hover">
+                            <thead class="table-light sticky-top">
+                                <tr>
+                                    <th>Turma</th>
+                                    <th class="text-center">Alunos</th>
+                                    <th class="text-center">Respostas</th>
+                                    <th class="text-center">Média</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for turma in dados_relatorio.desempenho_turmas %}
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h6 class="mb-0">{{ turma.aluno__turma__nome }}</h6>
+                                            <small class="text-muted">{{ turma.aluno__turma__escola__nome }}</small>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">{{ turma.total_alunos }}</td>
+                                    <td class="text-center">{{ turma.total_respostas }}</td>
+                                    <td class="text-center">
+                                        <span class="badge {% if turma.media_turma >= 70 %}bg-success{% elif turma.media_turma >= 50 %}bg-warning{% else %}bg-danger{% endif %}">
+                                            {{ turma.media_turma|floatformat:1 }}%
+                                        </span>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <!-- Estado Vazio -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body text-center py-5">
+                    <div class="mb-4">
+                        <i class="bi bi-graph-up display-1 text-muted"></i>
+                    </div>
+                    <h4 class="text-muted mb-3">Selecione os Filtros para Gerar Relatórios</h4>
+                    <p class="text-muted mb-4">
+                        Use os filtros acima para analisar o desempenho por escola, turma, disciplina ou período específico.
+                    </p>
+                    <button type="button" class="btn btn-primary" onclick="document.getElementById('escola').focus()">
+                        <i class="bi bi-funnel me-2"></i>
+                        Começar Análise
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<!-- JavaScript para Gráficos e Interatividade -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+// Dados dos gráficos
+{% if dados_relatorio %}
+const dadosQuestoes = {
+    labels: [{% for q in dados_relatorio.desempenho_questoes %}'Q{{ q.questao__numero }}'{% if not forloop.last %},{% endif %}{% endfor %}],
+    acertos: [{% for q in dados_relatorio.desempenho_questoes %}{{ q.percentual_acerto|default:0 }}{% if not forloop.last %},{% endif %}{% endfor %}],
+    erros: [{% for q in dados_relatorio.desempenho_questoes %}{{ q.percentual_erro|default:0 }}{% if not forloop.last %},{% endif %}{% endfor %}]
+};
+
+const dadosAlunos = {
+    labels: [{% for a in dados_relatorio.desempenho_alunos|slice:":10" %}'{{ a.aluno__nome|truncatechars:15 }}'{% if not forloop.last %},{% endif %}{% endfor %}],
+    percentuais: [{% for a in dados_relatorio.desempenho_alunos|slice:":10" %}{{ a.percentual|default:0 }}{% if not forloop.last %},{% endif %}{% endfor %}]
+};
+{% else %}
+const dadosQuestoes = {labels: [], acertos: [], erros: []};
+const dadosAlunos = {labels: [], percentuais: []};
+{% endif %}
+
+let grafico;
+let tipoGrafico = 'questoes';
+
+function initGrafico() {
+    const ctx = document.getElementById('graficoDesempenho').getContext('2d');
+    
+    grafico = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: dadosQuestoes.labels,
+            datasets: [{
+                label: 'Acertos (%)',
+                data: dadosQuestoes.acertos,
+                backgroundColor: 'rgba(40, 167, 69, 0.8)',
+                borderColor: 'rgba(40, 167, 69, 1)',
+                borderWidth: 1
+            }, {
+                label: 'Erros (%)',
+                data: dadosQuestoes.erros,
+                backgroundColor: 'rgba(220, 53, 69, 0.8)',
+                borderColor: 'rgba(220, 53, 69, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: {
+                        callback: function(value) {
+                            return value + '%';
+                        }
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'top'
+                }
+            }
+        }
+    });
+}
+
+function toggleGrafico(tipo) {
+    tipoGrafico = tipo;
+    
+    // Atualiza botões
+    document.querySelectorAll('.btn-group button').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    
+    if (tipo === 'questoes') {
+        grafico.data.labels = dadosQuestoes.labels;
+        grafico.data.datasets = [{
+            label: 'Acertos (%)',
+            data: dadosQuestoes.acertos,
+            backgroundColor: 'rgba(40, 167, 69, 0.8)',
+            borderColor: 'rgba(40, 167, 69, 1)',
+            borderWidth: 1
+        }, {
+            label: 'Erros (%)',
+            data: dadosQuestoes.erros,
+            backgroundColor: 'rgba(220, 53, 69, 0.8)',
+            borderColor: 'rgba(220, 53, 69, 1)',
+            borderWidth: 1
+        }];
+    } else {
+        grafico.data.labels = dadosAlunos.labels;
+        grafico.data.datasets = [{
+            label: 'Desempenho (%)',
+            data: dadosAlunos.percentuais,
+            backgroundColor: 'rgba(54, 162, 235, 0.8)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+        }];
+    }
+    
+    grafico.update();
+}
+
+function toggleQuestoes() {
+    const dificeis = document.getElementById('questoesDificeis');
+    const faceis = document.getElementById('questoesFaceis');
+    const titulo = document.querySelector('#questoesContainer .card-title');
+    
+    if (dificeis.style.display !== 'none') {
+        dificeis.style.display = 'none';
+        faceis.style.display = 'block';
+        titulo.innerHTML = '<i class="bi bi-check-circle text-success me-2"></i>Questões Fáceis';
+    } else {
+        dificeis.style.display = 'block';
+        faceis.style.display = 'none';
+        titulo.innerHTML = '<i class="bi bi-exclamation-triangle text-warning me-2"></i>Questões Difíceis';
+    }
+}
+
+function exportarRelatorio() {
+    window.open('{% url "exportar_relatorio_pdf" %}?' + new URLSearchParams(window.location.search).toString(), '_blank');
+}
+
+// Função para carregar dados via AJAX
+function carregarDadosRelatorio() {
+    const params = new URLSearchParams(window.location.search);
+    
+    fetch('{% url "api_dados_relatorio" %}?' + params.toString())
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                console.error('Erro:', data.error);
+                return;
+            }
+            
+            // Atualizar estatísticas
+            if (data.estatisticas_gerais) {
+                atualizarEstatisticas(data.estatisticas_gerais);
+            }
+            
+            // Atualizar gráficos
+            if (data.grafico_questoes) {
+                dadosQuestoes.labels = data.grafico_questoes.labels;
+                dadosQuestoes.acertos = data.grafico_questoes.acertos;
+                dadosQuestoes.erros = data.grafico_questoes.erros;
+            }
+            
+            if (data.grafico_alunos) {
+                dadosAlunos.labels = data.grafico_alunos.labels;
+                dadosAlunos.percentuais = data.grafico_alunos.percentuais;
+            }
+            
+            // Reinicializar gráfico se existir
+            if (grafico) {
+                toggleGrafico(tipoGrafico);
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao carregar dados:', error);
+        });
+}
+
+function atualizarEstatisticas(stats) {
+    // Esta função poderia ser expandida para atualizar as estatísticas na tela
+    console.log('Estatísticas atualizadas:', stats);
+}
+
+// Filtros dinâmicos
+document.getElementById('escola').addEventListener('change', function() {
+    if (this.value) {
+        // Filtrar turmas pela escola selecionada
+        // Esta funcionalidade pode ser implementada via AJAX
+    }
+});
+
+// Inicializar gráfico quando a página carregar
+document.addEventListener('DOMContentLoaded', function() {
+    {% if dados_relatorio %}
+    initGrafico();
+    {% endif %}
+});
+</script>
+
+<style>
+.text-purple {
+    color: #8b5cf6 !important;
+}
+
+.bg-purple {
+    background-color: #8b5cf6 !important;
+}
+
+.space-y-2 > * + * {
+    margin-top: 0.5rem;
+}
+
+.questoes-section {
+    transition: all 0.3s ease;
+}
+
+#graficoDesempenho {
+    height: 300px !important;
+}
+
+.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.table-responsive {
+    border-radius: 0.375rem;
+}
+
+.card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.badge {
+    font-size: 0.75rem;
+}
+</style>
+{% endblock %}
