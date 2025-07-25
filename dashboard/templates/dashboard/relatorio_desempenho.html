@@ -1,0 +1,337 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %}Relatório de Desempenho - SADE{% endblock %}
+
+{% block extra_css %}
+<style>
+    .chart-container {
+        position: relative;
+        height: 500px;
+        margin: 20px 0;
+    }
+    .filtros-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+    .performance-stats {
+        background: #f8f9fa;
+        border-left: 4px solid #0056b3;
+        padding: 15px;
+        margin: 15px 0;
+    }
+    .question-detail {
+        font-size: 0.9em;
+        margin: 5px 0;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="bi bi-bar-chart text-primary"></i>
+            Relatório de Desempenho por Questão
+        </h1>
+    </div>
+</div>
+
+<!-- Filtros -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card filtros-card">
+            <div class="card-body">
+                <form method="GET" class="row g-3 align-items-end">
+                    <div class="col-md-5">
+                        <label for="turma" class="form-label">
+                            <i class="bi bi-collection"></i> Selecione a Turma
+                        </label>
+                        <select name="turma" id="turma" class="form-select" required>
+                            <option value="">-- Escolha uma turma --</option>
+                            {% for turma in turmas %}
+                                <option value="{{ turma.id }}" 
+                                    {% if turma_selecionada and turma.id == turma_selecionada.id %}selected{% endif %}>
+                                    {{ turma.nome }} - {{ turma.escola.nome }} ({{ turma.ano }})
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <label for="disciplina" class="form-label">
+                            <i class="bi bi-book"></i> Selecione a Disciplina
+                        </label>
+                        <select name="disciplina" id="disciplina" class="form-select" required>
+                            <option value="">-- Escolha uma disciplina --</option>
+                            {% for disciplina in disciplinas %}
+                                <option value="{{ disciplina.id }}"
+                                    {% if disciplina_selecionada and disciplina.id == disciplina_selecionada.id %}selected{% endif %}>
+                                    {{ disciplina.nome }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-light w-100">
+                            <i class="bi bi-search"></i> Gerar Relatório
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if turma_selecionada and disciplina_selecionada %}
+<!-- Informações do Relatório -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="performance-stats">
+            <div class="row">
+                <div class="col-md-8">
+                    <h5 class="text-primary mb-2">
+                        <i class="bi bi-graph-up"></i>
+                        {{ disciplina_selecionada.nome }} - {{ turma_selecionada.nome }}
+                    </h5>
+                    <p class="mb-1"><strong>Escola:</strong> {{ turma_selecionada.escola.nome }}</p>
+                    <p class="mb-0"><strong>Ano Letivo:</strong> {{ turma_selecionada.ano }}</p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <div class="h4 text-primary" id="total-alunos">--</div>
+                    <small class="text-muted">Total de Alunos</small>
+                    <div class="h6 text-secondary mt-2" id="total-questoes">--</div>
+                    <small class="text-muted">Total de Questões</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Gráfico -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-bar-chart-fill text-success"></i>
+                    Desempenho por Questão
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="desempenhoChart"></canvas>
+                </div>
+                
+                <!-- Legenda personalizada -->
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center">
+                            <div style="width: 20px; height: 20px; background: #28a745; margin-right: 10px;"></div>
+                            <span>Acima de 70% (Bom desempenho)</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center">
+                            <div style="width: 20px; height: 20px; background: #dc3545; margin-right: 10px;"></div>
+                            <span>Abaixo de 50% (Necessita atenção)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Análise Detalhada -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-clipboard-data text-info"></i>
+                    Análise Detalhada
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="analise-detalhada">
+                    <p class="text-muted">Os dados de análise serão exibidos após carregar o gráfico...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% else %}
+<!-- Instruções -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body text-center py-5">
+                <i class="bi bi-graph-up display-4 text-muted"></i>
+                <h4 class="mt-3 text-muted">Selecione uma Turma e Disciplina</h4>
+                <p class="text-muted">Escolha uma turma e disciplina nos filtros acima para visualizar o relatório de desempenho por questão.</p>
+                
+                {% if not turmas %}
+                    <div class="alert alert-warning mt-3">
+                        <i class="bi bi-exclamation-triangle"></i>
+                        Nenhuma turma com dados encontrada. Faça o upload de dados primeiro.
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+{% if dados_grafico %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dados = {{ dados_grafico|safe }};
+    
+    // Atualizar estatísticas
+    document.getElementById('total-alunos').textContent = dados.total_alunos;
+    document.getElementById('total-questoes').textContent = dados.total_questoes;
+    
+    // Configurar cores baseadas no desempenho
+    const cores = dados.data.map(valor => {
+        if (valor >= 70) return '#28a745'; // Verde para bom desempenho
+        if (valor >= 50) return '#ffc107'; // Amarelo para desempenho médio
+        return '#dc3545'; // Vermelho para desempenho baixo
+    });
+    
+    // Criar gráfico
+    const ctx = document.getElementById('desempenhoChart').getContext('2d');
+    const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: dados.labels,
+            datasets: [{
+                label: 'Percentual de Respostas (%)',
+                data: dados.data,
+                backgroundColor: cores,
+                borderColor: cores.map(cor => cor + '80'),
+                borderWidth: 2,
+                borderRadius: 4,
+                borderSkipped: false,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Desempenho por Questão - {{ disciplina_selecionada.nome }}',
+                    font: {
+                        size: 16,
+                        weight: 'bold'
+                    },
+                    padding: 20
+                },
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.parsed.y.toFixed(1) + '% de respostas';
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: {
+                        callback: function(value) {
+                            return value + '%';
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Percentual de Respostas (%)'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Questões'
+                    }
+                }
+            },
+            animation: {
+                duration: 1500,
+                easing: 'easeInOutQuart'
+            }
+        }
+    });
+    
+    // Gerar análise detalhada
+    let analiseHtml = '<div class="row">';
+    
+    const questoesBom = dados.data.filter(v => v >= 70).length;
+    const questoesMedio = dados.data.filter(v => v >= 50 && v < 70).length;
+    const questoesBaixo = dados.data.filter(v => v < 50).length;
+    
+    analiseHtml += `
+        <div class="col-md-4">
+            <div class="text-center p-3 border rounded bg-success text-white">
+                <div class="h3">${questoesBom}</div>
+                <small>Questões com bom desempenho (≥70%)</small>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="text-center p-3 border rounded bg-warning text-dark">
+                <div class="h3">${questoesMedio}</div>
+                <small>Questões com desempenho médio (50-69%)</small>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="text-center p-3 border rounded bg-danger text-white">
+                <div class="h3">${questoesBaixo}</div>
+                <small>Questões que precisam atenção (<50%)</small>
+            </div>
+        </div>
+    `;
+    
+    analiseHtml += '</div><div class="mt-3">';
+    
+    if (questoesBaixo > 0) {
+        const questoesProblem = dados.data
+            .map((valor, index) => ({valor, questao: dados.labels[index]}))
+            .filter(item => item.valor < 50)
+            .sort((a, b) => a.valor - b.valor);
+        
+        analiseHtml += '<div class="alert alert-warning">';
+        analiseHtml += '<h6><i class="bi bi-exclamation-triangle"></i> Questões que necessitam atenção:</h6>';
+        questoesProblem.forEach(item => {
+            analiseHtml += `<div class="question-detail">• ${item.questao}: ${item.valor.toFixed(1)}% de respostas</div>`;
+        });
+        analiseHtml += '</div>';
+    }
+    
+    if (questoesBom > 0) {
+        const questoesSucesso = dados.data
+            .map((valor, index) => ({valor, questao: dados.labels[index]}))
+            .filter(item => item.valor >= 70)
+            .sort((a, b) => b.valor - a.valor);
+        
+        analiseHtml += '<div class="alert alert-success">';
+        analiseHtml += '<h6><i class="bi bi-check-circle"></i> Questões com melhor desempenho:</h6>';
+        questoesSucesso.slice(0, 5).forEach(item => {
+            analiseHtml += `<div class="question-detail">• ${item.questao}: ${item.valor.toFixed(1)}% de respostas</div>`;
+        });
+        analiseHtml += '</div>';
+    }
+    
+    analiseHtml += '</div>';
+    
+    document.getElementById('analise-detalhada').innerHTML = analiseHtml;
+});
+</script>
+{% endif %}
+{% endblock %}

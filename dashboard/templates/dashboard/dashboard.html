@@ -1,0 +1,194 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %}Dashboard - SADE{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="bi bi-speedometer2 text-primary"></i>
+            Dashboard
+        </h1>
+    </div>
+</div>
+
+<!-- Estatísticas Principais -->
+<div class="row g-4 mb-5">
+    <div class="col-md-2">
+        <div class="card text-center border-primary">
+            <div class="card-body">
+                <i class="bi bi-building text-primary display-6"></i>
+                <div class="h3 mt-2">{{ stats.escolas }}</div>
+                <small class="text-muted">Escolas</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="card text-center border-success">
+            <div class="card-body">
+                <i class="bi bi-collection text-success display-6"></i>
+                <div class="h3 mt-2">{{ stats.turmas }}</div>
+                <small class="text-muted">Turmas</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="card text-center border-info">
+            <div class="card-body">
+                <i class="bi bi-people text-info display-6"></i>
+                <div class="h3 mt-2">{{ stats.alunos }}</div>
+                <small class="text-muted">Alunos</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="card text-center border-warning">
+            <div class="card-body">
+                <i class="bi bi-book text-warning display-6"></i>
+                <div class="h3 mt-2">{{ stats.disciplinas }}</div>
+                <small class="text-muted">Disciplinas</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="card text-center border-secondary">
+            <div class="card-body">
+                <i class="bi bi-question-circle text-secondary display-6"></i>
+                <div class="h3 mt-2">{{ stats.questoes }}</div>
+                <small class="text-muted">Questões</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="card text-center border-dark">
+            <div class="card-body">
+                <i class="bi bi-check-circle text-dark display-6"></i>
+                <div class="h3 mt-2">{{ stats.respostas }}</div>
+                <small class="text-muted">Respostas</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <!-- Escolas com Mais Alunos -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-trophy text-warning"></i>
+                    Top 5 - Escolas com Mais Alunos
+                </h5>
+            </div>
+            <div class="card-body">
+                {% if escolas_top %}
+                    <div class="list-group list-group-flush">
+                        {% for escola in escolas_top %}
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>{{ escola.nome|truncatechars:30 }}</span>
+                                <span class="badge bg-primary rounded-pill">{{ escola.total_alunos }} alunos</span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="text-center text-muted py-4">
+                        <i class="bi bi-inbox display-4"></i>
+                        <p class="mt-2">Nenhum dado disponível</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Disciplinas com Mais Questões -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-graph-up text-success"></i>
+                    Top 5 - Disciplinas com Mais Questões
+                </h5>
+            </div>
+            <div class="card-body">
+                {% if disciplinas_top %}
+                    <div class="list-group list-group-flush">
+                        {% for disciplina in disciplinas_top %}
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>{{ disciplina.nome }}</span>
+                                <span class="badge bg-success rounded-pill">{{ disciplina.total_questoes }} questões</span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="text-center text-muted py-4">
+                        <i class="bi bi-inbox display-4"></i>
+                        <p class="mt-2">Nenhum dado disponível</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Ações Rápidas -->
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-lightning text-warning"></i>
+                    Ações Rápidas
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <a href="{% url 'upload_csv' %}" class="btn btn-primary w-100">
+                            <i class="bi bi-upload"></i>
+                            Upload CSV
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="{% url 'relatorio_desempenho' %}" class="btn btn-success w-100">
+                            <i class="bi bi-bar-chart"></i>
+                            Relatórios de Desempenho
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="/admin/dashboard/escola/" class="btn btn-outline-primary w-100">
+                            <i class="bi bi-building"></i>
+                            Gerenciar Escolas
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="/admin/dashboard/aluno/" class="btn btn-outline-success w-100">
+                            <i class="bi bi-people"></i>
+                            Gerenciar Alunos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if stats.respostas == 0 %}
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="alert alert-info" role="alert">
+            <h5 class="alert-heading">
+                <i class="bi bi-info-circle"></i>
+                Comece a usar o sistema!
+            </h5>
+            <p>Para começar a ver dados e relatórios, faça o upload de um arquivo CSV com os dados das avaliações.</p>
+            <hr>
+            <p class="mb-0">
+                <a href="{% url 'upload_csv' %}" class="btn btn-info">
+                    <i class="bi bi-upload"></i> Fazer Upload Agora
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
