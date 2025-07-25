@@ -1,448 +1,237 @@
 <?php
-/**
- * SADE - Página Principal
- * Dashboard principal do sistema
- */
-
 require_once 'config.php';
 
-// Verificar autenticação
-checkAuth();
-
-// Obter estatísticas básicas diretamente do banco
 $db = getDatabase();
+$total_escolas = $db->query("SELECT COUNT(DISTINCT escola) FROM provas")->fetchColumn() ?: 0;
+$total_turmas = $db->query("SELECT COUNT(DISTINCT turma) FROM provas")->fetchColumn() ?: 0;
+$total_provas = $db->query("SELECT COUNT(*) FROM provas")->fetchColumn() ?: 0;
+$total_alunos = $db->query("SELECT COUNT(*) FROM respostas_alunos")->fetchColumn() ?: 0;
 
-try {
-    // Estatísticas básicas
-    $stmt = $db->prepare("SELECT COUNT(*) FROM usuarios WHERE status = 'ativo'");
-    $stmt->execute();
-    $total_usuarios = $stmt->fetchColumn() ?: 0;
-
-    $stmt = $db->prepare("SELECT COUNT(*) FROM provas");
-    $stmt->execute();
-    $total_provas = $stmt->fetchColumn() ?: 0;
-
-    $stmt = $db->prepare("SELECT COUNT(*) FROM gabaritos");
-    $stmt->execute();
-    $total_gabaritos = $stmt->fetchColumn() ?: 0;
-
-    $stmt = $db->prepare("SELECT COUNT(*) FROM respostas_alunos");
-    $stmt->execute();
-    $total_respostas = $stmt->fetchColumn() ?: 0;
-
-    $stats = [
-        'total_usuarios' => $total_usuarios,
-        'total_provas' => $total_provas,
-        'total_gabaritos' => $total_gabaritos,
-        'total_respostas' => $total_respostas
-    ];
-
-    // Provas recentes
-    $stmt = $db->prepare("
-        SELECT p.*, COUNT(ra.id) as total_respostas
-        FROM provas p
-        LEFT JOIN respostas_alunos ra ON p.id = ra.prova_id
-        GROUP BY p.id
-        ORDER BY p.created_at DESC
-        LIMIT 5
-    ");
-    $stmt->execute();
-    $provasRecentes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    // Dados simples para gráficos
-    $relatorioEscolas = [];
-    $dadosGrafico = [];
-
-} catch (Exception $e) {
-    logActivity("Erro no dashboard", $e->getMessage());
-    $stats = [
-        'total_usuarios' => 0,
-        'total_provas' => 0,
-        'total_gabaritos' => 0,
-        'total_respostas' => 0
-    ];
-    $provasRecentes = [];
-    $relatorioEscolas = [];
-    $dadosGrafico = [];
-}
-
-?>
-
+$escolas = $db->query("SELECT DISTINCT escola FROM provas ORDER BY escola")->fetchAll(PDO::FETCH_COLUMN);
+$turmas = $db->query("SELECT DISTINCT turma FROM provas ORDER BY turma")->fetchAll(PDO::FETCH_COLUMN);
+$anos = $db->query("SELECT DISTINCT ano FROM provas ORDER BY ano")->fetchAll(PDO::FETCH_COLUMN);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo SITE_NAME; ?> - Dashboard</title>
-    
-    <!-- Bootstrap CSS -->
+    <title>SADE - Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Custom CSS -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+        body { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+        .main-container { background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin: 20px 0; }
+        .header-section { background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); color: white; padding: 2rem; border-radius: 15px 15px 0 0; text-align: center; }
+        .stats-card { background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; border-radius: 10px; padding: 1.5rem; margin: 10px 0; text-align: center; }
+        .filter-section { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; margin: 20px 0; }
+        .chart-container { background: white; padding: 1.5rem; border-radius: 10px; margin: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">
-                <i class="fas fa-graduation-cap me-2"></i>SADE
-            </a>
+    <div class="container-fluid">
+        <div class="main-container">
+            <div class="header-section">
+                <h1><i class="fas fa-chart-line me-3"></i>SADE</h1>
+                <p class="mb-0">Sistema de Avaliação e Desempenho Educacional</p>
+                <small>Dashboard Analítico - Versão 3.0 (Sem Login)</small>
+            </div>
             
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.php">
-                            <i class="fas fa-tachometer-alt me-1"></i>Dashboard
-                        </a>
-                    </li>
-                    <?php if (isAdmin()): ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="processar.php">
-                            <i class="fas fa-cogs me-1"></i>Processar Arquivos
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="usuarios.php">
-                            <i class="fas fa-users me-1"></i>Usuários
-                        </a>
-                    </li>
-                    <?php endif; ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="relatorios.php">
-                            <i class="fas fa-chart-bar me-1"></i>Relatórios
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="escolas.php">
-                            <i class="fas fa-school me-1"></i>Escolas
-                        </a>
-                    </li>
-                </ul>
+            <div class="container-fluid px-4 py-3">
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <div class="stats-card">
+                            <i class="fas fa-school fa-2x mb-2"></i>
+                            <h3><?php echo $total_escolas; ?></h3>
+                            <p class="mb-0">Escolas</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stats-card">
+                            <i class="fas fa-users fa-2x mb-2"></i>
+                            <h3><?php echo $total_turmas; ?></h3>
+                            <p class="mb-0">Turmas</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stats-card">
+                            <i class="fas fa-file-alt fa-2x mb-2"></i>
+                            <h3><?php echo $total_provas; ?></h3>
+                            <p class="mb-0">Provas</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stats-card">
+                            <i class="fas fa-user-graduate fa-2x mb-2"></i>
+                            <h3><?php echo $total_alunos; ?></h3>
+                            <p class="mb-0">Alunos</p>
+                        </div>
+                    </div>
+                </div>
                 
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-                            <i class="fas fa-user me-1"></i><?php echo htmlspecialchars($_SESSION['user_name']); ?>
-                            <span class="badge bg-<?php echo isAdmin() ? 'warning' : 'info'; ?> ms-1">
-                                <?php echo isAdmin() ? 'Admin' : 'User'; ?>
-                            </span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="perfil.php"><i class="fas fa-user-cog me-2"></i>Perfil</a></li>
-                            <?php if (isAdmin()): ?>
-                            <li><a class="dropdown-item" href="configuracoes.php"><i class="fas fa-cogs me-2"></i>Configurações</a></li>
-                            <?php endif; ?>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt me-2"></i>Sair</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="container-fluid mt-5 pt-3">
-        <!-- Page Header -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <h1 class="h3 mb-1">Dashboard</h1>
-                        <p class="text-muted">Visão geral do sistema de avaliação educacional</p>
-                    </div>
-                    <div>
-                        <span class="badge bg-success fs-6">Sistema Online</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Statistics Cards -->
-        <div class="row g-4 mb-4">
-            <div class="col-xl-3 col-md-6">
-                <div class="card stats-card border-0 shadow-sm">
-                    <div class="card-body text-center">
-                        <div class="stats-icon bg-primary">
-                            <i class="fas fa-school"></i>
+                <div class="filter-section">
+                    <h5><i class="fas fa-filter me-2"></i>Filtros</h5>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label class="form-label">Escola</label>
+                            <select id="filtroEscola" class="form-select">
+                                <option value="">Todas</option>
+                                <?php foreach($escolas as $escola): ?>
+                                    <option value="<?php echo htmlspecialchars($escola); ?>"><?php echo htmlspecialchars($escola); ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
-                        <h3 class="mt-3 mb-1"><?php echo number_format($total_usuarios); ?></h3>
-                        <p class="text-muted mb-0">Usuários Ativos</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-xl-3 col-md-6">
-                <div class="card stats-card border-0 shadow-sm">
-                    <div class="card-body text-center">
-                        <div class="stats-icon bg-success">
-                            <i class="fas fa-users"></i>
+                        <div class="col-md-3">
+                            <label class="form-label">Turma</label>
+                            <select id="filtroTurma" class="form-select">
+                                <option value="">Todas</option>
+                                <?php foreach($turmas as $turma): ?>
+                                    <option value="<?php echo htmlspecialchars($turma); ?>"><?php echo htmlspecialchars($turma); ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
-                        <h3 class="mt-3 mb-1"><?php echo number_format($total_gabaritos); ?></h3>
-                        <p class="text-muted mb-0">Gabaritos</p>
-                        <p class="text-muted mb-0">Alunos Avaliados</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-xl-3 col-md-6">
-                <div class="card stats-card border-0 shadow-sm">
-                    <div class="card-body text-center">
-                        <div class="stats-icon bg-warning">
-                            <i class="fas fa-file-alt"></i>
+                        <div class="col-md-3">
+                            <label class="form-label">Ano</label>
+                            <select id="filtroAno" class="form-select">
+                                <option value="">Todos</option>
+                                <?php foreach($anos as $ano): ?>
+                                    <option value="<?php echo htmlspecialchars($ano); ?>"><?php echo htmlspecialchars($ano); ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
-                        <h3 class="mt-3 mb-1"><?php echo number_format($total_provas); ?></h3>
-                        <p class="text-muted mb-0">Provas Processadas</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-xl-3 col-md-6">
-                <div class="card stats-card border-0 shadow-sm">
-                    <div class="card-body text-center">
-                        <div class="stats-icon bg-info">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3 class="mt-3 mb-1"><?php echo number_format($total_respostas); ?></h3>
-                        <p class="text-muted mb-0">Respostas</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Charts Row -->
-        <div class="row g-4 mb-4">
-            <!-- Performance Chart -->
-            <div class="col-lg-8">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-header bg-white border-bottom">
-                        <h5 class="card-title mb-0">
-                            <i class="fas fa-chart-bar text-primary me-2"></i>
-                            Desempenho por Disciplina
-                        </h5>
-                    </div>
-                    <div class="card-body">
-                        <canvas id="disciplinasChart" height="300"></canvas>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Quick Actions -->
-            <div class="col-lg-4">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-header bg-white border-bottom">
-                        <h5 class="card-title mb-0">
-                            <i class="fas fa-rocket text-success me-2"></i>
-                            Ações Rápidas
-                        </h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-grid gap-2">
-                            <?php if (isAdmin()): ?>
-                            <a href="processar.php" class="btn btn-primary">
-                                <i class="fas fa-cogs me-2"></i>Processar Arquivos
-                            </a>
-                            <a href="usuarios.php" class="btn btn-success">
-                                <i class="fas fa-users me-2"></i>Gerenciar Usuários
-                            </a>
-                            <?php endif; ?>
-                            <a href="relatorios.php" class="btn btn-info">
-                                <i class="fas fa-chart-line me-2"></i>Gerar Relatório
-                            </a>
-                            <a href="escolas.php" class="btn btn-warning">
-                                <i class="fas fa-school me-2"></i>Ver Escolas
-                            </a>
+                        <div class="col-md-3">
+                            <label class="form-label">&nbsp;</label>
+                            <button class="btn btn-primary d-block w-100" onclick="atualizarGraficos()">
+                                <i class="fas fa-sync me-2"></i>Atualizar
+                            </button>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Recent Uploads and Schools Performance -->
-        <div class="row g-4">
-            <!-- Recent Tests -->
-            <div class="col-lg-6">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-header bg-white border-bottom">
-                        <h5 class="card-title mb-0">
-                            <i class="fas fa-clock text-warning me-2"></i>
-                            Provas Recentes
-                        </h5>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="chart-container">
+                            <h6><i class="fas fa-chart-bar me-2"></i>Desempenho por Turma</h6>
+                            <canvas id="graficoTurmas"></canvas>
+                        </div>
                     </div>
-                    <div class="card-body p-0">
-                        <?php if (empty($provasRecentes)): ?>
-                            <div class="text-center py-4">
-                                <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
-                                <p class="text-muted">Nenhuma prova processada</p>
-                                <?php if (isAdmin()): ?>
-                                <a href="processar.php" class="btn btn-primary">Processar Arquivos</a>
-                                <?php endif; ?>
-                            </div>
-                        <?php else: ?>
-                            <div class="table-responsive">
-                                <table class="table table-hover mb-0">
-                                    <tbody>
-                                        <?php foreach ($provasRecentes as $prova): ?>
-                                            <tr>
-                                                <td>
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="me-3">
-                                                            <i class="fas fa-file-alt fa-2x text-success"></i>
-                                                        </div>
-                                                        <div>
-                                                            <h6 class="mb-1"><?php echo htmlspecialchars($prova['nome_teste']); ?></h6>
-                                                            <small class="text-muted">
-                                                                <?php echo htmlspecialchars($prova['escola'] ?? 'Escola não informada'); ?> - 
-                                                                <?php echo htmlspecialchars($prova['turma']); ?>
-                                                            </small>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-end">
-                                                    <span class="badge bg-success">
-                                                        <?php echo $prova['total_respostas']; ?> respostas
-                                                    </span>
-                                                    <br>
-                                                    <small class="text-muted">
-                                                        <?php echo date('d/m/Y H:i', strtotime($prova['processado_em'])); ?>
-                                                    </small>
-                                                </td>
-                                            </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <?php endif; ?>
+                    <div class="col-md-6">
+                        <div class="chart-container">
+                            <h6><i class="fas fa-chart-line me-2"></i>Desempenho por Questão</h6>
+                            <canvas id="graficoQuestoes"></canvas>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Schools Performance -->
-            <div class="col-lg-6">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-header bg-white border-bottom">
-                        <h5 class="card-title mb-0">
-                            <i class="fas fa-trophy text-warning me-2"></i>
-                            Ranking de Escolas
-                        </h5>
-                    </div>
-                    <div class="card-body p-0">
-                        <?php if (empty($relatorioEscolas)): ?>
-                            <div class="text-center py-4">
-                                <i class="fas fa-chart-line fa-3x text-muted mb-3"></i>
-                                <p class="text-muted">Dados insuficientes para ranking</p>
-                            </div>
-                        <?php else: ?>
-                            <div class="table-responsive">
-                                <table class="table table-hover mb-0">
-                                    <tbody>
-                                        <?php 
-                                        $position = 1;
-                                        foreach (array_slice($relatorioEscolas, 0, 5) as $escola): 
-                                        ?>
-                                            <tr>
-                                                <td>
-                                                    <span class="badge bg-primary rounded-pill me-2"><?php echo $position; ?>º</span>
-                                                    <strong><?php echo htmlspecialchars($escola['escola']); ?></strong>
-                                                    <br>
-                                                    <small class="text-muted">
-                                                        <?php echo $escola['total_alunos']; ?> alunos • <?php echo $escola['total_provas']; ?> provas
-                                                    </small>
-                                                </td>
-                                                <td class="text-end">
-                                                    <h6 class="mb-0 text-success">
-                                                        <?php echo number_format($escola['media_escola'], 1); ?>%
-                                                    </h6>
-                                                </td>
-                                            </tr>
-                                        <?php 
-                                        $position++;
-                                        endforeach; 
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <?php endif; ?>
+                
+                <div class="chart-container">
+                    <h6><i class="fas fa-table me-2"></i>Dados Detalhados</h6>
+                    <div class="table-responsive">
+                        <table id="tabelaDados" class="table table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Escola</th>
+                                    <th>Turma</th>
+                                    <th>Ano</th>
+                                    <th>Alunos</th>
+                                    <th>Média (%)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabelaCorpo"></tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Custom JS -->
-    <script src="assets/js/main.js"></script>
-    
-    <!-- Chart Configuration -->
     <script>
-        // Gráfico de disciplinas
-        const ctx = document.getElementById('disciplinasChart').getContext('2d');
-        const disciplinasChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: <?php echo json_encode(array_column($dadosGrafico, 'disciplina')); ?>,
-                datasets: [{
-                    label: 'Média (%)',
-                    data: <?php echo json_encode(array_column($dadosGrafico, 'media')); ?>,
-                    backgroundColor: [
-                        'rgba(54, 162, 235, 0.8)',
-                        'rgba(255, 99, 132, 0.8)',
-                        'rgba(255, 205, 86, 0.8)',
-                        'rgba(75, 192, 192, 0.8)',
-                        'rgba(153, 102, 255, 0.8)'
-                    ],
-                    borderColor: [
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(255, 205, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)'
-                    ],
-                    borderWidth: 2,
-                    borderRadius: 8
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 100,
-                        ticks: {
-                            callback: function(value) {
-                                return value + '%';
-                            }
-                        }
-                    }
-                },
-                animation: {
-                    duration: 2000,
-                    easing: 'easeInOutQuart'
-                }
-            }
+        let graficoTurmas, graficoQuestoes;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            atualizarGraficos();
         });
-
-        // Atualizar dados em tempo real (demo)
-        setInterval(() => {
-            updateRealTimeData();
-        }, 30000); // 30 segundos
+        
+        function atualizarGraficos() {
+            const escola = document.getElementById('filtroEscola').value;
+            const turma = document.getElementById('filtroTurma').value;
+            const ano = document.getElementById('filtroAno').value;
+            
+            const params = new URLSearchParams();
+            if (escola) params.append('escola', escola);
+            if (turma) params.append('turma', turma);
+            if (ano) params.append('ano', ano);
+            
+            carregarDadosTurmas(params);
+            carregarDadosQuestoes(params);
+            carregarTabelaDados(params);
+        }
+        
+        function carregarDadosTurmas(params) {
+            fetch(`api/dados_turmas.php?${params}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (graficoTurmas) graficoTurmas.destroy();
+                    const ctx = document.getElementById('graficoTurmas').getContext('2d');
+                    graficoTurmas = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: data.labels || [],
+                            datasets: [{
+                                label: 'Média (%)',
+                                data: data.valores || [],
+                                backgroundColor: 'rgba(54, 162, 235, 0.8)'
+                            }]
+                        },
+                        options: { responsive: true, scales: { y: { beginAtZero: true, max: 100 } } }
+                    });
+                })
+                .catch(error => console.error('Erro:', error));
+        }
+        
+        function carregarDadosQuestoes(params) {
+            fetch(`api/dados_questoes.php?${params}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (graficoQuestoes) graficoQuestoes.destroy();
+                    const ctx = document.getElementById('graficoQuestoes').getContext('2d');
+                    graficoQuestoes = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: data.labels || [],
+                            datasets: [{
+                                label: 'Acertos (%)',
+                                data: data.valores || [],
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                fill: true
+                            }]
+                        },
+                        options: { responsive: true, scales: { y: { beginAtZero: true, max: 100 } } }
+                    });
+                })
+                .catch(error => console.error('Erro:', error));
+        }
+        
+        function carregarTabelaDados(params) {
+            fetch(`api/dados_tabela.php?${params}`)
+                .then(response => response.json())
+                .then(data => {
+                    const tbody = document.getElementById('tabelaCorpo');
+                    tbody.innerHTML = '';
+                    (data || []).forEach(row => {
+                        tbody.innerHTML += `<tr>
+                            <td>${row.escola}</td>
+                            <td>${row.turma}</td>
+                            <td>${row.ano}</td>
+                            <td>${row.total_alunos}</td>
+                            <td>${row.media}%</td>
+                        </tr>`;
+                    });
+                })
+                .catch(error => console.error('Erro:', error));
+        }
     </script>
 </body>
 </html>
