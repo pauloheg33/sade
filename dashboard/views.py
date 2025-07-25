@@ -3,61 +3,279 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.http import HttpResponse, JsonResponse
 import csv
 from django.contrib import messages
-from .models import Escola, Turma, Aluno, Disciplina, Questao, Resposta
+from .models import Escola, Turma, Aluno, Disciplina, Questao, Resposta, Gabarito, UploadResultado, AnaliseDesempenho
 from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect
-from django.db.models import Count, Q
+from django.db.models import Count, Q, Avg, Sum
+from django.db.models.functions import Round
 import json
+from datetime import datetime, timedelta
+from django.utils import timezone
 
 # Create your views here.
 
 def home(request):
-    """Página inicial com estatísticas básicas"""
+    """Página inicial com estatísticas básicas melhoradas"""
+    # Estatísticas básicas
+    total_escolas = Escola.objects.count()
+    total_turmas = Turma.objects.count()
+    total_alunos = Aluno.objects.count()
+    total_gabaritos = Gabarito.objects.filter(ativo=True).count()
+    total_uploads = UploadResultado.objects.filter(processado=True).count()
+    total_respostas = Resposta.objects.count()
+    
+    # Estatísticas de desempenho
+    respostas_corretas = Resposta.objects.filter(correta=True).count()
+    media_geral = (respostas_corretas / total_respostas * 100) if total_respostas > 0 else 0
+    
+    # Últimas atividades
+    ultimos_uploads = UploadResultado.objects.filter(processado=True).order_by('-data_upload')[:5]
+    ultimos_gabaritos = Gabarito.objects.filter(ativo=True).order_by('-data_criacao')[:5]
+    
+    # Distribuição por anos
+    distribuicao_anos = Turma.objects.values('ano').annotate(
+        total_turmas=Count('id'),
+        total_alunos=Count('aluno')
+    ).order_by('ano')
+    
+    # Top escolas por alunos
+    top_escolas = Escola.objects.annotate(
+        total_alunos=Count('turma__aluno')
+    ).filter(total_alunos__gt=0).order_by('-total_alunos')[:5]
+    
     context = {
-        'total_escolas': Escola.objects.count(),
-        'total_turmas': Turma.objects.count(),
-        'total_alunos': Aluno.objects.count(),
-        'total_disciplinas': Disciplina.objects.count(),
-        'total_questoes': Questao.objects.count(),
-        'total_respostas': Resposta.objects.count(),
+        'total_escolas': total_escolas,
+        'total_turmas': total_turmas,
+        'total_alunos': total_alunos,
+        'total_gabaritos': total_gabaritos,
+        'total_uploads': total_uploads,
+        'total_respostas': total_respostas,
+        'media_geral': round(media_geral, 2),
+        'ultimos_uploads': ultimos_uploads,
+        'ultimos_gabaritos': ultimos_gabaritos,
+        'distribuicao_anos': distribuicao_anos,
+        'top_escolas': top_escolas,
     }
     return render(request, 'dashboard/home.html', context)
 
 @staff_member_required
 def dashboard(request):
-    """Dashboard com estatísticas detalhadas"""
+    """Dashboard com estatísticas detalhadas e visualizações avançadas"""
     # Estatísticas gerais
     stats = {
         'escolas': Escola.objects.count(),
         'turmas': Turma.objects.count(),
         'alunos': Aluno.objects.count(),
         'disciplinas': Disciplina.objects.count(),
-        'questoes': Questao.objects.count(),
-        'respostas': Resposta.objects.count(),
+        'gabaritos': Gabarito.objects.filter(ativo=True).count(),
+        'uploads_processados': UploadResultado.objects.filter(processado=True).count(),
+        'total_questoes': Questao.objects.count(),
+        'total_respostas': Resposta.objects.count(),
     }
     
-    # Escolas com mais alunos
-    escolas_top = Escola.objects.annotate(
-        total_alunos=Count('turma__aluno')
-    ).order_by('-total_alunos')[:5]
+    # Cálculo de desempenho geral
+    respostas_corretas = Resposta.objects.filter(correta=True).count()
+    stats['media_geral'] = round((respostas_corretas / stats['total_respostas'] * 100), 2) if stats['total_respostas'] > 0 else 0
+    stats['respostas_corretas'] = respostas_corretas
+    stats['respostas_incorretas'] = stats['total_respostas'] - respostas_corretas
     
-    # Disciplinas com mais questões
-    disciplinas_top = Disciplina.objects.annotate(
-        total_questoes=Count('questao')
-    ).order_by('-total_questoes')[:5]
+    # Performance por ano escolar
+    performance_anos = []
+    for ano_choice in Turma.ANO_CHOICES:
+        ano_codigo, ano_nome = ano_choice
+        respostas_ano = Resposta.objects.filter(aluno__turma__ano=ano_codigo)
+        total_respostas_ano = respostas_ano.count()
+        corretas_ano = respostas_ano.filter(correta=True).count()
+        
+        if total_respostas_ano > 0:
+            media_ano = round((corretas_ano / total_respostas_ano * 100), 2)
+            performance_anos.append({
+                'ano': ano_nome,
+                'codigo': ano_codigo,
+                'media': media_ano,
+                'total_respostas': total_respostas_ano,
+                'alunos': Aluno.objects.filter(turma__ano=ano_codigo).count()
+            })
     
-    # Dados para gráficos de desempenho
-    turmas_com_dados = Turma.objects.filter(aluno__resposta__isnull=False).distinct()
-    disciplinas_com_dados = Disciplina.objects.filter(questao__resposta__isnull=False).distinct()
+    # Performance por disciplina
+    performance_disciplinas = []
+    for disciplina in Disciplina.objects.all():
+        respostas_disc = Resposta.objects.filter(questao__gabarito__disciplina=disciplina)
+        total_respostas_disc = respostas_disc.count()
+        corretas_disc = respostas_disc.filter(correta=True).count()
+        
+        if total_respostas_disc > 0:
+            media_disc = round((corretas_disc / total_respostas_disc * 100), 2)
+            performance_disciplinas.append({
+                'disciplina': disciplina.nome,
+                'media': media_disc,
+                'total_respostas': total_respostas_disc,
+                'questoes': Questao.objects.filter(gabarito__disciplina=disciplina).count()
+            })
+    
+    # Top 5 escolas por desempenho
+    top_escolas_desempenho = []
+    for escola in Escola.objects.all():
+        respostas_escola = Resposta.objects.filter(aluno__turma__escola=escola)
+        total_resp = respostas_escola.count()
+        corretas_resp = respostas_escola.filter(correta=True).count()
+        
+        if total_resp > 0:
+            media_escola = round((corretas_resp / total_resp * 100), 2)
+            top_escolas_desempenho.append({
+                'escola': escola.nome,
+                'media': media_escola,
+                'total_alunos': Aluno.objects.filter(turma__escola=escola).count(),
+                'total_respostas': total_resp
+            })
+    
+    top_escolas_desempenho.sort(key=lambda x: x['media'], reverse=True)
+    top_escolas_desempenho = top_escolas_desempenho[:5]
+    
+    # Análises recentes
+    analises_recentes = AnaliseDesempenho.objects.order_by('-data_analise')[:5]
+    
+    # Uploads recentes
+    uploads_recentes = UploadResultado.objects.filter(processado=True).order_by('-data_upload')[:5]
+    
+    # Gabaritos por ano
+    gabaritos_por_ano = {}
+    for gabarito in Gabarito.objects.filter(ativo=True):
+        ano = gabarito.get_ano_escolar_display()
+        if ano not in gabaritos_por_ano:
+            gabaritos_por_ano[ano] = []
+        gabaritos_por_ano[ano].append(gabarito)
     
     context = {
         'stats': stats,
-        'escolas_top': escolas_top,
-        'disciplinas_top': disciplinas_top,
-        'turmas_com_dados': turmas_com_dados,
-        'disciplinas_com_dados': disciplinas_com_dados,
+        'performance_anos': performance_anos,
+        'performance_disciplinas': performance_disciplinas,
+        'top_escolas_desempenho': top_escolas_desempenho,
+        'analises_recentes': analises_recentes,
+        'uploads_recentes': uploads_recentes,
+        'gabaritos_por_ano': gabaritos_por_ano,
     }
     return render(request, 'dashboard/dashboard.html', context)
+
+def dados_graficos_dashboard(request):
+    """API para fornecer dados para gráficos do dashboard"""
+    tipo = request.GET.get('tipo', 'performance_anos')
+    
+    if tipo == 'performance_anos':
+        dados = []
+        labels = []
+        
+        for ano_choice in Turma.ANO_CHOICES:
+            ano_codigo, ano_nome = ano_choice
+            respostas_ano = Resposta.objects.filter(aluno__turma__ano=ano_codigo)
+            total_respostas_ano = respostas_ano.count()
+            corretas_ano = respostas_ano.filter(correta=True).count()
+            
+            if total_respostas_ano > 0:
+                media_ano = round((corretas_ano / total_respostas_ano * 100), 2)
+                labels.append(ano_nome)
+                dados.append(media_ano)
+        
+        return JsonResponse({
+            'labels': labels,
+            'datasets': [{
+                'label': 'Desempenho por Ano (%)',
+                'data': dados,
+                'backgroundColor': [
+                    'rgba(54, 162, 235, 0.8)',
+                    'rgba(255, 99, 132, 0.8)',
+                    'rgba(255, 205, 86, 0.8)',
+                    'rgba(75, 192, 192, 0.8)',
+                    'rgba(153, 102, 255, 0.8)',
+                    'rgba(255, 159, 64, 0.8)',
+                    'rgba(199, 199, 199, 0.8)',
+                    'rgba(83, 102, 255, 0.8)',
+                    'rgba(255, 99, 255, 0.8)',
+                ],
+                'borderColor': [
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(255, 205, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(199, 199, 199, 1)',
+                    'rgba(83, 102, 255, 1)',
+                    'rgba(255, 99, 255, 1)',
+                ],
+                'borderWidth': 2
+            }]
+        })
+    
+    elif tipo == 'performance_disciplinas':
+        dados = []
+        labels = []
+        
+        for disciplina in Disciplina.objects.all():
+            respostas_disc = Resposta.objects.filter(questao__gabarito__disciplina=disciplina)
+            total_respostas_disc = respostas_disc.count()
+            corretas_disc = respostas_disc.filter(correta=True).count()
+            
+            if total_respostas_disc > 0:
+                media_disc = round((corretas_disc / total_respostas_disc * 100), 2)
+                labels.append(disciplina.nome)
+                dados.append(media_disc)
+        
+        return JsonResponse({
+            'labels': labels,
+            'datasets': [{
+                'label': 'Desempenho por Disciplina (%)',
+                'data': dados,
+                'backgroundColor': 'rgba(75, 192, 192, 0.8)',
+                'borderColor': 'rgba(75, 192, 192, 1)',
+                'borderWidth': 2
+            }]
+        })
+    
+    elif tipo == 'distribuicao_respostas':
+        corretas = Resposta.objects.filter(correta=True).count()
+        incorretas = Resposta.objects.filter(correta=False).count()
+        
+        return JsonResponse({
+            'labels': ['Corretas', 'Incorretas'],
+            'datasets': [{
+                'data': [corretas, incorretas],
+                'backgroundColor': [
+                    'rgba(34, 197, 94, 0.8)',
+                    'rgba(239, 68, 68, 0.8)'
+                ],
+                'borderColor': [
+                    'rgba(34, 197, 94, 1)',
+                    'rgba(239, 68, 68, 1)'
+                ],
+                'borderWidth': 2
+            }]
+        })
+    
+    elif tipo == 'alunos_por_escola':
+        dados = []
+        labels = []
+        
+        escolas = Escola.objects.annotate(
+            total_alunos=Count('turma__aluno')
+        ).filter(total_alunos__gt=0).order_by('-total_alunos')[:8]
+        
+        for escola in escolas:
+            labels.append(escola.nome[:20] + '...' if len(escola.nome) > 20 else escola.nome)
+            dados.append(escola.total_alunos)
+        
+        return JsonResponse({
+            'labels': labels,
+            'datasets': [{
+                'label': 'Número de Alunos',
+                'data': dados,
+                'backgroundColor': 'rgba(168, 85, 247, 0.8)',
+                'borderColor': 'rgba(168, 85, 247, 1)',
+                'borderWidth': 2
+            }]
+        })
+    
+    return JsonResponse({'error': 'Tipo de gráfico não reconhecido'}, status=400)
 
 def calcular_desempenho_questoes(turma, disciplina, gabarito=None):
     """

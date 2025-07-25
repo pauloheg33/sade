@@ -1,6 +1,7 @@
 import csv
 import pandas as pd
 import re
+import os
 from django.core.exceptions import ValidationError
 from .models import Escola, Turma, Aluno, Disciplina, Gabarito, Questao, Resposta, UploadResultado
 
@@ -64,8 +65,14 @@ class ProcessadorCSV:
         "Identificador do aluno","Nome do aluno","Nome do teste","Nome da turma","Pontuação percentual","P. 1 Resposta","P. 2 Resposta",...
         """
         try:
-            # Lê o arquivo CSV
-            df = pd.read_csv(arquivo_csv)
+            # Se arquivo_csv é um caminho (string), lê diretamente
+            if isinstance(arquivo_csv, str):
+                df = pd.read_csv(arquivo_csv)
+                arquivo_path = arquivo_csv
+            else:
+                # Se é um arquivo upload, lê o conteúdo
+                df = pd.read_csv(arquivo_csv)
+                arquivo_path = None
             
             # Verifica colunas essenciais
             if 'Nome do aluno' not in df.columns or 'Nome da turma' not in df.columns:
@@ -79,6 +86,16 @@ class ProcessadorCSV:
                 nome=nome_upload,
                 escola=escola
             )
+            
+            # Se temos um arquivo físico, salva ele no modelo
+            if arquivo_path and os.path.exists(arquivo_path):
+                from django.core.files import File
+                with open(arquivo_path, 'rb') as f:
+                    upload_resultado.arquivo_csv.save(
+                        os.path.basename(arquivo_path),
+                        File(f),
+                        save=True
+                    )
             
             # Identifica colunas de respostas (P. 1 Resposta, P. 2 Resposta, etc.)
             colunas_respostas = [col for col in df.columns if 'Resposta' in col and 'P.' in col]
@@ -135,18 +152,99 @@ class ProcessadorCSV:
             raise ValidationError(f"Erro ao processar resultados: {str(e)}")
     
     @staticmethod
-    def associar_resultados_gabarito(upload_resultado, gabarito):
+    def associar_resultados_gabarito(upload_resultado, gabarito, arquivo_path=None):
         """
         Associa os resultados processados com um gabarito específico
         e calcula se as respostas estão corretas
         """
         try:
-            # Re-processa o arquivo CSV para associar com o gabarito
-            df = pd.read_csv(upload_resultado.arquivo_csv.path)
+            # Tenta ler o arquivo do upload_resultado ou usa o caminho fornecido
+            if arquivo_path and os.path.exists(arquivo_path):
+                df = pd.read_csv(arquivo_path)
+            elif upload_resultado.arquivo_csv and hasattr(upload_resultado.arquivo_csv, 'path'):
+                df = pd.read_csv(upload_resultado.arquivo_csv.path)
+            else:
+                raise ValidationError("Não foi possível encontrar o arquivo CSV para associação")
             
             # Identifica colunas de respostas
             colunas_respostas = [col for col in df.columns if 'Resposta' in col and 'P.' in col]
             colunas_respostas.sort(key=lambda x: int(re.search(r'P\. (\d+)', x).group(1)))
+            
+            from .models import AnaliseDesempenho
+            
+            respostas_criadas = 0
+            total_pontos = 0
+            total_questoes = 0
+            
+            # Processa cada aluno do CSV
+            for _, row in df.iterrows():
+                nome_aluno = row['Nome do aluno']
+                nome_turma = row['Nome da turma']
+                
+                # Encontra o aluno na base de dados
+                try:
+                    escola = upload_resultado.escola
+                    turma = Turma.objects.get(escola=escola, nome=nome_turma)
+                    aluno = Aluno.objects.get(turma=turma, nome=nome_aluno)
+                except (Turma.DoesNotExist, Aluno.DoesNotExist):
+                    continue  # Pula se aluno não foi encontrado
+                
+                # Conta questões corretas para este aluno
+                questoes_corretas = 0
+                questoes_respondidas = 0
+                
+                # Verifica cada resposta
+                for i, coluna_resposta in enumerate(colunas_respostas, 1):
+                    resposta_aluno = str(row[coluna_resposta]).strip().upper()
+                    
+                    if resposta_aluno and resposta_aluno != 'NAN':
+                        # Busca a questão correspondente no gabarito
+                        try:
+                            questao = Questao.objects.get(gabarito=gabarito, numero=i)
+                            questoes_respondidas += 1
+                            
+                            # Verifica se a resposta está correta
+                            if resposta_aluno == questao.resposta_correta:
+                                questoes_corretas += 1
+                            
+                            # Cria ou atualiza a resposta
+                            Resposta.objects.update_or_create(
+                                aluno=aluno,
+                                questao=questao,
+                                defaults={
+                                    'resposta_aluno': resposta_aluno,
+                                    'upload_resultado': upload_resultado
+                                }
+                            )
+                            respostas_criadas += 1
+                            
+                        except Questao.DoesNotExist:
+                            pass  # Questão não existe no gabarito
+                
+                # Calcula percentual para este aluno
+                if questoes_respondidas > 0:
+                    percentual_acertos = (questoes_corretas / questoes_respondidas) * 100
+                    total_pontos += percentual_acertos
+                    total_questoes += 1
+            
+            # Calcula média geral
+            media_geral = total_pontos / total_questoes if total_questoes > 0 else 0
+            
+            # Cria análise de desempenho geral
+            total_questoes_gabarito = gabarito.questao_set.count()
+            AnaliseDesempenho.objects.update_or_create(
+                upload_resultado=upload_resultado,
+                defaults={
+                    'total_alunos': total_questoes,  # número de alunos processados
+                    'total_questoes': total_questoes_gabarito,
+                    'media_geral': media_geral
+                }
+            )
+            
+            return respostas_criadas, media_geral
+            
+        except Exception as e:
+            raise ValidationError(f"Erro ao associar resultados: {str(e)}")
             
             # Obtém as questões do gabarito
             questoes = Questao.objects.filter(gabarito=gabarito).order_by('numero')

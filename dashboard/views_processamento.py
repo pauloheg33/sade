@@ -4,9 +4,11 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.views.generic import View
+from django.utils import timezone
 from .utils import ProcessadorCSV, extrair_ano_do_nome_arquivo, extrair_disciplina_do_nome_arquivo
 from .models import Gabarito, UploadResultado, Escola
 import json
+import os
 
 class ProcessarGabaritoView(View):
     """View para processar upload de gabaritos"""
@@ -114,36 +116,58 @@ def teste_processamento(request):
     
     if request.method == 'POST':
         try:
-            # Testa com os arquivos de exemplo
-            import os
-            from django.conf import settings
+            # Verifica se é o teste automático com o arquivo específico
+            arquivo_teste = "/home/paulo/Área de trabalho/sade/sade/media/resultados/1º_ANO_A_-_03_DE_DEZEMBRO_2025_2026_73877.csv"
             
-            # Caminho dos arquivos de exemplo
-            gabarito_path = os.path.join(settings.MEDIA_ROOT, 'gabaritos', 'ensino_fundamental_1', '1ano', '1oano_Língua_Portuguesa.csv')
-            resultados_path = os.path.join(settings.MEDIA_ROOT, 'resultados', '1º_ANO_A_-_03_DE_DEZEMBRO_2025_2026_73877.csv')
-            
-            if os.path.exists(gabarito_path) and os.path.exists(resultados_path):
-                # Processa gabarito
-                with open(gabarito_path, 'r', encoding='utf-8') as f:
-                    gabarito, questoes = ProcessadorCSV.processar_gabarito(
-                        f, "Teste Gabarito 1º Ano LP", "Língua Portuguesa", "1ano"
-                    )
+            if os.path.exists(arquivo_teste):
+                # Primeiro, cria um gabarito de teste se não existir
+                from dashboard.models import Disciplina, Gabarito, Questao
                 
-                # Processa resultados
-                with open(resultados_path, 'r', encoding='utf-8') as f:
-                    upload, alunos, respostas = ProcessadorCSV.processar_resultados(
-                        f, "Teste Resultados 1º Ano", "Escola Teste"
-                    )
+                disciplina, _ = Disciplina.objects.get_or_create(nome="Língua Portuguesa")
                 
-                # Associa com gabarito
-                respostas_criadas, media = ProcessadorCSV.associar_resultados_gabarito(upload, gabarito)
+                gabarito, created = Gabarito.objects.get_or_create(
+                    nome="CICLO II 1º ano LÍNGUA PORTUGUESA - Teste",
+                    disciplina=disciplina,
+                    ano_escolar="1ano",
+                    defaults={'ativo': True}
+                )
                 
-                messages.success(request, f'Teste concluído! Gabarito: {questoes} questões, Resultados: {alunos} alunos, Média: {media:.2f}%')
+                # Se gabarito foi criado, adiciona as questões
+                if created or gabarito.questao_set.count() == 0:
+                    # Gabarito baseado nas respostas mais comuns do CSV
+                    respostas_gabarito = ['A', 'B', 'C', 'A', 'B', 'C', 'A', 'B', 'A', 'B', 'C', 'B', 'C', 'A', 'D', 'A', 'A', 'B', 'A', 'B', 'C', 'C']
+                    
+                    for i, resposta in enumerate(respostas_gabarito, 1):
+                        Questao.objects.get_or_create(
+                            gabarito=gabarito,
+                            numero=i,
+                            defaults={'resposta_correta': resposta}
+                        )
+                
+                # Processa os resultados
+                escola_nome = "Escola Teste SADE"
+                nome_upload = f"Teste Automático - {timezone.now().strftime('%d/%m/%Y %H:%M')}"
+                
+                upload_resultado, alunos_processados, respostas_processadas = ProcessadorCSV.processar_resultados(
+                    arquivo_teste, nome_upload, escola_nome
+                )
+                
+                # Associa com o gabarito
+                respostas_criadas, media_geral = ProcessadorCSV.associar_resultados_gabarito(
+                    upload_resultado, gabarito, arquivo_teste
+                )
+                
+                messages.success(request, 
+                    f'✅ Teste automático concluído com sucesso! '
+                    f'📊 {alunos_processados} alunos processados, '
+                    f'📝 {respostas_criadas} respostas associadas, '
+                    f'📈 Média geral: {media_geral:.2f}%'
+                )
             else:
-                messages.error(request, 'Arquivos de exemplo não encontrados')
+                messages.error(request, '❌ Arquivo de teste não encontrado. Faça upload do arquivo CSV primeiro.')
                 
         except Exception as e:
-            messages.error(request, f'Erro no teste: {str(e)}')
+            messages.error(request, f'❌ Erro no teste automático: {str(e)}')
             
         return redirect('teste_processamento')
     
@@ -156,4 +180,4 @@ def teste_processamento(request):
         'uploads': uploads,
     }
     
-    return render(request, 'dashboard/teste_processamento.html', context)
+    return render(request, 'dashboard/upload_processamento.html', context)

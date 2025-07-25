@@ -3,168 +3,327 @@
 {% block title %}Dashboard - SADE{% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-12">
-        <h1 class="mb-4">
-            <i class="bi bi-speedometer2 text-primary"></i>
-            Dashboard
-        </h1>
-    </div>
-</div>
-
-<!-- Estatísticas Principais -->
-<div class="row g-4 mb-5">
-    <div class="col-md-2">
-        <div class="card text-center border-primary">
-            <div class="card-body">
-                <i class="bi bi-building text-primary display-6"></i>
-                <div class="h3 mt-2">{{ stats.escolas }}</div>
-                <small class="text-muted">Escolas</small>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <div class="card text-center border-success">
-            <div class="card-body">
-                <i class="bi bi-collection text-success display-6"></i>
-                <div class="h3 mt-2">{{ stats.turmas }}</div>
-                <small class="text-muted">Turmas</small>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <div class="card text-center border-info">
-            <div class="card-body">
-                <i class="bi bi-people text-info display-6"></i>
-                <div class="h3 mt-2">{{ stats.alunos }}</div>
-                <small class="text-muted">Alunos</small>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <div class="card text-center border-warning">
-            <div class="card-body">
-                <i class="bi bi-book text-warning display-6"></i>
-                <div class="h3 mt-2">{{ stats.disciplinas }}</div>
-                <small class="text-muted">Disciplinas</small>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <div class="card text-center border-secondary">
-            <div class="card-body">
-                <i class="bi bi-question-circle text-secondary display-6"></i>
-                <div class="h3 mt-2">{{ stats.questoes }}</div>
-                <small class="text-muted">Questões</small>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <div class="card text-center border-dark">
-            <div class="card-body">
-                <i class="bi bi-check-circle text-dark display-6"></i>
-                <div class="h3 mt-2">{{ stats.respostas }}</div>
-                <small class="text-muted">Respostas</small>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row g-4">
-    <!-- Escolas com Mais Alunos -->
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title mb-0">
-                    <i class="bi bi-trophy text-warning"></i>
-                    Top 5 - Escolas com Mais Alunos
-                </h5>
-            </div>
-            <div class="card-body">
-                {% if escolas_top %}
-                    <div class="list-group list-group-flush">
-                        {% for escola in escolas_top %}
-                            <div class="list-group-item d-flex justify-content-between align-items-center">
-                                <span>{{ escola.nome|truncatechars:30 }}</span>
-                                <span class="badge bg-primary rounded-pill">{{ escola.total_alunos }} alunos</span>
+<div class="container-fluid">
+    <!-- Header do Dashboard -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card bg-gradient-dark text-white border-0 shadow-lg">
+                <div class="card-body py-4">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h1 class="display-5 fw-bold mb-2">
+                                <i class="bi bi-speedometer2 me-3"></i>
+                                Dashboard de Análise
+                            </h1>
+                            <p class="lead mb-0 opacity-75">
+                                Visão completa do desempenho educacional
+                            </p>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            <div class="d-inline-flex align-items-center bg-white bg-opacity-20 rounded-pill px-3 py-2">
+                                <i class="bi bi-calendar3 me-2"></i>
+                                <span>{{ data_atual|date:"d/m/Y" }}</span>
                             </div>
-                        {% endfor %}
+                        </div>
                     </div>
-                {% else %}
-                    <div class="text-center text-muted py-4">
-                        <i class="bi bi-inbox display-4"></i>
-                        <p class="mt-2">Nenhum dado disponível</p>
-                    </div>
-                {% endif %}
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Disciplinas com Mais Questões -->
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title mb-0">
-                    <i class="bi bi-graph-up text-success"></i>
-                    Top 5 - Disciplinas com Mais Questões
-                </h5>
+    <!-- Estatísticas Principais -->
+    <div class="row g-4 mb-5">
+        <div class="col-xl-2 col-md-4 col-sm-6">
+            <div class="card border-0 shadow-sm h-100 stat-card">
+                <div class="card-body text-center">
+                    <div class="stat-icon bg-primary bg-opacity-10 rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-building text-primary" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 class="h2 fw-bold text-primary mb-1">{{ stats.escolas }}</h3>
+                    <p class="text-muted mb-0 small">Escolas Cadastradas</p>
+                </div>
             </div>
-            <div class="card-body">
-                {% if disciplinas_top %}
-                    <div class="list-group list-group-flush">
-                        {% for disciplina in disciplinas_top %}
-                            <div class="list-group-item d-flex justify-content-between align-items-center">
-                                <span>{{ disciplina.nome }}</span>
-                                <span class="badge bg-success rounded-pill">{{ disciplina.total_questoes }} questões</span>
+        </div>
+        
+        <div class="col-xl-2 col-md-4 col-sm-6">
+            <div class="card border-0 shadow-sm h-100 stat-card">
+                <div class="card-body text-center">
+                    <div class="stat-icon bg-success bg-opacity-10 rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-collection text-success" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 class="h2 fw-bold text-success mb-1">{{ stats.turmas }}</h3>
+                    <p class="text-muted mb-0 small">Turmas Ativas</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xl-2 col-md-4 col-sm-6">
+            <div class="card border-0 shadow-sm h-100 stat-card">
+                <div class="card-body text-center">
+                    <div class="stat-icon bg-info bg-opacity-10 rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-people text-info" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 class="h2 fw-bold text-info mb-1">{{ stats.alunos }}</h3>
+                    <p class="text-muted mb-0 small">Alunos Matriculados</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xl-2 col-md-4 col-sm-6">
+            <div class="card border-0 shadow-sm h-100 stat-card">
+                <div class="card-body text-center">
+                    <div class="stat-icon bg-warning bg-opacity-10 rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-book text-warning" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 class="h2 fw-bold text-warning mb-1">{{ stats.disciplinas }}</h3>
+                    <p class="text-muted mb-0 small">Disciplinas</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xl-2 col-md-4 col-sm-6">
+            <div class="card border-0 shadow-sm h-100 stat-card">
+                <div class="card-body text-center">
+                    <div class="stat-icon bg-purple bg-opacity-10 rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-file-earmark-text text-purple" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 class="h2 fw-bold text-purple mb-1">{{ stats.gabaritos }}</h3>
+                    <p class="text-muted mb-0 small">Gabaritos</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xl-2 col-md-4 col-sm-6">
+            <div class="card border-0 shadow-sm h-100 stat-card">
+                <div class="card-body text-center">
+                    <div class="stat-icon bg-danger bg-opacity-10 rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-upload text-danger" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 class="h2 fw-bold text-danger mb-1">{{ stats.uploads }}</h3>
+                    <p class="text-muted mb-0 small">Uploads</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Performance por Ano e Disciplina -->
+    <div class="row g-4 mb-5">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-transparent border-0 pb-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">
+                            <i class="bi bi-bar-chart text-primary me-2"></i>
+                            Performance por Ano Escolar
+                        </h5>
+                        <div class="btn-group btn-group-sm" role="group">
+                            <button type="button" class="btn btn-outline-secondary active" onclick="toggleChart('ano')">Por Ano</button>
+                            <button type="button" class="btn btn-outline-secondary" onclick="toggleChart('disciplina')">Por Disciplina</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <canvas id="performanceChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-transparent border-0 pb-0">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-trophy text-warning me-2"></i>
+                        Melhores Médias por Ano
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {% if performance_anos %}
+                        <div class="space-y-3">
+                            {% for perf in performance_anos %}
+                            <div class="d-flex align-items-center justify-content-between p-3 bg-light rounded">
+                                <div>
+                                    <h6 class="mb-1 fw-semibold">{{ perf.ano|default:"N/A" }}º Ano</h6>
+                                    <small class="text-muted">{{ perf.total_analises }} análise{{ perf.total_analises|pluralize:"s" }}</small>
+                                </div>
+                                <div class="text-end">
+                                    <span class="badge bg-success fs-6">{{ perf.media_percentual|floatformat:1 }}%</span>
+                                </div>
                             </div>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    <div class="text-center text-muted py-4">
-                        <i class="bi bi-inbox display-4"></i>
-                        <p class="mt-2">Nenhum dado disponível</p>
-                    </div>
-                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="text-center py-4 text-muted">
+                            <i class="bi bi-inbox display-4"></i>
+                            <p class="mt-2">Sem dados de performance</p>
+                        </div>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Ações Rápidas -->
-<div class="row mt-5">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title mb-0">
-                    <i class="bi bi-lightning text-warning"></i>
-                    Ações Rápidas
-                </h5>
+    <!-- Questões e Escolas -->
+    <div class="row g-4 mb-5">
+        <!-- Top Questões com Maior Dificuldade -->
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-transparent border-0 pb-0">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-exclamation-triangle text-danger me-2"></i>
+                        Questões Mais Difíceis
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {% if questoes_dificeis %}
+                        <div class="space-y-3">
+                            {% for questao in questoes_dificeis %}
+                            <div class="d-flex align-items-center p-3 bg-light rounded">
+                                <div class="me-3">
+                                    <div class="bg-danger bg-opacity-10 rounded-circle p-2">
+                                        <i class="bi bi-question-circle text-danger"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1 fw-semibold">Questão {{ questao.numero }}</h6>
+                                    <small class="text-muted">{{ questao.gabarito.disciplina.nome }} • {{ questao.gabarito.get_ano_escolar_display }}</small>
+                                </div>
+                                <div class="text-end">
+                                    <span class="badge bg-danger">{{ questao.percentual_erro|floatformat:1 }}% erro</span>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="text-center py-4 text-muted">
+                            <i class="bi bi-inbox display-4"></i>
+                            <p class="mt-2">Sem dados de questões</p>
+                        </div>
+                    {% endif %}
+                </div>
             </div>
-            <div class="card-body">
-                <div class="row g-3">
-                    <div class="col-md-3">
-                        <a href="{% url 'upload_csv' %}" class="btn btn-primary w-100">
-                            <i class="bi bi-upload"></i>
-                            Upload CSV
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="{% url 'relatorio_desempenho' %}" class="btn btn-success w-100">
-                            <i class="bi bi-bar-chart"></i>
-                            Relatórios de Desempenho
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="/admin/dashboard/escola/" class="btn btn-outline-primary w-100">
-                            <i class="bi bi-building"></i>
-                            Gerenciar Escolas
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="/admin/dashboard/aluno/" class="btn btn-outline-success w-100">
-                            <i class="bi bi-people"></i>
-                            Gerenciar Alunos
-                        </a>
+        </div>
+
+        <!-- Escolas com Melhor Performance -->
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-transparent border-0 pb-0">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-star text-warning me-2"></i>
+                        Escolas com Melhor Performance
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {% if escolas_performance %}
+                        <div class="space-y-3">
+                            {% for escola in escolas_performance %}
+                            <div class="d-flex align-items-center p-3 bg-light rounded">
+                                <div class="me-3">
+                                    <div class="bg-success bg-opacity-10 rounded-circle p-2">
+                                        <i class="bi bi-building text-success"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1 fw-semibold">{{ escola.escola__nome }}</h6>
+                                    <small class="text-muted">{{ escola.total_analises }} análise{{ escola.total_analises|pluralize:"s" }}</small>
+                                </div>
+                                <div class="text-end">
+                                    <span class="badge bg-success">{{ escola.media_geral|floatformat:1 }}%</span>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="text-center py-4 text-muted">
+                            <i class="bi bi-inbox display-4"></i>
+                            <p class="mt-2">Sem dados de escolas</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Últimas Atividades -->
+    <div class="row g-4">
+        <!-- Últimas Análises -->
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-transparent border-0 pb-0">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-clock-history text-info me-2"></i>
+                        Últimas Análises Realizadas
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {% if ultimas_analises %}
+                        <div class="space-y-3">
+                            {% for analise in ultimas_analises %}
+                            <div class="d-flex align-items-center p-3 bg-light rounded">
+                                <div class="me-3">
+                                    <div class="bg-info bg-opacity-10 rounded-circle p-2">
+                                        <i class="bi bi-graph-up text-info"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1 fw-semibold">{{ analise.escola.nome }}</h6>
+                                    <small class="text-muted">{{ analise.disciplina.nome }} • {{ analise.data_analise|date:"d/m/Y H:i" }}</small>
+                                </div>
+                                <div class="text-end">
+                                    <span class="badge {% if analise.percentual_acertos >= 70 %}bg-success{% elif analise.percentual_acertos >= 50 %}bg-warning{% else %}bg-danger{% endif %}">
+                                        {{ analise.percentual_acertos|floatformat:1 }}%
+                                    </span>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="text-center py-4 text-muted">
+                            <i class="bi bi-inbox display-4"></i>
+                            <p class="mt-2">Nenhuma análise realizada</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Insights e Recomendações -->
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-transparent border-0 pb-0">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-lightbulb text-warning me-2"></i>
+                        Insights e Recomendações
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="space-y-3">
+                        {% if stats.media_geral %}
+                        <div class="alert alert-info border-0 shadow-sm">
+                            <i class="bi bi-info-circle me-2"></i>
+                            <strong>Média Geral:</strong> {{ stats.media_geral|floatformat:1 }}%
+                            {% if stats.media_geral >= 70 %}
+                                - Excelente desempenho geral!
+                            {% elif stats.media_geral >= 50 %}
+                                - Desempenho satisfatório, com espaço para melhorias.
+                            {% else %}
+                                - Atenção: desempenho abaixo do esperado.
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                        
+                        {% if questoes_dificeis %}
+                        <div class="alert alert-warning border-0 shadow-sm">
+                            <i class="bi bi-exclamation-triangle me-2"></i>
+                            <strong>Atenção:</strong> {{ questoes_dificeis|length }} questão{% if questoes_dificeis|length > 1 %}ões{% endif %} com alto índice de erro. Revise o conteúdo!
+                        </div>
+                        {% endif %}
+                        
+                        {% if performance_anos %}
+                        <div class="alert alert-success border-0 shadow-sm">
+                            <i class="bi bi-check-circle me-2"></i>
+                            <strong>Destaque:</strong> {{ performance_anos.0.ano }}º ano com melhor performance ({{ performance_anos.0.media_percentual|floatformat:1 }}%).
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -172,23 +331,133 @@
     </div>
 </div>
 
-{% if stats.respostas == 0 %}
-<div class="row mt-4">
-    <div class="col-12">
-        <div class="alert alert-info" role="alert">
-            <h5 class="alert-heading">
-                <i class="bi bi-info-circle"></i>
-                Comece a usar o sistema!
-            </h5>
-            <p>Para começar a ver dados e relatórios, faça o upload de um arquivo CSV com os dados das avaliações.</p>
-            <hr>
-            <p class="mb-0">
-                <a href="{% url 'upload_csv' %}" class="btn btn-info">
-                    <i class="bi bi-upload"></i> Fazer Upload Agora
-                </a>
-            </p>
-        </div>
-    </div>
-</div>
-{% endif %}
+<!-- JavaScript para gráficos -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+let performanceChart;
+let currentChartType = 'ano';
+
+// Dados dos gráficos
+const chartData = {
+    ano: {
+        labels: [{% for perf in performance_anos %}'{{ perf.ano }}º Ano'{% if not forloop.last %},{% endif %}{% endfor %}],
+        data: [{% for perf in performance_anos %}{{ perf.media_percentual|default:0 }}{% if not forloop.last %},{% endif %}{% endfor %}],
+        backgroundColor: ['#667eea', '#764ba2', '#f093fb', '#f5576c', '#4facfe', '#00f2fe']
+    },
+    disciplina: {
+        labels: [{% for perf in performance_disciplinas %}'{{ perf.disciplina__nome }}'{% if not forloop.last %},{% endif %}{% endfor %}],
+        data: [{% for perf in performance_disciplinas %}{{ perf.media_percentual|default:0 }}{% if not forloop.last %},{% endif %}{% endfor %}],
+        backgroundColor: ['#667eea', '#764ba2', '#f093fb', '#f5576c', '#4facfe', '#00f2fe']
+    }
+};
+
+function initChart() {
+    const ctx = document.getElementById('performanceChart').getContext('2d');
+    performanceChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: chartData.ano.labels,
+            datasets: [{
+                label: 'Performance (%)',
+                data: chartData.ano.data,
+                backgroundColor: chartData.ano.backgroundColor,
+                borderRadius: 6,
+                borderSkipped: false,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: {
+                        callback: function(value) {
+                            return value + '%';
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+function toggleChart(type) {
+    currentChartType = type;
+    
+    // Update button states
+    document.querySelectorAll('.btn-group button').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    
+    // Update chart data
+    performanceChart.data.labels = chartData[type].labels;
+    performanceChart.data.datasets[0].data = chartData[type].data;
+    performanceChart.data.datasets[0].backgroundColor = chartData[type].backgroundColor;
+    performanceChart.update();
+}
+
+// Initialize chart when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    initChart();
+});
+</script>
+
+<style>
+.bg-gradient-dark {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+.text-purple {
+    color: #8b5cf6;
+}
+
+.bg-purple {
+    background-color: #8b5cf6;
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.stat-card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.space-y-3 > * + * {
+    margin-top: 0.75rem;
+}
+
+#performanceChart {
+    height: 300px;
+}
+
+.alert {
+    border-left: 4px solid;
+}
+
+.alert-info {
+    border-left-color: #17a2b8;
+}
+
+.alert-warning {
+    border-left-color: #ffc107;
+}
+
+.alert-success {
+    border-left-color: #28a745;
+}
+</style>
 {% endblock %}
