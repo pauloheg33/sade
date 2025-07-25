@@ -1,273 +1,184 @@
 # SADE - Sistema de Avaliação e Desempenho Educacional
 
-[![Django](https://img.shields.io/badge/Django-5.2.4-green.svg)](https://www.djangoproject.com/)
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-MIT-red.svg)](LICENSE)
+Sistema completo para análise de desempenho educacional desenvolvido em PHP com SQLite.
 
-## 📊 Sobre o Projeto
+## 🚀 Características
 
-O SADE é um sistema web desenvolvido em Django para análise de desempenho educacional, focado em identificar dificuldades de aprendizado através da análise detalhada de questões que os alunos mais erram.
+- **Backend:** PHP 8.3+ com SQLite
+- **Frontend:** Bootstrap 5 + Chart.js  
+- **Segurança:** Autenticação por sessão, proteção CSRF
+- **Responsivo:** Interface mobile-friendly
+- **Multi-usuário:** Sistema de permissões (Admin/Usuário)
 
-### 🎯 Principais Funcionalidades
+## 📋 Funcionalidades
 
-- **📈 Análise por Turmas**: Relatórios detalhados mostrando quais questões cada turma tem mais dificuldade
-- **📋 Análise por Questões**: Ranking global das questões mais difíceis em todas as turmas
-- **🏫 Dashboard Moderno**: Interface intuitiva com estatísticas em tempo real
-- **📤 Upload CSV**: Processamento automático de dados de avaliações
-- **🔐 Sistema de Login**: Autenticação segura para acesso ao sistema
-- **⚙️ Configurações**: Painel completo para personalização do sistema
+### 👤 Administradores
+- ✅ Dashboard completo com estatísticas
+- ✅ Processamento automático de arquivos CSV
+- ✅ Gerenciamento completo de usuários
+- ✅ Relatórios avançados com filtros e gráficos
+- ✅ Controle total do sistema
 
-## 🚀 Instalação e Configuração
+### 👥 Usuários
+- ✅ Dashboard com visão resumida
+- ✅ Acesso a relatórios com filtros
+- ✅ Visualização de dados permitidos
+
+## 🛠️ Instalação
 
 ### Pré-requisitos
+- PHP 8.1+
+- Extensões PHP: `sqlite3`, `pdo_sqlite`
+- Servidor web (Apache/Nginx) ou PHP built-in server
 
-- Python 3.8 ou superior
-- pip (gerenciador de pacotes Python)
-- Git
+### Ubuntu/Debian
+```bash
+sudo apt update
+sudo apt install php php-sqlite3 php-pdo-sqlite
+```
 
-### 1. Clone o Repositório
-
+### Configuração
+1. Clone o repositório:
 ```bash
 git clone https://github.com/pauloheg33/sade.git
 cd sade
 ```
 
-### 2. Crie um Ambiente Virtual
-
+2. Execute o script de configuração:
 ```bash
-python -m venv venv
-
-# No Linux/Mac
-source venv/bin/activate
-
-# No Windows
-venv\Scripts\activate
+php setup.php
 ```
 
-### 3. Instale as Dependências
-
+3. Inicie o servidor:
 ```bash
-pip install -r requirements.txt
+php -S localhost:8000
 ```
 
-### 4. Configure as Variáveis de Ambiente
+4. Acesse: http://localhost:8000
 
-```bash
-# Copie o arquivo de exemplo
-cp .env.example .env
+## 🔐 Acesso Inicial
 
-# Edite o arquivo .env com suas configurações
-nano .env
-```
+- **URL:** http://localhost:8000
+- **Email:** admin@sade.local
+- **Senha:** admin123
 
-### 5. Execute as Migrações
-
-```bash
-python manage.py makemigrations
-python manage.py migrate
-```
-
-### 6. Crie um Superusuário
-
-```bash
-python manage.py createsuperuser
-```
-
-### 7. Execute o Servidor
-
-```bash
-python manage.py runserver
-```
-
-Acesse: `http://localhost:8000`
-
-## 📝 Como Usar
-
-### 1. Acesso ao Sistema
-
-- **URL de Login**: `http://localhost:8000/login/`
-- **Credenciais de Demo**: 
-  - Usuário: `admin`
-  - Senha: `admin123` (ou use suas credenciais de superusuário)
-
-### 2. Upload de Dados
-
-1. Acesse **Upload de CSV** no menu
-2. Selecione um arquivo CSV com o formato:
-   ```
-   Nome do aluno,Nome da turma,Nome do teste,P. 1 Resposta,P. 2 Resposta,...
-   João Silva,5º ANO A - ESCOLA EXEMPLO 2025/2026,MATEMÁTICA,A,B,C,D,...
-   ```
-3. Aguarde o processamento
-
-### 3. Visualização de Relatórios
-
-#### Relatório por Turmas
-- Mostra questões mais difíceis para cada turma
-- Identifica onde focar o reforço pedagógico
-- Estatísticas completas por turma
-
-#### Relatório por Questões
-- Ranking das questões mais difíceis globalmente
-- Análise de dificuldade por disciplina
-- Recomendações pedagógicas
-
-## 🏗️ Estrutura do Projeto
+## 📁 Estrutura do Projeto
 
 ```
 sade/
-├── dashboard/                 # App principal
-│   ├── models.py             # Modelos de dados
-│   ├── views.py              # Views otimizadas
-│   ├── admin.py              # Configuração do admin
-│   ├── urls.py               # Rotas
-│   ├── services/             # Lógica de negócio
-│   │   ├── csv_processor.py  # Processamento de CSV
-│   │   ├── reports.py        # Geração de relatórios
-│   │   └── statistics.py     # Cálculos estatísticos
-│   └── templates/            # Templates HTML
-├── sade/                     # Configurações do projeto
-│   ├── settings.py           # Configurações principais
-│   ├── urls.py               # URLs raiz
-│   └── wsgi.py               # WSGI para produção
-├── requirements.txt          # Dependências
-├── .env.example             # Exemplo de configurações
-└── README.md                # Esta documentação
+├── config.php              # Configurações e autenticação
+├── index.php               # Dashboard principal
+├── login.php               # Sistema de login
+├── logout.php              # Logout seguro
+├── processar.php           # Processamento de arquivos (Admin)
+├── usuarios.php            # Gerenciamento de usuários (Admin)
+├── relatorios.php          # Relatórios com filtros
+├── setup.php               # Script de configuração inicial
+├── includes/
+│   ├── functions.php       # Classes principais do sistema
+│   └── processador.php     # Processamento de arquivos CSV
+├── assets/
+│   └── css/
+│       └── style.css       # Estilos customizados
+└── data/
+    ├── sade.db            # Banco de dados SQLite
+    ├── provas/            # Arquivos CSV de provas
+    └── gabaritos/         # Arquivos CSV de gabaritos
 ```
 
-## 🔧 Configurações Avançadas
+## 📊 Formato dos Arquivos CSV
 
-### Banco de Dados
-
-Para produção, configure PostgreSQL no `.env`:
-
-```env
-DJANGO_ENVIRONMENT=production
-DB_NAME=sade_prod
-DB_USER=sade_user
-DB_PASSWORD=sua_senha_segura
-DB_HOST=localhost
-DB_PORT=5432
+### Gabaritos
+```csv
+Ano,Componente,Questão,Gabarito,Identificador
+2024,Matemática,1,A,MAT001
+2024,Matemática,2,B,MAT001
 ```
 
-### Cache
-
-Para melhor performance, configure Redis:
-
-```env
-CACHE_LOCATION=127.0.0.1:11211
+### Provas
+```csv
+Nome do Aluno,Nome do Teste,Escola,Turma,Percentual,Q1,Q2,Q3...
+João Silva,Avaliação Matemática,Escola ABC,9º A,75.5,A,B,C...
 ```
 
-### Segurança
+## 🔧 Uso do Sistema
 
-Em produção, configure:
+### 1. Primeiro Acesso
+1. Acesse com credenciais admin
+2. Vá em "Processar Arquivos"
+3. Clique em "Processar Todos os Arquivos"
+4. Aguarde a importação dos dados
 
-```env
-DJANGO_DEBUG=False
-DJANGO_SECRET_KEY=sua_chave_secreta_super_segura
-SECURE_SSL_REDIRECT=True
-SESSION_COOKIE_SECURE=True
-CSRF_COOKIE_SECURE=True
-```
+### 2. Gerenciar Usuários
+1. Acesse "Usuários" no menu admin
+2. Clique em "Novo Usuário"
+3. Preencha os dados e defina permissões
+4. Salve o usuário
 
-## 📊 API Endpoints
+### 3. Visualizar Relatórios
+1. Acesse "Relatórios"
+2. Use os filtros disponíveis:
+   - Ano
+   - Componente
+   - Escola
+   - Turma
+3. Visualize gráficos e tabelas
+4. Use "Imprimir" para relatórios em PDF
 
-### Autenticação
-- `POST /login/` - Login do usuário
-- `POST /logout/` - Logout do usuário
+## 🛡️ Segurança
 
-### Dashboard
-- `GET /home/` - Dashboard principal
-- `GET /api/dashboard-stats/` - Estatísticas para gráficos
+- Senhas criptografadas com `password_hash()`
+- Proteção CSRF em todos os formulários
+- Validação de entrada em todos os campos
+- Controle de acesso baseado em sessões
+- Logs de atividades do sistema
 
-### Relatórios
-- `GET /relatorio-turmas/` - Relatório por turmas
-- `GET /relatorio-questoes/` - Relatório por questões
-- `GET /api/turma-dados/<id>/` - Dados específicos de uma turma
+## 📈 Características dos Relatórios
 
-### Sistema
-- `GET /health/` - Health check da aplicação
+- Gráficos interativos com Chart.js
+- Filtros dinâmicos por múltiplos critérios
+- Estatísticas em tempo real
+- Exportação para impressão
+- Análise de desempenho por:
+  - Componente curricular
+  - Escola/Turma
+  - Período/Ano
+  - Distribuição de notas
 
-## 🎨 Interface
+## 🔄 Atualizações
 
-O sistema possui uma interface moderna e responsiva com:
-
-- **Bootstrap 5.3**: Framework CSS moderno
-- **Font Awesome**: Ícones vetoriais
-- **Chart.js**: Gráficos interativos
-- **Design Responsivo**: Funciona em desktop e mobile
-
-## 🧪 Testes
-
+Para atualizar o sistema:
 ```bash
-# Executar testes
-python manage.py test
-
-# Com coverage
-pip install coverage
-coverage run --source='.' manage.py test
-coverage report
+git pull origin main
+php setup.php  # Se necessário
 ```
 
-## 📈 Performance
+## 📝 Logs e Debugging
 
-### Otimizações Implementadas
-
-- **Cache de 5 minutos** para estatísticas do dashboard
-- **Select related** em queries do banco
-- **Paginação** em listagens grandes
-- **Compressão** de arquivos estáticos
-- **Índices** no banco de dados
-
-### Monitoramento
-
-- Health check endpoint: `/health/`
-- Logs estruturados em `django_errors.log`
-- Métricas de performance no admin
+O sistema registra atividades em:
+- Logs de login/logout
+- Logs de processamento
+- Logs de criação/edição de usuários
 
 ## 🤝 Contribuição
 
 1. Fork o projeto
 2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+3. Commit suas alterações (`git commit -m 'Add some AmazingFeature'`)
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abra um Pull Request
 
 ## 📄 Licença
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para detalhes.
-
-## 👥 Equipe
-
-- **Desenvolvedor Principal**: Paulo Henrique
-- **GitHub**: [@pauloheg33](https://github.com/pauloheg33)
+Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
 
 ## 🆘 Suporte
 
 Para suporte e dúvidas:
-
-1. Abra uma [Issue](https://github.com/pauloheg33/sade/issues)
-2. Consulte a [Wiki](https://github.com/pauloheg33/sade/wiki)
-3. Entre em contato pelo email: [seu-email@example.com]
-
-## 🔄 Changelog
-
-### v2.0.0 (Atual)
-- ✅ Refatoração completa do código
-- ✅ Implementação de services (csv_processor, reports, statistics)
-- ✅ Admin otimizado com filtros e buscas avançadas
-- ✅ Cache implementado para melhor performance
-- ✅ Interface moderna com Bootstrap 5.3
-- ✅ Sistema de login e autenticação
-- ✅ Relatórios detalhados por turma e questão
-- ✅ API endpoints para integrações
-- ✅ Documentação completa
-
-### v1.0.0
-- ✅ Sistema básico de upload CSV
-- ✅ Dashboard inicial
-- ✅ Modelos básicos de dados
+- Abra uma [Issue](https://github.com/pauloheg33/sade/issues)
+- Consulte a documentação no código
+- Execute `php setup.php` para reconfigurar
 
 ---
 
-**⭐ Se este projeto foi útil para você, considere dar uma estrela no GitHub!**
+**Desenvolvido com ❤️ para a educação brasileira**
