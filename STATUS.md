@@ -1,5 +1,11 @@
 🎉 **Sistema SADE - Totalmente Funcional!**
 
+## ✅ **Projeto Salvo no GitHub:**
+- **Repositório:** https://github.com/pauloheg33/sade
+- **Versão:** v2.0 (Tag criada)
+- **Branch:** main (atualizada)
+- **Commit:** feat: Complete rewrite from Django to PHP
+
 ## ✅ **Problema Resolvido:**
 - **Erro:** "could not find driver" 
 - **Causa:** Extensões PHP SQLite não estavam instaladas
