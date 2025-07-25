@@ -1,1 +1,19 @@
 2025-07-25 08:56:08 - Erro no login - SQLSTATE[HY000]: General error: 1 no such column: nome - IP: 127.0.0.1
+2025-07-25 09:02:18 - Erro no login - SQLSTATE[HY000]: General error: 1 no such column: nome - IP: 127.0.0.1
+2025-07-25 09:02:22 - Erro no login - SQLSTATE[HY000]: General error: 1 no such column: nome - IP: 127.0.0.1
+2025-07-25 09:02:24 - Erro no login - SQLSTATE[HY000]: General error: 1 no such column: nome - IP: 127.0.0.1
+2025-07-25 09:02:32 - Erro no login - SQLSTATE[HY000]: General error: 1 no such column: nome - IP: 127.0.0.1
+2025-07-25 09:02:35 - Erro no login - SQLSTATE[HY000]: General error: 1 no such column: nome - IP: 127.0.0.1
+2025-07-25 09:10:23 - Login realizado - Usuário: admin@sade.local (admin) - IP: 127.0.0.1
+2025-07-25 09:25:03 - Login realizado - Usuário: admin@sade.local (admin) - IP: 127.0.0.1
+2025-07-25 09:28:07 - Login realizado - Usuário: admin@sade.local (admin) - IP: 127.0.0.1
+2025-07-25 09:33:03 - Login realizado - Usuário: admin@sade.local (admin) - IP: 127.0.0.1
+2025-07-25 09:54:50 - Login realizado - Usuário: admin@sade.local (admin) - IP: 127.0.0.1
+2025-07-25 09:54:53 - Login realizado - Usuário: admin@sade.local (admin) - IP: 127.0.0.1
+2025-07-25 09:54:54 - Login realizado - Usuário: admin@sade.local (admin) - IP: 127.0.0.1
+2025-07-25 09:54:59 - Login realizado - Usuário: admin@sade.local (admin) - IP: 127.0.0.1
+2025-07-25 09:55:32 - Login realizado - Usuário: admin@sade.local (admin) - IP: 127.0.0.1
+2025-07-25 09:57:42 - Login realizado - Usuário: admin@sade.local (admin) - IP: 127.0.0.1
+2025-07-25 09:57:42 - Login realizado - Usuário: admin@sade.local (admin) - IP: 127.0.0.1
+2025-07-25 09:57:46 - Login realizado - Usuário: admin@sade.local (admin) - IP: 127.0.0.1
+2025-07-25 09:57:47 - Login realizado - Usuário: admin@sade.local (admin) - IP: 127.0.0.1

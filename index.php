@@ -5,23 +5,68 @@
  */
 
 require_once 'config.php';
-require_once 'includes/functions.php';
 
 // Verificar autenticação
 checkAuth();
 
-// Inicializar classes
-$dataManager = new DataManager();
-$reportGenerator = new ReportGenerator();
+// Obter estatísticas básicas diretamente do banco
+$db = getDatabase();
 
-// Processar arquivos existentes se for a primeira vez
-$processamento = $dataManager->processarArquivosExistentes();
+try {
+    // Estatísticas básicas
+    $stmt = $db->prepare("SELECT COUNT(*) FROM usuarios WHERE status = 'ativo'");
+    $stmt->execute();
+    $total_usuarios = $stmt->fetchColumn() ?: 0;
 
-// Buscar estatísticas
-$stats = $dataManager->getStats();
-$provasRecentes = $dataManager->getProvasRecentes(5);
-$relatorioEscolas = $reportGenerator->relatorioDesempenhoPorEscola();
-$dadosGrafico = $reportGenerator->dadosGraficoDisciplinas();
+    $stmt = $db->prepare("SELECT COUNT(*) FROM provas");
+    $stmt->execute();
+    $total_provas = $stmt->fetchColumn() ?: 0;
+
+    $stmt = $db->prepare("SELECT COUNT(*) FROM gabaritos");
+    $stmt->execute();
+    $total_gabaritos = $stmt->fetchColumn() ?: 0;
+
+    $stmt = $db->prepare("SELECT COUNT(*) FROM respostas_alunos");
+    $stmt->execute();
+    $total_respostas = $stmt->fetchColumn() ?: 0;
+
+    $stats = [
+        'total_usuarios' => $total_usuarios,
+        'total_provas' => $total_provas,
+        'total_gabaritos' => $total_gabaritos,
+        'total_respostas' => $total_respostas
+    ];
+
+    // Provas recentes
+    $stmt = $db->prepare("
+        SELECT p.*, COUNT(ra.id) as total_respostas
+        FROM provas p
+        LEFT JOIN respostas_alunos ra ON p.id = ra.prova_id
+        GROUP BY p.id
+        ORDER BY p.created_at DESC
+        LIMIT 5
+    ");
+    $stmt->execute();
+    $provasRecentes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Dados simples para gráficos
+    $relatorioEscolas = [];
+    $dadosGrafico = [];
+
+} catch (Exception $e) {
+    logActivity("Erro no dashboard", $e->getMessage());
+    $stats = [
+        'total_usuarios' => 0,
+        'total_provas' => 0,
+        'total_gabaritos' => 0,
+        'total_respostas' => 0
+    ];
+    $provasRecentes = [];
+    $relatorioEscolas = [];
+    $dadosGrafico = [];
+}
+
+?>
 
 ?>
 <!DOCTYPE html>
@@ -130,8 +175,8 @@ $dadosGrafico = $reportGenerator->dadosGraficoDisciplinas();
                         <div class="stats-icon bg-primary">
                             <i class="fas fa-school"></i>
                         </div>
-                        <h3 class="mt-3 mb-1"><?php echo number_format($stats['total_escolas']); ?></h3>
-                        <p class="text-muted mb-0">Escolas Cadastradas</p>
+                        <h3 class="mt-3 mb-1"><?php echo number_format($total_usuarios); ?></h3>
+                        <p class="text-muted mb-0">Usuários Ativos</p>
                     </div>
                 </div>
             </div>
@@ -142,7 +187,8 @@ $dadosGrafico = $reportGenerator->dadosGraficoDisciplinas();
                         <div class="stats-icon bg-success">
                             <i class="fas fa-users"></i>
                         </div>
-                        <h3 class="mt-3 mb-1"><?php echo number_format($stats['total_alunos']); ?></h3>
+                        <h3 class="mt-3 mb-1"><?php echo number_format($total_gabaritos); ?></h3>
+                        <p class="text-muted mb-0">Gabaritos</p>
                         <p class="text-muted mb-0">Alunos Avaliados</p>
                     </div>
                 </div>
@@ -154,7 +200,7 @@ $dadosGrafico = $reportGenerator->dadosGraficoDisciplinas();
                         <div class="stats-icon bg-warning">
                             <i class="fas fa-file-alt"></i>
                         </div>
-                        <h3 class="mt-3 mb-1"><?php echo number_format($stats['total_provas']); ?></h3>
+                        <h3 class="mt-3 mb-1"><?php echo number_format($total_provas); ?></h3>
                         <p class="text-muted mb-0">Provas Processadas</p>
                     </div>
                 </div>
@@ -166,8 +212,8 @@ $dadosGrafico = $reportGenerator->dadosGraficoDisciplinas();
                         <div class="stats-icon bg-info">
                             <i class="fas fa-chart-line"></i>
                         </div>
-                        <h3 class="mt-3 mb-1"><?php echo $stats['media_geral']; ?>%</h3>
-                        <p class="text-muted mb-0">Média Geral</p>
+                        <h3 class="mt-3 mb-1"><?php echo number_format($total_respostas); ?></h3>
+                        <p class="text-muted mb-0">Respostas</p>
                     </div>
                 </div>
             </div>

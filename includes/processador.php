@@ -4,8 +4,6 @@
  * Processa gabaritos e provas das pastas existentes
  */
 
-require_once 'config.php';
-
 class ProcessadorArquivos {
     private $db;
     

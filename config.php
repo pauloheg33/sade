@@ -8,29 +8,43 @@
  * @date 2025-07-25
  */
 
-// Configurações de erro
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// Configurações de segurança da sessão
+ini_set('session.cookie_httponly', 1);
+ini_set('session.cookie_secure', 0); // Definir como 1 em HTTPS
+ini_set('session.use_only_cookies', 1);
+ini_set('session.cookie_samesite', 'Strict');
 
-// Configurações de sessão
-session_start();
+// Configurações de erro (apenas em desenvolvimento)
+if (getenv('ENVIRONMENT') === 'development') {
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+} else {
+    error_reporting(0);
+    ini_set('display_errors', 0);
+}
+
+// Iniciar sessão se ainda não iniciada
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Configurações do sistema
 define('SITE_NAME', 'SADE - Sistema de Avaliação e Desempenho Educacional');
-define('SITE_VERSION', '2.0.0');
-define('SITE_URL', 'https://' . ($_SERVER['HTTP_HOST'] ?? 'localhost'));
+define('SITE_VERSION', '2.0.1');
 define('BASE_PATH', dirname(__FILE__));
 
 // Configurações de diretórios
 define('DATA_DIR', BASE_PATH . '/data/');
 define('PROVAS_DIR', DATA_DIR . 'provas/');
 define('GABARITOS_DIR', DATA_DIR . 'gabaritos/');
+define('LOGS_DIR', BASE_PATH . '/logs/');
 
-// Configurações de banco de dados (SQLite para compatibilidade)
+// Configurações de banco de dados
 define('DB_FILE', DATA_DIR . 'sade.db');
 
 // Configurações de segurança
 define('SESSION_TIMEOUT', 3600); // 1 hora
+define('CSRF_TOKEN_EXPIRE', 3600); // 1 hora
 
 // Tipos de usuário
 define('USER_TYPE_ADMIN', 'admin');
@@ -39,15 +53,244 @@ define('USER_TYPE_USER', 'user');
 // Timezone
 date_default_timezone_set('America/Sao_Paulo');
 
-// Função para conectar ao banco SQLite
+// Criar diretórios necessários
+if (!is_dir(DATA_DIR)) mkdir(DATA_DIR, 0755, true);
+if (!is_dir(PROVAS_DIR)) mkdir(PROVAS_DIR, 0755, true);
+if (!is_dir(GABARITOS_DIR)) mkdir(GABARITOS_DIR, 0755, true);
+if (!is_dir(LOGS_DIR)) mkdir(LOGS_DIR, 0755, true);
+
+/**
+ * Conectar ao banco SQLite
+ */
 function getDatabase() {
-    try {
-        $pdo = new PDO('sqlite:' . DB_FILE);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        return $pdo;
-    } catch (PDOException $e) {
-        die('Erro de conexão: ' . $e->getMessage());
+    static $pdo = null;
+    
+    if ($pdo === null) {
+        try {
+            $pdo = new PDO('sqlite:' . DB_FILE);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+            $pdo->exec('PRAGMA foreign_keys = ON');
+            
+            // Inicializar banco se necessário
+            initializeDatabase($pdo);
+        } catch (PDOException $e) {
+            error_log('Erro de conexão com banco: ' . $e->getMessage());
+            die('Erro interno do sistema. Tente novamente.');
+        }
     }
+    
+    return $pdo;
+}
+
+/**
+ * Inicializar estrutura do banco
+ */
+function initializeDatabase($pdo) {
+    // Criar tabela de usuários
+    $pdo->exec("
+        CREATE TABLE IF NOT EXISTS usuarios (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            email TEXT UNIQUE NOT NULL,
+            password TEXT NOT NULL,
+            user_type TEXT NOT NULL DEFAULT 'user',
+            status TEXT NOT NULL DEFAULT 'ativo',
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            last_login DATETIME,
+            remember_token TEXT
+        )
+    ");
+    
+    // Criar usuário admin padrão se não existir
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM usuarios WHERE user_type = 'admin'");
+    $stmt->execute();
+    if ($stmt->fetchColumn() == 0) {
+        $adminPassword = password_hash('admin123', PASSWORD_DEFAULT);
+        $stmt = $pdo->prepare("
+            INSERT INTO usuarios (name, email, password, user_type) 
+            VALUES (?, ?, ?, ?)
+        ");
+        $stmt->execute(['Administrador', 'admin@sade.local', $adminPassword, 'admin']);
+    }
+}
+
+/**
+ * Verificar autenticação
+ */
+function checkAuth($requiredType = null) {
+    // Verificar se está logado
+    if (!isLoggedIn()) {
+        redirectToLogin();
+    }
+    
+    // Verificar timeout da sessão
+    if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > SESSION_TIMEOUT)) {
+        destroySession();
+        redirectToLogin('timeout=1');
+    }
+    
+    // Verificar tipo de usuário se especificado
+    if ($requiredType && $_SESSION['user_type'] !== $requiredType) {
+        header('Location: index.php?access_denied=1');
+        exit();
+    }
+    
+    // Regenerar ID da sessão periodicamente para segurança
+    if (!isset($_SESSION['last_regeneration']) || (time() - $_SESSION['last_regeneration'] > 300)) {
+        session_regenerate_id(true);
+        $_SESSION['last_regeneration'] = time();
+    }
+    
+    $_SESSION['last_activity'] = time();
+}
+
+/**
+ * Verificar se é admin
+ */
+function isAdmin() {
+    return isset($_SESSION['user_type']) && $_SESSION['user_type'] === USER_TYPE_ADMIN;
+}
+
+/**
+ * Verificar se está logado
+ */
+function isLoggedIn() {
+    return isset($_SESSION['user_id']) && 
+           isset($_SESSION['user_type']) && 
+           isset($_SESSION['login_time']);
+}
+
+/**
+ * Redirecionar para login
+ */
+function redirectToLogin($params = '') {
+    $url = 'login.php';
+    if ($params) {
+        $url .= '?' . $params;
+    }
+    header('Location: ' . $url);
+    exit();
+}
+
+/**
+ * Destruir sessão
+ */
+function destroySession() {
+    session_destroy();
+    session_start();
+}
+
+/**
+ * Gerar token CSRF
+ */
+function generateCSRFToken() {
+    if (!isset($_SESSION['csrf_token']) || !isset($_SESSION['csrf_token_time']) || 
+        (time() - $_SESSION['csrf_token_time'] > CSRF_TOKEN_EXPIRE)) {
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+        $_SESSION['csrf_token_time'] = time();
+    }
+    return $_SESSION['csrf_token'];
+}
+
+/**
+ * Validar token CSRF
+ */
+function validateCSRFToken($token) {
+    return isset($_SESSION['csrf_token']) && 
+           isset($_SESSION['csrf_token_time']) && 
+           (time() - $_SESSION['csrf_token_time'] <= CSRF_TOKEN_EXPIRE) &&
+           hash_equals($_SESSION['csrf_token'], $token);
+}
+
+/**
+ * Log de atividades
+ */
+function logActivity($action, $details = '') {
+    try {
+        $userId = $_SESSION['user_id'] ?? 'anonymous';
+        $userEmail = $_SESSION['user_email'] ?? 'unknown';
+        $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+        $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? 'unknown';
+        
+        $log = sprintf(
+            "[%s] User: %s (%s) | Action: %s | Details: %s | IP: %s | UA: %s\n",
+            date('Y-m-d H:i:s'),
+            $userId,
+            $userEmail,
+            $action,
+            $details,
+            $ip,
+            $userAgent
+        );
+        
+        file_put_contents(LOGS_DIR . 'activity.log', $log, FILE_APPEND | LOCK_EX);
+    } catch (Exception $e) {
+        error_log('Erro ao gravar log: ' . $e->getMessage());
+    }
+}
+
+/**
+ * Sanitizar entrada
+ */
+function sanitizeInput($input) {
+    if (is_array($input)) {
+        return array_map('sanitizeInput', $input);
+    }
+    return htmlspecialchars(trim($input), ENT_QUOTES, 'UTF-8');
+}
+
+/**
+ * Validar email
+ */
+function validateEmail($email) {
+    return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
+}
+
+/**
+ * Escapar output para HTML
+ */
+function escape($text) {
+    return htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
+}
+
+/**
+ * Mostrar mensagem de erro
+ */
+function showError($message) {
+    return '<div class="alert alert-danger alert-dismissible fade show" role="alert">' .
+           '<i class="fas fa-exclamation-circle me-2"></i>' . escape($message) .
+           '<button type="button" class="btn-close" data-bs-dismiss="alert"></button>' .
+           '</div>';
+}
+
+/**
+ * Mostrar mensagem de sucesso
+ */
+function showSuccess($message) {
+    return '<div class="alert alert-success alert-dismissible fade show" role="alert">' .
+           '<i class="fas fa-check-circle me-2"></i>' . escape($message) .
+           '<button type="button" class="btn-close" data-bs-dismiss="alert"></button>' .
+           '</div>';
+}
+
+/**
+ * Resposta JSON padronizada
+ */
+function jsonResponse($success = true, $message = '', $data = []) {
+    header('Content-Type: application/json');
+    echo json_encode([
+        'success' => $success,
+        'message' => $message,
+        'data' => $data,
+        'timestamp' => time()
+    ]);
+    exit();
+}
+
+// Autoload das funções principais
+require_once BASE_PATH . '/includes/functions.php';
+?>
 }
 
 // Função para verificar autenticação
@@ -109,7 +352,15 @@ function generateCSRF() {
 
 // Função para verificar CSRF token
 function validateCSRF($token) {
-    return isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $token);
+    if (empty($token)) {
+        return false;
+    }
+    
+    if (!isset($_SESSION['csrf_token'])) {
+        return false;
+    }
+    
+    return hash_equals($_SESSION['csrf_token'], $token);
 }
 
 // Função para formatar bytes
