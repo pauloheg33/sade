@@ -1,12 +1,36 @@
-# SADE - Sistema de Avaliação e Desempenho Escolar
+# SADE - Sistema de Avaliação e Análise de Dados Educacionais
 
 **Prefeitura Municipal de Ararendá - CE**
 
-Sistema profissional para análise e visualização de dados educacionais da rede municipal de ensino de Ararendá.
+🎯 **Sistema completo para visualização e análise de dados educacionais dos programas PROEA e CNCA**
 
-## 🎯 Visão Geral
+## 🌟 Funcionalidades Principais
 
-O SADE é uma plataforma web desenvolvida para a Secretaria de Educação de Ararendá, permitindo o acompanhamento e análise do desempenho escolar através de dois programas principais:
+### 📊 Dashboard Interativo
+- Visão geral dos dados com métricas consolidadas
+- Gráficos comparativos entre programas PROEA e CNCA
+- Análise de performance por disciplinas
+- Métricas de média geral e total de alunos
+
+### 🔍 Sistema de Filtros Avançados
+- **Filtro por Ano**: Selecione anos específicos (6º ao 9º para PROEA, 1º ao 5º para CNCA)
+- **Filtro por Disciplina**: LP (Língua Portuguesa), MAT (Matemática), CN (Ciências Naturais)
+- **Filtro por Escola**: Todas as escolas participantes dos programas
+- **Feedback em tempo real**: Mostra filtros ativos e número de resultados encontrados
+- **Limpar filtros**: Botão para reset rápido de todos os filtros
+
+### 🖼️ Display Integrado de Gráficos (NOVO!)
+- **Visualização integrada**: Gráficos aparecem como parte do site, não apenas em modals
+- **Grid responsivo**: Layout adaptável mostrando até 6 gráficos inicialmente
+- **Carregamento otimizado**: Lazy loading das imagens para melhor performance
+- **Ações por gráfico**: Visualização ampliada e download direto
+- **Expandir todos**: Botão para mostrar todos os gráficos filtrados
+
+### 📱 Design Responsivo e Moderno
+- Interface profissional adaptada para desktop, tablet e mobile
+- Navegação intuitiva com sistema de tabs
+- Componentes otimizados para touch
+- Paleta de cores educacional consistente
 
 - **PROEA** - Programa de Avaliação da Educação (Anos Finais - 6º ao 9º ano)
 - **CNCA** - Compromisso Criança Alfabetizada (1º ao 5º ano)

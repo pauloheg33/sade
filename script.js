@@ -45,43 +45,20 @@ class SADESystem {
         });
     }
 
-    async loadData() {
-        try {
-            // Tentar carregar dados do arquivo JavaScript primeiro
-            if (typeof SADE_DATA !== 'undefined') {
-                this.data.proea = SADE_DATA.proea || [];
-                this.data.cnca = SADE_DATA.cnca || [];
-                this.metadata = SADE_DATA.metadata || {};
-                
-                console.log('✅ Dados carregados do arquivo JavaScript:', {
-                    proea: this.data.proea.length,
-                    cnca: this.data.cnca.length,
-                    total: this.data.proea.length + this.data.cnca.length
-                });
-            } else {
-                // Fallback: tentar carregar do JSON
-                const response = await fetch('./sade_data.json');
-                const data = await response.json();
-                
-                this.data.proea = data.proea || [];
-                this.data.cnca = data.cnca || [];
-                this.metadata = data.metadata || {};
-                
-                console.log('✅ Dados carregados do arquivo JSON:', {
-                    proea: this.data.proea.length,
-                    cnca: this.data.cnca.length,
-                    total: this.data.proea.length + this.data.cnca.length
-                });
-            }
-            
-        } catch (error) {
-            console.warn('⚠️ Erro ao carregar dados reais, usando dados simulados:', error);
-            // Fallback final: dados simulados
-            this.data.proea = this.generatePROEAData();
-            this.data.cnca = this.generateCNCAData();
+    loadData() {
+        if (typeof SADE_DATA !== 'undefined') {
+            this.data = SADE_DATA;
+        } else {
+            console.error('SADE_DATA não está definido');
+            this.data = { proea: [], cnca: [] };
         }
         
-        this.populateSchoolFilters();
+        this.populateFilters();
+        this.renderComparativeSection();
+        
+        // Initialize with empty filters (show all data)
+        this.filterPROEA();
+        this.filterCNCA();
     }
 
     generatePROEAData() {
@@ -230,6 +207,80 @@ class SADESystem {
         
         this.populateSelect('proea-school', proeaSchools);
         this.populateSelect('cnca-school', cncaSchools);
+    }
+
+    populateFilters() {        
+        // PROEA filters
+        const proeaGrades = [...new Set(this.data.proea.map(item => item.grade))].sort((a, b) => a - b);
+        const proeaSubjects = [...new Set(this.data.proea.map(item => item.subject))];
+        const proeaSchools = [...new Set(this.data.proea.map(item => item.school))].sort();
+        
+        // Clear existing options first
+        this.clearSelect('proea-grade');
+        this.clearSelect('proea-subject');
+        this.clearSelect('proea-school');
+        
+        // Populate grade options
+        proeaGrades.forEach(grade => {
+            this.addSelectOption('proea-grade', grade, `${grade}º Ano`);
+        });
+        
+        // Populate subject options
+        proeaSubjects.forEach(subject => {
+            this.addSelectOption('proea-subject', subject, this.getSubjectName(subject));
+        });
+        
+        // Populate school options
+        proeaSchools.forEach(school => {
+            this.addSelectOption('proea-school', school, school);
+        });
+        
+        // CNCA filters
+        const cncaGrades = [...new Set(this.data.cnca.map(item => item.grade))].sort((a, b) => a - b);
+        const cncaSubjects = [...new Set(this.data.cnca.map(item => item.subject))];
+        const cncaSchools = [...new Set(this.data.cnca.map(item => item.school))].sort();
+        
+        // Clear existing options first
+        this.clearSelect('cnca-grade');
+        this.clearSelect('cnca-subject');
+        this.clearSelect('cnca-school');
+        
+        // Populate grade options
+        cncaGrades.forEach(grade => {
+            this.addSelectOption('cnca-grade', grade, `${grade}º Ano`);
+        });
+        
+        // Populate subject options
+        cncaSubjects.forEach(subject => {
+            this.addSelectOption('cnca-subject', subject, this.getSubjectName(subject));
+        });
+        
+        // Populate school options
+        cncaSchools.forEach(school => {
+            this.addSelectOption('cnca-school', school, school);
+        });
+    }
+
+    clearSelect(selectId) {
+        const select = document.getElementById(selectId);
+        if (!select) return;
+        
+        // Keep only the first option (placeholder)
+        const firstOption = select.firstElementChild;
+        select.innerHTML = '';
+        if (firstOption) {
+            select.appendChild(firstOption);
+        }
+    }
+
+    addSelectOption(selectId, value, text) {
+        const select = document.getElementById(selectId);
+        if (!select) return;
+        
+        const optionElement = document.createElement('option');
+        optionElement.value = value;
+        optionElement.textContent = text;
+        select.appendChild(optionElement);
     }
 
     populateSelect(selectId, options) {
@@ -480,7 +531,10 @@ class SADESystem {
             filteredData = filteredData.filter(item => item.school === school);
         }
         
+        // Update both displays
+        this.renderIntegratedCharts('proea-chart-display', filteredData, 'PROEA');
         this.renderResults('proea-results', filteredData);
+        this.showFilterFeedback('proea', filteredData.length, { grade, subject, school });
     }
 
     filterCNCA() {
@@ -500,7 +554,10 @@ class SADESystem {
             filteredData = filteredData.filter(item => item.school === school);
         }
         
+        // Update both displays
+        this.renderIntegratedCharts('cnca-chart-display', filteredData, 'CNCA');
         this.renderResults('cnca-results', filteredData);
+        this.showFilterFeedback('cnca', filteredData.length, { grade, subject, school });
     }
 
     renderResults(containerId, data) {
@@ -566,6 +623,145 @@ class SADESystem {
                         ${description}
                     </div>
                 </div>
+            </div>
+        `;
+    }
+
+    renderIntegratedCharts(containerId, data, type) {
+        const container = document.getElementById(containerId);
+        
+        if (!container) return;
+        
+        if (data.length === 0) {
+            container.innerHTML = '<div class="no-charts">Nenhum gráfico disponível para os filtros selecionados.</div>';
+            return;
+        }
+        
+        // Display first 6 charts for integrated view
+        const chartsToShow = data.slice(0, 6);
+        
+        container.innerHTML = `
+            <div class="chart-display-grid">
+                ${chartsToShow.map((item, index) => `
+                    <div class="integrated-chart-item" data-index="${index}">
+                        <div class="chart-header">
+                            <h4>${item.grade}º Ano - ${item.school} - ${item.subject_name || this.getSubjectName(item.subject)}</h4>
+                            <div class="chart-stats">
+                                <span class="average">Média: ${item.average}</span>
+                                <span class="students">Alunos: ${item.students}</span>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <img src="${item.image_path}" alt="${item.grade}º Ano - ${item.school}" loading="lazy" />
+                        </div>
+                        <div class="chart-actions">
+                            <button onclick="sadeApp.openModal('${item.image_path}', '${item.grade}º Ano - ${item.school} - ${item.subject_name || this.getSubjectName(item.subject)}')" class="view-full">
+                                Ver Ampliado
+                            </button>
+                            <button onclick="sadeApp.downloadChart('${item.image_path}', '${item.grade}º Ano - ${item.school}')" class="download-btn">
+                                Download
+                            </button>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+            ${data.length > 6 ? `
+                <div class="show-more">
+                    <button onclick="sadeApp.showAllCharts('${containerId}', '${type}')" class="show-more-btn">
+                        Ver todos os ${data.length} gráficos
+                    </button>
+                </div>
+            ` : ''}
+        `;
+    }
+
+    showFilterFeedback(type, count, filters) {
+        const activeFilters = Object.entries(filters)
+            .filter(([key, value]) => value)
+            .map(([key, value]) => `${key}: ${value}`)
+            .join(', ');
+        
+        const feedbackId = `${type}-filter-feedback`;
+        let feedbackEl = document.getElementById(feedbackId);
+        
+        if (!feedbackEl) {
+            feedbackEl = document.createElement('div');
+            feedbackEl.id = feedbackId;
+            feedbackEl.className = 'filter-feedback';
+            
+            const filterSection = document.querySelector(`#${type}-section .filters`);
+            if (filterSection) {
+                filterSection.appendChild(feedbackEl);
+            }
+        }
+        
+        if (activeFilters) {
+            feedbackEl.innerHTML = `
+                <div class="feedback-content">
+                    <span class="filter-info">Filtros ativos: ${activeFilters}</span>
+                    <span class="result-count">${count} resultado(s) encontrado(s)</span>
+                    <button onclick="sadeApp.clearFilters('${type}')" class="clear-filters">Limpar Filtros</button>
+                </div>
+            `;
+            feedbackEl.style.display = 'block';
+        } else {
+            feedbackEl.style.display = 'none';
+        }
+    }
+
+    clearFilters(type) {
+        // Clear filter selects
+        document.getElementById(`${type}-grade`).value = '';
+        document.getElementById(`${type}-subject`).value = '';
+        document.getElementById(`${type}-school`).value = '';
+        
+        // Hide feedback
+        const feedbackEl = document.getElementById(`${type}-filter-feedback`);
+        if (feedbackEl) {
+            feedbackEl.style.display = 'none';
+        }
+        
+        // Re-filter with empty values
+        if (type === 'proea') {
+            this.filterPROEA();
+        } else {
+            this.filterCNCA();
+        }
+    }
+
+    showAllCharts(containerId, type) {
+        const data = type === 'PROEA' ? this.data.proea : this.data.cnca;
+        const container = document.getElementById(containerId);
+        
+        container.innerHTML = `
+            <div class="chart-display-grid expanded">
+                ${data.map((item, index) => `
+                    <div class="integrated-chart-item" data-index="${index}">
+                        <div class="chart-header">
+                            <h4>${item.grade}º Ano - ${item.school} - ${item.subject_name || this.getSubjectName(item.subject)}</h4>
+                            <div class="chart-stats">
+                                <span class="average">Média: ${item.average}</span>
+                                <span class="students">Alunos: ${item.students}</span>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <img src="${item.image_path}" alt="${item.grade}º Ano - ${item.school}" loading="lazy" />
+                        </div>
+                        <div class="chart-actions">
+                            <button onclick="sadeApp.openModal('${item.image_path}', '${item.grade}º Ano - ${item.school} - ${item.subject_name || this.getSubjectName(item.subject)}')" class="view-full">
+                                Ver Ampliado
+                            </button>
+                            <button onclick="sadeApp.downloadChart('${item.image_path}', '${item.grade}º Ano - ${item.school}')" class="download-btn">
+                                Download
+                            </button>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+            <div class="show-less">
+                <button onclick="location.reload()" class="show-less-btn">
+                    Mostrar menos
+                </button>
             </div>
         `;
     }
