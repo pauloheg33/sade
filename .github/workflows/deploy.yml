@@ -2,7 +2,7 @@ name: Deploy SADE to GitHub Pages
 
 on:
   push:
-    branches: [ master, main ]
+    branches: [ main ]
 
 permissions:
   contents: read
