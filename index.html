@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SADE - Sistema de Avaliação e Desempenho Escolar da Secretaria da Educação de Ararendá">
+    <meta name="keywords" content="educação, avaliação, desempenho escolar, Ararendá, PROEA, CNCA">
+    <meta name="author" content="Secretaria da Educação de Ararendá">
+    <title>SADE - Sistema de Avaliação e Desempenho Escolar</title>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.9.1/chart.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div>
+                        <h1>SADE</h1>
+                        <p>Sistema de Avaliação e Desempenho Escolar</p>
+                    </div>
+                </div>
+                <div class="header-info">
+                    <h2>Secretaria da Educação de Ararendá</h2>
+                    <p>Município de Ararendá - CE</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="#dashboard" class="nav-link active" data-section="dashboard"><i class="fas fa-chart-dashboard"></i> Dashboard</a></li>
+                <li><a href="#proea" class="nav-link" data-section="proea"><i class="fas fa-chart-line"></i> PROEA - Anos Finais</a></li>
+                <li><a href="#cnca" class="nav-link" data-section="cnca"><i class="fas fa-chart-bar"></i> CNCA - Alfabetização</a></li>
+                <li><a href="#comparativo" class="nav-link" data-section="comparativo"><i class="fas fa-balance-scale"></i> Comparativo</a></li>
+                <li><a href="#escolas" class="nav-link" data-section="escolas"><i class="fas fa-school"></i> Por Escola</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main">
+        <div class="container">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="section active">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-dashboard"></i> Dashboard Geral</h2>
+                    <p>Visão geral do desempenho educacional de Ararendá</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="total-students">0</h3>
+                            <p>Total de Alunos</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="total-schools">0</h3>
+                            <p>Escolas Avaliadas</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="avg-performance">0</h3>
+                            <p>Média Geral</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="total-evaluations">0</h3>
+                            <p>Avaliações</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3>Desempenho por Disciplina</h3>
+                        <canvas id="subjectChart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Distribuição por Ano Escolar</h3>
+                        <canvas id="gradeChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="charts-grid">
+                    <div class="chart-card full-width">
+                        <h3>Comparativo de Médias por Escola</h3>
+                        <canvas id="schoolComparisonChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PROEA Section -->
+            <section id="proea" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-line"></i> PROEA - Avaliação dos Anos Finais</h2>
+                    <p>Programa de Avaliação da Educação - Anos Finais (6º ao 9º ano)</p>
+                </div>
+
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="proea-grade">Ano Escolar:</label>
+                        <select id="proea-grade">
+                            <option value="">Todos os anos</option>
+                            <option value="6">6º Ano</option>
+                            <option value="7">7º Ano</option>
+                            <option value="8">8º Ano</option>
+                            <option value="9">9º Ano</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="proea-subject">Disciplina:</label>
+                        <select id="proea-subject">
+                            <option value="">Todas as disciplinas</option>
+                            <option value="LP">Língua Portuguesa</option>
+                            <option value="MAT">Matemática</option>
+                            <option value="CN">Ciências Naturais</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="proea-school">Escola:</label>
+                        <select id="proea-school">
+                            <option value="">Todas as escolas</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="proea-results" class="results-grid">
+                    <!-- Results will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- CNCA Section -->
+            <section id="cnca" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-bar"></i> CNCA - Compromisso Criança Alfabetizada</h2>
+                    <p>Avaliação da Alfabetização (1º ao 5º ano)</p>
+                </div>
+
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="cnca-grade">Ano Escolar:</label>
+                        <select id="cnca-grade">
+                            <option value="">Todos os anos</option>
+                            <option value="1">1º Ano</option>
+                            <option value="2">2º Ano</option>
+                            <option value="3">3º Ano</option>
+                            <option value="4">4º Ano</option>
+                            <option value="5">5º Ano</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="cnca-subject">Disciplina:</label>
+                        <select id="cnca-subject">
+                            <option value="">Todas as disciplinas</option>
+                            <option value="LP">Língua Portuguesa</option>
+                            <option value="MAT">Matemática</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="cnca-school">Escola:</label>
+                        <select id="cnca-school">
+                            <option value="">Todas as escolas</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="cnca-results" class="results-grid">
+                    <!-- Results will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Comparativo Section -->
+            <section id="comparativo" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-balance-scale"></i> Análise Comparativa</h2>
+                    <p>Compare o desempenho entre diferentes escolas, anos e disciplinas</p>
+                </div>
+
+                <div class="comparison-tools">
+                    <div class="comparison-chart">
+                        <h3>Comparativo PROEA vs CNCA</h3>
+                        <canvas id="programComparisonChart"></canvas>
+                    </div>
+                    <div class="comparison-chart">
+                        <h3>Evolução por Disciplina</h3>
+                        <canvas id="subjectEvolutionChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Escolas Section -->
+            <section id="escolas" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-school"></i> Desempenho por Escola</h2>
+                    <p>Análise detalhada do desempenho de cada unidade escolar</p>
+                </div>
+
+                <div id="schools-list" class="schools-grid">
+                    <!-- Schools will be populated by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Secretaria da Educação de Ararendá. Sistema de Avaliação e Desempenho Escolar.</p>
+        </div>
+    </footer>
+
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="" alt="Gráfico de Desempenho">
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.9.1/chart.min.js"></script>
+    <script src="sade_data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

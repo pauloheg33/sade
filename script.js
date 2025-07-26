@@ -1,0 +1,732 @@
+// Sistema de Avaliação e Desempenho Escolar - SADE
+// Secretaria da Educação de Ararendá
+
+class SADESystem {
+    constructor() {
+        this.data = {
+            proea: [],
+            cnca: []
+        };
+        this.charts = {};
+        this.init();
+    }
+
+    async init() {
+        this.setupEventListeners();
+        await this.loadData();
+        this.renderDashboard();
+        this.renderAllSections();
+    }
+
+    setupEventListeners() {
+        // Navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.switchSection(link.dataset.section);
+            });
+        });
+
+        // Filters
+        document.getElementById('proea-grade')?.addEventListener('change', () => this.filterPROEA());
+        document.getElementById('proea-subject')?.addEventListener('change', () => this.filterPROEA());
+        document.getElementById('proea-school')?.addEventListener('change', () => this.filterPROEA());
+        
+        document.getElementById('cnca-grade')?.addEventListener('change', () => this.filterCNCA());
+        document.getElementById('cnca-subject')?.addEventListener('change', () => this.filterCNCA());
+        document.getElementById('cnca-school')?.addEventListener('change', () => this.filterCNCA());
+
+        // Modal
+        const modal = document.getElementById('imageModal');
+        const close = document.querySelector('.close');
+        close.addEventListener('click', () => modal.style.display = 'none');
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) modal.style.display = 'none';
+        });
+    }
+
+    async loadData() {
+        try {
+            // Tentar carregar dados do arquivo JavaScript primeiro
+            if (typeof SADE_DATA !== 'undefined') {
+                this.data.proea = SADE_DATA.proea || [];
+                this.data.cnca = SADE_DATA.cnca || [];
+                this.metadata = SADE_DATA.metadata || {};
+                
+                console.log('✅ Dados carregados do arquivo JavaScript:', {
+                    proea: this.data.proea.length,
+                    cnca: this.data.cnca.length,
+                    total: this.data.proea.length + this.data.cnca.length
+                });
+            } else {
+                // Fallback: tentar carregar do JSON
+                const response = await fetch('./sade_data.json');
+                const data = await response.json();
+                
+                this.data.proea = data.proea || [];
+                this.data.cnca = data.cnca || [];
+                this.metadata = data.metadata || {};
+                
+                console.log('✅ Dados carregados do arquivo JSON:', {
+                    proea: this.data.proea.length,
+                    cnca: this.data.cnca.length,
+                    total: this.data.proea.length + this.data.cnca.length
+                });
+            }
+            
+        } catch (error) {
+            console.warn('⚠️ Erro ao carregar dados reais, usando dados simulados:', error);
+            // Fallback final: dados simulados
+            this.data.proea = this.generatePROEAData();
+            this.data.cnca = this.generateCNCAData();
+        }
+        
+        this.populateSchoolFilters();
+    }
+
+    generatePROEAData() {
+        const schools = [
+            '03 DE DEZEMBRO',
+            '21 DE DEZEMBRO',
+            'ANTONIO DE SOUSA BARROS',
+            'FIRMINO JOSÉ',
+            'JOSE ALVES'
+        ];
+        
+        const subjects = ['LP', 'MAT', 'CN'];
+        const grades = [6, 7, 8, 9];
+        const data = [];
+
+        schools.forEach(school => {
+            grades.forEach(grade => {
+                subjects.forEach(subject => {
+                    // Simulando diferentes turmas para algumas escolas
+                    const variations = this.getSchoolVariations(school, grade);
+                    
+                    variations.forEach(variation => {
+                        const students = Math.floor(Math.random() * 30) + 5;
+                        const average = this.generateAverage(school, subject, grade);
+                        
+                        data.push({
+                            program: 'PROEA',
+                            school: school,
+                            variation: variation,
+                            grade: grade,
+                            subject: subject,
+                            students: students,
+                            average: average,
+                            performance: this.getPerformanceLevel(average),
+                            imagePath: `Graficos/AVALIAÇÃO DAS APRENDIZAGENS DOS ANOS FINAIS - PROEA/${grade}_ano/${subject}/${grade}º_Ano_${variation}_${subject}_Media${average}_Alunos${students}.png`
+                        });
+                    });
+                });
+            });
+        });
+
+        return data;
+    }
+
+    generateCNCAData() {
+        const schools = [
+            '03 DE DEZEMBRO',
+            'JOAQUIM FERREIRA',
+            'MOURÃO LIMA',
+            'FIRMINO JOSÉ',
+            'ANTONIO DE SOUSA BARROS',
+            'JOSE ALVES DE SENA'
+        ];
+        
+        const subjects = ['LP', 'MAT'];
+        const grades = [1, 2, 3, 4, 5];
+        const data = [];
+
+        schools.forEach(school => {
+            grades.forEach(grade => {
+                subjects.forEach(subject => {
+                    const variations = this.getCNCAVariations(school, grade);
+                    
+                    variations.forEach(variation => {
+                        const students = Math.floor(Math.random() * 25) + 8;
+                        const average = this.generateAverage(school, subject, grade);
+                        
+                        data.push({
+                            program: 'CNCA',
+                            school: school,
+                            variation: variation,
+                            grade: grade,
+                            subject: subject,
+                            students: students,
+                            average: average,
+                            performance: this.getPerformanceLevel(average),
+                            imagePath: `Graficos/CNCA - COMPROMISSO CRIANÇA ALFABETIZADA/${grade}_ano/${subject}/${grade}o_Ano_${variation}_${subject}_Media${average}_Alunos${students}.png`
+                        });
+                    });
+                });
+            });
+        });
+
+        return data;
+    }
+
+    getSchoolVariations(school, grade) {
+        const variations = [school.replace(/\s+/g, '_').toUpperCase()];
+        
+        // Algumas escolas têm múltiplas turmas
+        if (school === '21 DE DEZEMBRO' && grade >= 7) {
+            variations.push('21_DE_DEZEMBRO_A', '21_DE_DEZEMBRO_B', '21_DE_DEZEMBRO_C');
+        }
+        if (school === 'FIRMINO JOSÉ' && grade >= 7) {
+            variations.push('FIRMINO_JOSÉ_A', 'FIRMINO_JOSÉ_B');
+        }
+        if (school === 'JOSE ALVES' && grade >= 7) {
+            variations.push('JOSE_ALVES_A', 'JOSE_ALVES_B');
+        }
+        
+        return variations;
+    }
+
+    getCNCAVariations(school, grade) {
+        const baseVariation = school.replace(/\s+/g, '_').toUpperCase();
+        const variations = [baseVariation];
+        
+        // Algumas escolas têm turmas A e B
+        if (['JOAQUIM FERREIRA', 'MOURÃO LIMA', 'FIRMINO JOSÉ'].includes(school)) {
+            variations.push(`A_-_${baseVariation}`, `B_-_${baseVariation}`);
+        }
+        
+        return variations;
+    }
+
+    generateAverage(school, subject, grade) {
+        // Simulação de médias baseadas em padrões observados
+        let base = 65 + Math.random() * 15; // Base entre 65-80
+        
+        // Ajustes por escola
+        if (school.includes('03 DE DEZEMBRO')) base += 5;
+        if (school.includes('21 DE DEZEMBRO')) base += 2;
+        if (school.includes('ANTONIO')) base -= 3;
+        
+        // Ajustes por disciplina
+        if (subject === 'MAT') base -= 2;
+        if (subject === 'CN') base += 1;
+        
+        // Ajustes por ano
+        if (grade <= 3) base += 3;
+        if (grade >= 8) base -= 2;
+        
+        return Math.round(Math.max(40, Math.min(95, base)) * 10) / 10;
+    }
+
+    getPerformanceLevel(average) {
+        if (average >= 80) return 'excellent';
+        if (average >= 70) return 'good';
+        if (average >= 60) return 'average';
+        return 'poor';
+    }
+
+    populateSchoolFilters() {
+        const proeaSchools = [...new Set(this.data.proea.map(item => item.school))];
+        const cncaSchools = [...new Set(this.data.cnca.map(item => item.school))];
+        
+        this.populateSelect('proea-school', proeaSchools);
+        this.populateSelect('cnca-school', cncaSchools);
+    }
+
+    populateSelect(selectId, options) {
+        const select = document.getElementById(selectId);
+        if (!select) return;
+        
+        options.sort().forEach(option => {
+            const optionElement = document.createElement('option');
+            optionElement.value = option;
+            optionElement.textContent = option;
+            select.appendChild(optionElement);
+        });
+    }
+
+    switchSection(sectionId) {
+        // Update navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+        });
+        document.querySelector(`[data-section="${sectionId}"]`).classList.add('active');
+        
+        // Update sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.classList.remove('active');
+        });
+        document.getElementById(sectionId).classList.add('active');
+        
+        // Render section-specific content
+        switch(sectionId) {
+            case 'dashboard':
+                this.renderDashboard();
+                break;
+            case 'proea':
+                this.renderPROEASection();
+                break;
+            case 'cnca':
+                this.renderCNCASection();
+                break;
+            case 'comparativo':
+                this.renderComparativeSection();
+                break;
+            case 'escolas':
+                this.renderSchoolsSection();
+                break;
+        }
+    }
+
+    renderDashboard() {
+        this.updateStats();
+        this.renderDashboardCharts();
+    }
+
+    updateStats() {
+        const allData = [...this.data.proea, ...this.data.cnca];
+        
+        const totalStudents = allData.reduce((sum, item) => sum + item.students, 0);
+        const totalSchools = new Set(allData.map(item => item.school)).size;
+        const avgPerformance = allData.reduce((sum, item) => sum + item.average, 0) / allData.length;
+        const totalEvaluations = allData.length;
+        
+        document.getElementById('total-students').textContent = totalStudents.toLocaleString();
+        document.getElementById('total-schools').textContent = totalSchools;
+        document.getElementById('avg-performance').textContent = avgPerformance.toFixed(1);
+        document.getElementById('total-evaluations').textContent = totalEvaluations;
+    }
+
+    renderDashboardCharts() {
+        this.renderSubjectChart();
+        this.renderGradeChart();
+        this.renderSchoolComparisonChart();
+    }
+
+    renderSubjectChart() {
+        const ctx = document.getElementById('subjectChart');
+        if (!ctx) return;
+
+        if (this.charts.subject) {
+            this.charts.subject.destroy();
+        }
+
+        const allData = [...this.data.proea, ...this.data.cnca];
+        const subjectData = {};
+        
+        allData.forEach(item => {
+            const subjectName = this.getSubjectName(item.subject);
+            if (!subjectData[subjectName]) {
+                subjectData[subjectName] = { total: 0, count: 0 };
+            }
+            subjectData[subjectName].total += item.average;
+            subjectData[subjectName].count++;
+        });
+
+        const labels = Object.keys(subjectData);
+        const data = labels.map(label => 
+            (subjectData[label].total / subjectData[label].count).toFixed(1)
+        );
+
+        this.charts.subject = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: data,
+                    backgroundColor: [
+                        '#3498db',
+                        '#e74c3c',
+                        '#27ae60',
+                        '#f39c12'
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#ffffff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    }
+
+    renderGradeChart() {
+        const ctx = document.getElementById('gradeChart');
+        if (!ctx) return;
+
+        if (this.charts.grade) {
+            this.charts.grade.destroy();
+        }
+
+        const allData = [...this.data.proea, ...this.data.cnca];
+        const gradeData = {};
+        
+        allData.forEach(item => {
+            const gradeName = `${item.grade}º Ano`;
+            if (!gradeData[gradeName]) {
+                gradeData[gradeName] = { total: 0, count: 0 };
+            }
+            gradeData[gradeName].total += item.average;
+            gradeData[gradeName].count++;
+        });
+
+        const labels = Object.keys(gradeData).sort();
+        const data = labels.map(label => 
+            (gradeData[label].total / gradeData[label].count).toFixed(1)
+        );
+
+        this.charts.grade = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Média por Ano',
+                    data: data,
+                    backgroundColor: '#3498db',
+                    borderColor: '#2980b9',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    }
+
+    renderSchoolComparisonChart() {
+        const ctx = document.getElementById('schoolComparisonChart');
+        if (!ctx) return;
+
+        if (this.charts.schoolComparison) {
+            this.charts.schoolComparison.destroy();
+        }
+
+        const allData = [...this.data.proea, ...this.data.cnca];
+        const schoolData = {};
+        
+        allData.forEach(item => {
+            if (!schoolData[item.school]) {
+                schoolData[item.school] = { total: 0, count: 0 };
+            }
+            schoolData[item.school].total += item.average;
+            schoolData[item.school].count++;
+        });
+
+        const labels = Object.keys(schoolData).sort();
+        const data = labels.map(label => 
+            (schoolData[label].total / schoolData[label].count).toFixed(1)
+        );
+
+        this.charts.schoolComparison = new Chart(ctx, {
+            type: 'horizontalBar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Média da Escola',
+                    data: data,
+                    backgroundColor: '#27ae60',
+                    borderColor: '#219a52',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    }
+
+    renderPROEASection() {
+        this.filterPROEA();
+    }
+
+    renderCNCASection() {
+        this.filterCNCA();
+    }
+
+    filterPROEA() {
+        const grade = document.getElementById('proea-grade').value;
+        const subject = document.getElementById('proea-subject').value;
+        const school = document.getElementById('proea-school').value;
+        
+        let filteredData = this.data.proea;
+        
+        if (grade) {
+            filteredData = filteredData.filter(item => item.grade == grade);
+        }
+        if (subject) {
+            filteredData = filteredData.filter(item => item.subject === subject);
+        }
+        if (school) {
+            filteredData = filteredData.filter(item => item.school === school);
+        }
+        
+        this.renderResults('proea-results', filteredData);
+    }
+
+    filterCNCA() {
+        const grade = document.getElementById('cnca-grade').value;
+        const subject = document.getElementById('cnca-subject').value;
+        const school = document.getElementById('cnca-school').value;
+        
+        let filteredData = this.data.cnca;
+        
+        if (grade) {
+            filteredData = filteredData.filter(item => item.grade == grade);
+        }
+        if (subject) {
+            filteredData = filteredData.filter(item => item.subject === subject);
+        }
+        if (school) {
+            filteredData = filteredData.filter(item => item.school === school);
+        }
+        
+        this.renderResults('cnca-results', filteredData);
+    }
+
+    renderResults(containerId, data) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        
+        if (data.length === 0) {
+            container.innerHTML = '<div class="loading"><i class="fas fa-search"></i><h3>Nenhum resultado encontrado</h3><p>Tente ajustar os filtros</p></div>';
+            return;
+        }
+        
+        container.innerHTML = data.map(item => this.createResultCard(item)).join('');
+        
+        // Add click event listeners to result cards
+        container.querySelectorAll('.result-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const imagePath = card.dataset.imagePath;
+                const title = card.dataset.title;
+                const description = card.dataset.description;
+                this.showModal(imagePath, title, description);
+            });
+        });
+    }
+
+    createResultCard(item) {
+        const title = `${item.grade}º Ano - ${item.school} - ${item.subject_name || this.getSubjectName(item.subject)}`;
+        const description = `${item.school_variation ? 'Turma: ' + item.school_variation + ' | ' : ''}Programa: ${item.program}`;
+        
+        return `
+            <div class="result-card" data-image-path="${item.image_path}" data-title="${title}" data-description="${description}">
+                <img src="${item.image_path}" alt="${title}" class="result-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZWNmMGYxIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzdmOGM4ZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkdyw6FmaWNvIG7Do28gZGlzcG9uw612ZWw8L3RleHQ+PC9zdmc+'">
+                <div class="result-info">
+                    <div class="result-title">${title}</div>
+                    <div class="result-details">
+                        <div class="result-detail">
+                            <div class="result-detail-value">${item.average}</div>
+                            <div class="result-detail-label">Média</div>
+                        </div>
+                        <div class="result-detail">
+                            <div class="result-detail-value">${item.students}</div>
+                            <div class="result-detail-label">Alunos</div>
+                        </div>
+                        <div class="result-detail">
+                            <span class="performance-indicator performance-${item.performance}">
+                                ${item.performance_name || this.getPerformanceName(item.performance)}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="result-meta">${description}</div>
+                </div>
+            </div>
+        `;
+    }
+
+    renderComparativeSection() {
+        this.renderProgramComparisonChart();
+        this.renderSubjectEvolutionChart();
+    }
+
+    renderProgramComparisonChart() {
+        const ctx = document.getElementById('programComparisonChart');
+        if (!ctx) return;
+
+        if (this.charts.programComparison) {
+            this.charts.programComparison.destroy();
+        }
+
+        const proeaAvg = this.data.proea.reduce((sum, item) => sum + item.average, 0) / this.data.proea.length;
+        const cncaAvg = this.data.cnca.reduce((sum, item) => sum + item.average, 0) / this.data.cnca.length;
+
+        this.charts.programComparison = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['PROEA (Anos Finais)', 'CNCA (Alfabetização)'],
+                datasets: [{
+                    label: 'Média do Programa',
+                    data: [proeaAvg.toFixed(1), cncaAvg.toFixed(1)],
+                    backgroundColor: ['#3498db', '#27ae60'],
+                    borderColor: ['#2980b9', '#219a52'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    }
+
+    renderSubjectEvolutionChart() {
+        const ctx = document.getElementById('subjectEvolutionChart');
+        if (!ctx) return;
+
+        if (this.charts.subjectEvolution) {
+            this.charts.subjectEvolution.destroy();
+        }
+
+        const allData = [...this.data.proea, ...this.data.cnca];
+        const subjects = ['LP', 'MAT', 'CN'];
+        const grades = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        
+        const datasets = subjects.map((subject, index) => {
+            const color = ['#e74c3c', '#f39c12', '#27ae60'][index];
+            const data = grades.map(grade => {
+                const gradeData = allData.filter(item => item.grade === grade && item.subject === subject);
+                if (gradeData.length === 0) return null;
+                return (gradeData.reduce((sum, item) => sum + item.average, 0) / gradeData.length).toFixed(1);
+            });
+            
+            return {
+                label: this.getSubjectName(subject),
+                data: data,
+                borderColor: color,
+                backgroundColor: color + '20',
+                borderWidth: 2,
+                fill: false
+            };
+        });
+
+        this.charts.subjectEvolution = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: grades.map(g => `${g}º Ano`),
+                datasets: datasets
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    }
+
+    renderSchoolsSection() {
+        const schools = [...new Set([...this.data.proea, ...this.data.cnca].map(item => item.school))];
+        const container = document.getElementById('schools-list');
+        
+        if (!container) return;
+        
+        container.innerHTML = schools.map(school => this.createSchoolCard(school)).join('');
+    }
+
+    createSchoolCard(schoolName) {
+        const schoolData = [...this.data.proea, ...this.data.cnca].filter(item => item.school === schoolName);
+        const avgPerformance = (schoolData.reduce((sum, item) => sum + item.average, 0) / schoolData.length).toFixed(1);
+        const totalStudents = schoolData.reduce((sum, item) => sum + item.students, 0);
+        const evaluationsCount = schoolData.length;
+        
+        return `
+            <div class="school-card">
+                <div class="school-header">
+                    <div class="school-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="school-name">${schoolName}</div>
+                </div>
+                <div class="school-stats">
+                    <div class="school-stat">
+                        <div class="school-stat-value">${avgPerformance}</div>
+                        <div class="school-stat-label">Média</div>
+                    </div>
+                    <div class="school-stat">
+                        <div class="school-stat-value">${totalStudents}</div>
+                        <div class="school-stat-label">Alunos</div>
+                    </div>
+                    <div class="school-stat">
+                        <div class="school-stat-value">${evaluationsCount}</div>
+                        <div class="school-stat-label">Avaliações</div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    renderAllSections() {
+        this.renderPROEASection();
+        this.renderCNCASection();
+        this.renderComparativeSection();
+        this.renderSchoolsSection();
+    }
+
+    showModal(imagePath, title, description) {
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        
+        modalImage.src = imagePath;
+        modalTitle.textContent = title;
+        modalDescription.textContent = description;
+        
+        modal.style.display = 'block';
+    }
+
+    getSubjectName(code) {
+        const subjects = {
+            'LP': 'Língua Portuguesa',
+            'MAT': 'Matemática',
+            'CN': 'Ciências Naturais'
+        };
+        return subjects[code] || code;
+    }
+
+    getPerformanceName(level) {
+        const levels = {
+            'excellent': 'Excelente',
+            'good': 'Bom',
+            'average': 'Regular',
+            'poor': 'Insuficiente'
+        };
+        return levels[level] || level;
+    }
+}
+
+// Initialize the system when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new SADESystem();
+});
