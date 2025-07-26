@@ -59,15 +59,11 @@ class SADESystem {
     loadData() {
         if (typeof SADE_DATA !== 'undefined') {
             this.data = SADE_DATA;
-            console.log('SADE_DATA carregado:', this.data);
-            console.log('PROEA dados:', this.data.proea?.length || 0);
-            console.log('CNCA dados:', this.data.cnca?.length || 0);
         } else {
             console.error('SADE_DATA não está definido');
             this.data = { proea: [], cnca: [] };
         }
         
-        console.log('Populando filtros...');
         this.populateFilters();
         this.renderComparativeSection();
         
@@ -225,8 +221,6 @@ class SADESystem {
     }
 
     populateFilters() {        
-        console.log('Iniciando populateFilters...');
-        
         // PROEA filters
         const proeaGrades = [...new Set(this.data.proea.map(item => item.grade))].sort((a, b) => a - b);
         const proeaSubjects = [...new Set(this.data.proea.map(item => item.subject))];
@@ -280,8 +274,6 @@ class SADESystem {
         cncaSchools.forEach(school => {
             this.addSelectOption('cnca-school', school, school);
         });
-        
-        console.log('populateFilters concluído.');
     }
 
     clearSelect(selectId) {
@@ -298,8 +290,6 @@ class SADESystem {
 
     addSelectOption(selectId, value, text) {
         const select = document.getElementById(selectId);
-        console.log(`Tentando adicionar opção ${value} para select ${selectId}:`, select);
-        
         if (!select) {
             console.error(`Select com ID ${selectId} não encontrado!`);
             return;
@@ -309,8 +299,6 @@ class SADESystem {
         optionElement.value = value;
         optionElement.textContent = text;
         select.appendChild(optionElement);
-        
-        console.log(`Opção adicionada: ${text} (${value}) para ${selectId}`);
     }
 
     populateSelect(selectId, options) {
@@ -1140,13 +1128,31 @@ let sadeSystemInitialized = false;
 
 function initializeSADE() {
     if (sadeSystemInitialized) return;
+    
+    console.log('Iniciando SADE System...');
+    console.log('Document ready state:', document.readyState);
+    console.log('SADE_DATA disponível:', typeof SADE_DATA !== 'undefined');
+    
     sadeSystemInitialized = true;
     window.sadeApp = new SADESystem();
 }
 
-document.addEventListener('DOMContentLoaded', initializeSADE);
+// Aguardar tanto o DOM quanto os dados estarem carregados
+function waitForDataAndDOM() {
+    if (document.readyState === 'complete' && typeof SADE_DATA !== 'undefined') {
+        initializeSADE();
+    } else {
+        setTimeout(waitForDataAndDOM, 100); // Verificar novamente em 100ms
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOMContentLoaded event fired');
+    waitForDataAndDOM();
+});
 
 // Fallback para garantir inicialização
 if (document.readyState === 'complete') {
-    initializeSADE();
+    console.log('Document already complete');
+    waitForDataAndDOM();
 }
