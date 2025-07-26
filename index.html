@@ -7,18 +7,21 @@
     <meta name="keywords" content="educação, avaliação, desempenho escolar, Ararendá, PROEA, CNCA">
     <meta name="author" content="Secretaria da Educação de Ararendá">
     <title>SADE - Sistema de Avaliação e Desempenho Escolar</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.9.1/chart.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/animations.css">
+    <link rel="stylesheet" href="assets/components.css">
+    <link rel="stylesheet" href="assets/legacy-fixes.css">
 </head>
 <body>
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <div class="logo-section">
-                    <img src="brasao_arara.png" alt="Brasão de Ararendá" class="municipal-logo" onerror="this.src='logo-arara.svg'">
+                    <img src="assets/logo.png" alt="Brasão de Ararendá" class="municipal-logo" onerror="this.src='assets/logo-arara.svg'">
                     <div class="logo-content">
                         <h1 class="system-title">SADE</h1>
                         <p class="system-subtitle">Sistema de Avaliação e Desempenho Escolar</p>
@@ -258,19 +261,10 @@
         </div>
     </footer>
 
-    <div id="imageModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <img id="modalImage" src="" alt="Gráfico de Desempenho">
-            <div class="modal-info">
-                <h3 id="modalTitle"></h3>
-                <p id="modalDescription"></p>
-            </div>
-        </div>
-    </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="sade_data.js"></script>
+    <script src="assets/exports.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

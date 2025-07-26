@@ -1,0 +1,212 @@
+/* Legacy Result Card Fixes - Compatibility with new styles */
+
+/* Fix for old result structure */
+.result-info {
+    padding: var(--space-lg);
+}
+
+.result-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--space-md);
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+}
+
+.result-detail {
+    text-align: center;
+    flex: 1;
+    min-width: 80px;
+}
+
+.result-detail-value {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    line-height: 1;
+}
+
+.result-detail-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    margin-top: var(--space-xs);
+}
+
+/* Performance Indicators - Old Style Compatibility */
+.performance-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-md);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.performance-indicator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.performance-indicator:hover::before {
+    left: 100%;
+}
+
+.performance-excellent {
+    background: linear-gradient(135deg, var(--success), var(--municipal-green));
+    color: var(--white);
+}
+
+.performance-good {
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+    color: var(--white);
+}
+
+.performance-average {
+    background: linear-gradient(135deg, var(--warning), var(--golden-yellow));
+    color: var(--white);
+}
+
+.performance-poor {
+    background: linear-gradient(135deg, var(--error), var(--warm-orange));
+    color: var(--white);
+}
+
+/* Result Performance Section for New Cards */
+.result-performance {
+    margin-bottom: var(--space-md);
+    text-align: center;
+}
+
+/* Ensure proper spacing and alignment */
+.result-card .result-title {
+    margin-bottom: var(--space-md);
+}
+
+.result-card .result-meta {
+    margin-top: var(--space-md);
+}
+
+/* Loading State Improvements */
+.loading {
+    text-align: center;
+    padding: var(--space-2xl);
+    color: var(--text-secondary);
+    background: var(--light-gray);
+    border-radius: var(--radius-lg);
+    margin: var(--space-lg) 0;
+}
+
+.loading i {
+    font-size: 3rem;
+    margin-bottom: var(--space-lg);
+    color: var(--primary-blue);
+    animation: pulse 2s infinite;
+}
+
+.loading h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+}
+
+.loading p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+/* Ripple Effect for Buttons */
+.nav-link,
+.download-btn,
+.modal-btn,
+.filter-select {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::after,
+.download-btn::after,
+.modal-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.nav-link:active::after,
+.download-btn:active::after,
+.modal-btn:active::after {
+    width: 200px;
+    height: 200px;
+}
+
+/* Smooth Transitions for All Interactive Elements */
+button,
+select,
+input,
+.result-card,
+.stat-card,
+.chart-card,
+.school-card,
+.comparison-card {
+    transition: var(--transition-smooth);
+}
+
+/* Focus States for Accessibility */
+button:focus,
+select:focus,
+input:focus,
+.result-card:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+/* Print Optimizations */
+@media print {
+    .download-bar,
+    .filters,
+    .nav-link,
+    .modal {
+        display: none !important;
+    }
+    
+    .result-card,
+    .stat-card,
+    .chart-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid var(--medium-gray);
+    }
+    
+    .header {
+        background: var(--white) !important;
+        color: var(--text-primary) !important;
+    }
+    
+    .system-title {
+        color: var(--primary-blue) !important;
+        -webkit-text-fill-color: unset !important;
+    }
+}

@@ -517,10 +517,16 @@ class SADESystem {
         // Add click event listeners to result cards
         container.querySelectorAll('.result-card').forEach(card => {
             card.addEventListener('click', () => {
-                const imagePath = card.dataset.imagePath;
-                const title = card.dataset.title;
-                const description = card.dataset.description;
-                this.showModal(imagePath, title, description);
+                const img = card.querySelector('.result-image');
+                if (window.sadeExports) {
+                    window.sadeExports.openImageModal(img, card);
+                } else {
+                    // Fallback para o sistema antigo
+                    const imagePath = card.dataset.imagePath;
+                    const title = card.dataset.title;
+                    const description = card.dataset.description;
+                    this.showModal(imagePath, title, description);
+                }
             });
         });
     }
@@ -531,25 +537,34 @@ class SADESystem {
         
         return `
             <div class="result-card" data-image-path="${item.image_path}" data-title="${title}" data-description="${description}">
-                <img src="${item.image_path}" alt="${title}" class="result-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZWNmMGYxIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzdmOGM4ZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkdyw6FmaWNvIG7Do28gZGlzcG9uw612ZWw8L3RleHQ+PC9zdmc+'">
-                <div class="result-info">
-                    <div class="result-title">${title}</div>
-                    <div class="result-details">
-                        <div class="result-detail">
-                            <div class="result-detail-value">${item.average}</div>
-                            <div class="result-detail-label">Média</div>
+                <div class="result-image-container">
+                    <img src="${item.image_path}" alt="${title}" class="result-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZWNmMGYxIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzdmOGM4ZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkdyw6FmaWNvIG7Do28gZGlzcG9uw612ZWw8L3RleHQ+PC9zdmc+'">
+                    <div class="image-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="result-content">
+                    <h3 class="result-title">${title}</h3>
+                    <div class="result-stats">
+                        <div class="result-stat">
+                            <div class="result-stat-value">${item.average}</div>
+                            <div class="result-stat-label">Média</div>
                         </div>
-                        <div class="result-detail">
-                            <div class="result-detail-value">${item.students}</div>
-                            <div class="result-detail-label">Alunos</div>
-                        </div>
-                        <div class="result-detail">
-                            <span class="performance-indicator performance-${item.performance}">
-                                ${item.performance_name || this.getPerformanceName(item.performance)}
-                            </span>
+                        <div class="result-stat">
+                            <div class="result-stat-value">${item.students}</div>
+                            <div class="result-stat-label">Alunos</div>
                         </div>
                     </div>
-                    <div class="result-meta">${description}</div>
+                    <div class="result-performance">
+                        <span class="performance-badge performance-${item.performance}">
+                            <i class="fas fa-${this.getPerformanceIcon(item.performance)}"></i>
+                            ${item.performance_name || this.getPerformanceName(item.performance)}
+                        </span>
+                    </div>
+                    <div class="result-meta">
+                        <i class="fas fa-info-circle"></i>
+                        ${description}
+                    </div>
                 </div>
             </div>
         `;
@@ -723,6 +738,16 @@ class SADESystem {
             'poor': 'Insuficiente'
         };
         return levels[level] || level;
+    }
+
+    getPerformanceIcon(level) {
+        const icons = {
+            'excellent': 'star',
+            'good': 'thumbs-up',
+            'average': 'minus-circle',
+            'poor': 'exclamation-triangle'
+        };
+        return icons[level] || 'info-circle';
     }
 }
 
