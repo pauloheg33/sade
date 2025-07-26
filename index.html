@@ -149,75 +149,206 @@
         </section>
 
         <!-- PROEA Section -->
-        <section id="proea-section" class="section">
-            <div class="filter-section">
-                <h4 class="mb-4"><i class="fas fa-filter me-2"></i>Filtros PROEA (Anos Finais)</h4>
-                <div class="row g-3">
-                    <div class="col-md-3">
-                        <label for="proea-grade" class="form-label fw-bold">Ano Escolar:</label>
-                        <select id="proea-grade" class="form-select select2">
-                            <option value="">Todos os anos</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="proea-subject" class="form-label fw-bold">Disciplina:</label>
-                        <select id="proea-subject" class="form-select select2">
-                            <option value="">Todas as disciplinas</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="proea-school" class="form-label fw-bold">Escola:</label>
-                        <select id="proea-school" class="form-select select2">
-                            <option value="">Todas as escolas</option>
-                        </select>
-                    </div>
-                    <div class="col-md-2 d-flex align-items-end">
-                        <button class="btn clear-filters w-100" onclick="sadeApp.clearFilters('proea')">
-                            <i class="fas fa-times me-2"></i>Limpar
-                        </button>
+        <section id="proea-section" class="section-content d-none">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="sade-card card">
+                            <div class="card-header bg-primary text-white">
+                                <h4 class="mb-0"><i class="fas fa-graduation-cap me-2"></i>PROEA - Avaliação dos Anos Finais (6º ao 9º ano)</h4>
+                            </div>
+                            <div class="card-body">
+                                <!-- Filtros Modernos -->
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-3">
+                                        <label class="form-label fw-bold">
+                                            <i class="fas fa-layer-group me-1"></i>Ano Escolar
+                                        </label>
+                                        <select id="proea-grade" class="form-select filter-select">
+                                            <option value="">Todos os anos</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label fw-bold">
+                                            <i class="fas fa-book me-1"></i>Disciplina
+                                        </label>
+                                        <select id="proea-subject" class="form-select filter-select">
+                                            <option value="">Todas as disciplinas</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label fw-bold">
+                                            <i class="fas fa-school me-1"></i>Escola
+                                        </label>
+                                        <select id="proea-school" class="form-select filter-select">
+                                            <option value="">Todas as escolas</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2 d-flex align-items-end">
+                                        <button class="btn btn-outline-danger w-100" onclick="app.clearFilters('proea')">
+                                            <i class="fas fa-times me-1"></i>Limpar
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Barra de Busca -->
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <span class="input-group-text">
+                                                <i class="fas fa-search"></i>
+                                            </span>
+                                            <input type="text" id="proea-search" class="form-control" placeholder="Buscar por escola, ano ou disciplina...">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select id="proea-sort" class="form-select">
+                                            <option value="escola">Ordenar por Escola</option>
+                                            <option value="media-desc">Maior Média</option>
+                                            <option value="media-asc">Menor Média</option>
+                                            <option value="alunos-desc">Mais Alunos</option>
+                                            <option value="alunos-asc">Menos Alunos</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="btn-group w-100" role="group">
+                                            <input type="radio" class="btn-check" name="proea-view" id="proea-grid" value="grid" checked>
+                                            <label class="btn btn-outline-primary" for="proea-grid">
+                                                <i class="fas fa-th"></i>
+                                            </label>
+                                            <input type="radio" class="btn-check" name="proea-view" id="proea-list" value="list">
+                                            <label class="btn btn-outline-primary" for="proea-list">
+                                                <i class="fas fa-list"></i>
+                                            </label>
+                                            <input type="radio" class="btn-check" name="proea-view" id="proea-table" value="table">
+                                            <label class="btn btn-outline-primary" for="proea-table">
+                                                <i class="fas fa-table"></i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Filtros Ativos -->
+                                <div id="proea-active-filters" class="mb-3"></div>
+
+                                <!-- Estatísticas Rápidas -->
+                                <div id="proea-quick-stats" class="row g-3 mb-4"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="mt-3" id="proea-active-filters"></div>
-            </div>
-            <div id="proea-results" class="image-gallery"></div>
-            <div class="loading-spinner" id="proea-loading">
-                <div class="spinner-border text-primary" role="status"></div>
-                <p class="mt-3 fs-5">Carregando dados...</p>
+
+                <!-- Resultados -->
+                <div class="row">
+                    <div class="col-12">
+                        <div id="proea-results" class="results-container">
+                            <!-- Resultados serão carregados aqui -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- CNCA Section -->
-        <section id="cnca-section" class="section">
-            <div class="filter-section">
-                <h4 class="mb-4"><i class="fas fa-filter me-2"></i>Filtros CNCA (Alfabetização)</h4>
-                <div class="row g-3">
-                    <div class="col-md-3">
-                        <label for="cnca-grade" class="form-label fw-bold">Ano Escolar:</label>
-                        <select id="cnca-grade" class="form-select select2">
-                            <option value="">Todos os anos</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="cnca-subject" class="form-label fw-bold">Disciplina:</label>
-                        <select id="cnca-subject" class="form-select select2">
-                            <option value="">Todas as disciplinas</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="cnca-school" class="form-label fw-bold">Escola:</label>
-                        <select id="cnca-school" class="form-select select2">
-                            <option value="">Todas as escolas</option>
-                        </select>
-                    </div>
-                    <div class="col-md-2 d-flex align-items-end">
-                        <button class="btn clear-filters w-100" onclick="sadeApp.clearFilters('cnca')">
-                            <i class="fas fa-times me-2"></i>Limpar
-                        </button>
+        <section id="cnca-section" class="section-content d-none">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="sade-card card">
+                            <div class="card-header bg-success text-white">
+                                <h4 class="mb-0"><i class="fas fa-child me-2"></i>CNCA - Compromisso Criança Alfabetizada (1º ao 5º ano)</h4>
+                            </div>
+                            <div class="card-body">
+                                <!-- Filtros Modernos -->
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-3">
+                                        <label class="form-label fw-bold">
+                                            <i class="fas fa-layer-group me-1"></i>Ano Escolar
+                                        </label>
+                                        <select id="cnca-grade" class="form-select filter-select">
+                                            <option value="">Todos os anos</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label fw-bold">
+                                            <i class="fas fa-book me-1"></i>Disciplina
+                                        </label>
+                                        <select id="cnca-subject" class="form-select filter-select">
+                                            <option value="">Todas as disciplinas</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label fw-bold">
+                                            <i class="fas fa-school me-1"></i>Escola
+                                        </label>
+                                        <select id="cnca-school" class="form-select filter-select">
+                                            <option value="">Todas as escolas</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2 d-flex align-items-end">
+                                        <button class="btn btn-outline-danger w-100" onclick="app.clearFilters('cnca')">
+                                            <i class="fas fa-times me-1"></i>Limpar
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Barra de Busca -->
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <span class="input-group-text">
+                                                <i class="fas fa-search"></i>
+                                            </span>
+                                            <input type="text" id="cnca-search" class="form-control" placeholder="Buscar por escola, ano ou disciplina...">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select id="cnca-sort" class="form-select">
+                                            <option value="escola">Ordenar por Escola</option>
+                                            <option value="media-desc">Maior Média</option>
+                                            <option value="media-asc">Menor Média</option>
+                                            <option value="alunos-desc">Mais Alunos</option>
+                                            <option value="alunos-asc">Menos Alunos</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="btn-group w-100" role="group">
+                                            <input type="radio" class="btn-check" name="cnca-view" id="cnca-grid" value="grid" checked>
+                                            <label class="btn btn-outline-success" for="cnca-grid">
+                                                <i class="fas fa-th"></i>
+                                            </label>
+                                            <input type="radio" class="btn-check" name="cnca-view" id="cnca-list" value="list">
+                                            <label class="btn btn-outline-success" for="cnca-list">
+                                                <i class="fas fa-list"></i>
+                                            </label>
+                                            <input type="radio" class="btn-check" name="cnca-view" id="cnca-table" value="table">
+                                            <label class="btn btn-outline-success" for="cnca-table">
+                                                <i class="fas fa-table"></i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Filtros Ativos -->
+                                <div id="cnca-active-filters" class="mb-3"></div>
+
+                                <!-- Estatísticas Rápidas -->
+                                <div id="cnca-quick-stats" class="row g-3 mb-4"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="mt-3" id="cnca-active-filters"></div>
+
+                <!-- Resultados -->
+                <div class="row">
+                    <div class="col-12">
+                        <div id="cnca-results" class="results-container">
+                            <!-- Resultados serão carregados aqui -->
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="cnca-results" class="image-gallery"></div>
+        </section>
             <div class="loading-spinner" id="cnca-loading">
                 <div class="spinner-border text-primary" role="status"></div>
                 <p class="mt-3 fs-5">Carregando dados...</p>
@@ -262,6 +393,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
     <script src="config.js"></script>
     <script src="sade_data.js"></script>
-    <script src="app.js"></script>
+    <script src="app-modern.js"></script>
 </body>
 </html>
