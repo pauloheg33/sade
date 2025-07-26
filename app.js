@@ -219,9 +219,24 @@ class SADEModern {
             if (gradeFilter && gradeFilter !== grade) continue;
             for (const [subject, subjectData] of Object.entries(gradeData)) {
                 if (subjectFilter && subjectFilter !== subject) continue;
-                for (const [school, schoolData] of Object.entries(subjectData)) {
+                for (const [school, schoolDataArray] of Object.entries(subjectData)) {
                     if (schoolFilter && schoolFilter !== school) continue;
-                    results.push({ grade, subject, school, ...schoolData });
+                    
+                    // Agora schoolDataArray é um array de turmas
+                    if (Array.isArray(schoolDataArray)) {
+                        schoolDataArray.forEach(turmaData => {
+                            results.push({ 
+                                grade, 
+                                subject, 
+                                school, 
+                                turma: turmaData.turma || '', 
+                                ...turmaData 
+                            });
+                        });
+                    } else {
+                        // Compatibilidade com estrutura antiga
+                        results.push({ grade, subject, school, ...schoolDataArray });
+                    }
                 }
             }
         }
@@ -240,14 +255,15 @@ class SADEModern {
     createGalleryItem(item) {
         const imagePath = this.encodeImagePath(item.imagem);
         const media = item.media ? parseFloat(item.media).toFixed(1) : 'N/A';
-        const caption = `${item.school} - ${item.grade} - ${item.subject}`;
+        const schoolDisplayName = item.turma ? `${item.school} - Turma ${item.turma}` : item.school;
+        const caption = `${schoolDisplayName} - ${item.grade} - ${item.subject}`;
 
         return `
             <div class="gallery-item" data-search-term="${caption.toLowerCase()}">
                 <a href="${imagePath}" data-fancybox="gallery-${item.program || 'default'}" data-caption="${caption}">
                     <img src="${imagePath}" alt="Gráfico: ${caption}" loading="lazy" onerror="this.onerror=null;this.src='assets/no-image.png';">
                     <div class="gallery-overlay">
-                        <h5 class="text-white">${item.school}</h5>
+                        <h5 class="text-white">${schoolDisplayName}</h5>
                         <p class="mb-1 small">${item.grade} - ${item.subject}</p>
                         <div class="d-flex justify-content-between small">
                             <span><i class="fas fa-chart-line me-1"></i> Média: <strong>${media}</strong></span>
@@ -345,14 +361,28 @@ class SADEModern {
             ['PROEA', 'CNCA'].forEach(program => {
                 Object.values(SADE_DATA[program]).forEach(gradeData => {
                     Object.values(gradeData).forEach(subjectData => {
-                        Object.entries(subjectData).forEach(([school, data]) => {
+                        Object.entries(subjectData).forEach(([school, schoolData]) => {
                             schools.add(school);
-                            if (data.alunos) totalStudents += parseInt(data.alunos, 10);
-                            if (data.media) {
-                                totalPerformance += parseFloat(data.media);
-                                performanceCount++;
+                            
+                            if (Array.isArray(schoolData)) {
+                                // Nova estrutura com turmas
+                                schoolData.forEach(turmaData => {
+                                    if (turmaData.alunos) totalStudents += parseInt(turmaData.alunos, 10);
+                                    if (turmaData.media) {
+                                        totalPerformance += parseFloat(turmaData.media);
+                                        performanceCount++;
+                                    }
+                                    totalEvaluations++;
+                                });
+                            } else {
+                                // Estrutura antiga (compatibilidade)
+                                if (schoolData.alunos) totalStudents += parseInt(schoolData.alunos, 10);
+                                if (schoolData.media) {
+                                    totalPerformance += parseFloat(schoolData.media);
+                                    performanceCount++;
+                                }
+                                totalEvaluations++;
                             }
-                            totalEvaluations++;
                         });
                     });
                 });
@@ -360,10 +390,12 @@ class SADEModern {
 
             document.getElementById('total-students').textContent = totalStudents.toLocaleString('pt-BR');
             document.getElementById('total-schools').textContent = schools.size;
-            document.getElementById('avg-performance').textContent = performanceCount > 0 ? (totalPerformance / performanceCount).toFixed(1) : '0';
+            document.getElementById('avg-performance').textContent = performanceCount > 0 ? `${(totalPerformance / performanceCount).toFixed(1)}%` : '0%';
             document.getElementById('total-evaluations').textContent = totalEvaluations.toLocaleString('pt-BR');
+            
+            console.log('✅ Estatísticas do dashboard atualizadas!');
         } catch (error) {
-            console.error('❌ Erro ao gerar estatísticas do dashboard:', error);
+            console.error('❌ Erro ao gerar estatísticas:', error);
         }
     }
 
@@ -415,9 +447,16 @@ class SADEModern {
             Object.entries(SADE_DATA[program]).forEach(([grade, gradeDataObj]) => {
                 let totalMedia = 0, count = 0;
                 Object.values(gradeDataObj).forEach(subjectData => {
-                    Object.values(subjectData).forEach(data => {
-                        if (data.media) {
-                            totalMedia += parseFloat(data.media);
+                    Object.values(subjectData).forEach(schoolData => {
+                        if (Array.isArray(schoolData)) {
+                            schoolData.forEach(turmaData => {
+                                if (turmaData.media) {
+                                    totalMedia += parseFloat(turmaData.media);
+                                    count++;
+                                }
+                            });
+                        } else if (schoolData.media) {
+                            totalMedia += parseFloat(schoolData.media);
                             count++;
                         }
                     });

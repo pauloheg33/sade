@@ -95,6 +95,7 @@ class SADEDataProcessor:
         
         # Regex para extrair: Escola, Média e Alunos
         # Ex: 6º_Ano_ANTONIO_DE_SOUSA_BARROS_CN_Media65.1_Alunos12.png
+        # Ex: 7º_Ano_JOSE_ALVES_A_CN_Media68.0_Alunos15.png
         match = re.search(r'_(.+?)_Media([\d.]+)_Alunos(\d+)\.png', filename)
         
         if not match:
@@ -106,13 +107,47 @@ class SADEDataProcessor:
         # Limpa o nome da escola, removendo o código da disciplina se presente
         school_name = re.sub(f'_{subject}$', '', school_part).replace('_', ' ').strip()
         
+        # Remove "Ano" do início se existir
+        school_name = re.sub(r'^Ano\s+', '', school_name)
+        
+        # Extrair informações da turma se existir (A, B, C)
+        turma = ""
+        
+        # Casos específicos com padrões identificados nos arquivos
+        # Ex: "21 DE DEZEMBRO A", "JOSE ALVES B", "FIRMINO JOSÉ A"
+        if school_name.endswith(' A'):
+            school_name = school_name[:-2].strip()
+            turma = 'A'
+        elif school_name.endswith(' B'):
+            school_name = school_name[:-2].strip()
+            turma = 'B'
+        elif school_name.endswith(' C'):
+            school_name = school_name[:-2].strip()
+            turma = 'C'
+        
+        # Casos onde a turma está no meio: "A - ESCOLA", "B - ESCOLA"
+        if school_name.startswith('A - '):
+            school_name = school_name[4:].strip()
+            turma = 'A'
+        elif school_name.startswith('B - '):
+            school_name = school_name[4:].strip()
+            turma = 'B'
+        elif school_name.startswith('C - '):
+            school_name = school_name[4:].strip()
+            turma = 'C'
+        
+        # Correções específicas para nomes de escolas com erros de nomeação
+        if school_name == "JOSE ALVES DE SENA":
+            school_name = "JOSE ALVES"
+        
         # Adiciona à lista de escolas nos metadados
         self.data["metadata"]["schools"].add(school_name)
 
-        # Estrutura os dados
+        # Estrutura os dados incluindo informação da turma
         data_point = {
             "media": float(media_str),
             "alunos": int(alunos_str),
+            "turma": turma,
             "imagem": str(image_path).replace('\\', '/') # Garante barras corretas
         }
 
@@ -121,8 +156,10 @@ class SADEDataProcessor:
             self.data[program][grade] = {}
         if subject not in self.data[program][grade]:
             self.data[program][grade][subject] = {}
+        if school_name not in self.data[program][grade][subject]:
+            self.data[program][grade][subject][school_name] = []
         
-        self.data[program][grade][subject][school_name] = data_point
+        self.data[program][grade][subject][school_name].append(data_point)
         self.data["metadata"]["total_evaluations"] += 1
 
     def _finalize_metadata(self):
@@ -189,5 +226,3 @@ if __name__ == "__main__":
     # O script espera ser executado do diretório raiz do projeto
     processor = SADEDataProcessor(base_path="./data")
     processor.process_data()
-    processor.process_all_data()
-    processor.generate_report()
