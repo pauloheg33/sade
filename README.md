@@ -1,231 +1,165 @@
-# SADE - Sistema de Avaliação e Análise de Dados Educacionais
+# 🎓 SADE - Sistema de Avaliação e Desempenho Escolar
 
-**Prefeitura Municipal de Ararendá - CE**
+![SADE Logo](assets/logo.png)
 
-🎯 **Sistema completo para visualização e análise de dados educacionais dos programas PROEA e CNCA**
+**Versão 3.0.0** - Sistema de visualização de dados educacionais da Secretaria da Educação de Ararendá - CE
 
-## 🌟 Funcionalidades Principais
+[![Deploy Status](https://img.shields.io/badge/deploy-active-brightgreen)](https://pauloheg33.github.io/sade/)
+[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![Made with Love](https://img.shields.io/badge/made%20with-❤️-red)](https://github.com/pauloheg33)
 
-### 📊 Dashboard Interativo
-- Visão geral dos dados com métricas consolidadas
-- Gráficos comparativos entre programas PROEA e CNCA
-- Análise de performance por disciplinas
-- Métricas de média geral e total de alunos
+## 📋 Sobre o Projeto
 
-### 🔍 Sistema de Filtros Avançados
-- **Filtro por Ano**: Selecione anos específicos (6º ao 9º para PROEA, 1º ao 5º para CNCA)
-- **Filtro por Disciplina**: LP (Língua Portuguesa), MAT (Matemática), CN (Ciências Naturais)
-- **Filtro por Escola**: Todas as escolas participantes dos programas
-- **Feedback em tempo real**: Mostra filtros ativos e número de resultados encontrados
-- **Limpar filtros**: Botão para reset rápido de todos os filtros
+O SADE é uma aplicação web moderna desenvolvida para visualizar e analisar dados de desempenho escolar dos programas educacionais do município de Ararendá - CE. O sistema oferece uma interface intuitiva para análise de dados de duas importantes iniciativas:
 
-### 🖼️ Display Integrado de Gráficos (NOVO!)
-- **Visualização integrada**: Gráficos aparecem como parte do site, não apenas em modals
-- **Grid responsivo**: Layout adaptável mostrando até 6 gráficos inicialmente
-- **Carregamento otimizado**: Lazy loading das imagens para melhor performance
-- **Ações por gráfico**: Visualização ampliada e download direto
-- **Expandir todos**: Botão para mostrar todos os gráficos filtrados
-
-### 📱 Design Responsivo e Moderno
-- Interface profissional adaptada para desktop, tablet e mobile
-- Navegação intuitiva com sistema de tabs
-- Componentes otimizados para touch
-- Paleta de cores educacional consistente
-
-- **PROEA** - Programa de Avaliação da Educação (Anos Finais - 6º ao 9º ano)
+- **PROEA** - Avaliação das Aprendizagens dos Anos Finais (6º ao 9º ano)
 - **CNCA** - Compromisso Criança Alfabetizada (1º ao 5º ano)
 
-## ✨ Funcionalidades
+## 🚀 Funcionalidades
 
-### 📊 Dashboard Interativo
-- Visão geral com estatísticas principais
-- Gráficos dinâmicos por disciplina e ano escolar
-- Comparativo entre escolas e programas
+### ✨ Dashboard Interativo
+- Estatísticas gerais em tempo real
+- Gráficos dinâmicos de desempenho
+- Comparativos entre escolas e disciplinas
 
-### 🔍 Filtros Avançados
-- Filtros por ano escolar, disciplina e escola
-- Busca personalizada de dados
-- Visualização dinâmica dos resultados
+### 🔍 Sistema de Filtros Avançados
+- Filtro por programa (PROEA/CNCA)
+- Filtro por escola
+- Filtro por ano escolar
+- Filtro por disciplina
 
-### 📈 Análise Comparativa
-- Comparação entre programas PROEA e CNCA
-- Evolução por disciplina
-- Rankings de desempenho
+### 📊 Visualizações de Dados
+- Gráficos integrados por disciplina
+- Comparações de performance
+- Análise de tendências
 
-### 🏫 Análise por Escola
-- Desempenho detalhado de cada unidade escolar
-- Estatísticas específicas por escola
-- Histórico de avaliações
-
-### 📥 Downloads e Relatórios
-- **Export CSV/Excel**: Dados filtrados em planilhas
-- **Relatórios PDF**: Documentos profissionais para apresentação
-- **Download de Imagens**: Gráficos em alta resolução
-- **Relatórios Personalizados**: Baseados nos filtros aplicados
-
-### 🖼️ Visualização de Gráficos
-- **Modal Aprimorado**: Visualização ampliada de gráficos
-- **Navegação por Imagens**: Próximo/anterior com atalhos de teclado
-- **Fullscreen**: Modo tela cheia para apresentações
-- **Download Individual**: Baixar gráficos específicos
+### 🖼️ Galeria de Resultados
+- Visualização de gráficos educacionais
+- Modal de ampliação de imagens
+- Sistema de download integrado
 
 ## 🛠️ Tecnologias Utilizadas
 
-### Frontend
-- **HTML5**: Estrutura semântica
-- **CSS3**: Design system profissional com variáveis CSS
-- **JavaScript ES6+**: Funcionalidades interativas
-- **Chart.js**: Visualização de dados em gráficos
-
-### Bibliotecas e Ferramentas
-- **Font Awesome**: Ícones profissionais
-- **Google Fonts**: Typography system (Inter, Poppins, Montserrat)
-- **html2pdf.js**: Geração de relatórios PDF
-- **GitHub Pages**: Hospedagem gratuita
-
-### Design System
-- **Cores Oficiais**: Paleta baseada na identidade municipal
-- **Gradients**: Efeitos visuais modernos
-- **Animations**: Micro-interações suaves
-- **Responsive Design**: Adaptável a todos os dispositivos
+- **Frontend**: HTML5, CSS3, JavaScript ES6+
+- **Gráficos**: Chart.js
+- **Design**: CSS Grid/Flexbox, Variáveis CSS
+- **Fonte de Dados**: JSON estruturado
+- **Deploy**: GitHub Pages
 
 ## 📁 Estrutura do Projeto
 
 ```
 sade/
-├── assets/
-│   ├── animations.css      # Animações e transições
-│   ├── components.css      # Componentes específicos
-│   ├── legacy-fixes.css    # Correções de compatibilidade
-│   ├── exports.js          # Funcionalidades de download
-│   ├── favicon.svg         # Ícone do sistema
-│   ├── logo-arara.svg      # Logo municipal (fallback)
-│   ├── logo.png            # Logo oficial de Ararendá
-│   └── planodefundo.jpg    # Background alternativo
-├── Graficos/               # Imagens dos gráficos
-│   ├── PROEA/             # Dados do PROEA
-│   └── CNCA/              # Dados do CNCA
-├── index.html             # Página principal
-├── styles.css             # Estilos principais
-├── script.js              # Lógica da aplicação
-├── sade_data.js           # Dados processados
-├── process_data.py        # Script de processamento
-└── README.md              # Documentação
+├── 📄 index.html          # Página principal
+├── 🎨 styles.css          # Estilos consolidados
+├── ⚙️ config.js           # Configurações do sistema
+├── 📊 sade_data.js        # Base de dados
+├── 🔧 script.js           # Lógica principal
+├── 📁 assets/             # Recursos estáticos
+│   ├── logo.png
+│   ├── favicon.svg
+│   └── logo-arara.svg
+├── 📁 Graficos/           # Gráficos educacionais
+│   ├── PROEA/
+│   └── CNCA/
+└── 📋 README.md           # Documentação
 ```
 
-## 🚀 Como Usar
+## 🎯 Programas Educacionais
 
-### Acesso Online
-🌐 **[https://pauloheg33.github.io/sade](https://pauloheg33.github.io/sade)**
+### PROEA - Avaliação dos Anos Finais
+- **Público**: 6º ao 9º ano do Ensino Fundamental
+- **Disciplinas**: Língua Portuguesa, Matemática, Ciências da Natureza
+- **Escolas**: 5 unidades educacionais
+- **Objetivo**: Avaliar competências e habilidades dos anos finais
 
-### Navegação
-1. **Dashboard**: Visão geral dos dados
-2. **PROEA**: Análise dos anos finais (6º-9º)
-3. **CNCA**: Análise da alfabetização (1º-5º)
-4. **Comparativo**: Análises comparativas
-5. **Por Escola**: Dados específicos por unidade
+### CNCA - Compromisso Criança Alfabetizada
+- **Público**: 1º ao 5º ano do Ensino Fundamental
+- **Disciplinas**: Língua Portuguesa, Matemática
+- **Escolas**: 6 unidades educacionais
+- **Objetivo**: Garantir alfabetização na idade certa
 
-### Downloads
-- Clique em "Downloads e Relatórios" para acessar as opções
-- Use os filtros para personalizar os dados
-- Clique nas imagens para visualização ampliada
-- Use as teclas ←/→ para navegar entre gráficos
+## 💻 Como Usar
 
-## 📊 Dados Disponíveis
+1. **Acesse o sistema**: [https://pauloheg33.github.io/sade/](https://pauloheg33.github.io/sade/)
 
-### Estatísticas Gerais
-- **3.428 alunos** avaliados
-- **10 escolas** participantes
-- **174 avaliações** realizadas
-- **3 disciplinas** analisadas
+2. **Navegue pelas seções**:
+   - 🏠 **Dashboard**: Visão geral do sistema
+   - 📊 **PROEA**: Dados dos anos finais
+   - 📚 **CNCA**: Dados da alfabetização
+   - 🔄 **Comparativo**: Análises comparativas
+   - 🏫 **Escolas**: Dados por unidade escolar
 
-### Programas
-- **PROEA**: Língua Portuguesa, Matemática, Ciências Naturais
-- **CNCA**: Língua Portuguesa, Matemática
+3. **Use os filtros**:
+   - Selecione a escola desejada
+   - Escolha o ano escolar
+   - Filtre por disciplina
 
-### Escolas Participantes
-- 03 DE DEZEMBRO
-- 21 DE DEZEMBRO
-- ANTONIO DE SOUSA BARROS
-- FIRMINO JOSÉ
-- JOSE ALVES
-- E outras unidades da rede municipal
-
-## 🎨 Design e Identidade Visual
-
-### Cores Principais
-- **Azul Primário**: #4A90E2 (Cor institucional)
-- **Verde Municipal**: #22C55E
-- **Dourado**: #F59E0B
-- **Laranja**: #EA580C
-
-### Typography
-- **Títulos**: Montserrat (Display)
-- **Interface**: Poppins (Secondary)
-- **Texto**: Inter (Primary)
-
-### Características Visuais
-- Design limpo e profissional
-- Gradients sutis
-- Sombras suaves
-- Animações smooth
-- Layout responsivo
+4. **Visualize os resultados**:
+   - Clique nas imagens para ampliar
+   - Use o botão de download para salvar
 
 ## 🔧 Desenvolvimento Local
 
-### Pré-requisitos
-- Python 3.x (para processamento de dados)
-- Navegador web moderno
-- Editor de código
-
-### Processamento de Dados
 ```bash
-python process_data.py
-```
+# Clone o repositório
+git clone https://github.com/pauloheg33/sade.git
 
-### Visualização Local
-Abra o arquivo `index.html` em um navegador ou use um servidor local:
-```bash
+# Navegue para o diretório
+cd sade
+
+# Inicie um servidor local (Python)
 python -m http.server 8000
+
+# Ou use Node.js
+npx serve .
+
+# Acesse http://localhost:8000
 ```
 
-## 📈 Atualizações e Melhorias
+## 📈 Performance e Otimizações
 
-### Versão Atual: 2.0
-- ✅ Design system profissional
-- ✅ Funcionalidades de download
-- ✅ Modal aprimorado para imagens
-- ✅ Navegação por teclado
-- ✅ Relatórios personalizados
-- ✅ Animações suaves
-- ✅ Responsividade completa
+- ⚡ **Carregamento rápido**: Assets otimizados
+- 🎨 **CSS consolidado**: Estilos em arquivo único
+- 📱 **Design responsivo**: Compatível com todos os dispositivos
+- 🔍 **SEO otimizado**: Meta tags estruturadas
+- ♿ **Acessibilidade**: Padrões WCAG
 
-### Próximas Atualizações
-- 📱 App mobile nativo
-- 🔐 Sistema de autenticação
-- 📊 Gráficos em tempo real
-- 🤖 Análises preditivas
-- 📧 Relatórios automáticos por email
+## 🤝 Contribuição
 
-## 👥 Equipe de Desenvolvimento
+Contribuições são bem-vindas! Para contribuir:
 
-**Secretaria de Educação de Ararendá**
-- Desenvolvimento e manutenção do sistema
-- Análise de dados educacionais
-- Suporte técnico
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-funcionalidade`)
+3. Commit suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`)
+4. Push para a branch (`git push origin feature/nova-funcionalidade`)
+5. Abra um Pull Request
 
-## 📞 Suporte
+## 📞 Contato
 
-Para dúvidas, sugestões ou suporte técnico:
-- **Email**: secretaria.educacao@ararenda.ce.gov.br
-- **Telefone**: (85) XXXX-XXXX
-- **Endereço**: Prefeitura Municipal de Ararendá - CE
+**Secretaria da Educação de Ararendá**
+- 🌐 Website: [ararendá.ce.gov.br](http://ararendá.ce.gov.br)
+- 📧 Email: educacao@arara.ce.gov.br
+- 📱 Telefone: (85) 3XXX-XXXX
+
+**Desenvolvedor**
+- 👨‍💻 GitHub: [@pauloheg33](https://github.com/pauloheg33)
+- 📧 Email: pauloheg33@gmail.com
 
 ## 📄 Licença
 
-© 2025 Prefeitura Municipal de Ararendá - CE
-Todos os direitos reservados.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## 🙏 Agradecimentos
+
+- **Secretaria da Educação de Ararendá** pelo suporte e dados
+- **Professores e gestores** pelas contribuições e feedback
+- **Comunidade open source** pelas ferramentas utilizadas
 
 ---
 
-**Sistema desenvolvido com 💙 para a educação de Ararendá**
+<div align="center">
+  <strong>Feito com ❤️ para a educação de Ararendá - CE</strong>
+  <br>
+  <small>© 2025 Secretaria da Educação de Ararendá</small>
+</div>

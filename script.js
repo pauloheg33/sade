@@ -3,11 +3,9 @@
 
 class SADESystem {
     constructor() {
-        this.data = {
-            proea: [],
-            cnca: []
-        };
+        this.data = { proea: [], cnca: [] };
         this.charts = {};
+        this.filteredData = { proea: [], cnca: [] };
         this.init();
     }
 
@@ -226,8 +224,6 @@ class SADESystem {
         const proeaSubjects = [...new Set(this.data.proea.map(item => item.subject))];
         const proeaSchools = [...new Set(this.data.proea.map(item => item.school))].sort();
         
-        console.log('PROEA - Escolas encontradas:', proeaSchools);
-        
         // Clear existing options first
         this.clearSelect('proea-grade');
         this.clearSelect('proea-subject');
@@ -252,8 +248,6 @@ class SADESystem {
         const cncaGrades = [...new Set(this.data.cnca.map(item => item.grade))].sort((a, b) => a - b);
         const cncaSubjects = [...new Set(this.data.cnca.map(item => item.subject))];
         const cncaSchools = [...new Set(this.data.cnca.map(item => item.school))].sort();
-        
-        console.log('CNCA - Escolas encontradas:', cncaSchools);
         
         // Clear existing options first
         this.clearSelect('cnca-grade');
@@ -1121,6 +1115,57 @@ class SADESystem {
         link.click();
         document.body.removeChild(link);
     }
+
+    // Utility Methods
+    getSubjectName(subject) {
+        return getConfig('SUBJECTS')[subject] || subject;
+    }
+
+    getPerformanceColor(performance) {
+        return getConfig('PERFORMANCE_LEVELS')[performance]?.color || '#64748B';
+    }
+
+    getPerformanceLevel(average) {
+        const levels = getConfig('PERFORMANCE_LEVELS');
+        for (const [level, config] of Object.entries(levels)) {
+            if (average >= config.min) {
+                if (level === 'excellent' && average >= 80) return level;
+                if (level === 'good' && average >= 70) return level;
+                if (level === 'average' && average >= 60) return level;
+            }
+        }
+        return 'poor';
+    }
+
+    encodeImagePath(path) {
+        if (!path) return '';
+        
+        return path
+            .replace(/AVALIAÇÃO/g, 'AVALIA%C3%87%C3%83O')
+            .replace(/º/g, '%C2%BA')
+            .replace(/\s+/g, '%20');
+    }
+
+    // Debounced filter function
+    debouncedFilter = this.debounce((type) => {
+        if (type === 'proea') {
+            this.filterPROEA();
+        } else {
+            this.filterCNCA();
+        }
+    }, getConfig('DEBOUNCE_DELAY'));
+
+    debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
 }
 
 // Initialize the system when DOM is loaded
@@ -1128,10 +1173,6 @@ let sadeSystemInitialized = false;
 
 function initializeSADE() {
     if (sadeSystemInitialized) return;
-    
-    console.log('Iniciando SADE System...');
-    console.log('Document ready state:', document.readyState);
-    console.log('SADE_DATA disponível:', typeof SADE_DATA !== 'undefined');
     
     sadeSystemInitialized = true;
     window.sadeApp = new SADESystem();
@@ -1147,12 +1188,10 @@ function waitForDataAndDOM() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOMContentLoaded event fired');
     waitForDataAndDOM();
 });
 
 // Fallback para garantir inicialização
 if (document.readyState === 'complete') {
-    console.log('Document already complete');
     waitForDataAndDOM();
 }

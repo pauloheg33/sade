@@ -1086,3 +1086,239 @@ body {
         border: 1px solid var(--medium-gray);
     }
 }
+
+/* ===================================
+   ANIMATIONS & MICRO-INTERACTIONS
+   =================================== */
+
+/* Download Button Animation */
+@keyframes downloadPulse {
+    0% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(74, 144, 226, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0); }
+}
+
+/* Button Hover Effects */
+@keyframes buttonBounce {
+    0%, 20%, 60%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-3px); }
+    80% { transform: translateY(-1px); }
+}
+
+/* Card Entrance Animation */
+@keyframes cardSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Image Modal Animation */
+@keyframes imageZoom {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Loading Spinner */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Progress Bar Animation */
+@keyframes progressBar {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===================================
+   DOWNLOAD & EXPORT COMPONENTS
+   =================================== */
+
+/* Download Bar Styles */
+.download-bar {
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+    padding: var(--space-xl);
+    margin-bottom: var(--space-2xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.download-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="downloadgrid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23downloadgrid)"/></svg>');
+}
+
+.download-container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.download-container h3 {
+    color: var(--white);
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin-bottom: var(--space-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+}
+
+.download-buttons {
+    display: flex;
+    gap: var(--space-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.download-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-lg) var(--space-xl);
+    border: none;
+    border-radius: var(--radius-lg);
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    position: relative;
+    min-width: 160px;
+}
+
+.download-btn i {
+    font-size: 1.5rem;
+}
+
+.download-btn.primary {
+    background: var(--white);
+    color: var(--primary-blue);
+}
+
+.download-btn.secondary {
+    background: var(--municipal-green);
+    color: var(--white);
+}
+
+.download-btn.tertiary {
+    background: var(--golden-yellow);
+    color: var(--white);
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    animation: buttonBounce 0.6s ease;
+}
+
+.download-btn.primary:hover {
+    background: var(--light-blue);
+    box-shadow: var(--shadow-xl);
+}
+
+.download-btn.secondary:hover {
+    background: #1EA551;
+    animation: downloadPulse 2s infinite;
+}
+
+.download-btn.tertiary:hover {
+    background: #D97706;
+}
+
+/* Progress Indicator */
+.download-progress {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--white);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    z-index: 1000;
+    text-align: center;
+    min-width: 300px;
+}
+
+.download-progress .spinner {
+    border: 4px solid var(--light-gray);
+    border-top: 4px solid var(--primary-blue);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto var(--space-md);
+    animation: spin 1s linear infinite;
+}
+
+/* Success/Error Messages */
+.download-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-md);
+    color: var(--white);
+    font-weight: 600;
+    z-index: 1000;
+    animation: cardSlideIn 0.3s ease;
+}
+
+.download-message.success {
+    background: var(--success);
+}
+
+.download-message.error {
+    background: var(--error);
+}
+
+/* ===================================
+   RESPONSIVE DESIGN ENHANCEMENTS
+   =================================== */
+
+@media (max-width: 768px) {
+    .download-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .download-btn {
+        min-width: 200px;
+    }
+    
+    .download-bar {
+        padding: var(--space-lg);
+        margin-bottom: var(--space-lg);
+    }
+}
