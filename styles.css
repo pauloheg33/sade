@@ -91,6 +91,16 @@ body.dark-mode {
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
+.card-hover {
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
 .filter-section {
     background: #fff;
     border-radius: 1rem;

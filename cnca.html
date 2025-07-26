@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNCA - SADE v4.1</title>
+    <meta name="description" content="CNCA - Compromisso Criança Alfabetizada - SADE v4.1">
+    <meta name="keywords" content="CNCA, Alfabetização, 1º ao 5º ano, Ararendá, Educação">
+    <meta name="author" content="Paulo Henrique">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    
+    <!-- Libs CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .cnca-header {
+            background: linear-gradient(135deg, #16a34a, #22c55e);
+            color: white;
+            padding: 2rem 0;
+            border-bottom: 5px solid var(--sade-warning);
+        }
+        
+        .cnca-card {
+            border-left: 4px solid #16a34a;
+        }
+        
+        .cnca-stats .quick-stat-card {
+            border-left: 3px solid #16a34a;
+        }
+        
+        .cnca-stats .quick-stat-number {
+            color: #16a34a;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <!-- Header -->
+    <header class="cnca-header text-center text-lg-start">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-2 text-center mb-3 mb-lg-0">
+                    <img src="assets/logo.png" alt="Brasão de Ararendá" class="img-fluid" style="max-height: 90px;" onerror="this.src='assets/logo-arara.svg'">
+                </div>
+                <div class="col-lg-8 text-center">
+                    <h1 class="display-4 fw-bold mb-1">CNCA</h1>
+                    <p class="lead mb-0">Compromisso Criança Alfabetizada</p>
+                    <small class="opacity-75">1º ao 5º ano • Secretaria da Educação de Ararendá - CE</small>
+                </div>
+                <div class="col-lg-2 text-center text-lg-end mt-3 mt-lg-0">
+                    <a href="index.html" class="btn btn-outline-light">
+                        <i class="fas fa-home me-2"></i>Voltar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-child me-2"></i>CNCA
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <i class="fas fa-chart-bar me-2"></i>Resultados
+                        </a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button id="theme-toggle" class="btn btn-outline-light">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container my-4">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">CNCA</li>
+            </ol>
+        </nav>
+
+        <!-- CNCA Section -->
+        <div class="row mb-4">
+            <!-- Filtros -->
+            <div class="col-lg-8">
+                <div class="sade-card cnca-card card h-100">
+                    <div class="card-header bg-success text-white">
+                        <h4 class="mb-0"><i class="fas fa-child me-2"></i>CNCA - Filtros e Busca</h4>
+                    </div>
+                    <div class="card-body">
+                        <!-- Filtros Modernos -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">
+                                    <i class="fas fa-layer-group me-1"></i>Ano Escolar
+                                </label>
+                                <select id="cnca-grade" class="form-select filter-select">
+                                    <option value="">Todos os anos</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">
+                                    <i class="fas fa-book me-1"></i>Disciplina
+                                </label>
+                                <select id="cnca-subject" class="form-select filter-select">
+                                    <option value="">Todas as disciplinas</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">
+                                    <i class="fas fa-school me-1"></i>Escola
+                                </label>
+                                <select id="cnca-school" class="form-select filter-select">
+                                    <option value="">Todas as escolas</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Barra de Busca e Controles -->
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                    <input type="text" id="cnca-search" class="form-control" placeholder="Buscar por escola, ano ou disciplina...">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <select id="cnca-sort" class="form-select">
+                                    <option value="escola">Ordenar por Escola</option>
+                                    <option value="media-desc">Maior Média</option>
+                                    <option value="media-asc">Menor Média</option>
+                                    <option value="alunos-desc">Mais Alunos</option>
+                                    <option value="alunos-asc">Menos Alunos</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-outline-danger w-100" onclick="app.clearFilters('cnca')">
+                                    <i class="fas fa-times me-1"></i>Limpar Tudo
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Filtros Ativos -->
+                        <div id="cnca-active-filters" class="mb-2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estatísticas ao Lado -->
+            <div class="col-lg-4">
+                <div class="sade-card cnca-card card h-100">
+                    <div class="card-header bg-warning text-dark">
+                        <h5 class="mb-0"><i class="fas fa-chart-bar me-2"></i>Estatísticas</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="cnca-quick-stats" class="quick-stats-sidebar cnca-stats">
+                            <!-- Estatísticas serão carregadas aqui -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resultados Diretos -->
+        <div class="row">
+            <div class="col-12">
+                <div id="cnca-results" class="results-container">
+                    <!-- Resultados serão carregados aqui -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 SADE v4.1 - Secretaria da Educação de Ararendá</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <small class="text-muted">Desenvolvido com <i class="fas fa-heart text-danger"></i> por Paulo Henrique</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel">Gráfico</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="modalImage" src="" alt="Gráfico" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Data -->
+    <script src="sade_data.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+        // App específico para CNCA
+        class CncaApp {
+            constructor() {
+                this.filters = { grade: '', subject: '', school: '' };
+                this.search = '';
+                this.sort = 'escola';
+                this.currentData = [];
+                this.allData = [];
+                
+                this.init();
+            }
+
+            init() {
+                this.loadData();
+                this.setupEventListeners();
+                this.setupTheme();
+            }
+
+            loadData() {
+                if (typeof sadeData !== 'undefined' && sadeData.cnca) {
+                    this.allData = this.flattenData(sadeData.cnca);
+                    this.currentData = [...this.allData];
+                    this.populateFilters();
+                    this.updateResults();
+                }
+            }
+
+            flattenData(data) {
+                const flattened = [];
+                Object.entries(data).forEach(([school, schoolData]) => {
+                    if (schoolData.classes) {
+                        Object.entries(schoolData.classes).forEach(([className, classData]) => {
+                            Object.entries(classData).forEach(([grade, gradeData]) => {
+                                Object.entries(gradeData).forEach(([subject, subjectData]) => {
+                                    flattened.push({
+                                        school: school,
+                                        turma: className,
+                                        grade: grade,
+                                        subject: subject,
+                                        media: subjectData.media,
+                                        alunos: subjectData.alunos,
+                                        imagem: subjectData.imagem
+                                    });
+                                });
+                            });
+                        });
+                    } else {
+                        Object.entries(schoolData).forEach(([grade, gradeData]) => {
+                            Object.entries(gradeData).forEach(([subject, subjectData]) => {
+                                flattened.push({
+                                    school: school,
+                                    turma: null,
+                                    grade: grade,
+                                    subject: subject,
+                                    media: subjectData.media,
+                                    alunos: subjectData.alunos,
+                                    imagem: subjectData.imagem
+                                });
+                            });
+                        });
+                    }
+                });
+                return flattened;
+            }
+
+            populateFilters() {
+                const grades = [...new Set(this.allData.map(item => item.grade))].sort();
+                const subjects = [...new Set(this.allData.map(item => item.subject))].sort();
+                const schools = [...new Set(this.allData.map(item => item.school))].sort();
+
+                this.populateSelect('cnca-grade', grades, grade => ({ value: grade, text: this.formatGrade(grade) }));
+                this.populateSelect('cnca-subject', subjects, subject => ({ value: subject, text: this.getSubjectName(subject) }));
+                this.populateSelect('cnca-school', schools, school => ({ value: school, text: school }));
+            }
+
+            populateSelect(elementId, options, formatter) {
+                const select = document.getElementById(elementId);
+                if (!select) return;
+
+                options.forEach(option => {
+                    const formatted = formatter(option);
+                    const optionElement = document.createElement('option');
+                    optionElement.value = formatted.value;
+                    optionElement.textContent = formatted.text;
+                    select.appendChild(optionElement);
+                });
+            }
+
+            formatGrade(grade) {
+                return grade.replace('_ano', 'º ano');
+            }
+
+            getSubjectName(subject) {
+                const subjects = {
+                    'LP': 'Língua Portuguesa',
+                    'MAT': 'Matemática'
+                };
+                return subjects[subject] || subject;
+            }
+
+            setupEventListeners() {
+                // Filtros
+                ['grade', 'subject', 'school'].forEach(filter => {
+                    const element = document.getElementById(`cnca-${filter}`);
+                    if (element) {
+                        element.addEventListener('change', () => {
+                            this.filters[filter] = element.value;
+                            this.updateResults();
+                        });
+                    }
+                });
+
+                // Busca
+                const searchInput = document.getElementById('cnca-search');
+                if (searchInput) {
+                    searchInput.addEventListener('input', () => {
+                        this.search = searchInput.value;
+                        this.updateResults();
+                    });
+                }
+
+                // Ordenação
+                const sortSelect = document.getElementById('cnca-sort');
+                if (sortSelect) {
+                    sortSelect.addEventListener('change', () => {
+                        this.sort = sortSelect.value;
+                        this.updateResults();
+                    });
+                }
+            }
+
+            setupTheme() {
+                const themeToggle = document.getElementById('theme-toggle');
+                if (themeToggle) {
+                    themeToggle.addEventListener('click', () => {
+                        document.body.classList.toggle('dark-mode');
+                        const icon = themeToggle.querySelector('i');
+                        icon.className = document.body.classList.contains('dark-mode') 
+                            ? 'fas fa-sun' 
+                            : 'fas fa-moon';
+                    });
+                }
+            }
+
+            updateResults() {
+                let filteredData = [...this.allData];
+
+                // Aplicar filtros
+                Object.entries(this.filters).forEach(([key, value]) => {
+                    if (value) {
+                        filteredData = filteredData.filter(item => item[key] === value);
+                    }
+                });
+
+                // Aplicar busca
+                if (this.search) {
+                    const searchTerm = this.search.toLowerCase();
+                    filteredData = filteredData.filter(item => 
+                        item.school.toLowerCase().includes(searchTerm) ||
+                        this.formatGrade(item.grade).toLowerCase().includes(searchTerm) ||
+                        this.getSubjectName(item.subject).toLowerCase().includes(searchTerm)
+                    );
+                }
+
+                // Aplicar ordenação
+                filteredData = this.sortData(filteredData);
+
+                this.currentData = filteredData;
+                this.renderResults();
+                this.updateQuickStats();
+                this.updateActiveFilters();
+            }
+
+            sortData(data) {
+                return data.sort((a, b) => {
+                    switch (this.sort) {
+                        case 'media-desc':
+                            return (b.media || 0) - (a.media || 0);
+                        case 'media-asc':
+                            return (a.media || 0) - (b.media || 0);
+                        case 'alunos-desc':
+                            return (b.alunos || 0) - (a.alunos || 0);
+                        case 'alunos-asc':
+                            return (a.alunos || 0) - (b.alunos || 0);
+                        case 'escola':
+                        default:
+                            return a.school.localeCompare(b.school);
+                    }
+                });
+            }
+
+            renderResults() {
+                const container = document.getElementById('cnca-results');
+                if (!container) return;
+
+                if (this.currentData.length === 0) {
+                    container.innerHTML = this.getEmptyStateHTML();
+                    return;
+                }
+
+                const cards = this.currentData.map(item => this.createGridCard(item)).join('');
+                container.innerHTML = `<div class="results-grid">${cards}</div>`;
+            }
+
+            createGridCard(item) {
+                const schoolDisplayName = item.turma ? `${item.school} - Turma ${item.turma}` : item.school;
+                const performanceClass = this.getPerformanceClass(item.media);
+                const imagePath = this.encodeImagePath(item.imagem);
+                
+                return `
+                    <div class="result-card" onclick="app.openImageModal('${imagePath}', '${schoolDisplayName}')">
+                        <div class="result-card-image">
+                            <img src="${imagePath}" alt="Gráfico ${schoolDisplayName}" loading="lazy" onerror="this.src='assets/no-image.png';">
+                            <div class="performance-badge ${performanceClass}">${item.media?.toFixed(1) || 'N/A'}%</div>
+                        </div>
+                        <div class="result-card-content">
+                            <h5 class="school-title">${schoolDisplayName}</h5>
+                            <div class="result-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>${this.formatGrade(item.grade)}</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-book"></i>
+                                    <span>${this.getSubjectName(item.subject)}</span>
+                                </div>
+                            </div>
+                            <div class="result-stats">
+                                <div class="stat-item">
+                                    <div class="stat-value">${item.media?.toFixed(1) || 'N/A'}</div>
+                                    <div class="stat-label">Média</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">${item.alunos || 'N/A'}</div>
+                                    <div class="stat-label">Alunos</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            getPerformanceClass(media) {
+                if (!media) return 'performance-unknown';
+                if (media >= 80) return 'performance-excellent';
+                if (media >= 70) return 'performance-good';
+                if (media >= 60) return 'performance-average';
+                return 'performance-poor';
+            }
+
+            encodeImagePath(path) {
+                return path ? encodeURI(path) : 'assets/no-image.png';
+            }
+
+            updateQuickStats() {
+                const container = document.getElementById('cnca-quick-stats');
+                if (!container) return;
+
+                if (this.currentData.length === 0) {
+                    container.innerHTML = '';
+                    return;
+                }
+
+                const totalAlunos = this.currentData.reduce((sum, item) => sum + (item.alunos || 0), 0);
+                const mediaGeral = this.currentData.reduce((sum, item) => sum + (item.media || 0), 0) / this.currentData.length;
+                const escolas = new Set(this.currentData.map(item => item.school)).size;
+                const avaliacoes = this.currentData.length;
+
+                container.innerHTML = `
+                    <div class="quick-stat-card">
+                        <div class="quick-stat-number">${avaliacoes}</div>
+                        <div class="quick-stat-label">Avaliações</div>
+                    </div>
+                    <div class="quick-stat-card">
+                        <div class="quick-stat-number">${escolas}</div>
+                        <div class="quick-stat-label">Escolas</div>
+                    </div>
+                    <div class="quick-stat-card">
+                        <div class="quick-stat-number">${totalAlunos.toLocaleString('pt-BR')}</div>
+                        <div class="quick-stat-label">Alunos</div>
+                    </div>
+                    <div class="quick-stat-card">
+                        <div class="quick-stat-number">${mediaGeral.toFixed(1)}%</div>
+                        <div class="quick-stat-label">Média</div>
+                    </div>
+                `;
+            }
+
+            updateActiveFilters() {
+                const container = document.getElementById('cnca-active-filters');
+                if (!container) return;
+
+                const activeFilters = [];
+                
+                Object.entries(this.filters).forEach(([key, value]) => {
+                    if (value) {
+                        let displayValue = value;
+                        if (key === 'grade') displayValue = this.formatGrade(value);
+                        if (key === 'subject') displayValue = this.getSubjectName(value);
+                        
+                        activeFilters.push({
+                            type: key,
+                            value: value,
+                            display: displayValue
+                        });
+                    }
+                });
+
+                if (activeFilters.length === 0) {
+                    container.innerHTML = '';
+                    return;
+                }
+
+                const badges = activeFilters.map(filter => 
+                    `<span class="filter-badge">
+                        ${filter.display}
+                        <button type="button" onclick="app.removeFilter('${filter.type}')" class="filter-remove">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </span>`
+                ).join('');
+
+                container.innerHTML = `<div class="active-filters">${badges}</div>`;
+            }
+
+            removeFilter(filterType) {
+                this.filters[filterType] = '';
+                document.getElementById(`cnca-${filterType}`).value = '';
+                this.updateResults();
+            }
+
+            clearFilters() {
+                this.filters = { grade: '', subject: '', school: '' };
+                ['grade', 'subject', 'school'].forEach(filter => {
+                    const element = document.getElementById(`cnca-${filter}`);
+                    if (element) element.value = '';
+                });
+                this.updateResults();
+            }
+
+            openImageModal(imagePath, title) {
+                const modal = new bootstrap.Modal(document.getElementById('imageModal'));
+                document.getElementById('modalImage').src = imagePath;
+                document.getElementById('imageModalLabel').textContent = title;
+                modal.show();
+            }
+
+            getEmptyStateHTML() {
+                return `
+                    <div class="empty-state">
+                        <i class="fas fa-search"></i>
+                        <h5>Nenhum resultado encontrado</h5>
+                        <p>Tente ajustar os filtros ou termos de busca.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Inicializar app quando DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', function() {
+            window.app = new CncaApp();
+        });
+    </script>
+</body>
+</html>
