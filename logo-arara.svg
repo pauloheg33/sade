@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#63B3ED;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="secondaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22C55E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#2C5282" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Main shield background -->
+  <path d="M60 10 L100 30 L100 70 Q100 90 60 110 Q20 90 20 70 L20 30 Z" 
+        fill="url(#primaryGrad)" 
+        stroke="#2C5282" 
+        stroke-width="2" 
+        filter="url(#shadow)"/>
+  
+  <!-- Inner decoration -->
+  <circle cx="60" cy="40" r="25" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  
+  <!-- Education symbols -->
+  <!-- Book -->
+  <rect x="45" y="30" width="30" height="20" rx="2" fill="#FFFFFF" opacity="0.9"/>
+  <rect x="47" y="32" width="26" height="16" rx="1" fill="url(#primaryGrad)"/>
+  
+  <!-- Pages -->
+  <line x1="50" y1="36" x2="70" y2="36" stroke="#FFFFFF" stroke-width="1"/>
+  <line x1="50" y1="39" x2="68" y2="39" stroke="rgba(255,255,255,0.8)" stroke-width="1"/>
+  <line x1="50" y1="42" x2="66" y2="42" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
+  <line x1="50" y1="45" x2="64" y2="45" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+  
+  <!-- Graduation cap -->
+  <polygon points="45,60 75,60 60,52" fill="url(#secondaryGrad)"/>
+  <rect x="43" y="60" width="34" height="3" fill="#2C5282"/>
+  
+  <!-- Tassel -->
+  <circle cx="68" cy="56" r="2" fill="#F59E0B"/>
+  <line x1="68" y1="58" x2="72" y2="68" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Chart/graph elements -->
+  <rect x="25" y="75" width="4" height="15" fill="#22C55E" rx="1"/>
+  <rect x="32" y="70" width="4" height="20" fill="#4A90E2" rx="1"/>
+  <rect x="39" y="80" width="4" height="10" fill="#F59E0B" rx="1"/>
+  
+  <rect x="77" y="78" width="4" height="12" fill="#22C55E" rx="1"/>
+  <rect x="84" y="72" width="4" height="18" fill="#4A90E2" rx="1"/>
+  <rect x="91" y="82" width="4" height="8" fill="#F59E0B" rx="1"/>
+  
+  <!-- Municipal text indication -->
+  <text x="60" y="105" font-family="Arial, sans-serif" font-size="8" fill="#2C5282" text-anchor="middle" font-weight="bold">ARARENDÁ</text>
+</svg>
