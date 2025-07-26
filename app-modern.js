@@ -768,6 +768,257 @@ class SADEModern {
         }, 100);
     }
 
+    async downloadPDF() {
+        try {
+            const programType = document.body.getAttribute('data-program') || 
+                                (window.location.pathname.includes('proea') ? 'proea' : 'cnca');
+            
+            // Verificar se jsPDF está disponível
+            if (typeof window.jsPDF === 'undefined') {
+                console.error('jsPDF não está carregado');
+                this.showNotification('Erro: Biblioteca PDF não está disponível', 'error');
+                return;
+            }
+
+            // Obter imagens filtradas atualmente visíveis
+            const visibleImages = this.getVisibleImages(programType);
+            
+            if (visibleImages.length === 0) {
+                this.showNotification('Nenhuma imagem encontrada com os filtros atuais', 'warning');
+                return;
+            }
+
+            // Mostrar loading
+            this.showNotification('Gerando PDF... Aguarde', 'info');
+            const loadingBtn = document.getElementById('download-pdf-btn');
+            const originalText = loadingBtn.innerHTML;
+            loadingBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i>Gerando PDF...';
+            loadingBtn.disabled = true;
+
+            // Criar PDF
+            const pdf = new window.jsPDF('p', 'mm', 'a4');
+            const pageWidth = pdf.internal.pageSize.getWidth();
+            const pageHeight = pdf.internal.pageSize.getHeight();
+            const margin = 20;
+            const availableWidth = pageWidth - (2 * margin);
+            const availableHeight = pageHeight - (2 * margin);
+
+            // Título do documento
+            const title = `Relatório ${programType.toUpperCase()} - ${new Date().toLocaleDateString('pt-BR')}`;
+            pdf.setFontSize(16);
+            pdf.text(title, margin, margin);
+
+            // Informações dos filtros aplicados
+            const filters = this.getActiveFilters(programType);
+            let yPosition = margin + 15;
+            
+            if (filters.length > 0) {
+                pdf.setFontSize(12);
+                pdf.text('Filtros aplicados:', margin, yPosition);
+                yPosition += 8;
+                
+                pdf.setFontSize(10);
+                filters.forEach(filter => {
+                    pdf.text(`• ${filter}`, margin + 5, yPosition);
+                    yPosition += 6;
+                });
+                yPosition += 10;
+            }
+
+            // Adicionar imagens
+            let currentY = yPosition;
+            let imagesPerPage = 0;
+            const maxImagesPerPage = 2;
+
+            for (let i = 0; i < visibleImages.length; i++) {
+                const imageData = visibleImages[i];
+                
+                try {
+                    // Carregar imagem como base64
+                    const imgDataUrl = await this.loadImageAsDataUrl(imageData.src);
+                    
+                    // Calcular dimensões da imagem mantendo proporção
+                    const imgWidth = availableWidth * 0.9;
+                    const imgHeight = (availableWidth * 0.9) * 0.6; // Proporção aproximada dos gráficos
+                    
+                    // Verificar se cabe na página
+                    if (currentY + imgHeight + 30 > pageHeight - margin) {
+                        pdf.addPage();
+                        currentY = margin;
+                        imagesPerPage = 0;
+                    }
+                    
+                    // Adicionar título da imagem
+                    pdf.setFontSize(11);
+                    const imageTitle = this.formatImageTitle(imageData.title);
+                    pdf.text(imageTitle, margin, currentY);
+                    currentY += 8;
+                    
+                    // Adicionar imagem
+                    pdf.addImage(imgDataUrl, 'PNG', margin, currentY, imgWidth, imgHeight);
+                    currentY += imgHeight + 15;
+                    imagesPerPage++;
+                    
+                } catch (error) {
+                    console.error('Erro ao processar imagem:', imageData.src, error);
+                    continue;
+                }
+            }
+
+            // Adicionar rodapé com informações
+            const totalPages = pdf.internal.getNumberOfPages();
+            for (let i = 1; i <= totalPages; i++) {
+                pdf.setPage(i);
+                pdf.setFontSize(8);
+                pdf.text(`SADE v0.2.0 - Página ${i} de ${totalPages}`, margin, pageHeight - 10);
+                pdf.text(`Gerado em ${new Date().toLocaleString('pt-BR')}`, pageWidth - margin - 50, pageHeight - 10);
+            }
+
+            // Salvar PDF
+            const filename = `SADE_${programType.toUpperCase()}_${new Date().toISOString().split('T')[0]}.pdf`;
+            pdf.save(filename);
+            
+            this.showNotification(`PDF gerado com sucesso! ${visibleImages.length} imagem(ns) incluída(s)`, 'success');
+
+        } catch (error) {
+            console.error('Erro ao gerar PDF:', error);
+            this.showNotification('Erro ao gerar PDF. Tente novamente.', 'error');
+        } finally {
+            // Restaurar botão
+            const loadingBtn = document.getElementById('download-pdf-btn');
+            if (loadingBtn) {
+                loadingBtn.innerHTML = originalText;
+                loadingBtn.disabled = false;
+            }
+        }
+    }
+
+    getVisibleImages(programType) {
+        const images = [];
+        const container = document.getElementById(`${programType}-results`);
+        
+        if (!container) return images;
+        
+        const imageElements = container.querySelectorAll('.image-card:not(.d-none) img');
+        
+        imageElements.forEach(img => {
+            const card = img.closest('.image-card');
+            const title = card.querySelector('.card-title')?.textContent || 'Sem título';
+            
+            images.push({
+                src: img.src,
+                title: title
+            });
+        });
+        
+        return images;
+    }
+
+    getActiveFilters(programType) {
+        const filters = [];
+        const currentFilters = this.filters[programType];
+        
+        if (currentFilters.grade) {
+            filters.push(`Ano: ${currentFilters.grade}`);
+        }
+        if (currentFilters.subject) {
+            filters.push(`Disciplina: ${currentFilters.subject}`);
+        }
+        if (currentFilters.school) {
+            filters.push(`Escola: ${currentFilters.school}`);
+        }
+        if (this.search[programType]) {
+            filters.push(`Busca: "${this.search[programType]}"`);
+        }
+        
+        return filters;
+    }
+
+    loadImageAsDataUrl(src) {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            
+            img.onload = function() {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                canvas.width = this.naturalWidth;
+                canvas.height = this.naturalHeight;
+                
+                ctx.drawImage(this, 0, 0);
+                
+                try {
+                    const dataUrl = canvas.toDataURL('image/png');
+                    resolve(dataUrl);
+                } catch (error) {
+                    reject(error);
+                }
+            };
+            
+            img.onerror = reject;
+            img.src = src;
+        });
+    }
+
+    formatImageTitle(title) {
+        // Formatar título da imagem para exibição no PDF
+        return title
+            .replace(/\.png$/i, '')
+            .replace(/_/g, ' ')
+            .replace(/([A-Z])/g, ' $1')
+            .trim();
+    }
+
+    showNotification(message, type = 'info') {
+        // Criar container de notificação se não existir
+        let container = document.getElementById('notification-container');
+        if (!container) {
+            container = document.createElement('div');
+            container.id = 'notification-container';
+            container.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 9999;
+                max-width: 350px;
+            `;
+            document.body.appendChild(container);
+        }
+
+        // Criar notificação
+        const notification = document.createElement('div');
+        notification.className = `alert alert-${type === 'error' ? 'danger' : type} alert-dismissible fade show`;
+        notification.style.cssText = `
+            margin-bottom: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        `;
+        
+        const iconMap = {
+            success: 'fas fa-check-circle',
+            error: 'fas fa-exclamation-circle',
+            warning: 'fas fa-exclamation-triangle',
+            info: 'fas fa-info-circle'
+        };
+        
+        notification.innerHTML = `
+            <i class="${iconMap[type] || iconMap.info} me-2"></i>
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        `;
+
+        container.appendChild(notification);
+
+        // Auto-remover após 5 segundos (exceto para loading)
+        if (type !== 'info' || !message.includes('Aguarde')) {
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+    }
+
     setupBackToTop() {
         const btn = document.getElementById('back-to-top');
         if (btn) {

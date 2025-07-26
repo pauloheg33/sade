@@ -40,7 +40,7 @@
         }
     </style>
 </head>
-<body class="bg-light">
+<body class="bg-light" data-program="cnca">
     <!-- Header -->
     <header class="cnca-header text-center text-lg-start">
         <div class="container">
@@ -137,7 +137,7 @@
 
                         <!-- Barra de Busca e Controles -->
                         <div class="row mb-3">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="input-group">
                                     <span class="input-group-text">
                                         <i class="fas fa-search"></i>
@@ -145,7 +145,7 @@
                                     <input type="text" id="cnca-search" class="form-control" placeholder="Buscar por escola, ano ou disciplina...">
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <select id="cnca-sort" class="form-select">
                                     <option value="escola">Ordenar por Escola</option>
                                     <option value="media-desc">Maior Média</option>
@@ -153,6 +153,11 @@
                                     <option value="alunos-desc">Mais Alunos</option>
                                     <option value="alunos-asc">Menos Alunos</option>
                                 </select>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-success w-100" onclick="app.downloadPDF()" id="download-pdf-btn">
+                                    <i class="fas fa-file-pdf me-1"></i>Download PDF
+                                </button>
                             </div>
                             <div class="col-md-3">
                                 <button class="btn btn-outline-danger w-100" onclick="app.clearFilters('cnca')">
@@ -227,6 +232,7 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     
     <!-- Data -->
     <script src="sade_data.js"></script>

@@ -20,12 +20,14 @@
 - 🔍 **Busca Inteligente**: Pesquisa por escola, ano ou disciplina
 - 📋 **Múltiplas Visualizações**: Grid de cards com gráficos interativos
 - 🏫 **Gestão de Turmas**: Diferenciação entre turmas A/B da mesma escola
+- 📄 **Download PDF**: Relatórios profissionais das imagens filtradas ⭐ **NOVO**
 
 ### **CNCA - Anos Iniciais (1º ao 5º ano)** 
 - 📚 **Compromisso Criança Alfabetizada**: Foco em Língua Portuguesa e Matemática
 - 📊 **Interface Dedicada**: Layout otimizado para alfabetização
 - 🎨 **Design Diferenciado**: Cores e ícones específicos para o programa
 - 📈 **Acompanhamento Detalhado**: Progresso individual por escola e turma
+- 📄 **Download PDF**: Relatórios profissionais das imagens filtradas ⭐ **NOVO**
 
 ### **Dashboard Unificado**
 - 🏠 **Visão Geral**: Estatísticas consolidadas de todo o sistema
@@ -260,6 +262,14 @@ SADE v4.0.0/
 - **Cores Temáticas**: Identificação visual por disciplina
 - **Informações Detalhadas**: Média, número de alunos, escola
 - **Performance Levels**: Classificação visual por cores
+
+#### 📄 **Relatórios em PDF** ⭐ **NOVO v0.2.0**
+- **Download Inteligente**: Gera PDF apenas com imagens filtradas
+- **Formatação Profissional**: Layout A4 com cabeçalho e rodapé
+- **Filtros Documentados**: Lista dos filtros aplicados no relatório
+- **Qualidade Preservada**: Imagens em alta resolução
+- **Nomeação Automática**: Arquivo com programa e data
+- **Feedback Visual**: Indicadores de progresso durante geração
 
 ### 🌐 **Compatibilidade GitHub Pages**
 
