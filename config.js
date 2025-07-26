@@ -3,7 +3,7 @@
 // Secretaria da Educação de Ararendá
 
 /**
- * SADE v4.1.0 Configuration File
+ * SADE v0.2.0 Configuration File
  * Otimizado para GitHub Pages
  * Secretaria da Educação de Ararendá - CE
  */
@@ -11,7 +11,7 @@
 const CONFIG = {
     // Application Info
     APP_NAME: 'SADE',
-    APP_VERSION: '4.1.0',
+    APP_VERSION: '0.2.0',
     APP_DESCRIPTION: 'Sistema de Avaliação e Desempenho Escolar',
     DEVELOPER: 'Paulo Henrique',
     ORGANIZATION: 'Secretaria da Educação de Ararendá - CE',

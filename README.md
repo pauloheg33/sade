@@ -1,9 +1,9 @@
-# SADE v4.1 🎓
+# SADE v0.2.0 🎓
 
 ## Sistema de Avaliação e Desempenho Escolar
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://pauloheg33.github.io/sade/)
-[![Version](https://img.shields.io/badge/Version-4.1.0-blue)](https://github.com/pauloheg33/sade)
+[![Version](https://img.shields.io/badge/Version-0.2.0-blue)](https://github.com/pauloheg33/sade)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 **SADE** é uma plataforma web moderna e responsiva para visualização e análise de dados educacionais da **Secretaria da Educação de Ararendá - CE**. O sistema permite acompanhar o desempenho escolar através de gráficos interativos e estatísticas detalhadas.
@@ -136,14 +136,14 @@ python process_data.py
 
 ## 🔄 **Atualizações e Versões**
 
-### **v4.1.0** (Atual)
+### **v0.2.0** (Atual)
 - ✅ Páginas separadas para PROEA e CNCA
 - ✅ Layouts específicos e otimizados  
 - ✅ Sistema de dados reestruturado
 - ✅ Performance melhorada
 - ✅ Navegação aprimorada
 
-### **v4.0.0**
+### **v0.1.0**
 - ✅ Interface moderna e responsiva
 - ✅ Dashboard unificado
 - ✅ Sistema de filtros avançado
@@ -173,7 +173,7 @@ Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) par
 
 <div align="center">
 
-**SADE v4.1** - Sistema de Avaliação e Desempenho Escolar  
+**SADE v0.2.0** - Sistema de Avaliação e Desempenho Escolar  
 *Desenvolvido com ❤️ para a educação de Ararendá - CE*
 
 [![GitHub](https://img.shields.io/badge/GitHub-pauloheg33-blue)](https://github.com/pauloheg33)
