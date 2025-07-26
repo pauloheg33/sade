@@ -232,7 +232,7 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
     
     <!-- Data -->
     <script src="sade_data.js"></script>
@@ -565,9 +565,17 @@
             async downloadPDF() {
                 try {
                     // Verificar se jsPDF está disponível
-                    if (typeof window.jsPDF === 'undefined') {
+                    if (typeof window.jsPDF === 'undefined' && typeof jsPDF === 'undefined') {
                         console.error('jsPDF não está carregado');
-                        alert('Erro: Biblioteca PDF não está disponível');
+                        alert('Erro: Biblioteca PDF não está disponível. Recarregue a página e tente novamente.');
+                        return;
+                    }
+
+                    // Usar a versão global do jsPDF
+                    const { jsPDF } = window.jspdf || window;
+                    
+                    if (!jsPDF) {
+                        alert('Erro: jsPDF não foi carregado corretamente. Recarregue a página.');
                         return;
                     }
 
@@ -586,7 +594,7 @@
                     loadingBtn.disabled = true;
 
                     // Criar PDF
-                    const pdf = new window.jsPDF('p', 'mm', 'a4');
+                    const pdf = new jsPDF('p', 'mm', 'a4');
                     const pageWidth = pdf.internal.pageSize.getWidth();
                     const pageHeight = pdf.internal.pageSize.getHeight();
                     const margin = 20;
