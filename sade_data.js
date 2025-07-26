@@ -2,7 +2,7 @@
  * SADE - Sistema de Avaliação e Desempenho Escolar
  * Base de Dados Estruturada
  * 
- * Gerado automaticamente em: 2025-07-26T10:39:48.449543
+ * Gerado automaticamente em: 2025-07-26T12:55:20.100995
  * ATENÇÃO: Não edite este arquivo manualmente. Ele é gerado pelo script process_data.py
  */
 const SADE_DATA = {
@@ -1437,7 +1437,7 @@ const SADE_DATA = {
         }
     },
     "metadata": {
-        "generation_date": "2025-07-26T10:39:48.449543",
+        "generation_date": "2025-07-26T12:55:20.100995",
         "total_evaluations": 184,
         "schools": [
             "03 DE DEZEMBRO",

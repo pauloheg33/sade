@@ -3,25 +3,30 @@
 // Secretaria da Educação de Ararendá
 
 /**
- * SADE v4.0.0 Configuration File
- * Centralized configuration for the modern SADE system
+ * SADE v4.1.0 Configuration File
+ * Otimizado para GitHub Pages
+ * Secretaria da Educação de Ararendá - CE
  */
 
 const CONFIG = {
     // Application Info
     APP_NAME: 'SADE',
-    APP_VERSION: '4.0.0',
+    APP_VERSION: '4.1.0',
     APP_DESCRIPTION: 'Sistema de Avaliação e Desempenho Escolar',
     DEVELOPER: 'Paulo Henrique',
     ORGANIZATION: 'Secretaria da Educação de Ararendá - CE',
     
+    // GitHub Pages Configuration
+    BASE_URL: 'https://pauloheg33.github.io/sade/',
+    REPO_URL: 'https://github.com/pauloheg33/sade',
+    
     // UI Theme Configuration
     THEME: {
         PRIMARY: '#2563eb',
-        SECONDARY: '#1e40af',
-        SUCCESS: '#059669',
-        WARNING: '#d97706',
-        DANGER: '#dc2626',
+        SECONDARY: '#1e40af', 
+        SUCCESS: '#16a34a',
+        WARNING: '#f97316',
+        DANGER: '#ef4444',
         LIGHT: '#f8fafc',
         DARK: '#1e293b'
     },

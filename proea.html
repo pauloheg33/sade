@@ -230,6 +230,7 @@
     
     <!-- Data -->
     <script src="sade_data.js"></script>
+    <script src="data-transform.js"></script>
     
     <!-- Custom Scripts -->
     <script>
@@ -253,49 +254,13 @@
 
             loadData() {
                 if (typeof sadeData !== 'undefined' && sadeData.proea) {
-                    this.allData = this.flattenData(sadeData.proea);
+                    this.allData = flattenSchoolData(sadeData.proea, 'proea');
                     this.currentData = [...this.allData];
                     this.populateFilters();
                     this.updateResults();
+                } else {
+                    console.error('PROEA: Dados não encontrados ou estrutura incorreta');
                 }
-            }
-
-            flattenData(data) {
-                const flattened = [];
-                Object.entries(data).forEach(([school, schoolData]) => {
-                    if (schoolData.classes) {
-                        Object.entries(schoolData.classes).forEach(([className, classData]) => {
-                            Object.entries(classData).forEach(([grade, gradeData]) => {
-                                Object.entries(gradeData).forEach(([subject, subjectData]) => {
-                                    flattened.push({
-                                        school: school,
-                                        turma: className,
-                                        grade: grade,
-                                        subject: subject,
-                                        media: subjectData.media,
-                                        alunos: subjectData.alunos,
-                                        imagem: subjectData.imagem
-                                    });
-                                });
-                            });
-                        });
-                    } else {
-                        Object.entries(schoolData).forEach(([grade, gradeData]) => {
-                            Object.entries(gradeData).forEach(([subject, subjectData]) => {
-                                flattened.push({
-                                    school: school,
-                                    turma: null,
-                                    grade: grade,
-                                    subject: subject,
-                                    media: subjectData.media,
-                                    alunos: subjectData.alunos,
-                                    imagem: subjectData.imagem
-                                });
-                            });
-                        });
-                    }
-                });
-                return flattened;
             }
 
             populateFilters() {
