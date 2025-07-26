@@ -12,6 +12,17 @@ class SADESystem {
     }
 
     async init() {
+        // Aguardar DOM estar pronto
+        if (document.readyState !== 'complete') {
+            await new Promise(resolve => {
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', resolve);
+                } else {
+                    resolve();
+                }
+            });
+        }
+        
         this.setupEventListeners();
         await this.loadData();
         this.renderDashboard();
@@ -948,6 +959,17 @@ class SADESystem {
 }
 
 // Initialize the system when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    new SADESystem();
-});
+let sadeSystemInitialized = false;
+
+function initializeSADE() {
+    if (sadeSystemInitialized) return;
+    sadeSystemInitialized = true;
+    window.sadeApp = new SADESystem();
+}
+
+document.addEventListener('DOMContentLoaded', initializeSADE);
+
+// Fallback para garantir inicialização
+if (document.readyState === 'complete') {
+    initializeSADE();
+}
