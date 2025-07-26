@@ -2,67 +2,227 @@
 // Arquivo de Configuração
 // Secretaria da Educação de Ararendá
 
-const SADE_CONFIG = {
-    // Informações da Aplicação
-    APP_NAME: 'SADE - Sistema de Avaliação e Desempenho Escolar',
-    APP_VERSION: '3.0.0',
-    ORGANIZATION: 'Secretaria da Educação de Ararendá',
+/**
+ * SADE v4.0.0 Configuration File
+ * Centralized configuration for the modern SADE system
+ */
+
+const CONFIG = {
+    // Application Info
+    APP_NAME: 'SADE',
+    APP_VERSION: '4.0.0',
+    APP_DESCRIPTION: 'Sistema de Avaliação e Desempenho Escolar',
+    DEVELOPER: 'Paulo Henrique',
+    ORGANIZATION: 'Secretaria da Educação de Ararendá - CE',
     
-    // Configurações de Performance
-    DEBOUNCE_DELAY: 300,
-    ANIMATION_DURATION: 300,
-    LAZY_LOAD_THRESHOLD: 0.1,
-    
-    // Configurações de Dados
-    SUBJECTS: {
-        'LP': 'Língua Portuguesa',
-        'MAT': 'Matemática',
-        'CN': 'Ciências da Natureza'
+    // UI Theme Configuration
+    THEME: {
+        PRIMARY: '#2563eb',
+        SECONDARY: '#1e40af',
+        SUCCESS: '#059669',
+        WARNING: '#d97706',
+        DANGER: '#dc2626',
+        LIGHT: '#f8fafc',
+        DARK: '#1e293b'
     },
     
+    // Performance Levels
     PERFORMANCE_LEVELS: {
-        'excellent': { min: 80, label: 'Excelente', color: '#22C55E' },
-        'good': { min: 70, label: 'Bom', color: '#3B82F6' },
-        'average': { min: 60, label: 'Regular', color: '#F59E0B' },
-        'poor': { min: 0, label: 'Insuficiente', color: '#EF4444' }
+        EXCELLENT: { min: 90, max: 100, color: '#10b981', label: 'Excelente', badge: 'success' },
+        GOOD: { min: 80, max: 89, color: '#3b82f6', label: 'Bom', badge: 'primary' },
+        SATISFACTORY: { min: 70, max: 79, color: '#f59e0b', label: 'Satisfatório', badge: 'warning' },
+        NEEDS_IMPROVEMENT: { min: 60, max: 69, color: '#ef4444', label: 'Precisa Melhorar', badge: 'danger' },
+        UNSATISFACTORY: { min: 0, max: 59, color: '#dc2626', label: 'Insatisfatório', badge: 'dark' }
     },
     
-    PROGRAMS: {
-        'PROEA': {
-            name: 'PROEA - Avaliação dos Anos Finais',
-            grades: [6, 7, 8, 9],
-            subjects: ['LP', 'MAT', 'CN'],
-            folder: 'AVALIAÇÃO DAS APRENDIZAGENS DOS ANOS FINAIS - PROEA'
+    // Subjects Configuration
+    SUBJECTS: {
+        'LP': {
+            name: 'Língua Portuguesa',
+            fullName: 'Língua Portuguesa',
+            color: '#3b82f6',
+            icon: 'fas fa-book-open',
+            description: 'Avaliação de competências em leitura, escrita e interpretação'
         },
-        'CNCA': {
-            name: 'CNCA - Compromisso Criança Alfabetizada',
-            grades: [1, 2, 3, 4, 5],
-            subjects: ['LP', 'MAT'],
-            folder: 'CNCA - COMPROMISSO CRIANÇA ALFABETIZADA'
+        'MAT': {
+            name: 'Matemática',
+            fullName: 'Matemática',
+            color: '#ef4444',
+            icon: 'fas fa-calculator',
+            description: 'Avaliação de competências matemáticas e raciocínio lógico'
+        },
+        'CN': {
+            name: 'Ciências da Natureza',
+            fullName: 'Ciências da Natureza',
+            color: '#10b981',
+            icon: 'fas fa-flask',
+            description: 'Avaliação de conhecimentos científicos e naturais'
         }
     },
     
-    // Configurações de UI
-    CHART_COLORS: [
-        '#4A90E2', '#22C55E', '#F59E0B', '#EF4444', 
-        '#8B5CF6', '#06B6D4', '#F97316', '#84CC16'
-    ],
+    // Programs Configuration
+    PROGRAMS: {
+        'PROEA': {
+            name: 'PROEA',
+            fullName: 'Avaliação das Aprendizagens dos Anos Finais',
+            description: 'Programa de avaliação para 6º ao 9º ano do Ensino Fundamental',
+            grades: ['6º_ano', '7º_ano', '8º_ano', '9º_ano'],
+            gradeLabels: ['6º Ano', '7º Ano', '8º Ano', '9º Ano'],
+            color: '#3b82f6',
+            icon: 'fas fa-graduation-cap'
+        },
+        'CNCA': {
+            name: 'CNCA',
+            fullName: 'Compromisso Criança Alfabetizada',
+            description: 'Programa de avaliação para 1º ao 5º ano do Ensino Fundamental',
+            grades: ['1º_ano', '2º_ano', '3º_ano', '4º_ano', '5º_ano'],
+            gradeLabels: ['1º Ano', '2º Ano', '3º Ano', '4º Ano', '5º Ano'],
+            color: '#10b981',
+            icon: 'fas fa-child'
+        }
+    },
     
-    // Configurações de Export
-    EXPORT_FORMATS: ['excel', 'pdf', 'csv'],
+    // Modern UI Libraries Configuration
+    LIBRARIES: {
+        BOOTSTRAP: '5.3.0',
+        JQUERY: '3.7.0',
+        SELECT2: '4.1.0-rc.0',
+        FANCYBOX: '5.0',
+        CHARTJS: '4.4.0',
+        FONTAWESOME: '6.0.0'
+    },
     
-    // Configurações de Cache
-    CACHE_DURATION: 5 * 60 * 1000, // 5 minutos
+    // Gallery Configuration
+    GALLERY: {
+        ITEMS_PER_PAGE: 24,
+        THUMBNAIL_SIZE: { width: 300, height: 200 },
+        LAZY_LOADING: true,
+        FANCYBOX_SETTINGS: {
+            groupAll: true,
+            autoFocus: true,
+            trapFocus: true,
+            placeFocusBack: true,
+            preventCaptionOverlap: true
+        }
+    },
     
-    // Mensagens do Sistema
-    MESSAGES: {
-        LOADING: 'Carregando dados...',
-        NO_DATA: 'Nenhum dado encontrado para os filtros selecionados',
-        ERROR_LOAD: 'Erro ao carregar dados. Tente novamente.',
-        SUCCESS_EXPORT: 'Dados exportados com sucesso!',
-        ERROR_EXPORT: 'Erro ao exportar dados. Tente novamente.'
+    // Filter Configuration
+    FILTERS: {
+        DEBOUNCE_DELAY: 300,
+        AUTO_APPLY: true,
+        SHOW_ACTIVE_FILTERS: true,
+        PERSISTENT_STATE: false
+    },
+    
+    // Chart Configuration
+    CHARTS: {
+        DEFAULT_HEIGHT: 400,
+        RESPONSIVE: true,
+        MAINTAIN_ASPECT_RATIO: false,
+        COLORS: {
+            PRIMARY: '#2563eb',
+            SECONDARY: '#64748b',
+            SUCCESS: '#059669',
+            WARNING: '#d97706',
+            DANGER: '#dc2626',
+            INFO: '#0891b2'
+        },
+        ANIMATION: {
+            DURATION: 750,
+            EASING: 'easeInOutQuart'
+        }
+    },
+    
+    // System Settings
+    SETTINGS: {
+        ANIMATION_DURATION: 300,
+        LOADING_TIMEOUT: 1000,
+        MAX_RETRY_ATTEMPTS: 3,
+        ENABLE_DEBUG: true,
+        CONSOLE_LOGS: true,
+        ERROR_REPORTING: true
+    },
+    
+    // API/Data Configuration
+    DATA: {
+        IMAGE_BASE_PATH: 'data/',
+        FALLBACK_IMAGE: 'assets/no-image.png',
+        LAZY_LOAD_IMAGES: true,
+        CACHE_ENABLED: false
+    },
+    
+    // GitHub Pages Configuration
+    GITHUB_PAGES: {
+        ENABLED: true,
+        BASE_URL: 'https://pauloheg33.github.io/sade/',
+        ENCODING: {
+            SPECIAL_CHARS: true,
+            URL_ENCODE: true
+        }
+    },
+    
+    // Responsive Breakpoints
+    BREAKPOINTS: {
+        SM: 576,
+        MD: 768,
+        LG: 992,
+        XL: 1200,
+        XXL: 1400
     }
 };
+
+// Utility Functions
+CONFIG.UTILS = {
+    getPerformanceLevel: (score) => {
+        for (const [key, level] of Object.entries(CONFIG.PERFORMANCE_LEVELS)) {
+            if (score >= level.min && score <= level.max) {
+                return { key, ...level };
+            }
+        }
+        return { key: 'UNSATISFACTORY', ...CONFIG.PERFORMANCE_LEVELS.UNSATISFACTORY };
+    },
+    
+    getSubjectInfo: (code) => CONFIG.SUBJECTS[code] || { name: code, color: '#6b7280', icon: 'fas fa-question' },
+    
+    getProgramInfo: (code) => CONFIG.PROGRAMS[code] || { name: code, color: '#6b7280' },
+    
+    formatGrade: (grade) => {
+        return grade.replace('_', ' ').replace(/(\d+)/, '$1º').replace('ano', 'Ano');
+    },
+    
+    encodeForUrl: (str) => {
+        if (!CONFIG.GITHUB_PAGES.ENCODING.URL_ENCODE) return str;
+        return str
+            .replace(/º/g, '%C2%BA')
+            .replace(/ª/g, '%C2%AA')
+            .replace(/ã/g, '%C3%A3')
+            .replace(/ç/g, '%C3%A7')
+            .replace(/é/g, '%C3%A9')
+            .replace(/í/g, '%C3%AD')
+            .replace(/ó/g, '%C3%B3')
+            .replace(/ú/g, '%C3%BA')
+            .replace(/Ã/g, '%C3%83')
+            .replace(/Ç/g, '%C3%87')
+            .replace(/É/g, '%C3%89')
+            .replace(/Í/g, '%C3%8D')
+            .replace(/Ó/g, '%C3%93')
+            .replace(/Ú/g, '%C3%9A')
+            .replace(/ /g, '%20');
+    }
+};
+
+// Debug Information
+if (CONFIG.SETTINGS.ENABLE_DEBUG) {
+    console.log(`🚀 ${CONFIG.APP_NAME} v${CONFIG.APP_VERSION} - ${CONFIG.APP_DESCRIPTION}`);
+    console.log(`👨‍💻 Desenvolvido por ${CONFIG.DEVELOPER}`);
+    console.log(`🏛️ ${CONFIG.ORGANIZATION}`);
+    console.log('📋 Configuração carregada:', CONFIG);
+}
+
+// Export for use in other modules
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = CONFIG;
+}
 
 // Função utilitária para obter configurações
 const getConfig = (path) => {

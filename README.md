@@ -2,7 +2,114 @@
 
 ![SADE Logo](assets/logo.png)
 
-**Versão 3.0.0** - Sistema de visualização de dados educacionais da Secretaria da Educação de Ararendá - CE
+# 🎯 SADE v4.0.0 - Sistema de Avaliação e Desempenho Escolar
+
+> **Sistema Moderno de Visualização de Dados Educacionais**  
+> Secretaria da Educação de Ararendá - CE
+
+## 🚀 **NOVA VERSÃO v4.0.0 - ARQUITETURA MODERNA**
+
+### ✨ **Principais Melhorias**
+
+#### 🔧 **Stack Tecnológico Atualizado**
+- **Bootstrap 5.3.0** - Framework CSS moderno e responsivo
+- **Select2 4.1.0** - Dropdowns avançados com busca e múltipla seleção
+- **Fancybox 5.0** - Galeria de imagens profissional com zoom e navegação
+- **Chart.js 4.4.0** - Gráficos interativos e responsivos
+- **Font Awesome 6.0** - Ícones modernos e vetoriais
+- **jQuery 3.7.0** - Biblioteca JavaScript otimizada
+
+#### 🎨 **Interface Moderna**
+- Design limpo e profissional com gradientes modernos
+- Cards com efeitos de hover e transições suaves
+- Sistema de navegação por abas intuitivo
+- Filtros visuais com badges de status ativo
+- Loading states e animações fluidas
+
+#### 🔍 **Sistema de Filtros Aprimorado**
+- Dropdowns inteligentes com busca em tempo real
+- Filtros persistentes com indicadores visuais
+- Aplicação de filtros com debounce para performance
+- Limpeza rápida de todos os filtros
+
+#### 🖼️ **Galeria de Imagens Profissional**
+- Visualização em grid responsivo
+- Zoom avançado com controles de navegação
+- Lazy loading para performance otimizada
+- Lightbox com informações detalhadas
+- Navegação por teclado e touch
+
+#### 📊 **Dashboard Estatístico**
+- Métricas em tempo real do sistema
+- Gráficos interativos por disciplina e ano
+- Cards estatísticos com design moderno
+- Distribuição visual de dados
+
+### 🏗️ **Arquitetura do Sistema**
+
+```
+SADE v4.0.0/
+├── 📄 index.html          # Interface moderna com Bootstrap 5
+├── 🎨 styles.css          # Estilos consolidados e otimizados
+├── ⚙️ config.js           # Configuração centralizada expandida
+├── 📊 sade_data.js        # Base de dados estruturada
+├── 🚀 app.js              # Aplicação moderna com classes ES6
+├── 📁 data/               # Imagens organizadas por programa
+│   ├── PROEA/             # Anos Finais (6º ao 9º)
+│   └── CNCA/              # Alfabetização (1º ao 5º)
+└── 🎯 assets/             # Recursos visuais e ícones
+```
+
+### 💎 **Funcionalidades Avançadas**
+
+#### 🎛️ **Sistema de Navegação**
+- **Dashboard**: Visão geral com estatísticas e gráficos
+- **PROEA**: Filtros específicos para anos finais (6º-9º)
+- **CNCA**: Filtros para programa de alfabetização (1º-5º)
+- **Galeria**: Visualização completa de todos os gráficos
+
+#### 🔧 **Filtros Inteligentes**
+- **Por Ano Escolar**: Seleção específica do ano letivo
+- **Por Disciplina**: LP, MAT, CN com ícones identificadores
+- **Por Escola**: Lista completa de instituições
+- **Estados Visuais**: Badges indicando filtros ativos
+
+#### 📈 **Visualização de Dados**
+- **Gráficos Responsivos**: Ajustam automaticamente ao dispositivo
+- **Cores Temáticas**: Identificação visual por disciplina
+- **Informações Detalhadas**: Média, número de alunos, escola
+- **Performance Levels**: Classificação visual por cores
+
+### 🌐 **Compatibilidade GitHub Pages**
+
+#### ✅ **Otimizações Implementadas**
+- **CDN Libraries**: Todas as bibliotecas via CDN para fast loading
+- **URL Encoding**: Caracteres especiais automaticamente codificados
+- **Fallback Assets**: Imagens de placeholder para casos de erro
+- **Responsive Design**: Funciona perfeitamente em mobile e desktop
+
+### 🛠️ **Como Usar**
+
+#### 💻 **Desenvolvimento Local**
+```bash
+# Clone o repositório
+git clone https://github.com/pauloheg33/sade.git
+cd sade
+python3 -m http.server 8080
+# Acesse: http://localhost:8080
+```
+
+#### 🌍 **Produção (GitHub Pages)**
+**🌐 Acesse agora**: [https://pauloheg33.github.io/sade/](https://pauloheg33.github.io/sade/)
+
+### 👨‍💻 **Desenvolvimento**
+
+**Desenvolvido por**: Paulo Henrique  
+**Organização**: Secretaria da Educação de Ararendá - CE  
+**Versão**: 4.0.0  
+**Tecnologias**: HTML5, CSS3, JavaScript ES6+, Bootstrap 5, Chart.js  
+
+> *SADE v4.0.0 - Transformando dados educacionais em insights visuais*
 
 [![Deploy Status](https://img.shields.io/badge/deploy-active-brightgreen)](https://pauloheg33.github.io/sade/)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)

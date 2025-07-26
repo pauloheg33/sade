@@ -1,0 +1,9 @@
+<!-- No Image Placeholder -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="300" height="200">
+  <rect width="300" height="200" fill="#f3f4f6"/>
+  <g fill="#9ca3af">
+    <circle cx="100" cy="70" r="15"/>
+    <path d="M70 120 L130 120 L130 140 L70 140 Z"/>
+    <text x="150" y="105" font-family="Arial" font-size="14">Imagem não encontrada</text>
+  </g>
+</svg>
