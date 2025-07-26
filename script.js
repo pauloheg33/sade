@@ -602,11 +602,12 @@ class SADESystem {
     createResultCard(item) {
         const title = `${item.grade}º Ano - ${item.school} - ${item.subject_name || this.getSubjectName(item.subject)}`;
         const description = `${item.school_variation ? 'Turma: ' + item.school_variation + ' | ' : ''}Programa: ${item.program}`;
+        const encodedPath = this.encodeImagePath(item.image_path);
         
         return `
-            <div class="result-card" data-image-path="${item.image_path}" data-title="${title}" data-description="${description}">
+            <div class="result-card" data-image-path="${encodedPath}" data-title="${title}" data-description="${description}">
                 <div class="result-image-container">
-                    <img src="${item.image_path}" alt="${title}" class="result-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZWNmMGYxIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzdmOGM4ZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkdyw6FmaWNvIG7Do28gZGlzcG9uw612ZWw8L3RleHQ+PC9zdmc+'">
+                    <img src="${encodedPath}" alt="${title}" class="result-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjM2NDY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlbSBOw6NvIEVuY29udHJhZGE8L3RleHQ+PC9zdmc+'">
                     <div class="image-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
@@ -653,28 +654,31 @@ class SADESystem {
         
         container.innerHTML = `
             <div class="chart-display-grid">
-                ${chartsToShow.map((item, index) => `
+                ${chartsToShow.map((item, index) => {
+                    const encodedPath = this.encodeImagePath(item.image_path);
+                    const title = `${item.grade}º Ano - ${item.school} - ${item.subject_name || this.getSubjectName(item.subject)}`;
+                    return `
                     <div class="integrated-chart-item" data-index="${index}">
                         <div class="chart-header">
-                            <h4>${item.grade}º Ano - ${item.school} - ${item.subject_name || this.getSubjectName(item.subject)}</h4>
+                            <h4>${title}</h4>
                             <div class="chart-stats">
                                 <span class="average">Média: ${item.average}</span>
                                 <span class="students">Alunos: ${item.students}</span>
                             </div>
                         </div>
                         <div class="chart-container">
-                            <img src="${item.image_path}" alt="${item.grade}º Ano - ${item.school}" loading="lazy" />
+                            <img src="${encodedPath}" alt="${title}" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjMmNDY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlbSBOw6NvIEVuY29udHJhZGE8L3RleHQ+PC9zdmc+'" />
                         </div>
                         <div class="chart-actions">
-                            <button onclick="sadeApp.openModal('${item.image_path}', '${item.grade}º Ano - ${item.school} - ${item.subject_name || this.getSubjectName(item.subject)}')" class="view-full">
+                            <button onclick="sadeApp.openModal('${encodedPath}', '${title}')" class="view-full">
                                 Ver Ampliado
                             </button>
-                            <button onclick="sadeApp.downloadChart('${item.image_path}', '${item.grade}º Ano - ${item.school}')" class="download-btn">
+                            <button onclick="sadeApp.downloadChart('${encodedPath}', '${title}')" class="download-btn">
                                 Download
                             </button>
                         </div>
                     </div>
-                `).join('')}
+                `;}).join('')}
             </div>
             ${data.length > 6 ? `
                 <div class="show-more">
@@ -684,6 +688,14 @@ class SADESystem {
                 </div>
             ` : ''}
         `;
+    }
+
+    encodeImagePath(imagePath) {
+        // Encode special characters in the path for URL compatibility
+        return imagePath
+            .split('/')
+            .map(segment => encodeURIComponent(segment))
+            .join('/');
     }
 
     showFilterFeedback(type, count, filters) {
@@ -746,28 +758,31 @@ class SADESystem {
         
         container.innerHTML = `
             <div class="chart-display-grid expanded">
-                ${data.map((item, index) => `
+                ${data.map((item, index) => {
+                    const encodedPath = this.encodeImagePath(item.image_path);
+                    const title = `${item.grade}º Ano - ${item.school} - ${item.subject_name || this.getSubjectName(item.subject)}`;
+                    return `
                     <div class="integrated-chart-item" data-index="${index}">
                         <div class="chart-header">
-                            <h4>${item.grade}º Ano - ${item.school} - ${item.subject_name || this.getSubjectName(item.subject)}</h4>
+                            <h4>${title}</h4>
                             <div class="chart-stats">
                                 <span class="average">Média: ${item.average}</span>
                                 <span class="students">Alunos: ${item.students}</span>
                             </div>
                         </div>
                         <div class="chart-container">
-                            <img src="${item.image_path}" alt="${item.grade}º Ano - ${item.school}" loading="lazy" />
+                            <img src="${encodedPath}" alt="${title}" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjM2NDY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlbSBOw6NvIEVuY29udHJhZGE8L3RleHQ+PC9zdmc+'" />
                         </div>
                         <div class="chart-actions">
-                            <button onclick="sadeApp.openModal('${item.image_path}', '${item.grade}º Ano - ${item.school} - ${item.subject_name || this.getSubjectName(item.subject)}')" class="view-full">
+                            <button onclick="sadeApp.openModal('${encodedPath}', '${title}')" class="view-full">
                                 Ver Ampliado
                             </button>
-                            <button onclick="sadeApp.downloadChart('${item.image_path}', '${item.grade}º Ano - ${item.school}')" class="download-btn">
+                            <button onclick="sadeApp.downloadChart('${encodedPath}', '${title}')" class="download-btn">
                                 Download
                             </button>
                         </div>
                     </div>
-                `).join('')}
+                `;}).join('')}
             </div>
             <div class="show-less">
                 <button onclick="location.reload()" class="show-less-btn">
@@ -955,6 +970,149 @@ class SADESystem {
             'poor': 'exclamation-triangle'
         };
         return icons[level] || 'info-circle';
+    }
+
+    openModal(imagePath, title) {
+        // Create modal if it doesn't exist
+        let modal = document.getElementById('image-modal');
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.id = 'image-modal';
+            modal.className = 'image-modal';
+            modal.innerHTML = `
+                <div class="modal-overlay" onclick="this.parentElement.style.display='none'">
+                    <div class="modal-content" onclick="event.stopPropagation()">
+                        <div class="modal-header">
+                            <h3 class="modal-title"></h3>
+                            <button class="modal-close" onclick="this.closest('.image-modal').style.display='none'">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img class="modal-image" src="" alt="">
+                        </div>
+                        <div class="modal-footer">
+                            <button class="modal-download-btn" onclick="sadeApp.downloadChart(this.dataset.imagePath, this.dataset.title)">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            // Add modal styles
+            if (!document.getElementById('modal-styles')) {
+                const style = document.createElement('style');
+                style.id = 'modal-styles';
+                style.textContent = `
+                    .image-modal {
+                        display: none;
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        z-index: 1000;
+                    }
+                    .modal-overlay {
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.8);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 20px;
+                    }
+                    .modal-content {
+                        background: white;
+                        border-radius: 12px;
+                        max-width: 90vw;
+                        max-height: 90vh;
+                        overflow: hidden;
+                        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+                    }
+                    .modal-header {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 20px;
+                        border-bottom: 1px solid #e2e8f0;
+                    }
+                    .modal-title {
+                        margin: 0;
+                        font-size: 18px;
+                        color: #1e293b;
+                    }
+                    .modal-close {
+                        background: none;
+                        border: none;
+                        font-size: 20px;
+                        cursor: pointer;
+                        color: #64748b;
+                        padding: 5px;
+                        border-radius: 4px;
+                    }
+                    .modal-close:hover {
+                        background: #f1f5f9;
+                        color: #1e293b;
+                    }
+                    .modal-body {
+                        padding: 20px;
+                        text-align: center;
+                    }
+                    .modal-image {
+                        max-width: 100%;
+                        max-height: 70vh;
+                        object-fit: contain;
+                        border-radius: 8px;
+                    }
+                    .modal-footer {
+                        padding: 20px;
+                        border-top: 1px solid #e2e8f0;
+                        text-align: center;
+                    }
+                    .modal-download-btn {
+                        background: var(--primary-blue);
+                        color: white;
+                        border: none;
+                        padding: 12px 24px;
+                        border-radius: 8px;
+                        font-size: 14px;
+                        cursor: pointer;
+                        transition: background 0.2s;
+                    }
+                    .modal-download-btn:hover {
+                        background: var(--dark-blue);
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+        
+        // Update modal content
+        const modalTitle = modal.querySelector('.modal-title');
+        const modalImage = modal.querySelector('.modal-image');
+        const downloadBtn = modal.querySelector('.modal-download-btn');
+        
+        modalTitle.textContent = title;
+        modalImage.src = imagePath;
+        modalImage.alt = title;
+        downloadBtn.dataset.imagePath = imagePath;
+        downloadBtn.dataset.title = title;
+        
+        // Show modal
+        modal.style.display = 'block';
+    }
+
+    downloadChart(imagePath, title) {
+        // Create a temporary link to download the image
+        const link = document.createElement('a');
+        link.href = imagePath;
+        link.download = title.replace(/[^a-zA-Z0-9]/g, '_') + '.png';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     }
 }
 
