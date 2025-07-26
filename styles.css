@@ -559,6 +559,28 @@ body.dark-mode {
     letter-spacing: 0.05em;
 }
 
+/* Estatísticas na Sidebar */
+.quick-stats-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.quick-stats-sidebar .quick-stat-card {
+    padding: 1rem;
+    margin-bottom: 0;
+    border-left: 3px solid var(--sade-primary);
+}
+
+.quick-stats-sidebar .quick-stat-number {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.quick-stats-sidebar .quick-stat-label {
+    font-size: 0.75rem;
+}
+
 /* Filtros Ativos */
 .active-filters {
     display: flex;
