@@ -59,11 +59,15 @@ class SADESystem {
     loadData() {
         if (typeof SADE_DATA !== 'undefined') {
             this.data = SADE_DATA;
+            console.log('SADE_DATA carregado:', this.data);
+            console.log('PROEA dados:', this.data.proea?.length || 0);
+            console.log('CNCA dados:', this.data.cnca?.length || 0);
         } else {
             console.error('SADE_DATA não está definido');
             this.data = { proea: [], cnca: [] };
         }
         
+        console.log('Populando filtros...');
         this.populateFilters();
         this.renderComparativeSection();
         
@@ -221,10 +225,14 @@ class SADESystem {
     }
 
     populateFilters() {        
+        console.log('Iniciando populateFilters...');
+        
         // PROEA filters
         const proeaGrades = [...new Set(this.data.proea.map(item => item.grade))].sort((a, b) => a - b);
         const proeaSubjects = [...new Set(this.data.proea.map(item => item.subject))];
         const proeaSchools = [...new Set(this.data.proea.map(item => item.school))].sort();
+        
+        console.log('PROEA - Escolas encontradas:', proeaSchools);
         
         // Clear existing options first
         this.clearSelect('proea-grade');
@@ -251,6 +259,8 @@ class SADESystem {
         const cncaSubjects = [...new Set(this.data.cnca.map(item => item.subject))];
         const cncaSchools = [...new Set(this.data.cnca.map(item => item.school))].sort();
         
+        console.log('CNCA - Escolas encontradas:', cncaSchools);
+        
         // Clear existing options first
         this.clearSelect('cnca-grade');
         this.clearSelect('cnca-subject');
@@ -270,6 +280,8 @@ class SADESystem {
         cncaSchools.forEach(school => {
             this.addSelectOption('cnca-school', school, school);
         });
+        
+        console.log('populateFilters concluído.');
     }
 
     clearSelect(selectId) {
@@ -286,12 +298,19 @@ class SADESystem {
 
     addSelectOption(selectId, value, text) {
         const select = document.getElementById(selectId);
-        if (!select) return;
+        console.log(`Tentando adicionar opção ${value} para select ${selectId}:`, select);
+        
+        if (!select) {
+            console.error(`Select com ID ${selectId} não encontrado!`);
+            return;
+        }
         
         const optionElement = document.createElement('option');
         optionElement.value = value;
         optionElement.textContent = text;
         select.appendChild(optionElement);
+        
+        console.log(`Opção adicionada: ${text} (${value}) para ${selectId}`);
     }
 
     populateSelect(selectId, options) {
