@@ -1,0 +1,1881 @@
+
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Análise de Desempenho Escolar - Consolidado</title>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background-color: #f5f5f5;
+            }
+            .container {
+                max-width: 1400px;
+                margin: 0 auto;
+                background-color: white;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+            h1 {
+                text-align: center;
+                color: #2c3e50;
+                margin-bottom: 30px;
+                font-size: 2.5em;
+            }
+            h2 {
+                color: #34495e;
+                border-bottom: 3px solid #3498db;
+                padding-bottom: 10px;
+                margin-top: 40px;
+            }
+            .year-section {
+                margin-bottom: 50px;
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                background-color: #fafafa;
+            }
+            .chart-container {
+                margin: 20px 0;
+                padding: 15px;
+                background-color: white;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .summary {
+                background-color: #ecf0f1;
+                padding: 15px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .legend {
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+                margin: 20px 0;
+                padding: 15px;
+                background-color: #f8f9fa;
+                border-radius: 5px;
+            }
+            .legend-item {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .legend-color {
+                width: 20px;
+                height: 20px;
+                border-radius: 3px;
+            }
+            .blue { background-color: #1f77b4; }
+            .red { background-color: #d62728; }
+            .black { background-color: #000000; width: 30px; height: 3px; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>📊 Análise de Desempenho Escolar - Dados Consolidados</h1>
+            
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color blue"></div>
+                    <span>Performance ≥ 50%</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color red"></div>
+                    <span>Performance < 50%</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color black"></div>
+                    <span>Média Geral</span>
+                </div>
+            </div>
+    
+            <div class="year-section">
+                <h2>1º Ano do Ensino Fundamental</h2>
+        
+                <div class="summary">
+                    <strong>Resumo do 1º Ano:</strong>
+                    Média Geral: 64.6% | 
+                    Questões com performance ≥50%: 43/44 (97.7%)
+                </div>
+            
+                <div class="chart-container">
+                    <h3>Matemática - Média: 63.9%</h3>
+                    <div id="chart_1_MAT"></div>
+                </div>
+                
+                <script>
+                    var trace_chart_1_MAT = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22'],
+                        y: [68.36099980680088, 73.17807183498314, 61.598248873908354, 52.4000138414641, 73.48665655506191, 70.08358437295372, 69.43169627522362, 65.54188485082699, 61.5176563094938, 65.71777267331103, 60.83081972695786, 56.15164495863796, 56.34199534706628, 69.9815129293338, 56.17977296228456, 51.98647229806451, 68.14727607876745, 58.101860985199096, 64.79151683082642, 68.65531756408706, 64.87227809894115, 68.95541744781718],
+                        type: 'bar',
+                        marker: {
+                            color: ['#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4'],
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        },
+                        text: ['68.4%', '73.2%', '61.6%', '52.4%', '73.5%', '70.1%', '69.4%', '65.5%', '61.5%', '65.7%', '60.8%', '56.2%', '56.3%', '70.0%', '56.2%', '52.0%', '68.1%', '58.1%', '64.8%', '68.7%', '64.9%', '69.0%'],
+                        textposition: 'outside',
+                        textfont: {
+                            color: 'black',
+                            size: 10,
+                            family: 'Arial Black'
+                        }
+                    };
+                    
+                    var media_line_chart_1_MAT = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22'],
+                        y: [63.92329411918231, 63.92329411918231, 63.92329411918231, 63.92329411918231, 63.92329411918231, 63.92329411918231, 63.92329411918231, 63.92329411918231, 63.92329411918231, 63.92329411918231, 63.92329411918231, 63.92329411918231, 63.92329411918231, 63.92329411918231, 63.92329411918231, 63.92329411918231, 63.92329411918231, 63.92329411918231, 63.92329411918231, 63.92329411918231, 63.92329411918231, 63.92329411918231],
+                        type: 'scatter',
+                        mode: 'lines',
+                        line: {
+                            color: 'black',
+                            width: 3
+                        },
+                        name: 'Média Geral: 63.9%'
+                    };
+                    
+                    var layout_chart_1_MAT = {
+                        title: '',
+                        xaxis: {
+                            title: 'Questões',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            tickfont: {size: 12}
+                        },
+                        yaxis: {
+                            title: 'Performance (%)',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            range: [0, 100],
+                            tickfont: {size: 12}
+                        },
+                        showlegend: true,
+                        legend: {
+                            x: 0.7,
+                            y: 0.95,
+                            bgcolor: 'rgba(255,255,255,0.8)',
+                            bordercolor: 'black',
+                            borderwidth: 1
+                        },
+                        plot_bgcolor: 'white',
+                        paper_bgcolor: 'white',
+                        font: {
+                            family: 'Arial, sans-serif',
+                            size: 12,
+                            color: '#2c3e50'
+                        },
+                        margin: {
+                            l: 60,
+                            r: 60,
+                            t: 40,
+                            b: 60
+                        }
+                    };
+                    
+                    Plotly.newPlot('chart_1_MAT', [trace_chart_1_MAT, media_line_chart_1_MAT], layout_chart_1_MAT, {responsive: true});
+                </script>
+            
+                <div class="chart-container">
+                    <h3>Língua Portuguesa - Média: 65.2%</h3>
+                    <div id="chart_1_LP"></div>
+                </div>
+                
+                <script>
+                    var trace_chart_1_LP = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22'],
+                        y: [73.43737546077845, 64.62044614628878, 76.5464066247779, 66.85851444405091, 67.6479437963465, 66.37025768417485, 67.0371528798785, 59.433026674833336, 57.33454048473526, 56.55939115613469, 65.69246489347019, 67.03143052149811, 75.52616230542088, 53.75182950691088, 65.76093583609816, 74.06206294413258, 63.99174785975184, 69.77885466380272, 47.65257106494545, 58.28434254801777, 68.06426097789408, 69.5896611625562],
+                        type: 'bar',
+                        marker: {
+                            color: ['#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4'],
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        },
+                        text: ['73.4%', '64.6%', '76.5%', '66.9%', '67.6%', '66.4%', '67.0%', '59.4%', '57.3%', '56.6%', '65.7%', '67.0%', '75.5%', '53.8%', '65.8%', '74.1%', '64.0%', '69.8%', '47.7%', '58.3%', '68.1%', '69.6%'],
+                        textposition: 'outside',
+                        textfont: {
+                            color: 'black',
+                            size: 10,
+                            family: 'Arial Black'
+                        }
+                    };
+                    
+                    var media_line_chart_1_LP = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22'],
+                        y: [65.22869907438627, 65.22869907438627, 65.22869907438627, 65.22869907438627, 65.22869907438627, 65.22869907438627, 65.22869907438627, 65.22869907438627, 65.22869907438627, 65.22869907438627, 65.22869907438627, 65.22869907438627, 65.22869907438627, 65.22869907438627, 65.22869907438627, 65.22869907438627, 65.22869907438627, 65.22869907438627, 65.22869907438627, 65.22869907438627, 65.22869907438627, 65.22869907438627],
+                        type: 'scatter',
+                        mode: 'lines',
+                        line: {
+                            color: 'black',
+                            width: 3
+                        },
+                        name: 'Média Geral: 65.2%'
+                    };
+                    
+                    var layout_chart_1_LP = {
+                        title: '',
+                        xaxis: {
+                            title: 'Questões',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            tickfont: {size: 12}
+                        },
+                        yaxis: {
+                            title: 'Performance (%)',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            range: [0, 100],
+                            tickfont: {size: 12}
+                        },
+                        showlegend: true,
+                        legend: {
+                            x: 0.7,
+                            y: 0.95,
+                            bgcolor: 'rgba(255,255,255,0.8)',
+                            bordercolor: 'black',
+                            borderwidth: 1
+                        },
+                        plot_bgcolor: 'white',
+                        paper_bgcolor: 'white',
+                        font: {
+                            family: 'Arial, sans-serif',
+                            size: 12,
+                            color: '#2c3e50'
+                        },
+                        margin: {
+                            l: 60,
+                            r: 60,
+                            t: 40,
+                            b: 60
+                        }
+                    };
+                    
+                    Plotly.newPlot('chart_1_LP', [trace_chart_1_LP, media_line_chart_1_LP], layout_chart_1_LP, {responsive: true});
+                </script>
+            </div>
+            <div class="year-section">
+                <h2>2º Ano do Ensino Fundamental</h2>
+        
+                <div class="summary">
+                    <strong>Resumo do 2º Ano:</strong>
+                    Média Geral: 64.3% | 
+                    Questões com performance ≥50%: 43/44 (97.7%)
+                </div>
+            
+                <div class="chart-container">
+                    <h3>Língua Portuguesa - Média: 62.1%</h3>
+                    <div id="chart_2_LP"></div>
+                </div>
+                
+                <script>
+                    var trace_chart_2_LP = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22'],
+                        y: [50.35054954862104, 59.91720431252239, 64.32809818960258, 63.12657848472484, 61.81077625605504, 65.28336744615554, 61.800416166481405, 61.16753038799817, 64.92326314774834, 75.79606434923225, 67.4951515591956, 63.93511970772191, 60.39330510754333, 61.60755852121719, 62.90890547249836, 64.3839416186028, 61.54710777871346, 49.9205296882467, 64.24320041257214, 62.52080231984403, 69.23289231831082, 50.29391650139405],
+                        type: 'bar',
+                        marker: {
+                            color: ['#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4'],
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        },
+                        text: ['50.4%', '59.9%', '64.3%', '63.1%', '61.8%', '65.3%', '61.8%', '61.2%', '64.9%', '75.8%', '67.5%', '63.9%', '60.4%', '61.6%', '62.9%', '64.4%', '61.5%', '49.9%', '64.2%', '62.5%', '69.2%', '50.3%'],
+                        textposition: 'outside',
+                        textfont: {
+                            color: 'black',
+                            size: 10,
+                            family: 'Arial Black'
+                        }
+                    };
+                    
+                    var media_line_chart_2_LP = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22'],
+                        y: [62.13573996795464, 62.13573996795464, 62.13573996795464, 62.13573996795464, 62.13573996795464, 62.13573996795464, 62.13573996795464, 62.13573996795464, 62.13573996795464, 62.13573996795464, 62.13573996795464, 62.13573996795464, 62.13573996795464, 62.13573996795464, 62.13573996795464, 62.13573996795464, 62.13573996795464, 62.13573996795464, 62.13573996795464, 62.13573996795464, 62.13573996795464, 62.13573996795464],
+                        type: 'scatter',
+                        mode: 'lines',
+                        line: {
+                            color: 'black',
+                            width: 3
+                        },
+                        name: 'Média Geral: 62.1%'
+                    };
+                    
+                    var layout_chart_2_LP = {
+                        title: '',
+                        xaxis: {
+                            title: 'Questões',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            tickfont: {size: 12}
+                        },
+                        yaxis: {
+                            title: 'Performance (%)',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            range: [0, 100],
+                            tickfont: {size: 12}
+                        },
+                        showlegend: true,
+                        legend: {
+                            x: 0.7,
+                            y: 0.95,
+                            bgcolor: 'rgba(255,255,255,0.8)',
+                            bordercolor: 'black',
+                            borderwidth: 1
+                        },
+                        plot_bgcolor: 'white',
+                        paper_bgcolor: 'white',
+                        font: {
+                            family: 'Arial, sans-serif',
+                            size: 12,
+                            color: '#2c3e50'
+                        },
+                        margin: {
+                            l: 60,
+                            r: 60,
+                            t: 40,
+                            b: 60
+                        }
+                    };
+                    
+                    Plotly.newPlot('chart_2_LP', [trace_chart_2_LP, media_line_chart_2_LP], layout_chart_2_LP, {responsive: true});
+                </script>
+            
+                <div class="chart-container">
+                    <h3>Matemática - Média: 66.4%</h3>
+                    <div id="chart_2_MAT"></div>
+                </div>
+                
+                <script>
+                    var trace_chart_2_MAT = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22'],
+                        y: [64.74599364458786, 62.80770469923057, 63.47662095103502, 57.299898009500126, 65.06258947847992, 70.3136248500945, 61.678682692726994, 66.52855641462716, 51.61864755083283, 69.42536966950819, 67.11343060355401, 67.32224366215034, 67.44746613388105, 81.7329872964951, 65.83612372218776, 58.43157958045287, 76.61954637229591, 69.0441901891961, 60.91421291490456, 66.53493698874095, 71.0960614928221, 75.08657494649547],
+                        type: 'bar',
+                        marker: {
+                            color: ['#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4'],
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        },
+                        text: ['64.7%', '62.8%', '63.5%', '57.3%', '65.1%', '70.3%', '61.7%', '66.5%', '51.6%', '69.4%', '67.1%', '67.3%', '67.4%', '81.7%', '65.8%', '58.4%', '76.6%', '69.0%', '60.9%', '66.5%', '71.1%', '75.1%'],
+                        textposition: 'outside',
+                        textfont: {
+                            color: 'black',
+                            size: 10,
+                            family: 'Arial Black'
+                        }
+                    };
+                    
+                    var media_line_chart_2_MAT = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22'],
+                        y: [66.36986553926361, 66.36986553926361, 66.36986553926361, 66.36986553926361, 66.36986553926361, 66.36986553926361, 66.36986553926361, 66.36986553926361, 66.36986553926361, 66.36986553926361, 66.36986553926361, 66.36986553926361, 66.36986553926361, 66.36986553926361, 66.36986553926361, 66.36986553926361, 66.36986553926361, 66.36986553926361, 66.36986553926361, 66.36986553926361, 66.36986553926361, 66.36986553926361],
+                        type: 'scatter',
+                        mode: 'lines',
+                        line: {
+                            color: 'black',
+                            width: 3
+                        },
+                        name: 'Média Geral: 66.4%'
+                    };
+                    
+                    var layout_chart_2_MAT = {
+                        title: '',
+                        xaxis: {
+                            title: 'Questões',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            tickfont: {size: 12}
+                        },
+                        yaxis: {
+                            title: 'Performance (%)',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            range: [0, 100],
+                            tickfont: {size: 12}
+                        },
+                        showlegend: true,
+                        legend: {
+                            x: 0.7,
+                            y: 0.95,
+                            bgcolor: 'rgba(255,255,255,0.8)',
+                            bordercolor: 'black',
+                            borderwidth: 1
+                        },
+                        plot_bgcolor: 'white',
+                        paper_bgcolor: 'white',
+                        font: {
+                            family: 'Arial, sans-serif',
+                            size: 12,
+                            color: '#2c3e50'
+                        },
+                        margin: {
+                            l: 60,
+                            r: 60,
+                            t: 40,
+                            b: 60
+                        }
+                    };
+                    
+                    Plotly.newPlot('chart_2_MAT', [trace_chart_2_MAT, media_line_chart_2_MAT], layout_chart_2_MAT, {responsive: true});
+                </script>
+            </div>
+            <div class="year-section">
+                <h2>3º Ano do Ensino Fundamental</h2>
+        
+                <div class="summary">
+                    <strong>Resumo do 3º Ano:</strong>
+                    Média Geral: 66.1% | 
+                    Questões com performance ≥50%: 42/44 (95.5%)
+                </div>
+            
+                <div class="chart-container">
+                    <h3>Matemática - Média: 65.2%</h3>
+                    <div id="chart_3_MAT"></div>
+                </div>
+                
+                <script>
+                    var trace_chart_3_MAT = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22'],
+                        y: [72.20116888334398, 53.69452060138151, 75.14206505565411, 81.7341948878928, 65.58907919227636, 54.71095559704743, 48.22778644354959, 74.9795050942252, 59.805840554259106, 71.71333169616005, 61.154853885096365, 58.273935799277204, 59.708456762131696, 61.493390475712644, 71.23859765528638, 66.09740799615457, 73.68024018659042, 70.98280385997397, 71.46444284817204, 62.24485933600053, 64.18901112698093, 55.95359602151756],
+                        type: 'bar',
+                        marker: {
+                            color: ['#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4'],
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        },
+                        text: ['72.2%', '53.7%', '75.1%', '81.7%', '65.6%', '54.7%', '48.2%', '75.0%', '59.8%', '71.7%', '61.2%', '58.3%', '59.7%', '61.5%', '71.2%', '66.1%', '73.7%', '71.0%', '71.5%', '62.2%', '64.2%', '56.0%'],
+                        textposition: 'outside',
+                        textfont: {
+                            color: 'black',
+                            size: 10,
+                            family: 'Arial Black'
+                        }
+                    };
+                    
+                    var media_line_chart_3_MAT = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22'],
+                        y: [65.19454745266746, 65.19454745266746, 65.19454745266746, 65.19454745266746, 65.19454745266746, 65.19454745266746, 65.19454745266746, 65.19454745266746, 65.19454745266746, 65.19454745266746, 65.19454745266746, 65.19454745266746, 65.19454745266746, 65.19454745266746, 65.19454745266746, 65.19454745266746, 65.19454745266746, 65.19454745266746, 65.19454745266746, 65.19454745266746, 65.19454745266746, 65.19454745266746],
+                        type: 'scatter',
+                        mode: 'lines',
+                        line: {
+                            color: 'black',
+                            width: 3
+                        },
+                        name: 'Média Geral: 65.2%'
+                    };
+                    
+                    var layout_chart_3_MAT = {
+                        title: '',
+                        xaxis: {
+                            title: 'Questões',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            tickfont: {size: 12}
+                        },
+                        yaxis: {
+                            title: 'Performance (%)',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            range: [0, 100],
+                            tickfont: {size: 12}
+                        },
+                        showlegend: true,
+                        legend: {
+                            x: 0.7,
+                            y: 0.95,
+                            bgcolor: 'rgba(255,255,255,0.8)',
+                            bordercolor: 'black',
+                            borderwidth: 1
+                        },
+                        plot_bgcolor: 'white',
+                        paper_bgcolor: 'white',
+                        font: {
+                            family: 'Arial, sans-serif',
+                            size: 12,
+                            color: '#2c3e50'
+                        },
+                        margin: {
+                            l: 60,
+                            r: 60,
+                            t: 40,
+                            b: 60
+                        }
+                    };
+                    
+                    Plotly.newPlot('chart_3_MAT', [trace_chart_3_MAT, media_line_chart_3_MAT], layout_chart_3_MAT, {responsive: true});
+                </script>
+            
+                <div class="chart-container">
+                    <h3>Língua Portuguesa - Média: 67.1%</h3>
+                    <div id="chart_3_LP"></div>
+                </div>
+                
+                <script>
+                    var trace_chart_3_LP = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22'],
+                        y: [71.55926437098978, 65.89627040568469, 48.97211511465111, 62.311844552658854, 62.415802151505126, 59.42957057843789, 71.52963005602575, 71.04531379987185, 68.87060546843178, 59.121079591525564, 77.58850399893066, 67.3660953445802, 57.04731202460577, 78.15483516722111, 65.46605647824272, 64.8451613525956, 65.57127105438028, 62.00971114821739, 64.37322996590952, 80.05795619029604, 83.31400427777642, 69.25362805005847],
+                        type: 'bar',
+                        marker: {
+                            color: ['#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4'],
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        },
+                        text: ['71.6%', '65.9%', '49.0%', '62.3%', '62.4%', '59.4%', '71.5%', '71.0%', '68.9%', '59.1%', '77.6%', '67.4%', '57.0%', '78.2%', '65.5%', '64.8%', '65.6%', '62.0%', '64.4%', '80.1%', '83.3%', '69.3%'],
+                        textposition: 'outside',
+                        textfont: {
+                            color: 'black',
+                            size: 10,
+                            family: 'Arial Black'
+                        }
+                    };
+                    
+                    var media_line_chart_3_LP = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22'],
+                        y: [67.09996641557257, 67.09996641557257, 67.09996641557257, 67.09996641557257, 67.09996641557257, 67.09996641557257, 67.09996641557257, 67.09996641557257, 67.09996641557257, 67.09996641557257, 67.09996641557257, 67.09996641557257, 67.09996641557257, 67.09996641557257, 67.09996641557257, 67.09996641557257, 67.09996641557257, 67.09996641557257, 67.09996641557257, 67.09996641557257, 67.09996641557257, 67.09996641557257],
+                        type: 'scatter',
+                        mode: 'lines',
+                        line: {
+                            color: 'black',
+                            width: 3
+                        },
+                        name: 'Média Geral: 67.1%'
+                    };
+                    
+                    var layout_chart_3_LP = {
+                        title: '',
+                        xaxis: {
+                            title: 'Questões',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            tickfont: {size: 12}
+                        },
+                        yaxis: {
+                            title: 'Performance (%)',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            range: [0, 100],
+                            tickfont: {size: 12}
+                        },
+                        showlegend: true,
+                        legend: {
+                            x: 0.7,
+                            y: 0.95,
+                            bgcolor: 'rgba(255,255,255,0.8)',
+                            bordercolor: 'black',
+                            borderwidth: 1
+                        },
+                        plot_bgcolor: 'white',
+                        paper_bgcolor: 'white',
+                        font: {
+                            family: 'Arial, sans-serif',
+                            size: 12,
+                            color: '#2c3e50'
+                        },
+                        margin: {
+                            l: 60,
+                            r: 60,
+                            t: 40,
+                            b: 60
+                        }
+                    };
+                    
+                    Plotly.newPlot('chart_3_LP', [trace_chart_3_LP, media_line_chart_3_LP], layout_chart_3_LP, {responsive: true});
+                </script>
+            </div>
+            <div class="year-section">
+                <h2>4º Ano do Ensino Fundamental</h2>
+        
+                <div class="summary">
+                    <strong>Resumo do 4º Ano:</strong>
+                    Média Geral: 61.7% | 
+                    Questões com performance ≥50%: 36/44 (81.8%)
+                </div>
+            
+                <div class="chart-container">
+                    <h3>Matemática - Média: 59.5%</h3>
+                    <div id="chart_4_MAT"></div>
+                </div>
+                
+                <script>
+                    var trace_chart_4_MAT = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22'],
+                        y: [43.507217240249155, 57.24138319974243, 65.61672286981816, 67.72163335927281, 78.01688748341883, 56.34268772367797, 59.05416185514102, 59.644417978160796, 49.15384526130487, 66.42034966079048, 57.24036435780366, 52.240471544608546, 69.40616821861299, 61.76904728307058, 49.15287704101983, 64.03525708634142, 71.07112584873967, 53.78814565081152, 42.24307270788497, 57.78996611405972, 64.73673024283516, 63.36183226639297],
+                        type: 'bar',
+                        marker: {
+                            color: ['#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4'],
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        },
+                        text: ['43.5%', '57.2%', '65.6%', '67.7%', '78.0%', '56.3%', '59.1%', '59.6%', '49.2%', '66.4%', '57.2%', '52.2%', '69.4%', '61.8%', '49.2%', '64.0%', '71.1%', '53.8%', '42.2%', '57.8%', '64.7%', '63.4%'],
+                        textposition: 'outside',
+                        textfont: {
+                            color: 'black',
+                            size: 10,
+                            family: 'Arial Black'
+                        }
+                    };
+                    
+                    var media_line_chart_4_MAT = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22'],
+                        y: [59.52519840880716, 59.52519840880716, 59.52519840880716, 59.52519840880716, 59.52519840880716, 59.52519840880716, 59.52519840880716, 59.52519840880716, 59.52519840880716, 59.52519840880716, 59.52519840880716, 59.52519840880716, 59.52519840880716, 59.52519840880716, 59.52519840880716, 59.52519840880716, 59.52519840880716, 59.52519840880716, 59.52519840880716, 59.52519840880716, 59.52519840880716, 59.52519840880716],
+                        type: 'scatter',
+                        mode: 'lines',
+                        line: {
+                            color: 'black',
+                            width: 3
+                        },
+                        name: 'Média Geral: 59.5%'
+                    };
+                    
+                    var layout_chart_4_MAT = {
+                        title: '',
+                        xaxis: {
+                            title: 'Questões',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            tickfont: {size: 12}
+                        },
+                        yaxis: {
+                            title: 'Performance (%)',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            range: [0, 100],
+                            tickfont: {size: 12}
+                        },
+                        showlegend: true,
+                        legend: {
+                            x: 0.7,
+                            y: 0.95,
+                            bgcolor: 'rgba(255,255,255,0.8)',
+                            bordercolor: 'black',
+                            borderwidth: 1
+                        },
+                        plot_bgcolor: 'white',
+                        paper_bgcolor: 'white',
+                        font: {
+                            family: 'Arial, sans-serif',
+                            size: 12,
+                            color: '#2c3e50'
+                        },
+                        margin: {
+                            l: 60,
+                            r: 60,
+                            t: 40,
+                            b: 60
+                        }
+                    };
+                    
+                    Plotly.newPlot('chart_4_MAT', [trace_chart_4_MAT, media_line_chart_4_MAT], layout_chart_4_MAT, {responsive: true});
+                </script>
+            
+                <div class="chart-container">
+                    <h3>Língua Portuguesa - Média: 64.0%</h3>
+                    <div id="chart_4_LP"></div>
+                </div>
+                
+                <script>
+                    var trace_chart_4_LP = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22'],
+                        y: [65.61090687821604, 75.55835477682298, 70.1908729212773, 45.93605474534328, 49.532600914147984, 67.02019211573753, 63.66272023115989, 69.976415274585, 48.30532157908038, 67.4298363457667, 47.30535834577866, 62.041728154284385, 60.01258634277677, 76.97770836187198, 65.73778746136647, 76.20357275447482, 76.3115286010811, 53.41672274401457, 60.56905945774103, 64.08466514062826, 69.1026727321889, 72.35637327558898],
+                        type: 'bar',
+                        marker: {
+                            color: ['#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4'],
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        },
+                        text: ['65.6%', '75.6%', '70.2%', '45.9%', '49.5%', '67.0%', '63.7%', '70.0%', '48.3%', '67.4%', '47.3%', '62.0%', '60.0%', '77.0%', '65.7%', '76.2%', '76.3%', '53.4%', '60.6%', '64.1%', '69.1%', '72.4%'],
+                        textposition: 'outside',
+                        textfont: {
+                            color: 'black',
+                            size: 10,
+                            family: 'Arial Black'
+                        }
+                    };
+                    
+                    var media_line_chart_4_LP = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22'],
+                        y: [63.9701381433606, 63.9701381433606, 63.9701381433606, 63.9701381433606, 63.9701381433606, 63.9701381433606, 63.9701381433606, 63.9701381433606, 63.9701381433606, 63.9701381433606, 63.9701381433606, 63.9701381433606, 63.9701381433606, 63.9701381433606, 63.9701381433606, 63.9701381433606, 63.9701381433606, 63.9701381433606, 63.9701381433606, 63.9701381433606, 63.9701381433606, 63.9701381433606],
+                        type: 'scatter',
+                        mode: 'lines',
+                        line: {
+                            color: 'black',
+                            width: 3
+                        },
+                        name: 'Média Geral: 64.0%'
+                    };
+                    
+                    var layout_chart_4_LP = {
+                        title: '',
+                        xaxis: {
+                            title: 'Questões',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            tickfont: {size: 12}
+                        },
+                        yaxis: {
+                            title: 'Performance (%)',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            range: [0, 100],
+                            tickfont: {size: 12}
+                        },
+                        showlegend: true,
+                        legend: {
+                            x: 0.7,
+                            y: 0.95,
+                            bgcolor: 'rgba(255,255,255,0.8)',
+                            bordercolor: 'black',
+                            borderwidth: 1
+                        },
+                        plot_bgcolor: 'white',
+                        paper_bgcolor: 'white',
+                        font: {
+                            family: 'Arial, sans-serif',
+                            size: 12,
+                            color: '#2c3e50'
+                        },
+                        margin: {
+                            l: 60,
+                            r: 60,
+                            t: 40,
+                            b: 60
+                        }
+                    };
+                    
+                    Plotly.newPlot('chart_4_LP', [trace_chart_4_LP, media_line_chart_4_LP], layout_chart_4_LP, {responsive: true});
+                </script>
+            </div>
+            <div class="year-section">
+                <h2>5º Ano do Ensino Fundamental</h2>
+        
+                <div class="summary">
+                    <strong>Resumo do 5º Ano:</strong>
+                    Média Geral: 62.9% | 
+                    Questões com performance ≥50%: 43/44 (97.7%)
+                </div>
+            
+                <div class="chart-container">
+                    <h3>Matemática - Média: 62.9%</h3>
+                    <div id="chart_5_MAT"></div>
+                </div>
+                
+                <script>
+                    var trace_chart_5_MAT = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22'],
+                        y: [66.3358367637547, 55.98086862105427, 81.6601633321618, 63.58159263704151, 49.91528947265072, 70.30106207407486, 62.35576105601228, 51.19640687350385, 68.5083050998923, 67.87769268624146, 52.26148330563581, 64.76491049092715, 60.97290133179408, 61.071772008653085, 57.02718877942973, 62.240959865774244, 60.37602415669002, 59.50299755869301, 77.35500882047126, 58.76999401037471, 66.02732483538064, 65.5845103715963],
+                        type: 'bar',
+                        marker: {
+                            color: ['#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4'],
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        },
+                        text: ['66.3%', '56.0%', '81.7%', '63.6%', '49.9%', '70.3%', '62.4%', '51.2%', '68.5%', '67.9%', '52.3%', '64.8%', '61.0%', '61.1%', '57.0%', '62.2%', '60.4%', '59.5%', '77.4%', '58.8%', '66.0%', '65.6%'],
+                        textposition: 'outside',
+                        textfont: {
+                            color: 'black',
+                            size: 10,
+                            family: 'Arial Black'
+                        }
+                    };
+                    
+                    var media_line_chart_5_MAT = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22'],
+                        y: [62.8940024614458, 62.8940024614458, 62.8940024614458, 62.8940024614458, 62.8940024614458, 62.8940024614458, 62.8940024614458, 62.8940024614458, 62.8940024614458, 62.8940024614458, 62.8940024614458, 62.8940024614458, 62.8940024614458, 62.8940024614458, 62.8940024614458, 62.8940024614458, 62.8940024614458, 62.8940024614458, 62.8940024614458, 62.8940024614458, 62.8940024614458, 62.8940024614458],
+                        type: 'scatter',
+                        mode: 'lines',
+                        line: {
+                            color: 'black',
+                            width: 3
+                        },
+                        name: 'Média Geral: 62.9%'
+                    };
+                    
+                    var layout_chart_5_MAT = {
+                        title: '',
+                        xaxis: {
+                            title: 'Questões',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            tickfont: {size: 12}
+                        },
+                        yaxis: {
+                            title: 'Performance (%)',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            range: [0, 100],
+                            tickfont: {size: 12}
+                        },
+                        showlegend: true,
+                        legend: {
+                            x: 0.7,
+                            y: 0.95,
+                            bgcolor: 'rgba(255,255,255,0.8)',
+                            bordercolor: 'black',
+                            borderwidth: 1
+                        },
+                        plot_bgcolor: 'white',
+                        paper_bgcolor: 'white',
+                        font: {
+                            family: 'Arial, sans-serif',
+                            size: 12,
+                            color: '#2c3e50'
+                        },
+                        margin: {
+                            l: 60,
+                            r: 60,
+                            t: 40,
+                            b: 60
+                        }
+                    };
+                    
+                    Plotly.newPlot('chart_5_MAT', [trace_chart_5_MAT, media_line_chart_5_MAT], layout_chart_5_MAT, {responsive: true});
+                </script>
+            
+                <div class="chart-container">
+                    <h3>Língua Portuguesa - Média: 63.0%</h3>
+                    <div id="chart_5_LP"></div>
+                </div>
+                
+                <script>
+                    var trace_chart_5_LP = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22'],
+                        y: [53.35559826622031, 65.99516362560975, 63.89466227150368, 72.88127923744452, 60.97325293171128, 65.50248726917903, 65.78481489571237, 56.16843854904152, 60.03131264111411, 61.825249309553996, 67.48019895214406, 57.97045415374633, 66.27220031466476, 56.451099983692366, 71.1144073115519, 65.17826988994833, 60.27717387954489, 66.6678881149382, 57.07912301307193, 62.580112543041565, 68.26384182022898, 59.53511514961252],
+                        type: 'bar',
+                        marker: {
+                            color: ['#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4'],
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        },
+                        text: ['53.4%', '66.0%', '63.9%', '72.9%', '61.0%', '65.5%', '65.8%', '56.2%', '60.0%', '61.8%', '67.5%', '58.0%', '66.3%', '56.5%', '71.1%', '65.2%', '60.3%', '66.7%', '57.1%', '62.6%', '68.3%', '59.5%'],
+                        textposition: 'outside',
+                        textfont: {
+                            color: 'black',
+                            size: 10,
+                            family: 'Arial Black'
+                        }
+                    };
+                    
+                    var media_line_chart_5_LP = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22'],
+                        y: [62.967370187421665, 62.967370187421665, 62.967370187421665, 62.967370187421665, 62.967370187421665, 62.967370187421665, 62.967370187421665, 62.967370187421665, 62.967370187421665, 62.967370187421665, 62.967370187421665, 62.967370187421665, 62.967370187421665, 62.967370187421665, 62.967370187421665, 62.967370187421665, 62.967370187421665, 62.967370187421665, 62.967370187421665, 62.967370187421665, 62.967370187421665, 62.967370187421665],
+                        type: 'scatter',
+                        mode: 'lines',
+                        line: {
+                            color: 'black',
+                            width: 3
+                        },
+                        name: 'Média Geral: 63.0%'
+                    };
+                    
+                    var layout_chart_5_LP = {
+                        title: '',
+                        xaxis: {
+                            title: 'Questões',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            tickfont: {size: 12}
+                        },
+                        yaxis: {
+                            title: 'Performance (%)',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            range: [0, 100],
+                            tickfont: {size: 12}
+                        },
+                        showlegend: true,
+                        legend: {
+                            x: 0.7,
+                            y: 0.95,
+                            bgcolor: 'rgba(255,255,255,0.8)',
+                            bordercolor: 'black',
+                            borderwidth: 1
+                        },
+                        plot_bgcolor: 'white',
+                        paper_bgcolor: 'white',
+                        font: {
+                            family: 'Arial, sans-serif',
+                            size: 12,
+                            color: '#2c3e50'
+                        },
+                        margin: {
+                            l: 60,
+                            r: 60,
+                            t: 40,
+                            b: 60
+                        }
+                    };
+                    
+                    Plotly.newPlot('chart_5_LP', [trace_chart_5_LP, media_line_chart_5_LP], layout_chart_5_LP, {responsive: true});
+                </script>
+            </div>
+            <div class="year-section">
+                <h2>6º Ano do Ensino Fundamental</h2>
+        
+                <div class="summary">
+                    <strong>Resumo do 6º Ano:</strong>
+                    Média Geral: 65.0% | 
+                    Questões com performance ≥50%: 74/79 (93.7%)
+                </div>
+            
+                <div class="chart-container">
+                    <h3>Ciências da Natureza - Média: 61.9%</h3>
+                    <div id="chart_6_CN"></div>
+                </div>
+                
+                <script>
+                    var trace_chart_6_CN = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26', 'Q27'],
+                        y: [66.46749303122719, 67.16502100905166, 57.3534506735344, 65.3367112417911, 58.97222093942584, 82.08470467217295, 64.88121480358457, 64.574754211618, 58.618506621989894, 51.48433594303828, 68.8163310440672, 49.517743522279794, 42.09022625268421, 49.68570022530822, 57.575515512169325, 54.820357862682506, 57.141248972560646, 82.85474625944974, 59.00585703464927, 43.7037362493817, 79.64455118923156, 69.98474756110016, 70.50189409170376, 63.47816018302755, 62.71500476200799, 70.62902095332562, 52.533661785589906],
+                        type: 'bar',
+                        marker: {
+                            color: ['#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#d62728', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4'],
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        },
+                        text: ['66.5%', '67.2%', '57.4%', '65.3%', '59.0%', '82.1%', '64.9%', '64.6%', '58.6%', '51.5%', '68.8%', '49.5%', '42.1%', '49.7%', '57.6%', '54.8%', '57.1%', '82.9%', '59.0%', '43.7%', '79.6%', '70.0%', '70.5%', '63.5%', '62.7%', '70.6%', '52.5%'],
+                        textposition: 'outside',
+                        textfont: {
+                            color: 'black',
+                            size: 10,
+                            family: 'Arial Black'
+                        }
+                    };
+                    
+                    var media_line_chart_6_CN = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26', 'Q27'],
+                        y: [61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308, 61.91247839291308],
+                        type: 'scatter',
+                        mode: 'lines',
+                        line: {
+                            color: 'black',
+                            width: 3
+                        },
+                        name: 'Média Geral: 61.9%'
+                    };
+                    
+                    var layout_chart_6_CN = {
+                        title: '',
+                        xaxis: {
+                            title: 'Questões',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            tickfont: {size: 12}
+                        },
+                        yaxis: {
+                            title: 'Performance (%)',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            range: [0, 100],
+                            tickfont: {size: 12}
+                        },
+                        showlegend: true,
+                        legend: {
+                            x: 0.7,
+                            y: 0.95,
+                            bgcolor: 'rgba(255,255,255,0.8)',
+                            bordercolor: 'black',
+                            borderwidth: 1
+                        },
+                        plot_bgcolor: 'white',
+                        paper_bgcolor: 'white',
+                        font: {
+                            family: 'Arial, sans-serif',
+                            size: 12,
+                            color: '#2c3e50'
+                        },
+                        margin: {
+                            l: 60,
+                            r: 60,
+                            t: 40,
+                            b: 60
+                        }
+                    };
+                    
+                    Plotly.newPlot('chart_6_CN', [trace_chart_6_CN, media_line_chart_6_CN], layout_chart_6_CN, {responsive: true});
+                </script>
+            
+                <div class="chart-container">
+                    <h3>Língua Portuguesa - Média: 65.9%</h3>
+                    <div id="chart_6_LP"></div>
+                </div>
+                
+                <script>
+                    var trace_chart_6_LP = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26'],
+                        y: [54.43470538968918, 50.42011054679247, 79.89418057477717, 42.507441486201145, 69.22957981318599, 74.86369619942748, 54.22936766368282, 60.04084801568711, 69.88837707161706, 57.74453684137333, 67.08897153874477, 76.40147798308324, 64.50873989542004, 64.37992871462208, 50.42695306752271, 69.7159350199832, 76.10560478214973, 68.77172280140834, 78.48824680946937, 60.36767089893271, 74.98616144728011, 73.96970561927832, 65.12292236724218, 64.84769372383055, 70.97510644664358, 73.48454805175284],
+                        type: 'bar',
+                        marker: {
+                            color: ['#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4'],
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        },
+                        text: ['54.4%', '50.4%', '79.9%', '42.5%', '69.2%', '74.9%', '54.2%', '60.0%', '69.9%', '57.7%', '67.1%', '76.4%', '64.5%', '64.4%', '50.4%', '69.7%', '76.1%', '68.8%', '78.5%', '60.4%', '75.0%', '74.0%', '65.1%', '64.8%', '71.0%', '73.5%'],
+                        textposition: 'outside',
+                        textfont: {
+                            color: 'black',
+                            size: 10,
+                            family: 'Arial Black'
+                        }
+                    };
+                    
+                    var media_line_chart_6_LP = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26'],
+                        y: [65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299, 65.88054741422299],
+                        type: 'scatter',
+                        mode: 'lines',
+                        line: {
+                            color: 'black',
+                            width: 3
+                        },
+                        name: 'Média Geral: 65.9%'
+                    };
+                    
+                    var layout_chart_6_LP = {
+                        title: '',
+                        xaxis: {
+                            title: 'Questões',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            tickfont: {size: 12}
+                        },
+                        yaxis: {
+                            title: 'Performance (%)',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            range: [0, 100],
+                            tickfont: {size: 12}
+                        },
+                        showlegend: true,
+                        legend: {
+                            x: 0.7,
+                            y: 0.95,
+                            bgcolor: 'rgba(255,255,255,0.8)',
+                            bordercolor: 'black',
+                            borderwidth: 1
+                        },
+                        plot_bgcolor: 'white',
+                        paper_bgcolor: 'white',
+                        font: {
+                            family: 'Arial, sans-serif',
+                            size: 12,
+                            color: '#2c3e50'
+                        },
+                        margin: {
+                            l: 60,
+                            r: 60,
+                            t: 40,
+                            b: 60
+                        }
+                    };
+                    
+                    Plotly.newPlot('chart_6_LP', [trace_chart_6_LP, media_line_chart_6_LP], layout_chart_6_LP, {responsive: true});
+                </script>
+            
+                <div class="chart-container">
+                    <h3>Matemática - Média: 67.2%</h3>
+                    <div id="chart_6_MAT"></div>
+                </div>
+                
+                <script>
+                    var trace_chart_6_MAT = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26'],
+                        y: [75.53765184753588, 67.448727865058, 71.76732745080065, 82.87209411238165, 73.90956718245202, 53.3918463094474, 72.8441512321716, 76.08885398834053, 79.45862498162764, 82.21849079539712, 70.83760825422887, 70.90350210643581, 61.99456152175521, 61.740380013777774, 71.51232262342076, 65.25814687403658, 52.11482299626655, 67.95928740745187, 54.82138351800948, 70.656265008723, 70.59334993813044, 58.84200911370851, 53.678852601349476, 59.639367854366775, 61.286008629931324, 59.29195869725152],
+                        type: 'bar',
+                        marker: {
+                            color: ['#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4'],
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        },
+                        text: ['75.5%', '67.4%', '71.8%', '82.9%', '73.9%', '53.4%', '72.8%', '76.1%', '79.5%', '82.2%', '70.8%', '70.9%', '62.0%', '61.7%', '71.5%', '65.3%', '52.1%', '68.0%', '54.8%', '70.7%', '70.6%', '58.8%', '53.7%', '59.6%', '61.3%', '59.3%'],
+                        textposition: 'outside',
+                        textfont: {
+                            color: 'black',
+                            size: 10,
+                            family: 'Arial Black'
+                        }
+                    };
+                    
+                    var media_line_chart_6_MAT = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26'],
+                        y: [67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987, 67.17950626630987],
+                        type: 'scatter',
+                        mode: 'lines',
+                        line: {
+                            color: 'black',
+                            width: 3
+                        },
+                        name: 'Média Geral: 67.2%'
+                    };
+                    
+                    var layout_chart_6_MAT = {
+                        title: '',
+                        xaxis: {
+                            title: 'Questões',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            tickfont: {size: 12}
+                        },
+                        yaxis: {
+                            title: 'Performance (%)',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            range: [0, 100],
+                            tickfont: {size: 12}
+                        },
+                        showlegend: true,
+                        legend: {
+                            x: 0.7,
+                            y: 0.95,
+                            bgcolor: 'rgba(255,255,255,0.8)',
+                            bordercolor: 'black',
+                            borderwidth: 1
+                        },
+                        plot_bgcolor: 'white',
+                        paper_bgcolor: 'white',
+                        font: {
+                            family: 'Arial, sans-serif',
+                            size: 12,
+                            color: '#2c3e50'
+                        },
+                        margin: {
+                            l: 60,
+                            r: 60,
+                            t: 40,
+                            b: 60
+                        }
+                    };
+                    
+                    Plotly.newPlot('chart_6_MAT', [trace_chart_6_MAT, media_line_chart_6_MAT], layout_chart_6_MAT, {responsive: true});
+                </script>
+            </div>
+            <div class="year-section">
+                <h2>7º Ano do Ensino Fundamental</h2>
+        
+                <div class="summary">
+                    <strong>Resumo do 7º Ano:</strong>
+                    Média Geral: 69.2% | 
+                    Questões com performance ≥50%: 78/79 (98.7%)
+                </div>
+            
+                <div class="chart-container">
+                    <h3>Ciências da Natureza - Média: 70.0%</h3>
+                    <div id="chart_7_CN"></div>
+                </div>
+                
+                <script>
+                    var trace_chart_7_CN = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26', 'Q27'],
+                        y: [61.71755704507479, 67.41939926401463, 57.99017679996655, 75.53063194577034, 67.16679664719624, 77.51240926304907, 80.704904993839, 78.72508411986892, 71.81746161963984, 78.06055793445245, 65.8475949631228, 70.05858136351439, 80.00901730325104, 73.56121189426845, 62.58057700773925, 58.849773229576925, 74.9695119198687, 71.93453612966528, 63.72345999697049, 61.63559188180008, 48.42917701367023, 74.42728072475563, 55.95098871857612, 71.16803387716746, 80.50873907505307, 82.81163485864687, 75.8556379695067],
+                        type: 'bar',
+                        marker: {
+                            color: ['#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4'],
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        },
+                        text: ['61.7%', '67.4%', '58.0%', '75.5%', '67.2%', '77.5%', '80.7%', '78.7%', '71.8%', '78.1%', '65.8%', '70.1%', '80.0%', '73.6%', '62.6%', '58.8%', '75.0%', '71.9%', '63.7%', '61.6%', '48.4%', '74.4%', '56.0%', '71.2%', '80.5%', '82.8%', '75.9%'],
+                        textposition: 'outside',
+                        textfont: {
+                            color: 'black',
+                            size: 10,
+                            family: 'Arial Black'
+                        }
+                    };
+                    
+                    var media_line_chart_7_CN = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26', 'Q27'],
+                        y: [69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649, 69.96171583555649],
+                        type: 'scatter',
+                        mode: 'lines',
+                        line: {
+                            color: 'black',
+                            width: 3
+                        },
+                        name: 'Média Geral: 70.0%'
+                    };
+                    
+                    var layout_chart_7_CN = {
+                        title: '',
+                        xaxis: {
+                            title: 'Questões',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            tickfont: {size: 12}
+                        },
+                        yaxis: {
+                            title: 'Performance (%)',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            range: [0, 100],
+                            tickfont: {size: 12}
+                        },
+                        showlegend: true,
+                        legend: {
+                            x: 0.7,
+                            y: 0.95,
+                            bgcolor: 'rgba(255,255,255,0.8)',
+                            bordercolor: 'black',
+                            borderwidth: 1
+                        },
+                        plot_bgcolor: 'white',
+                        paper_bgcolor: 'white',
+                        font: {
+                            family: 'Arial, sans-serif',
+                            size: 12,
+                            color: '#2c3e50'
+                        },
+                        margin: {
+                            l: 60,
+                            r: 60,
+                            t: 40,
+                            b: 60
+                        }
+                    };
+                    
+                    Plotly.newPlot('chart_7_CN', [trace_chart_7_CN, media_line_chart_7_CN], layout_chart_7_CN, {responsive: true});
+                </script>
+            
+                <div class="chart-container">
+                    <h3>Língua Portuguesa - Média: 69.9%</h3>
+                    <div id="chart_7_LP"></div>
+                </div>
+                
+                <script>
+                    var trace_chart_7_LP = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26'],
+                        y: [62.63131653312851, 58.14190727985895, 71.37642068915508, 86.31834896206546, 76.92595956202008, 65.57138350113955, 69.02167757743815, 59.560698146422716, 64.52769507668759, 68.44111200161677, 57.6796616087782, 60.790543331200645, 67.19742157993936, 62.04154577240643, 61.57190291519223, 65.64860346709337, 83.58335229730902, 90.84044277688635, 72.11570844891683, 68.36273207144326, 81.14284984208645, 62.35230700450405, 71.91279227079787, 73.97204499721242, 84.92755117983951, 69.98670959617216],
+                        type: 'bar',
+                        marker: {
+                            color: ['#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4'],
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        },
+                        text: ['62.6%', '58.1%', '71.4%', '86.3%', '76.9%', '65.6%', '69.0%', '59.6%', '64.5%', '68.4%', '57.7%', '60.8%', '67.2%', '62.0%', '61.6%', '65.6%', '83.6%', '90.8%', '72.1%', '68.4%', '81.1%', '62.4%', '71.9%', '74.0%', '84.9%', '70.0%'],
+                        textposition: 'outside',
+                        textfont: {
+                            color: 'black',
+                            size: 10,
+                            family: 'Arial Black'
+                        }
+                    };
+                    
+                    var media_line_chart_7_LP = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26'],
+                        y: [69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428, 69.87087263420428],
+                        type: 'scatter',
+                        mode: 'lines',
+                        line: {
+                            color: 'black',
+                            width: 3
+                        },
+                        name: 'Média Geral: 69.9%'
+                    };
+                    
+                    var layout_chart_7_LP = {
+                        title: '',
+                        xaxis: {
+                            title: 'Questões',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            tickfont: {size: 12}
+                        },
+                        yaxis: {
+                            title: 'Performance (%)',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            range: [0, 100],
+                            tickfont: {size: 12}
+                        },
+                        showlegend: true,
+                        legend: {
+                            x: 0.7,
+                            y: 0.95,
+                            bgcolor: 'rgba(255,255,255,0.8)',
+                            bordercolor: 'black',
+                            borderwidth: 1
+                        },
+                        plot_bgcolor: 'white',
+                        paper_bgcolor: 'white',
+                        font: {
+                            family: 'Arial, sans-serif',
+                            size: 12,
+                            color: '#2c3e50'
+                        },
+                        margin: {
+                            l: 60,
+                            r: 60,
+                            t: 40,
+                            b: 60
+                        }
+                    };
+                    
+                    Plotly.newPlot('chart_7_LP', [trace_chart_7_LP, media_line_chart_7_LP], layout_chart_7_LP, {responsive: true});
+                </script>
+            
+                <div class="chart-container">
+                    <h3>Matemática - Média: 67.7%</h3>
+                    <div id="chart_7_MAT"></div>
+                </div>
+                
+                <script>
+                    var trace_chart_7_MAT = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26'],
+                        y: [79.2717192440921, 75.7834358180976, 69.70349186109587, 62.65862837509712, 65.93765576593017, 73.19619571321279, 69.44163293745392, 66.19205120564779, 64.04500761612343, 60.7965907887974, 85.44887621845619, 65.44355844724761, 80.62039115187672, 68.91130390062366, 60.239674156132196, 77.72433425990249, 54.24996497169034, 65.47579001585858, 72.64382297386742, 59.75459954160961, 62.21276526582437, 67.7522220703946, 50.747429612526815, 69.03554808666053, 71.46623039347628, 62.73519354743871],
+                        type: 'bar',
+                        marker: {
+                            color: ['#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4'],
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        },
+                        text: ['79.3%', '75.8%', '69.7%', '62.7%', '65.9%', '73.2%', '69.4%', '66.2%', '64.0%', '60.8%', '85.4%', '65.4%', '80.6%', '68.9%', '60.2%', '77.7%', '54.2%', '65.5%', '72.6%', '59.8%', '62.2%', '67.8%', '50.7%', '69.0%', '71.5%', '62.7%'],
+                        textposition: 'outside',
+                        textfont: {
+                            color: 'black',
+                            size: 10,
+                            family: 'Arial Black'
+                        }
+                    };
+                    
+                    var media_line_chart_7_MAT = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26'],
+                        y: [67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285, 67.74954284381285],
+                        type: 'scatter',
+                        mode: 'lines',
+                        line: {
+                            color: 'black',
+                            width: 3
+                        },
+                        name: 'Média Geral: 67.7%'
+                    };
+                    
+                    var layout_chart_7_MAT = {
+                        title: '',
+                        xaxis: {
+                            title: 'Questões',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            tickfont: {size: 12}
+                        },
+                        yaxis: {
+                            title: 'Performance (%)',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            range: [0, 100],
+                            tickfont: {size: 12}
+                        },
+                        showlegend: true,
+                        legend: {
+                            x: 0.7,
+                            y: 0.95,
+                            bgcolor: 'rgba(255,255,255,0.8)',
+                            bordercolor: 'black',
+                            borderwidth: 1
+                        },
+                        plot_bgcolor: 'white',
+                        paper_bgcolor: 'white',
+                        font: {
+                            family: 'Arial, sans-serif',
+                            size: 12,
+                            color: '#2c3e50'
+                        },
+                        margin: {
+                            l: 60,
+                            r: 60,
+                            t: 40,
+                            b: 60
+                        }
+                    };
+                    
+                    Plotly.newPlot('chart_7_MAT', [trace_chart_7_MAT, media_line_chart_7_MAT], layout_chart_7_MAT, {responsive: true});
+                </script>
+            </div>
+            <div class="year-section">
+                <h2>8º Ano do Ensino Fundamental</h2>
+        
+                <div class="summary">
+                    <strong>Resumo do 8º Ano:</strong>
+                    Média Geral: 63.4% | 
+                    Questões com performance ≥50%: 70/79 (88.6%)
+                </div>
+            
+                <div class="chart-container">
+                    <h3>Ciências da Natureza - Média: 64.2%</h3>
+                    <div id="chart_8_CN"></div>
+                </div>
+                
+                <script>
+                    var trace_chart_8_CN = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26', 'Q27'],
+                        y: [46.678973981728205, 69.4632721334449, 65.86508665190675, 70.91678955075544, 66.53991576071759, 63.01394991913053, 65.87446221308106, 65.09943698366169, 58.572422121904665, 56.64712729946917, 67.0048361568908, 54.675384526627795, 56.979097775309214, 61.53494438185606, 61.77565245899123, 69.62213083296056, 69.0988235676759, 69.51995435924461, 76.7164306031288, 69.47619379824974, 71.4524899407622, 62.17604344823613, 70.02183088654247, 72.02377512846815, 44.714882265585715, 70.25487619633975, 57.263422812823215],
+                        type: 'bar',
+                        marker: {
+                            color: ['#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4'],
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        },
+                        text: ['46.7%', '69.5%', '65.9%', '70.9%', '66.5%', '63.0%', '65.9%', '65.1%', '58.6%', '56.6%', '67.0%', '54.7%', '57.0%', '61.5%', '61.8%', '69.6%', '69.1%', '69.5%', '76.7%', '69.5%', '71.5%', '62.2%', '70.0%', '72.0%', '44.7%', '70.3%', '57.3%'],
+                        textposition: 'outside',
+                        textfont: {
+                            color: 'black',
+                            size: 10,
+                            family: 'Arial Black'
+                        }
+                    };
+                    
+                    var media_line_chart_8_CN = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26', 'Q27'],
+                        y: [64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923, 64.1845261390923],
+                        type: 'scatter',
+                        mode: 'lines',
+                        line: {
+                            color: 'black',
+                            width: 3
+                        },
+                        name: 'Média Geral: 64.2%'
+                    };
+                    
+                    var layout_chart_8_CN = {
+                        title: '',
+                        xaxis: {
+                            title: 'Questões',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            tickfont: {size: 12}
+                        },
+                        yaxis: {
+                            title: 'Performance (%)',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            range: [0, 100],
+                            tickfont: {size: 12}
+                        },
+                        showlegend: true,
+                        legend: {
+                            x: 0.7,
+                            y: 0.95,
+                            bgcolor: 'rgba(255,255,255,0.8)',
+                            bordercolor: 'black',
+                            borderwidth: 1
+                        },
+                        plot_bgcolor: 'white',
+                        paper_bgcolor: 'white',
+                        font: {
+                            family: 'Arial, sans-serif',
+                            size: 12,
+                            color: '#2c3e50'
+                        },
+                        margin: {
+                            l: 60,
+                            r: 60,
+                            t: 40,
+                            b: 60
+                        }
+                    };
+                    
+                    Plotly.newPlot('chart_8_CN', [trace_chart_8_CN, media_line_chart_8_CN], layout_chart_8_CN, {responsive: true});
+                </script>
+            
+                <div class="chart-container">
+                    <h3>Língua Portuguesa - Média: 63.7%</h3>
+                    <div id="chart_8_LP"></div>
+                </div>
+                
+                <script>
+                    var trace_chart_8_LP = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26'],
+                        y: [73.57701880886697, 64.53813562896086, 47.7080117829934, 60.668238331666174, 65.38788405432912, 57.07474941509797, 66.97914045284755, 73.5634687281323, 81.19129744078599, 64.84642149505025, 58.634592101862104, 60.38879002092302, 70.18686301976115, 72.35667809759522, 48.95621028357182, 76.97169646624697, 83.26180917346446, 52.12933397580302, 57.631033678637195, 78.3732784115192, 66.20745443350201, 51.482524967617636, 69.03852078406227, 50.766671325038004, 42.72064489354761, 60.87207676284599],
+                        type: 'bar',
+                        marker: {
+                            color: ['#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#1f77b4'],
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        },
+                        text: ['73.6%', '64.5%', '47.7%', '60.7%', '65.4%', '57.1%', '67.0%', '73.6%', '81.2%', '64.8%', '58.6%', '60.4%', '70.2%', '72.4%', '49.0%', '77.0%', '83.3%', '52.1%', '57.6%', '78.4%', '66.2%', '51.5%', '69.0%', '50.8%', '42.7%', '60.9%'],
+                        textposition: 'outside',
+                        textfont: {
+                            color: 'black',
+                            size: 10,
+                            family: 'Arial Black'
+                        }
+                    };
+                    
+                    var media_line_chart_8_LP = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26'],
+                        y: [63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855, 63.673559405181855],
+                        type: 'scatter',
+                        mode: 'lines',
+                        line: {
+                            color: 'black',
+                            width: 3
+                        },
+                        name: 'Média Geral: 63.7%'
+                    };
+                    
+                    var layout_chart_8_LP = {
+                        title: '',
+                        xaxis: {
+                            title: 'Questões',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            tickfont: {size: 12}
+                        },
+                        yaxis: {
+                            title: 'Performance (%)',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            range: [0, 100],
+                            tickfont: {size: 12}
+                        },
+                        showlegend: true,
+                        legend: {
+                            x: 0.7,
+                            y: 0.95,
+                            bgcolor: 'rgba(255,255,255,0.8)',
+                            bordercolor: 'black',
+                            borderwidth: 1
+                        },
+                        plot_bgcolor: 'white',
+                        paper_bgcolor: 'white',
+                        font: {
+                            family: 'Arial, sans-serif',
+                            size: 12,
+                            color: '#2c3e50'
+                        },
+                        margin: {
+                            l: 60,
+                            r: 60,
+                            t: 40,
+                            b: 60
+                        }
+                    };
+                    
+                    Plotly.newPlot('chart_8_LP', [trace_chart_8_LP, media_line_chart_8_LP], layout_chart_8_LP, {responsive: true});
+                </script>
+            
+                <div class="chart-container">
+                    <h3>Matemática - Média: 62.4%</h3>
+                    <div id="chart_8_MAT"></div>
+                </div>
+                
+                <script>
+                    var trace_chart_8_MAT = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26'],
+                        y: [71.77429529635843, 59.77969691348688, 76.62426429093145, 55.82059488663068, 48.28655761606414, 55.27619789154414, 41.075349120645114, 70.58430616622258, 53.363245054008466, 55.178145345430444, 58.300281148803755, 76.91686629460247, 72.4922853009827, 68.94924677077022, 45.71911511203348, 65.39293808125538, 62.49979311064653, 66.65444048212022, 75.15671794448787, 73.5938774609646, 42.80646020657549, 62.14412730312711, 62.19612928683954, 67.55878633997602, 68.8293909059609, 65.3548762266482],
+                        type: 'bar',
+                        marker: {
+                            color: ['#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4'],
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        },
+                        text: ['71.8%', '59.8%', '76.6%', '55.8%', '48.3%', '55.3%', '41.1%', '70.6%', '53.4%', '55.2%', '58.3%', '76.9%', '72.5%', '68.9%', '45.7%', '65.4%', '62.5%', '66.7%', '75.2%', '73.6%', '42.8%', '62.1%', '62.2%', '67.6%', '68.8%', '65.4%'],
+                        textposition: 'outside',
+                        textfont: {
+                            color: 'black',
+                            size: 10,
+                            family: 'Arial Black'
+                        }
+                    };
+                    
+                    var media_line_chart_8_MAT = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26'],
+                        y: [62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373, 62.39723017527373],
+                        type: 'scatter',
+                        mode: 'lines',
+                        line: {
+                            color: 'black',
+                            width: 3
+                        },
+                        name: 'Média Geral: 62.4%'
+                    };
+                    
+                    var layout_chart_8_MAT = {
+                        title: '',
+                        xaxis: {
+                            title: 'Questões',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            tickfont: {size: 12}
+                        },
+                        yaxis: {
+                            title: 'Performance (%)',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            range: [0, 100],
+                            tickfont: {size: 12}
+                        },
+                        showlegend: true,
+                        legend: {
+                            x: 0.7,
+                            y: 0.95,
+                            bgcolor: 'rgba(255,255,255,0.8)',
+                            bordercolor: 'black',
+                            borderwidth: 1
+                        },
+                        plot_bgcolor: 'white',
+                        paper_bgcolor: 'white',
+                        font: {
+                            family: 'Arial, sans-serif',
+                            size: 12,
+                            color: '#2c3e50'
+                        },
+                        margin: {
+                            l: 60,
+                            r: 60,
+                            t: 40,
+                            b: 60
+                        }
+                    };
+                    
+                    Plotly.newPlot('chart_8_MAT', [trace_chart_8_MAT, media_line_chart_8_MAT], layout_chart_8_MAT, {responsive: true});
+                </script>
+            </div>
+            <div class="year-section">
+                <h2>9º Ano do Ensino Fundamental</h2>
+        
+                <div class="summary">
+                    <strong>Resumo do 9º Ano:</strong>
+                    Média Geral: 65.9% | 
+                    Questões com performance ≥50%: 74/79 (93.7%)
+                </div>
+            
+                <div class="chart-container">
+                    <h3>Língua Portuguesa - Média: 66.7%</h3>
+                    <div id="chart_9_LP"></div>
+                </div>
+                
+                <script>
+                    var trace_chart_9_LP = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26'],
+                        y: [60.12718000477712, 55.52467725997921, 58.696270799886655, 64.54188938860469, 65.60676043497782, 63.987315787253124, 43.20110568591446, 82.11760864305626, 56.603470231720905, 81.79945173616534, 74.75183478643672, 65.77553425469111, 53.34743552345007, 61.82389917506906, 73.91238932450715, 79.96947145365486, 74.84338078288533, 59.347016495522226, 56.56341183344084, 73.22714525009485, 69.56801310699252, 89.84335104801525, 87.3187440993524, 59.0047055097732, 57.15102427428867, 66.32476924934033],
+                        type: 'bar',
+                        marker: {
+                            color: ['#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4'],
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        },
+                        text: ['60.1%', '55.5%', '58.7%', '64.5%', '65.6%', '64.0%', '43.2%', '82.1%', '56.6%', '81.8%', '74.8%', '65.8%', '53.3%', '61.8%', '73.9%', '80.0%', '74.8%', '59.3%', '56.6%', '73.2%', '69.6%', '89.8%', '87.3%', '59.0%', '57.2%', '66.3%'],
+                        textposition: 'outside',
+                        textfont: {
+                            color: 'black',
+                            size: 10,
+                            family: 'Arial Black'
+                        }
+                    };
+                    
+                    var media_line_chart_9_LP = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26'],
+                        y: [66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039, 66.72991754384039],
+                        type: 'scatter',
+                        mode: 'lines',
+                        line: {
+                            color: 'black',
+                            width: 3
+                        },
+                        name: 'Média Geral: 66.7%'
+                    };
+                    
+                    var layout_chart_9_LP = {
+                        title: '',
+                        xaxis: {
+                            title: 'Questões',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            tickfont: {size: 12}
+                        },
+                        yaxis: {
+                            title: 'Performance (%)',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            range: [0, 100],
+                            tickfont: {size: 12}
+                        },
+                        showlegend: true,
+                        legend: {
+                            x: 0.7,
+                            y: 0.95,
+                            bgcolor: 'rgba(255,255,255,0.8)',
+                            bordercolor: 'black',
+                            borderwidth: 1
+                        },
+                        plot_bgcolor: 'white',
+                        paper_bgcolor: 'white',
+                        font: {
+                            family: 'Arial, sans-serif',
+                            size: 12,
+                            color: '#2c3e50'
+                        },
+                        margin: {
+                            l: 60,
+                            r: 60,
+                            t: 40,
+                            b: 60
+                        }
+                    };
+                    
+                    Plotly.newPlot('chart_9_LP', [trace_chart_9_LP, media_line_chart_9_LP], layout_chart_9_LP, {responsive: true});
+                </script>
+            
+                <div class="chart-container">
+                    <h3>Ciências da Natureza - Média: 63.3%</h3>
+                    <div id="chart_9_CN"></div>
+                </div>
+                
+                <script>
+                    var trace_chart_9_CN = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26', 'Q27'],
+                        y: [63.51678520513303, 89.65368862257831, 69.94368429092711, 49.99426195573341, 63.81109159549828, 66.84247715565076, 64.73087453330791, 60.91071252357007, 60.91151905553723, 69.0038886571319, 66.78704665787357, 42.62427144805624, 65.1120693272606, 53.39727783007309, 61.5089570732981, 59.43573534198047, 76.2818979978216, 58.94143604526333, 55.99572108633845, 80.0147936504546, 53.24785665769057, 67.40575753362495, 51.149063884509694, 69.76354477260628, 66.95985407237487, 60.67067170910408, 60.58191440178376],
+                        type: 'bar',
+                        marker: {
+                            color: ['#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4'],
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        },
+                        text: ['63.5%', '89.7%', '69.9%', '50.0%', '63.8%', '66.8%', '64.7%', '60.9%', '60.9%', '69.0%', '66.8%', '42.6%', '65.1%', '53.4%', '61.5%', '59.4%', '76.3%', '58.9%', '56.0%', '80.0%', '53.2%', '67.4%', '51.1%', '69.8%', '67.0%', '60.7%', '60.6%'],
+                        textposition: 'outside',
+                        textfont: {
+                            color: 'black',
+                            size: 10,
+                            family: 'Arial Black'
+                        }
+                    };
+                    
+                    var media_line_chart_9_CN = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26', 'Q27'],
+                        y: [63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304, 63.30358715130304],
+                        type: 'scatter',
+                        mode: 'lines',
+                        line: {
+                            color: 'black',
+                            width: 3
+                        },
+                        name: 'Média Geral: 63.3%'
+                    };
+                    
+                    var layout_chart_9_CN = {
+                        title: '',
+                        xaxis: {
+                            title: 'Questões',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            tickfont: {size: 12}
+                        },
+                        yaxis: {
+                            title: 'Performance (%)',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            range: [0, 100],
+                            tickfont: {size: 12}
+                        },
+                        showlegend: true,
+                        legend: {
+                            x: 0.7,
+                            y: 0.95,
+                            bgcolor: 'rgba(255,255,255,0.8)',
+                            bordercolor: 'black',
+                            borderwidth: 1
+                        },
+                        plot_bgcolor: 'white',
+                        paper_bgcolor: 'white',
+                        font: {
+                            family: 'Arial, sans-serif',
+                            size: 12,
+                            color: '#2c3e50'
+                        },
+                        margin: {
+                            l: 60,
+                            r: 60,
+                            t: 40,
+                            b: 60
+                        }
+                    };
+                    
+                    Plotly.newPlot('chart_9_CN', [trace_chart_9_CN, media_line_chart_9_CN], layout_chart_9_CN, {responsive: true});
+                </script>
+            
+                <div class="chart-container">
+                    <h3>Matemática - Média: 67.9%</h3>
+                    <div id="chart_9_MAT"></div>
+                </div>
+                
+                <script>
+                    var trace_chart_9_MAT = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26'],
+                        y: [82.8142291813121, 77.02467234497529, 87.01704391495302, 60.04810335799374, 61.16662067149316, 45.73314134880193, 59.812934172906566, 61.611559730335856, 61.57946247351017, 69.76744655606915, 72.54627123433659, 58.13180419040113, 45.74858143980563, 73.39718379856944, 63.55131183274857, 70.22486734631184, 64.91017243932382, 64.27622667252024, 66.776441195018, 74.67556385966128, 84.18272744551476, 83.307533213153, 85.3474130867759, 53.064526655159625, 83.21137022796827, 54.66724482145931],
+                        type: 'bar',
+                        marker: {
+                            color: ['#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#d62728', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4'],
+                            line: {
+                                color: 'black',
+                                width: 1
+                            }
+                        },
+                        text: ['82.8%', '77.0%', '87.0%', '60.0%', '61.2%', '45.7%', '59.8%', '61.6%', '61.6%', '69.8%', '72.5%', '58.1%', '45.7%', '73.4%', '63.6%', '70.2%', '64.9%', '64.3%', '66.8%', '74.7%', '84.2%', '83.3%', '85.3%', '53.1%', '83.2%', '54.7%'],
+                        textposition: 'outside',
+                        textfont: {
+                            color: 'black',
+                            size: 10,
+                            family: 'Arial Black'
+                        }
+                    };
+                    
+                    var media_line_chart_9_MAT = {
+                        x: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22', 'Q23', 'Q24', 'Q25', 'Q26'],
+                        y: [67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532, 67.86901743119532],
+                        type: 'scatter',
+                        mode: 'lines',
+                        line: {
+                            color: 'black',
+                            width: 3
+                        },
+                        name: 'Média Geral: 67.9%'
+                    };
+                    
+                    var layout_chart_9_MAT = {
+                        title: '',
+                        xaxis: {
+                            title: 'Questões',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            tickfont: {size: 12}
+                        },
+                        yaxis: {
+                            title: 'Performance (%)',
+                            titlefont: {size: 14, color: '#2c3e50'},
+                            range: [0, 100],
+                            tickfont: {size: 12}
+                        },
+                        showlegend: true,
+                        legend: {
+                            x: 0.7,
+                            y: 0.95,
+                            bgcolor: 'rgba(255,255,255,0.8)',
+                            bordercolor: 'black',
+                            borderwidth: 1
+                        },
+                        plot_bgcolor: 'white',
+                        paper_bgcolor: 'white',
+                        font: {
+                            family: 'Arial, sans-serif',
+                            size: 12,
+                            color: '#2c3e50'
+                        },
+                        margin: {
+                            l: 60,
+                            r: 60,
+                            t: 40,
+                            b: 60
+                        }
+                    };
+                    
+                    Plotly.newPlot('chart_9_MAT', [trace_chart_9_MAT, media_line_chart_9_MAT], layout_chart_9_MAT, {responsive: true});
+                </script>
+            </div>
+            <div style="text-align: center; margin-top: 40px; padding: 20px; background-color: #ecf0f1; border-radius: 5px;">
+                <p><strong>Análise gerada automaticamente</strong></p>
+                <p>Data de geração: 28/07/2025 03:01</p>
+            </div>
+        </div>
+    </body>
+    </html>
+    
