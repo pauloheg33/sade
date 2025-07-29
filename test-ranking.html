@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teste Ranking Data</title>
+</head>
+<body>
+    <h1>Teste de Carregamento de Dados</h1>
+    <div id="status">Carregando...</div>
+    <div id="data"></div>
+
+    <script>
+        async function testRankingData() {
+            const statusDiv = document.getElementById('status');
+            const dataDiv = document.getElementById('data');
+            
+            try {
+                // Testar acesso ao Next.js
+                const nextResponse = await fetch('http://localhost:3001');
+                console.log('Next.js Status:', nextResponse.status);
+                
+                // Testar acesso aos dados
+                const dataResponse = await fetch('http://localhost:3001/data/ranking_turmas_por_ano.json');
+                console.log('Data Status:', dataResponse.status);
+                
+                if (dataResponse.ok) {
+                    const data = await dataResponse.json();
+                    console.log('Data loaded:', data);
+                    
+                    statusDiv.innerHTML = '✅ Dados carregados com sucesso!';
+                    dataDiv.innerHTML = `
+                        <h3>Anos disponíveis:</h3>
+                        <ul>
+                            ${Object.keys(data).map(year => `<li>${year}: ${data[year].length} turmas</li>`).join('')}
+                        </ul>
+                    `;
+                } else {
+                    throw new Error(`HTTP ${dataResponse.status}`);
+                }
+            } catch (error) {
+                console.error('Erro:', error);
+                statusDiv.innerHTML = '❌ Erro: ' + error.message;
+            }
+        }
+        
+        testRankingData();
+    </script>
+</body>
+</html>
