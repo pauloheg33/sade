@@ -623,45 +623,73 @@
     <script>
         // Função para abrir a aplicação de Ranking
         function openRankingApp() {
-            // Primeiro, tentar abrir a versão HTML simples
-            const simpleRankingURL = 'ranking.html';
+            // Primeiro, tentar abrir a versão Next.js
+            const nextjsURL = 'http://localhost:3001';
             
-            // Abrir em nova aba
-            const newWindow = window.open(simpleRankingURL, '_blank', 'width=1200,height=800');
-            
-            if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
-                // Se o popup foi bloqueado, mostrar instruções
-                alert('⚠️ Para acessar o Ranking das Escolas:\n\n' +
-                      'Permita pop-ups para este site e tente novamente.\n\n' +
-                      'Alternativa: Execute "start-ranking.bat" para a versão avançada em http://localhost:3001');
-            }
-        }
-        
-        // Verificar se os dados do ranking estão disponíveis
-        document.addEventListener('DOMContentLoaded', function() {
-            // Verificar se o arquivo de dados existe
-            fetch('data/ranking_turmas_por_ano.json')
+            // Verificar se o Next.js está rodando
+            fetch(nextjsURL)
                 .then(response => {
                     if (response.ok) {
-                        // Adicionar badge de dados disponíveis
-                        document.querySelectorAll('[onclick="openRankingApp()"]').forEach(btn => {
-                            const badge = document.createElement('span');
-                            badge.className = 'badge bg-success ms-2';
-                            badge.innerHTML = '● Dados OK';
-                            badge.title = 'Dados do ranking disponíveis';
-                            btn.appendChild(badge);
-                        });
+                        // Next.js disponível - abrir em nova aba
+                        window.open(nextjsURL, '_blank', 'width=1400,height=900');
+                    } else {
+                        throw new Error('Next.js não está rodando');
                     }
                 })
                 .catch(() => {
-                    // Dados não encontrados
-                    document.querySelectorAll('[onclick="openRankingApp()"]').forEach(btn => {
-                        const badge = document.createElement('span');
-                        badge.className = 'badge bg-warning ms-2';
-                        badge.innerHTML = '● Sem Dados';
-                        badge.title = 'Arquivo de dados não encontrado';
-                        btn.appendChild(badge);
-                    });
+                    // Fallback para versão HTML simples
+                    const simpleRankingURL = 'ranking.html';
+                    const newWindow = window.open(simpleRankingURL, '_blank', 'width=1200,height=800');
+                    
+                    if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                        alert('⚠️ Para acessar o Ranking das Escolas:\n\n' +
+                              '✅ Versão Simples: Permita pop-ups e tente novamente\n' +
+                              '🚀 Versão Avançada: Execute "start-ranking.bat" para ativar o Next.js em http://localhost:3001');
+                    }
+                });
+        }
+        
+        // Verificar status das aplicações no carregamento da página
+        document.addEventListener('DOMContentLoaded', function() {
+            // Verificar Next.js
+            fetch('http://localhost:3001')
+                .then(response => {
+                    if (response.ok) {
+                        // Next.js disponível
+                        document.querySelectorAll('[onclick="openRankingApp()"]').forEach(btn => {
+                            const badge = document.createElement('span');
+                            badge.className = 'badge bg-success ms-2';
+                            badge.innerHTML = '🚀 Next.js';
+                            badge.title = 'Versão avançada disponível em localhost:3001';
+                            btn.appendChild(badge);
+                        });
+                        return;
+                    }
+                    throw new Error('Next.js indisponível');
+                })
+                .catch(() => {
+                    // Verificar se os dados estão disponíveis para versão HTML
+                    fetch('data/ranking_turmas_por_ano.json')
+                        .then(response => {
+                            if (response.ok) {
+                                document.querySelectorAll('[onclick="openRankingApp()"]').forEach(btn => {
+                                    const badge = document.createElement('span');
+                                    badge.className = 'badge bg-primary ms-2';
+                                    badge.innerHTML = '📊 HTML';
+                                    badge.title = 'Versão simples disponível (dados OK)';
+                                    btn.appendChild(badge);
+                                });
+                            }
+                        })
+                        .catch(() => {
+                            document.querySelectorAll('[onclick="openRankingApp()"]').forEach(btn => {
+                                const badge = document.createElement('span');
+                                badge.className = 'badge bg-warning ms-2';
+                                badge.innerHTML = '⚠️ Offline';
+                                badge.title = 'Execute start-ranking.bat ou verifique os dados';
+                                btn.appendChild(badge);
+                            });
+                        });
                 });
         });
     </script>

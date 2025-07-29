@@ -216,22 +216,24 @@
             const yearFilter = document.getElementById('yearFilter').value;
             const subjectFilter = document.getElementById('subjectFilter').value;
 
-            // Filtrar dados
+            // Filtrar dados - novo formato
             let filteredData = [];
             
             Object.entries(rankingData).forEach(([year, yearData]) => {
-                if (yearFilter !== 'all' && year !== `${yearFilter}º Ano`) return;
+                if (yearFilter !== 'all' && year !== `${yearFilter}o`) return;
                 
-                Object.entries(yearData).forEach(([school, schoolData]) => {
-                    Object.entries(schoolData).forEach(([subject, data]) => {
+                yearData.forEach(item => {
+                    // Para cada matéria na escola
+                    Object.entries(item.materias).forEach(([subject, media]) => {
                         if (subjectFilter !== 'all' && subject !== subjectFilter) return;
                         
                         filteredData.push({
                             year: year,
-                            school: school,
+                            school: item.escola,
+                            turma: item.turma,
                             subject: subject,
-                            media: data.media,
-                            alunos: data.alunos,
+                            media: media,
+                            alunos: item.total_alunos[subject] || 0,
                             position: 0
                         });
                     });
@@ -286,8 +288,8 @@
             tbody.innerHTML = data.slice(0, 20).map(item => `
                 <tr>
                     <td class="ranking-position">#${item.position}</td>
-                    <td class="school-name">${item.school}</td>
-                    <td><span class="grade-badge">${item.year}</span></td>
+                    <td class="school-name">${item.school}${item.turma ? ' - ' + item.turma : ''}</td>
+                    <td><span class="grade-badge">${item.year.replace('o', 'º Ano')}</span></td>
                     <td>${item.subject}</td>
                     <td class="fw-bold">${item.media.toFixed(1)}</td>
                     <td>${item.alunos}</td>

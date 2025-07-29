@@ -49,231 +49,61 @@
       "escola": "JOAQUIM FERREIRA",
       "turma": "A",
       "materias": {
-        "MAT": 69.5,
-        "LP": 74.3
+        "LP": 68.5,
+        "MAT": 70.8
       },
       "total_alunos": {
-        "MAT": 21,
-        "LP": 21
+        "LP": 23,
+        "MAT": 23
       },
-      "media_geral": 71.9,
-      "total_alunos_geral": 21,
+      "media_geral": 69.65,
+      "total_alunos_geral": 23,
       "posicao": 4
+    },
+    {
+      "escola": "JOAQUIM FERREIRA",
+      "turma": "B",
+      "materias": {
+        "LP": 66.2,
+        "MAT": 65.2
+      },
+      "total_alunos": {
+        "LP": 21,
+        "MAT": 21
+      },
+      "media_geral": 65.7,
+      "total_alunos_geral": 21,
+      "posicao": 5
     },
     {
       "escola": "FIRMINO JOSÉ",
       "turma": "B",
       "materias": {
-        "LP": 68.8,
-        "MAT": 74.1
+        "LP": 65.8,
+        "MAT": 68.1
       },
       "total_alunos": {
-        "LP": 26,
-        "MAT": 26
+        "LP": 20,
+        "MAT": 20
       },
-      "media_geral": 71.44999999999999,
-      "total_alunos_geral": 26,
-      "posicao": 5
+      "media_geral": 66.95,
+      "total_alunos_geral": 20,
+      "posicao": 6
     },
     {
       "escola": "FIRMINO JOSÉ",
       "turma": "A",
       "materias": {
-        "LP": 62.3,
-        "MAT": 70.0
+        "LP": 70.1,
+        "MAT": 71.3
       },
       "total_alunos": {
-        "LP": 22,
-        "MAT": 22
-      },
-      "media_geral": 66.15,
-      "total_alunos_geral": 22,
-      "posicao": 6
-    },
-    {
-      "escola": "NTONIO DE SOUSA BARROS",
-      "turma": "A",
-      "materias": {
-        "LP": 66.2,
-        "MAT": 62.0
-      },
-      "total_alunos": {
-        "LP": 10,
-        "MAT": 10
-      },
-      "media_geral": 64.1,
-      "total_alunos_geral": 10,
-      "posicao": 7
-    },
-    {
-      "escola": "JOSE ALVES DE SENA",
-      "turma": "A",
-      "materias": {
-        "MAT": 57.4,
-        "LP": 59.2
-      },
-      "total_alunos": {
-        "MAT": 22,
-        "LP": 22
-      },
-      "media_geral": 58.3,
-      "total_alunos_geral": 22,
-      "posicao": 8
-    }
-  ],
-  "8º": [
-    {
-      "escola": "03 DE DEZEMBRO",
-      "turma": "única",
-      "materias": {
-        "MAT": 82.0,
-        "CN": 76.7,
-        "LP": 75.7
-      },
-      "total_alunos": {
-        "MAT": 6,
-        "CN": 6,
-        "LP": 6
-      },
-      "media_geral": 78.13333333333333,
-      "total_alunos_geral": 6,
-      "posicao": 1
-    },
-    {
-      "escola": "21 DE DEZEMBRO B",
-      "turma": "única",
-      "materias": {
-        "MAT": 66.1,
-        "CN": 67.4,
-        "LP": 67.5
-      },
-      "total_alunos": {
-        "MAT": 31,
-        "CN": 31,
-        "LP": 31
-      },
-      "media_geral": 67.0,
-      "total_alunos_geral": 31,
-      "posicao": 2
-    },
-    {
-      "escola": "FIRMINO JOSÉ A",
-      "turma": "única",
-      "materias": {
-        "LP": 64.6,
-        "CN": 64.5,
-        "MAT": 68.6
-      },
-      "total_alunos": {
-        "LP": 18,
-        "CN": 18,
-        "MAT": 18
-      },
-      "media_geral": 65.89999999999999,
-      "total_alunos_geral": 18,
-      "posicao": 3
-    },
-    {
-      "escola": "NTONIO DE SOUSA BARROS",
-      "turma": "A",
-      "materias": {
-        "CN": 65.7,
-        "MAT": 63.6,
-        "LP": 66.5
-      },
-      "total_alunos": {
-        "CN": 16,
-        "MAT": 16,
-        "LP": 16
-      },
-      "media_geral": 65.26666666666667,
-      "total_alunos_geral": 16,
-      "posicao": 4
-    },
-    {
-      "escola": "21 DE DEZEMBRO C",
-      "turma": "única",
-      "materias": {
-        "MAT": 62.7,
-        "LP": 64.1,
-        "CN": 68.7
-      },
-      "total_alunos": {
-        "MAT": 30,
-        "LP": 30,
-        "CN": 30
-      },
-      "media_geral": 65.16666666666667,
-      "total_alunos_geral": 30,
-      "posicao": 5
-    },
-    {
-      "escola": "21 DE DEZEMBRO A",
-      "turma": "única",
-      "materias": {
-        "MAT": 63.7,
-        "LP": 65.7,
-        "CN": 63.5
-      },
-      "total_alunos": {
-        "MAT": 31,
-        "LP": 31,
-        "CN": 31
-      },
-      "media_geral": 64.3,
-      "total_alunos_geral": 31,
-      "posicao": 6
-    },
-    {
-      "escola": "JOSE ALVES A",
-      "turma": "única",
-      "materias": {
-        "CN": 63.2,
-        "MAT": 63.9,
-        "LP": 64.8
-      },
-      "total_alunos": {
-        "CN": 18,
-        "MAT": 18,
-        "LP": 18
-      },
-      "media_geral": 63.96666666666666,
-      "total_alunos_geral": 18,
-      "posicao": 7
-    },
-    {
-      "escola": "JOSE ALVES B",
-      "turma": "única",
-      "materias": {
-        "LP": 64.5,
-        "MAT": 63.0,
-        "CN": 63.0
-      },
-      "total_alunos": {
-        "LP": 18,
-        "MAT": 18,
-        "CN": 18
-      },
-      "media_geral": 63.5,
-      "total_alunos_geral": 18,
-      "posicao": 8
-    },
-    {
-      "escola": "FIRMINO JOSÉ B",
-      "turma": "única",
-      "materias": {
-        "MAT": 60.8,
-        "LP": 62.9,
-        "CN": 65.9
-      },
-      "total_alunos": {
-        "MAT": 19,
         "LP": 19,
-        "CN": 19
+        "MAT": 19
       },
-      "media_geral": 63.199999999999996,
+      "media_geral": 70.7,
       "total_alunos_geral": 19,
-      "posicao": 9
+      "posicao": 7
     }
   ],
   "2o": [
@@ -294,33 +124,18 @@
     },
     {
       "escola": "MOURÃO LIMA",
-      "turma": "B",
-      "materias": {
-        "MAT": 73.8,
-        "LP": 76.7
-      },
-      "total_alunos": {
-        "MAT": 18,
-        "LP": 18
-      },
-      "media_geral": 75.25,
-      "total_alunos_geral": 18,
-      "posicao": 2
-    },
-    {
-      "escola": "MOURÃO LIMA",
       "turma": "A",
       "materias": {
-        "MAT": 72.6,
-        "LP": 70.9
+        "LP": 70.9,
+        "MAT": 72.6
       },
       "total_alunos": {
-        "MAT": 19,
-        "LP": 19
+        "LP": 19,
+        "MAT": 19
       },
       "media_geral": 71.75,
       "total_alunos_geral": 19,
-      "posicao": 3
+      "posicao": 2
     },
     {
       "escola": "JOAQUIM FERREIRA",
@@ -335,52 +150,37 @@
       },
       "media_geral": 71.0,
       "total_alunos_geral": 28,
+      "posicao": 3
+    },
+    {
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "",
+      "materias": {
+        "LP": 71.5,
+        "MAT": 60.8
+      },
+      "total_alunos": {
+        "LP": 12,
+        "MAT": 12
+      },
+      "media_geral": 66.15,
+      "total_alunos_geral": 12,
       "posicao": 4
     },
     {
-      "escola": "NTONIO DE SOUSA BARROS",
+      "escola": "FIRMINO JOSÉ",
       "turma": "A",
       "materias": {
-        "MAT": 66.3,
-        "LP": 71.5
-      },
-      "total_alunos": {
-        "MAT": 12,
-        "LP": 12
-      },
-      "media_geral": 68.9,
-      "total_alunos_geral": 12,
-      "posicao": 5
-    },
-    {
-      "escola": "FIRMINO JOSÉ",
-      "turma": "B",
-      "materias": {
-        "LP": 65.8,
-        "MAT": 69.4
+        "LP": 61.7,
+        "MAT": 66.0
       },
       "total_alunos": {
         "LP": 18,
         "MAT": 18
       },
-      "media_geral": 67.6,
-      "total_alunos_geral": 18,
-      "posicao": 6
-    },
-    {
-      "escola": "FIRMINO JOSÉ",
-      "turma": "A",
-      "materias": {
-        "MAT": 66.0,
-        "LP": 61.7
-      },
-      "total_alunos": {
-        "MAT": 18,
-        "LP": 18
-      },
       "media_geral": 63.85,
       "total_alunos_geral": 18,
-      "posicao": 7
+      "posicao": 5
     },
     {
       "escola": "JOSE ALVES DE SENA",
@@ -395,7 +195,7 @@
       },
       "media_geral": 54.7,
       "total_alunos_geral": 24,
-      "posicao": 8
+      "posicao": 6
     }
   ],
   "1o": [
@@ -418,12 +218,12 @@
       "escola": "MOURÃO LIMA",
       "turma": "A",
       "materias": {
-        "MAT": 69.8,
-        "LP": 80.4
+        "LP": 80.4,
+        "MAT": 69.8
       },
       "total_alunos": {
-        "MAT": 25,
-        "LP": 25
+        "LP": 25,
+        "MAT": 25
       },
       "media_geral": 75.1,
       "total_alunos_geral": 25,
@@ -433,12 +233,12 @@
       "escola": "MOURÃO LIMA",
       "turma": "B",
       "materias": {
-        "MAT": 73.0,
-        "LP": 70.4
+        "LP": 70.4,
+        "MAT": 73.0
       },
       "total_alunos": {
-        "MAT": 25,
-        "LP": 25
+        "LP": 25,
+        "MAT": 25
       },
       "media_geral": 71.7,
       "total_alunos_geral": 25,
@@ -448,31 +248,46 @@
       "escola": "FIRMINO JOSÉ",
       "turma": "A",
       "materias": {
-        "MAT": 71.3,
-        "LP": 70.1
+        "LP": 70.1,
+        "MAT": 71.3
       },
       "total_alunos": {
-        "MAT": 19,
-        "LP": 19
+        "LP": 19,
+        "MAT": 19
       },
-      "media_geral": 70.69999999999999,
+      "media_geral": 70.7,
       "total_alunos_geral": 19,
       "posicao": 4
     },
     {
-      "escola": "JOAQUIM FERREIRA",
-      "turma": "A",
+      "escola": "MARIA AMELIA",
+      "turma": "",
       "materias": {
-        "MAT": 72.0,
-        "LP": 65.8
+        "LP": 69.9,
+        "MAT": 68.0
       },
       "total_alunos": {
-        "MAT": 21,
-        "LP": 21
+        "LP": 7,
+        "MAT": 7
       },
-      "media_geral": 68.9,
-      "total_alunos_geral": 21,
+      "media_geral": 68.95,
+      "total_alunos_geral": 7,
       "posicao": 5
+    },
+    {
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "",
+      "materias": {
+        "LP": 67.7,
+        "MAT": 60.8
+      },
+      "total_alunos": {
+        "LP": 18,
+        "MAT": 18
+      },
+      "media_geral": 64.25,
+      "total_alunos_geral": 18,
+      "posicao": 6
     },
     {
       "escola": "FIRMINO JOSÉ",
@@ -485,761 +300,54 @@
         "LP": 20,
         "MAT": 20
       },
-      "media_geral": 66.94999999999999,
+      "media_geral": 66.95,
       "total_alunos_geral": 20,
-      "posicao": 6
+      "posicao": 7
+    },
+    {
+      "escola": "JOAQUIM FERREIRA",
+      "turma": "A",
+      "materias": {
+        "LP": 65.8,
+        "MAT": 72.0
+      },
+      "total_alunos": {
+        "LP": 21,
+        "MAT": 21
+      },
+      "media_geral": 68.9,
+      "total_alunos_geral": 21,
+      "posicao": 8
     },
     {
       "escola": "JOAQUIM FERREIRA",
       "turma": "B",
       "materias": {
-        "MAT": 65.2,
-        "LP": 66.2
+        "LP": 66.2,
+        "MAT": 65.2
       },
       "total_alunos": {
-        "MAT": 21,
-        "LP": 21
+        "LP": 21,
+        "MAT": 21
       },
       "media_geral": 65.7,
       "total_alunos_geral": 21,
-      "posicao": 7
-    },
-    {
-      "escola": "NTONIO DE SOUSA BARROS",
-      "turma": "A",
-      "materias": {
-        "LP": 67.7,
-        "MAT": 60.8
-      },
-      "total_alunos": {
-        "LP": 18,
-        "MAT": 18
-      },
-      "media_geral": 64.25,
-      "total_alunos_geral": 18,
-      "posicao": 8
+      "posicao": 9
     },
     {
       "escola": "JOSE ALVES DE SENA",
       "turma": "A",
       "materias": {
-        "MAT": 54.0,
-        "LP": 61.6
+        "LP": 61.6,
+        "MAT": 54.0
       },
       "total_alunos": {
-        "MAT": 22,
-        "LP": 22
+        "LP": 22,
+        "MAT": 22
       },
       "media_geral": 57.8,
       "total_alunos_geral": 22,
-      "posicao": 9
-    }
-  ],
-  "4º": [
-    {
-      "escola": "MARIA AMELIA",
-      "turma": "única",
-      "materias": {
-        "MAT": 71.4,
-        "LP": 72.0
-      },
-      "total_alunos": {
-        "MAT": 4,
-        "LP": 4
-      },
-      "media_geral": 71.7,
-      "total_alunos_geral": 4,
-      "posicao": 1
-    }
-  ],
-  "6º": [
-    {
-      "escola": "03 DE DEZEMBRO",
-      "turma": "única",
-      "materias": {
-        "CN": 80.0,
-        "LP": 72.5,
-        "MAT": 75.6
-      },
-      "total_alunos": {
-        "CN": 7,
-        "LP": 7,
-        "MAT": 7
-      },
-      "media_geral": 76.03333333333333,
-      "total_alunos_geral": 7,
-      "posicao": 1
-    },
-    {
-      "escola": "FIRMINO JOSÉ",
-      "turma": "única",
-      "materias": {
-        "CN": 74.1,
-        "MAT": 74.2,
-        "LP": 72.7
-      },
-      "total_alunos": {
-        "CN": 19,
-        "MAT": 19,
-        "LP": 19
-      },
-      "media_geral": 73.66666666666667,
-      "total_alunos_geral": 19,
-      "posicao": 2
-    },
-    {
-      "escola": "21 DE DEZEMBRO",
-      "turma": "única",
-      "materias": {
-        "LP": 69.8,
-        "CN": 71.5,
-        "MAT": 68.6
-      },
-      "total_alunos": {
-        "LP": 32,
-        "CN": 32,
-        "MAT": 32
-      },
-      "media_geral": 69.96666666666667,
-      "total_alunos_geral": 32,
-      "posicao": 3
-    },
-    {
-      "escola": "NTONIO DE SOUSA BARROS",
-      "turma": "A",
-      "materias": {
-        "CN": 65.1,
-        "LP": 64.9,
-        "MAT": 69.6
-      },
-      "total_alunos": {
-        "CN": 12,
-        "LP": 12,
-        "MAT": 12
-      },
-      "media_geral": 66.53333333333333,
-      "total_alunos_geral": 12,
-      "posicao": 4
-    },
-    {
-      "escola": "JOSE ALVES",
-      "turma": "única",
-      "materias": {
-        "LP": 64.5,
-        "CN": 61.3,
-        "MAT": 65.3
-      },
-      "total_alunos": {
-        "LP": 26,
-        "CN": 26,
-        "MAT": 26
-      },
-      "media_geral": 63.699999999999996,
-      "total_alunos_geral": 26,
-      "posicao": 5
-    }
-  ],
-  "7º": [
-    {
-      "escola": "03 DE DEZEMBRO",
-      "turma": "única",
-      "materias": {
-        "LP": 79.1,
-        "CN": 77.9,
-        "MAT": 81.7
-      },
-      "total_alunos": {
-        "LP": 4,
-        "CN": 4,
-        "MAT": 4
-      },
-      "media_geral": 79.56666666666666,
-      "total_alunos_geral": 4,
-      "posicao": 1
-    },
-    {
-      "escola": "21 DE DEZEMBRO A",
-      "turma": "única",
-      "materias": {
-        "CN": 78.2,
-        "LP": 75.0,
-        "MAT": 64.7
-      },
-      "total_alunos": {
-        "CN": 32,
-        "LP": 32,
-        "MAT": 32
-      },
-      "media_geral": 72.63333333333333,
-      "total_alunos_geral": 32,
-      "posicao": 2
-    },
-    {
-      "escola": "21 DE DEZEMBRO B",
-      "turma": "única",
-      "materias": {
-        "MAT": 71.4,
-        "CN": 71.9,
-        "LP": 72.2
-      },
-      "total_alunos": {
-        "MAT": 28,
-        "CN": 28,
-        "LP": 28
-      },
-      "media_geral": 71.83333333333333,
-      "total_alunos_geral": 28,
-      "posicao": 3
-    },
-    {
-      "escola": "FIRMINO JOSÉ A",
-      "turma": "única",
-      "materias": {
-        "CN": 72.6,
-        "LP": 73.4,
-        "MAT": 68.6
-      },
-      "total_alunos": {
-        "CN": 33,
-        "LP": 33,
-        "MAT": 33
-      },
-      "media_geral": 71.53333333333333,
-      "total_alunos_geral": 33,
-      "posicao": 4
-    },
-    {
-      "escola": "21 DE DEZEMBRO C",
-      "turma": "única",
-      "materias": {
-        "LP": 69.6,
-        "CN": 72.6,
-        "MAT": 70.5
-      },
-      "total_alunos": {
-        "LP": 24,
-        "CN": 24,
-        "MAT": 24
-      },
-      "media_geral": 70.89999999999999,
-      "total_alunos_geral": 24,
-      "posicao": 5
-    },
-    {
-      "escola": "JOSE ALVES B",
-      "turma": "única",
-      "materias": {
-        "MAT": 66.4,
-        "CN": 70.0,
-        "LP": 70.1
-      },
-      "total_alunos": {
-        "MAT": 17,
-        "CN": 17,
-        "LP": 17
-      },
-      "media_geral": 68.83333333333333,
-      "total_alunos_geral": 17,
-      "posicao": 6
-    },
-    {
-      "escola": "NTONIO DE SOUSA BARROS",
-      "turma": "A",
-      "materias": {
-        "CN": 66.3,
-        "LP": 64.2,
-        "MAT": 70.2
-      },
-      "total_alunos": {
-        "CN": 12,
-        "LP": 12,
-        "MAT": 12
-      },
-      "media_geral": 66.89999999999999,
-      "total_alunos_geral": 12,
-      "posicao": 7
-    },
-    {
-      "escola": "JOSE ALVES A",
-      "turma": "única",
-      "materias": {
-        "MAT": 59.6,
-        "LP": 69.4,
-        "CN": 68.0
-      },
-      "total_alunos": {
-        "MAT": 15,
-        "LP": 15,
-        "CN": 15
-      },
-      "media_geral": 65.66666666666667,
-      "total_alunos_geral": 15,
-      "posicao": 8
-    }
-  ],
-  "5o": [
-    {
-      "escola": "FIRMINO JOSÉ",
-      "turma": "B",
-      "materias": {
-        "LP": 79.0,
-        "MAT": 80.9
-      },
-      "total_alunos": {
-        "LP": 19,
-        "MAT": 19
-      },
-      "media_geral": 79.95,
-      "total_alunos_geral": 19,
-      "posicao": 1
-    },
-    {
-      "escola": "FIRMINO JOSÉ",
-      "turma": "A",
-      "materias": {
-        "MAT": 79.6,
-        "LP": 78.3
-      },
-      "total_alunos": {
-        "MAT": 18,
-        "LP": 18
-      },
-      "media_geral": 78.94999999999999,
-      "total_alunos_geral": 18,
-      "posicao": 2
-    },
-    {
-      "escola": "MOURÃO LIMA",
-      "turma": "B",
-      "materias": {
-        "MAT": 73.7,
-        "LP": 72.8
-      },
-      "total_alunos": {
-        "MAT": 21,
-        "LP": 21
-      },
-      "media_geral": 73.25,
-      "total_alunos_geral": 21,
-      "posicao": 3
-    },
-    {
-      "escola": "03 DE DEZEMBRO",
-      "turma": "A",
-      "materias": {
-        "MAT": 70.1,
-        "LP": 72.0
-      },
-      "total_alunos": {
-        "MAT": 8,
-        "LP": 8
-      },
-      "media_geral": 71.05,
-      "total_alunos_geral": 8,
-      "posicao": 4
-    },
-    {
-      "escola": "NTONIO DE SOUSA BARROS",
-      "turma": "A",
-      "materias": {
-        "MAT": 63.9,
-        "LP": 71.2
-      },
-      "total_alunos": {
-        "MAT": 12,
-        "LP": 12
-      },
-      "media_geral": 67.55,
-      "total_alunos_geral": 12,
-      "posicao": 5
-    },
-    {
-      "escola": "MOURÃO LIMA",
-      "turma": "A",
-      "materias": {
-        "MAT": 68.9,
-        "LP": 65.6
-      },
-      "total_alunos": {
-        "MAT": 21,
-        "LP": 21
-      },
-      "media_geral": 67.25,
-      "total_alunos_geral": 21,
-      "posicao": 6
-    },
-    {
-      "escola": "JOSE ALVES",
-      "turma": "B",
-      "materias": {
-        "MAT": 68.3,
-        "LP": 65.1
-      },
-      "total_alunos": {
-        "MAT": 16,
-        "LP": 16
-      },
-      "media_geral": 66.69999999999999,
-      "total_alunos_geral": 16,
-      "posicao": 7
-    },
-    {
-      "escola": "JOSE ALVES DE SENA",
-      "turma": "A",
-      "materias": {
-        "LP": 64.2,
-        "MAT": 64.4
-      },
-      "total_alunos": {
-        "LP": 17,
-        "MAT": 17
-      },
-      "media_geral": 64.30000000000001,
-      "total_alunos_geral": 17,
-      "posicao": 8
-    },
-    {
-      "escola": "JOAQUIM FERREIRA",
-      "turma": "A",
-      "materias": {
-        "LP": 56.0,
-        "MAT": 58.1
-      },
-      "total_alunos": {
-        "LP": 28,
-        "MAT": 28
-      },
-      "media_geral": 57.05,
-      "total_alunos_geral": 28,
-      "posicao": 9
-    }
-  ],
-  "4o": [
-    {
-      "escola": "FIRMINO JOSÉ",
-      "turma": "A",
-      "materias": {
-        "MAT": 81.2,
-        "LP": 86.9
-      },
-      "total_alunos": {
-        "MAT": 19,
-        "LP": 19
-      },
-      "media_geral": 84.05000000000001,
-      "total_alunos_geral": 19,
-      "posicao": 1
-    },
-    {
-      "escola": "FIRMINO JOSÉ",
-      "turma": "B",
-      "materias": {
-        "MAT": 85.6,
-        "LP": 74.5
-      },
-      "total_alunos": {
-        "MAT": 19,
-        "LP": 19
-      },
-      "media_geral": 80.05,
-      "total_alunos_geral": 19,
-      "posicao": 2
-    },
-    {
-      "escola": "03 DE DEZEMBRO",
-      "turma": "A",
-      "materias": {
-        "LP": 80.3,
-        "MAT": 71.7
-      },
-      "total_alunos": {
-        "LP": 4,
-        "MAT": 4
-      },
-      "media_geral": 76.0,
-      "total_alunos_geral": 4,
-      "posicao": 3
-    },
-    {
-      "escola": "MOURÃO LIMA",
-      "turma": "A",
-      "materias": {
-        "MAT": 73.9,
-        "LP": 69.0
-      },
-      "total_alunos": {
-        "MAT": 21,
-        "LP": 21
-      },
-      "media_geral": 71.45,
-      "total_alunos_geral": 21,
-      "posicao": 4
-    },
-    {
-      "escola": "MOURÃO LIMA",
-      "turma": "B",
-      "materias": {
-        "MAT": 66.6,
-        "LP": 72.5
-      },
-      "total_alunos": {
-        "MAT": 21,
-        "LP": 21
-      },
-      "media_geral": 69.55,
-      "total_alunos_geral": 21,
-      "posicao": 5
-    },
-    {
-      "escola": "NTONIO DE SOUSA BARROS",
-      "turma": "A",
-      "materias": {
-        "LP": 64.0,
-        "MAT": 66.9
-      },
-      "total_alunos": {
-        "LP": 9,
-        "MAT": 9
-      },
-      "media_geral": 65.45,
-      "total_alunos_geral": 9,
-      "posicao": 6
-    },
-    {
-      "escola": "JOSE ALVES DE SENA",
-      "turma": "A",
-      "materias": {
-        "MAT": 64.1,
-        "LP": 65.5
-      },
-      "total_alunos": {
-        "MAT": 30,
-        "LP": 30
-      },
-      "media_geral": 64.8,
-      "total_alunos_geral": 30,
-      "posicao": 7
-    },
-    {
-      "escola": "JOAQUIM FERREIRA",
-      "turma": "A",
-      "materias": {
-        "MAT": 50.8,
-        "LP": 60.5
-      },
-      "total_alunos": {
-        "MAT": 30,
-        "LP": 30
-      },
-      "media_geral": 55.65,
-      "total_alunos_geral": 30,
-      "posicao": 8
-    }
-  ],
-  "9º": [
-    {
-      "escola": "03 DE DEZEMBRO",
-      "turma": "única",
-      "materias": {
-        "CN": 76.5,
-        "LP": 76.9,
-        "MAT": 75.8
-      },
-      "total_alunos": {
-        "CN": 6,
-        "LP": 6,
-        "MAT": 6
-      },
-      "media_geral": 76.39999999999999,
-      "total_alunos_geral": 6,
-      "posicao": 1
-    },
-    {
-      "escola": "21 DE DEZEMBRO C",
-      "turma": "única",
-      "materias": {
-        "LP": 67.7,
-        "MAT": 64.8,
-        "CN": 67.0
-      },
-      "total_alunos": {
-        "LP": 30,
-        "MAT": 30,
-        "CN": 30
-      },
-      "media_geral": 66.5,
-      "total_alunos_geral": 30,
-      "posicao": 2
-    },
-    {
-      "escola": "21 DE DEZEMBRO B",
-      "turma": "única",
-      "materias": {
-        "LP": 66.1,
-        "MAT": 66.8,
-        "CN": 66.3
-      },
-      "total_alunos": {
-        "LP": 30,
-        "MAT": 30,
-        "CN": 30
-      },
-      "media_geral": 66.39999999999999,
-      "total_alunos_geral": 30,
-      "posicao": 3
-    },
-    {
-      "escola": "21 DE DEZEMBRO A",
-      "turma": "única",
-      "materias": {
-        "LP": 68.5,
-        "MAT": 60.2,
-        "CN": 68.5
-      },
-      "total_alunos": {
-        "LP": 31,
-        "MAT": 31,
-        "CN": 31
-      },
-      "media_geral": 65.73333333333333,
-      "total_alunos_geral": 31,
-      "posicao": 4
-    },
-    {
-      "escola": "JOSE ALVES",
-      "turma": "única",
-      "materias": {
-        "LP": 65.4,
-        "MAT": 67.0,
-        "CN": 62.3
-      },
-      "total_alunos": {
-        "LP": 30,
-        "MAT": 30,
-        "CN": 30
-      },
-      "media_geral": 64.89999999999999,
-      "total_alunos_geral": 30,
-      "posicao": 5
-    },
-    {
-      "escola": "FIRMINO JOSÉ A",
-      "turma": "única",
-      "materias": {
-        "LP": 64.4,
-        "MAT": 62.0,
-        "CN": 63.2
-      },
-      "total_alunos": {
-        "LP": 15,
-        "MAT": 15,
-        "CN": 15
-      },
-      "media_geral": 63.20000000000001,
-      "total_alunos_geral": 15,
-      "posicao": 6
-    },
-    {
-      "escola": "FIRMINO JOSÉ B",
-      "turma": "única",
-      "materias": {
-        "LP": 62.1,
-        "MAT": 61.8,
-        "CN": 65.5
-      },
-      "total_alunos": {
-        "LP": 16,
-        "MAT": 16,
-        "CN": 16
-      },
-      "media_geral": 63.13333333333333,
-      "total_alunos_geral": 16,
-      "posicao": 7
-    },
-    {
-      "escola": "NTONIO DE SOUSA BARROS",
-      "turma": "A",
-      "materias": {
-        "CN": 59.3,
-        "LP": 63.5,
-        "MAT": 60.7
-      },
-      "total_alunos": {
-        "CN": 10,
-        "LP": 10,
-        "MAT": 10
-      },
-      "media_geral": 61.166666666666664,
-      "total_alunos_geral": 10,
-      "posicao": 8
-    }
-  ],
-  "1º": [
-    {
-      "escola": "MARIA AMELIA",
-      "turma": "única",
-      "materias": {
-        "MAT": 68.0,
-        "LP": 69.9
-      },
-      "total_alunos": {
-        "MAT": 7,
-        "LP": 7
-      },
-      "media_geral": 68.95,
-      "total_alunos_geral": 7,
-      "posicao": 1
-    }
-  ],
-  "3º": [
-    {
-      "escola": "MARIA AMELIA",
-      "turma": "única",
-      "materias": {
-        "LP": 76.2,
-        "MAT": 67.6
-      },
-      "total_alunos": {
-        "LP": 10,
-        "MAT": 10
-      },
-      "media_geral": 71.9,
-      "total_alunos_geral": 10,
-      "posicao": 1
-    }
-  ],
-  "5º": [
-    {
-      "escola": "MARIA AMELIA",
-      "turma": "única",
-      "materias": {
-        "MAT": 71.3,
-        "LP": 69.8
-      },
-      "total_alunos": {
-        "MAT": 9,
-        "LP": 9
-      },
-      "media_geral": 70.55,
-      "total_alunos_geral": 9,
-      "posicao": 1
-    }
-  ],
-  "2º": [
-    {
-      "escola": "MARIA AMELIA",
-      "turma": "única",
-      "materias": {
-        "MAT": 66.8,
-        "LP": 71.8
-      },
-      "total_alunos": {
-        "MAT": 12,
-        "LP": 12
-      },
-      "media_geral": 69.3,
-      "total_alunos_geral": 12,
-      "posicao": 1
+      "posicao": 10
     }
   ]
 }
