@@ -17,7 +17,7 @@ export function MainDashboard() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const response = await fetch('/data/ranking_turmas_por_ano.json')
+        const response = await fetch('./data/ranking_turmas_por_ano.json')
         const data = await response.json()
         setRankingData(data ?? {})
       } catch (error) {
