@@ -1,0 +1,3266 @@
+{
+  "metadata": {
+    "data_processamento": "2025-07-29",
+    "total_arquivos_processados": 184,
+    "descricao": "Ranking de turmas por desempenho escolar"
+  },
+  "estatisticas_gerais": {
+    "total_turmas": 77,
+    "total_alunos_registros": 3512,
+    "num_escolas": 8,
+    "num_disciplinas": 3,
+    "num_anos": 9,
+    "escolas": [
+      "21 DE DEZEMBRO",
+      "03 DE DEZEMBRO",
+      "MARIA AMELIA",
+      "JOAQUIM FERREIRA",
+      "JOSE ALVES",
+      "MOURÃO LIMA",
+      "ANTONIO DE SOUSA BARROS",
+      "FIRMINO JOSÉ"
+    ],
+    "disciplinas": [
+      "Ciências Naturais",
+      "Língua Portuguesa",
+      "Matemática"
+    ],
+    "anos": [
+      "1º Ano",
+      "2º Ano",
+      "3º Ano",
+      "4º Ano",
+      "5º Ano",
+      "6º Ano",
+      "7º Ano",
+      "8º Ano",
+      "9º Ano"
+    ],
+    "ranking_escolas": [
+      {
+        "escola": "03 DE DEZEMBRO",
+        "media_geral": 77.96,
+        "num_registros": 22
+      },
+      {
+        "escola": "MOURÃO LIMA",
+        "media_geral": 72.09,
+        "num_registros": 20
+      },
+      {
+        "escola": "MARIA AMELIA",
+        "media_geral": 70.48,
+        "num_registros": 10
+      },
+      {
+        "escola": "FIRMINO JOSÉ",
+        "media_geral": 70.03,
+        "num_registros": 38
+      },
+      {
+        "escola": "21 DE DEZEMBRO",
+        "media_geral": 68.04,
+        "num_registros": 30
+      },
+      {
+        "escola": "ANTONIO DE SOUSA BARROS",
+        "media_geral": 65.46,
+        "num_registros": 22
+      },
+      {
+        "escola": "JOAQUIM FERREIRA",
+        "media_geral": 65.03,
+        "num_registros": 12
+      },
+      {
+        "escola": "JOSE ALVES",
+        "media_geral": 63.5,
+        "num_registros": 30
+      }
+    ]
+  },
+  "ranking_por_ano": {
+    "1º Ano": [
+      {
+        "escola": "03 DE DEZEMBRO",
+        "turma": "A",
+        "media_geral": 79.25,
+        "total_alunos": 6,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 83.9,
+            "alunos": 6
+          },
+          "Matemática": {
+            "media": 74.6,
+            "alunos": 6
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 1
+      },
+      {
+        "escola": "MOURÃO LIMA",
+        "turma": "A",
+        "media_geral": 75.1,
+        "total_alunos": 25,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 80.4,
+            "alunos": 25
+          },
+          "Matemática": {
+            "media": 69.8,
+            "alunos": 25
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 2
+      },
+      {
+        "escola": "MOURÃO LIMA",
+        "turma": "B",
+        "media_geral": 71.7,
+        "total_alunos": 25,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 70.4,
+            "alunos": 25
+          },
+          "Matemática": {
+            "media": 73.0,
+            "alunos": 25
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 3
+      },
+      {
+        "escola": "FIRMINO JOSÉ",
+        "turma": "A",
+        "media_geral": 70.7,
+        "total_alunos": 19,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 70.1,
+            "alunos": 19
+          },
+          "Matemática": {
+            "media": 71.3,
+            "alunos": 19
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 4
+      },
+      {
+        "escola": "MARIA AMELIA",
+        "turma": "ÚNICA",
+        "media_geral": 68.95,
+        "total_alunos": 7,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 69.9,
+            "alunos": 7
+          },
+          "Matemática": {
+            "media": 68.0,
+            "alunos": 7
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 5
+      },
+      {
+        "escola": "JOAQUIM FERREIRA",
+        "turma": "A",
+        "media_geral": 68.9,
+        "total_alunos": 21,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 65.8,
+            "alunos": 21
+          },
+          "Matemática": {
+            "media": 72.0,
+            "alunos": 21
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 6
+      },
+      {
+        "escola": "FIRMINO JOSÉ",
+        "turma": "B",
+        "media_geral": 66.95,
+        "total_alunos": 20,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 65.8,
+            "alunos": 20
+          },
+          "Matemática": {
+            "media": 68.1,
+            "alunos": 20
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 7
+      },
+      {
+        "escola": "JOAQUIM FERREIRA",
+        "turma": "B",
+        "media_geral": 65.7,
+        "total_alunos": 21,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 66.2,
+            "alunos": 21
+          },
+          "Matemática": {
+            "media": 65.2,
+            "alunos": 21
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 8
+      },
+      {
+        "escola": "ANTONIO DE SOUSA BARROS",
+        "turma": "ÚNICA",
+        "media_geral": 64.25,
+        "total_alunos": 18,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 67.7,
+            "alunos": 18
+          },
+          "Matemática": {
+            "media": 60.8,
+            "alunos": 18
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 9
+      },
+      {
+        "escola": "JOSE ALVES",
+        "turma": "A",
+        "media_geral": 57.8,
+        "total_alunos": 22,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 61.6,
+            "alunos": 22
+          },
+          "Matemática": {
+            "media": 54.0,
+            "alunos": 22
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 10
+      }
+    ],
+    "2º Ano": [
+      {
+        "escola": "03 DE DEZEMBRO",
+        "turma": "A",
+        "media_geral": 83.8,
+        "total_alunos": 11,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 82.1,
+            "alunos": 11
+          },
+          "Matemática": {
+            "media": 85.5,
+            "alunos": 11
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 1
+      },
+      {
+        "escola": "MOURÃO LIMA",
+        "turma": "B",
+        "media_geral": 75.25,
+        "total_alunos": 18,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 76.7,
+            "alunos": 18
+          },
+          "Matemática": {
+            "media": 73.8,
+            "alunos": 18
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 2
+      },
+      {
+        "escola": "MOURÃO LIMA",
+        "turma": "A",
+        "media_geral": 71.75,
+        "total_alunos": 19,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 70.9,
+            "alunos": 19
+          },
+          "Matemática": {
+            "media": 72.6,
+            "alunos": 19
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 3
+      },
+      {
+        "escola": "JOAQUIM FERREIRA",
+        "turma": "A",
+        "media_geral": 71.0,
+        "total_alunos": 28,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 71.4,
+            "alunos": 28
+          },
+          "Matemática": {
+            "media": 70.6,
+            "alunos": 28
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 4
+      },
+      {
+        "escola": "MARIA AMELIA",
+        "turma": "ÚNICA",
+        "media_geral": 69.3,
+        "total_alunos": 12,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 71.8,
+            "alunos": 12
+          },
+          "Matemática": {
+            "media": 66.8,
+            "alunos": 12
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 5
+      },
+      {
+        "escola": "ANTONIO DE SOUSA BARROS",
+        "turma": "ÚNICA",
+        "media_geral": 68.9,
+        "total_alunos": 12,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 71.5,
+            "alunos": 12
+          },
+          "Matemática": {
+            "media": 66.3,
+            "alunos": 12
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 6
+      },
+      {
+        "escola": "FIRMINO JOSÉ",
+        "turma": "B",
+        "media_geral": 67.6,
+        "total_alunos": 18,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 65.8,
+            "alunos": 18
+          },
+          "Matemática": {
+            "media": 69.4,
+            "alunos": 18
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 7
+      },
+      {
+        "escola": "FIRMINO JOSÉ",
+        "turma": "A",
+        "media_geral": 63.85,
+        "total_alunos": 18,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 61.7,
+            "alunos": 18
+          },
+          "Matemática": {
+            "media": 66.0,
+            "alunos": 18
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 8
+      },
+      {
+        "escola": "JOSE ALVES",
+        "turma": "A",
+        "media_geral": 54.7,
+        "total_alunos": 24,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 54.1,
+            "alunos": 24
+          },
+          "Matemática": {
+            "media": 55.3,
+            "alunos": 24
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 9
+      }
+    ],
+    "3º Ano": [
+      {
+        "escola": "03 DE DEZEMBRO",
+        "turma": "A",
+        "media_geral": 82.25,
+        "total_alunos": 9,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 87.0,
+            "alunos": 9
+          },
+          "Matemática": {
+            "media": 77.5,
+            "alunos": 9
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 1
+      },
+      {
+        "escola": "MOURÃO LIMA",
+        "turma": "B",
+        "media_geral": 72.85,
+        "total_alunos": 20,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 72.0,
+            "alunos": 20
+          },
+          "Matemática": {
+            "media": 73.7,
+            "alunos": 20
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 2
+      },
+      {
+        "escola": "MOURÃO LIMA",
+        "turma": "A",
+        "media_geral": 72.8,
+        "total_alunos": 22,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 75.3,
+            "alunos": 22
+          },
+          "Matemática": {
+            "media": 70.3,
+            "alunos": 22
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 3
+      },
+      {
+        "escola": "JOAQUIM FERREIRA",
+        "turma": "A",
+        "media_geral": 71.9,
+        "total_alunos": 21,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 74.3,
+            "alunos": 21
+          },
+          "Matemática": {
+            "media": 69.5,
+            "alunos": 21
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 4
+      },
+      {
+        "escola": "MARIA AMELIA",
+        "turma": "ÚNICA",
+        "media_geral": 71.9,
+        "total_alunos": 10,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 76.2,
+            "alunos": 10
+          },
+          "Matemática": {
+            "media": 67.6,
+            "alunos": 10
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 5
+      },
+      {
+        "escola": "FIRMINO JOSÉ",
+        "turma": "B",
+        "media_geral": 71.45,
+        "total_alunos": 26,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 68.8,
+            "alunos": 26
+          },
+          "Matemática": {
+            "media": 74.1,
+            "alunos": 26
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 6
+      },
+      {
+        "escola": "FIRMINO JOSÉ",
+        "turma": "A",
+        "media_geral": 66.15,
+        "total_alunos": 22,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 62.3,
+            "alunos": 22
+          },
+          "Matemática": {
+            "media": 70.0,
+            "alunos": 22
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 7
+      },
+      {
+        "escola": "ANTONIO DE SOUSA BARROS",
+        "turma": "ÚNICA",
+        "media_geral": 64.1,
+        "total_alunos": 10,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 66.2,
+            "alunos": 10
+          },
+          "Matemática": {
+            "media": 62.0,
+            "alunos": 10
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 8
+      },
+      {
+        "escola": "JOSE ALVES",
+        "turma": "A",
+        "media_geral": 58.3,
+        "total_alunos": 22,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 59.2,
+            "alunos": 22
+          },
+          "Matemática": {
+            "media": 57.4,
+            "alunos": 22
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 9
+      }
+    ],
+    "4º Ano": [
+      {
+        "escola": "FIRMINO JOSÉ",
+        "turma": "A",
+        "media_geral": 84.05,
+        "total_alunos": 19,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 86.9,
+            "alunos": 19
+          },
+          "Matemática": {
+            "media": 81.2,
+            "alunos": 19
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 1
+      },
+      {
+        "escola": "FIRMINO JOSÉ",
+        "turma": "B",
+        "media_geral": 80.05,
+        "total_alunos": 19,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 74.5,
+            "alunos": 19
+          },
+          "Matemática": {
+            "media": 85.6,
+            "alunos": 19
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 2
+      },
+      {
+        "escola": "03 DE DEZEMBRO",
+        "turma": "A",
+        "media_geral": 76.0,
+        "total_alunos": 4,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 80.3,
+            "alunos": 4
+          },
+          "Matemática": {
+            "media": 71.7,
+            "alunos": 4
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 3
+      },
+      {
+        "escola": "MARIA AMELIA",
+        "turma": "ÚNICA",
+        "media_geral": 71.7,
+        "total_alunos": 4,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 72.0,
+            "alunos": 4
+          },
+          "Matemática": {
+            "media": 71.4,
+            "alunos": 4
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 4
+      },
+      {
+        "escola": "MOURÃO LIMA",
+        "turma": "A",
+        "media_geral": 71.45,
+        "total_alunos": 21,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 69.0,
+            "alunos": 21
+          },
+          "Matemática": {
+            "media": 73.9,
+            "alunos": 21
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 5
+      },
+      {
+        "escola": "MOURÃO LIMA",
+        "turma": "B",
+        "media_geral": 69.55,
+        "total_alunos": 21,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 72.5,
+            "alunos": 21
+          },
+          "Matemática": {
+            "media": 66.6,
+            "alunos": 21
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 6
+      },
+      {
+        "escola": "ANTONIO DE SOUSA BARROS",
+        "turma": "ÚNICA",
+        "media_geral": 65.45,
+        "total_alunos": 9,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 64.0,
+            "alunos": 9
+          },
+          "Matemática": {
+            "media": 66.9,
+            "alunos": 9
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 7
+      },
+      {
+        "escola": "JOSE ALVES",
+        "turma": "A",
+        "media_geral": 64.8,
+        "total_alunos": 30,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 65.5,
+            "alunos": 30
+          },
+          "Matemática": {
+            "media": 64.1,
+            "alunos": 30
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 8
+      },
+      {
+        "escola": "JOAQUIM FERREIRA",
+        "turma": "A",
+        "media_geral": 55.65,
+        "total_alunos": 30,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 60.5,
+            "alunos": 30
+          },
+          "Matemática": {
+            "media": 50.8,
+            "alunos": 30
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 9
+      }
+    ],
+    "5º Ano": [
+      {
+        "escola": "FIRMINO JOSÉ",
+        "turma": "B",
+        "media_geral": 79.95,
+        "total_alunos": 19,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 79.0,
+            "alunos": 19
+          },
+          "Matemática": {
+            "media": 80.9,
+            "alunos": 19
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 1
+      },
+      {
+        "escola": "FIRMINO JOSÉ",
+        "turma": "A",
+        "media_geral": 78.95,
+        "total_alunos": 18,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 78.3,
+            "alunos": 18
+          },
+          "Matemática": {
+            "media": 79.6,
+            "alunos": 18
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 2
+      },
+      {
+        "escola": "MOURÃO LIMA",
+        "turma": "B",
+        "media_geral": 73.25,
+        "total_alunos": 21,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 72.8,
+            "alunos": 21
+          },
+          "Matemática": {
+            "media": 73.7,
+            "alunos": 21
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 3
+      },
+      {
+        "escola": "03 DE DEZEMBRO",
+        "turma": "A",
+        "media_geral": 71.05,
+        "total_alunos": 8,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 72.0,
+            "alunos": 8
+          },
+          "Matemática": {
+            "media": 70.1,
+            "alunos": 8
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 4
+      },
+      {
+        "escola": "MARIA AMELIA",
+        "turma": "ÚNICA",
+        "media_geral": 70.55,
+        "total_alunos": 9,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 69.8,
+            "alunos": 9
+          },
+          "Matemática": {
+            "media": 71.3,
+            "alunos": 9
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 5
+      },
+      {
+        "escola": "ANTONIO DE SOUSA BARROS",
+        "turma": "ÚNICA",
+        "media_geral": 67.55,
+        "total_alunos": 12,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 71.2,
+            "alunos": 12
+          },
+          "Matemática": {
+            "media": 63.9,
+            "alunos": 12
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 6
+      },
+      {
+        "escola": "MOURÃO LIMA",
+        "turma": "A",
+        "media_geral": 67.25,
+        "total_alunos": 21,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 65.6,
+            "alunos": 21
+          },
+          "Matemática": {
+            "media": 68.9,
+            "alunos": 21
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 7
+      },
+      {
+        "escola": "JOSE ALVES",
+        "turma": "B",
+        "media_geral": 66.7,
+        "total_alunos": 16,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 65.1,
+            "alunos": 16
+          },
+          "Matemática": {
+            "media": 68.3,
+            "alunos": 16
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 8
+      },
+      {
+        "escola": "JOSE ALVES",
+        "turma": "A",
+        "media_geral": 64.3,
+        "total_alunos": 17,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 64.2,
+            "alunos": 17
+          },
+          "Matemática": {
+            "media": 64.4,
+            "alunos": 17
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 9
+      },
+      {
+        "escola": "JOAQUIM FERREIRA",
+        "turma": "A",
+        "media_geral": 57.05,
+        "total_alunos": 28,
+        "disciplinas": {
+          "Língua Portuguesa": {
+            "media": 56.0,
+            "alunos": 28
+          },
+          "Matemática": {
+            "media": 58.1,
+            "alunos": 28
+          }
+        },
+        "num_disciplinas": 2,
+        "posicao": 10
+      }
+    ],
+    "6º Ano": [
+      {
+        "escola": "03 DE DEZEMBRO",
+        "turma": "ÚNICA",
+        "media_geral": 76.03,
+        "total_alunos": 7,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 80.0,
+            "alunos": 7
+          },
+          "Língua Portuguesa": {
+            "media": 72.5,
+            "alunos": 7
+          },
+          "Matemática": {
+            "media": 75.6,
+            "alunos": 7
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 1
+      },
+      {
+        "escola": "FIRMINO JOSÉ",
+        "turma": "ÚNICA",
+        "media_geral": 73.67,
+        "total_alunos": 19,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 74.1,
+            "alunos": 19
+          },
+          "Língua Portuguesa": {
+            "media": 72.7,
+            "alunos": 19
+          },
+          "Matemática": {
+            "media": 74.2,
+            "alunos": 19
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 2
+      },
+      {
+        "escola": "21 DE DEZEMBRO",
+        "turma": "ÚNICA",
+        "media_geral": 69.97,
+        "total_alunos": 32,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 71.5,
+            "alunos": 32
+          },
+          "Língua Portuguesa": {
+            "media": 69.8,
+            "alunos": 32
+          },
+          "Matemática": {
+            "media": 68.6,
+            "alunos": 32
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 3
+      },
+      {
+        "escola": "ANTONIO DE SOUSA BARROS",
+        "turma": "ÚNICA",
+        "media_geral": 66.53,
+        "total_alunos": 12,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 65.1,
+            "alunos": 12
+          },
+          "Língua Portuguesa": {
+            "media": 64.9,
+            "alunos": 12
+          },
+          "Matemática": {
+            "media": 69.6,
+            "alunos": 12
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 4
+      },
+      {
+        "escola": "JOSE ALVES",
+        "turma": "ÚNICA",
+        "media_geral": 63.7,
+        "total_alunos": 26,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 61.3,
+            "alunos": 26
+          },
+          "Língua Portuguesa": {
+            "media": 64.5,
+            "alunos": 26
+          },
+          "Matemática": {
+            "media": 65.3,
+            "alunos": 26
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 5
+      }
+    ],
+    "7º Ano": [
+      {
+        "escola": "03 DE DEZEMBRO",
+        "turma": "ÚNICA",
+        "media_geral": 79.57,
+        "total_alunos": 4,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 77.9,
+            "alunos": 4
+          },
+          "Língua Portuguesa": {
+            "media": 79.1,
+            "alunos": 4
+          },
+          "Matemática": {
+            "media": 81.7,
+            "alunos": 4
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 1
+      },
+      {
+        "escola": "21 DE DEZEMBRO",
+        "turma": "A",
+        "media_geral": 72.63,
+        "total_alunos": 32,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 78.2,
+            "alunos": 32
+          },
+          "Língua Portuguesa": {
+            "media": 75.0,
+            "alunos": 32
+          },
+          "Matemática": {
+            "media": 64.7,
+            "alunos": 32
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 2
+      },
+      {
+        "escola": "21 DE DEZEMBRO",
+        "turma": "B",
+        "media_geral": 71.83,
+        "total_alunos": 28,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 71.9,
+            "alunos": 28
+          },
+          "Língua Portuguesa": {
+            "media": 72.2,
+            "alunos": 28
+          },
+          "Matemática": {
+            "media": 71.4,
+            "alunos": 28
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 3
+      },
+      {
+        "escola": "FIRMINO JOSÉ",
+        "turma": "A",
+        "media_geral": 71.53,
+        "total_alunos": 33,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 72.6,
+            "alunos": 33
+          },
+          "Língua Portuguesa": {
+            "media": 73.4,
+            "alunos": 33
+          },
+          "Matemática": {
+            "media": 68.6,
+            "alunos": 33
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 4
+      },
+      {
+        "escola": "21 DE DEZEMBRO",
+        "turma": "C",
+        "media_geral": 70.9,
+        "total_alunos": 24,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 72.6,
+            "alunos": 24
+          },
+          "Língua Portuguesa": {
+            "media": 69.6,
+            "alunos": 24
+          },
+          "Matemática": {
+            "media": 70.5,
+            "alunos": 24
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 5
+      },
+      {
+        "escola": "JOSE ALVES",
+        "turma": "B",
+        "media_geral": 68.83,
+        "total_alunos": 17,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 70.0,
+            "alunos": 17
+          },
+          "Língua Portuguesa": {
+            "media": 70.1,
+            "alunos": 17
+          },
+          "Matemática": {
+            "media": 66.4,
+            "alunos": 17
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 6
+      },
+      {
+        "escola": "ANTONIO DE SOUSA BARROS",
+        "turma": "ÚNICA",
+        "media_geral": 66.9,
+        "total_alunos": 12,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 66.3,
+            "alunos": 12
+          },
+          "Língua Portuguesa": {
+            "media": 64.2,
+            "alunos": 12
+          },
+          "Matemática": {
+            "media": 70.2,
+            "alunos": 12
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 7
+      },
+      {
+        "escola": "JOSE ALVES",
+        "turma": "A",
+        "media_geral": 65.67,
+        "total_alunos": 15,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 68.0,
+            "alunos": 15
+          },
+          "Língua Portuguesa": {
+            "media": 69.4,
+            "alunos": 15
+          },
+          "Matemática": {
+            "media": 59.6,
+            "alunos": 15
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 8
+      }
+    ],
+    "8º Ano": [
+      {
+        "escola": "03 DE DEZEMBRO",
+        "turma": "ÚNICA",
+        "media_geral": 78.13,
+        "total_alunos": 6,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 76.7,
+            "alunos": 6
+          },
+          "Língua Portuguesa": {
+            "media": 75.7,
+            "alunos": 6
+          },
+          "Matemática": {
+            "media": 82.0,
+            "alunos": 6
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 1
+      },
+      {
+        "escola": "21 DE DEZEMBRO",
+        "turma": "B",
+        "media_geral": 67.0,
+        "total_alunos": 31,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 67.4,
+            "alunos": 31
+          },
+          "Língua Portuguesa": {
+            "media": 67.5,
+            "alunos": 31
+          },
+          "Matemática": {
+            "media": 66.1,
+            "alunos": 31
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 2
+      },
+      {
+        "escola": "FIRMINO JOSÉ",
+        "turma": "A",
+        "media_geral": 65.9,
+        "total_alunos": 18,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 64.5,
+            "alunos": 18
+          },
+          "Língua Portuguesa": {
+            "media": 64.6,
+            "alunos": 18
+          },
+          "Matemática": {
+            "media": 68.6,
+            "alunos": 18
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 3
+      },
+      {
+        "escola": "ANTONIO DE SOUSA BARROS",
+        "turma": "ÚNICA",
+        "media_geral": 65.27,
+        "total_alunos": 16,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 65.7,
+            "alunos": 16
+          },
+          "Língua Portuguesa": {
+            "media": 66.5,
+            "alunos": 16
+          },
+          "Matemática": {
+            "media": 63.6,
+            "alunos": 16
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 4
+      },
+      {
+        "escola": "21 DE DEZEMBRO",
+        "turma": "C",
+        "media_geral": 65.17,
+        "total_alunos": 30,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 68.7,
+            "alunos": 30
+          },
+          "Língua Portuguesa": {
+            "media": 64.1,
+            "alunos": 30
+          },
+          "Matemática": {
+            "media": 62.7,
+            "alunos": 30
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 5
+      },
+      {
+        "escola": "21 DE DEZEMBRO",
+        "turma": "A",
+        "media_geral": 64.3,
+        "total_alunos": 31,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 63.5,
+            "alunos": 31
+          },
+          "Língua Portuguesa": {
+            "media": 65.7,
+            "alunos": 31
+          },
+          "Matemática": {
+            "media": 63.7,
+            "alunos": 31
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 6
+      },
+      {
+        "escola": "JOSE ALVES",
+        "turma": "A",
+        "media_geral": 63.97,
+        "total_alunos": 18,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 63.2,
+            "alunos": 18
+          },
+          "Língua Portuguesa": {
+            "media": 64.8,
+            "alunos": 18
+          },
+          "Matemática": {
+            "media": 63.9,
+            "alunos": 18
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 7
+      },
+      {
+        "escola": "JOSE ALVES",
+        "turma": "B",
+        "media_geral": 63.5,
+        "total_alunos": 18,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 63.0,
+            "alunos": 18
+          },
+          "Língua Portuguesa": {
+            "media": 64.5,
+            "alunos": 18
+          },
+          "Matemática": {
+            "media": 63.0,
+            "alunos": 18
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 8
+      },
+      {
+        "escola": "FIRMINO JOSÉ",
+        "turma": "B",
+        "media_geral": 63.2,
+        "total_alunos": 19,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 65.9,
+            "alunos": 19
+          },
+          "Língua Portuguesa": {
+            "media": 62.9,
+            "alunos": 19
+          },
+          "Matemática": {
+            "media": 60.8,
+            "alunos": 19
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 9
+      }
+    ],
+    "9º Ano": [
+      {
+        "escola": "03 DE DEZEMBRO",
+        "turma": "ÚNICA",
+        "media_geral": 76.4,
+        "total_alunos": 6,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 76.5,
+            "alunos": 6
+          },
+          "Língua Portuguesa": {
+            "media": 76.9,
+            "alunos": 6
+          },
+          "Matemática": {
+            "media": 75.8,
+            "alunos": 6
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 1
+      },
+      {
+        "escola": "21 DE DEZEMBRO",
+        "turma": "C",
+        "media_geral": 66.5,
+        "total_alunos": 30,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 67.0,
+            "alunos": 30
+          },
+          "Língua Portuguesa": {
+            "media": 67.7,
+            "alunos": 30
+          },
+          "Matemática": {
+            "media": 64.8,
+            "alunos": 30
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 2
+      },
+      {
+        "escola": "21 DE DEZEMBRO",
+        "turma": "B",
+        "media_geral": 66.4,
+        "total_alunos": 30,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 66.3,
+            "alunos": 30
+          },
+          "Língua Portuguesa": {
+            "media": 66.1,
+            "alunos": 30
+          },
+          "Matemática": {
+            "media": 66.8,
+            "alunos": 30
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 3
+      },
+      {
+        "escola": "21 DE DEZEMBRO",
+        "turma": "A",
+        "media_geral": 65.73,
+        "total_alunos": 31,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 68.5,
+            "alunos": 31
+          },
+          "Língua Portuguesa": {
+            "media": 68.5,
+            "alunos": 31
+          },
+          "Matemática": {
+            "media": 60.2,
+            "alunos": 31
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 4
+      },
+      {
+        "escola": "JOSE ALVES",
+        "turma": "ÚNICA",
+        "media_geral": 64.9,
+        "total_alunos": 30,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 62.3,
+            "alunos": 30
+          },
+          "Língua Portuguesa": {
+            "media": 65.4,
+            "alunos": 30
+          },
+          "Matemática": {
+            "media": 67.0,
+            "alunos": 30
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 5
+      },
+      {
+        "escola": "FIRMINO JOSÉ",
+        "turma": "A",
+        "media_geral": 63.2,
+        "total_alunos": 15,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 63.2,
+            "alunos": 15
+          },
+          "Língua Portuguesa": {
+            "media": 64.4,
+            "alunos": 15
+          },
+          "Matemática": {
+            "media": 62.0,
+            "alunos": 15
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 6
+      },
+      {
+        "escola": "FIRMINO JOSÉ",
+        "turma": "B",
+        "media_geral": 63.13,
+        "total_alunos": 16,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 65.5,
+            "alunos": 16
+          },
+          "Língua Portuguesa": {
+            "media": 62.1,
+            "alunos": 16
+          },
+          "Matemática": {
+            "media": 61.8,
+            "alunos": 16
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 7
+      },
+      {
+        "escola": "ANTONIO DE SOUSA BARROS",
+        "turma": "ÚNICA",
+        "media_geral": 61.17,
+        "total_alunos": 10,
+        "disciplinas": {
+          "Ciências Naturais": {
+            "media": 59.3,
+            "alunos": 10
+          },
+          "Língua Portuguesa": {
+            "media": 63.5,
+            "alunos": 10
+          },
+          "Matemática": {
+            "media": 60.7,
+            "alunos": 10
+          }
+        },
+        "num_disciplinas": 3,
+        "posicao": 8
+      }
+    ]
+  },
+  "dados_brutos": [
+    {
+      "ano": "1º Ano",
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "ÚNICA",
+      "disciplina": "Língua Portuguesa",
+      "media": 67.7,
+      "alunos": 18,
+      "arquivo": "1o_Ano_ANTONIO_DE_SOUSA_BARROS_LP_Media67.7_Alunos18.png"
+    },
+    {
+      "ano": "1º Ano",
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "ÚNICA",
+      "disciplina": "Matemática",
+      "media": 60.8,
+      "alunos": 18,
+      "arquivo": "1o_Ano_ANTONIO_DE_SOUSA_BARROS_MAT_Media60.8_Alunos18.png"
+    },
+    {
+      "ano": "1º Ano",
+      "escola": "03 DE DEZEMBRO",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 83.9,
+      "alunos": 6,
+      "arquivo": "1o_Ano_A_-_03_DE_DEZEMBRO_LP_Media83.9_Alunos6.png"
+    },
+    {
+      "ano": "1º Ano",
+      "escola": "03 DE DEZEMBRO",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 74.6,
+      "alunos": 6,
+      "arquivo": "1o_Ano_A_-_03_DE_DEZEMBRO_MAT_Media74.6_Alunos6.png"
+    },
+    {
+      "ano": "1º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 70.1,
+      "alunos": 19,
+      "arquivo": "1o_Ano_A_-_FIRMINO_JOSÉ_LP_Media70.1_Alunos19.png"
+    },
+    {
+      "ano": "1º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 71.3,
+      "alunos": 19,
+      "arquivo": "1o_Ano_A_-_FIRMINO_JOSÉ_MAT_Media71.3_Alunos19.png"
+    },
+    {
+      "ano": "1º Ano",
+      "escola": "JOAQUIM FERREIRA",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 65.8,
+      "alunos": 21,
+      "arquivo": "1o_Ano_A_-_JOAQUIM_FERREIRA_LP_Media65.8_Alunos21.png"
+    },
+    {
+      "ano": "1º Ano",
+      "escola": "JOAQUIM FERREIRA",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 72.0,
+      "alunos": 21,
+      "arquivo": "1o_Ano_A_-_JOAQUIM_FERREIRA_MAT_Media72.0_Alunos21.png"
+    },
+    {
+      "ano": "1º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 61.6,
+      "alunos": 22,
+      "arquivo": "1o_Ano_A_-_JOSE_ALVES_DE_SENA_LP_Media61.6_Alunos22.png"
+    },
+    {
+      "ano": "1º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 54.0,
+      "alunos": 22,
+      "arquivo": "1o_Ano_A_-_JOSE_ALVES_DE_SENA_MAT_Media54.0_Alunos22.png"
+    },
+    {
+      "ano": "1º Ano",
+      "escola": "MOURÃO LIMA",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 80.4,
+      "alunos": 25,
+      "arquivo": "1o_Ano_A_-_MOURÃO_LIMA_LP_Media80.4_Alunos25.png"
+    },
+    {
+      "ano": "1º Ano",
+      "escola": "MOURÃO LIMA",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 69.8,
+      "alunos": 25,
+      "arquivo": "1o_Ano_A_-_MOURÃO_LIMA_MAT_Media69.8_Alunos25.png"
+    },
+    {
+      "ano": "1º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "B",
+      "disciplina": "Língua Portuguesa",
+      "media": 65.8,
+      "alunos": 20,
+      "arquivo": "1o_Ano_B_-_FIRMINO_JOSÉ_LP_Media65.8_Alunos20.png"
+    },
+    {
+      "ano": "1º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "B",
+      "disciplina": "Matemática",
+      "media": 68.1,
+      "alunos": 20,
+      "arquivo": "1o_Ano_B_-_FIRMINO_JOSÉ_MAT_Media68.1_Alunos20.png"
+    },
+    {
+      "ano": "1º Ano",
+      "escola": "JOAQUIM FERREIRA",
+      "turma": "B",
+      "disciplina": "Língua Portuguesa",
+      "media": 66.2,
+      "alunos": 21,
+      "arquivo": "1o_Ano_B_-_JOAQUIM_FERREIRA_LP_Media66.2_Alunos21.png"
+    },
+    {
+      "ano": "1º Ano",
+      "escola": "JOAQUIM FERREIRA",
+      "turma": "B",
+      "disciplina": "Matemática",
+      "media": 65.2,
+      "alunos": 21,
+      "arquivo": "1o_Ano_B_-_JOAQUIM_FERREIRA_MAT_Media65.2_Alunos21.png"
+    },
+    {
+      "ano": "1º Ano",
+      "escola": "MOURÃO LIMA",
+      "turma": "B",
+      "disciplina": "Língua Portuguesa",
+      "media": 70.4,
+      "alunos": 25,
+      "arquivo": "1o_Ano_B_-_MOURÃO_LIMA_LP_Media70.4_Alunos25.png"
+    },
+    {
+      "ano": "1º Ano",
+      "escola": "MOURÃO LIMA",
+      "turma": "B",
+      "disciplina": "Matemática",
+      "media": 73.0,
+      "alunos": 25,
+      "arquivo": "1o_Ano_B_-_MOURÃO_LIMA_MAT_Media73.0_Alunos25.png"
+    },
+    {
+      "ano": "1º Ano",
+      "escola": "MARIA AMELIA",
+      "turma": "ÚNICA",
+      "disciplina": "Língua Portuguesa",
+      "media": 69.9,
+      "alunos": 7,
+      "arquivo": "1º_Ano_MARIA_AMELIA_LP_Media69.9_Alunos7.png"
+    },
+    {
+      "ano": "1º Ano",
+      "escola": "MARIA AMELIA",
+      "turma": "ÚNICA",
+      "disciplina": "Matemática",
+      "media": 68.0,
+      "alunos": 7,
+      "arquivo": "1º_Ano_MARIA_AMELIA_MAT_Media68.0_Alunos7.png"
+    },
+    {
+      "ano": "2º Ano",
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "ÚNICA",
+      "disciplina": "Língua Portuguesa",
+      "media": 71.5,
+      "alunos": 12,
+      "arquivo": "2o_Ano_ANTONIO_DE_SOUSA_BARROS_LP_Media71.5_Alunos12.png"
+    },
+    {
+      "ano": "2º Ano",
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "ÚNICA",
+      "disciplina": "Matemática",
+      "media": 66.3,
+      "alunos": 12,
+      "arquivo": "2o_Ano_ANTONIO_DE_SOUSA_BARROS_MAT_Media66.3_Alunos12.png"
+    },
+    {
+      "ano": "2º Ano",
+      "escola": "03 DE DEZEMBRO",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 82.1,
+      "alunos": 11,
+      "arquivo": "2o_Ano_A_-_03_DE_DEZEMBRO_LP_Media82.1_Alunos11.png"
+    },
+    {
+      "ano": "2º Ano",
+      "escola": "03 DE DEZEMBRO",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 85.5,
+      "alunos": 11,
+      "arquivo": "2o_Ano_A_-_03_DE_DEZEMBRO_MAT_Media85.5_Alunos11.png"
+    },
+    {
+      "ano": "2º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 61.7,
+      "alunos": 18,
+      "arquivo": "2o_Ano_A_-_FIRMINO_JOSÉ_LP_Media61.7_Alunos18.png"
+    },
+    {
+      "ano": "2º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 66.0,
+      "alunos": 18,
+      "arquivo": "2o_Ano_A_-_FIRMINO_JOSÉ_MAT_Media66.0_Alunos18.png"
+    },
+    {
+      "ano": "2º Ano",
+      "escola": "JOAQUIM FERREIRA",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 71.4,
+      "alunos": 28,
+      "arquivo": "2o_Ano_A_-_JOAQUIM_FERREIRA_LP_Media71.4_Alunos28.png"
+    },
+    {
+      "ano": "2º Ano",
+      "escola": "JOAQUIM FERREIRA",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 70.6,
+      "alunos": 28,
+      "arquivo": "2o_Ano_A_-_JOAQUIM_FERREIRA_MAT_Media70.6_Alunos28.png"
+    },
+    {
+      "ano": "2º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 54.1,
+      "alunos": 24,
+      "arquivo": "2o_Ano_A_-_JOSE_ALVES_DE_SENA_LP_Media54.1_Alunos24.png"
+    },
+    {
+      "ano": "2º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 55.3,
+      "alunos": 24,
+      "arquivo": "2o_Ano_A_-_JOSE_ALVES_DE_SENA_MAT_Media55.3_Alunos24.png"
+    },
+    {
+      "ano": "2º Ano",
+      "escola": "MOURÃO LIMA",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 70.9,
+      "alunos": 19,
+      "arquivo": "2o_Ano_A_-_MOURÃO_LIMA_LP_Media70.9_Alunos19.png"
+    },
+    {
+      "ano": "2º Ano",
+      "escola": "MOURÃO LIMA",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 72.6,
+      "alunos": 19,
+      "arquivo": "2o_Ano_A_-_MOURÃO_LIMA_MAT_Media72.6_Alunos19.png"
+    },
+    {
+      "ano": "2º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "B",
+      "disciplina": "Língua Portuguesa",
+      "media": 65.8,
+      "alunos": 18,
+      "arquivo": "2o_Ano_B_-_FIRMINO_JOSÉ_LP_Media65.8_Alunos18.png"
+    },
+    {
+      "ano": "2º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "B",
+      "disciplina": "Matemática",
+      "media": 69.4,
+      "alunos": 18,
+      "arquivo": "2o_Ano_B_-_FIRMINO_JOSÉ_MAT_Media69.4_Alunos18.png"
+    },
+    {
+      "ano": "2º Ano",
+      "escola": "MOURÃO LIMA",
+      "turma": "B",
+      "disciplina": "Língua Portuguesa",
+      "media": 76.7,
+      "alunos": 18,
+      "arquivo": "2o_Ano_B_-_MOURÃO_LIMA_LP_Media76.7_Alunos18.png"
+    },
+    {
+      "ano": "2º Ano",
+      "escola": "MOURÃO LIMA",
+      "turma": "B",
+      "disciplina": "Matemática",
+      "media": 73.8,
+      "alunos": 18,
+      "arquivo": "2o_Ano_B_-_MOURÃO_LIMA_MAT_Media73.8_Alunos18.png"
+    },
+    {
+      "ano": "2º Ano",
+      "escola": "MARIA AMELIA",
+      "turma": "ÚNICA",
+      "disciplina": "Língua Portuguesa",
+      "media": 71.8,
+      "alunos": 12,
+      "arquivo": "2º_Ano_MARIA_AMELIA_LP_Media71.8_Alunos12.png"
+    },
+    {
+      "ano": "2º Ano",
+      "escola": "MARIA AMELIA",
+      "turma": "ÚNICA",
+      "disciplina": "Matemática",
+      "media": 66.8,
+      "alunos": 12,
+      "arquivo": "2º_Ano_MARIA_AMELIA_MAT_Media66.8_Alunos12.png"
+    },
+    {
+      "ano": "3º Ano",
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "ÚNICA",
+      "disciplina": "Língua Portuguesa",
+      "media": 66.2,
+      "alunos": 10,
+      "arquivo": "3o_Ano_ANTONIO_DE_SOUSA_BARROS_LP_Media66.2_Alunos10.png"
+    },
+    {
+      "ano": "3º Ano",
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "ÚNICA",
+      "disciplina": "Matemática",
+      "media": 62.0,
+      "alunos": 10,
+      "arquivo": "3o_Ano_ANTONIO_DE_SOUSA_BARROS_MAT_Media62.0_Alunos10.png"
+    },
+    {
+      "ano": "3º Ano",
+      "escola": "03 DE DEZEMBRO",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 87.0,
+      "alunos": 9,
+      "arquivo": "3o_Ano_A_-_03_DE_DEZEMBRO_LP_Media87.0_Alunos9.png"
+    },
+    {
+      "ano": "3º Ano",
+      "escola": "03 DE DEZEMBRO",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 77.5,
+      "alunos": 9,
+      "arquivo": "3o_Ano_A_-_03_DE_DEZEMBRO_MAT_Media77.5_Alunos9.png"
+    },
+    {
+      "ano": "3º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 62.3,
+      "alunos": 22,
+      "arquivo": "3o_Ano_A_-_FIRMINO_JOSÉ_LP_Media62.3_Alunos22.png"
+    },
+    {
+      "ano": "3º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 70.0,
+      "alunos": 22,
+      "arquivo": "3o_Ano_A_-_FIRMINO_JOSÉ_MAT_Media70.0_Alunos22.png"
+    },
+    {
+      "ano": "3º Ano",
+      "escola": "JOAQUIM FERREIRA",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 74.3,
+      "alunos": 21,
+      "arquivo": "3o_Ano_A_-_JOAQUIM_FERREIRA_LP_Media74.3_Alunos21.png"
+    },
+    {
+      "ano": "3º Ano",
+      "escola": "JOAQUIM FERREIRA",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 69.5,
+      "alunos": 21,
+      "arquivo": "3o_Ano_A_-_JOAQUIM_FERREIRA_MAT_Media69.5_Alunos21.png"
+    },
+    {
+      "ano": "3º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 59.2,
+      "alunos": 22,
+      "arquivo": "3o_Ano_A_-_JOSE_ALVES_DE_SENA_LP_Media59.2_Alunos22.png"
+    },
+    {
+      "ano": "3º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 57.4,
+      "alunos": 22,
+      "arquivo": "3o_Ano_A_-_JOSE_ALVES_DE_SENA_MAT_Media57.4_Alunos22.png"
+    },
+    {
+      "ano": "3º Ano",
+      "escola": "MOURÃO LIMA",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 75.3,
+      "alunos": 22,
+      "arquivo": "3o_Ano_A_-_MOURÃO_LIMA_LP_Media75.3_Alunos22.png"
+    },
+    {
+      "ano": "3º Ano",
+      "escola": "MOURÃO LIMA",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 70.3,
+      "alunos": 22,
+      "arquivo": "3o_Ano_A_-_MOURÃO_LIMA_MAT_Media70.3_Alunos22.png"
+    },
+    {
+      "ano": "3º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "B",
+      "disciplina": "Língua Portuguesa",
+      "media": 68.8,
+      "alunos": 26,
+      "arquivo": "3o_Ano_B_-_FIRMINO_JOSÉ_LP_Media68.8_Alunos26.png"
+    },
+    {
+      "ano": "3º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "B",
+      "disciplina": "Matemática",
+      "media": 74.1,
+      "alunos": 26,
+      "arquivo": "3o_Ano_B_-_FIRMINO_JOSÉ_MAT_Media74.1_Alunos26.png"
+    },
+    {
+      "ano": "3º Ano",
+      "escola": "MOURÃO LIMA",
+      "turma": "B",
+      "disciplina": "Língua Portuguesa",
+      "media": 72.0,
+      "alunos": 20,
+      "arquivo": "3o_Ano_B_-_MOURÃO_LIMA_LP_Media72.0_Alunos20.png"
+    },
+    {
+      "ano": "3º Ano",
+      "escola": "MOURÃO LIMA",
+      "turma": "B",
+      "disciplina": "Matemática",
+      "media": 73.7,
+      "alunos": 20,
+      "arquivo": "3o_Ano_B_-_MOURÃO_LIMA_MAT_Media73.7_Alunos20.png"
+    },
+    {
+      "ano": "3º Ano",
+      "escola": "MARIA AMELIA",
+      "turma": "ÚNICA",
+      "disciplina": "Língua Portuguesa",
+      "media": 76.2,
+      "alunos": 10,
+      "arquivo": "3º_Ano_MARIA_AMELIA_LP_Media76.2_Alunos10.png"
+    },
+    {
+      "ano": "3º Ano",
+      "escola": "MARIA AMELIA",
+      "turma": "ÚNICA",
+      "disciplina": "Matemática",
+      "media": 67.6,
+      "alunos": 10,
+      "arquivo": "3º_Ano_MARIA_AMELIA_MAT_Media67.6_Alunos10.png"
+    },
+    {
+      "ano": "4º Ano",
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "ÚNICA",
+      "disciplina": "Língua Portuguesa",
+      "media": 64.0,
+      "alunos": 9,
+      "arquivo": "4o_Ano_ANTONIO_DE_SOUSA_BARROS_LP_Media64.0_Alunos9.png"
+    },
+    {
+      "ano": "4º Ano",
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "ÚNICA",
+      "disciplina": "Matemática",
+      "media": 66.9,
+      "alunos": 9,
+      "arquivo": "4o_Ano_ANTONIO_DE_SOUSA_BARROS_MAT_Media66.9_Alunos9.png"
+    },
+    {
+      "ano": "4º Ano",
+      "escola": "03 DE DEZEMBRO",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 80.3,
+      "alunos": 4,
+      "arquivo": "4o_Ano_A_-_03_DE_DEZEMBRO_LP_Media80.3_Alunos4.png"
+    },
+    {
+      "ano": "4º Ano",
+      "escola": "03 DE DEZEMBRO",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 71.7,
+      "alunos": 4,
+      "arquivo": "4o_Ano_A_-_03_DE_DEZEMBRO_MAT_Media71.7_Alunos4.png"
+    },
+    {
+      "ano": "4º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 86.9,
+      "alunos": 19,
+      "arquivo": "4o_Ano_A_-_FIRMINO_JOSÉ_LP_Media86.9_Alunos19.png"
+    },
+    {
+      "ano": "4º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 81.2,
+      "alunos": 19,
+      "arquivo": "4o_Ano_A_-_FIRMINO_JOSÉ_MAT_Media81.2_Alunos19.png"
+    },
+    {
+      "ano": "4º Ano",
+      "escola": "JOAQUIM FERREIRA",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 60.5,
+      "alunos": 30,
+      "arquivo": "4o_Ano_A_-_JOAQUIM_FERREIRA_LP_Media60.5_Alunos30.png"
+    },
+    {
+      "ano": "4º Ano",
+      "escola": "JOAQUIM FERREIRA",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 50.8,
+      "alunos": 30,
+      "arquivo": "4o_Ano_A_-_JOAQUIM_FERREIRA_MAT_Media50.8_Alunos30.png"
+    },
+    {
+      "ano": "4º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 65.5,
+      "alunos": 30,
+      "arquivo": "4o_Ano_A_-_JOSE_ALVES_DE_SENA_LP_Media65.5_Alunos30.png"
+    },
+    {
+      "ano": "4º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 64.1,
+      "alunos": 30,
+      "arquivo": "4o_Ano_A_-_JOSE_ALVES_DE_SENA_MAT_Media64.1_Alunos30.png"
+    },
+    {
+      "ano": "4º Ano",
+      "escola": "MOURÃO LIMA",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 69.0,
+      "alunos": 21,
+      "arquivo": "4o_Ano_A_-_MOURÃO_LIMA_LP_Media69.0_Alunos21.png"
+    },
+    {
+      "ano": "4º Ano",
+      "escola": "MOURÃO LIMA",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 73.9,
+      "alunos": 21,
+      "arquivo": "4o_Ano_A_-_MOURÃO_LIMA_MAT_Media73.9_Alunos21.png"
+    },
+    {
+      "ano": "4º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "B",
+      "disciplina": "Língua Portuguesa",
+      "media": 74.5,
+      "alunos": 19,
+      "arquivo": "4o_Ano_B_-_FIRMINO_JOSÉ_LP_Media74.5_Alunos19.png"
+    },
+    {
+      "ano": "4º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "B",
+      "disciplina": "Matemática",
+      "media": 85.6,
+      "alunos": 19,
+      "arquivo": "4o_Ano_B_-_FIRMINO_JOSÉ_MAT_Media85.6_Alunos19.png"
+    },
+    {
+      "ano": "4º Ano",
+      "escola": "MOURÃO LIMA",
+      "turma": "B",
+      "disciplina": "Língua Portuguesa",
+      "media": 72.5,
+      "alunos": 21,
+      "arquivo": "4o_Ano_B_-_MOURÃO_LIMA_LP_Media72.5_Alunos21.png"
+    },
+    {
+      "ano": "4º Ano",
+      "escola": "MOURÃO LIMA",
+      "turma": "B",
+      "disciplina": "Matemática",
+      "media": 66.6,
+      "alunos": 21,
+      "arquivo": "4o_Ano_B_-_MOURÃO_LIMA_MAT_Media66.6_Alunos21.png"
+    },
+    {
+      "ano": "4º Ano",
+      "escola": "MARIA AMELIA",
+      "turma": "ÚNICA",
+      "disciplina": "Língua Portuguesa",
+      "media": 72.0,
+      "alunos": 4,
+      "arquivo": "4º_Ano_MARIA_AMELIA_LP_Media72.0_Alunos4.png"
+    },
+    {
+      "ano": "4º Ano",
+      "escola": "MARIA AMELIA",
+      "turma": "ÚNICA",
+      "disciplina": "Matemática",
+      "media": 71.4,
+      "alunos": 4,
+      "arquivo": "4º_Ano_MARIA_AMELIA_MAT_Media71.4_Alunos4.png"
+    },
+    {
+      "ano": "5º Ano",
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "ÚNICA",
+      "disciplina": "Língua Portuguesa",
+      "media": 71.2,
+      "alunos": 12,
+      "arquivo": "5o_Ano_ANTONIO_DE_SOUSA_BARROS_LP_Media71.2_Alunos12.png"
+    },
+    {
+      "ano": "5º Ano",
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "ÚNICA",
+      "disciplina": "Matemática",
+      "media": 63.9,
+      "alunos": 12,
+      "arquivo": "5o_Ano_ANTONIO_DE_SOUSA_BARROS_MAT_Media63.9_Alunos12.png"
+    },
+    {
+      "ano": "5º Ano",
+      "escola": "03 DE DEZEMBRO",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 72.0,
+      "alunos": 8,
+      "arquivo": "5o_Ano_A_-_03_DE_DEZEMBRO_LP_Media72.0_Alunos8.png"
+    },
+    {
+      "ano": "5º Ano",
+      "escola": "03 DE DEZEMBRO",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 70.1,
+      "alunos": 8,
+      "arquivo": "5o_Ano_A_-_03_DE_DEZEMBRO_MAT_Media70.1_Alunos8.png"
+    },
+    {
+      "ano": "5º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 78.3,
+      "alunos": 18,
+      "arquivo": "5o_Ano_A_-_FIRMINO_JOSÉ_LP_Media78.3_Alunos18.png"
+    },
+    {
+      "ano": "5º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 79.6,
+      "alunos": 18,
+      "arquivo": "5o_Ano_A_-_FIRMINO_JOSÉ_MAT_Media79.6_Alunos18.png"
+    },
+    {
+      "ano": "5º Ano",
+      "escola": "JOAQUIM FERREIRA",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 56.0,
+      "alunos": 28,
+      "arquivo": "5o_Ano_A_-_JOAQUIM_FERREIRA_LP_Media56.0_Alunos28.png"
+    },
+    {
+      "ano": "5º Ano",
+      "escola": "JOAQUIM FERREIRA",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 58.1,
+      "alunos": 28,
+      "arquivo": "5o_Ano_A_-_JOAQUIM_FERREIRA_MAT_Media58.1_Alunos28.png"
+    },
+    {
+      "ano": "5º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 64.2,
+      "alunos": 17,
+      "arquivo": "5o_Ano_A_-_JOSE_ALVES_DE_SENA_LP_Media64.2_Alunos17.png"
+    },
+    {
+      "ano": "5º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 64.4,
+      "alunos": 17,
+      "arquivo": "5o_Ano_A_-_JOSE_ALVES_DE_SENA_MAT_Media64.4_Alunos17.png"
+    },
+    {
+      "ano": "5º Ano",
+      "escola": "MOURÃO LIMA",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 65.6,
+      "alunos": 21,
+      "arquivo": "5o_Ano_A_-_MOURÃO_LIMA_LP_Media65.6_Alunos21.png"
+    },
+    {
+      "ano": "5º Ano",
+      "escola": "MOURÃO LIMA",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 68.9,
+      "alunos": 21,
+      "arquivo": "5o_Ano_A_-_MOURÃO_LIMA_MAT_Media68.9_Alunos21.png"
+    },
+    {
+      "ano": "5º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "B",
+      "disciplina": "Língua Portuguesa",
+      "media": 79.0,
+      "alunos": 19,
+      "arquivo": "5o_Ano_B_-_FIRMINO_JOSÉ_LP_Media79.0_Alunos19.png"
+    },
+    {
+      "ano": "5º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "B",
+      "disciplina": "Matemática",
+      "media": 80.9,
+      "alunos": 19,
+      "arquivo": "5o_Ano_B_-_FIRMINO_JOSÉ_MAT_Media80.9_Alunos19.png"
+    },
+    {
+      "ano": "5º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "B",
+      "disciplina": "Língua Portuguesa",
+      "media": 65.1,
+      "alunos": 16,
+      "arquivo": "5o_Ano_B_-_JOSE_ALVES_LP_Media65.1_Alunos16.png"
+    },
+    {
+      "ano": "5º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "B",
+      "disciplina": "Matemática",
+      "media": 68.3,
+      "alunos": 16,
+      "arquivo": "5o_Ano_B_-_JOSE_ALVES_MAT_Media68.3_Alunos16.png"
+    },
+    {
+      "ano": "5º Ano",
+      "escola": "MOURÃO LIMA",
+      "turma": "B",
+      "disciplina": "Língua Portuguesa",
+      "media": 72.8,
+      "alunos": 21,
+      "arquivo": "5o_Ano_B_-_MOURÃO_LIMA_LP_Media72.8_Alunos21.png"
+    },
+    {
+      "ano": "5º Ano",
+      "escola": "MOURÃO LIMA",
+      "turma": "B",
+      "disciplina": "Matemática",
+      "media": 73.7,
+      "alunos": 21,
+      "arquivo": "5o_Ano_B_-_MOURÃO_LIMA_MAT_Media73.7_Alunos21.png"
+    },
+    {
+      "ano": "5º Ano",
+      "escola": "MARIA AMELIA",
+      "turma": "ÚNICA",
+      "disciplina": "Língua Portuguesa",
+      "media": 69.8,
+      "alunos": 9,
+      "arquivo": "5º_Ano_MARIA_AMELIA_LP_Media69.8_Alunos9.png"
+    },
+    {
+      "ano": "5º Ano",
+      "escola": "MARIA AMELIA",
+      "turma": "ÚNICA",
+      "disciplina": "Matemática",
+      "media": 71.3,
+      "alunos": 9,
+      "arquivo": "5º_Ano_MARIA_AMELIA_MAT_Media71.3_Alunos9.png"
+    },
+    {
+      "ano": "6º Ano",
+      "escola": "03 DE DEZEMBRO",
+      "turma": "ÚNICA",
+      "disciplina": "Ciências Naturais",
+      "media": 80.0,
+      "alunos": 7,
+      "arquivo": "6º_Ano_03_DE_DEZEMBRO_CN_Media80.0_Alunos7.png"
+    },
+    {
+      "ano": "6º Ano",
+      "escola": "03 DE DEZEMBRO",
+      "turma": "ÚNICA",
+      "disciplina": "Língua Portuguesa",
+      "media": 72.5,
+      "alunos": 7,
+      "arquivo": "6º_Ano_03_DE_DEZEMBRO_LP_Media72.5_Alunos7.png"
+    },
+    {
+      "ano": "6º Ano",
+      "escola": "03 DE DEZEMBRO",
+      "turma": "ÚNICA",
+      "disciplina": "Matemática",
+      "media": 75.6,
+      "alunos": 7,
+      "arquivo": "6º_Ano_03_DE_DEZEMBRO_MAT_Media75.6_Alunos7.png"
+    },
+    {
+      "ano": "6º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "ÚNICA",
+      "disciplina": "Ciências Naturais",
+      "media": 71.5,
+      "alunos": 32,
+      "arquivo": "6º_Ano_21_DE_DEZEMBRO_CN_Media71.5_Alunos32.png"
+    },
+    {
+      "ano": "6º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "ÚNICA",
+      "disciplina": "Língua Portuguesa",
+      "media": 69.8,
+      "alunos": 32,
+      "arquivo": "6º_Ano_21_DE_DEZEMBRO_LP_Media69.8_Alunos32.png"
+    },
+    {
+      "ano": "6º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "ÚNICA",
+      "disciplina": "Matemática",
+      "media": 68.6,
+      "alunos": 32,
+      "arquivo": "6º_Ano_21_DE_DEZEMBRO_MAT_Media68.6_Alunos32.png"
+    },
+    {
+      "ano": "6º Ano",
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "ÚNICA",
+      "disciplina": "Ciências Naturais",
+      "media": 65.1,
+      "alunos": 12,
+      "arquivo": "6º_Ano_ANTONIO_DE_SOUSA_BARROS_CN_Media65.1_Alunos12.png"
+    },
+    {
+      "ano": "6º Ano",
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "ÚNICA",
+      "disciplina": "Língua Portuguesa",
+      "media": 64.9,
+      "alunos": 12,
+      "arquivo": "6º_Ano_ANTONIO_DE_SOUSA_BARROS_LP_Media64.9_Alunos12.png"
+    },
+    {
+      "ano": "6º Ano",
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "ÚNICA",
+      "disciplina": "Matemática",
+      "media": 69.6,
+      "alunos": 12,
+      "arquivo": "6º_Ano_ANTONIO_DE_SOUSA_BARROS_MAT_Media69.6_Alunos12.png"
+    },
+    {
+      "ano": "6º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "ÚNICA",
+      "disciplina": "Ciências Naturais",
+      "media": 74.1,
+      "alunos": 19,
+      "arquivo": "6º_Ano_FIRMINO_JOSÉ_CN_Media74.1_Alunos19.png"
+    },
+    {
+      "ano": "6º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "ÚNICA",
+      "disciplina": "Língua Portuguesa",
+      "media": 72.7,
+      "alunos": 19,
+      "arquivo": "6º_Ano_FIRMINO_JOSÉ_LP_Media72.7_Alunos19.png"
+    },
+    {
+      "ano": "6º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "ÚNICA",
+      "disciplina": "Matemática",
+      "media": 74.2,
+      "alunos": 19,
+      "arquivo": "6º_Ano_FIRMINO_JOSÉ_MAT_Media74.2_Alunos19.png"
+    },
+    {
+      "ano": "6º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "ÚNICA",
+      "disciplina": "Ciências Naturais",
+      "media": 61.3,
+      "alunos": 26,
+      "arquivo": "6º_Ano_JOSE_ALVES_CN_Media61.3_Alunos26.png"
+    },
+    {
+      "ano": "6º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "ÚNICA",
+      "disciplina": "Língua Portuguesa",
+      "media": 64.5,
+      "alunos": 26,
+      "arquivo": "6º_Ano_JOSE_ALVES_LP_Media64.5_Alunos26.png"
+    },
+    {
+      "ano": "6º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "ÚNICA",
+      "disciplina": "Matemática",
+      "media": 65.3,
+      "alunos": 26,
+      "arquivo": "6º_Ano_JOSE_ALVES_MAT_Media65.3_Alunos26.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "03 DE DEZEMBRO",
+      "turma": "ÚNICA",
+      "disciplina": "Ciências Naturais",
+      "media": 77.9,
+      "alunos": 4,
+      "arquivo": "7º_Ano_03_DE_DEZEMBRO_CN_Media77.9_Alunos4.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "03 DE DEZEMBRO",
+      "turma": "ÚNICA",
+      "disciplina": "Língua Portuguesa",
+      "media": 79.1,
+      "alunos": 4,
+      "arquivo": "7º_Ano_03_DE_DEZEMBRO_LP_Media79.1_Alunos4.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "03 DE DEZEMBRO",
+      "turma": "ÚNICA",
+      "disciplina": "Matemática",
+      "media": 81.7,
+      "alunos": 4,
+      "arquivo": "7º_Ano_03_DE_DEZEMBRO_MAT_Media81.7_Alunos4.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "A",
+      "disciplina": "Ciências Naturais",
+      "media": 78.2,
+      "alunos": 32,
+      "arquivo": "7º_Ano_21_DE_DEZEMBRO_A_CN_Media78.2_Alunos32.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 75.0,
+      "alunos": 32,
+      "arquivo": "7º_Ano_21_DE_DEZEMBRO_A_LP_Media75.0_Alunos32.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 64.7,
+      "alunos": 32,
+      "arquivo": "7º_Ano_21_DE_DEZEMBRO_A_MAT_Media64.7_Alunos32.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "B",
+      "disciplina": "Ciências Naturais",
+      "media": 71.9,
+      "alunos": 28,
+      "arquivo": "7º_Ano_21_DE_DEZEMBRO_B_CN_Media71.9_Alunos28.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "B",
+      "disciplina": "Língua Portuguesa",
+      "media": 72.2,
+      "alunos": 28,
+      "arquivo": "7º_Ano_21_DE_DEZEMBRO_B_LP_Media72.2_Alunos28.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "B",
+      "disciplina": "Matemática",
+      "media": 71.4,
+      "alunos": 28,
+      "arquivo": "7º_Ano_21_DE_DEZEMBRO_B_MAT_Media71.4_Alunos28.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "C",
+      "disciplina": "Ciências Naturais",
+      "media": 72.6,
+      "alunos": 24,
+      "arquivo": "7º_Ano_21_DE_DEZEMBRO_C_CN_Media72.6_Alunos24.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "C",
+      "disciplina": "Língua Portuguesa",
+      "media": 69.6,
+      "alunos": 24,
+      "arquivo": "7º_Ano_21_DE_DEZEMBRO_C_LP_Media69.6_Alunos24.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "C",
+      "disciplina": "Matemática",
+      "media": 70.5,
+      "alunos": 24,
+      "arquivo": "7º_Ano_21_DE_DEZEMBRO_C_MAT_Media70.5_Alunos24.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "ÚNICA",
+      "disciplina": "Ciências Naturais",
+      "media": 66.3,
+      "alunos": 12,
+      "arquivo": "7º_Ano_ANTONIO_DE_SOUSA_BARROS_CN_Media66.3_Alunos12.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "ÚNICA",
+      "disciplina": "Língua Portuguesa",
+      "media": 64.2,
+      "alunos": 12,
+      "arquivo": "7º_Ano_ANTONIO_DE_SOUSA_BARROS_LP_Media64.2_Alunos12.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "ÚNICA",
+      "disciplina": "Matemática",
+      "media": 70.2,
+      "alunos": 12,
+      "arquivo": "7º_Ano_ANTONIO_DE_SOUSA_BARROS_MAT_Media70.2_Alunos12.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "A",
+      "disciplina": "Ciências Naturais",
+      "media": 72.6,
+      "alunos": 33,
+      "arquivo": "7º_Ano_FIRMINO_JOSÉ_A_CN_Media72.6_Alunos33.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 73.4,
+      "alunos": 33,
+      "arquivo": "7º_Ano_FIRMINO_JOSÉ_A_LP_Media73.4_Alunos33.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 68.6,
+      "alunos": 33,
+      "arquivo": "7º_Ano_FIRMINO_JOSÉ_A_MAT_Media68.6_Alunos33.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "A",
+      "disciplina": "Ciências Naturais",
+      "media": 68.0,
+      "alunos": 15,
+      "arquivo": "7º_Ano_JOSE_ALVES_A_CN_Media68.0_Alunos15.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 69.4,
+      "alunos": 15,
+      "arquivo": "7º_Ano_JOSE_ALVES_A_LP_Media69.4_Alunos15.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 59.6,
+      "alunos": 15,
+      "arquivo": "7º_Ano_JOSE_ALVES_A_MAT_Media59.6_Alunos15.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "B",
+      "disciplina": "Ciências Naturais",
+      "media": 70.0,
+      "alunos": 17,
+      "arquivo": "7º_Ano_JOSE_ALVES_B_CN_Media70.0_Alunos17.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "B",
+      "disciplina": "Língua Portuguesa",
+      "media": 70.1,
+      "alunos": 17,
+      "arquivo": "7º_Ano_JOSE_ALVES_B_LP_Media70.1_Alunos17.png"
+    },
+    {
+      "ano": "7º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "B",
+      "disciplina": "Matemática",
+      "media": 66.4,
+      "alunos": 17,
+      "arquivo": "7º_Ano_JOSE_ALVES_B_MAT_Media66.4_Alunos17.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "03 DE DEZEMBRO",
+      "turma": "ÚNICA",
+      "disciplina": "Ciências Naturais",
+      "media": 76.7,
+      "alunos": 6,
+      "arquivo": "8º_Ano_03_DE_DEZEMBRO_CN_Media76.7_Alunos6.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "03 DE DEZEMBRO",
+      "turma": "ÚNICA",
+      "disciplina": "Língua Portuguesa",
+      "media": 75.7,
+      "alunos": 6,
+      "arquivo": "8º_Ano_03_DE_DEZEMBRO_LP_Media75.7_Alunos6.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "03 DE DEZEMBRO",
+      "turma": "ÚNICA",
+      "disciplina": "Matemática",
+      "media": 82.0,
+      "alunos": 6,
+      "arquivo": "8º_Ano_03_DE_DEZEMBRO_MAT_Media82.0_Alunos6.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "A",
+      "disciplina": "Ciências Naturais",
+      "media": 63.5,
+      "alunos": 31,
+      "arquivo": "8º_Ano_21_DE_DEZEMBRO_A_CN_Media63.5_Alunos31.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 65.7,
+      "alunos": 31,
+      "arquivo": "8º_Ano_21_DE_DEZEMBRO_A_LP_Media65.7_Alunos31.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 63.7,
+      "alunos": 31,
+      "arquivo": "8º_Ano_21_DE_DEZEMBRO_A_MAT_Media63.7_Alunos31.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "B",
+      "disciplina": "Ciências Naturais",
+      "media": 67.4,
+      "alunos": 31,
+      "arquivo": "8º_Ano_21_DE_DEZEMBRO_B_CN_Media67.4_Alunos31.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "B",
+      "disciplina": "Língua Portuguesa",
+      "media": 67.5,
+      "alunos": 31,
+      "arquivo": "8º_Ano_21_DE_DEZEMBRO_B_LP_Media67.5_Alunos31.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "B",
+      "disciplina": "Matemática",
+      "media": 66.1,
+      "alunos": 31,
+      "arquivo": "8º_Ano_21_DE_DEZEMBRO_B_MAT_Media66.1_Alunos31.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "C",
+      "disciplina": "Ciências Naturais",
+      "media": 68.7,
+      "alunos": 30,
+      "arquivo": "8º_Ano_21_DE_DEZEMBRO_C_CN_Media68.7_Alunos30.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "C",
+      "disciplina": "Língua Portuguesa",
+      "media": 64.1,
+      "alunos": 30,
+      "arquivo": "8º_Ano_21_DE_DEZEMBRO_C_LP_Media64.1_Alunos30.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "C",
+      "disciplina": "Matemática",
+      "media": 62.7,
+      "alunos": 30,
+      "arquivo": "8º_Ano_21_DE_DEZEMBRO_C_MAT_Media62.7_Alunos30.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "ÚNICA",
+      "disciplina": "Ciências Naturais",
+      "media": 65.7,
+      "alunos": 16,
+      "arquivo": "8º_Ano_ANTONIO_DE_SOUSA_BARROS_CN_Media65.7_Alunos16.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "ÚNICA",
+      "disciplina": "Língua Portuguesa",
+      "media": 66.5,
+      "alunos": 16,
+      "arquivo": "8º_Ano_ANTONIO_DE_SOUSA_BARROS_LP_Media66.5_Alunos16.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "ÚNICA",
+      "disciplina": "Matemática",
+      "media": 63.6,
+      "alunos": 16,
+      "arquivo": "8º_Ano_ANTONIO_DE_SOUSA_BARROS_MAT_Media63.6_Alunos16.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "A",
+      "disciplina": "Ciências Naturais",
+      "media": 64.5,
+      "alunos": 18,
+      "arquivo": "8º_Ano_FIRMINO_JOSÉ_A_CN_Media64.5_Alunos18.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 64.6,
+      "alunos": 18,
+      "arquivo": "8º_Ano_FIRMINO_JOSÉ_A_LP_Media64.6_Alunos18.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 68.6,
+      "alunos": 18,
+      "arquivo": "8º_Ano_FIRMINO_JOSÉ_A_MAT_Media68.6_Alunos18.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "B",
+      "disciplina": "Ciências Naturais",
+      "media": 65.9,
+      "alunos": 19,
+      "arquivo": "8º_Ano_FIRMINO_JOSÉ_B_CN_Media65.9_Alunos19.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "B",
+      "disciplina": "Língua Portuguesa",
+      "media": 62.9,
+      "alunos": 19,
+      "arquivo": "8º_Ano_FIRMINO_JOSÉ_B_LP_Media62.9_Alunos19.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "B",
+      "disciplina": "Matemática",
+      "media": 60.8,
+      "alunos": 19,
+      "arquivo": "8º_Ano_FIRMINO_JOSÉ_B_MAT_Media60.8_Alunos19.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "A",
+      "disciplina": "Ciências Naturais",
+      "media": 63.2,
+      "alunos": 18,
+      "arquivo": "8º_Ano_JOSE_ALVES_A_CN_Media63.2_Alunos18.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 64.8,
+      "alunos": 18,
+      "arquivo": "8º_Ano_JOSE_ALVES_A_LP_Media64.8_Alunos18.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 63.9,
+      "alunos": 18,
+      "arquivo": "8º_Ano_JOSE_ALVES_A_MAT_Media63.9_Alunos18.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "B",
+      "disciplina": "Ciências Naturais",
+      "media": 63.0,
+      "alunos": 18,
+      "arquivo": "8º_Ano_JOSE_ALVES_B_CN_Media63.0_Alunos18.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "B",
+      "disciplina": "Língua Portuguesa",
+      "media": 64.5,
+      "alunos": 18,
+      "arquivo": "8º_Ano_JOSE_ALVES_B_LP_Media64.5_Alunos18.png"
+    },
+    {
+      "ano": "8º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "B",
+      "disciplina": "Matemática",
+      "media": 63.0,
+      "alunos": 18,
+      "arquivo": "8º_Ano_JOSE_ALVES_B_MAT_Media63.0_Alunos18.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "03 DE DEZEMBRO",
+      "turma": "ÚNICA",
+      "disciplina": "Ciências Naturais",
+      "media": 76.5,
+      "alunos": 6,
+      "arquivo": "9º_Ano_03_DE_DEZEMBRO_CN_Media76.5_Alunos6.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "03 DE DEZEMBRO",
+      "turma": "ÚNICA",
+      "disciplina": "Língua Portuguesa",
+      "media": 76.9,
+      "alunos": 6,
+      "arquivo": "9º_Ano_03_DE_DEZEMBRO_LP_Media76.9_Alunos6.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "03 DE DEZEMBRO",
+      "turma": "ÚNICA",
+      "disciplina": "Matemática",
+      "media": 75.8,
+      "alunos": 6,
+      "arquivo": "9º_Ano_03_DE_DEZEMBRO_MAT_Media75.8_Alunos6.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "A",
+      "disciplina": "Ciências Naturais",
+      "media": 68.5,
+      "alunos": 31,
+      "arquivo": "9º_Ano_21_DE_DEZEMBRO_A_CN_Media68.5_Alunos31.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 68.5,
+      "alunos": 31,
+      "arquivo": "9º_Ano_21_DE_DEZEMBRO_A_LP_Media68.5_Alunos31.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 60.2,
+      "alunos": 31,
+      "arquivo": "9º_Ano_21_DE_DEZEMBRO_A_MAT_Media60.2_Alunos31.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "B",
+      "disciplina": "Ciências Naturais",
+      "media": 66.3,
+      "alunos": 30,
+      "arquivo": "9º_Ano_21_DE_DEZEMBRO_B_CN_Media66.3_Alunos30.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "B",
+      "disciplina": "Língua Portuguesa",
+      "media": 66.1,
+      "alunos": 30,
+      "arquivo": "9º_Ano_21_DE_DEZEMBRO_B_LP_Media66.1_Alunos30.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "B",
+      "disciplina": "Matemática",
+      "media": 66.8,
+      "alunos": 30,
+      "arquivo": "9º_Ano_21_DE_DEZEMBRO_B_MAT_Media66.8_Alunos30.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "C",
+      "disciplina": "Ciências Naturais",
+      "media": 67.0,
+      "alunos": 30,
+      "arquivo": "9º_Ano_21_DE_DEZEMBRO_C_CN_Media67.0_Alunos30.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "C",
+      "disciplina": "Língua Portuguesa",
+      "media": 67.7,
+      "alunos": 30,
+      "arquivo": "9º_Ano_21_DE_DEZEMBRO_C_LP_Media67.7_Alunos30.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "21 DE DEZEMBRO",
+      "turma": "C",
+      "disciplina": "Matemática",
+      "media": 64.8,
+      "alunos": 30,
+      "arquivo": "9º_Ano_21_DE_DEZEMBRO_C_MAT_Media64.8_Alunos30.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "ÚNICA",
+      "disciplina": "Ciências Naturais",
+      "media": 59.3,
+      "alunos": 10,
+      "arquivo": "9º_Ano_ANTONIO_DE_SOUSA_BARROS_CN_Media59.3_Alunos10.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "ÚNICA",
+      "disciplina": "Língua Portuguesa",
+      "media": 63.5,
+      "alunos": 10,
+      "arquivo": "9º_Ano_ANTONIO_DE_SOUSA_BARROS_LP_Media63.5_Alunos10.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "ANTONIO DE SOUSA BARROS",
+      "turma": "ÚNICA",
+      "disciplina": "Matemática",
+      "media": 60.7,
+      "alunos": 10,
+      "arquivo": "9º_Ano_ANTONIO_DE_SOUSA_BARROS_MAT_Media60.7_Alunos10.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "A",
+      "disciplina": "Ciências Naturais",
+      "media": 63.2,
+      "alunos": 15,
+      "arquivo": "9º_Ano_FIRMINO_JOSÉ_A_CN_Media63.2_Alunos15.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "A",
+      "disciplina": "Língua Portuguesa",
+      "media": 64.4,
+      "alunos": 15,
+      "arquivo": "9º_Ano_FIRMINO_JOSÉ_A_LP_Media64.4_Alunos15.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "A",
+      "disciplina": "Matemática",
+      "media": 62.0,
+      "alunos": 15,
+      "arquivo": "9º_Ano_FIRMINO_JOSÉ_A_MAT_Media62.0_Alunos15.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "B",
+      "disciplina": "Ciências Naturais",
+      "media": 65.5,
+      "alunos": 16,
+      "arquivo": "9º_Ano_FIRMINO_JOSÉ_B_CN_Media65.5_Alunos16.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "B",
+      "disciplina": "Língua Portuguesa",
+      "media": 62.1,
+      "alunos": 16,
+      "arquivo": "9º_Ano_FIRMINO_JOSÉ_B_LP_Media62.1_Alunos16.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "FIRMINO JOSÉ",
+      "turma": "B",
+      "disciplina": "Matemática",
+      "media": 61.8,
+      "alunos": 16,
+      "arquivo": "9º_Ano_FIRMINO_JOSÉ_B_MAT_Media61.8_Alunos16.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "ÚNICA",
+      "disciplina": "Ciências Naturais",
+      "media": 62.3,
+      "alunos": 30,
+      "arquivo": "9º_Ano_JOSE_ALVES_CN_Media62.3_Alunos30.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "ÚNICA",
+      "disciplina": "Língua Portuguesa",
+      "media": 65.4,
+      "alunos": 30,
+      "arquivo": "9º_Ano_JOSE_ALVES_LP_Media65.4_Alunos30.png"
+    },
+    {
+      "ano": "9º Ano",
+      "escola": "JOSE ALVES",
+      "turma": "ÚNICA",
+      "disciplina": "Matemática",
+      "media": 67.0,
+      "alunos": 30,
+      "arquivo": "9º_Ano_JOSE_ALVES_MAT_Media67.0_Alunos30.png"
+    }
+  ]
+}
