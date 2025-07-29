@@ -623,40 +623,25 @@
     <script>
         // Função para abrir a aplicação de Ranking
         function openRankingApp() {
-            // Primeiro, tentar abrir a versão Next.js
-            const nextjsURL = 'http://localhost:3001';
+            console.log("📊 Abrindo aplicação de ranking...");
             
-            // Verificar se o Next.js está rodando
-            fetch(nextjsURL)
-                .then(response => {
-                    if (response.ok) {
-                        // Next.js disponível - navegar na mesma guia
-                        console.log('✅ Next.js app local detectado - navegando para aplicação');
-                        window.location.href = nextjsURL;
-                    } else {
-                        throw new Error('Next.js não está rodando');
-                    }
-                })
-                .catch(() => {
-                    // Tentar versão estática do Next.js primeiro
-                    const staticAppURL = 'ranking-app/index.html';
-                    
-                    // Verificar se a versão estática existe
-                    fetch(staticAppURL, { method: 'HEAD' })
-                        .then(response => {
-                            if (response.ok) {
-                                console.log('✅ Navegando para app estático Next.js');
-                                window.location.href = staticAppURL;
-                            } else {
-                                throw new Error('App estático não encontrado');
-                            }
-                        })
-                        .catch(() => {
-                            // Fallback final para versão HTML simples
-                            console.log('⚠️ Navegando para fallback ranking.html');
-                            window.location.href = 'ranking.html';
-                        });
-                });
+            // Verificar se está em desenvolvimento (localhost)
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                // Em desenvolvimento, tentar o servidor Next.js primeiro
+                fetch('http://localhost:3001/data/ranking_turmas_por_ano.json')
+                    .then(() => {
+                        console.log("✅ Servidor Next.js detectado - usando versão de desenvolvimento");
+                        window.location.href = 'http://localhost:3001/';
+                    })
+                    .catch(() => {
+                        console.log("⚠️ Servidor Next.js não disponível - usando versão estática");
+                        window.location.href = './ranking-static/index.html';
+                    });
+            } else {
+                // Em produção, usar a versão estática
+                console.log("🌐 Ambiente de produção - usando versão estática");
+                window.location.href = './ranking-static/index.html';
+            }
         }
         
         // Verificar status das aplicações no carregamento da página
