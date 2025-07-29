@@ -11,7 +11,9 @@ import {
   GraduationCap,
   School,
   Target,
-  TrendingUp 
+  TrendingUp,
+  ArrowLeft,
+  Home
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -40,6 +42,25 @@ export function Sidebar() {
 
         {/* Navigation */}
         <nav className="flex-1 px-4 py-6 space-y-2">
+          {/* Botão Voltar para SADE */}
+          <button
+            onClick={() => {
+              // Detectar se está em localhost (desenvolvimento) ou produção
+              if (window.location.hostname === 'localhost') {
+                // Em desenvolvimento local, tentar voltar para onde o SADE está rodando
+                // Pode ser file:// ou outro servidor local
+                window.history.back();
+              } else {
+                // Em produção (GitHub Pages), navegar para a raiz do site
+                window.location.href = window.location.origin + '/sade/';
+              }
+            }}
+            className="w-full flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 hover:bg-green-50 hover:text-green-700 group text-green-600 border border-green-200 hover:border-green-300 mb-4"
+          >
+            <ArrowLeft className="mr-3 h-5 w-5" />
+            Voltar para SADE
+          </button>
+
           {navigation?.map?.((item) => {
             const Icon = item?.icon;
             return (
