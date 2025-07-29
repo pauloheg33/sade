@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SADE - Ranking das Escolas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <style>
+        .stats-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .stats-card:hover {
+            transform: translateY(-5px);
+        }
+        .stats-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+        .ranking-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .ranking-position {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .school-name {
+            font-weight: 600;
+            color: #333;
+        }
+        .grade-badge {
+            background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        .performance-bar {
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .performance-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #56ab2f 0%, #a8e6cf 100%);
+            transition: width 0.3s ease;
+        }
+        .header-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <!-- Header -->
+    <header class="header-bg text-white py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="display-5 fw-bold mb-1">🏆 Ranking das Escolas</h1>
+                    <p class="lead mb-0">Sistema de Avaliação e Desempenho Escolar - SADE</p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <button class="btn btn-light" onclick="window.close()">
+                        <i class="fas fa-arrow-left me-2"></i>Voltar ao SADE
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <!-- Filtros -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <label class="form-label fw-bold">
+                    <i class="fas fa-filter me-2"></i>Filtrar por Ano Escolar
+                </label>
+                <select id="yearFilter" class="form-select" onchange="updateRanking()">
+                    <option value="all">Todos os Anos</option>
+                    <option value="1">1º Ano</option>
+                    <option value="2">2º Ano</option>
+                    <option value="3">3º Ano</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label fw-bold">
+                    <i class="fas fa-book me-2"></i>Filtrar por Disciplina
+                </label>
+                <select id="subjectFilter" class="form-select" onchange="updateRanking()">
+                    <option value="all">Todas as Disciplinas</option>
+                    <option value="LP">Língua Portuguesa</option>
+                    <option value="MAT">Matemática</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <i class="fas fa-school fa-2x mb-2"></i>
+                    <div class="stats-number" id="totalSchools">-</div>
+                    <div>Escolas</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <i class="fas fa-users fa-2x mb-2"></i>
+                    <div class="stats-number" id="totalStudents">-</div>
+                    <div>Alunos</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <i class="fas fa-chart-line fa-2x mb-2"></i>
+                    <div class="stats-number" id="avgPerformance">-</div>
+                    <div>Média Geral</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <i class="fas fa-trophy fa-2x mb-2"></i>
+                    <div class="stats-number" id="bestPerformance">-</div>
+                    <div>Melhor Nota</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card ranking-table">
+                    <div class="card-header header-bg text-white">
+                        <h5 class="mb-0"><i class="fas fa-chart-bar me-2"></i>Gráfico de Desempenho</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="rankingChart" style="max-height: 400px;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ranking Table -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card ranking-table">
+                    <div class="card-header header-bg text-white">
+                        <h5 class="mb-0"><i class="fas fa-table me-2"></i>Ranking Detalhado</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Posição</th>
+                                        <th>Escola</th>
+                                        <th>Ano</th>
+                                        <th>Disciplina</th>
+                                        <th>Média</th>
+                                        <th>Alunos</th>
+                                        <th>Desempenho</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="rankingTableBody">
+                                    <!-- Dados serão carregados aqui -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let rankingData = {};
+        let chart = null;
+
+        // Carregar dados
+        async function loadData() {
+            try {
+                const response = await fetch('../data/ranking_turmas_por_ano.json');
+                if (!response.ok) {
+                    throw new Error('Dados não encontrados');
+                }
+                rankingData = await response.json();
+                updateRanking();
+            } catch (error) {
+                console.error('Erro ao carregar dados:', error);
+                document.getElementById('rankingTableBody').innerHTML = 
+                    '<tr><td colspan="7" class="text-center text-muted py-5">' +
+                    '<i class="fas fa-exclamation-triangle fa-2x mb-3"></i><br>' +
+                    'Erro ao carregar dados do ranking<br>' +
+                    '<small>Verifique se o arquivo de dados existe</small></td></tr>';
+            }
+        }
+
+        // Atualizar ranking com filtros
+        function updateRanking() {
+            if (!rankingData || Object.keys(rankingData).length === 0) return;
+
+            const yearFilter = document.getElementById('yearFilter').value;
+            const subjectFilter = document.getElementById('subjectFilter').value;
+
+            // Filtrar dados
+            let filteredData = [];
+            
+            Object.entries(rankingData).forEach(([year, yearData]) => {
+                if (yearFilter !== 'all' && year !== `${yearFilter}º Ano`) return;
+                
+                Object.entries(yearData).forEach(([school, schoolData]) => {
+                    Object.entries(schoolData).forEach(([subject, data]) => {
+                        if (subjectFilter !== 'all' && subject !== subjectFilter) return;
+                        
+                        filteredData.push({
+                            year: year,
+                            school: school,
+                            subject: subject,
+                            media: data.media,
+                            alunos: data.alunos,
+                            position: 0
+                        });
+                    });
+                });
+            });
+
+            // Ordenar por média
+            filteredData.sort((a, b) => b.media - a.media);
+            
+            // Atribuir posições
+            filteredData.forEach((item, index) => {
+                item.position = index + 1;
+            });
+
+            // Atualizar estatísticas
+            updateStats(filteredData);
+            
+            // Atualizar tabela
+            updateTable(filteredData);
+            
+            // Atualizar gráfico
+            updateChart(filteredData);
+        }
+
+        // Atualizar estatísticas
+        function updateStats(data) {
+            const totalSchools = new Set(data.map(item => item.school)).size;
+            const totalStudents = data.reduce((sum, item) => sum + item.alunos, 0);
+            const avgPerformance = data.length > 0 ? 
+                (data.reduce((sum, item) => sum + item.media, 0) / data.length).toFixed(1) : 0;
+            const bestPerformance = data.length > 0 ? data[0].media.toFixed(1) : 0;
+
+            document.getElementById('totalSchools').textContent = totalSchools;
+            document.getElementById('totalStudents').textContent = totalStudents;
+            document.getElementById('avgPerformance').textContent = avgPerformance;
+            document.getElementById('bestPerformance').textContent = bestPerformance;
+        }
+
+        // Atualizar tabela
+        function updateTable(data) {
+            const tbody = document.getElementById('rankingTableBody');
+            
+            if (data.length === 0) {
+                tbody.innerHTML = 
+                    '<tr><td colspan="7" class="text-center text-muted py-5">' +
+                    '<i class="fas fa-search fa-2x mb-3"></i><br>' +
+                    'Nenhum resultado encontrado<br>' +
+                    '<small>Tente alterar os filtros</small></td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = data.slice(0, 20).map(item => `
+                <tr>
+                    <td class="ranking-position">#${item.position}</td>
+                    <td class="school-name">${item.school}</td>
+                    <td><span class="grade-badge">${item.year}</span></td>
+                    <td>${item.subject}</td>
+                    <td class="fw-bold">${item.media.toFixed(1)}</td>
+                    <td>${item.alunos}</td>
+                    <td>
+                        <div class="performance-bar">
+                            <div class="performance-fill" style="width: ${(item.media / 100) * 100}%"></div>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Atualizar gráfico
+        function updateChart(data) {
+            const ctx = document.getElementById('rankingChart').getContext('2d');
+            
+            if (chart) {
+                chart.destroy();
+            }
+
+            const top10 = data.slice(0, 10);
+            
+            chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: top10.map(item => item.school.substring(0, 20) + '...'),
+                    datasets: [{
+                        label: 'Média de Desempenho',
+                        data: top10.map(item => item.media),
+                        backgroundColor: 'rgba(102, 126, 234, 0.8)',
+                        borderColor: 'rgba(102, 126, 234, 1)',
+                        borderWidth: 2,
+                        borderRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: {
+                                color: 'rgba(0,0,0,0.1)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Inicializar ao carregar a página
+        document.addEventListener('DOMContentLoaded', loadData);
+    </script>
+</body>
+</html>

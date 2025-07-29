@@ -62,7 +62,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-section="ranking">
+                        <a class="nav-link" href="javascript:void(0)" onclick="openRankingApp()">
                             <i class="fas fa-trophy me-2"></i>Ranking
                         </a>
                     </li>
@@ -188,7 +188,7 @@
                                 Classificação de Turmas por Desempenho<br>
                                 <small>1º ao 3º ano • LP, MAT</small>
                             </p>
-                            <a href="#" class="btn btn-info btn-lg" data-section="ranking">
+                            <a href="javascript:void(0)" class="btn btn-info btn-lg" onclick="openRankingApp()">
                                 <i class="fas fa-trophy me-2"></i>Ver Ranking
                             </a>
                         </div>
@@ -619,5 +619,51 @@
     <script src="sade_data.js"></script>
     <script src="data-transform.js"></script>
     <script src="app-modern.js"></script>
+    
+    <script>
+        // Função para abrir a aplicação de Ranking
+        function openRankingApp() {
+            // Primeiro, tentar abrir a versão HTML simples
+            const simpleRankingURL = 'ranking.html';
+            
+            // Abrir em nova aba
+            const newWindow = window.open(simpleRankingURL, '_blank', 'width=1200,height=800');
+            
+            if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                // Se o popup foi bloqueado, mostrar instruções
+                alert('⚠️ Para acessar o Ranking das Escolas:\n\n' +
+                      'Permita pop-ups para este site e tente novamente.\n\n' +
+                      'Alternativa: Execute "start-ranking.bat" para a versão avançada em http://localhost:3001');
+            }
+        }
+        
+        // Verificar se os dados do ranking estão disponíveis
+        document.addEventListener('DOMContentLoaded', function() {
+            // Verificar se o arquivo de dados existe
+            fetch('data/ranking_turmas_por_ano.json')
+                .then(response => {
+                    if (response.ok) {
+                        // Adicionar badge de dados disponíveis
+                        document.querySelectorAll('[onclick="openRankingApp()"]').forEach(btn => {
+                            const badge = document.createElement('span');
+                            badge.className = 'badge bg-success ms-2';
+                            badge.innerHTML = '● Dados OK';
+                            badge.title = 'Dados do ranking disponíveis';
+                            btn.appendChild(badge);
+                        });
+                    }
+                })
+                .catch(() => {
+                    // Dados não encontrados
+                    document.querySelectorAll('[onclick="openRankingApp()"]').forEach(btn => {
+                        const badge = document.createElement('span');
+                        badge.className = 'badge bg-warning ms-2';
+                        badge.innerHTML = '● Sem Dados';
+                        badge.title = 'Arquivo de dados não encontrado';
+                        btn.appendChild(badge);
+                    });
+                });
+        });
+    </script>
 </body>
 </html>
