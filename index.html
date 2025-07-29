@@ -10,7 +10,9 @@
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     
     <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+                          });
+                });
+        }"preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     
     <!-- Libs CSS -->
@@ -631,21 +633,38 @@
                 .then(response => {
                     if (response.ok) {
                         // Next.js disponível - abrir em nova aba
+                        console.log('✅ Next.js app local detectado');
                         window.open(nextjsURL, '_blank', 'width=1400,height=900');
                     } else {
                         throw new Error('Next.js não está rodando');
                     }
                 })
                 .catch(() => {
-                    // Fallback para versão HTML simples
-                    const simpleRankingURL = 'ranking.html';
-                    const newWindow = window.open(simpleRankingURL, '_blank', 'width=1200,height=800');
+                    // Tentar versão estática do Next.js primeiro
+                    const staticAppURL = 'ranking-app/index.html';
                     
-                    if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
-                        alert('⚠️ Para acessar o Ranking das Escolas:\n\n' +
-                              '✅ Versão Simples: Permita pop-ups e tente novamente\n' +
-                              '🚀 Versão Avançada: Execute "start-ranking.bat" para ativar o Next.js em http://localhost:3001');
-                    }
+                    // Verificar se a versão estática existe
+                    fetch(staticAppURL, { method: 'HEAD' })
+                        .then(response => {
+                            if (response.ok) {
+                                console.log('✅ Abrindo app estático Next.js');
+                                window.open(staticAppURL, '_blank', 'width=1400,height=900');
+                            } else {
+                                throw new Error('App estático não encontrado');
+                            }
+                        })
+                        .catch(() => {
+                            // Fallback final para versão HTML simples
+                            console.log('⚠️ Usando fallback ranking.html');
+                            const simpleRankingURL = 'ranking.html';
+                            const newWindow = window.open(simpleRankingURL, '_blank', 'width=1200,height=800');
+                            
+                            if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                                alert('⚠️ Para acessar o Ranking das Escolas:\n\n' +
+                                      '✅ Versão Simples: Permita pop-ups e tente novamente\n' +
+                                      '🚀 Versão Avançada: Execute "start-ranking.bat" para ativar o Next.js em http://localhost:3001');
+                            }
+                        });
                 });
         }
         
