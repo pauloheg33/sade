@@ -220,15 +220,26 @@
                                 </label>
                                 <div class="upload-area border border-3 border-dashed rounded p-4 text-center" id="uploadArea">
                                     <i class="fas fa-cloud-upload-alt fa-3x text-muted mb-3"></i>
-                                    <p class="mb-2">Arraste e solte o arquivo aqui ou <strong>clique para selecionar</strong></p>
+                                    <p class="mb-2">Arraste e solte o arquivo aqui ou use os botões abaixo</p>
                                     <small class="text-muted">Formatos aceitos: PDF, DOC, DOCX, TXT (máx. 10MB)</small>
+                                    
+                                    <!-- Input de arquivo oculto -->
                                     <input type="file" id="fileInput" class="d-none" accept=".pdf,.doc,.docx,.txt" required>
                                     
-                                    <!-- Botão manual como fallback -->
+                                    <!-- Botões múltiplos para garantir funcionamento -->
                                     <div class="mt-3">
-                                        <button type="button" class="btn btn-outline-purple btn-sm" onclick="document.getElementById('fileInput').click()">
+                                        <button type="button" class="btn btn-purple btn-lg me-2" onclick="document.getElementById('fileInput').click()">
                                             <i class="fas fa-folder-open me-2"></i>Selecionar Arquivo
                                         </button>
+                                        <button type="button" class="btn btn-outline-purple" onclick="window.forceFileSelect()">
+                                            <i class="fas fa-upload me-2"></i>Forçar Seleção
+                                        </button>
+                                    </div>
+                                    
+                                    <!-- Input visível como fallback -->
+                                    <div class="mt-3">
+                                        <label class="form-label small text-muted">Ou use o seletor direto:</label>
+                                        <input type="file" id="fileInputVisible" class="form-control form-control-sm" accept=".pdf,.doc,.docx,.txt">
                                     </div>
                                 </div>
                                 <div id="filePreview" class="mt-3" style="display: none;">
@@ -609,5 +620,124 @@
     
     <!-- Custom Scripts -->
     <script src="matrizes.js"></script>
+    
+    <!-- Script de fallback para upload -->
+    <script>
+        console.log('🔧 Carregando script de fallback para upload...');
+        
+        // Função global para forçar seleção de arquivo
+        window.forceFileSelect = function() {
+            console.log('🚀 Função forceFileSelect executada');
+            
+            const fileInput = document.getElementById('fileInput');
+            const fileInputVisible = document.getElementById('fileInputVisible');
+            
+            // Tentar múltiplas abordagens
+            try {
+                if (fileInput) {
+                    console.log('📂 Tentando fileInput.click()...');
+                    fileInput.click();
+                }
+            } catch (e) {
+                console.error('❌ Erro fileInput:', e);
+            }
+            
+            try {
+                if (fileInputVisible) {
+                    console.log('📂 Tentando fileInputVisible.click()...');
+                    fileInputVisible.click();
+                }
+            } catch (e) {
+                console.error('❌ Erro fileInputVisible:', e);
+            }
+            
+            // Disparar evento artificial
+            try {
+                const event = new MouseEvent('click', {
+                    view: window,
+                    bubbles: true,
+                    cancelable: true
+                });
+                fileInput.dispatchEvent(event);
+                console.log('✅ Evento artificial disparado');
+            } catch (e) {
+                console.error('❌ Erro evento artificial:', e);
+            }
+        };
+        
+        // Configurar quando DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 DOM pronto, configurando upload fallback...');
+            
+            const fileInput = document.getElementById('fileInput');
+            const fileInputVisible = document.getElementById('fileInputVisible');
+            const uploadArea = document.getElementById('uploadArea');
+            
+            // Configurar input visível
+            if (fileInputVisible) {
+                fileInputVisible.addEventListener('change', function(e) {
+                    const file = e.target.files[0];
+                    if (file) {
+                        console.log('📁 Arquivo selecionado via input visível:', file.name);
+                        
+                        // Copiar para o input principal
+                        if (fileInput) {
+                            fileInput.files = e.target.files;
+                        }
+                        
+                        // Mostrar preview
+                        const fileName = document.getElementById('fileName');
+                        const filePreview = document.getElementById('filePreview');
+                        
+                        if (fileName && filePreview) {
+                            fileName.textContent = file.name;
+                            filePreview.style.display = 'block';
+                        }
+                        
+                        // Tentar chamar a função do MatrizesAnalyzer se existir
+                        if (window.matrizesAnalyzer && window.matrizesAnalyzer.processFile) {
+                            window.matrizesAnalyzer.processFile(file);
+                        }
+                    }
+                });
+                console.log('✅ Input visível configurado');
+            }
+            
+            // Configurar clique na área
+            if (uploadArea) {
+                uploadArea.style.cursor = 'pointer';
+                uploadArea.addEventListener('click', function(e) {
+                    // Evitar duplo clique se clicar no botão
+                    if (e.target.tagName === 'BUTTON' || e.target.closest('button')) {
+                        return;
+                    }
+                    
+                    console.log('🖱️ Área de upload clicada');
+                    window.forceFileSelect();
+                });
+                console.log('✅ Área de upload configurada');
+            }
+            
+            // Adicionar botão de debug
+            if (uploadArea) {
+                const debugBtn = document.createElement('button');
+                debugBtn.innerHTML = '<i class="fas fa-bug me-1"></i>Debug';
+                debugBtn.className = 'btn btn-sm btn-warning mt-2';
+                debugBtn.type = 'button';
+                debugBtn.onclick = function() {
+                    console.log('🔍 Debug Info:');
+                    console.log('- fileInput:', document.getElementById('fileInput'));
+                    console.log('- fileInputVisible:', document.getElementById('fileInputVisible'));
+                    console.log('- uploadArea:', document.getElementById('uploadArea'));
+                    
+                    // Tentar abrir
+                    window.forceFileSelect();
+                };
+                
+                uploadArea.appendChild(debugBtn);
+                console.log('✅ Botão de debug adicionado');
+            }
+        });
+    </script>
 </body>
 </html>

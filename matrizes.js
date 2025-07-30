@@ -1660,5 +1660,45 @@ class MatrizesAnalyzer {
 
 // Inicializar quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', () => {
-    new MatrizesAnalyzer();
+    console.log('🚀 Inicializando MatrizesAnalyzer...');
+    window.matrizesAnalyzer = new MatrizesAnalyzer();
+    
+    // Configurar uploads adicionais para compatibilidade
+    setTimeout(() => {
+        setupAdditionalUploadHandlers();
+    }, 500);
 });
+
+// Função adicional para garantir compatibilidade
+function setupAdditionalUploadHandlers() {
+    console.log('🔧 Configurando handlers adicionais...');
+    
+    const fileInput = document.getElementById('fileInput');
+    const fileInputVisible = document.getElementById('fileInputVisible');
+    
+    // Handler para input visível
+    if (fileInputVisible && window.matrizesAnalyzer) {
+        fileInputVisible.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                console.log('📁 Processando arquivo do input visível:', file.name);
+                
+                // Sincronizar com input principal
+                if (fileInput) {
+                    try {
+                        const dt = new DataTransfer();
+                        dt.items.add(file);
+                        fileInput.files = dt.files;
+                    } catch (error) {
+                        console.log('⚠️ Não foi possível sincronizar inputs:', error);
+                    }
+                }
+                
+                // Processar arquivo
+                if (window.matrizesAnalyzer.processFile) {
+                    window.matrizesAnalyzer.processFile(file);
+                }
+            }
+        });
+    }
+}
