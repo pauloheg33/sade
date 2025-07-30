@@ -299,19 +299,35 @@
 
             <!-- Analysis Results -->
             <div class="analysis-results">
-                <h4 class="mb-4"><i class="fas fa-chart-bar me-2"></i>Resultados da Análise</h4>
+                <h4 class="mb-4"><i class="fas fa-chart-bar me-2"></i>Resultados da Análise - Matriz de Referência MEC 2025</h4>
                 
                 <!-- Correlations List -->
                 <div class="row">
-                    <div class="col-lg-8">
-                        <h5>Questões x Habilidades</h5>
+                    <div class="col-lg-9">
+                        <h5><i class="fas fa-link me-2"></i>Correlações: Questões x Habilidades BNCC</h5>
                         <div id="correlationsList" class="table-responsive">
                             <!-- Correlations will be inserted here -->
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <h5>Distribuição</h5>
+                    <div class="col-lg-3">
+                        <h5><i class="fas fa-chart-pie me-2"></i>Distribuição</h5>
                         <canvas id="distributionChart" width="300" height="300"></canvas>
+                        
+                        <div class="mt-4">
+                            <h6><i class="fas fa-info-circle me-2"></i>Legenda</h6>
+                            <div class="d-flex align-items-center mb-2">
+                                <span class="correlation-badge correlation-high me-2">Alta</span>
+                                <small>≥ 80% de correlação</small>
+                            </div>
+                            <div class="d-flex align-items-center mb-2">
+                                <span class="correlation-badge correlation-medium me-2">Média</span>
+                                <small>65-79% de correlação</small>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <span class="correlation-badge correlation-low me-2">Baixa</span>
+                                <small>&lt; 65% de correlação</small>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -336,65 +352,102 @@
         let selectedFile = null;
         let analysisResults = null;
         
-        // Matrix reference data (embedded for GitHub Pages compatibility)
+        // Matriz de Referência MEC 2025 - Anos Finais (dados embarcados para GitHub Pages)
         const matrizReferencia = {
             portugues: {
                 6: [
-                    { codigo: "H1", descricao: "Localizar informações explícitas em textos", ciclo: "Ciclo I" },
-                    { codigo: "H2", descricao: "Inferir informações implícitas", ciclo: "Ciclo I" },
-                    { codigo: "H3", descricao: "Identificar tema central do texto", ciclo: "Ciclo II" },
-                    { codigo: "H4", descricao: "Distinguir fato de opinião", ciclo: "Ciclo II" },
-                    { codigo: "H5", descricao: "Interpretar linguagem não-verbal", ciclo: "Ciclo I" }
+                    { codigo: "D1", nome: "Procedimentos de Leitura", bncc: "EF67LP01", descricao: "Localizar informações explícitas em textos de diferentes gêneros" },
+                    { codigo: "D3", nome: "Inferência", bncc: "EF67LP04", descricao: "Inferir o sentido de uma palavra ou expressão" },
+                    { codigo: "D4", nome: "Coerência e Coesão", bncc: "EF67LP07", descricao: "Inferir uma informação implícita em um texto" },
+                    { codigo: "D6", nome: "Tema/Tópico", bncc: "EF67LP08", descricao: "Identificar o tema de um texto" },
+                    { codigo: "D11", nome: "Coerência e Coesão", bncc: "EF67LP12", descricao: "Distinguir um fato da opinião relativa a esse fato" },
+                    { codigo: "D21", nome: "Variação Linguística", bncc: "EF67LP32", descricao: "Reconhecer posições distintas entre duas ou mais opiniões relativas ao mesmo fato" }
                 ],
                 7: [
-                    { codigo: "H6", descricao: "Analisar recursos expressivos", ciclo: "Ciclo II" },
-                    { codigo: "H7", descricao: "Identificar gênero textual", ciclo: "Ciclo II" },
-                    { codigo: "H8", descricao: "Reconhecer elementos da narrativa", ciclo: "Ciclo III" }
+                    { codigo: "D5", nome: "Interpretação", bncc: "EF07LP01", descricao: "Interpretar texto com auxílio de material gráfico" },
+                    { codigo: "D12", nome: "Identificação de Gênero", bncc: "EF07LP02", descricao: "Identificar a finalidade de textos de diferentes gêneros" },
+                    { codigo: "D7", nome: "Estrutura e Organização", bncc: "EF07LP03", descricao: "Identificar a tese de um texto" },
+                    { codigo: "D8", nome: "Argumentação", bncc: "EF07LP04", descricao: "Estabelecer relação entre a tese e os argumentos" },
+                    { codigo: "D9", nome: "Narrativa", bncc: "EF07LP05", descricao: "Diferenciar as partes principais das secundárias em um texto" },
+                    { codigo: "D15", nome: "Efeitos de Sentido", bncc: "EF07LP06", descricao: "Reconhecer diferentes formas de tratar uma informação" }
                 ],
                 8: [
-                    { codigo: "H9", descricao: "Comparar textos de diferentes gêneros", ciclo: "Ciclo III" },
-                    { codigo: "H10", descricao: "Analisar argumentação", ciclo: "Ciclo III" }
+                    { codigo: "D13", nome: "Efeitos de Sentido", bncc: "EF08LP01", descricao: "Identificar efeitos de ironia ou humor em textos variados" },
+                    { codigo: "D14", nome: "Variação Linguística", bncc: "EF08LP02", descricao: "Identificar o efeito de sentido decorrente do uso da pontuação" },
+                    { codigo: "D16", nome: "Argumentação", bncc: "EF08LP03", descricao: "Identificar efeitos de sentido decorrentes do uso de outras notações" },
+                    { codigo: "D18", nome: "Intertextualidade", bncc: "EF08LP04", descricao: "Reconhecer o efeito de sentido decorrente da escolha de uma palavra" },
+                    { codigo: "D19", nome: "Coesão", bncc: "EF08LP05", descricao: "Reconhecer o efeito de sentido decorrente da exploração de recursos morfossintáticos" }
                 ],
                 9: [
-                    { codigo: "H11", descricao: "Avaliar consistência de argumentos", ciclo: "Ciclo IV" },
-                    { codigo: "H12", descricao: "Interpretar textos literários", ciclo: "Ciclo IV" }
+                    { codigo: "D2", nome: "Implicações do Suporte", bncc: "EF09LP01", descricao: "Estabelecer relações entre partes de um texto" },
+                    { codigo: "D10", nome: "Identificação de Conflito", bncc: "EF09LP02", descricao: "Identificar o conflito gerador do enredo e os elementos que constroem a narrativa" },
+                    { codigo: "D17", nome: "Posicionamento", bncc: "EF09LP03", descricao: "Reconhecer o efeito de sentido decorrente do uso de recursos estilísticos" },
+                    { codigo: "D20", nome: "Efeitos Estilísticos", bncc: "EF09LP04", descricao: "Reconhecer diferentes formas de tratar uma informação na comparação de textos" }
                 ]
             },
             matematica: {
                 6: [
-                    { codigo: "M1", descricao: "Resolver operações com números naturais", ciclo: "Ciclo I" },
-                    { codigo: "M2", descricao: "Trabalhar com frações", ciclo: "Ciclo I" },
-                    { codigo: "M3", descricao: "Calcular perímetro e área", ciclo: "Ciclo II" }
+                    { codigo: "D1", nome: "Números e Operações", bncc: "EF06MA01", descricao: "Reconhecer e utilizar números naturais no contexto diário" },
+                    { codigo: "D2", nome: "Números e Operações", bncc: "EF06MA02", descricao: "Reconhecer e utilizar números inteiros" },
+                    { codigo: "D16", nome: "Números e Operações", bncc: "EF06MA07", descricao: "Reconhecer, comparar e ordenar números racionais" },
+                    { codigo: "D17", nome: "Números e Operações", bncc: "EF06MA08", descricao: "Identificar a localização de números racionais na reta numérica" },
+                    { codigo: "D18", nome: "Números e Operações", bncc: "EF06MA09", descricao: "Efetuar cálculos com números racionais por meio de estratégias variadas" },
+                    { codigo: "D36", nome: "Geometria", bncc: "EF06MA29", descricao: "Resolver problemas que envolvam as noções de perímetro e área" }
                 ],
                 7: [
-                    { codigo: "M4", descricao: "Operar com números inteiros", ciclo: "Ciclo II" },
-                    { codigo: "M5", descricao: "Resolver equações simples", ciclo: "Ciclo II" }
+                    { codigo: "D19", nome: "Números e Operações", bncc: "EF07MA03", descricao: "Resolver problemas que envolvam números inteiros" },
+                    { codigo: "D20", nome: "Números e Operações", bncc: "EF07MA04", descricao: "Resolver problemas que envolvam operações com números racionais" },
+                    { codigo: "D21", nome: "Álgebra", bncc: "EF07MA13", descricao: "Resolver problemas que envolvam equações do 1º grau" },
+                    { codigo: "D22", nome: "Álgebra", bncc: "EF07MA14", descricao: "Resolver problemas que envolvam inequações do 1º grau" },
+                    { codigo: "D37", nome: "Geometria", bncc: "EF07MA30", descricao: "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas" }
                 ],
                 8: [
-                    { codigo: "M6", descricao: "Trabalhar com potenciação", ciclo: "Ciclo III" },
-                    { codigo: "M7", descricao: "Resolver sistemas de equações", ciclo: "Ciclo III" }
+                    { codigo: "D4", nome: "Números e Operações", bncc: "EF08MA01", descricao: "Resolver problemas que envolvam potenciação ou radiciação" },
+                    { codigo: "D23", nome: "Álgebra", bncc: "EF08MA06", descricao: "Resolver problemas que envolvam sistemas de equações do 1º grau" },
+                    { codigo: "D24", nome: "Álgebra", bncc: "EF08MA07", descricao: "Reconhecer a representação algébrica de uma função do 1º grau" },
+                    { codigo: "D38", nome: "Geometria", bncc: "EF08MA18", descricao: "Resolver problemas que envolvam ângulos" },
+                    { codigo: "D39", nome: "Geometria", bncc: "EF08MA19", descricao: "Interpretar informações apresentadas por meio de coordenadas cartesianas" }
                 ],
                 9: [
-                    { codigo: "M8", descricao: "Resolver equações do 2º grau", ciclo: "Ciclo IV" },
-                    { codigo: "M9", descricao: "Aplicar teorema de Pitágoras", ciclo: "Ciclo IV" }
+                    { codigo: "D25", nome: "Álgebra", bncc: "EF09MA06", descricao: "Resolver problemas que envolvam equações do 2º grau" },
+                    { codigo: "D26", nome: "Álgebra", bncc: "EF09MA07", descricao: "Identificar a representação algébrica e/ou gráfica de uma função quadrática" },
+                    { codigo: "D40", nome: "Geometria", bncc: "EF09MA13", descricao: "Resolver problemas envolvendo relações métricas no triângulo retângulo" },
+                    { codigo: "D41", nome: "Geometria", bncc: "EF09MA14", descricao: "Resolver problemas que envolvam figuras geométricas planas" },
+                    { codigo: "D42", nome: "Geometria", bncc: "EF09MA15", descricao: "Interpretar e utilizar diferentes representações matemáticas" }
                 ]
             },
             ciencias: {
                 6: [
-                    { codigo: "C1", descricao: "Identificar características dos seres vivos", ciclo: "Ciclo I" },
-                    { codigo: "C2", descricao: "Compreender cadeia alimentar", ciclo: "Ciclo I" }
+                    { codigo: "H1", nome: "Vida e Evolução", bncc: "EF06CI02", descricao: "Classificar os seres vivos em grandes grupos" },
+                    { codigo: "H2", nome: "Vida e Evolução", bncc: "EF06CI05", descricao: "Explicar a organização básica das células" },
+                    { codigo: "H3", nome: "Vida e Evolução", bncc: "EF06CI06", descricao: "Concluir que a estrutura e o funcionamento do corpo humano" },
+                    { codigo: "H11", nome: "Terra e Universo", bncc: "EF06CI11", descricao: "Identificar as diferentes camadas que estruturam o planeta Terra" },
+                    { codigo: "H12", nome: "Terra e Universo", bncc: "EF06CI13", descricao: "Selecionar argumentos e evidências que demonstrem a esfericidade da Terra" },
+                    { codigo: "H21", nome: "Matéria e Energia", bncc: "EF06CI01", descricao: "Classificar como homogênea ou heterogênea a mistura de dois ou mais materiais" }
                 ],
                 7: [
-                    { codigo: "C3", descricao: "Analisar fenômenos físicos", ciclo: "Ciclo II" },
-                    { codigo: "C4", descricao: "Estudar propriedades da matéria", ciclo: "Ciclo II" }
+                    { codigo: "H4", nome: "Vida e Evolução", bncc: "EF07CI07", descricao: "Caracterizar os principais ecossistemas brasileiros" },
+                    { codigo: "H5", nome: "Vida e Evolução", bncc: "EF07CI08", descricao: "Avaliar como os impactos provocados por catástrofes naturais" },
+                    { codigo: "H6", nome: "Vida e Evolução", bncc: "EF07CI09", descricao: "Interpretar as condições de saúde da comunidade" },
+                    { codigo: "H13", nome: "Terra e Universo", bncc: "EF07CI14", descricao: "Justificar a importância da camada de ozônio para a vida na Terra" },
+                    { codigo: "H22", nome: "Matéria e Energia", bncc: "EF07CI01", descricao: "Discutir a aplicação de máquinas simples e propor soluções" },
+                    { codigo: "H23", nome: "Matéria e Energia", bncc: "EF07CI03", descricao: "Utilizar o conhecimento das formas de propagação do calor" }
                 ],
                 8: [
-                    { codigo: "C5", descricao: "Compreender transformações químicas", ciclo: "Ciclo III" },
-                    { codigo: "C6", descricao: "Analisar sistemas do corpo humano", ciclo: "Ciclo III" }
+                    { codigo: "H7", nome: "Vida e Evolução", bncc: "EF08CI10", descricao: "Identificar os principais órgãos e funções dos sistemas" },
+                    { codigo: "H8", nome: "Vida e Evolução", bncc: "EF08CI11", descricao: "Selecionar argumentos que evidenciem as múltiplas dimensões da sexualidade" },
+                    { codigo: "H14", nome: "Terra e Universo", bncc: "EF08CI12", descricao: "Justificar por que a Terra não é iluminada uniformemente ao longo do ano" },
+                    { codigo: "H15", nome: "Terra e Universo", bncc: "EF08CI13", descricao: "Representar os movimentos de rotação e translação da Terra" },
+                    { codigo: "H24", nome: "Matéria e Energia", bncc: "EF08CI01", descricao: "Identificar e classificar diferentes fontes e tipos de energia" },
+                    { codigo: "H25", nome: "Matéria e Energia", bncc: "EF08CI03", descricao: "Classificar equipamentos elétricos de acordo com o tipo de transformação" }
                 ],
                 9: [
-                    { codigo: "C7", descricao: "Aplicar leis da física", ciclo: "Ciclo IV" },
-                    { codigo: "C8", descricao: "Compreender genética básica", ciclo: "Ciclo IV" }
+                    { codigo: "H9", nome: "Vida e Evolução", bncc: "EF09CI08", descricao: "Associar os gametas à transmissão das características hereditárias" },
+                    { codigo: "H10", nome: "Vida e Evolução", bncc: "EF09CI09", descricao: "Discutir as ideias de Mendel sobre hereditariedade" },
+                    { codigo: "H16", nome: "Terra e Universo", bncc: "EF09CI14", descricao: "Descrever a composição e a estrutura do Sistema Solar" },
+                    { codigo: "H17", nome: "Terra e Universo", bncc: "EF09CI16", descricao: "Selecionar argumentos sobre a viabilidade da sobrevivência humana fora da Terra" },
+                    { codigo: "H26", nome: "Matéria e Energia", bncc: "EF09CI01", descricao: "Investigar as mudanças de estado físico da matéria" },
+                    { codigo: "H27", nome: "Matéria e Energia", bncc: "EF09CI03", descricao: "Identificar modelos que descrevem a estrutura da matéria" }
                 ]
             }
         };
@@ -551,7 +604,12 @@
             
             for (let i = 1; i <= numQuestoes; i++) {
                 const habilidade = habilidades[Math.floor(Math.random() * habilidades.length)] || 
-                    { codigo: `H${i}`, descricao: `Habilidade ${i}`, ciclo: 'Ciclo I' };
+                    { 
+                        codigo: `H${i}`, 
+                        nome: `Habilidade ${i}`,
+                        bncc: `EF0${ano}XX0${i}`,
+                        descricao: `Descrição da habilidade ${i}` 
+                    };
                 
                 const correlacao = 0.6 + (Math.random() * 0.35); // 60% to 95%
                 
@@ -607,7 +665,9 @@
                     <thead class="table-dark">
                         <tr>
                             <th>Questão</th>
-                            <th>Habilidade</th>
+                            <th>Código</th>
+                            <th>Nome da Habilidade</th>
+                            <th>BNCC</th>
                             <th>Descrição</th>
                             <th>Correlação</th>
                         </tr>
@@ -624,6 +684,8 @@
                     <tr>
                         <td><strong>Q${corr.questao}</strong></td>
                         <td><code>${corr.habilidade.codigo}</code></td>
+                        <td><strong>${corr.habilidade.nome || 'Habilidade'}</strong></td>
+                        <td><span class="badge bg-primary">${corr.habilidade.bncc || 'N/A'}</span></td>
                         <td>${corr.habilidade.descricao}</td>
                         <td>
                             <span class="correlation-badge ${badgeClass}">
