@@ -72,6 +72,22 @@ class MatrizesAnalyzer {
         const form = document.getElementById('provaUploadForm');
         if (form) {
             form.addEventListener('submit', this.handleFormSubmit.bind(this));
+            console.log('✅ Form submit listener adicionado');
+        } else {
+            console.error('❌ Formulário provaUploadForm não encontrado!');
+        }
+
+        // Adicionar listener direto no botão como backup
+        const submitBtn = document.querySelector('button[type="submit"]');
+        if (submitBtn) {
+            submitBtn.addEventListener('click', (e) => {
+                console.log('🖱️ Botão Analisar clicado diretamente');
+                if (!form) {
+                    e.preventDefault();
+                    this.handleFormSubmit(e);
+                }
+            });
+            console.log('✅ Listener direto no botão adicionado');
         }
 
         // Remove file button
@@ -179,29 +195,68 @@ class MatrizesAnalyzer {
     }
 
     async handleFormSubmit(e) {
+        console.log('🚀 handleFormSubmit executado!', e);
         e.preventDefault();
+        e.stopPropagation();
+        
+        console.log('📋 Coletando dados do formulário...');
         
         const formData = new FormData();
         const fileInput = document.getElementById('fileInput');
+        const fileInputVisible = document.getElementById('fileInputVisible');
         const anoEscolar = document.getElementById('anoEscolar').value;
         const disciplina = document.getElementById('disciplina').value;
         const escola = document.getElementById('escola').value;
 
-        if (!fileInput.files[0]) {
-            this.showAlert('Por favor, selecione um arquivo.', 'warning');
+        console.log('📊 Dados coletados:', {
+            anoEscolar,
+            disciplina,
+            escola,
+            fileInput: fileInput?.files?.length,
+            fileInputVisible: fileInputVisible?.files?.length
+        });
+
+        // Verificar arquivo em ambos os inputs
+        let selectedFile = null;
+        if (fileInput && fileInput.files[0]) {
+            selectedFile = fileInput.files[0];
+            console.log('📁 Arquivo do input principal:', selectedFile.name);
+        } else if (fileInputVisible && fileInputVisible.files[0]) {
+            selectedFile = fileInputVisible.files[0];
+            console.log('📁 Arquivo do input visível:', selectedFile.name);
+            
+            // Sincronizar com input principal se possível
+            if (fileInput) {
+                try {
+                    const dt = new DataTransfer();
+                    dt.items.add(selectedFile);
+                    fileInput.files = dt.files;
+                    console.log('✅ Arquivo sincronizado com input principal');
+                } catch (error) {
+                    console.log('⚠️ Não foi possível sincronizar:', error);
+                }
+            }
+        }
+
+        if (!selectedFile) {
+            console.error('❌ Nenhum arquivo selecionado!');
+            this.showAlert('Por favor, selecione um arquivo usando qualquer um dos métodos disponíveis.', 'warning');
             return;
         }
 
         if (!anoEscolar || !disciplina) {
+            console.error('❌ Dados obrigatórios não preenchidos!', { anoEscolar, disciplina });
             this.showAlert('Por favor, selecione o ano escolar e a disciplina.', 'warning');
             return;
         }
+
+        console.log('✅ Validação concluída, iniciando análise...');
 
         // Mostrar modal de loading
         const loadingModal = new bootstrap.Modal(document.getElementById('loadingModal'));
         loadingModal.show();
 
-        const file = fileInput.files[0];
+        const file = selectedFile;
         
         // Atualizar mensagens de loading
         document.getElementById('loadingTitle').textContent = 'Analisando arquivo...';
@@ -209,8 +264,11 @@ class MatrizesAnalyzer {
         document.getElementById('loadingDetails').textContent = `Arquivo: ${file.name} (${(file.size/1024).toFixed(1)} KB)`;
 
         try {
+            console.log('🔄 Iniciando análise do arquivo...');
             // Processar arquivo de forma otimizada para GitHub Pages
             const analysisResult = await this.analyzeFileForGitHubPages(file, anoEscolar, disciplina);
+            
+            console.log('📊 Resultado da análise:', analysisResult);
             
             // Atualizar modal com progresso
             document.getElementById('loadingTitle').textContent = 'Correlacionando com matriz...';
@@ -223,8 +281,34 @@ class MatrizesAnalyzer {
             loadingModal.hide();
             this.displayOptimizedAnalysis(anoEscolar, disciplina, escola, analysisResult);
             
+            console.log('✅ Análise concluída com sucesso!');
+            
         } catch (error) {
-            console.error('Erro na análise:', error);
+            console.error('❌ Erro na análise:', error);
+            loadingModal.hide();
+            this.showAlert('Erro ao processar arquivo. Verifique se o arquivo é válido e tente novamente.', 'danger');
+        try {
+            console.log('🔄 Iniciando análise do arquivo...');
+            // Processar arquivo de forma otimizada para GitHub Pages
+            const analysisResult = await this.analyzeFileForGitHubPages(file, anoEscolar, disciplina);
+            
+            console.log('📊 Resultado da análise:', analysisResult);
+            
+            // Atualizar modal com progresso
+            document.getElementById('loadingTitle').textContent = 'Correlacionando com matriz...';
+            document.getElementById('loadingMessage').textContent = 'Mapeando questões identificadas';
+            document.getElementById('loadingDetails').textContent = `${analysisResult.numQuestoes} questões encontradas`;
+            
+            // Pequena pausa para mostrar progresso
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            loadingModal.hide();
+            this.displayOptimizedAnalysis(anoEscolar, disciplina, escola, analysisResult);
+            
+            console.log('✅ Análise concluída com sucesso!');
+            
+        } catch (error) {
+            console.error('❌ Erro na análise:', error);
             loadingModal.hide();
             this.showAlert('Erro ao processar arquivo. Verifique se o arquivo é válido e tente novamente.', 'danger');
         }
