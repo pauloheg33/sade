@@ -138,6 +138,12 @@
                 <div class="col-lg-8 text-center">
                     <h1 class="display-5 fw-bold mb-1">SADE - Matrizes de Referência</h1>
                     <p class="lead mb-0">Sistema de Análise de Correlação Questões x Habilidades</p>
+                    <div class="mt-2">
+                        <span class="badge bg-info fs-6 rounded-pill" id="aiStatus">
+                            <i class="fas fa-robot me-1"></i>IA DISPONÍVEL
+                        </span>
+                        <small class="text-muted ms-2">Clique em "Analisar Prova" para configurar</small>
+                    </div>
                 </div>
                 <div class="col-lg-2 text-center">
                     <span class="badge bg-warning text-dark fs-6 rounded-pill">v0.2.4</span>
@@ -492,22 +498,31 @@
 
         // OpenAI API Functions
         function initializeOpenAI() {
-            const keyInput = document.getElementById('openaiKey');
-            const statusBadge = document.getElementById('apiStatus');
-            
-            keyInput.addEventListener('input', function() {
-                const key = this.value.trim();
-                if (key.startsWith('sk-') && key.length > 20) {
-                    openaiApiKey = key;
-                    statusBadge.className = 'badge bg-success';
-                    statusBadge.textContent = 'IA Ativada';
-                    console.log('🤖 OpenAI API configurada');
+            // Verificar se há chave disponível ou solicitar ao usuário
+            if (!openaiApiKey) {
+                console.log('🤖 Configurando OpenAI API...');
+                const apiKey = prompt('🤖 Para análise inteligente, insira sua chave da API OpenAI:\n(Opcional - pode cancelar para usar análise simulada)');
+                if (apiKey && apiKey.trim().startsWith('sk-')) {
+                    openaiApiKey = apiKey.trim();
+                    console.log('✅ OpenAI API configurada');
+                    
+                    // Atualizar badge no header
+                    const badge = document.getElementById('aiStatus');
+                    if (badge) {
+                        badge.className = 'badge bg-success fs-6 rounded-pill';
+                        badge.innerHTML = '<i class="fas fa-robot me-1"></i>IA ATIVADA';
+                    }
                 } else {
-                    openaiApiKey = null;
-                    statusBadge.className = 'badge bg-secondary';
-                    statusBadge.textContent = 'Não configurada';
+                    console.log('⚠️ OpenAI não configurada - usando análise simulada');
+                    
+                    // Atualizar badge no header
+                    const badge = document.getElementById('aiStatus');
+                    if (badge) {
+                        badge.className = 'badge bg-warning text-dark fs-6 rounded-pill';
+                        badge.innerHTML = '<i class="fas fa-robot me-1"></i>SIMULAÇÃO';
+                    }
                 }
-            });
+            }
         }
 
         async function analyzeWithOpenAI(fileContent, ano, disciplina) {
@@ -769,13 +784,17 @@ IMPORTANTE: Retorne APENAS o JSON, sem texto adicional.
         async function analyzeFile(file, ano, disciplina, escola) {
             console.log('🔍 Analisando arquivo:', file.name);
             
-            // Verificar se OpenAI está configurada
+            // Configurar OpenAI se necessário
             if (!openaiApiKey) {
-                updateLoading('Análise Simulada', 'IA não configurada - usando análise simulada');
-                console.log('⚠️ OpenAI não configurada, usando análise simulada');
-            } else {
-                updateLoading('Análise Inteligente', 'Analisando com IA...');
+                initializeOpenAI();
+            }
+            
+            if (openaiApiKey) {
                 console.log('🤖 Usando análise inteligente (OpenAI)');
+                updateLoading('Análise Inteligente', 'Analisando com IA...');
+            } else {
+                console.log('⚠️ Usando análise simulada');
+                updateLoading('Análise Simulada', 'Processando...');
             }
             
             try {
@@ -788,9 +807,8 @@ IMPORTANTE: Retorne APENAS o JSON, sem texto adicional.
                     
                     updateLoading('Analisando com IA...', 'Correlacionando questões com BNCC');
                     analysisResult = await analyzeWithOpenAI(fileContent, ano, disciplina);
-                    
                 } else {
-                    // Fallback para análise simulada
+                    // Usar análise simulada
                     updateLoading('Identificando questões...', 'Detectando estrutura da prova');
                     await new Promise(resolve => setTimeout(resolve, 1000));
                     
@@ -1021,9 +1039,7 @@ IMPORTANTE: Retorne APENAS o JSON, sem texto adicional.
         document.addEventListener('DOMContentLoaded', function() {
             console.log('🚀 Página Matrizes de Referência carregada - v0.2.4');
             console.log('✅ Todas as funcionalidades ativas');
-            
-            // Initialize OpenAI configuration
-            initializeOpenAI();
+            console.log('🤖 IA disponível - será configurada quando necessário');
         });
     </script>
 </body>
