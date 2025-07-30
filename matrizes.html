@@ -11,6 +11,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
+    <!-- PDF.js Library for enhanced PDF reading -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
+    
     <!-- Custom Styles -->
     <style>
         :root {
@@ -248,11 +252,12 @@
                                 
                                 <!-- Upload Area -->
                                 <div class="upload-area" id="uploadArea">
-                                    <i class="fas fa-cloud-upload-alt fa-4x text-purple mb-3"></i>
-                                    <h5 class="text-purple mb-3">Selecione ou arraste o arquivo aqui</h5>
-                                    <p class="text-muted mb-3">Formatos aceitos: TXT, DOC, DOCX, PDF (máx. 10MB)</p>
+                                    <i class="fas fa-file-pdf fa-4x text-purple mb-3"></i>
+                                    <h5 class="text-purple mb-3">📄 Análise Especializada de PDF</h5>
+                                    <p class="text-muted mb-3">Formato aceito: apenas PDF (máx. 15MB)</p>
+                                    <p class="text-sm text-muted">Sistema avançado com PDF.js para máxima precisão</p>
                                     
-                                    <input type="file" id="fileInput" accept=".txt,.doc,.docx,.pdf" style="display: none;">
+                                    <input type="file" id="fileInput" accept=".pdf" style="display: none;">
                                     
                                     <div class="d-flex justify-content-center gap-2">
                                         <button type="button" class="btn btn-purple" onclick="selectFile()">
@@ -403,8 +408,17 @@
         
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🚀 SADE Matrizes v0.3.0 - Matriz Completa carregada');
-            console.log('� Estatísticas da Matriz:', estatisticasMatriz);
+            console.log('🚀 SADE Matrizes v0.3.0 - Sistema Especializado em PDF');
+            console.log('📊 Estatísticas da Matriz:', estatisticasMatriz);
+            
+            // Configurar PDF.js globalmente
+            if (typeof pdfjsLib !== 'undefined') {
+                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+                console.log('✅ PDF.js configurado com sucesso');
+            } else {
+                console.warn('⚠️ PDF.js não carregado');
+            }
+            
             configurarEventListeners();
         });
         
@@ -442,10 +456,18 @@
         function handleFileSelect(e) {
             const file = e.target.files[0];
             if (file) {
-                if (file.size > 10 * 1024 * 1024) {
-                    alert('❌ Arquivo muito grande! Máximo 10MB.');
+                // Verificar se é PDF
+                if (file.type !== 'application/pdf') {
+                    alert('❌ Apenas arquivos PDF são aceitos! Por favor, selecione um arquivo PDF.');
                     return;
                 }
+                
+                // Verificar tamanho (15MB para PDF)
+                if (file.size > 15 * 1024 * 1024) {
+                    alert('❌ Arquivo muito grande! Máximo 15MB para PDF.');
+                    return;
+                }
+                
                 selectedFile = file;
                 showFilePreview(file);
             }
@@ -475,12 +497,20 @@
             const files = e.dataTransfer.files;
             if (files.length > 0) {
                 const file = files[0];
-                if (file.size <= 10 * 1024 * 1024) {
+                
+                // Verificar se é PDF
+                if (file.type !== 'application/pdf') {
+                    alert('❌ Apenas arquivos PDF são aceitos! Por favor, selecione um arquivo PDF.');
+                    return;
+                }
+                
+                // Verificar tamanho
+                if (file.size <= 15 * 1024 * 1024) {
                     selectedFile = file;
                     showFilePreview(file);
                     document.getElementById('fileInput').files = files;
                 } else {
-                    alert('❌ Arquivo muito grande! Máximo 10MB.');
+                    alert('❌ Arquivo muito grande! Máximo 15MB para PDF.');
                 }
             }
         }
@@ -544,128 +574,344 @@
             }
         }
         
-        // File reading function
+        // Enhanced PDF reading function using PDF.js
         function lerArquivo(file) {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                
-                reader.onload = function(e) {
-                    resolve(e.target.result);
-                };
-                
-                reader.onerror = function() {
-                    reject(new Error('Erro ao ler o arquivo'));
-                };
-                
-                // Read as text
-                reader.readAsText(file, 'UTF-8');
+            return new Promise(async (resolve, reject) => {
+                try {
+                    console.log('📖 Iniciando leitura avançada de PDF...');
+                    
+                    if (file.type === 'application/pdf') {
+                        // Usar PDF.js para extração robusta
+                        const texto = await lerPDFAvancado(file);
+                        resolve(texto);
+                    } else {
+                        reject(new Error('Apenas arquivos PDF são suportados'));
+                    }
+                } catch (error) {
+                    console.error('❌ Erro na leitura:', error);
+                    reject(error);
+                }
             });
         }
         
-        // Advanced question extraction function
+        // Advanced PDF reading using PDF.js
+        async function lerPDFAvancado(file) {
+            return new Promise((resolve, reject) => {
+                const fileReader = new FileReader();
+                
+                fileReader.onload = async function() {
+                    try {
+                        console.log('🔧 Configurando PDF.js...');
+                        
+                        // Configurar PDF.js
+                        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+                        
+                        // Carregar PDF
+                        const typedarray = new Uint8Array(this.result);
+                        const pdf = await pdfjsLib.getDocument(typedarray).promise;
+                        
+                        console.log(`📄 PDF carregado: ${pdf.numPages} páginas`);
+                        
+                        let textoCompleto = '';
+                        const totalPaginas = pdf.numPages;
+                        
+                        // Extrair texto de cada página
+                        for (let numeroPagina = 1; numeroPagina <= totalPaginas; numeroPagina++) {
+                            try {
+                                console.log(`📑 Processando página ${numeroPagina}/${totalPaginas}...`);
+                                
+                                const pagina = await pdf.getPage(numeroPagina);
+                                const conteudoTexto = await pagina.getTextContent();
+                                
+                                // Extrair texto com posicionamento
+                                let textoPagina = '';
+                                let linhaAtual = '';
+                                let yAnterior = null;
+                                
+                                // Organizar itens por posição Y (altura)
+                                const itensOrdenados = conteudoTexto.items.sort((a, b) => {
+                                    if (Math.abs(a.transform[5] - b.transform[5]) < 2) {
+                                        return a.transform[4] - b.transform[4]; // ordenar por X se Y similar
+                                    }
+                                    return b.transform[5] - a.transform[5]; // ordenar por Y (de cima para baixo)
+                                });
+                                
+                                for (const item of itensOrdenados) {
+                                    const y = Math.round(item.transform[5]);
+                                    
+                                    // Detectar nova linha
+                                    if (yAnterior !== null && Math.abs(y - yAnterior) > 2) {
+                                        if (linhaAtual.trim()) {
+                                            textoPagina += linhaAtual.trim() + '\n';
+                                        }
+                                        linhaAtual = '';
+                                    }
+                                    
+                                    // Adicionar texto do item
+                                    if (item.str && item.str.trim()) {
+                                        linhaAtual += item.str + ' ';
+                                    }
+                                    
+                                    yAnterior = y;
+                                }
+                                
+                                // Adicionar última linha
+                                if (linhaAtual.trim()) {
+                                    textoPagina += linhaAtual.trim() + '\n';
+                                }
+                                
+                                // Adicionar separador de página
+                                if (textoPagina.trim()) {
+                                    textoCompleto += `\n--- PÁGINA ${numeroPagina} ---\n`;
+                                    textoCompleto += textoPagina;
+                                    textoCompleto += '\n';
+                                }
+                                
+                            } catch (erroPagina) {
+                                console.warn(`⚠️ Erro na página ${numeroPagina}:`, erroPagina);
+                                textoCompleto += `\n[ERRO NA PÁGINA ${numeroPagina}]\n`;
+                            }
+                        }
+                        
+                        // Limpar e otimizar texto
+                        textoCompleto = limparTextoExtraido(textoCompleto);
+                        
+                        console.log(`✅ PDF processado: ${textoCompleto.length} caracteres extraídos`);
+                        
+                        if (textoCompleto.length < 50) {
+                            reject(new Error('PDF parece estar vazio ou com pouco texto. Verifique se o arquivo não está protegido ou corrompido.'));
+                        } else {
+                            resolve(textoCompleto);
+                        }
+                        
+                    } catch (error) {
+                        console.error('❌ Erro no processamento PDF:', error);
+                        reject(new Error(`Erro ao processar PDF: ${error.message}`));
+                    }
+                };
+                
+                fileReader.onerror = () => {
+                    reject(new Error('Erro ao ler arquivo PDF'));
+                };
+                
+                // Ler como ArrayBuffer para PDF.js
+                fileReader.readAsArrayBuffer(file);
+            });
+        }
+        
+        // Function to clean extracted text
+        function limparTextoExtraido(texto) {
+            return texto
+                // Remover múltiplas quebras de linha
+                .replace(/\n{3,}/g, '\n\n')
+                // Remover espaços múltiplos
+                .replace(/[ \t]{2,}/g, ' ')
+                // Remover linhas vazias excessivas
+                .replace(/^\s*\n/gm, '')
+                // Normalizar separadores de página
+                .replace(/--- PÁGINA \d+ ---/g, (match) => '\n' + match + '\n')
+                // Trim final
+                .trim();
+        }
+        
+        // Enhanced question extraction function optimized for PDF
         function extrairQuestoesAvancado(conteudo) {
             const questoes = [];
             let textoLimpo = conteudo.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
             
-            // Remove múltiplas quebras de linha
-            textoLimpo = textoLimpo.replace(/\n{3,}/g, '\n\n');
+            // Limpar texto especificamente extraído de PDF
+            textoLimpo = limparTextoParaDeteccao(textoLimpo);
             
-            console.log('🔍 Iniciando detecção avançada de questões...');
+            console.log('🔍 Iniciando detecção avançada de questões em PDF...');
             
-            // Padrões mais robustos para detectar questões
+            // Padrões otimizados para texto extraído de PDF
             const padroes = [
-                // Padrão 1: Número seguido de ) ou . com espaço
-                /(?:^|\n)\s*(\d+)\s*[).]\s*(.+?)(?=\n\s*\d+\s*[).]|$)/gs,
-                // Padrão 2: "Questão" seguido de número
-                /(?:^|\n)\s*(?:questão|QUESTÃO)\s*(\d+)[\s\-.:)]*(.+?)(?=\n\s*(?:questão|QUESTÃO)\s*\d+|$)/gs,
-                // Padrão 3: Números em nova linha
-                /(?:^|\n)\s*(\d+)\s*\n\s*(.+?)(?=\n\s*\d+\s*\n|$)/gs,
+                // Padrão 1: Número seguido de ) ou . com texto (mais flexível)
+                /(?:^|\n)\s*(\d+)\s*[).]\s*([^\n]+(?:\n(?!\s*\d+\s*[).])[^\n]*)*)/g,
+                
+                // Padrão 2: "Questão" seguido de número (case insensitive)
+                /(?:^|\n)\s*(?:questão|QUESTÃO|Questão)\s*(\d+)[\s\-.:)]*([^\n]+(?:\n(?!\s*(?:questão|QUESTÃO|Questão)\s*\d+)[^\n]*)*)/gi,
+                
+                // Padrão 3: Número em nova linha seguido de texto
+                /(?:^|\n)\s*(\d+)\s*\n\s*([^\n]+(?:\n(?!\s*\d+\s*\n)[^\n]*)*)/g,
+                
                 // Padrão 4: Parênteses com número
-                /(?:^|\n)\s*\((\d+)\)\s*(.+?)(?=\n\s*\(\d+\)|$)/gs
+                /(?:^|\n)\s*\((\d+)\)\s*([^\n]+(?:\n(?!\s*\(\d+\))[^\n]*)*)/g,
+                
+                // Padrão 5: Número isolado seguido de texto (PDF extraction)
+                /(?:^|\n)(\d+)\s+([A-Za-zÀ-ú][^\n]+(?:\n(?!\d+\s+[A-Za-zÀ-ú])[^\n]*)*)/g,
+                
+                // Padrão 6: Formato específico para provas (ex: "01.", "02.")
+                /(?:^|\n)\s*(\d{2,})\s*[.\-)\s]+([^\n]+(?:\n(?!\s*\d{2,}\s*[.\-)\s])[^\n]*)*)/g
             ];
             
             let melhorResultado = [];
             let melhorPadrao = 0;
+            let melhorScore = 0;
             
-            // Testa cada padrão e escolhe o que encontra mais questões
+            // Testa cada padrão e escolhe o melhor baseado na qualidade das questões
             padroes.forEach((padrao, index) => {
                 const matches = [...textoLimpo.matchAll(padrao)];
                 console.log(`Padrão ${index + 1}: ${matches.length} questões encontradas`);
                 
-                if (matches.length > melhorResultado.length) {
-                    melhorResultado = matches;
-                    melhorPadrao = index + 1;
+                if (matches.length > 0) {
+                    // Calcular score baseado na quantidade e qualidade
+                    let score = matches.length;
+                    
+                    // Bônus se as questões têm numeração sequencial
+                    const numeros = matches.map(m => parseInt(m[1])).sort((a, b) => a - b);
+                    const sequencial = numeros.every((num, i) => i === 0 || num === numeros[i-1] + 1);
+                    if (sequencial) score += 10;
+                    
+                    // Bônus se as questões têm tamanho adequado
+                    const tamanhosAdequados = matches.filter(m => m[2] && m[2].trim().length > 20 && m[2].trim().length < 2000);
+                    score += tamanhosAdequados.length;
+                    
+                    // Bônus se começam do número 1
+                    if (numeros[0] === 1) score += 5;
+                    
+                    console.log(`Score do padrão ${index + 1}: ${score}`);
+                    
+                    if (score > melhorScore) {
+                        melhorResultado = matches;
+                        melhorPadrao = index + 1;
+                        melhorScore = score;
+                    }
                 }
             });
             
-            console.log(`✅ Usando padrão ${melhorPadrao} com ${melhorResultado.length} questões`);
+            console.log(`✅ Melhor padrão: ${melhorPadrao} com ${melhorResultado.length} questões`);
             
-            // Processa as questões encontradas
-            if (melhorResultado.length > 0) {
-                melhorResultado.forEach(match => {
-                    const numero = parseInt(match[1]);
-                    let texto = match[2].trim();
-                    
-                    // Limpa e processa o texto da questão
-                    texto = texto.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
-                    
-                    if (texto.length > 15) { // Filtro mínimo de tamanho
-                        questoes.push({
-                            numero: numero,
-                            texto: texto,
-                            textoCompleto: texto,
-                            categoria: detectarCategoria(texto),
-                            palavrasChaveAvancadas: extrairPalavrasChaveAvancadas(texto),
-                            contextoPedagogico: analisarContextoPedagogico(texto)
-                        });
-                    }
-                });
-            } else {
-                // Fallback: tenta dividir por parágrafos
-                console.log('⚠️ Nenhum padrão funcionou, tentando divisão por parágrafos...');
-                const paragrafos = textoLimpo.split(/\n\s*\n/);
-                let numero = 1;
+            // Processar questões encontradas
+            melhorResultado.forEach((match, index) => {
+                const numero = parseInt(match[1]);
+                let textoQuestao = match[2] ? match[2].trim() : '';
                 
-                paragrafos.forEach(paragrafo => {
-                    const texto = paragrafo.trim().replace(/\n+/g, ' ').replace(/\s+/g, ' ');
-                    if (texto.length > 30 && !texto.match(/^[a-z]\)/)) { // Evita alternativas
-                        questoes.push({
-                            numero: numero++,
-                            texto: texto,
-                            textoCompleto: texto,
-                            categoria: detectarCategoria(texto),
-                            palavrasChaveAvancadas: extrairPalavrasChaveAvancadas(texto),
-                            contextoPedagogico: analisarContextoPedagogico(texto)
-                        });
-                    }
-                });
+                // Limpar texto da questão
+                textoQuestao = limparTextoQuestao(textoQuestao);
+                
+                // Validar questão
+                if (textoQuestao.length >= 10 && textoQuestao.length <= 3000) {
+                    questoes.push({
+                        numero: numero,
+                        texto: textoQuestao,
+                        posicao: index + 1,
+                        origem: `Padrão ${melhorPadrao}`
+                    });
+                } else {
+                    console.warn(`❌ Questão ${numero} descartada (tamanho: ${textoQuestao.length})`);
+                }
+            });
+            
+            // Análise adicional se poucas questões foram encontradas
+            if (questoes.length < 3) {
+                console.log('🔄 Tentando análise alternativa...');
+                const questoesAlternativas = tentarDeteccaoAlternativa(textoLimpo);
+                if (questoesAlternativas.length > questoes.length) {
+                    questoes.splice(0, questoes.length, ...questoesAlternativas);
+                }
             }
             
-            // Ordena por número da questão
-            questoes.sort((a, b) => a.numero - b.numero);
-            
-            console.log(`📊 Total de questões processadas: ${questoes.length}`);
+            console.log(`📊 Total de questões extraídas: ${questoes.length}`);
             return questoes;
         }
         
-        // Detecta categoria da questão
+        // Function to clean text for better question detection
+        function limparTextoParaDeteccao(texto) {
+            return texto
+                // Remover separadores de página
+                .replace(/--- PÁGINA \d+ ---/g, '\n')
+                // Remover headers e footers comuns
+                .replace(/^.*página.*\d+.*$/gmi, '')
+                .replace(/^.*total.*\d+.*$/gmi, '')
+                // Normalizar espaços e quebras
+                .replace(/\s+/g, ' ')
+                .replace(/\n\s*\n/g, '\n')
+                // Remover caracteres especiais de PDF
+                .replace(/[^\w\s\n\r.!?()[\]{},;:\-"'áéíóúàèìòùâêîôûãõçÁÉÍÓÚÀÈÌÒÙÂÊÎÔÛÃÕÇ]/g, ' ')
+                .trim();
+        }
+        
+        // Function to clean individual question text
+        function limparTextoQuestao(texto) {
+            return texto
+                .replace(/\s+/g, ' ')
+                .replace(/^\s*[\-\*•]\s*/, '')
+                .replace(/\n{2,}/g, '\n')
+                .trim();
+        }
+        
+        // Alternative detection for difficult cases
+        function tentarDeteccaoAlternativa(texto) {
+            console.log('🔍 Tentando detecção alternativa...');
+            
+            const questoes = [];
+            const linhas = texto.split('\n');
+            let questaoAtual = null;
+            let textoAtual = '';
+            
+            for (let i = 0; i < linhas.length; i++) {
+                const linha = linhas[i].trim();
+                
+                // Detectar início de questão por palavras-chave
+                const inicioQuestao = /^(\d+)[\s\-\.]*(?:questão|pergunta|item|letra)?[\s\-:]*(.*)$/i.exec(linha);
+                
+                if (inicioQuestao) {
+                    // Salvar questão anterior se existir
+                    if (questaoAtual && textoAtual.trim()) {
+                        questoes.push({
+                            numero: questaoAtual,
+                            texto: textoAtual.trim(),
+                            posicao: questoes.length + 1,
+                            origem: 'Detecção alternativa'
+                        });
+                    }
+                    
+                    // Iniciar nova questão
+                    questaoAtual = parseInt(inicioQuestao[1]);
+                    textoAtual = inicioQuestao[2] || '';
+                } else if (questaoAtual && linha) {
+                    // Continuar questão atual
+                    textoAtual += (textoAtual ? ' ' : '') + linha;
+                }
+            }
+            
+            // Adicionar última questão
+            if (questaoAtual && textoAtual.trim()) {
+                questoes.push({
+                    numero: questaoAtual,
+                    texto: textoAtual.trim(),
+                    posicao: questoes.length + 1,
+                    origem: 'Detecção alternativa'
+                });
+            }
+            
+            console.log(`📋 Detecção alternativa encontrou: ${questoes.length} questões`);
+            return questoes.filter(q => q.texto.length >= 10);
+        }
+        
+        // Detecta categoria da questão baseada no conteúdo
         function detectarCategoria(texto) {
             const textoLower = texto.toLowerCase();
             
-            if (textoLower.match(/calcul|matemática|número|operação|soma|subtração|multiplicação|divisão|fração|porcentagem/)) {
+            if (textoLower.match(/calcul|matemática|número|operação|soma|subtração|multiplicação|divisão|fração|porcentagem|equação|gráfico/)) {
                 return 'matematica';
-            } else if (textoLower.match(/texto|leia|interprete|autor|narrativa|personagem|enredo/)) {
-                return 'portugues_leitura';
-            } else if (textoLower.match(/escreva|redija|produza|elabore|comente/)) {
-                return 'portugues_escrita';
-            } else if (textoLower.match(/ciência|natureza|meio ambiente|água|terra|corpo humano|célula/)) {
-                return 'ciencias';
-            }
+        // Detecta categoria da questão baseada no conteúdo
+        function detectarCategoria(texto) {
+            const textoLower = texto.toLowerCase();
             
-            return 'geral';
+            if (textoLower.match(/calcul|matemática|número|operação|soma|subtração|multiplicação|divisão|fração|porcentagem|equação|gráfico|área|volume|geometria/)) {
+                return 'matematica';
+            } else if (textoLower.match(/texto|leia|interprete|autor|narrativa|personagem|enredo|parágrafo|verbo|substantivo|adjetivo|gramática/)) {
+                return 'portugues';
+            } else if (textoLower.match(/célula|átomo|energia|força|sistema|organismo|matéria|química|física|biologia|experimento/)) {
+                return 'ciencias';
+            } else {
+                return 'geral';
+            }
         }
         
-        // Extração avançada de palavras-chave
+        // Extração avançada de palavras-chave otimizada para PDF
         function extrairPalavrasChaveAvancadas(texto) {
             const stopWords = new Set([
                 'o', 'a', 'os', 'as', 'um', 'uma', 'uns', 'umas', 'de', 'da', 'do', 'das', 'dos',
@@ -1097,7 +1343,7 @@ d) O ciclo da água não é importante para a vida`;
 
 1️⃣ Selecione o ano escolar e disciplina
 2️⃣ Configure a precisão mínima desejada
-3️⃣ Faça upload do arquivo da prova (TXT, DOC, PDF)
+3️⃣ Faça upload do arquivo da prova em PDF (Sistema otimizado para PDF)
 4️⃣ Clique em "Analisar Correlações"
 5️⃣ Aguarde o processamento
 6️⃣ Veja os resultados com correlações e precisão
