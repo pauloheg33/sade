@@ -11,10 +11,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
-    <!-- PDF.js Library for enhanced PDF reading -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
-    
     <!-- Custom Styles -->
     <style>
         :root {
@@ -41,6 +37,18 @@
         .btn-purple:hover {
             background-color: var(--purple-dark);
             border-color: var(--purple-dark);
+            color: white;
+        }
+        
+        .btn-outline-purple {
+            border: 2px solid var(--purple);
+            color: var(--purple);
+            background: transparent;
+        }
+        
+        .btn-outline-purple:hover {
+            background-color: var(--purple);
+            border-color: var(--purple);
             color: white;
         }
         
@@ -251,7 +259,7 @@
                                 </label>
                                 
                                 <!-- Upload Area -->
-                                <div class="upload-area" id="uploadArea">
+                                <div class="upload-area" id="uploadArea" onclick="document.getElementById('fileInput').click();" style="cursor: pointer;">
                                     <i class="fas fa-file-pdf fa-4x text-purple mb-3"></i>
                                     <h5 class="text-purple mb-3">📄 Análise Especializada de PDF</h5>
                                     <p class="text-muted mb-3">Formato aceito: apenas PDF (máx. 15MB)</p>
@@ -260,10 +268,10 @@
                                     <input type="file" id="fileInput" accept=".pdf" style="display: none;">
                                     
                                     <div class="d-flex justify-content-center gap-2">
-                                        <button type="button" class="btn btn-purple" onclick="selectFile()">
+                                        <label for="fileInput" class="btn btn-purple mb-0" style="cursor: pointer;">
                                             <i class="fas fa-folder-open me-2"></i>Escolher Arquivo
-                                        </button>
-                                        <button type="button" class="btn btn-outline-purple" onclick="clearFile()">
+                                        </label>
+                                        <button type="button" class="btn btn-outline-purple" onclick="clearFile(); event.stopPropagation();">
                                             <i class="fas fa-times me-2"></i>Limpar
                                         </button>
                                     </div>
@@ -399,6 +407,10 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- PDF.js Library for enhanced PDF reading -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    
     <script src="matriz-referencia-dados.js"></script>
     
     <script>
@@ -409,42 +421,133 @@
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', function() {
             console.log('🚀 SADE Matrizes v0.3.0 - Sistema Especializado em PDF');
-            console.log('📊 Estatísticas da Matriz:', estatisticasMatriz);
             
-            // Configurar PDF.js globalmente
-            if (typeof pdfjsLib !== 'undefined') {
-                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-                console.log('✅ PDF.js configurado com sucesso');
-            } else {
-                console.warn('⚠️ PDF.js não carregado');
+            try {
+                // Verificar se estatísticas estão carregadas
+                if (typeof estatisticasMatriz !== 'undefined') {
+                    console.log('📊 Estatísticas da Matriz:', estatisticasMatriz);
+                } else {
+                    console.warn('⚠️ Estatísticas da matriz não carregadas');
+                }
+                
+                // Configurar PDF.js globalmente
+                if (typeof pdfjsLib !== 'undefined') {
+                    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+                    console.log('✅ PDF.js configurado com sucesso');
+                } else {
+                    console.warn('⚠️ PDF.js não carregado');
+                }
+                
+                // Configurar event listeners
+                configurarEventListeners();
+                console.log('✅ Sistema inicializado com sucesso');
+                
+            } catch (error) {
+                console.error('❌ Erro na inicialização:', error);
+                alert('Erro na inicialização do sistema. Verifique o console para detalhes.');
             }
-            
-            configurarEventListeners();
         });
         
         // Configure event listeners
         function configurarEventListeners() {
-            // File input change
-            document.getElementById('fileInput').addEventListener('change', handleFileSelect);
-            
-            // Drag and drop
-            const uploadArea = document.getElementById('uploadArea');
-            uploadArea.addEventListener('dragover', handleDragOver);
-            uploadArea.addEventListener('dragleave', handleDragLeave);
-            uploadArea.addEventListener('drop', handleDrop);
-            uploadArea.addEventListener('click', function(e) {
-                if (e.target.tagName !== 'BUTTON') {
-                    selectFile();
+            try {
+                console.log('🔧 Configurando event listeners...');
+                
+                // Verificar se elementos existem
+                const fileInput = document.getElementById('fileInput');
+                const uploadArea = document.getElementById('uploadArea');
+                const analysisForm = document.getElementById('analysisForm');
+                
+                if (!fileInput) {
+                    console.error('❌ Elemento fileInput não encontrado');
+                    return;
                 }
-            });
-            
-            // Form submission
-            document.getElementById('analysisForm').addEventListener('submit', handleFormSubmit);
+                if (!uploadArea) {
+                    console.error('❌ Elemento uploadArea não encontrado');
+                    return;
+                }
+                if (!analysisForm) {
+                    console.error('❌ Elemento analysisForm não encontrado');
+                    return;
+                }
+                
+                // File input change
+                fileInput.addEventListener('change', handleFileSelect);
+                console.log('✅ Event listener para fileInput configurado');
+                
+                // Drag and drop
+                uploadArea.addEventListener('dragover', handleDragOver);
+                uploadArea.addEventListener('dragleave', handleDragLeave);
+                uploadArea.addEventListener('drop', handleDrop);
+                uploadArea.addEventListener('click', function(e) {
+                    console.log('🖱️ Click na área de upload', e.target);
+                    e.preventDefault();
+                    e.stopPropagation();
+                    selectFile();
+                });
+                console.log('✅ Event listeners para upload area configurados');
+                
+                // Form submission
+                analysisForm.addEventListener('submit', handleFormSubmit);
+                console.log('✅ Event listener para form configurado');
+                
+                console.log('✅ Todos os event listeners configurados com sucesso');
+                
+            } catch (error) {
+                console.error('❌ Erro ao configurar event listeners:', error);
+            }
         }
         
-        // File selection functions
+        // File selection functions - Multiple fallback methods
         function selectFile() {
-            document.getElementById('fileInput').click();
+            try {
+                console.log('🔍 Tentando abrir seletor de arquivo...');
+                const fileInput = document.getElementById('fileInput');
+                if (fileInput) {
+                    fileInput.click();
+                    console.log('✅ Seletor de arquivo aberto');
+                } else {
+                    console.error('❌ Elemento fileInput não encontrado');
+                    alert('Erro: Elemento de upload não encontrado. Tente recarregar a página.');
+                }
+            } catch (error) {
+                console.error('❌ Erro ao abrir seletor de arquivo:', error);
+                alert('Erro ao abrir seletor de arquivo. Tente usar o botão "Escolher Arquivo" diretamente.');
+            }
+        }
+        
+        // Alternative function for direct file selection
+        function abrirSeletorArquivo() {
+            const fileInput = document.getElementById('fileInput');
+            if (fileInput) {
+                fileInput.click();
+                return true;
+            }
+            return false;
+        }
+        
+        // Debug function to test file selection
+        function testarSelecaoArquivo() {
+            console.log('🧪 Testando seleção de arquivo...');
+            
+            // Check if elements exist
+            const fileInput = document.getElementById('fileInput');
+            const uploadArea = document.getElementById('uploadArea');
+            
+            console.log('fileInput:', fileInput);
+            console.log('uploadArea:', uploadArea);
+            
+            if (fileInput && uploadArea) {
+                console.log('✅ Elementos encontrados, testando click...');
+                try {
+                    fileInput.click();
+                    console.log('✅ fileInput.click() executado');
+                } catch (e) {
+                    console.error('❌ Erro no fileInput.click():', e);
+                }
+            } else {
+                console.error('❌ Elementos não encontrados');
+            }
         }
         
         function clearFile() {
