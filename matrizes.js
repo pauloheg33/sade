@@ -9,9 +9,37 @@ class MatrizesAnalyzer {
     }
 
     init() {
-        this.setupEventListeners();
-        this.loadMatrixBrowser();
-        this.setupThemeToggle();
+        console.log('🚀 Inicializando MatrizesAnalyzer...');
+        
+        // Aguardar um pouco para garantir que o DOM está completamente carregado
+        setTimeout(() => {
+            this.setupEventListeners();
+            this.loadMatrixBrowser();
+            this.setupThemeToggle();
+            
+            // Verificar se os elementos críticos existem
+            this.verifyElements();
+        }, 100);
+    }
+
+    verifyElements() {
+        const elements = {
+            uploadArea: document.getElementById('uploadArea'),
+            fileInput: document.getElementById('fileInput'),
+            fileName: document.getElementById('fileName'),
+            filePreview: document.getElementById('filePreview'),
+            provaUploadForm: document.getElementById('provaUploadForm')
+        };
+
+        console.log('🔍 Verificando elementos:', elements);
+
+        const missing = Object.keys(elements).filter(key => !elements[key]);
+        if (missing.length > 0) {
+            console.error('❌ Elementos não encontrados:', missing);
+            this.showAlert(`Erro: Elementos não encontrados na página: ${missing.join(', ')}`, 'danger');
+        } else {
+            console.log('✅ Todos os elementos encontrados');
+        }
     }
 
     setupEventListeners() {
@@ -19,23 +47,49 @@ class MatrizesAnalyzer {
         const uploadArea = document.getElementById('uploadArea');
         const fileInput = document.getElementById('fileInput');
 
-        uploadArea.addEventListener('click', () => fileInput.click());
+        // Verificar se os elementos existem
+        if (!uploadArea || !fileInput) {
+            console.error('❌ Elementos de upload não encontrados!', { uploadArea, fileInput });
+            return;
+        }
+
+        // Clique na área de upload
+        uploadArea.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log('🖱️ Área de upload clicada');
+            fileInput.click();
+        });
+
+        // Drag and drop events
         uploadArea.addEventListener('dragover', this.handleDragOver.bind(this));
         uploadArea.addEventListener('dragleave', this.handleDragLeave.bind(this));
         uploadArea.addEventListener('drop', this.handleDrop.bind(this));
 
+        // File input change
         fileInput.addEventListener('change', this.handleFileSelect.bind(this));
 
         // Form submission
-        document.getElementById('provaUploadForm').addEventListener('submit', this.handleFormSubmit.bind(this));
+        const form = document.getElementById('provaUploadForm');
+        if (form) {
+            form.addEventListener('submit', this.handleFormSubmit.bind(this));
+        }
 
         // Remove file button
-        document.getElementById('removeFile').addEventListener('click', this.removeFile.bind(this));
+        const removeBtn = document.getElementById('removeFile');
+        if (removeBtn) {
+            removeBtn.addEventListener('click', this.removeFile.bind(this));
+        }
 
         // Matrix browser filters
-        document.getElementById('browserAno').addEventListener('change', this.filterMatrix.bind(this));
-        document.getElementById('browserDisciplina').addEventListener('change', this.filterMatrix.bind(this));
-        document.getElementById('browserSearch').addEventListener('input', this.filterMatrix.bind(this));
+        const browserAno = document.getElementById('browserAno');
+        const browserDisciplina = document.getElementById('browserDisciplina');
+        const browserSearch = document.getElementById('browserSearch');
+
+        if (browserAno) browserAno.addEventListener('change', this.filterMatrix.bind(this));
+        if (browserDisciplina) browserDisciplina.addEventListener('change', this.filterMatrix.bind(this));
+        if (browserSearch) browserSearch.addEventListener('input', this.filterMatrix.bind(this));
+
+        console.log('✅ Event listeners configurados com sucesso');
     }
 
     handleDragOver(e) {
@@ -58,30 +112,64 @@ class MatrizesAnalyzer {
     }
 
     handleFileSelect(e) {
+        console.log('📁 File input changed:', e.target.files);
         const file = e.target.files[0];
         if (file) {
+            console.log(`✅ Arquivo selecionado: ${file.name} (${file.type})`);
             this.processFile(file);
+        } else {
+            console.log('❌ Nenhum arquivo selecionado');
         }
     }
 
     processFile(file) {
-        // Validar arquivo
-        const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'text/plain'];
+        console.log(`🔍 Processando arquivo: ${file.name}`);
+        
+        // Validar arquivo - tipos mais amplos para GitHub Pages
+        const validTypes = [
+            'application/pdf', 
+            'application/msword', 
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 
+            'text/plain',
+            'text/txt',
+            '', // Para alguns casos onde o type pode estar vazio
+        ];
         const maxSize = 10 * 1024 * 1024; // 10MB
 
-        if (!validTypes.includes(file.type)) {
-            alert('Tipo de arquivo não suportado. Use PDF, DOC, DOCX ou TXT.');
+        // Validação mais flexível
+        const isValidType = validTypes.includes(file.type) || 
+                           file.name.toLowerCase().endsWith('.txt') ||
+                           file.name.toLowerCase().endsWith('.pdf') ||
+                           file.name.toLowerCase().endsWith('.doc') ||
+                           file.name.toLowerCase().endsWith('.docx');
+
+        if (!isValidType) {
+            const message = `Tipo de arquivo não suportado: ${file.type}\nArquivo: ${file.name}\nUse PDF, DOC, DOCX ou TXT.`;
+            console.error(message);
+            this.showAlert(message, 'warning');
             return;
         }
 
         if (file.size > maxSize) {
-            alert('Arquivo muito grande. Máximo 10MB.');
+            const message = `Arquivo muito grande: ${(file.size/1024/1024).toFixed(2)}MB\nMáximo permitido: 10MB`;
+            console.error(message);
+            this.showAlert(message, 'warning');
             return;
         }
 
+        console.log(`✅ Arquivo válido: ${file.name} (${(file.size/1024).toFixed(1)} KB)`);
+
         // Mostrar preview do arquivo
-        document.getElementById('fileName').textContent = file.name;
-        document.getElementById('filePreview').style.display = 'block';
+        const fileNameElement = document.getElementById('fileName');
+        const filePreviewElement = document.getElementById('filePreview');
+        
+        if (fileNameElement && filePreviewElement) {
+            fileNameElement.textContent = file.name;
+            filePreviewElement.style.display = 'block';
+            console.log('✅ Preview do arquivo exibido');
+        } else {
+            console.error('❌ Elementos de preview não encontrados');
+        }
     }
 
     removeFile() {

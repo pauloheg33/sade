@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Upload - SADE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        .upload-area {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(124, 58, 237, 0.05);
+            border: 3px dashed #7c3aed;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .upload-area:hover {
+            background: rgba(124, 58, 237, 0.1);
+            transform: scale(1.02);
+        }
+        
+        .upload-area.drag-over {
+            background: rgba(124, 58, 237, 0.15);
+            border-color: #7c3aed !important;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h4><i class="fas fa-bug me-2"></i>Teste de Upload - Debug</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="testForm">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Teste de Upload de Arquivo</label>
+                                <div class="upload-area" id="uploadArea">
+                                    <i class="fas fa-cloud-upload-alt fa-3x text-muted mb-3"></i>
+                                    <p class="mb-2">Clique aqui para selecionar arquivo</p>
+                                    <small class="text-muted">Qualquer tipo de arquivo</small>
+                                    <input type="file" id="fileInput" class="d-none">
+                                    
+                                    <div class="mt-3">
+                                        <button type="button" class="btn btn-primary btn-sm" id="manualBtn">
+                                            <i class="fas fa-folder-open me-2"></i>Botão Manual
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div id="fileInfo" class="mt-3" style="display: none;">
+                                    <div class="alert alert-success">
+                                        <i class="fas fa-file me-2"></i>
+                                        <span id="fileName"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="debug" class="mt-3">
+                                <h6>Debug Log:</h6>
+                                <div id="debugLog" class="border p-2 bg-light" style="height: 200px; overflow-y: auto; font-family: monospace; font-size: 12px;"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Debug log function
+        function log(message) {
+            const debugLog = document.getElementById('debugLog');
+            const time = new Date().toLocaleTimeString();
+            debugLog.innerHTML += `[${time}] ${message}<br>`;
+            debugLog.scrollTop = debugLog.scrollHeight;
+            console.log(message);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            log('🚀 DOM carregado, iniciando teste...');
+            
+            const uploadArea = document.getElementById('uploadArea');
+            const fileInput = document.getElementById('fileInput');
+            const manualBtn = document.getElementById('manualBtn');
+            
+            log(`✅ Elementos encontrados: uploadArea=${!!uploadArea}, fileInput=${!!fileInput}, manualBtn=${!!manualBtn}`);
+            
+            // Teste 1: Clique na área
+            uploadArea.addEventListener('click', function(e) {
+                e.preventDefault();
+                log('🖱️ Upload area clicada');
+                try {
+                    fileInput.click();
+                    log('✅ fileInput.click() executado');
+                } catch (error) {
+                    log('❌ Erro ao executar fileInput.click(): ' + error.message);
+                }
+            });
+            
+            // Teste 2: Botão manual
+            manualBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                log('🖱️ Botão manual clicado');
+                try {
+                    fileInput.click();
+                    log('✅ fileInput.click() do botão manual executado');
+                } catch (error) {
+                    log('❌ Erro no botão manual: ' + error.message);
+                }
+            });
+            
+            // File input change
+            fileInput.addEventListener('change', function(e) {
+                log('📁 File input mudou');
+                const file = e.target.files[0];
+                if (file) {
+                    log(`✅ Arquivo selecionado: ${file.name} (${file.type}, ${file.size} bytes)`);
+                    document.getElementById('fileName').textContent = file.name;
+                    document.getElementById('fileInfo').style.display = 'block';
+                } else {
+                    log('❌ Nenhum arquivo selecionado');
+                }
+            });
+            
+            // Drag events
+            uploadArea.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                uploadArea.classList.add('drag-over');
+                log('📥 Drag over');
+            });
+            
+            uploadArea.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                uploadArea.classList.remove('drag-over');
+                log('📤 Drag leave');
+            });
+            
+            uploadArea.addEventListener('drop', function(e) {
+                e.preventDefault();
+                uploadArea.classList.remove('drag-over');
+                const files = e.dataTransfer.files;
+                log(`📁 Drop com ${files.length} arquivo(s)`);
+                if (files.length > 0) {
+                    fileInput.files = files;
+                    fileInput.dispatchEvent(new Event('change'));
+                }
+            });
+            
+            log('✅ Todos os event listeners configurados');
+        });
+    </script>
+</body>
+</html>
