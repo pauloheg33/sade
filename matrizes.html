@@ -259,7 +259,7 @@
                                 </label>
                                 
                                 <!-- Upload Area -->
-                                <div class="upload-area" id="uploadArea" onclick="document.getElementById('fileInput').click();" style="cursor: pointer;">
+                                <div class="upload-area" id="uploadArea" style="cursor: pointer;">
                                     <i class="fas fa-file-pdf fa-4x text-purple mb-3"></i>
                                     <h5 class="text-purple mb-3">📄 Análise Especializada de PDF</h5>
                                     <p class="text-muted mb-3">Formato aceito: apenas PDF (máx. 15MB)</p>
@@ -481,9 +481,12 @@
                 uploadArea.addEventListener('drop', handleDrop);
                 uploadArea.addEventListener('click', function(e) {
                     console.log('🖱️ Click na área de upload', e.target);
-                    e.preventDefault();
-                    e.stopPropagation();
-                    selectFile();
+                    // Só ativar se não for clique no label ou botão
+                    if (e.target.tagName !== 'LABEL' && e.target.tagName !== 'BUTTON' && !e.target.closest('label') && !e.target.closest('button')) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        selectFile();
+                    }
                 });
                 console.log('✅ Event listeners para upload area configurados');
                 
@@ -498,21 +501,12 @@
             }
         }
         
-        // File selection functions - Multiple fallback methods
+        // File selection function - Simple and clean
         function selectFile() {
-            try {
-                console.log('🔍 Tentando abrir seletor de arquivo...');
-                const fileInput = document.getElementById('fileInput');
-                if (fileInput) {
-                    fileInput.click();
-                    console.log('✅ Seletor de arquivo aberto');
-                } else {
-                    console.error('❌ Elemento fileInput não encontrado');
-                    alert('Erro: Elemento de upload não encontrado. Tente recarregar a página.');
-                }
-            } catch (error) {
-                console.error('❌ Erro ao abrir seletor de arquivo:', error);
-                alert('Erro ao abrir seletor de arquivo. Tente usar o botão "Escolher Arquivo" diretamente.');
+            console.log('🔍 Abrindo seletor de arquivo...');
+            const fileInput = document.getElementById('fileInput');
+            if (fileInput) {
+                fileInput.click();
             }
         }
         
@@ -524,30 +518,6 @@
                 return true;
             }
             return false;
-        }
-        
-        // Debug function to test file selection
-        function testarSelecaoArquivo() {
-            console.log('🧪 Testando seleção de arquivo...');
-            
-            // Check if elements exist
-            const fileInput = document.getElementById('fileInput');
-            const uploadArea = document.getElementById('uploadArea');
-            
-            console.log('fileInput:', fileInput);
-            console.log('uploadArea:', uploadArea);
-            
-            if (fileInput && uploadArea) {
-                console.log('✅ Elementos encontrados, testando click...');
-                try {
-                    fileInput.click();
-                    console.log('✅ fileInput.click() executado');
-                } catch (e) {
-                    console.error('❌ Erro no fileInput.click():', e);
-                }
-            } else {
-                console.error('❌ Elementos não encontrados');
-            }
         }
         
         function clearFile() {
