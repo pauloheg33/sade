@@ -199,6 +199,39 @@
                                 </div>
                             </div>
 
+                            <!-- OpenAI API Configuration -->
+                            <div class="row g-3 mb-4">
+                                <div class="col-12">
+                                    <div class="card border-info">
+                                        <div class="card-header bg-info text-white">
+                                            <h6 class="mb-0"><i class="fas fa-robot me-2"></i>Configuração da IA (OpenAI)</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row g-3">
+                                                <div class="col-md-8">
+                                                    <label class="form-label fw-bold">
+                                                        <i class="fas fa-key me-1"></i>Chave da API OpenAI
+                                                    </label>
+                                                    <input type="password" id="openaiKey" class="form-control" 
+                                                           placeholder="sk-..." 
+                                                           autocomplete="off">
+                                                    <small class="text-muted">
+                                                        <i class="fas fa-info-circle me-1"></i>
+                                                        Necessário para análise inteligente da prova. 
+                                                        <a href="https://platform.openai.com/api-keys" target="_blank">Obter chave gratuita</a>
+                                                    </small>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="form-label fw-bold">Status da API</label>
+                                                    <div id="apiStatus" class="badge bg-secondary">Não configurada</div>
+                                                    <br><small class="text-muted">Modo de análise atual</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!-- File Upload -->
                             <div class="mb-4">
                                 <label class="form-label fw-bold">
@@ -351,6 +384,11 @@
         // Global variables
         let selectedFile = null;
         let analysisResults = null;
+        let openaiApiKey = null;
+        
+        // API Configuration
+        const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
+        const OPENAI_MODEL = 'gpt-3.5-turbo'; // Modelo gratuito/mais barato
         
         // Matriz de Referência MEC 2025 - Anos Finais (dados embarcados para GitHub Pages)
         const matrizReferencia = {
@@ -452,7 +490,173 @@
             }
         };
 
-        // File selection functions
+        // OpenAI API Functions
+        function initializeOpenAI() {
+            const keyInput = document.getElementById('openaiKey');
+            const statusBadge = document.getElementById('apiStatus');
+            
+            keyInput.addEventListener('input', function() {
+                const key = this.value.trim();
+                if (key.startsWith('sk-') && key.length > 20) {
+                    openaiApiKey = key;
+                    statusBadge.className = 'badge bg-success';
+                    statusBadge.textContent = 'IA Ativada';
+                    console.log('🤖 OpenAI API configurada');
+                } else {
+                    openaiApiKey = null;
+                    statusBadge.className = 'badge bg-secondary';
+                    statusBadge.textContent = 'Não configurada';
+                }
+            });
+        }
+
+        async function analyzeWithOpenAI(fileContent, ano, disciplina) {
+            if (!openaiApiKey) {
+                throw new Error('Chave da API OpenAI não configurada');
+            }
+
+            console.log('🤖 Iniciando análise com OpenAI...');
+
+            const prompt = createAnalysisPrompt(fileContent, ano, disciplina);
+            
+            try {
+                const response = await fetch(OPENAI_API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${openaiApiKey}`
+                    },
+                    body: JSON.stringify({
+                        model: OPENAI_MODEL,
+                        messages: [
+                            {
+                                role: 'system',
+                                content: 'Você é um especialista em análise educacional e Matriz de Referência BNCC. Analise provas escolares e correlacione questões com habilidades BNCC.'
+                            },
+                            {
+                                role: 'user',
+                                content: prompt
+                            }
+                        ],
+                        max_tokens: 2000,
+                        temperature: 0.3
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Erro na API OpenAI: ${response.status} - ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                return parseOpenAIResponse(data.choices[0].message.content);
+
+            } catch (error) {
+                console.error('❌ Erro na análise OpenAI:', error);
+                throw error;
+            }
+        }
+
+        function createAnalysisPrompt(fileContent, ano, disciplina) {
+            const habilidades = matrizReferencia[disciplina]?.[ano] || [];
+            const habilidadesList = habilidades.map(h => `${h.codigo} (${h.bncc}): ${h.descricao}`).join('\n');
+
+            return `
+ANÁLISE DE PROVA ESCOLAR - ${disciplina.toUpperCase()} ${ano}º ANO
+
+CONTEÚDO DA PROVA:
+${fileContent}
+
+HABILIDADES BNCC DISPONÍVEIS PARA CORRELAÇÃO:
+${habilidadesList}
+
+TAREFA:
+1. Identifique TODAS as questões na prova (conte com precisão)
+2. Para cada questão, analise o conteúdo e correlacione com a habilidade BNCC mais adequada
+3. Calcule um percentual de correlação (0-100%) baseado na aderência
+4. Retorne APENAS um JSON válido no formato:
+
+{
+  "totalQuestoes": [número],
+  "questoes": [
+    {
+      "numero": 1,
+      "enunciado": "[resumo do enunciado]",
+      "habilidade": {
+        "codigo": "[código da habilidade]",
+        "nome": "[nome da habilidade]",
+        "bncc": "[código BNCC]",
+        "descricao": "[descrição]"
+      },
+      "correlacao": [0-100],
+      "justificativa": "[breve explicação da correlação]"
+    }
+  ]
+}
+
+IMPORTANTE: Retorne APENAS o JSON, sem texto adicional.
+            `;
+        }
+
+        function parseOpenAIResponse(response) {
+            try {
+                // Remove possíveis caracteres extras e parse JSON
+                const cleanResponse = response.replace(/```json|```/g, '').trim();
+                const data = JSON.parse(cleanResponse);
+                
+                console.log('📊 Análise OpenAI recebida:', data);
+                return data;
+            } catch (error) {
+                console.error('❌ Erro ao parsear resposta OpenAI:', error);
+                throw new Error('Resposta da IA inválida');
+            }
+        }
+
+        function generateSimulatedAnalysis(ano, disciplina, numQuestoes = null) {
+            // Análise simulada para quando OpenAI não está disponível
+            const habilidades = matrizReferencia[disciplina]?.[ano] || [];
+            const totalQuestoes = numQuestoes || (Math.floor(Math.random() * 15) + 10); // 10-25 questões
+            
+            const questoes = [];
+            for (let i = 1; i <= totalQuestoes; i++) {
+                const habilidade = habilidades[Math.floor(Math.random() * habilidades.length)];
+                questoes.push({
+                    numero: i,
+                    enunciado: `Questão ${i} - Análise simulada`,
+                    habilidade: habilidade,
+                    correlacao: Math.floor(Math.random() * 30) + 70, // 70-100%
+                    justificativa: 'Correlação baseada em análise simulada'
+                });
+            }
+            
+            return {
+                totalQuestoes: totalQuestoes,
+                questoes: questoes
+            };
+        }
+
+        function readFileContent(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    resolve(e.target.result);
+                };
+                
+                reader.onerror = function() {
+                    reject(new Error('Erro ao ler o arquivo'));
+                };
+                
+                // Detectar tipo de arquivo e ler adequadamente
+                if (file.type === 'application/pdf') {
+                    // Para PDF, retornar como texto indicativo
+                    resolve(`[ARQUIVO PDF: ${file.name}] - Análise de conteúdo PDF`);
+                } else {
+                    // Para arquivos de texto/Word
+                    reader.readAsText(file, 'UTF-8');
+                }
+            });
+        }
+
         function selectFile() {
             console.log('📂 Abrindo seletor de arquivos...');
             document.getElementById('fileInput').click();
@@ -562,22 +766,49 @@
             }, 1000);
         }
 
-        function analyzeFile(file, ano, disciplina, escola) {
+        async function analyzeFile(file, ano, disciplina, escola) {
             console.log('🔍 Analisando arquivo:', file.name);
             
-            updateLoading('Identificando questões...', 'Detectando estrutura da prova');
+            // Verificar se OpenAI está configurada
+            if (!openaiApiKey) {
+                updateLoading('Análise Simulada', 'IA não configurada - usando análise simulada');
+                console.log('⚠️ OpenAI não configurada, usando análise simulada');
+            } else {
+                updateLoading('Análise Inteligente', 'Analisando com IA...');
+                console.log('🤖 Usando análise inteligente (OpenAI)');
+            }
             
-            setTimeout(() => {
-                const numQuestoes = estimateQuestions(file);
+            try {
+                let analysisResult;
                 
-                updateLoading('Correlacionando...', `${numQuestoes} questões encontradas`);
+                if (openaiApiKey) {
+                    // Usar análise real com OpenAI
+                    updateLoading('Lendo arquivo...', 'Processando conteúdo');
+                    const fileContent = await readFileContent(file);
+                    
+                    updateLoading('Analisando com IA...', 'Correlacionando questões com BNCC');
+                    analysisResult = await analyzeWithOpenAI(fileContent, ano, disciplina);
+                    
+                } else {
+                    // Fallback para análise simulada
+                    updateLoading('Identificando questões...', 'Detectando estrutura da prova');
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    
+                    const numQuestoes = estimateQuestions(file);
+                    updateLoading('Correlacionando...', `${numQuestoes} questões encontradas`);
+                    await new Promise(resolve => setTimeout(resolve, 1500));
+                    
+                    analysisResult = generateSimulatedAnalysis(ano, disciplina, numQuestoes);
+                }
                 
-                setTimeout(() => {
-                    const results = generateCorrelations(numQuestoes, ano, disciplina, escola);
-                    hideLoading();
-                    showResults(results);
-                }, 1500);
-            }, 1000);
+                hideLoading();
+                showCorrelations(analysisResult, ano, disciplina, escola);
+                
+            } catch (error) {
+                console.error('❌ Erro na análise:', error);
+                hideLoading();
+                alert(`Erro na análise: ${error.message}`);
+            }
         }
 
         function estimateQuestions(file) {
@@ -657,10 +888,21 @@
             document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
         }
 
-        function showCorrelations(correlations) {
+        function showCorrelations(analysisResult, ano, disciplina, escola) {
             const container = document.getElementById('correlationsList');
             
+            // Header com informações da análise
             let html = `
+                <div class="alert alert-info mb-4">
+                    <h5><i class="fas fa-chart-bar me-2"></i>Resultado da Análise</h5>
+                    <div class="row">
+                        <div class="col-md-3"><strong>Total de Questões:</strong> ${analysisResult.totalQuestoes}</div>
+                        <div class="col-md-3"><strong>Ano:</strong> ${ano}º ano</div>
+                        <div class="col-md-3"><strong>Disciplina:</strong> ${disciplina}</div>
+                        <div class="col-md-3"><strong>Escola:</strong> ${escola || 'Não informada'}</div>
+                    </div>
+                </div>
+                
                 <table class="table table-hover">
                     <thead class="table-dark">
                         <tr>
@@ -675,22 +917,23 @@
                     <tbody>
             `;
             
-            correlations.forEach(corr => {
-                const badgeClass = corr.nivel === 'high' ? 'correlation-high' : 
-                                  corr.nivel === 'medium' ? 'correlation-medium' : 'correlation-low';
-                const percentage = (corr.correlacao * 100).toFixed(1);
+            analysisResult.questoes.forEach(questao => {
+                const percentage = questao.correlacao;
+                const badgeClass = percentage >= 85 ? 'correlation-high' : 
+                                  percentage >= 70 ? 'correlation-medium' : 'correlation-low';
                 
                 html += `
                     <tr>
-                        <td><strong>Q${corr.questao}</strong></td>
-                        <td><code>${corr.habilidade.codigo}</code></td>
-                        <td><strong>${corr.habilidade.nome || 'Habilidade'}</strong></td>
-                        <td><span class="badge bg-primary">${corr.habilidade.bncc || 'N/A'}</span></td>
-                        <td>${corr.habilidade.descricao}</td>
+                        <td><strong>Q${questao.numero}</strong></td>
+                        <td><code>${questao.habilidade.codigo}</code></td>
+                        <td><strong>${questao.habilidade.nome || 'Habilidade'}</strong></td>
+                        <td><span class="badge bg-primary">${questao.habilidade.bncc || 'N/A'}</span></td>
+                        <td>${questao.habilidade.descricao}</td>
                         <td>
                             <span class="correlation-badge ${badgeClass}">
                                 ${percentage}%
                             </span>
+                            ${questao.justificativa ? `<br><small class="text-muted">${questao.justificativa}</small>` : ''}
                         </td>
                     </tr>
                 `;
@@ -698,6 +941,12 @@
             
             html += '</tbody></table>';
             container.innerHTML = html;
+            
+            // Scroll to results
+            container.scrollIntoView({ behavior: 'smooth' });
+            
+            console.log('📊 Resultados exibidos:', analysisResult);
+        }
         }
 
         function showChart(correlations) {
@@ -772,6 +1021,9 @@
         document.addEventListener('DOMContentLoaded', function() {
             console.log('🚀 Página Matrizes de Referência carregada - v0.2.4');
             console.log('✅ Todas as funcionalidades ativas');
+            
+            // Initialize OpenAI configuration
+            initializeOpenAI();
         });
     </script>
 </body>
