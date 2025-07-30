@@ -1,0 +1,1065 @@
+### LÍNGUA PORTUGUESA – LEITURA
+#### 6º ANO
+- Código: 5EF06_P
+  Habilidade: Inferir, em textos de nível 2, o sentido de palavras ou expressões não coloquiais, com apoio de pistas co-textuais.
+  BNCC: EF35LP05
+- Código: 6EF01_P
+  Habilidade: Localizar informação em textos de nível 2, quando a informação é retomada, no texto, por um processo de referenciação com referente próximo.
+  BNCC: EF15LP03
+- Código: 6EF02_P
+  Habilidade: Localizar informações explícitas, em textos de nível 2, recuperando-as por meio de paráfrase, estando a informação no início do texto.
+  BNCC: EF69LP03
+- Código: 6EF03_P
+  Habilidade: Reconhecer o assunto de textos de nível 2 nos quais tal reconhecimento requeira a leitura global do texto.
+  BNCC: EF35LP05
+- Código: 6EF04_P
+  Habilidade: Reconhecer o assunto de textos de nível 3 nos quais o assunto é apontado indiretamente pelo título.
+  BNCC: EF69LP03
+- Código: 6EF06_P
+  Habilidade: Inferir, em textos de nível 2, o sentido de palavras ou expressões não coloquiais, a partir da leitura global do texto.
+  BNCC: EF67LP06
+- Código: 6EF07_P
+  Habilidade: Inferir informação em textos de nível 2 a partir de uma palavra-chave.
+  BNCC: EF35LP04
+- Código: 6EF08_P
+  Habilidade: Inferir informação em textos de nível 2 por dedução a partir de um enunciado ou na articulação entre dois enunciados.
+  BNCC: EF69LP03
+- Código: 6EF09_P
+  Habilidade: Identificar a finalidade de textos de nível 2 que circulam no campo de atuação da vida pública ou de estudos e pesquisas.
+  BNCC: EF15LP01
+- Código: 6EF10_P
+  Habilidade: Identificar a finalidade de gêneros publicitários e jornalísticos (cartazes, notícias, charges, cartas do leitor).
+  BNCC: EF69LP17
+- Código: 6EF11_P
+  Habilidade: Reconhecer o gênero de textos de nível 2 que circulam no campo de atuação artístico literário, da vida pública ou de estudos e pesquisas.
+  BNCC: EF15LP02
+- Código: 6EF12_P
+  Habilidade: Reconhecer o gênero de textos publicitários e jornalísticos (cartazes, notícias, charges, cartas do leitor).
+  BNCC: EF69LP02
+- Código: 6EF13_P
+  Habilidade: Reconhecer o conflito gerador do enredo em narrativas lineares de nível 2, quando o conflito se apresenta no início do texto e/ou há pistas que o sinalizam.
+  BNCC: EF35LP29
+- Código: 6EF14_P
+  Habilidade: Reconhecer o narrador em 1ª pessoa (personagem) ou em 3ª pessoa em narrativas lineares de nível 3.
+  BNCC: EF69LP47
+- Código: 6EF15_P
+  Habilidade: Identificar a opinião de um personagem em texto de nível 2, sendo os enunciados opinativos marcados por frase exclamativa ou estrutura predicativa.
+  BNCC: EF04LP15
+- Código: 6EF16_P
+  Habilidade: Identificar opinião em textos de estrutura expositiva de níveis 2 e 3, sendo os enunciados opinativos marcados por verbo opinativo (acho que, penso que).
+  BNCC: EF67LP04
+- Código: 6EF17_P
+  Habilidade: Inferir efeitos de crítica em textos que articulam linguagem verbal e não verbal (multissemióticos).
+  BNCC: EF15LP18
+- Código: 6EF18_P
+  Habilidade: Reconhecer, em textos de nível 2, relações lógico-discursivas adição, oposição, condição marcadas por conjunções mais usuais.
+  BNCC: EF05LP07
+- Código: 6EF19_P
+  Habilidade: Reconhecer relações lógico-discursivas de adição, oposição, tempo, causa, em texto de nível 3, marcadas por conjunções mais usuais: e, mas, quando, enquanto, porque, pois.
+  BNCC: EF69LP18
+- Código: 6EF20_P
+  Habilidade: Identificar, em textos de nível 2, o referente de uma expressão nominal com pronome adjetivo (possessivo, demonstrativo, indefinido) ou de elipses.
+  BNCC: EF35LP14
+- Código: 6EF21_P
+  Habilidade: Identificar, em texto de nível 3, o referente de pronomes pessoais do caso reto (anafórico), quando próximo ou saliente (tópico do texto) e de substituições lexicais (substantivos por sinônimos).
+  BNCC: EF35LP14
+- Código: 6EF22_P
+  Habilidade: Reconhecer, em textos multissemióticos de nível 3, o efeito de sentido da articulação entre recursos gráficos e verbais.
+  BNCC: EF67LP08
+
+#### 7º ANO
+- Código: 6EF02_P
+  Habilidade: Localizar informações explícitas, em textos de nível 2, recuperando-as por meio de paráfrase, estando a informação no início do texto.
+  BNCC: EF69LP03
+- Código: 6EF04_P
+  Habilidade: Reconhecer o assunto de textos de nível 3 nos quais o assunto é apontado indiretamente pelo título.
+  BNCC: EF69LP03
+- Código: 6EF06_P
+  Habilidade: Inferir, em textos de nível 2, o sentido de palavras ou expressões não coloquiais, a partir da leitura global do texto.
+  BNCC: EF67LP06
+- Código: 6EF08_P
+  Habilidade: Inferir informação em textos de nível 2 por dedução a partir de um enunciado ou na articulação entre dois enunciados.
+  BNCC: EF69LP03
+- Código: 6EF16_P
+  Habilidade: Identificar opinião em textos de estrutura expositiva de níveis 2 e 3, sendo os enunciados opinativos marcados por verbo opinativo (acho que, penso que).
+  BNCC: EF67LP04
+- Código: 6EF19_P
+  Habilidade: Reconhecer relações lógico-discursivas de adição, oposição, tempo, causa, em texto de nível 3, marcadas por conjunções mais usuais: e, mas, quando, enquanto, porque, pois.
+  BNCC: EF69LP18
+- Código: 6EF21_P
+  Habilidade: Identificar, em texto de nível 3, o referente de pronomes pessoais do caso reto (anafórico), quando próximo ou saliente (tópico do texto) e de substituições lexicais (substantivos por sinônimos).
+  BNCC: EF35LP14
+- Código: 7EF02_P
+  Habilidade: Localizar informações explícitas, em textos de nível 3, recuperando-as por meio de paráfrase, estando a informação no início do texto.
+  BNCC: EF69LP03
+- Código: 7EF04_P
+  Habilidade: Reconhecer o assunto de textos de nível 3 quando ele é tópico do primeiro parágrafo.
+  BNCC: EF67LP02
+- Código: 7EF06_P
+  Habilidade: Inferir, em textos de nível 3, o sentido de metáforas com apoio de pistas co-textuais.
+  BNCC: EF67LP06
+- Código: 7EF08_P
+  Habilidade: Inferir informação em textos de nível 3 por dedução a partir de um enunciado ou na articulação entre dois enunciados.
+  BNCC: EF69LP20
+- Código: 7EF09_P
+  Habilidade: Identificar a finalidade de gêneros publicitários e jornalísticos (crônicas, reportagens, artigos de opinião, cartas do leitor).
+  BNCC: EF69LP17
+- Código: 7EF10_P
+  Habilidade: Identificar a finalidade de textos normativos.
+  BNCC: EF69LP20
+- Código: 7EF11_P
+  Habilidade: Reconhecer o gênero de textos publicitários e jornalísticos (crônicas, reportagens, artigos de opinião, cartas do leitor).
+  BNCC: EF69LP02
+- Código: 7EF12_P
+  Habilidade: Reconhecer o gênero de textos normativos.
+  BNCC: EF69LP20
+- Código: 7EF13_P
+  Habilidade: Reconhecer o narrador onisciente em narrativas lineares de nível 3.
+  BNCC: EF69LP47
+- Código: 7EF14_P
+  Habilidade: Identificar elementos característicos do texto dramático de nível 3.
+  BNCC: EF69LP47
+- Código: 7EF16_P
+  Habilidade: Identificar opinião em textos de nível 3, de estrutura narrativa ou de relato, estando a opinião marcada por uma estrutura predicativa.
+  BNCC: EF67LP04
+- Código: 7EF17_P
+  Habilidade: Inferir efeitos de ironia em textos que articulam linguagem verbal e não verbal (multissemióticos).
+  BNCC: EF69LP05
+- Código: 7EF19_P
+  Habilidade: Reconhecer, em textos de nível 3, relações lógico-discursivas de comparação, finalidade, condição, conclusão marcadas por conjunções mais usuais: para que, como, mais que, se, então, portanto.
+  BNCC: EF69LP18
+- Código: 7EF21_P
+  Habilidade: Identificar, em textos de nível 3, o referente de uma expressão nominal com pronome adjetivo (possessivo, demonstrativo, indefinido) e de elipses.
+  BNCC: EF07LP12
+- Código: 7EF22_P
+  Habilidade: Identificar, em textos de nível 2 ou 3, um posicionamento explícito no título ou no primeiro parágrafo do texto argumentativo.
+  BNCC: EF67LP05
+- Código: 7EF23_P
+  Habilidade: Identificar, num texto de nível 3, a tese quando explícita no título ou no primeiro parágrafo do texto.
+  BNCC: EF67LP05
+- Código: 7EF24_P
+  Habilidade: Identificar, em um texto de nível 3, o argumento de uma tese (explícita no comando), estando o argumento próximo à tese ou sinalizado por um operador argumentativo (porque, pois).
+  BNCC: EF67LP05
+
+#### 8º ANO
+- Código: 7EF04_P
+  Habilidade: Reconhecer o assunto de textos de nível 3 quando ele é tópico do primeiro parágrafo.
+  BNCC: EF67LP02
+- Código: 7EF06_P
+  Habilidade: Inferir, em textos de nível 3, o sentido de metáforas com apoio de pistas co-textuais.
+  BNCC: EF67LP06
+- Código: 7EF08_P
+  Habilidade: Inferir informação em textos de nível 3 por dedução a partir de um enunciado ou na articulação entre dois enunciados.
+  BNCC: EF69LP20
+- Código: 7EF10_P
+  Habilidade: Identificar a finalidade de textos normativos.
+  BNCC: EF69LP20
+- Código: 7EF12_P
+  Habilidade: Reconhecer o gênero de textos normativos.
+  BNCC: EF69LP20
+- Código: 7EF14_P
+  Habilidade: Identificar elementos característicos do texto dramático de nível 3.
+  BNCC: EF69LP47
+- Código: 7EF16_P
+  Habilidade: Identificar opinião em textos de nível 3, de estrutura narrativa ou de relato, estando a opinião marcada por uma estrutura predicativa.
+  BNCC: EF67LP04
+- Código: 7EF17_P
+  Habilidade: Inferir efeitos de ironia em textos que articulam linguagem verbal e não verbal (multissemióticos).
+  BNCC: EF69LP05
+- Código: 7EF19_P
+  Habilidade: Reconhecer, em textos de nível 3, relações lógico-discursivas de comparação, finalidade, condição, conclusão marcadas por conjunções mais usuais: para que, como, mais que, se, então, portanto.
+  BNCC: EF69LP18
+- Código: 7EF21_P
+  Habilidade: Identificar, em textos de nível 3, o referente de uma expressão nominal com pronome adjetivo (possessivo, demonstrativo, indefinido) e de elipses.
+  BNCC: EF07LP12
+- Código: 7EF23_P
+  Habilidade: Identificar, num texto de nível 3, a tese quando explícita no título ou no primeiro parágrafo do texto.
+  BNCC: EF67LP05
+- Código: 7EF24_P
+  Habilidade: Identificar, em um texto de nível 3, o argumento de uma tese (explícita no comando), estando o argumento próximo à tese ou sinalizado por um operador argumentativo (porque, pois).
+  BNCC: EF67LP05
+- Código: 8EF01_P
+  Habilidade: Localizar informações explícitas, em textos de nível 3, recuperando-as por meio de paráfrase, estando a informação em outra posição que não o início do texto.
+  BNCC: EF69LP03
+- Código: 8EF03_P
+  Habilidade: Reconhecer o assunto de textos de nível 3, considerando a recorrência de tópicos ou de um tópico.
+  BNCC: EF69LP03
+- Código: 8EF05_P
+  Habilidade: Inferir, em textos de nível 3, o sentido de metáforas, a partir da leitura global do texto.
+  BNCC: EF89LP03
+- Código: 8EF07_P
+  Habilidade: Inferir informação em textos de nível 3 considerando a relação entre enunciados de um trecho ou parágrafo do texto.
+  BNCC: EF69LP20
+- Código: 8EF09_P
+  Habilidade: Identificar a finalidade de textos de opinião.
+  BNCC: EF89LP03
+- Código: 8EF11_P
+  Habilidade: Reconhecer o gênero de textos de opinião.
+  BNCC: EF69LP17
+- Código: 8EF13_P
+  Habilidade: Identificar as partes estruturantes de uma narrativa linear de nível 3 (orientação, conflito/complicação, clímax/desfecho).
+  BNCC: EF69LP47
+- Código: 8EF15_P
+  Habilidade: Identificar opinião em textos de nível 3, de estrutura expositiva ou estando os enunciados opinativos marcados por frase exclamativa ou estrutura predicativa.
+  BNCC: EF89LP31
+- Código: 8EF18_P
+  Habilidade: Reconhecer, em texto de nível 3, relações lógico-discursivas de explicação, alternância, consequência, proporção, concessão marcadas por conjunções mais usuais: pois, porque, ou, que, tanto que, à medida que, apesar de.
+  BNCC: EF08LP13
+- Código: 8EF20_P
+  Habilidade: Identificar, em texto de nível 3, o referente de um pronome relativo ou de pronome pessoal do caso oblíquo (o, a, lhe etc.).
+  BNCC: EF08LP15
+- Código: 8EF21_P
+  Habilidade: Reconhecer, em textos de nível 3, o efeito de sentido de seleção lexical que visa a persuadir o leitor em textos argumentativos.
+  BNCC: EF89LP06
+- Código: 8EF23_P
+  Habilidade: Identificar, em um texto de nível 3, a tese quando apresentada por meio de paráfrase.
+  BNCC: EF89LP04
+- Código: 8EF25_P
+  Habilidade: Identificar, em texto de nível 3, o argumento de uma tese (explícita no comando), estando o argumento em qualquer parte do texto, sinalizado ou não sinalizado por um operador argumentativo.
+  BNCC: EF89LP04
+
+#### 9º ANO
+- Código: 8EF01_P
+  Habilidade: Localizar informações explícitas, em textos de nível 3, recuperando-as por meio de paráfrase, estando a informação em outra posição que não o início do texto.
+  BNCC: EF69LP03
+- Código: 8EF03_P
+  Habilidade: Reconhecer o assunto de textos de nível 3, considerando a recorrência de tópicos ou de um tópico.
+  BNCC: EF69LP03
+- Código: 8EF05_P
+  Habilidade: Inferir, em textos de nível 3, o sentido de metáforas, a partir da leitura global do texto.
+  BNCC: EF89LP03
+- Código: 8EF07_P
+  Habilidade: Inferir informação em textos de nível 3 considerando a relação entre enunciados de um trecho ou parágrafo do texto.
+  BNCC: EF69LP20
+- Código: 8EF09_P
+  Habilidade: Identificar a finalidade de textos de opinião.
+  BNCC: EF89LP03
+- Código: 8EF11_P
+  Habilidade: Reconhecer o gênero de textos de opinião.
+  BNCC: EF69LP17
+- Código: 8EF13_P
+  Habilidade: Identificar as partes estruturantes de uma narrativa linear de nível 3 (orientação, conflito/complicação, clímax/desfecho).
+  BNCC: EF69LP47
+- Código: 8EF15_P
+  Habilidade: Identificar opinião em textos de nível 3, de estrutura expositiva ou estando os enunciados opinativos marcados por frase exclamativa ou estrutura predicativa.
+  BNCC: EF89LP31
+- Código: 8EF18_P
+  Habilidade: Reconhecer, em texto de nível 3, relações lógico-discursivas de explicação, alternância, consequência, proporção, concessão marcadas por conjunções mais usuais: pois, porque, ou, que, tanto que, à medida que, apesar de.
+  BNCC: EF08LP13
+- Código: 8EF20_P
+  Habilidade: Identificar, em texto de nível 3, o referente de um pronome relativo ou de pronome pessoal do caso oblíquo (o, a, lhe etc.).
+  BNCC: EF08LP15
+- Código: 8EF21_P
+  Habilidade: Reconhecer, em textos de nível 3, o efeito de sentido de seleção lexical que visa a persuadir o leitor em textos argumentativos.
+  BNCC: EF89LP06
+- Código: 8EF23_P
+  Habilidade: Identificar, em um texto de nível 3, a tese quando apresentada por meio de paráfrase.
+  BNCC: EF89LP04
+- Código: 8EF25_P
+  Habilidade: Identificar, em texto de nível 3, o argumento de uma tese (explícita no comando), estando o argumento em qualquer parte do texto, sinalizado ou não sinalizado por um operador argumentativo.
+  BNCC: EF89LP04
+- Código: 9EF02_P
+  Habilidade: Localizar informação a partir de procedimento de referenciação quando o referente está distante.
+  BNCC: EF69LP03
+- Código: 9EF04_P
+  Habilidade: Reconhecer o assunto de textos de nível 3, a partir da leitura global do texto.
+  BNCC: EF69LP03
+- Código: 9EF06_P
+  Habilidade: Inferir o sentido de termos técnicos ou especializados, com apoio de pistas co-textuais.
+  BNCC: EF89LP03
+- Código: 9EF07_P
+  Habilidade: Inferir o sentido de termos técnicos ou especializados, a partir da leitura global do texto.
+  BNCC: EF89LP03
+- Código: 9EF08_P
+  Habilidade: Inferir o sentido de vocabulário erudito, com apoio de pistas co-textuais.
+  BNCC: EF89LP03
+- Código: 9EF10_P
+  Habilidade: Inferir informação em textos de nível 3 considerando a leitura global do texto.
+  BNCC: EF89LP03
+- Código: 9EF12_P
+  Habilidade: Identificar a finalidade de textos de opinião que tratam de temas especializados.
+  BNCC: EF89LP03
+- Código: 9EF14_P
+  Habilidade: Reconhecer o gênero de textos de opinião que tratam de temas especializados.
+  BNCC: EF69LP17
+- Código: 9EF16_P
+  Habilidade: Identificar elementos de uma narrativa não linear/não canônica de nível 3: personagem principal, tempo/lugar, conflito, narrador.
+  BNCC: EF69LP47
+- Código: 9EF18_P
+  Habilidade: Identificar opinião em textos de nível 3, de estrutura expositiva ou híbrida, estando a opinião implícita numa adjetivação.
+  BNCC: EF89LP31
+- Código: 9EF20_P
+  Habilidade: Reconhecer, em textos de nível 3 ou discursivas (todas as relações semânticas), não marcadas ou marcadas por conjunções menos usuais (contudo, porquanto, embora etc.).
+  BNCC: EF09LP11
+- Código: 9EF22_P
+  Habilidade: Identificar, em texto de nível 3, o referente de um pronome relativo.
+  BNCC: EF08LP15
+- Código: 9EF25_P
+  Habilidade: Identificar a tese de um texto de nível 3, a partir de sua leitura global.
+  BNCC: EF89LP04
+- Código: 9EF27_P
+  Habilidade: Identificar, em texto de nível 3, o contra-argumento de uma tese (explícita no comando), estando o contra-argumento em qualquer parte do texto e não sinalizado por operadores argumentativos.
+  BNCC: EF89LP04
+- Código: 9EF28_P
+  Habilidade: Reconhecer, em texto de nível 3, o dado estatístico e a citação de autoridade como estratégias argumentativas.
+  BNCC: EF89LP04
+
+### LÍNGUA PORTUGUESA – ESCRITA
+#### 6º ANO
+- Código: 6EF01_E
+  Habilidade: Produzir um relato de experiência (uma experiência vivida, uma experiência de leitura, por exemplo).
+  BNCC: 
+- Código: 6EF02_E
+  Habilidade: Produzir uma notícia (de um fato do cotidiano ou da vida escolar, por exemplo).
+  BNCC: 
+- Código: 6EF03_E
+  Habilidade: Produzir um comentário argumentativo a partir da leitura de um texto de nível 2 (uma notícia, conto, texto de opinião, reportagem, por exemplo), sobre temática da vida cotidiano ou do universo escolar.
+  BNCC: 
+
+#### 7º ANO
+- Código: 6EF03_E
+  Habilidade: Produzir um comentário argumentativo a partir da leitura de um texto de nível 2 (uma notícia, conto, texto de opinião, reportagem, por exemplo), sobre temática da vida cotidiano ou do universo escolar.
+  BNCC: 
+- Código: 7EF01_E
+  Habilidade: Elaborar esquema e/ou resumo de texto didático, de nível 3 (expositivo ou de relato), recorrendo à paráfrase.
+  BNCC: 
+- Código: 7EF02_E
+  Habilidade: Produzir uma carta de leitor, com tese e argumento, a partir da leitura de um texto de nível 3 (uma notícia, uma reportagem, um texto de opinião, por exemplo).
+  BNCC: 
+
+#### 8º ANO
+- Código: 7EF02_E
+  Habilidade: Produzir uma carta de leitor, com tese e argumento, a partir da leitura de um texto de nível 3 (uma notícia, uma reportagem, um texto de opinião, por exemplo).
+  BNCC: 
+- Código: 8EF01_E
+  Habilidade: Produzir uma resenha de livro ou filme (com introdução, posicionamento/apreciação e argumento).
+  BNCC: 
+- Código: 8EF02_E
+  Habilidade: Produzir um texto/artigo de opinião que contenha uma introdução, a exposição da tese, um argumento e a conclusão, sobre tema da vida pública.
+  BNCC: 
+
+#### 9º ANO
+- Código: 8EF02_E
+  Habilidade: Produzir um texto/artigo de opinião que contenha uma introdução, a exposição da tese, um argumento e a conclusão, sobre tema da vida pública.
+  BNCC: 
+- Código: 9EF01_E
+  Habilidade: Produzir um resumo de um texto expositivo de nível 3 (texto didático, reportagem ou artigo de divulgação científica, por exemplo).
+  BNCC: 
+- Código: 9EF02_E
+  Habilidade: Produzir um texto de opinião que contenha introdução, tese, dois ou mais argumentos e conclusão, sobre tema da vida pública.
+  BNCC: 
+
+### MATEMÁTICA
+#### 6º ANO
+- Código: 6EF01_M
+  Habilidade: Corresponder números racionais positivos, em representação decimal finita, a pontos da reta numérica.
+  BNCC: EF05MA05
+- Código: 6EF02_M
+  Habilidade: Comparar números racionais positivos, em representação fracionária, indicando o menor, o maior, a ordenação crescente ou a decrescente deles.
+  BNCC: EF05MA05
+- Código: 4EF07_M
+  Habilidade: Utilizar a operação de multiplicação entre números naturais, formados por até quatro algarismos, envolvendo o significado de adição de parcelas iguais, de organização retangular ou de proporcionalidade, na resolução de problema.
+  BNCC: EF04MA06
+- Código: 4EF09_M
+  Habilidade: Utilizar a operação de divisão de um número natural, formado por até quatro algarismos, por outro, formado por até dois algarismos, envolvendo o significado de repartição equitativa ou de medida, na resolução de problema.
+  BNCC: EF03MA08 EF04MA07
+- Código: 6EF03_M
+  Habilidade: Utilizar a operação de adição ou de subtração entre natural e racional positivo, o primeiro formado por até seis algarismos e, o segundo, em representação decimal finita, na resolução de problema.
+  BNCC: EF05MA07
+- Código: 6EF04_M
+  Habilidade: Utilizar a operação de adição ou de subtração entre números racionais positivos, em representação decimal finita, na resolução de problema.
+  BNCC: EF05MA07
+- Código: 6EF05_M
+  Habilidade: Utilizar a operação de adição ou de subtração entre números racionais positivos, em representação fracionária, na resolução de problema.
+  BNCC: EF06MA10
+- Código: 6EF06_M
+  Habilidade: Utilizar a operação de multiplicação ou de divisão de números racionais postivos, em representação decimal finita, por números naturais, formados por até dois algarismos, na resolução de problema.
+  BNCC: EF05MA08
+- Código: 6EF07_M
+  Habilidade: Determinar o valor de uma expressão numérica envolvendo pelo menos duas das seguintes operações entre números naturais: adição, subtração, multiplicação, divisão e potenciação.
+  BNCC: EF06MA03
+- Código: 6EF08_M
+  Habilidade: Utilizar pelo menos duas das seguintes operações entre números naturais ou racionais positivos, em representação decimal finita: adição, subtração, multiplicação, dvisão e potenciação, na resolução de problema.
+  BNCC: EF06MA03 EF06MA11
+- Código: 6EF09_M
+  Habilidade: Determinar a quantidade de agrupamentos possíveis entre elementos de duas coleções, combinando cada elemento de uma com os da outra, na resolução de problema.
+  BNCC: EF04MA08 EF05MA09
+- Código: 5EF02_M
+  Habilidade: Representar fração associada ao significado de parte de um todo.
+  BNCC: EF05MA03
+- Código: 6EF10_M
+  Habilidade: Identificar frações equivalentes.
+  BNCC: EF05MA04
+- Código: 6EF11_M
+  Habilidade: Corresponder representações decimal e fracionária de números racionais positivos, que possuem representação decimal finita.
+  BNCC: EF06MA08
+- Código: 6EF12_M
+  Habilidade: Utilizar o cálculo da fração de uma quantidade, cujo resultado seja um número natural, na resolução de problema.
+  BNCC: EF06MA09
+- Código: 6EF13_M
+  Habilidade: Utilizar operações entre números naturais em que se conheça o resultado dessas operações e que um desses números seja desconhecido, na resolução de problema.
+  BNCC: EF05MA11 EF06MA14
+- Código: 6EF14_M
+  Habilidade: Utilizar proporcionalidade direta entre duas grandezas, na resolução de problema.
+  BNCC: EF05MA12
+- Código: 5EF03_M
+  Habilidade: Identificar objeto ou sua localização em representação no plano, referenciada por linhas e colunas.
+  BNCC: EF05MA14
+- Código: 6EF15_M
+  Habilidade: Corresponder pares ordenados a pontos do plano cartesiano, que representam a localização de objetos (1º quadrante).
+  BNCC: EF05MA15
+- Código: 5EF04_M
+  Habilidade: Corresponder figuras geométricas espaciais (cilindro, cone, prisma ou pirâmide) à uma de suas planificações.
+  BNCC: EF03MA14 EF04MA17
+- Código: 5EF05_M
+  Habilidade: Reconhecer polígonos em relação à quantidade de lados, vértices ou ângulos.
+  BNCC: EF05MA17
+- Código: 6EF16_M
+  Habilidade: Classificar triângulos em relação às medidas de seus lados e/ou de seus ângulos internos.
+  BNCC: EF06MA19
+- Código: 6EF17_M
+  Habilidade: Classificar quadriláteros em relação às medidas de seus lados, de seus ângulos internos e da posição relativa de seus lados.
+  BNCC: EF06MA20
+- Código: 6EF18_M
+  Habilidade: Medir área de figuras planas, desenhadas em malha quadriculada, cujos lados se posicionam sobre linhas de grade e/ou diagonais de quadradinhos da malha.
+  BNCC: EF04MA21
+- Código: 5EF06_M
+  Habilidade: Converter unidades de medida padronizadas mais usuais das grandezas comprimento, massa, tempo ou capacidade.
+  BNCC: EF05MA19
+- Código: 6EF19_M
+  Habilidade: Utilizar conversão entre unidades de medida padronizadas mais usuais das grandezas comprimento, massa, tempo ou capacidade, na resolução de problema.
+  BNCC: EF05MA19
+- Código: 6EF20_M
+  Habilidade: Determinar a probabilidade de ocorrência de um evento, associado a um experimento aleatório, em um espaço amostral equiprovável, cujos quantitativos necessários para o cálculo da probabilidade não demandem técnicas de contagem.
+  BNCC: EF05MA23
+- Código: 6EF21_M
+  Habilidade: Interpretar dados estatísticos dispostos em gráficos de colunas, de barras agrupadas, pictóricos ou de linhas.
+  BNCC: EF04MA27 EF05MA24
+
+#### 7º ANO
+- Código: 7EF01_M
+  Habilidade: Corresponder números inteiros ou racionais a pontos da reta numérica.
+  BNCC: EF05MA05 EF06MA01 EF06MA08 EF07MA03 EF07MA10
+- Código: 6EF04_M
+  Habilidade: Utilizar a operação de adição ou de subtração entre números racionais positivos, em representação decimal finita, na resolução de problema.
+  BNCC: EF05MA07
+- Código: 6EF05_M
+  Habilidade: Utilizar a operação de adição ou de subtração entre números racionais positivos, em representação fracionária, na resolução de problema.
+  BNCC: EF06MA10
+- Código: 6EF07_M
+  Habilidade: Determinar o valor de uma expressão numérica envolvendo pelo menos duas das seguintes operações entre números naturais: adição, subtração, multiplicação, divisão e potenciação.
+  BNCC: EF06MA03
+- Código: 6EF08_M
+  Habilidade: Utilizar pelo menos duas das seguintes operações entre números naturais ou racionais positivos, em representação decimal finita: adição, subtração, multiplicação, dvisão e potenciação, na resolução de problema.
+  BNCC: EF06MA03 EF06MA11
+- Código: 7EF02_M
+  Habilidade: Utilizar operações fundamentais entre números inteiros, na resolução de problema.
+  BNCC: EF07MA04
+- Código: 6EF10_M
+  Habilidade: Identificar frações equivalentes.
+  BNCC: EF05MA04
+- Código: 7EF03_M
+  Habilidade: Efetuar operação de mulitplicação ou de divisão entre números racionais, em representação fracionária.
+  BNCC: EF07MA11 EF07MA12
+- Código: 6EF11_M
+  Habilidade: Corresponder representações decimal e fracionária de números racionais positivos, que possuem representação decimal finita.
+  BNCC: EF06MA08
+- Código: 6EF12_M
+  Habilidade: Utilizar o cálculo da fração de uma quantidade, cujo resultado seja um número natural, na resolução de problema.
+  BNCC: EF06MA09
+- Código: 7EF04_M
+  Habilidade: Utilizar máximo divisor comum ou mínimo múltiplo comum entre números naturais na resolução de problema.
+  BNCC: EF07MA01
+- Código: 7EF05_M
+  Habilidade: Utilizar porcentagem, sem envolver aplicação de percentuais sucessivos, na resolução de problema.
+  BNCC: EF07MA02
+- Código: 6EF13_M
+  Habilidade: Utilizar operações entre números naturais em que se conheça o resultado dessas operações e que um desses números seja desconhecido, na resolução de problema.
+  BNCC: EF05MA11 EF06MA14
+- Código: 6EF14_M
+  Habilidade: Utilizar proporcionalidade direta entre duas grandezas, na resolução de problema.
+  BNCC: EF05MA12
+- Código: 7EF06_M
+  Habilidade: Utilizar proporcionalidade inversa entre duas grandezas, na resolução de problema.
+  BNCC: EF07MA17
+- Código: 7EF07_M
+  Habilidade: Determinar conjunto solução de equação polinomial de 1º grau.
+  BNCC: EF07MA18
+- Código: 7EF08_M
+  Habilidade: Utilizar equação polinomial de 1º grau, representando uma situação por meio de modelagem matemática, na resolução de problema.
+  BNCC: EF07MA18
+- Código: 6EF16_M
+  Habilidade: Classificar triângulos em relação às medidas de seus lados e/ou de seus ângulos internos.
+  BNCC: EF06MA19
+- Código: 6EF17_M
+  Habilidade: Classificar quadriláteros em relação às medidas de seus lados, de seus ângulos internos e da posição relativa de seus lados.
+  BNCC: EF06MA20
+- Código: 7EF09_M
+  Habilidade: Corresponder pontos do plano cartesiano a pares ordenados.
+  BNCC: EF05MA15 EF07MA19 EF07MA20 EF07MA21
+- Código: 5EF04_M
+  Habilidade: Corresponder figuras geométricas espaciais (cilindro, cone, prisma ou pirâmide) à uma de suas planificações.
+  BNCC: EF03MA14 EF04MA17
+- Código: 7EF10_M
+  Habilidade: Reconhecer relações entre os ângulos que um reta transversal forma com um feixe de retas paralelas.
+  BNCC: EF07MA23
+- Código: 7EF11_M
+  Habilidade: Determinar a medida de um ângulo interno de um triângulo, a partir das medidas dos outros dois.
+  BNCC: EF07MA24
+- Código: 7EF12_M
+  Habilidade: Utilizar medidas de ângulos internos e/ou externos de polígonos regulares, na resolução de problema.
+  BNCC: EF07MA27
+- Código: 7EF13_M
+  Habilidade: Utilizar cálculo de medida de perímetro de polígonos na resolução de problema.
+  BNCC: EF04MA20 EF06MA29
+- Código: 7EF14_M
+  Habilidade: Utilizar cálculo de medida de área de figuras planas: quadrados, retângulos, triângulos ou outras figuras planas que podem ser decompostas em quadrados, retângulos e/ou triângulos, na resolução de problema.
+  BNCC: EF07MA32
+- Código: 7EF15_M
+  Habilidade: Utilizar cálculo de medida de volume de blocos retangulares, envolvendo unidades mais usuais (metro cúbico, decímetro cúbico ou centímetro cúbico), na resolução de problema.
+  BNCC: EF07MA30
+- Código: 6EF20_M
+  Habilidade: Determinar a probabilidade de ocorrência de um evento, associado a um experimento aleatório, em um espaço amostral equiprovável, cujos quantitativos necessários para o cálculo da probabilidade não demandem técnicas de contagem.
+  BNCC: EF05MA23
+- Código: 6EF21_M
+  Habilidade: Interpretar dados estatísticos dispostos em gráficos de colunas, de barras agrupadas, pictóricos ou de linhas.
+  BNCC: EF04MA27 EF05MA24
+- Código: 7EF16_M
+  Habilidade: Interpretar dados estatísticos dispostos em gráficos de setores.
+  BNCC: EF07MA37
+- Código: 7EF17_M
+  Habilidade: Determinar a média aritmética simples de um conjunto de dados estatísticos.
+  BNCC: EF07MA35
+
+#### 8º ANO
+- Código: 7EF01_M
+  Habilidade: Corresponder números inteiros ou racionais a pontos da reta numérica.
+  BNCC: EF05MA05 EF06MA01 EF06MA08 EF07MA03 EF07MA10
+- Código: 7EF02_M
+  Habilidade: Utilizar operações fundamentais entre números inteiros, na resolução de problema.
+  BNCC: EF07MA04
+- Código: 7EF03_M
+  Habilidade: Efetuar operação de mulitplicação ou de divisão entre números racionais, em representação fracionária.
+  BNCC: EF07MA11 EF07MA12
+- Código: 8EF01_M
+  Habilidade: Utilizar o princípio multiplicativo de contagem na resolução de problema.
+  BNCC: EF08MA03
+- Código: 7EF04_M
+  Habilidade: Utilizar máximo divisor comum ou mínimo múltiplo comum entre números naturais na resolução de problema.
+  BNCC: EF07MA01
+- Código: 7EF05_M
+  Habilidade: Utilizar porcentagem, sem envolver aplicação de percentuais sucessivos, na resolução de problema.
+  BNCC: EF07MA02
+- Código: 7EF06_M
+  Habilidade: Utilizar proporcionalidade inversa entre duas grandezas, na resolução de problema.
+  BNCC: EF07MA17
+- Código: 8EF02_M
+  Habilidade: Utilizar cálculo de valor numérico de expressões algébricas na resolução de problema.
+  BNCC: EF08MA06
+- Código: 7EF07_M
+  Habilidade: Determinar conjunto solução de equação polinomial de 1º grau.
+  BNCC: EF07MA18
+- Código: 7EF08_M
+  Habilidade: Utilizar equação polinomial de 1º grau, representando uma situação por meio de modelagem matemática, na resolução de problema.
+  BNCC: EF07MA18
+- Código: 8EF03_M
+  Habilidade: Determinar conjunto solução de um sistema de equações polinomiais de 1º grau, com duas incógnitas.
+  BNCC: EF08MA08
+- Código: 8EF04_M
+  Habilidade: Utilizar sistema de equações polinomiais de 1º grau, com duas incógnitas, representando uma situação por meio de modelagem matemática, na resolução de problema.
+  BNCC: EF08MA08
+- Código: 8EF05_M
+  Habilidade: Determinar conjunto solução de equação polinomial de 2º grau, do tipo ax² = b.
+  BNCC: EF08MA09
+- Código: 7EF09_M
+  Habilidade: Corresponder pontos do plano cartesiano a pares ordenados.
+  BNCC: EF05MA15 EF07MA19 EF07MA20 EF07MA21
+- Código: 7EF10_M
+  Habilidade: Reconhecer relações entre os ângulos que um reta transversal forma com um feixe de retas paralelas.
+  BNCC: EF07MA23
+- Código: 7EF11_M
+  Habilidade: Determinar a medida de um ângulo interno de um triângulo, a partir das medidas dos outros dois.
+  BNCC: EF07MA24
+- Código: 7EF12_M
+  Habilidade: Utilizar medidas de ângulos internos e/ou externos de polígonos regulares, na resolução de problema.
+  BNCC: EF07MA27
+- Código: 8EF06_M
+  Habilidade: Utilizar o conceito de mediatriz ou de bissetriz, como lugar geométrico, na resolução de problema.
+  BNCC: EF08MA17
+- Código: 7EF13_M
+  Habilidade: Utilizar cálculo de medida de perímetro de polígonos na resolução de problema.
+  BNCC: EF04MA20 EF06MA29
+- Código: 8EF07_M
+  Habilidade: Utilizar cálculo de medida de comprimento de circunferência na resolução de problema.
+  BNCC: EF07MA33
+- Código: 7EF14_M
+  Habilidade: Utilizar cálculo de medida de área de figuras planas: quadrados, retângulos, triângulos ou outras figuras planas que podem ser decompostas em quadrados, retângulos e/ou triângulos, na resolução de problema.
+  BNCC: EF07MA32
+- Código: 8EF08_M
+  Habilidade: Utilizar cálculo de medida de área de círculos na resolução de problema.
+  BNCC: EF08MA19
+- Código: 7EF15_M
+  Habilidade: Utilizar cálculo de medida de volume de blocos retangulares, envolvendo unidades mais usuais (metro cúbico, decímetro cúbico ou centímetro cúbico), na resolução de problema.
+  BNCC: EF07MA30
+- Código: 8EF09_M
+  Habilidade: Utilizar conversão entre unidades de medida da grandeza capacidade: litro e decímetro cúbico ou litro e metro cúbico, na resolução de problema.
+  BNCC: EF08MA20
+- Código: 8EF10_M
+  Habilidade: Determinar a probabilidade de ocorrência de um evento, associado a um experimento aleatório, em um espaço amostral equiprovável, em que pelo menos um dos quantitativos necessários para o cálculo da probabilidade demande técnicas de contagem.
+  BNCC: EF08MA22
+- Código: 7EF16_M
+  Habilidade: Interpretar dados estatísticos dispostos em gráficos de setores.
+  BNCC: EF07MA37
+- Código: 8EF11_M
+  Habilidade: Determinar média aritmética simples, moda, mediana ou amplitude de um conjunto de dados estatísticos.
+  BNCC: EF07MA35 EF08MA25
+- Código: 8EF12_M
+  Habilidade: Interpretar o significado das medidas de tendência central (média aritmética simples, moda ou mediana) ou da amplitude de um conjunto de dados estatísticos.
+  BNCC: EF08MA25
+
+#### 9º ANO
+- Código: 8EF01_M
+  Habilidade: Utilizar o princípio multiplicativo de contagem na resolução de problema.
+  BNCC: EF08MA03
+- Código: 9EF01_M
+  Habilidade: Utilizar porcentagem, envolvendo ou não aplicação de percentuais sucessivos, na resolução de problema.
+  BNCC: EF07MA02 EF09MA05
+- Código: 9EF02_M
+  Habilidade: Utilizar proporcionalidade direta e/ou inversa entre, pelo menos, três grandezas, na resolução de problema.
+  BNCC: EF09MA08
+- Código: 8EF02_M
+  Habilidade: Utilizar cálculo de valor numérico de expressões algébricas na resolução de problema.
+  BNCC: EF08MA06
+- Código: 8EF03_M
+  Habilidade: Determinar conjunto solução de um sistema de equações polinomiais de 1º grau, com duas incógnitas.
+  BNCC: EF08MA08
+- Código: 8EF04_M
+  Habilidade: Utilizar sistema de equações polinomiais de 1º grau, com duas incógnitas, representando uma situação por meio de modelagem matemática, na resolução de problema.
+  BNCC: EF08MA08
+- Código: 8EF05_M
+  Habilidade: Determinar conjunto solução de equação polinomial de 2º grau, do tipo ax² = b.
+  BNCC: EF08MA09
+- Código: 9EF03_M
+  Habilidade: Determinar conjunto solução de equação polinomial de 2º grau, do tipo ax² + bx + c = 0, com a ≠ 0 e b ≠ 0.
+  BNCC: EF09MA09
+- Código: 9EF04_M
+  Habilidade: Utilizar equação polinomial de 2º grau, do tipo ax² + bx + c = 0, com a ≠ 0 e b ≠ 0, representando uma situação por meio de modelagem matemática, na resolução de problema.
+  BNCC: EF09MA09
+- Código: 9EF05_M
+  Habilidade: Utilizar grandeza representada como razão entre duas grandezas de espécies diferentes, na resolução de problema.
+  BNCC: EF09MA07
+- Código: 9EF06_M
+  Habilidade: Associar figura geométrica espacial à uma de suas vistas ortogonais (superior, frontal ou lateral).
+  BNCC: EF09MA17
+- Código: 9EF07_M
+  Habilidade: Utilizar semelhança de triângulos na resolução de problema.
+  BNCC: EF09MA12
+- Código: 9EF08_M
+  Habilidade: Utilizar relações métricas do triângulo retângulo na resolução de problema.
+  BNCC: EF09MA14
+- Código: 9EF09_M
+  Habilidade: Utilizar o teorema de Tales na resolução de problema.
+  BNCC: EF09MA14
+- Código: 9EF10_M
+  Habilidade: Determinar as coordenadas do ponto médio de um segmento de reta, a partir das coordenadas de seus pontos extremos no plano cartesiano.
+  BNCC: EF09MA16
+- Código: 9EF11_M
+  Habilidade: Determinar a distância entre dois pontos quaisquer, dadas as coordenadas desses pontos no plano cartesiano.
+  BNCC: EF09MA16
+- Código: 9EF12_M
+  Habilidade: Utilizar cálculo de medida de perímetro de figura poligonal, representada no plano cartesiano, a partir das coordenadas de seus vértices, na resolução de problema.
+  BNCC: EF09MA16
+- Código: 9EF13_M
+  Habilidade: Utilizar cálculo de medida de área de figura poligonal, representada no plano cartesiano, a partir das coordenadas de seus vértices, na resolução de problema.
+  BNCC: EF09MA16
+- Código: 9EF14_M
+  Habilidade: Utilizar relações entre medidas de arcos, ângulos centrais e ângulos inscritos em uma circunferência, na resolução de problema.
+  BNCC: EF09MA11
+- Código: 8EF06_M
+  Habilidade: Utilizar o conceito de mediatriz ou de bissetriz, como lugar geométrico, na resolução de problema.
+  BNCC: EF08MA17
+- Código: 7EF13_M
+  Habilidade: Utilizar cálculo de medida de perímetro de polígonos na resolução de problema.
+  BNCC: EF04MA20 EF06MA29
+- Código: 8EF07_M
+  Habilidade: Utilizar cálculo de medida de comprimento de circunferência na resolução de problema.
+  BNCC: EF07MA33
+- Código: 7EF14_M
+  Habilidade: Utilizar cálculo de medida de área de figuras planas: quadrados, retângulos, triângulos ou outras figuras planas que podem ser decompostas em quadrados, retângulos e/ou triângulos, na resolução de problema.
+  BNCC: EF07MA32
+- Código: 8EF08_M
+  Habilidade: Utilizar cálculo de medida de área de círculos na resolução de problema.
+  BNCC: EF08MA19
+- Código: 9EF15_M
+  Habilidade: Utilizar cálculo de medida de volume de prismas retos ou de cilindros retos, na resolução de problema.
+  BNCC: EF09MA19
+- Código: 8EF09_M
+  Habilidade: Utilizar conversão entre unidades de medida da grandeza capacidade: litro e decímetro cúbico ou litro e metro cúbico, na resolução de problema.
+  BNCC: EF08MA20
+- Código: 8EF10_M
+  Habilidade: Determinar a probabilidade de ocorrência de um evento, associado a um experimento aleatório, em um espaço amostral equiprovável, em que pelo menos um dos quantitativos necessários para o cálculo da probabilidade demande técnicas de contagem.
+  BNCC: EF08MA22
+- Código: 9EF16_M
+  Habilidade: Determinar a probabilidade de ocorrência de dois eventos, independentes ou dependentes, associados a um experimento aleatório, em um espaço amostral equiprovável.
+  BNCC: EF09MA20
+- Código: 8EF12_M
+  Habilidade: Interpretar o significado das medidas de tendência central (média aritmética simples, moda ou mediana) ou da amplitude de um conjunto de dados estatísticos.
+  BNCC: EF08MA25
+
+### CIÊNCIAS DA NATUREZA
+#### 6º ANO
+- Código: 6EF01_CN
+  Habilidade: Interpretar o ciclo da água.
+  BNCC: EF05CI02
+- Código: 6EF02_CN
+  Habilidade: Explicar como a ação da água, a atividade dos seres vivos e a retirada de cobertura vegetal influenciam no processo de erosão.
+  BNCC: EF05CI03
+- Código: 6EF03_CN
+  Habilidade: Interpretar comportamentos voltados para a preservação dos recursos naturais.
+  BNCC: EF05CI04
+- Código: 6EF04_CN
+  Habilidade: Reconhecer as propriedades de materiais como plásticos, metais, papel e vidro que estão relacionadas ao uso, reaproveitamento e reciclagem desses materiais.
+  BNCC: EF05CI05
+- Código: 6EF05_CN
+  Habilidade: Interpretar as relações estabelecidas entre os diferentes sistemas do corpo humano para a execução das funções de nutrição, excreção, relação, reprodução e coordenação.
+  BNCC: EF05CI06 EF05CI07
+- Código: 6EF06_CN
+  Habilidade: Explicar a necessidade de ingestão de diferentes nutrientes frente às demandas do organismo humano.
+  BNCC: EF05CI08 EF05CI09
+- Código: 6EF07_CN
+  Habilidade: Reconhecer os movimentos realizados pela Terra e pela Lua.
+  BNCC: EF05CI11
+- Código: 6EF08_CN
+  Habilidade: Reconhecer as fases da Lua.
+  BNCC: EF05CI12
+- Código: 6EF09_CN
+  Habilidade: Comparar instrumentos ópticos ao tipo de observação que ele proporciona.
+  BNCC: EF05CI13
+- Código: 6EF10_CN
+  Habilidade: Classificar como homogênea ou heterogênea a mistura de dois ou mais materiais.
+  BNCC: EF06CI01
+- Código: 6EF11_CN
+  Habilidade: Reconhecer, a partir de características observáveis, a ocorrência de misturas.
+  BNCC: EF06CI01
+- Código: 6EF12_CN
+  Habilidade: Classificar os métodos de separação de misturas de sistemas heterogêneos.
+  BNCC: EF06CI03
+- Código: 6EF13_CN
+  Habilidade: Classificar os métodos de separação de misturas de sistemas homogêneos.
+  BNCC: EF06CI03
+- Código: 6EF14_CN
+  Habilidade: Reconhecer a origem natural ou sintética de materiais.
+  BNCC: EF06CI04
+- Código: 6EF15_CN
+  Habilidade: Inferir a relação entre o uso de materiais sintéticos e seus impactos socioambientais.
+  BNCC: EF06CI04
+- Código: 6EF16_CN
+  Habilidade: Reconhecer a célula como a unidade morfofisiológica dos seres vivos.
+  BNCC: EF06CI05
+- Código: 6EF17_CN
+  Habilidade: Reconhecer os níveis de organização dos seres vivos.
+  BNCC: EF06CI06
+- Código: 6EF18_CN
+  Habilidade: Reconhecer as estruturas que compõem o sistema nervoso.
+  BNCC: EF06CI07
+- Código: 6EF19_CN
+  Habilidade: Classificar os defeitos da visão.
+  BNCC: EF06CI08
+- Código: 6EF20_CN
+  Habilidade: Reconhecer as estruturas do olho humano e suas funcionalidades.
+  BNCC: EF06CI08
+- Código: 6EF21_CN
+  Habilidade: Comparar as estruturas do olho humano ao princípio de funcionamento de instrumentos ópticos.
+  BNCC: EF06CI08
+- Código: 6EF22_CN
+  Habilidade: Reconhecer a estrutura da Terra.
+  BNCC: EF06CI11
+- Código: 6EF23_CN
+  Habilidade: Reconhecer a forma esférica da Terra.
+  BNCC: EF06CI13
+- Código: 6EF24_CN
+  Habilidade: Explicar argumentos e evidências que demonstram a esfericidade da Terra.
+  BNCC: EF06CI13
+- Código: 6EF25_CN
+  Habilidade: Interpretar a relação entre os movimentos do planeta Terra e a mudança na sombra de objetos e instrumentos (gnômon).
+  BNCC: EF06CI14
+
+#### 7º ANO
+- Código: 6EF10_CN
+  Habilidade: Classificar como homogênea ou heterogênea a mistura de dois ou mais materiais.
+  BNCC: EF06CI01
+- Código: 6EF12_CN
+  Habilidade: Classificar os métodos de separação de misturas de sistemas heterogêneos.
+  BNCC: EF06CI03
+- Código: 6EF13_CN
+  Habilidade: Classificar os métodos de separação de misturas de sistemas homogêneos.
+  BNCC: EF06CI03
+- Código: 6EF15_CN
+  Habilidade: Inferir a relação entre o uso de materiais sintéticos e seus impactos socioambientais.
+  BNCC: EF06CI04
+- Código: 6EF17_CN
+  Habilidade: Reconhecer os níveis de organização dos seres vivos.
+  BNCC: EF06CI06
+- Código: 6EF18_CN
+  Habilidade: Reconhecer as estruturas que compõem o sistema nervoso.
+  BNCC: EF06CI07
+- Código: 6EF20_CN
+  Habilidade: Reconhecer as estruturas do olho humano e suas funcionalidades.
+  BNCC: EF06CI08
+- Código: 6EF21_CN
+  Habilidade: Comparar as estruturas do olho humano ao princípio de funcionamento de instrumentos ópticos.
+  BNCC: EF06CI08
+- Código: 6EF22_CN
+  Habilidade: Reconhecer a estrutura da Terra.
+  BNCC: EF06CI11
+- Código: 6EF24_CN
+  Habilidade: Explicar argumentos e evidências que demonstram a esfericidade da Terra.
+  BNCC: EF06CI13
+- Código: 6EF25_CN
+  Habilidade: Interpretar a relação entre os movimentos do planeta Terra e a mudança na sombra de objetos e instrumentos (gnômon).
+  BNCC: EF06CI14
+- Código: 7EF01_CN
+  Habilidade: Inferir os conceitos de força e trabalho em situações que envolvam o funcionamento de máquinas simples.
+  BNCC: EF07CI01
+- Código: 7EF02_CN
+  Habilidade: Reconhecer dispositivos mecânicos que facilitam a realização do trabalho.
+  BNCC: EF07CI01
+- Código: 7EF03_CN
+  Habilidade: Interpretar, em situações cotidianas, os conceitos de calor, temperatura e sensação térmica.
+  BNCC: EF07CI02
+- Código: 7EF04_CN
+  Habilidade: Inferir, em situações cotidianas, as formas de propagação de calor envolvidas na utilização de determinados materiais e equipamentos.
+  BNCC: EF07CI03
+- Código: 7EF05_CN
+  Habilidade: Classificar os processos de transferência de calor.
+  BNCC: EF07CI03
+- Código: 7EF06_CN
+  Habilidade: Explicar o funcionamento de máquinas térmicas (conversão de calor em trabalho, fluxo de calor, equilíbrio térmico, fonte de energia, perdas de energia).
+  BNCC: EF07CI04
+- Código: 7EF07_CN
+  Habilidade: Interpretar o papel dos combustíveis em máquinas térmicas.
+  BNCC: EF07CI05
+- Código: 7EF08_CN
+  Habilidade: Reconhecer os diferentes biomas brasileiros.
+  BNCC: EF07CI07
+- Código: 7EF09_CN
+  Habilidade: Interpretar a forma com que os fatores abióticos regem a diversidade dos diferentes biomas brasileiros.
+  BNCC: EF07CI07
+- Código: 7EF10_CN
+  Habilidade: Inferir como as intervenções humanas no ambiente causam desequilíbrios ambientais.
+  BNCC: EF07CI08
+- Código: 7EF11_CN
+  Habilidade: Interpretar indicadores de saúde de um grupo populacional.
+  BNCC: EF07CI09
+- Código: 7EF12_CN
+  Habilidade: Reconhecer a relação estabelecida entre as ações de saneamento básico e a saúde humana.
+  BNCC: EF07CI09
+- Código: 7EF13_CN
+  Habilidade: Inferir o mecanismo de ação das vacinas nos organismos.
+  BNCC: EF07CI10
+- Código: 7EF14_CN
+  Habilidade: Reconhecer a importância da adesão às campanhas de vacinação.
+  BNCC: EF07CI10
+- Código: 7EF15_CN
+  Habilidade: Reconhecer o ar como uma mistura de gases.
+  BNCC: EF07CI12
+- Código: 7EF16_CN
+  Habilidade: Reconhecer a composição do ar e o modo como a poluição afeta suas características.
+  BNCC: EF07CI12
+- Código: 7EF17_CN
+  Habilidade: Reconhecer a atuação do efeito estufa no planeta Terra.
+  BNCC: EF07CI13
+- Código: 7EF18_CN
+  Habilidade: Interpretar propostas de controle ou de reversão do aumento artificial do efeito estufa no planeta Terra.
+  BNCC: EF07CI13
+- Código: 7EF19_CN
+  Habilidade: Interpretar ações voltadas para a preservação da camada de ozônio.
+  BNCC: EF07CI14
+- Código: 7EF20_CN
+  Habilidade: Reconhecer a participação da camada de ozônio no fenômeno da vida na Terra.
+  BNCC: EF07CI14
+
+#### 8º ANO
+- Código: 7EF01_CN
+  Habilidade: Inferir os conceitos de força e trabalho em situações que envolvam o funcionamento de máquinas simples.
+  BNCC: EF07CI01
+- Código: 7EF04_CN
+  Habilidade: Inferir, em situações cotidianas, as formas de propagação de calor envolvidas na utilização de determinados materiais e equipamentos.
+  BNCC: EF07CI03
+- Código: 7EF06_CN
+  Habilidade: Explicar o funcionamento de máquinas térmicas (conversão de calor em trabalho, fluxo de calor, equilíbrio térmico, fonte de energia, perdas de energia).
+  BNCC: EF07CI04
+- Código: 7EF07_CN
+  Habilidade: Interpretar o papel dos combustíveis em máquinas térmicas.
+  BNCC: EF07CI05
+- Código: 7EF09_CN
+  Habilidade: Interpretar a forma com que os fatores abióticos regem a diversidade dos diferentes biomas brasileiros.
+  BNCC: EF07CI07
+- Código: 7EF10_CN
+  Habilidade: Inferir como as intervenções humanas no ambiente causam desequilíbrios ambientais.
+  BNCC: EF07CI08
+- Código: 7EF11_CN
+  Habilidade: Interpretar indicadores de saúde de um grupo populacional.
+  BNCC: EF07CI09
+- Código: 7EF12_CN
+  Habilidade: Reconhecer a relação estabelecida entre as ações de saneamento básico e a saúde humana.
+  BNCC: EF07CI09
+- Código: 7EF13_CN
+  Habilidade: Inferir o mecanismo de ação das vacinas nos organismos.
+  BNCC: EF07CI10
+- Código: 7EF16_CN
+  Habilidade: Reconhecer a composição do ar e o modo como a poluição afeta suas características.
+  BNCC: EF07CI12
+- Código: 7EF18_CN
+  Habilidade: Interpretar propostas de controle ou de reversão do aumento artificial do efeito estufa no planeta Terra.
+  BNCC: EF07CI13
+- Código: 7EF19_CN
+  Habilidade: Interpretar ações voltadas para a preservação da camada de ozônio.
+  BNCC: EF07CI14
+- Código: 8EF01_CN
+  Habilidade: Classificar os recursos energéticos em renováveis e não renováveis.
+  BNCC: EF08CI01
+- Código: 8EF02_CN
+  Habilidade: Reconhecer diferentes fontes de energia.
+  BNCC: EF08CI01
+- Código: 8EF03_CN
+  Habilidade: Reconhecer diferentes tipos de energia.
+  BNCC: EF08CI01
+- Código: 8EF04_CN
+  Habilidade: Reconhecer os componentes de um circuito.
+  BNCC: EF08CI02
+- Código: 8EF05_CN
+  Habilidade: Classificar os processos de transformação da energia nos aparelhos residenciais.
+  BNCC: EF08CI03
+- Código: 8EF06_CN
+  Habilidade: Verificar o consumo de energia elétrica de aparelhos eletroeletrônicos, assim como as grandezas e as ações que influenciam nesse consumo.
+  BNCC: EF08CI04
+- Código: 8EF07_CN
+  Habilidade: Reconhecer as atitudes que contribuem para redução do consumo de energia.
+  BNCC: EF08CI05
+- Código: 8EF08_CN
+  Habilidade: Inferir o mecanismo de geração de energia elétrica nas diferentes usinas.
+  BNCC: EF08CI06
+- Código: 8EF09_CN
+  Habilidade: Reconhecer os impactos ambientais resultantes da construção e do uso de diferentes usinas de geração de energia elétrica.
+  BNCC: EF08CI06
+- Código: 8EF10_CN
+  Habilidade: Reconhecer os tipos de usinas de geração de energia elétrica.
+  BNCC: EF08CI06
+- Código: 8EF11_CN
+  Habilidade: Reconhecer os diferentes processos reprodutivos dos seres vivos.
+  BNCC: EF08CI07
+- Código: 8EF12_CN
+  Habilidade: Reconhecer as estruturas que compõem o sistema endócrino.
+  BNCC: EF08CI08
+- Código: 8EF13_CN
+  Habilidade: Explicar a ação do sistema endócrino sobre as características sexuais secundárias.
+  BNCC: EF08CI08
+- Código: 8EF14_CN
+  Habilidade: Reconhecer o princípio de ação dos métodos contraceptivos.
+  BNCC: EF08CI09
+- Código: 8EF15_CN
+  Habilidade: Reconhecer as características das infecções sexualmente transmissíveis (IST).
+  BNCC: EF08CI10
+- Código: 8EF16_CN
+  Habilidade: Reconhecer as posições relativas entre Sol, Terra e Lua associadas às fases da Lua e à ocorrência de eclipses.
+  BNCC: EF08CI12
+- Código: 8EF17_CN
+  Habilidade: Explicar os movimentos do planeta Terra relacionando-os à ocorrência do dia e da noite e às estações do ano.
+  BNCC: EF08CI13
+
+#### 9º ANO
+- Código: 8EF01_CN
+  Habilidade: Classificar os recursos energéticos em renováveis e não renováveis.
+  BNCC: EF08CI01
+- Código: 8EF04_CN
+  Habilidade: Reconhecer os componentes de um circuito.
+  BNCC: EF08CI02
+- Código: 8EF05_CN
+  Habilidade: Classificar os processos de transformação da energia nos aparelhos residenciais.
+  BNCC: EF08CI03
+- Código: 8EF06_CN
+  Habilidade: Verificar o consumo de energia elétrica de aparelhos eletroeletrônicos, assim como as grandezas e as ações que influenciam nesse consumo.
+  BNCC: EF08CI04
+- Código: 8EF08_CN
+  Habilidade: Inferir o mecanismo de geração de energia elétrica nas diferentes usinas.
+  BNCC: EF08CI06
+- Código: 8EF09_CN
+  Habilidade: Reconhecer os impactos ambientais resultantes da construção e do uso de diferentes usinas de geração de energia elétrica.
+  BNCC: EF08CI06
+- Código: 8EF10_CN
+  Habilidade: Reconhecer os tipos de usinas de geração de energia elétrica.
+  BNCC: EF08CI06
+- Código: 8EF11_CN
+  Habilidade: Reconhecer os diferentes processos reprodutivos dos seres vivos.
+  BNCC: EF08CI07
+- Código: 8EF13_CN
+  Habilidade: Explicar a ação do sistema endócrino sobre as características sexuais secundárias.
+  BNCC: EF08CI08
+- Código: 8EF14_CN
+  Habilidade: Reconhecer o princípio de ação dos métodos contraceptivos.
+  BNCC: EF08CI09
+- Código: 8EF15_CN
+  Habilidade: Reconhecer as características das infecções sexualmente transmissíveis (IST).
+  BNCC: EF08CI10
+- Código: 8EF17_CN
+  Habilidade: Explicar os movimentos do planeta Terra relacionando-os à ocorrência do dia e da noite e às estações do ano.
+  BNCC: EF08CI13
+- Código: 9EF01_CN
+  Habilidade: Classificar, com base nos modelos de constituição submicroscópica, os estados físicos da matéria.
+  BNCC: EF09CI01
+- Código: 9EF02_CN
+  Habilidade: Inferir as mudanças de estado físico da matéria a partir da observação dos modelos de constituição submicroscópica.
+  BNCC: EF09CI01
+- Código: 9EF03_CN
+  Habilidade: Inferir, em situações que ocorrem transformações químicas, a relação estabelecida entre a conservação das massas e as propriedades dos átomos.
+  BNCC: EF09CI02
+- Código: 9EF04_CN
+  Habilidade: Interpretar, em uma equação química, a conservação da massa entre reagentes e produtos.
+  BNCC: EF09CI02
+- Código: 9EF05_CN
+  Habilidade: Interpretar, a partir da evolução histórica de teorias e de tecnologias, os diferentes modelos atômicos.
+  BNCC: EF09CI03
+- Código: 9EF06_CN
+  Habilidade: Reconhecer que os materiais são constituídos por partículas muito pequenas, com diferentes níveis de organização e espaços vazios.
+  BNCC: EF09CI03
+- Código: 9EF07_CN
+  Habilidade: Explicar as cores dos objetos estabelecendo uma relação com a luz que os ilumina.
+  BNCC: EF09CI04
+- Código: 9EF08_CN
+  Habilidade: Reconhecer as cores primárias e secundárias.
+  BNCC: EF09CI04
+- Código: 9EF09_CN
+  Habilidade: Classificar as radiações eletromagnéticas.
+  BNCC: EF09CI06
+- Código: 9EF10_CN
+  Habilidade: Reconhecer as aplicações das radiações eletromagnéticas.
+  BNCC: EF09CI06
+- Código: 9EF11_CN
+  Habilidade: Interpretar como as características hereditárias são transmitidas às gerações seguintes.
+  BNCC: EF09CI08
+- Código: 9EF12_CN
+  Habilidade: Verificar, a partir da aplicação da 1ª lei de Mendel, a expressão de características genéticas em uma população.
+  BNCC: EF09CI09
+- Código: 9EF13_CN
+  Habilidade: Reconhecer a contribuição de Mendel para os estudos da genética.
+  BNCC: EF09CI09
+- Código: 9EF14_CN
+  Habilidade: Reconhecer os conceitos básicos para o estudo da hereditariedade.
+  BNCC: EF09CI09
+- Código: 9EF15_CN
+  Habilidade: Comparar as ideias evolucionistas de Lamarck e Darwin.
+  BNCC: EF09CI10
+- Código: 9EF16_CN
+  Habilidade: Explicar o processo de evolução e o fenômeno da biodiversidade com base no conceito de seleção natural.
+  BNCC: EF09CI11
+- Código: 9EF17_CN
+  Habilidade: Reconhecer fatores que determinam o processo de especiação.
+  BNCC: EF09CI11
+- Código: 9EF18_CN
+  Habilidade: Reconhecer os corpos que compõem o Sistema Solar.
+  BNCC: EF09CI14
+- Código: 9EF19_CN
+  Habilidade: Organizar o ciclo evolutivo de uma estrela.
+  BNCC: EF09CI17
+

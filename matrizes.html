@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matrizes de Referência - SADE v0.2.4</title>
-    <meta name="description" content="Análise de correlação entre questões e habilidades das Matrizes de Referência - SADE v0.2.4">
+    <title>Matrizes de Referência - SADE v0.3.0</title>
+    <meta name="description" content="Análise de correlação entre questões e habilidades das Matrizes de Referência - SADE v0.3.0">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     
     <!-- CSS Libraries -->
@@ -17,6 +17,9 @@
             --purple: #7c3aed;
             --purple-dark: #6d28d9;
             --purple-light: rgba(124, 58, 237, 0.1);
+            --green: #22c55e;
+            --orange: #f59e0b;
+            --red: #ef4444;
         }
         
         .sade-header {
@@ -34,17 +37,6 @@
         .btn-purple:hover {
             background-color: var(--purple-dark);
             border-color: var(--purple-dark);
-            color: white;
-        }
-        
-        .btn-outline-purple {
-            border-color: var(--purple);
-            color: var(--purple);
-        }
-        
-        .btn-outline-purple:hover {
-            background-color: var(--purple);
-            border-color: var(--purple);
             color: white;
         }
         
@@ -85,15 +77,26 @@
         
         .correlation-badge {
             display: inline-block;
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.375rem;
-            font-size: 0.75rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 0.5rem;
+            font-size: 0.85rem;
             font-weight: bold;
+            min-width: 60px;
+            text-align: center;
         }
         
-        .correlation-high { background-color: #dcfce7; color: #166534; }
-        .correlation-medium { background-color: #fef3c7; color: #92400e; }
-        .correlation-low { background-color: #fee2e2; color: #991b1b; }
+        .correlation-high { 
+            background-color: var(--green); 
+            color: white; 
+        }
+        .correlation-medium { 
+            background-color: var(--orange); 
+            color: white; 
+        }
+        .correlation-low { 
+            background-color: var(--red); 
+            color: white; 
+        }
         
         .stats-card {
             background: white;
@@ -102,6 +105,11 @@
             text-align: center;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             border-left: 4px solid var(--purple);
+            transition: transform 0.3s ease;
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-5px);
         }
         
         .loading-overlay {
@@ -110,9 +118,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.7);
             display: none;
             z-index: 9999;
+            backdrop-filter: blur(5px);
         }
         
         .loading-content {
@@ -121,9 +130,40 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background: white;
-            padding: 2rem;
-            border-radius: 10px;
+            padding: 3rem;
+            border-radius: 15px;
             text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .habilidade-details {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-top: 0.5rem;
+        }
+        
+        .correlation-score {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .table th {
+            background-color: var(--purple);
+            color: white;
+            border: none;
+            font-weight: 600;
+        }
+        
+        .table tbody tr:hover {
+            background-color: rgba(124, 58, 237, 0.05);
+        }
+        
+        .keyword-match {
+            background-color: #fef3c7;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #92400e;
         }
     </style>
 </head>
@@ -139,15 +179,15 @@
                     <h1 class="display-5 fw-bold mb-1">SADE - Matrizes de Referência</h1>
                     <p class="lead mb-0">Sistema de Análise de Correlação Questões x Habilidades</p>
                     <div class="mt-2">
-                        <span class="badge bg-info fs-6 rounded-pill" id="aiStatus">
-                            <i class="fas fa-robot me-1"></i>IA DISPONÍVEL
+                        <span class="badge bg-success fs-6 rounded-pill">
+                            <i class="fas fa-brain me-1"></i>ANÁLISE INTELIGENTE
                         </span>
-                        <small class="text-muted ms-2">Clique em "Analisar Prova" para configurar</small>
+                        <small class="text-muted ms-2">Correlação baseada em palavras-chave e contexto</small>
                     </div>
                 </div>
                 <div class="col-lg-2 text-center">
-                    <span class="badge bg-warning text-dark fs-6 rounded-pill">v0.2.4</span>
-                    <br><small class="opacity-75">OTIMIZADO</small>
+                    <span class="badge bg-warning text-dark fs-6 rounded-pill">v0.3.0</span>
+                    <br><small class="opacity-75">MATRIZ COMPLETA</small>
                 </div>
             </div>
         </div>
@@ -164,17 +204,17 @@
     <div class="container my-4">
         <!-- Upload Section -->
         <div class="row">
-            <div class="col-lg-8 mx-auto">
+            <div class="col-lg-10 mx-auto">
                 <div class="card border-0 shadow">
                     <div class="card-header bg-purple text-white">
-                        <h4 class="mb-0"><i class="fas fa-upload me-2"></i>Análise de Prova</h4>
+                        <h4 class="mb-0"><i class="fas fa-upload me-2"></i>Análise de Prova - Matriz de Referência Completa</h4>
                     </div>
                     <div class="card-body p-4">
                         <!-- Form -->
                         <form id="analysisForm">
                             <!-- Basic Info -->
                             <div class="row g-3 mb-4">
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <label class="form-label fw-bold">
                                         <i class="fas fa-graduation-cap me-1"></i>Ano Escolar
                                     </label>
@@ -186,22 +226,34 @@
                                         <option value="9">9º ano</option>
                                     </select>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <label class="form-label fw-bold">
                                         <i class="fas fa-book me-1"></i>Disciplina
                                     </label>
                                     <select id="disciplina" class="form-select" required>
                                         <option value="">Selecione</option>
-                                        <option value="portugues">Língua Portuguesa</option>
+                                        <option value="portugues_leitura">Português - Leitura</option>
+                                        <option value="portugues_escrita">Português - Escrita</option>
                                         <option value="matematica">Matemática</option>
                                         <option value="ciencias">Ciências da Natureza</option>
                                     </select>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <label class="form-label fw-bold">
                                         <i class="fas fa-school me-1"></i>Escola
                                     </label>
                                     <input type="text" id="escola" class="form-control" placeholder="Nome da escola">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-percentage me-1"></i>Precisão Mínima
+                                    </label>
+                                    <select id="precisaoMinima" class="form-select">
+                                        <option value="30">30% - Baixa</option>
+                                        <option value="50" selected>50% - Média</option>
+                                        <option value="70">70% - Alta</option>
+                                        <option value="85">85% - Muito Alta</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -215,9 +267,9 @@
                                 <div class="upload-area" id="uploadArea">
                                     <i class="fas fa-cloud-upload-alt fa-4x text-purple mb-3"></i>
                                     <h5 class="text-purple mb-3">Selecione ou arraste o arquivo aqui</h5>
-                                    <p class="text-muted mb-3">Formatos aceitos: PDF, DOC, DOCX, TXT (máx. 10MB)</p>
+                                    <p class="text-muted mb-3">Formatos aceitos: TXT, DOC, DOCX, PDF (máx. 10MB)</p>
                                     
-                                    <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.txt" style="display: none;">
+                                    <input type="file" id="fileInput" accept=".txt,.doc,.docx,.pdf" style="display: none;">
                                     
                                     <div class="d-flex justify-content-center gap-2">
                                         <button type="button" class="btn btn-purple" onclick="selectFile()">
@@ -247,18 +299,23 @@
                             <!-- Action Buttons -->
                             <div class="d-grid gap-2">
                                 <button type="submit" class="btn btn-purple btn-lg" id="analyzeBtn">
-                                    <i class="fas fa-magic me-2"></i>Analisar Prova
+                                    <i class="fas fa-search me-2"></i>Analisar Correlações
                                 </button>
                                 
                                 <div class="row g-2">
-                                    <div class="col-6">
-                                        <button type="button" class="btn btn-outline-primary w-100" onclick="testAnalysis()">
+                                    <div class="col-4">
+                                        <button type="button" class="btn btn-outline-primary w-100" onclick="testeRapido()">
                                             <i class="fas fa-play me-2"></i>Teste Rápido
                                         </button>
                                     </div>
-                                    <div class="col-6">
-                                        <button type="button" class="btn btn-outline-secondary w-100" onclick="showDemo()">
-                                            <i class="fas fa-eye me-2"></i>Demo
+                                    <div class="col-4">
+                                        <button type="button" class="btn btn-outline-info w-100" onclick="verificarMatriz()">
+                                            <i class="fas fa-database me-2"></i>Ver Matriz
+                                        </button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button type="button" class="btn btn-outline-secondary w-100" onclick="mostrarDemo()">
+                                            <i class="fas fa-info me-2"></i>Como Usar
                                         </button>
                                     </div>
                                 </div>
@@ -271,70 +328,69 @@
 
         <!-- Results Section -->
         <div id="resultsSection" style="display: none;">
+            <!-- Stats Cards -->
             <div class="row mt-4">
-                <!-- Stats Cards -->
                 <div class="col-md-3 mb-3">
                     <div class="stats-card">
                         <i class="fas fa-list-ol fa-2x text-purple mb-2"></i>
                         <h4 id="totalQuestoes" class="text-purple">0</h4>
-                        <small class="text-muted">Questões</small>
+                        <small class="text-muted">Questões Analisadas</small>
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <div class="stats-card">
-                        <i class="fas fa-puzzle-piece fa-2x text-success mb-2"></i>
-                        <h4 id="totalHabilidades" class="text-success">0</h4>
-                        <small class="text-muted">Habilidades</small>
+                        <i class="fas fa-bullseye fa-2x text-success mb-2"></i>
+                        <h4 id="correlacionesEncontradas" class="text-success">0</h4>
+                        <small class="text-muted">Correlações Encontradas</small>
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <div class="stats-card">
                         <i class="fas fa-chart-line fa-2x text-warning mb-2"></i>
                         <h4 id="mediaCorrelacao" class="text-warning">0%</h4>
-                        <small class="text-muted">Correlação Média</small>
+                        <small class="text-muted">Precisão Média</small>
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <div class="stats-card">
-                        <i class="fas fa-bullseye fa-2x text-info mb-2"></i>
-                        <h4 id="cobertura" class="text-info">0%</h4>
-                        <small class="text-muted">Cobertura</small>
+                        <i class="fas fa-graduation-cap fa-2x text-info mb-2"></i>
+                        <h4 id="habilidadesCobertas" class="text-info">0</h4>
+                        <small class="text-muted">Habilidades Cobertas</small>
                     </div>
                 </div>
             </div>
 
             <!-- Analysis Results -->
             <div class="analysis-results">
-                <h4 class="mb-4"><i class="fas fa-chart-bar me-2"></i>Resultados da Análise - Matriz de Referência MEC 2025</h4>
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4><i class="fas fa-chart-bar me-2"></i>Resultados da Análise</h4>
+                    <div>
+                        <button class="btn btn-outline-success btn-sm me-2" onclick="exportarResultados()">
+                            <i class="fas fa-download me-1"></i>Exportar
+                        </button>
+                        <button class="btn btn-outline-info btn-sm" onclick="mostrarDetalhes()">
+                            <i class="fas fa-eye me-1"></i>Detalhes
+                        </button>
+                    </div>
+                </div>
                 
-                <!-- Correlations List -->
-                <div class="row">
-                    <div class="col-lg-9">
-                        <h5><i class="fas fa-link me-2"></i>Correlações: Questões x Habilidades BNCC</h5>
-                        <div id="correlationsList" class="table-responsive">
-                            <!-- Correlations will be inserted here -->
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <h5><i class="fas fa-chart-pie me-2"></i>Distribuição</h5>
-                        <canvas id="distributionChart" width="300" height="300"></canvas>
-                        
-                        <div class="mt-4">
-                            <h6><i class="fas fa-info-circle me-2"></i>Legenda</h6>
-                            <div class="d-flex align-items-center mb-2">
-                                <span class="correlation-badge correlation-high me-2">Alta</span>
-                                <small>≥ 80% de correlação</small>
-                            </div>
-                            <div class="d-flex align-items-center mb-2">
-                                <span class="correlation-badge correlation-medium me-2">Média</span>
-                                <small>65-79% de correlação</small>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <span class="correlation-badge correlation-low me-2">Baixa</span>
-                                <small>&lt; 65% de correlação</small>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Correlations Table -->
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th width="8%">Questão</th>
+                                <th width="12%">Código</th>
+                                <th width="35%">Habilidade</th>
+                                <th width="15%">BNCC</th>
+                                <th width="15%">Correlação</th>
+                                <th width="15%">Palavras-chave</th>
+                            </tr>
+                        </thead>
+                        <tbody id="correlationsTable">
+                            <!-- Results will be inserted here -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -346,277 +402,168 @@
             <div class="spinner-border text-purple mb-3" style="width: 3rem; height: 3rem;"></div>
             <h5 id="loadingTitle">Processando...</h5>
             <p class="text-muted mb-0" id="loadingMessage">Aguarde um momento</p>
+            <div class="progress mt-3" style="height: 8px;">
+                <div id="progressBar" class="progress-bar bg-purple" style="width: 0%"></div>
+            </div>
         </div>
     </div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="matriz-referencia-dados.js"></script>
     
     <script>
         // Global variables
         let selectedFile = null;
         let analysisResults = null;
-        let openaiApiKey = null;
         
-        // API Configuration
-        const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
-        const OPENAI_MODEL = 'gpt-3.5-turbo'; // Modelo gratuito/mais barato
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 SADE Matrizes v0.3.0 - Matriz Completa carregada');
+            console.log('� Estatísticas da Matriz:', estatisticasMatriz);
+            configurarEventListeners();
+        });
         
-        // Matriz de Referência MEC 2025 - Anos Finais (dados embarcados para GitHub Pages)
-        const matrizReferencia = {
-            portugues: {
-                6: [
-                    { codigo: "D1", nome: "Procedimentos de Leitura", bncc: "EF67LP01", descricao: "Localizar informações explícitas em textos de diferentes gêneros" },
-                    { codigo: "D3", nome: "Inferência", bncc: "EF67LP04", descricao: "Inferir o sentido de uma palavra ou expressão" },
-                    { codigo: "D4", nome: "Coerência e Coesão", bncc: "EF67LP07", descricao: "Inferir uma informação implícita em um texto" },
-                    { codigo: "D6", nome: "Tema/Tópico", bncc: "EF67LP08", descricao: "Identificar o tema de um texto" },
-                    { codigo: "D11", nome: "Coerência e Coesão", bncc: "EF67LP12", descricao: "Distinguir um fato da opinião relativa a esse fato" },
-                    { codigo: "D21", nome: "Variação Linguística", bncc: "EF67LP32", descricao: "Reconhecer posições distintas entre duas ou mais opiniões relativas ao mesmo fato" }
-                ],
-                7: [
-                    { codigo: "D5", nome: "Interpretação", bncc: "EF07LP01", descricao: "Interpretar texto com auxílio de material gráfico" },
-                    { codigo: "D12", nome: "Identificação de Gênero", bncc: "EF07LP02", descricao: "Identificar a finalidade de textos de diferentes gêneros" },
-                    { codigo: "D7", nome: "Estrutura e Organização", bncc: "EF07LP03", descricao: "Identificar a tese de um texto" },
-                    { codigo: "D8", nome: "Argumentação", bncc: "EF07LP04", descricao: "Estabelecer relação entre a tese e os argumentos" },
-                    { codigo: "D9", nome: "Narrativa", bncc: "EF07LP05", descricao: "Diferenciar as partes principais das secundárias em um texto" },
-                    { codigo: "D15", nome: "Efeitos de Sentido", bncc: "EF07LP06", descricao: "Reconhecer diferentes formas de tratar uma informação" }
-                ],
-                8: [
-                    { codigo: "D13", nome: "Efeitos de Sentido", bncc: "EF08LP01", descricao: "Identificar efeitos de ironia ou humor em textos variados" },
-                    { codigo: "D14", nome: "Variação Linguística", bncc: "EF08LP02", descricao: "Identificar o efeito de sentido decorrente do uso da pontuação" },
-                    { codigo: "D16", nome: "Argumentação", bncc: "EF08LP03", descricao: "Identificar efeitos de sentido decorrentes do uso de outras notações" },
-                    { codigo: "D18", nome: "Intertextualidade", bncc: "EF08LP04", descricao: "Reconhecer o efeito de sentido decorrente da escolha de uma palavra" },
-                    { codigo: "D19", nome: "Coesão", bncc: "EF08LP05", descricao: "Reconhecer o efeito de sentido decorrente da exploração de recursos morfossintáticos" }
-                ],
-                9: [
-                    { codigo: "D2", nome: "Implicações do Suporte", bncc: "EF09LP01", descricao: "Estabelecer relações entre partes de um texto" },
-                    { codigo: "D10", nome: "Identificação de Conflito", bncc: "EF09LP02", descricao: "Identificar o conflito gerador do enredo e os elementos que constroem a narrativa" },
-                    { codigo: "D17", nome: "Posicionamento", bncc: "EF09LP03", descricao: "Reconhecer o efeito de sentido decorrente do uso de recursos estilísticos" },
-                    { codigo: "D20", nome: "Efeitos Estilísticos", bncc: "EF09LP04", descricao: "Reconhecer diferentes formas de tratar uma informação na comparação de textos" }
-                ]
-            },
-            matematica: {
-                6: [
-                    { codigo: "D1", nome: "Números e Operações", bncc: "EF06MA01", descricao: "Reconhecer e utilizar números naturais no contexto diário" },
-                    { codigo: "D2", nome: "Números e Operações", bncc: "EF06MA02", descricao: "Reconhecer e utilizar números inteiros" },
-                    { codigo: "D16", nome: "Números e Operações", bncc: "EF06MA07", descricao: "Reconhecer, comparar e ordenar números racionais" },
-                    { codigo: "D17", nome: "Números e Operações", bncc: "EF06MA08", descricao: "Identificar a localização de números racionais na reta numérica" },
-                    { codigo: "D18", nome: "Números e Operações", bncc: "EF06MA09", descricao: "Efetuar cálculos com números racionais por meio de estratégias variadas" },
-                    { codigo: "D36", nome: "Geometria", bncc: "EF06MA29", descricao: "Resolver problemas que envolvam as noções de perímetro e área" }
-                ],
-                7: [
-                    { codigo: "D19", nome: "Números e Operações", bncc: "EF07MA03", descricao: "Resolver problemas que envolvam números inteiros" },
-                    { codigo: "D20", nome: "Números e Operações", bncc: "EF07MA04", descricao: "Resolver problemas que envolvam operações com números racionais" },
-                    { codigo: "D21", nome: "Álgebra", bncc: "EF07MA13", descricao: "Resolver problemas que envolvam equações do 1º grau" },
-                    { codigo: "D22", nome: "Álgebra", bncc: "EF07MA14", descricao: "Resolver problemas que envolvam inequações do 1º grau" },
-                    { codigo: "D37", nome: "Geometria", bncc: "EF07MA30", descricao: "Resolver problemas envolvendo o cálculo de perímetro e área de figuras planas" }
-                ],
-                8: [
-                    { codigo: "D4", nome: "Números e Operações", bncc: "EF08MA01", descricao: "Resolver problemas que envolvam potenciação ou radiciação" },
-                    { codigo: "D23", nome: "Álgebra", bncc: "EF08MA06", descricao: "Resolver problemas que envolvam sistemas de equações do 1º grau" },
-                    { codigo: "D24", nome: "Álgebra", bncc: "EF08MA07", descricao: "Reconhecer a representação algébrica de uma função do 1º grau" },
-                    { codigo: "D38", nome: "Geometria", bncc: "EF08MA18", descricao: "Resolver problemas que envolvam ângulos" },
-                    { codigo: "D39", nome: "Geometria", bncc: "EF08MA19", descricao: "Interpretar informações apresentadas por meio de coordenadas cartesianas" }
-                ],
-                9: [
-                    { codigo: "D25", nome: "Álgebra", bncc: "EF09MA06", descricao: "Resolver problemas que envolvam equações do 2º grau" },
-                    { codigo: "D26", nome: "Álgebra", bncc: "EF09MA07", descricao: "Identificar a representação algébrica e/ou gráfica de uma função quadrática" },
-                    { codigo: "D40", nome: "Geometria", bncc: "EF09MA13", descricao: "Resolver problemas envolvendo relações métricas no triângulo retângulo" },
-                    { codigo: "D41", nome: "Geometria", bncc: "EF09MA14", descricao: "Resolver problemas que envolvam figuras geométricas planas" },
-                    { codigo: "D42", nome: "Geometria", bncc: "EF09MA15", descricao: "Interpretar e utilizar diferentes representações matemáticas" }
-                ]
-            },
-            ciencias: {
-                6: [
-                    { codigo: "H1", nome: "Vida e Evolução", bncc: "EF06CI02", descricao: "Classificar os seres vivos em grandes grupos" },
-                    { codigo: "H2", nome: "Vida e Evolução", bncc: "EF06CI05", descricao: "Explicar a organização básica das células" },
-                    { codigo: "H3", nome: "Vida e Evolução", bncc: "EF06CI06", descricao: "Concluir que a estrutura e o funcionamento do corpo humano" },
-                    { codigo: "H11", nome: "Terra e Universo", bncc: "EF06CI11", descricao: "Identificar as diferentes camadas que estruturam o planeta Terra" },
-                    { codigo: "H12", nome: "Terra e Universo", bncc: "EF06CI13", descricao: "Selecionar argumentos e evidências que demonstrem a esfericidade da Terra" },
-                    { codigo: "H21", nome: "Matéria e Energia", bncc: "EF06CI01", descricao: "Classificar como homogênea ou heterogênea a mistura de dois ou mais materiais" }
-                ],
-                7: [
-                    { codigo: "H4", nome: "Vida e Evolução", bncc: "EF07CI07", descricao: "Caracterizar os principais ecossistemas brasileiros" },
-                    { codigo: "H5", nome: "Vida e Evolução", bncc: "EF07CI08", descricao: "Avaliar como os impactos provocados por catástrofes naturais" },
-                    { codigo: "H6", nome: "Vida e Evolução", bncc: "EF07CI09", descricao: "Interpretar as condições de saúde da comunidade" },
-                    { codigo: "H13", nome: "Terra e Universo", bncc: "EF07CI14", descricao: "Justificar a importância da camada de ozônio para a vida na Terra" },
-                    { codigo: "H22", nome: "Matéria e Energia", bncc: "EF07CI01", descricao: "Discutir a aplicação de máquinas simples e propor soluções" },
-                    { codigo: "H23", nome: "Matéria e Energia", bncc: "EF07CI03", descricao: "Utilizar o conhecimento das formas de propagação do calor" }
-                ],
-                8: [
-                    { codigo: "H7", nome: "Vida e Evolução", bncc: "EF08CI10", descricao: "Identificar os principais órgãos e funções dos sistemas" },
-                    { codigo: "H8", nome: "Vida e Evolução", bncc: "EF08CI11", descricao: "Selecionar argumentos que evidenciem as múltiplas dimensões da sexualidade" },
-                    { codigo: "H14", nome: "Terra e Universo", bncc: "EF08CI12", descricao: "Justificar por que a Terra não é iluminada uniformemente ao longo do ano" },
-                    { codigo: "H15", nome: "Terra e Universo", bncc: "EF08CI13", descricao: "Representar os movimentos de rotação e translação da Terra" },
-                    { codigo: "H24", nome: "Matéria e Energia", bncc: "EF08CI01", descricao: "Identificar e classificar diferentes fontes e tipos de energia" },
-                    { codigo: "H25", nome: "Matéria e Energia", bncc: "EF08CI03", descricao: "Classificar equipamentos elétricos de acordo com o tipo de transformação" }
-                ],
-                9: [
-                    { codigo: "H9", nome: "Vida e Evolução", bncc: "EF09CI08", descricao: "Associar os gametas à transmissão das características hereditárias" },
-                    { codigo: "H10", nome: "Vida e Evolução", bncc: "EF09CI09", descricao: "Discutir as ideias de Mendel sobre hereditariedade" },
-                    { codigo: "H16", nome: "Terra e Universo", bncc: "EF09CI14", descricao: "Descrever a composição e a estrutura do Sistema Solar" },
-                    { codigo: "H17", nome: "Terra e Universo", bncc: "EF09CI16", descricao: "Selecionar argumentos sobre a viabilidade da sobrevivência humana fora da Terra" },
-                    { codigo: "H26", nome: "Matéria e Energia", bncc: "EF09CI01", descricao: "Investigar as mudanças de estado físico da matéria" },
-                    { codigo: "H27", nome: "Matéria e Energia", bncc: "EF09CI03", descricao: "Identificar modelos que descrevem a estrutura da matéria" }
-                ]
+        // Configure event listeners
+        function configurarEventListeners() {
+            // File input change
+            document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+            
+            // Drag and drop
+            const uploadArea = document.getElementById('uploadArea');
+            uploadArea.addEventListener('dragover', handleDragOver);
+            uploadArea.addEventListener('dragleave', handleDragLeave);
+            uploadArea.addEventListener('drop', handleDrop);
+            uploadArea.addEventListener('click', function(e) {
+                if (e.target.tagName !== 'BUTTON') {
+                    selectFile();
+                }
+            });
+            
+            // Form submission
+            document.getElementById('analysisForm').addEventListener('submit', handleFormSubmit);
+        }
+        
+        // File selection functions
+        function selectFile() {
+            document.getElementById('fileInput').click();
+        }
+        
+        function clearFile() {
+            selectedFile = null;
+            document.getElementById('fileInput').value = '';
+            document.getElementById('filePreview').style.display = 'none';
+        }
+        
+        function handleFileSelect(e) {
+            const file = e.target.files[0];
+            if (file) {
+                if (file.size > 10 * 1024 * 1024) {
+                    alert('❌ Arquivo muito grande! Máximo 10MB.');
+                    return;
+                }
+                selectedFile = file;
+                showFilePreview(file);
             }
-        };
-
-        // OpenAI API Functions
-        function initializeOpenAI() {
-            // Verificar se há chave disponível ou solicitar ao usuário
-            if (!openaiApiKey) {
-                console.log('🤖 Configurando OpenAI API...');
-                const apiKey = prompt('🤖 Para análise inteligente, insira sua chave da API OpenAI:\n(Opcional - pode cancelar para usar análise simulada)');
-                if (apiKey && apiKey.trim().startsWith('sk-')) {
-                    openaiApiKey = apiKey.trim();
-                    console.log('✅ OpenAI API configurada');
-                    
-                    // Atualizar badge no header
-                    const badge = document.getElementById('aiStatus');
-                    if (badge) {
-                        badge.className = 'badge bg-success fs-6 rounded-pill';
-                        badge.innerHTML = '<i class="fas fa-robot me-1"></i>IA ATIVADA';
-                    }
+        }
+        
+        function showFilePreview(file) {
+            document.getElementById('fileName').textContent = file.name;
+            document.getElementById('fileInfo').textContent = 
+                (file.size / 1024).toFixed(1) + ' KB • ' + (file.type || 'Tipo desconhecido');
+            document.getElementById('filePreview').style.display = 'block';
+        }
+        
+        // Drag and drop handlers
+        function handleDragOver(e) {
+            e.preventDefault();
+            e.currentTarget.classList.add('dragover');
+        }
+        
+        function handleDragLeave(e) {
+            e.currentTarget.classList.remove('dragover');
+        }
+        
+        function handleDrop(e) {
+            e.preventDefault();
+            e.currentTarget.classList.remove('dragover');
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                const file = files[0];
+                if (file.size <= 10 * 1024 * 1024) {
+                    selectedFile = file;
+                    showFilePreview(file);
+                    document.getElementById('fileInput').files = files;
                 } else {
-                    console.log('⚠️ OpenAI não configurada - usando análise simulada');
-                    
-                    // Atualizar badge no header
-                    const badge = document.getElementById('aiStatus');
-                    if (badge) {
-                        badge.className = 'badge bg-warning text-dark fs-6 rounded-pill';
-                        badge.innerHTML = '<i class="fas fa-robot me-1"></i>SIMULAÇÃO';
-                    }
+                    alert('❌ Arquivo muito grande! Máximo 10MB.');
                 }
             }
         }
-
-        async function analyzeWithOpenAI(fileContent, ano, disciplina) {
-            if (!openaiApiKey) {
-                throw new Error('Chave da API OpenAI não configurada');
+        
+        // Form submission
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            const ano = document.getElementById('anoEscolar').value;
+            const disciplina = document.getElementById('disciplina').value;
+            const escola = document.getElementById('escola').value;
+            const precisao = document.getElementById('precisaoMinima').value;
+            
+            if (!ano || !disciplina) {
+                alert('⚠️ Por favor, preencha o ano escolar e a disciplina.');
+                return;
             }
-
-            console.log('🤖 Iniciando análise com OpenAI...');
-
-            const prompt = createAnalysisPrompt(fileContent, ano, disciplina);
+            
+            if (!selectedFile) {
+                alert('⚠️ Por favor, selecione um arquivo.');
+                return;
+            }
+            
+            iniciarAnalise(ano, disciplina, escola, precisao, selectedFile);
+        }
+        
+        // Analysis functions
+        async function iniciarAnalise(ano, disciplina, escola, precisao, file) {
+            console.log('🔍 Iniciando análise:', { ano, disciplina, escola, precisao, file: file.name });
+            
+            mostrarLoading('Preparando análise...', 'Carregando arquivo');
+            atualizarProgresso(10);
             
             try {
-                const response = await fetch(OPENAI_API_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${openaiApiKey}`
-                    },
-                    body: JSON.stringify({
-                        model: OPENAI_MODEL,
-                        messages: [
-                            {
-                                role: 'system',
-                                content: 'Você é um especialista em análise educacional e Matriz de Referência BNCC. Analise provas escolares e correlacione questões com habilidades BNCC.'
-                            },
-                            {
-                                role: 'user',
-                                content: prompt
-                            }
-                        ],
-                        max_tokens: 2000,
-                        temperature: 0.3
-                    })
-                });
-
-                if (!response.ok) {
-                    throw new Error(`Erro na API OpenAI: ${response.status} - ${response.statusText}`);
-                }
-
-                const data = await response.json();
-                return parseOpenAIResponse(data.choices[0].message.content);
-
-            } catch (error) {
-                console.error('❌ Erro na análise OpenAI:', error);
-                throw error;
-            }
-        }
-
-        function createAnalysisPrompt(fileContent, ano, disciplina) {
-            const habilidades = matrizReferencia[disciplina]?.[ano] || [];
-            const habilidadesList = habilidades.map(h => `${h.codigo} (${h.bncc}): ${h.descricao}`).join('\n');
-
-            return `
-ANÁLISE DE PROVA ESCOLAR - ${disciplina.toUpperCase()} ${ano}º ANO
-
-CONTEÚDO DA PROVA:
-${fileContent}
-
-HABILIDADES BNCC DISPONÍVEIS PARA CORRELAÇÃO:
-${habilidadesList}
-
-TAREFA:
-1. Identifique TODAS as questões na prova (conte com precisão)
-2. Para cada questão, analise o conteúdo e correlacione com a habilidade BNCC mais adequada
-3. Calcule um percentual de correlação (0-100%) baseado na aderência
-4. Retorne APENAS um JSON válido no formato:
-
-{
-  "totalQuestoes": [número],
-  "questoes": [
-    {
-      "numero": 1,
-      "enunciado": "[resumo do enunciado]",
-      "habilidade": {
-        "codigo": "[código da habilidade]",
-        "nome": "[nome da habilidade]",
-        "bncc": "[código BNCC]",
-        "descricao": "[descrição]"
-      },
-      "correlacao": [0-100],
-      "justificativa": "[breve explicação da correlação]"
-    }
-  ]
-}
-
-IMPORTANTE: Retorne APENAS o JSON, sem texto adicional.
-            `;
-        }
-
-        function parseOpenAIResponse(response) {
-            try {
-                // Remove possíveis caracteres extras e parse JSON
-                const cleanResponse = response.replace(/```json|```/g, '').trim();
-                const data = JSON.parse(cleanResponse);
+                // Read file content
+                const conteudo = await lerArquivo(file);
+                atualizarProgresso(30);
                 
-                console.log('📊 Análise OpenAI recebida:', data);
-                return data;
+                // Extract questions
+                mostrarLoading('Extraindo questões...', 'Identificando estrutura da prova');
+                const questoes = extrairQuestoes(conteudo);
+                atualizarProgresso(50);
+                
+                // Perform correlation analysis
+                mostrarLoading('Analisando correlações...', `${questoes.length} questões encontradas`);
+                const resultados = analisarCorrelacoes(questoes, ano, disciplina, parseInt(precisao));
+                atualizarProgresso(80);
+                
+                // Show results
+                mostrarLoading('Finalizando...', 'Preparando resultados');
+                atualizarProgresso(100);
+                
+                setTimeout(() => {
+                    esconderLoading();
+                    mostrarResultados(resultados, ano, disciplina, escola);
+                }, 500);
+                
             } catch (error) {
-                console.error('❌ Erro ao parsear resposta OpenAI:', error);
-                throw new Error('Resposta da IA inválida');
+                console.error('❌ Erro na análise:', error);
+                esconderLoading();
+                alert(`Erro na análise: ${error.message}`);
             }
         }
-
-        function generateSimulatedAnalysis(ano, disciplina, numQuestoes = null) {
-            // Análise simulada para quando OpenAI não está disponível
-            const habilidades = matrizReferencia[disciplina]?.[ano] || [];
-            const totalQuestoes = numQuestoes || (Math.floor(Math.random() * 15) + 10); // 10-25 questões
-            
-            const questoes = [];
-            for (let i = 1; i <= totalQuestoes; i++) {
-                const habilidade = habilidades[Math.floor(Math.random() * habilidades.length)];
-                questoes.push({
-                    numero: i,
-                    enunciado: `Questão ${i} - Análise simulada`,
-                    habilidade: habilidade,
-                    correlacao: Math.floor(Math.random() * 30) + 70, // 70-100%
-                    justificativa: 'Correlação baseada em análise simulada'
-                });
-            }
-            
-            return {
-                totalQuestoes: totalQuestoes,
-                questoes: questoes
-            };
-        }
-
-        function readFileContent(file) {
+        
+        // File reading function
+        function lerArquivo(file) {
             return new Promise((resolve, reject) => {
                 const reader = new FileReader();
                 
@@ -628,437 +575,296 @@ IMPORTANTE: Retorne APENAS o JSON, sem texto adicional.
                     reject(new Error('Erro ao ler o arquivo'));
                 };
                 
-                // Detectar tipo de arquivo e ler adequadamente
-                if (file.type === 'application/pdf') {
-                    // Para PDF, retornar como texto indicativo
-                    resolve(`[ARQUIVO PDF: ${file.name}] - Análise de conteúdo PDF`);
-                } else {
-                    // Para arquivos de texto/Word
-                    reader.readAsText(file, 'UTF-8');
-                }
+                // Read as text
+                reader.readAsText(file, 'UTF-8');
             });
         }
-
-        function selectFile() {
-            console.log('📂 Abrindo seletor de arquivos...');
-            const fileInput = document.getElementById('fileInput');
-            console.log('🔍 Elemento fileInput encontrado:', fileInput);
-            if (fileInput) {
-                // Tentar diferentes métodos para abrir o seletor
-                try {
-                    fileInput.click();
-                    console.log('✅ Comando click() executado');
-                } catch (error) {
-                    console.error('❌ Erro no click():', error);
-                    // Método alternativo
-                    try {
-                        const event = new MouseEvent('click', {
-                            view: window,
-                            bubbles: true,
-                            cancelable: true
+        
+        // Question extraction function
+        function extrairQuestoes(conteudo) {
+            const questoes = [];
+            
+            // Simple pattern matching for questions
+            // Look for patterns like "1)", "1.", "Questão 1", etc.
+            const patterns = [
+                /(?:^|\n)\s*(\d+)\)\s*(.+?)(?=\n\s*\d+\)|$)/gs,
+                /(?:^|\n)\s*(\d+)\.\s*(.+?)(?=\n\s*\d+\.|$)/gs,
+                /(?:^|\n)\s*(?:Questão|QUESTÃO)\s*(\d+)(?:\s*[-.:)]|\s)\s*(.+?)(?=\n\s*(?:Questão|QUESTÃO)\s*\d+|$)/gs
+            ];
+            
+            for (const pattern of patterns) {
+                const matches = [...conteudo.matchAll(pattern)];
+                if (matches.length > 0) {
+                    matches.forEach(match => {
+                        const numero = parseInt(match[1]);
+                        const texto = match[2].trim();
+                        
+                        if (texto.length > 20) { // Filter out very short matches
+                            questoes.push({
+                                numero: numero,
+                                texto: texto,
+                                palavrasChave: extrairPalavrasChave(texto)
+                            });
+                        }
+                    });
+                    break; // Use the first pattern that finds questions
+                }
+            }
+            
+            // If no pattern worked, try to split by paragraphs and guess
+            if (questoes.length === 0) {
+                const paragrafos = conteudo.split(/\n\s*\n/);
+                let numero = 1;
+                
+                paragrafos.forEach(paragrafo => {
+                    if (paragrafo.trim().length > 50) {
+                        questoes.push({
+                            numero: numero++,
+                            texto: paragrafo.trim(),
+                            palavrasChave: extrairPalavrasChave(paragrafo)
                         });
-                        fileInput.dispatchEvent(event);
-                        console.log('✅ Evento click alternativo executado');
-                    } catch (error2) {
-                        console.error('❌ Erro no evento alternativo:', error2);
                     }
-                }
-            } else {
-                console.error('❌ Elemento fileInput não encontrado!');
-            }
-        }
-
-        function clearFile() {
-            console.log('🗑️ Limpando arquivo selecionado...');
-            selectedFile = null;
-            document.getElementById('fileInput').value = '';
-            document.getElementById('filePreview').style.display = 'none';
-        }
-
-        // File handling
-        document.getElementById('fileInput').addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                console.log('📁 Arquivo selecionado:', file.name);
-                
-                // Validate file
-                if (file.size > 10 * 1024 * 1024) {
-                    alert('❌ Arquivo muito grande! Máximo 10MB.');
-                    clearFile();
-                    return;
-                }
-                
-                selectedFile = file;
-                showFilePreview(file);
-            }
-        });
-
-        function showFilePreview(file) {
-            document.getElementById('fileName').textContent = file.name;
-            document.getElementById('fileInfo').textContent = 
-                (file.size / 1024).toFixed(1) + ' KB • ' + (file.type || 'Tipo desconhecido');
-            document.getElementById('filePreview').style.display = 'block';
-        }
-
-        // Drag and drop
-        const uploadArea = document.getElementById('uploadArea');
-        
-        uploadArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadArea.classList.add('dragover');
-        });
-        
-        uploadArea.addEventListener('dragleave', () => {
-            uploadArea.classList.remove('dragover');
-        });
-        
-        uploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadArea.classList.remove('dragover');
-            
-            const files = e.dataTransfer.files;
-            if (files.length > 0) {
-                const file = files[0];
-                document.getElementById('fileInput').files = files;
-                
-                if (file.size <= 10 * 1024 * 1024) {
-                    selectedFile = file;
-                    showFilePreview(file);
-                } else {
-                    alert('❌ Arquivo muito grande! Máximo 10MB.');
-                }
-            }
-        });
-
-        // Click on upload area
-        uploadArea.addEventListener('click', (e) => {
-            if (e.target.tagName !== 'BUTTON') {
-                selectFile();
-            }
-        });
-
-        // Form submission
-        document.getElementById('analysisForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            console.log('📝 Formulário submetido');
-            
-            const ano = document.getElementById('anoEscolar').value;
-            const disciplina = document.getElementById('disciplina').value;
-            const escola = document.getElementById('escola').value;
-            
-            // Validation
-            if (!ano || !disciplina) {
-                alert('⚠️ Por favor, preencha o ano escolar e a disciplina.');
-                return;
-            }
-            
-            if (!selectedFile) {
-                alert('⚠️ Por favor, selecione um arquivo.');
-                return;
-            }
-            
-            // Start analysis
-            startAnalysis(ano, disciplina, escola, selectedFile);
-        });
-
-        // Analysis functions
-        function startAnalysis(ano, disciplina, escola, file) {
-            console.log('🚀 Iniciando análise...', { ano, disciplina, escola, file: file.name });
-            
-            showLoading('Analisando arquivo...', 'Processando conteúdo do arquivo');
-            
-            setTimeout(() => {
-                analyzeFile(file, ano, disciplina, escola);
-            }, 1000);
-        }
-
-        async function analyzeFile(file, ano, disciplina, escola) {
-            console.log('🔍 Analisando arquivo:', file.name);
-            
-            // Configurar OpenAI se necessário
-            if (!openaiApiKey) {
-                initializeOpenAI();
-            }
-            
-            if (openaiApiKey) {
-                console.log('🤖 Usando análise inteligente (OpenAI)');
-                updateLoading('Análise Inteligente', 'Analisando com IA...');
-            } else {
-                console.log('⚠️ Usando análise simulada');
-                updateLoading('Análise Simulada', 'Processando...');
-            }
-            
-            try {
-                let analysisResult;
-                
-                if (openaiApiKey) {
-                    // Usar análise real com OpenAI
-                    updateLoading('Lendo arquivo...', 'Processando conteúdo');
-                    const fileContent = await readFileContent(file);
-                    
-                    updateLoading('Analisando com IA...', 'Correlacionando questões com BNCC');
-                    analysisResult = await analyzeWithOpenAI(fileContent, ano, disciplina);
-                } else {
-                    // Usar análise simulada
-                    updateLoading('Identificando questões...', 'Detectando estrutura da prova');
-                    await new Promise(resolve => setTimeout(resolve, 1000));
-                    
-                    const numQuestoes = estimateQuestions(file);
-                    updateLoading('Correlacionando...', `${numQuestoes} questões encontradas`);
-                    await new Promise(resolve => setTimeout(resolve, 1500));
-                    
-                    analysisResult = generateSimulatedAnalysis(ano, disciplina, numQuestoes);
-                }
-                
-                hideLoading();
-                showCorrelations(analysisResult, ano, disciplina, escola);
-                
-            } catch (error) {
-                console.error('❌ Erro na análise:', error);
-                hideLoading();
-                alert(`Erro na análise: ${error.message}`);
-            }
-        }
-
-        function estimateQuestions(file) {
-            // Estimate based on file size and type
-            let estimate = 20; // default
-            
-            if (file.type === 'text/plain') {
-                // For text files, estimate based on size
-                estimate = Math.max(10, Math.min(50, Math.floor(file.size / 500)));
-            } else if (file.type === 'application/pdf') {
-                // PDF estimation
-                estimate = Math.max(15, Math.min(40, Math.floor(file.size / 50000)));
-            } else {
-                // DOC/DOCX
-                estimate = Math.max(12, Math.min(35, Math.floor(file.size / 30000)));
-            }
-            
-            return estimate;
-        }
-
-        function generateCorrelations(numQuestoes, ano, disciplina, escola) {
-            const habilidades = matrizReferencia[disciplina]?.[ano] || [];
-            const correlations = [];
-            
-            for (let i = 1; i <= numQuestoes; i++) {
-                const habilidade = habilidades[Math.floor(Math.random() * habilidades.length)] || 
-                    { 
-                        codigo: `H${i}`, 
-                        nome: `Habilidade ${i}`,
-                        bncc: `EF0${ano}XX0${i}`,
-                        descricao: `Descrição da habilidade ${i}` 
-                    };
-                
-                const correlacao = 0.6 + (Math.random() * 0.35); // 60% to 95%
-                
-                correlations.push({
-                    questao: i,
-                    habilidade: habilidade,
-                    correlacao: correlacao,
-                    nivel: correlacao >= 0.8 ? 'high' : correlacao >= 0.65 ? 'medium' : 'low'
                 });
             }
             
+            console.log(`📝 ${questoes.length} questões extraídas`);
+            return questoes;
+        }
+        
+        // Extract keywords from question text
+        function extrairPalavrasChave(texto) {
+            // Remove common words and extract meaningful keywords
+            const stopWords = new Set([
+                'o', 'a', 'os', 'as', 'um', 'uma', 'uns', 'umas', 'de', 'da', 'do', 'das', 'dos',
+                'em', 'na', 'no', 'nas', 'nos', 'para', 'por', 'com', 'sem', 'sob', 'sobre',
+                'que', 'qual', 'quais', 'como', 'quando', 'onde', 'por que', 'porque',
+                'e', 'ou', 'mas', 'se', 'então', 'assim', 'também', 'já', 'ainda',
+                'é', 'são', 'foi', 'foram', 'ser', 'estar', 'ter', 'haver',
+                'este', 'esta', 'estes', 'estas', 'esse', 'essa', 'esses', 'essas',
+                'aquele', 'aquela', 'aqueles', 'aquelas', 'isso', 'isto', 'aquilo'
+            ]);
+            
+            const palavras = texto.toLowerCase()
+                .replace(/[^\w\sáéíóúàèìòùâêîôûãõç]/g, ' ')
+                .split(/\s+/)
+                .filter(palavra => palavra.length > 3 && !stopWords.has(palavra));
+            
+            return [...new Set(palavras)].slice(0, 10); // Top 10 unique keywords
+        }
+        
+        // Correlation analysis function using real matrix data
+        function analisarCorrelacoes(questoes, ano, disciplina, precisaoMinima) {
+            console.log('🧠 Analisando correlações com matriz real...');
+            console.log(`📖 Disciplina: ${disciplina}, Ano: ${ano}, Precisão mínima: ${precisaoMinima}%`);
+            
+            const correlacoes = [];
+            let totalCorrelacoes = 0;
+            
+            questoes.forEach((questao, index) => {
+                atualizarProgresso(60 + (index / questoes.length) * 20);
+                
+                // Usar função de correlação da matriz real
+                const correlacoesQuestao = correlacionarQuestao(
+                    questao.texto, 
+                    disciplina, 
+                    ano, 
+                    precisaoMinima
+                );
+                
+                if (correlacoesQuestao.length > 0) {
+                    // Pegar a melhor correlação para esta questão
+                    const melhorCorrelacao = correlacoesQuestao[0];
+                    
+                    correlacoes.push({
+                        questao: questao.numero,
+                        texto: questao.texto.substring(0, 150) + '...',
+                        habilidade: {
+                            codigo: melhorCorrelacao.codigo,
+                            descricao: melhorCorrelacao.habilidade,
+                            bncc: melhorCorrelacao.bncc || 'N/A'
+                        },
+                        precisao: melhorCorrelacao.precisao,
+                        palavrasChave: melhorCorrelacao.palavras_correspondentes,
+                        metodo: 'matriz-referencia'
+                    });
+                    
+                    totalCorrelacoes++;
+                }
+            });
+            
+            const precisaoMedia = correlacoes.length > 0 ? 
+                correlacoes.reduce((sum, c) => sum + c.precisao, 0) / correlacoes.length : 0;
+            
+            const habilidadesUnicas = new Set(correlacoes.map(c => c.habilidade.codigo)).size;
+            
+            console.log(`✅ Análise concluída: ${correlacoes.length} correlações encontradas`);
+            
             return {
-                escola: escola || 'Escola não informada',
-                ano: ano,
-                disciplina: disciplina,
-                numQuestoes: numQuestoes,
-                correlations: correlations,
-                mediaCorrelacao: correlations.reduce((sum, c) => sum + c.correlacao, 0) / correlations.length,
-                cobertura: (new Set(correlations.map(c => c.habilidade.codigo)).size / habilidades.length) * 100
+                totalQuestoes: questoes.length,
+                correlacoes: correlacoes,
+                precisaoMedia: precisaoMedia,
+                habilidadesCobertas: habilidadesUnicas,
+                estatisticas: {
+                    correlacionadas: correlacoes.length,
+                    naoCorrelacionadas: questoes.length - correlacoes.length,
+                    cobertura: Math.round((correlacoes.length / questoes.length) * 100)
+                }
             };
         }
-
-        function showResults(results) {
-            console.log('📊 Exibindo resultados:', results);
-            
-            analysisResults = results;
-            
+        
+        // Results display
+        function mostrarResultados(resultados, ano, disciplina, escola) {
             // Update stats
-            document.getElementById('totalQuestoes').textContent = results.numQuestoes;
-            document.getElementById('totalHabilidades').textContent = 
-                new Set(results.correlations.map(c => c.habilidade.codigo)).size;
-            document.getElementById('mediaCorrelacao').textContent = 
-                (results.mediaCorrelacao * 100).toFixed(1) + '%';
-            document.getElementById('cobertura').textContent = 
-                results.cobertura.toFixed(1) + '%';
+            document.getElementById('totalQuestoes').textContent = resultados.totalQuestoes;
+            document.getElementById('correlacionesEncontradas').textContent = resultados.correlacoes.length;
+            document.getElementById('mediaCorrelacao').textContent = resultados.precisaoMedia.toFixed(1) + '%';
+            document.getElementById('habilidadesCobertas').textContent = resultados.habilidadesCobertas;
             
-            // Show correlations
-            showCorrelations(results.correlations);
+            // Update table
+            const tbody = document.getElementById('correlationsTable');
+            tbody.innerHTML = '';
             
-            // Show chart
-            showChart(results.correlations);
+            resultados.correlacoes.forEach(correlacao => {
+                const precisaoClass = correlacao.precisao >= 80 ? 'correlation-high' :
+                                    correlacao.precisao >= 60 ? 'correlation-medium' : 'correlation-low';
+                
+                const row = `
+                    <tr>
+                        <td><strong>Q${correlacao.questao}</strong></td>
+                        <td><code>${correlacao.habilidade.codigo}</code></td>
+                        <td>
+                            ${correlacao.habilidade.descricao}
+                            <div class="habilidade-details">${correlacao.texto}</div>
+                        </td>
+                        <td><span class="badge bg-primary">${correlacao.habilidade.bncc}</span></td>
+                        <td>
+                            <span class="correlation-badge ${precisaoClass}">${correlacao.precisao}%</span>
+                        </td>
+                        <td>
+                            ${correlacao.palavrasChave.map(p => `<span class="keyword-match">${p}</span>`).join(' ')}
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
             
             // Show results section
             document.getElementById('resultsSection').style.display = 'block';
             document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+            
+            console.log('📊 Resultados exibidos:', resultados);
         }
-
-        function showCorrelations(analysisResult, ano, disciplina, escola) {
-            const container = document.getElementById('correlationsList');
-            
-            // Header com informações da análise
-            let html = `
-                <div class="alert alert-info mb-4">
-                    <h5><i class="fas fa-chart-bar me-2"></i>Resultado da Análise</h5>
-                    <div class="row">
-                        <div class="col-md-3"><strong>Total de Questões:</strong> ${analysisResult.totalQuestoes}</div>
-                        <div class="col-md-3"><strong>Ano:</strong> ${ano}º ano</div>
-                        <div class="col-md-3"><strong>Disciplina:</strong> ${disciplina}</div>
-                        <div class="col-md-3"><strong>Escola:</strong> ${escola || 'Não informada'}</div>
-                    </div>
-                </div>
-                
-                <table class="table table-hover">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Questão</th>
-                            <th>Código</th>
-                            <th>Nome da Habilidade</th>
-                            <th>BNCC</th>
-                            <th>Descrição</th>
-                            <th>Correlação</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            `;
-            
-            analysisResult.questoes.forEach(questao => {
-                const percentage = questao.correlacao;
-                const badgeClass = percentage >= 85 ? 'correlation-high' : 
-                                  percentage >= 70 ? 'correlation-medium' : 'correlation-low';
-                
-                html += `
-                    <tr>
-                        <td><strong>Q${questao.numero}</strong></td>
-                        <td><code>${questao.habilidade.codigo}</code></td>
-                        <td><strong>${questao.habilidade.nome || 'Habilidade'}</strong></td>
-                        <td><span class="badge bg-primary">${questao.habilidade.bncc || 'N/A'}</span></td>
-                        <td>${questao.habilidade.descricao}</td>
-                        <td>
-                            <span class="correlation-badge ${badgeClass}">
-                                ${percentage}%
-                            </span>
-                            ${questao.justificativa ? `<br><small class="text-muted">${questao.justificativa}</small>` : ''}
-                        </td>
-                    </tr>
-                `;
-            });
-            
-            html += '</tbody></table>';
-            container.innerHTML = html;
-            
-            // Scroll to results
-            container.scrollIntoView({ behavior: 'smooth' });
-            
-            console.log('📊 Resultados exibidos:', analysisResult);
-        }
-        }
-
-        function showChart(correlations) {
-            const ctx = document.getElementById('distributionChart').getContext('2d');
-            
-            const levels = { high: 0, medium: 0, low: 0 };
-            correlations.forEach(corr => levels[corr.nivel]++);
-            
-            new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Alta (≥80%)', 'Média (65-79%)', 'Baixa (<65%)'],
-                    datasets: [{
-                        data: [levels.high, levels.medium, levels.low],
-                        backgroundColor: ['#22c55e', '#f59e0b', '#ef4444'],
-                        borderWidth: 2
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom'
-                        }
-                    }
-                }
-            });
-        }
-
-        // Test functions
-        function testAnalysis() {
-            console.log('🧪 Executando teste rápido...');
-            
-            // Fill form automatically
-            document.getElementById('anoEscolar').value = '6';
-            document.getElementById('disciplina').value = 'portugues';
-            document.getElementById('escola').value = 'Escola Teste';
-            
-            // Create fake file
-            const fakeFile = new File(['Teste'], 'teste.txt', { type: 'text/plain' });
-            selectedFile = fakeFile;
-            showFilePreview(fakeFile);
-            
-            // Start analysis
-            setTimeout(() => {
-                startAnalysis('6', 'portugues', 'Escola Teste', fakeFile);
-            }, 500);
-        }
-
-        function showDemo() {
-            alert('📖 Demo: Esta página analisa provas educacionais correlacionando questões com habilidades das Matrizes de Referência.\n\n1. Selecione ano e disciplina\n2. Faça upload do arquivo\n3. Clique em "Analisar Prova"\n4. Veja os resultados com gráficos e estatísticas\n\nUse "Teste Rápido" para ver um exemplo!');
-        }
-
-        // Loading functions
-        function showLoading(title, message) {
-            document.getElementById('loadingTitle').textContent = title;
-            document.getElementById('loadingMessage').textContent = message;
+        
+        // Utility functions
+        function mostrarLoading(titulo, mensagem) {
+            document.getElementById('loadingTitle').textContent = titulo;
+            document.getElementById('loadingMessage').textContent = mensagem;
             document.getElementById('loadingOverlay').style.display = 'block';
         }
-
-        function updateLoading(title, message) {
-            document.getElementById('loadingTitle').textContent = title;
-            document.getElementById('loadingMessage').textContent = message;
-        }
-
-        function hideLoading() {
+        
+        function esconderLoading() {
             document.getElementById('loadingOverlay').style.display = 'none';
         }
+        
+        function atualizarProgresso(porcentagem) {
+            document.getElementById('progressBar').style.width = porcentagem + '%';
+        }
+        
+        // Test and demo functions
+        function testeRapido() {
+            document.getElementById('anoEscolar').value = '6';
+            document.getElementById('disciplina').value = 'portugues_leitura';
+            document.getElementById('escola').value = 'Escola Teste';
+            
+            // Create fake file content
+            const conteudoTeste = `
+1) Leia o texto abaixo e responda:
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('🚀 Página Matrizes de Referência carregada - v0.2.4');
-            console.log('✅ Todas as funcionalidades ativas');
-            console.log('🤖 IA disponível - será configurada quando necessário');
+O texto trata principalmente sobre meio ambiente e sustentabilidade...
+
+2) Com base no texto, podemos inferir que:
+
+a) A questão ambiental é importante
+b) Devemos preservar a natureza
+c) O texto defende o desenvolvimento sustentável
+
+3) A palavra "sustentabilidade" no texto significa:
+
+Desenvolvimento que atende às necessidades presentes sem comprometer o futuro.
+            `;
             
-            // Verificar elementos de upload
-            const fileInput = document.getElementById('fileInput');
-            const uploadArea = document.getElementById('uploadArea');
-            console.log('🔍 Verificando elementos de upload:');
-            console.log('  - fileInput:', fileInput);
-            console.log('  - uploadArea:', uploadArea);
+            const arquivo = new File([conteudoTeste], 'teste.txt', { type: 'text/plain' });
+            selectedFile = arquivo;
+            showFilePreview(arquivo);
             
-            if (!fileInput) {
-                console.error('❌ Elemento fileInput não encontrado!');
-            }
-            if (!uploadArea) {
-                console.error('❌ Elemento uploadArea não encontrado!');
+            alert('📝 Teste configurado! Clique em "Analisar Correlações" para continuar.');
+        }
+        
+        function mostrarDemo() {
+            alert(`📖 Como usar o SADE Matrizes v0.3.0:
+
+1️⃣ Selecione o ano escolar e disciplina
+2️⃣ Configure a precisão mínima desejada
+3️⃣ Faça upload do arquivo da prova (TXT, DOC, PDF)
+4️⃣ Clique em "Analisar Correlações"
+5️⃣ Aguarde o processamento
+6️⃣ Veja os resultados com correlações e precisão
+
+🔍 O sistema usa análise inteligente baseada em:
+• Palavras-chave do conteúdo
+• Contexto das questões
+• Matriz de Referência completa
+• Códigos BNCC atualizados
+
+✨ Use "Teste Rápido" para ver um exemplo!`);
+        }
+        
+        function verificarMatriz() {
+            if (typeof matrizReferencia === 'undefined') {
+                alert('❌ Matriz de Referência não carregada! Verifique se o arquivo matriz-referencia-dados.js está presente.');
+                return;
             }
             
-            // Adicionar event listener alternativo ao botão
-            const selectButton = document.querySelector('button[onclick="selectFile()"]');
-            if (selectButton) {
-                console.log('✅ Botão "Escolher Arquivo" encontrado');
-                selectButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    console.log('🖱️ Botão clicado via addEventListener');
-                    selectFile();
-                });
-            } else {
-                console.error('❌ Botão "Escolher Arquivo" não encontrado!');
+            let info = '📊 INFORMAÇÕES DA MATRIZ DE REFERÊNCIA\n\n';
+            info += `Total de habilidades: ${estatisticasMatriz.total}\n\n`;
+            info += '📚 Por disciplina:\n';
+            
+            Object.entries(estatisticasMatriz.porDisciplina).forEach(([disc, total]) => {
+                const disciplinaNome = {
+                    'portugues_leitura': 'Português - Leitura',
+                    'portugues_escrita': 'Português - Escrita', 
+                    'matematica': 'Matemática',
+                    'ciencias': 'Ciências da Natureza'
+                }[disc] || disc;
+                
+                info += `• ${disciplinaNome}: ${total} habilidades\n`;
+            });
+            
+            info += '\n🎓 Por ano (Português - Leitura):\n';
+            Object.entries(matrizReferencia.portugues_leitura).forEach(([ano, habilidades]) => {
+                info += `• ${ano}º ano: ${habilidades.length} habilidades\n`;
+            });
+            
+            alert(info);
+        }
+        
+        function exportarResultados() {
+            if (!analysisResults) {
+                alert('Nenhum resultado para exportar.');
+                return;
             }
-        });
+            
+            alert('🚧 Funcionalidade de exportação será implementada em breve!');
+        }
+        
+        function mostrarDetalhes() {
+            if (!analysisResults) {
+                alert('Nenhum resultado para mostrar detalhes.');
+                return;
+            }
+            
+            alert('🚧 Visualização detalhada será implementada em breve!');
+        }
     </script>
 </body>
 </html>
