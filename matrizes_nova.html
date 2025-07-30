@@ -214,7 +214,7 @@
                         <form id="analysisForm">
                             <!-- Basic Info -->
                             <div class="row g-3 mb-4">
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <label class="form-label fw-bold">
                                         <i class="fas fa-graduation-cap me-1"></i>Ano Escolar
                                     </label>
@@ -226,7 +226,7 @@
                                         <option value="9">9º ano</option>
                                     </select>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <label class="form-label fw-bold">
                                         <i class="fas fa-book me-1"></i>Disciplina
                                     </label>
@@ -236,6 +236,23 @@
                                         <option value="portugues_escrita">Português - Escrita</option>
                                         <option value="matematica">Matemática</option>
                                         <option value="ciencias">Ciências da Natureza</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-school me-1"></i>Escola
+                                    </label>
+                                    <input type="text" id="escola" class="form-control" placeholder="Nome da escola">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-percentage me-1"></i>Precisão Mínima
+                                    </label>
+                                    <select id="precisaoMinima" class="form-select">
+                                        <option value="30">30% - Baixa</option>
+                                        <option value="50" selected>50% - Média</option>
+                                        <option value="70">70% - Alta</option>
+                                        <option value="85">85% - Muito Alta</option>
                                     </select>
                                 </div>
                             </div>
@@ -286,17 +303,12 @@
                                 </button>
                                 
                                 <div class="row g-2">
-                                    <div class="col-4">
+                                    <div class="col-6">
                                         <button type="button" class="btn btn-outline-primary w-100" onclick="testeRapido()">
                                             <i class="fas fa-play me-2"></i>Teste Rápido
                                         </button>
                                     </div>
-                                    <div class="col-4">
-                                        <button type="button" class="btn btn-outline-info w-100" onclick="verificarMatriz()">
-                                            <i class="fas fa-database me-2"></i>Ver Matriz
-                                        </button>
-                                    </div>
-                                    <div class="col-4">
+                                    <div class="col-6">
                                         <button type="button" class="btn btn-outline-secondary w-100" onclick="mostrarDemo()">
                                             <i class="fas fa-info me-2"></i>Como Usar
                                         </button>
@@ -491,6 +503,8 @@
             
             const ano = document.getElementById('anoEscolar').value;
             const disciplina = document.getElementById('disciplina').value;
+            const escola = document.getElementById('escola').value;
+            const precisao = document.getElementById('precisaoMinima').value;
             
             if (!ano || !disciplina) {
                 alert('⚠️ Por favor, preencha o ano escolar e a disciplina.');
@@ -502,12 +516,12 @@
                 return;
             }
             
-            iniciarAnalise(ano, disciplina, selectedFile);
+            iniciarAnalise(ano, disciplina, escola, precisao, selectedFile);
         }
         
         // Analysis functions
-        async function iniciarAnalise(ano, disciplina, file) {
-            console.log('🔍 Iniciando análise avançada:', { ano, disciplina, file: file.name });
+        async function iniciarAnalise(ano, disciplina, escola, precisao, file) {
+            console.log('🔍 Iniciando análise:', { ano, disciplina, escola, precisao, file: file.name });
             
             mostrarLoading('Preparando análise...', 'Carregando arquivo');
             atualizarProgresso(10);
@@ -517,15 +531,14 @@
                 const conteudo = await lerArquivo(file);
                 atualizarProgresso(30);
                 
-                // Extract questions with advanced detection
-                mostrarLoading('Analisando estrutura...', 'Detectando questões automaticamente');
-                const questoes = extrairQuestoesAvancado(conteudo);
-                console.log(`📝 ${questoes.length} questões detectadas`);
+                // Extract questions
+                mostrarLoading('Extraindo questões...', 'Identificando estrutura da prova');
+                const questoes = extrairQuestoes(conteudo);
                 atualizarProgresso(50);
                 
-                // Perform intelligent correlation analysis
-                mostrarLoading('Correlacionando habilidades...', `Analisando ${questoes.length} questões`);
-                const resultados = analisarCorrelacoesInteligente(questoes, ano, disciplina);
+                // Perform correlation analysis
+                mostrarLoading('Analisando correlações...', `${questoes.length} questões encontradas`);
+                const resultados = analisarCorrelacoes(questoes, ano, disciplina, parseInt(precisao));
                 atualizarProgresso(80);
                 
                 // Show results
@@ -534,7 +547,7 @@
                 
                 setTimeout(() => {
                     esconderLoading();
-                    mostrarResultados(resultados, ano, disciplina);
+                    mostrarResultados(resultados, ano, disciplina, escola);
                 }, 500);
                 
             } catch (error) {
@@ -562,111 +575,60 @@
             });
         }
         
-        // Advanced question extraction function
-        function extrairQuestoesAvancado(conteudo) {
+        // Question extraction function
+        function extrairQuestoes(conteudo) {
             const questoes = [];
-            let textoLimpo = conteudo.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
             
-            // Remove múltiplas quebras de linha
-            textoLimpo = textoLimpo.replace(/\n{3,}/g, '\n\n');
-            
-            console.log('🔍 Iniciando detecção avançada de questões...');
-            
-            // Padrões mais robustos para detectar questões
-            const padroes = [
-                // Padrão 1: Número seguido de ) ou . com espaço
-                /(?:^|\n)\s*(\d+)\s*[).]\s*(.+?)(?=\n\s*\d+\s*[).]|$)/gs,
-                // Padrão 2: "Questão" seguido de número
-                /(?:^|\n)\s*(?:questão|QUESTÃO)\s*(\d+)[\s\-.:)]*(.+?)(?=\n\s*(?:questão|QUESTÃO)\s*\d+|$)/gs,
-                // Padrão 3: Números em nova linha
-                /(?:^|\n)\s*(\d+)\s*\n\s*(.+?)(?=\n\s*\d+\s*\n|$)/gs,
-                // Padrão 4: Parênteses com número
-                /(?:^|\n)\s*\((\d+)\)\s*(.+?)(?=\n\s*\(\d+\)|$)/gs
+            // Simple pattern matching for questions
+            // Look for patterns like "1)", "1.", "Questão 1", etc.
+            const patterns = [
+                /(?:^|\n)\s*(\d+)\)\s*(.+?)(?=\n\s*\d+\)|$)/gs,
+                /(?:^|\n)\s*(\d+)\.\s*(.+?)(?=\n\s*\d+\.|$)/gs,
+                /(?:^|\n)\s*(?:Questão|QUESTÃO)\s*(\d+)(?:\s*[-.:)]|\s)\s*(.+?)(?=\n\s*(?:Questão|QUESTÃO)\s*\d+|$)/gs
             ];
             
-            let melhorResultado = [];
-            let melhorPadrao = 0;
-            
-            // Testa cada padrão e escolhe o que encontra mais questões
-            padroes.forEach((padrao, index) => {
-                const matches = [...textoLimpo.matchAll(padrao)];
-                console.log(`Padrão ${index + 1}: ${matches.length} questões encontradas`);
-                
-                if (matches.length > melhorResultado.length) {
-                    melhorResultado = matches;
-                    melhorPadrao = index + 1;
+            for (const pattern of patterns) {
+                const matches = [...conteudo.matchAll(pattern)];
+                if (matches.length > 0) {
+                    matches.forEach(match => {
+                        const numero = parseInt(match[1]);
+                        const texto = match[2].trim();
+                        
+                        if (texto.length > 20) { // Filter out very short matches
+                            questoes.push({
+                                numero: numero,
+                                texto: texto,
+                                palavrasChave: extrairPalavrasChave(texto)
+                            });
+                        }
+                    });
+                    break; // Use the first pattern that finds questions
                 }
-            });
+            }
             
-            console.log(`✅ Usando padrão ${melhorPadrao} com ${melhorResultado.length} questões`);
-            
-            // Processa as questões encontradas
-            if (melhorResultado.length > 0) {
-                melhorResultado.forEach(match => {
-                    const numero = parseInt(match[1]);
-                    let texto = match[2].trim();
-                    
-                    // Limpa e processa o texto da questão
-                    texto = texto.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
-                    
-                    if (texto.length > 15) { // Filtro mínimo de tamanho
-                        questoes.push({
-                            numero: numero,
-                            texto: texto,
-                            textoCompleto: texto,
-                            categoria: detectarCategoria(texto),
-                            palavrasChaveAvancadas: extrairPalavrasChaveAvancadas(texto),
-                            contextoPedagogico: analisarContextoPedagogico(texto)
-                        });
-                    }
-                });
-            } else {
-                // Fallback: tenta dividir por parágrafos
-                console.log('⚠️ Nenhum padrão funcionou, tentando divisão por parágrafos...');
-                const paragrafos = textoLimpo.split(/\n\s*\n/);
+            // If no pattern worked, try to split by paragraphs and guess
+            if (questoes.length === 0) {
+                const paragrafos = conteudo.split(/\n\s*\n/);
                 let numero = 1;
                 
                 paragrafos.forEach(paragrafo => {
-                    const texto = paragrafo.trim().replace(/\n+/g, ' ').replace(/\s+/g, ' ');
-                    if (texto.length > 30 && !texto.match(/^[a-z]\)/)) { // Evita alternativas
+                    if (paragrafo.trim().length > 50) {
                         questoes.push({
                             numero: numero++,
-                            texto: texto,
-                            textoCompleto: texto,
-                            categoria: detectarCategoria(texto),
-                            palavrasChaveAvancadas: extrairPalavrasChaveAvancadas(texto),
-                            contextoPedagogico: analisarContextoPedagogico(texto)
+                            texto: paragrafo.trim(),
+                            palavrasChave: extrairPalavrasChave(paragrafo)
                         });
                     }
                 });
             }
             
-            // Ordena por número da questão
-            questoes.sort((a, b) => a.numero - b.numero);
-            
-            console.log(`📊 Total de questões processadas: ${questoes.length}`);
+            console.log(`📝 ${questoes.length} questões extraídas`);
             return questoes;
         }
         
-        // Detecta categoria da questão
-        function detectarCategoria(texto) {
-            const textoLower = texto.toLowerCase();
-            
-            if (textoLower.match(/calcul|matemática|número|operação|soma|subtração|multiplicação|divisão|fração|porcentagem/)) {
-                return 'matematica';
-            } else if (textoLower.match(/texto|leia|interprete|autor|narrativa|personagem|enredo/)) {
-                return 'portugues_leitura';
-            } else if (textoLower.match(/escreva|redija|produza|elabore|comente/)) {
-                return 'portugues_escrita';
-            } else if (textoLower.match(/ciência|natureza|meio ambiente|água|terra|corpo humano|célula/)) {
-                return 'ciencias';
-            }
-            
-            return 'geral';
-        }
-        
-        // Extração avançada de palavras-chave
-        function extrairPalavrasChaveAvancadas(texto) {
+        // Extract keywords from question text
+        function extrairPalavrasChave(texto) {
+            // Remove common words and extract meaningful keywords
             const stopWords = new Set([
                 'o', 'a', 'os', 'as', 'um', 'uma', 'uns', 'umas', 'de', 'da', 'do', 'das', 'dos',
                 'em', 'na', 'no', 'nas', 'nos', 'para', 'por', 'com', 'sem', 'sob', 'sobre',
@@ -674,153 +636,54 @@
                 'e', 'ou', 'mas', 'se', 'então', 'assim', 'também', 'já', 'ainda',
                 'é', 'são', 'foi', 'foram', 'ser', 'estar', 'ter', 'haver',
                 'este', 'esta', 'estes', 'estas', 'esse', 'essa', 'esses', 'essas',
-                'aquele', 'aquela', 'aqueles', 'aquelas', 'isso', 'isto', 'aquilo',
-                'texto', 'questão', 'pergunta', 'resposta', 'letra', 'item', 'alternativa',
-                'pode', 'podem', 'deve', 'devem', 'vai', 'vão', 'mais', 'menos', 'muito', 'pouco'
+                'aquele', 'aquela', 'aqueles', 'aquelas', 'isso', 'isto', 'aquilo'
             ]);
             
-            // Extrai substantivos, verbos e conceitos importantes
             const palavras = texto.toLowerCase()
                 .replace(/[^\w\sáéíóúàèìòùâêîôûãõç]/g, ' ')
                 .split(/\s+/)
                 .filter(palavra => palavra.length > 3 && !stopWords.has(palavra));
             
-            // Identifica termos compostos importantes
-            const termosCompostos = [];
-            const textoLower = texto.toLowerCase();
-            
-            const conceitosImportantes = [
-                'meio ambiente', 'desenvolvimento sustentável', 'recursos naturais',
-                'sistema solar', 'ciclo da água', 'cadeia alimentar',
-                'fração equivalente', 'regra de três', 'porcentagem',
-                'sujeito oculto', 'predicado verbal', 'figura de linguagem',
-                'função sintática', 'processo de formação'
-            ];
-            
-            conceitosImportantes.forEach(conceito => {
-                if (textoLower.includes(conceito)) {
-                    termosCompostos.push(conceito.replace(' ', '_'));
-                }
-            });
-            
-            return [...new Set([...palavras, ...termosCompostos])].slice(0, 15);
+            return [...new Set(palavras)].slice(0, 10); // Top 10 unique keywords
         }
         
-        // Análise do contexto pedagógico
-        function analisarContextoPedagogico(texto) {
-            const contexto = {
-                habilidadesCognitivas: [],
-                tipoQuestao: 'objetiva',
-                complexidade: 'media'
-            };
-            
-            const textoLower = texto.toLowerCase();
-            
-            // Detecta habilidades cognitivas (Taxonomia de Bloom)
-            if (textoLower.match(/lembre|identifique|liste|defina|reconheça/)) {
-                contexto.habilidadesCognitivas.push('lembrar');
-            }
-            if (textoLower.match(/explique|descreva|compare|classifique|demonstre/)) {
-                contexto.habilidadesCognitivas.push('compreender');
-            }
-            if (textoLower.match(/aplique|calcule|resolva|utilize|implemente/)) {
-                contexto.habilidadesCognitivas.push('aplicar');
-            }
-            if (textoLower.match(/analise|examine|investigue|relacione|diferencie/)) {
-                contexto.habilidadesCognitivas.push('analisar');
-            }
-            if (textoLower.match(/avalie|critique|justifique|argumente|julgar/)) {
-                contexto.habilidadesCognitivas.push('avaliar');
-            }
-            if (textoLower.match(/crie|elabore|projete|construa|produza/)) {
-                contexto.habilidadesCognitivas.push('criar');
-            }
-            
-            // Detecta tipo de questão
-            if (textoLower.match(/escreva|redija|elabore|comente|produza/)) {
-                contexto.tipoQuestao = 'discursiva';
-            }
-            
-            // Detecta complexidade
-            const indicadoresAlta = ['analise', 'avalie', 'relacione', 'justifique', 'compare'];
-            const indicadoresBaixa = ['identifique', 'liste', 'reconheça', 'defina'];
-            
-            if (indicadoresAlta.some(ind => textoLower.includes(ind))) {
-                contexto.complexidade = 'alta';
-            } else if (indicadoresBaixa.some(ind => textoLower.includes(ind))) {
-                contexto.complexidade = 'baixa';
-            }
-            
-            return contexto;
-        }
-        
-        // Intelligent correlation analysis function using real matrix data
-        function analisarCorrelacoesInteligente(questoes, ano, disciplina) {
-            console.log('🧠 Análise inteligente iniciada...');
-            console.log(`📖 Disciplina: ${disciplina}, Ano: ${ano}`);
+        // Correlation analysis function using real matrix data
+        function analisarCorrelacoes(questoes, ano, disciplina, precisaoMinima) {
+            console.log('🧠 Analisando correlações com matriz real...');
+            console.log(`📖 Disciplina: ${disciplina}, Ano: ${ano}, Precisão mínima: ${precisaoMinima}%`);
             
             const correlacoes = [];
-            const habilidades = buscarHabilidades(disciplina, ano);
-            
-            if (!habilidades || habilidades.length === 0) {
-                console.error('❌ Nenhuma habilidade encontrada para', disciplina, ano);
-                return {
-                    totalQuestoes: questoes.length,
-                    correlacoes: [],
-                    precisaoMedia: 0,
-                    habilidadesCobertas: 0,
-                    estatisticas: {
-                        correlacionadas: 0,
-                        naoCorrelacionadas: questoes.length,
-                        cobertura: 0
-                    }
-                };
-            }
-            
-            console.log(`📚 ${habilidades.length} habilidades disponíveis para análise`);
+            let totalCorrelacoes = 0;
             
             questoes.forEach((questao, index) => {
                 atualizarProgresso(60 + (index / questoes.length) * 20);
-                console.log(`🔍 Analisando questão ${questao.numero}: "${questao.texto.substring(0, 50)}..."`);
                 
-                let melhorCorrelacao = null;
-                let melhorScore = 0;
+                // Usar função de correlação da matriz real
+                const correlacoesQuestao = correlacionarQuestao(
+                    questao.texto, 
+                    disciplina, 
+                    ano, 
+                    precisaoMinima
+                );
                 
-                // Analisa cada habilidade para encontrar a melhor correlação
-                habilidades.forEach(habilidade => {
-                    const score = calcularSimilaridadeInteligente(questao, habilidade, disciplina);
+                if (correlacoesQuestao.length > 0) {
+                    // Pegar a melhor correlação para esta questão
+                    const melhorCorrelacao = correlacoesQuestao[0];
                     
-                    if (score.total > melhorScore) {
-                        melhorScore = score.total;
-                        melhorCorrelacao = {
-                            habilidade: habilidade,
-                            score: score,
-                            precisao: Math.round(score.total)
-                        };
-                    }
-                });
-                
-                // Só aceita correlações com score mínimo de 25 (mais rigoroso)
-                if (melhorCorrelacao && melhorScore >= 25) {
                     correlacoes.push({
                         questao: questao.numero,
-                        texto: questao.texto.length > 200 ? 
-                               questao.texto.substring(0, 200) + '...' : 
-                               questao.texto,
+                        texto: questao.texto.substring(0, 150) + '...',
                         habilidade: {
-                            codigo: melhorCorrelacao.habilidade.codigo,
-                            descricao: melhorCorrelacao.habilidade.habilidade,
-                            bncc: melhorCorrelacao.habilidade.bncc || 'N/A'
+                            codigo: melhorCorrelacao.codigo,
+                            descricao: melhorCorrelacao.habilidade,
+                            bncc: melhorCorrelacao.bncc || 'N/A'
                         },
                         precisao: melhorCorrelacao.precisao,
-                        palavrasChave: melhorCorrelacao.score.palavrasCorrespondentes || [],
-                        detalhes: melhorCorrelacao.score.detalhes,
-                        metodo: 'correlacao-inteligente'
+                        palavrasChave: melhorCorrelacao.palavras_correspondentes,
+                        metodo: 'matriz-referencia'
                     });
                     
-                    console.log(`✅ Questão ${questao.numero} correlacionada com ${melhorCorrelacao.habilidade.codigo} (${melhorCorrelacao.precisao}%)`);
-                } else {
-                    console.log(`⚠️ Questão ${questao.numero} não correlacionada (score máximo: ${Math.round(melhorScore)})`);
+                    totalCorrelacoes++;
                 }
             });
             
@@ -828,9 +691,8 @@
                 correlacoes.reduce((sum, c) => sum + c.precisao, 0) / correlacoes.length : 0;
             
             const habilidadesUnicas = new Set(correlacoes.map(c => c.habilidade.codigo)).size;
-            const cobertura = Math.round((correlacoes.length / questoes.length) * 100);
             
-            console.log(`✅ Análise concluída: ${correlacoes.length}/${questoes.length} correlações (${cobertura}%)`);
+            console.log(`✅ Análise concluída: ${correlacoes.length} correlações encontradas`);
             
             return {
                 totalQuestoes: questoes.length,
@@ -840,119 +702,13 @@
                 estatisticas: {
                     correlacionadas: correlacoes.length,
                     naoCorrelacionadas: questoes.length - correlacoes.length,
-                    cobertura: cobertura
+                    cobertura: Math.round((correlacoes.length / questoes.length) * 100)
                 }
             };
-        }
-        
-        // Sistema de cálculo de similaridade muito mais inteligente
-        function calcularSimilaridadeInteligente(questao, habilidade, disciplina) {
-            let score = {
-                total: 0,
-                palavrasExatas: 0,
-                conceitos: 0,
-                contexto: 0,
-                disciplinar: 0,
-                pedagogico: 0,
-                palavrasCorrespondentes: [],
-                detalhes: {}
-            };
-            
-            const textoQuestao = questao.texto.toLowerCase();
-            const textoHabilidade = habilidade.habilidade.toLowerCase();
-            const palavrasQuestao = questao.palavrasChaveAvancadas || [];
-            const palavrasHabilidade = habilidade.palavras_chave || [];
-            
-            // 1. Análise de palavras-chave exatas (peso alto)
-            let palavrasExatas = 0;
-            palavrasQuestao.forEach(palavra => {
-                if (palavrasHabilidade.includes(palavra)) {
-                    palavrasExatas++;
-                    score.palavrasCorrespondentes.push(palavra);
-                    score.palavrasExatas += 20; // 20 pontos por palavra exata
-                }
-            });
-            
-            // 2. Análise de conceitos relacionados (peso médio)
-            const conceitosMatematica = ['número', 'calcular', 'operação', 'resolver', 'problema', 'fração', 'decimal', 'porcentagem', 'geometria', 'medida'];
-            const conceitosPortugues = ['texto', 'leitura', 'interpretação', 'palavra', 'sentido', 'informação', 'parágrafo', 'autor', 'narrativa', 'personagem'];
-            const conceitosCiencias = ['natureza', 'ambiente', 'água', 'terra', 'corpo', 'célula', 'sistema', 'vida', 'processo', 'ciclo'];
-            
-            let conceitosRelevantes = [];
-            if (disciplina === 'matematica') conceitosRelevantes = conceitosMatematica;
-            else if (disciplina.includes('portugues')) conceitosRelevantes = conceitosPortugues;
-            else if (disciplina === 'ciencias') conceitosRelevantes = conceitosCiencias;
-            
-            conceitosRelevantes.forEach(conceito => {
-                if (textoQuestao.includes(conceito) && textoHabilidade.includes(conceito)) {
-                    score.conceitos += 15; // 15 pontos por conceito relacionado
-                }
-            });
-            
-            // 3. Análise contextual (busca no texto completo)
-            palavrasQuestao.forEach(palavra => {
-                if (textoHabilidade.includes(palavra)) {
-                    score.contexto += 8; // 8 pontos por palavra no contexto
-                    if (!score.palavrasCorrespondentes.includes(palavra)) {
-                        score.palavrasCorrespondentes.push(palavra);
-                    }
-                }
-            });
-            
-            // 4. Análise disciplinar específica
-            if (questao.categoria === disciplina || questao.categoria === 'geral') {
-                score.disciplinar += 10; // 10 pontos por categoria correta
-            }
-            
-            // 5. Análise pedagógica (habilidades cognitivas)
-            if (questao.contextoPedagogico && questao.contextoPedagogico.habilidadesCognitivas) {
-                const habilidadesCognitivas = questao.contextoPedagogico.habilidadesCognitivas;
-                
-                // Verifica se a habilidade da matriz corresponde ao nível cognitivo da questão
-                if (habilidadesCognitivas.includes('aplicar') && textoHabilidade.includes('utilizar')) {
-                    score.pedagogico += 12;
-                }
-                if (habilidadesCognitivas.includes('analisar') && textoHabilidade.includes('analisar')) {
-                    score.pedagogico += 12;
-                }
-                if (habilidadesCognitivas.includes('compreender') && (textoHabilidade.includes('reconhecer') || textoHabilidade.includes('identificar'))) {
-                    score.pedagogico += 10;
-                }
-            }
-            
-            // 6. Bônus por densidade de correspondências
-            if (palavrasExatas > 0) {
-                const densidade = palavrasExatas / Math.max(palavrasQuestao.length, palavrasHabilidade.length);
-                score.total += densidade * 25; // Até 25 pontos de bônus
-            }
-            
-            // 7. Penalização por incompatibilidade de disciplina
-            if (questao.categoria !== 'geral' && questao.categoria !== disciplina && !disciplina.includes(questao.categoria)) {
-                score.total -= 20; // Penaliza correlações incorretas
-            }
-            
-            // Calcula score total
-            score.total = score.palavrasExatas + score.conceitos + score.contexto + score.disciplinar + score.pedagogico;
-            score.total = Math.max(0, Math.min(100, score.total)); // Limita entre 0 e 100
-            
-            // Detalhes para debug
-            score.detalhes = {
-                palavrasExatas: score.palavrasExatas,
-                conceitos: score.conceitos,
-                contexto: score.contexto,
-                disciplinar: score.disciplinar,
-                pedagogico: score.pedagogico,
-                densidade: palavrasExatas > 0 ? (palavrasExatas / Math.max(palavrasQuestao.length, palavrasHabilidade.length)) * 100 : 0
-            };
-            
-            return score;
         }
         
         // Results display
-        function mostrarResultados(resultados, ano, disciplina) {
-            // Store results globally
-            analysisResults = resultados;
-            
+        function mostrarResultados(resultados, ano, disciplina, escola) {
             // Update stats
             document.getElementById('totalQuestoes').textContent = resultados.totalQuestoes;
             document.getElementById('correlacionesEncontradas').textContent = resultados.correlacoes.length;
@@ -963,67 +719,35 @@
             const tbody = document.getElementById('correlationsTable');
             tbody.innerHTML = '';
             
-            if (resultados.correlacoes.length === 0) {
-                tbody.innerHTML = `
+            resultados.correlacoes.forEach(correlacao => {
+                const precisaoClass = correlacao.precisao >= 80 ? 'correlation-high' :
+                                    correlacao.precisao >= 60 ? 'correlation-medium' : 'correlation-low';
+                
+                const row = `
                     <tr>
-                        <td colspan="6" class="text-center text-muted py-4">
-                            <i class="fas fa-search fa-2x mb-2"></i><br>
-                            Nenhuma correlação encontrada com os critérios de análise.<br>
-                            <small>Verifique se a disciplina e ano estão corretos.</small>
+                        <td><strong>Q${correlacao.questao}</strong></td>
+                        <td><code>${correlacao.habilidade.codigo}</code></td>
+                        <td>
+                            ${correlacao.habilidade.descricao}
+                            <div class="habilidade-details">${correlacao.texto}</div>
+                        </td>
+                        <td><span class="badge bg-primary">${correlacao.habilidade.bncc}</span></td>
+                        <td>
+                            <span class="correlation-badge ${precisaoClass}">${correlacao.precisao}%</span>
+                        </td>
+                        <td>
+                            ${correlacao.palavrasChave.map(p => `<span class="keyword-match">${p}</span>`).join(' ')}
                         </td>
                     </tr>
                 `;
-            } else {
-                resultados.correlacoes.forEach(correlacao => {
-                    const precisaoClass = correlacao.precisao >= 80 ? 'correlation-high' :
-                                        correlacao.precisao >= 60 ? 'correlation-medium' : 'correlation-low';
-                    
-                    const palavrasChaveHtml = correlacao.palavrasChave
-                        .map(p => `<span class="keyword-match">${p}</span>`)
-                        .join(' ');
-                    
-                    const row = `
-                        <tr>
-                            <td><strong>Q${correlacao.questao}</strong></td>
-                            <td><code>${correlacao.habilidade.codigo}</code></td>
-                            <td>
-                                ${correlacao.habilidade.descricao}
-                                <div class="habilidade-details">${correlacao.texto}</div>
-                                ${correlacao.detalhes ? `
-                                    <small class="text-info">
-                                        <i class="fas fa-info-circle"></i> 
-                                        Palavras: ${correlacao.detalhes.palavrasExatas || 0}pts, 
-                                        Conceitos: ${correlacao.detalhes.conceitos || 0}pts, 
-                                        Contexto: ${correlacao.detalhes.contexto || 0}pts
-                                    </small>
-                                ` : ''}
-                            </td>
-                            <td><span class="badge bg-primary">${correlacao.habilidade.bncc}</span></td>
-                            <td>
-                                <span class="correlation-badge ${precisaoClass}">${correlacao.precisao}%</span>
-                            </td>
-                            <td>
-                                ${palavrasChaveHtml || '<span class="text-muted">-</span>'}
-                            </td>
-                        </tr>
-                    `;
-                    tbody.innerHTML += row;
-                });
-            }
+                tbody.innerHTML += row;
+            });
             
             // Show results section
             document.getElementById('resultsSection').style.display = 'block';
             document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
             
-            // Log detailed results
-            console.log('📊 Resultados detalhados:', {
-                disciplina: disciplina,
-                ano: ano,
-                questoesAnalisadas: resultados.totalQuestoes,
-                correlacionesEncontradas: resultados.correlacoes.length,
-                cobertura: resultados.estatisticas.cobertura + '%',
-                precisaoMedia: resultados.precisaoMedia.toFixed(1) + '%'
-            });
+            console.log('📊 Resultados exibidos:', resultados);
         }
         
         // Utility functions
@@ -1045,51 +769,30 @@
         function testeRapido() {
             document.getElementById('anoEscolar').value = '6';
             document.getElementById('disciplina').value = 'portugues_leitura';
+            document.getElementById('escola').value = 'Escola Teste';
             
-            // Use the real test file content
-            const conteudoTeste = `1) Leia o texto abaixo e responda:
+            // Create fake file content
+            const conteudoTeste = `
+1) Leia o texto abaixo e responda:
 
-O meio ambiente é um tema muito importante nos dias de hoje. A preservação da natureza depende de ações sustentáveis que devemos tomar para proteger nosso planeta. É necessário entender que cada pessoa tem responsabilidade sobre o futuro das próximas gerações.
+O texto trata principalmente sobre meio ambiente e sustentabilidade...
 
-Com base no texto, podemos afirmar que:
-a) O meio ambiente não é importante
-b) A preservação depende de ações sustentáveis
-c) Não temos responsabilidade sobre o futuro
-d) O planeta não precisa de proteção
+2) Com base no texto, podemos inferir que:
 
-2) Calcule o resultado da seguinte operação matemática:
+a) A questão ambiental é importante
+b) Devemos preservar a natureza
+c) O texto defende o desenvolvimento sustentável
 
-Se João tem 15 laranjas e distribui igualmente entre 3 amigos, quantas laranjas cada amigo recebeu?
+3) A palavra "sustentabilidade" no texto significa:
 
-a) 3 laranjas
-b) 4 laranjas  
-c) 5 laranjas
-d) 6 laranjas
-
-3) Observe a situação problema:
-
-Maria comprou 2/3 de um bolo e comeu 1/4 do que comprou. Que fração do bolo inteiro Maria comeu?
-
-Para resolver este problema, precisamos:
-a) Somar as frações 2/3 + 1/4
-b) Multiplicar as frações 2/3 × 1/4
-c) Dividir 2/3 por 1/4
-d) Subtrair 2/3 - 1/4
-
-4) Sobre o ciclo da água, é correto afirmar que:
-
-A água evapora dos oceanos, rios e lagos, sobe para a atmosfera formando nuvens, condensa e retorna à Terra através da chuva. Este processo é fundamental para a manutenção da vida no planeta.
-
-a) A evaporação não faz parte do ciclo da água
-b) As nuvens não são formadas por vapor d'água
-c) A chuva é o retorno da água condensada à Terra
-d) O ciclo da água não é importante para a vida`;
+Desenvolvimento que atende às necessidades presentes sem comprometer o futuro.
+            `;
             
-            const arquivo = new File([conteudoTeste], 'prova_teste.txt', { type: 'text/plain' });
+            const arquivo = new File([conteudoTeste], 'teste.txt', { type: 'text/plain' });
             selectedFile = arquivo;
             showFilePreview(arquivo);
             
-            alert('📝 Teste configurado com 4 questões reais!\n\n✅ Português - Leitura, 6º ano\n✅ Arquivo: prova_teste.txt\n\nClique em "Analisar Correlações" para ver o sistema em ação.');
+            alert('📝 Teste configurado! Clique em "Analisar Correlações" para continuar.');
         }
         
         function mostrarDemo() {
@@ -1109,35 +812,6 @@ d) O ciclo da água não é importante para a vida`;
 • Códigos BNCC atualizados
 
 ✨ Use "Teste Rápido" para ver um exemplo!`);
-        }
-        
-        function verificarMatriz() {
-            if (typeof matrizReferencia === 'undefined') {
-                alert('❌ Matriz de Referência não carregada! Verifique se o arquivo matriz-referencia-dados.js está presente.');
-                return;
-            }
-            
-            let info = '📊 INFORMAÇÕES DA MATRIZ DE REFERÊNCIA\n\n';
-            info += `Total de habilidades: ${estatisticasMatriz.total}\n\n`;
-            info += '📚 Por disciplina:\n';
-            
-            Object.entries(estatisticasMatriz.porDisciplina).forEach(([disc, total]) => {
-                const disciplinaNome = {
-                    'portugues_leitura': 'Português - Leitura',
-                    'portugues_escrita': 'Português - Escrita', 
-                    'matematica': 'Matemática',
-                    'ciencias': 'Ciências da Natureza'
-                }[disc] || disc;
-                
-                info += `• ${disciplinaNome}: ${total} habilidades\n`;
-            });
-            
-            info += '\n🎓 Por ano (Português - Leitura):\n';
-            Object.entries(matrizReferencia.portugues_leitura).forEach(([ano, habilidades]) => {
-                info += `• ${ano}º ano: ${habilidades.length} habilidades\n`;
-            });
-            
-            alert(info);
         }
         
         function exportarResultados() {

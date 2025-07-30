@@ -5222,26 +5222,137 @@ function buscarHabilidades(disciplina, ano) {
     return matrizReferencia[disciplina] && matrizReferencia[disciplina][ano] || [];
 }
 
-// Função para correlacionar questão com habilidades
-function correlacionarQuestao(textoQuestao, disciplina, ano, precisaoMinima = 50) {
+// Função para correlacionar questão com habilidades - VERSÃO INTELIGENTE
+function correlacionarQuestao(textoQuestao, disciplina, ano, precisaoMinima = 25) {
     const habilidades = buscarHabilidades(disciplina, ano);
     const correlacoes = [];
     
-    const palavrasQuestao = extrairPalavrasChave(textoQuestao);
+    // Extração inteligente de palavras-chave
+    const palavrasQuestao = extrairPalavrasChaveAvancado(textoQuestao);
     
+    // Análise de cada habilidade
     habilidades.forEach(habilidade => {
         const score = calcularSimilaridade(palavrasQuestao, habilidade.palavras_chave, habilidade.habilidade);
         
-        if (score >= precisaoMinima) {
+        // Análise adicional de contexto pedagógico
+        const contextoPedagogico = analisarContextoPedagogico(textoQuestao, habilidade.habilidade);
+        const scoreComContexto = Math.min(score + contextoPedagogico, 100);
+        
+        if (scoreComContexto >= precisaoMinima) {
             correlacoes.push({
                 ...habilidade,
-                precisao: score,
-                palavras_correspondentes: encontrarPalavrasCorrespondentes(palavrasQuestao, habilidade.palavras_chave)
+                precisao: scoreComContexto,
+                score_base: score,
+                contexto_pedagogico: contextoPedagogico,
+                palavras_correspondentes: encontrarPalavrasCorrespondentes(palavrasQuestao, habilidade.palavras_chave),
+                justificativa: gerarJustificativaCorrelacao(textoQuestao, habilidade)
             });
         }
     });
     
-    return correlacoes.sort((a, b) => b.precisao - a.precisao);
+    // Ordenação inteligente considerando múltiplos fatores
+    return correlacoes.sort((a, b) => {
+        // Prioridade: precisão total, depois contexto pedagógico, depois score base
+        if (b.precisao !== a.precisao) return b.precisao - a.precisao;
+        if (b.contexto_pedagogico !== a.contexto_pedagogico) return b.contexto_pedagogico - a.contexto_pedagogico;
+        return b.score_base - a.score_base;
+    });
+}
+
+// Função para extração avançada de palavras-chave
+function extrairPalavrasChaveAvancado(texto) {
+    const stopWords = new Set([
+        'o', 'a', 'os', 'as', 'um', 'uma', 'uns', 'umas', 'de', 'da', 'do', 'das', 'dos',
+        'em', 'na', 'no', 'nas', 'nos', 'para', 'por', 'com', 'sem', 'sob', 'sobre',
+        'que', 'qual', 'quais', 'como', 'quando', 'onde', 'por que', 'porque',
+        'e', 'ou', 'mas', 'se', 'então', 'assim', 'também', 'já', 'ainda',
+        'é', 'são', 'foi', 'foram', 'ser', 'estar', 'ter', 'haver',
+        'este', 'esta', 'estes', 'estas', 'esse', 'essa', 'esses', 'essas',
+        'aquele', 'aquela', 'aqueles', 'aquelas', 'isso', 'isto', 'aquilo',
+        'texto', 'questão', 'pergunta', 'resposta', 'letra', 'item', 'alternativa'
+    ]);
+    
+    // Identificar verbos de ação pedagógica (têm peso maior)
+    const verbosAcao = ['calcule', 'determine', 'identifique', 'reconheça', 'interprete', 
+                        'explique', 'classifique', 'compare', 'analise', 'resolva'];
+    
+    const palavras = texto.toLowerCase()
+        .replace(/[^\w\sáéíóúàèìòùâêîôûãõç]/g, ' ')
+        .split(/\s+/)
+        .filter(palavra => palavra.length > 2 && !stopWords.has(palavra));
+    
+    // Priorizar verbos de ação e termos técnicos
+    const palavrasPriorizadas = [];
+    const palavrasComuns = [];
+    
+    palavras.forEach(palavra => {
+        if (verbosAcao.some(verbo => palavra.includes(verbo) || verbo.includes(palavra))) {
+            palavrasPriorizadas.push(palavra);
+        } else if (palavra.length > 5) { // Termos mais específicos
+            palavrasPriorizadas.push(palavra);
+        } else {
+            palavrasComuns.push(palavra);
+        }
+    });
+    
+    // Retornar até 20 palavras, priorizando as mais relevantes
+    return [...new Set([...palavrasPriorizadas, ...palavrasComuns])].slice(0, 20);
+}
+
+// Função para análise de contexto pedagógico
+function analisarContextoPedagogico(textoQuestao, textoHabilidade) {
+    let bonusContexto = 0;
+    
+    // Verbos pedagógicos correspondentes
+    const verbosMap = {
+        'calcul': ['determin', 'resolv', 'efetu'],
+        'identif': ['reconhec', 'localiz', 'encontr'],
+        'interpret': ['explic', 'analis', 'compreend'],
+        'classific': ['categori', 'organiz', 'separa']
+    };
+    
+    const textoQuestaoLower = textoQuestao.toLowerCase();
+    const textoHabilidadeLower = textoHabilidade.toLowerCase();
+    
+    Object.keys(verbosMap).forEach(verboBase => {
+        if (textoQuestaoLower.includes(verboBase)) {
+            if (textoHabilidadeLower.includes(verboBase)) {
+                bonusContexto += 15; // Verbo principal igual
+            } else {
+                verbosMap[verboBase].forEach(sinonimo => {
+                    if (textoHabilidadeLower.includes(sinonimo)) {
+                        bonusContexto += 10; // Verbo sinônimo
+                    }
+                });
+            }
+        }
+    });
+    
+    // Contexto numérico (para matemática)
+    const temNumeros = /\d+/.test(textoQuestao);
+    if (temNumeros && textoHabilidade.includes('número')) {
+        bonusContexto += 8;
+    }
+    
+    // Contexto textual (para português)
+    const temAspasOuTexto = /["']|texto|parágrafo|trecho/.test(textoQuestaoLower);
+    if (temAspasOuTexto && /texto|narrativ|discursiv/.test(textoHabilidadeLower)) {
+        bonusContexto += 8;
+    }
+    
+    return Math.min(bonusContexto, 25);
+}
+
+// Função para gerar justificativa da correlação
+function gerarJustificativaCorrelacao(textoQuestao, habilidade) {
+    const palavrasQuestao = extrairPalavrasChaveAvancado(textoQuestao);
+    const matches = palavrasQuestao.filter(p => habilidade.palavras_chave.includes(p));
+    
+    if (matches.length > 0) {
+        return `Correlação baseada nas palavras-chave: ${matches.join(', ')}`;
+    } else {
+        return 'Correlação baseada em análise semântica e contextual';
+    }
 }
 
 // Função para extrair palavras-chave de texto
@@ -5264,35 +5375,101 @@ function extrairPalavrasChave(texto) {
         .slice(0, 15);
 }
 
-// Função para calcular similaridade entre textos
+// Função para calcular similaridade inteligente entre textos
 function calcularSimilaridade(palavrasQuestao, palavrasHabilidade, textoHabilidade) {
     let score = 0;
     let matches = 0;
     
-    // Pontuação por palavras-chave correspondentes
+    // 1. Correspondências exatas de palavras-chave (peso máximo)
     palavrasQuestao.forEach(palavra => {
         if (palavrasHabilidade.includes(palavra)) {
             matches++;
-            score += 15; // 15 pontos por palavra-chave exata
-        } else {
-            // Verificar similaridade parcial
-            palavrasHabilidade.forEach(habilPalavra => {
-                if (palavra.includes(habilPalavra) || habilPalavra.includes(palavra)) {
-                    score += 8; // 8 pontos por similaridade parcial
-                }
-            });
+            score += 25; // Aumentado para priorizar matches exatos
+        }
+    });
+    
+    // 2. Análise de conceitos semânticos relacionados
+    const conceitosSinonimos = {
+        'identificar': ['reconhecer', 'encontrar', 'localizar', 'detectar'],
+        'interpretar': ['explicar', 'analisar', 'compreender', 'entender'],
+        'calcular': ['determinar', 'computar', 'resolver', 'efetuar'],
+        'resolver': ['solucionar', 'calcular', 'determinar', 'obter'],
+        'classificar': ['categorizar', 'organizar', 'agrupar', 'separar'],
+        'comparar': ['confrontar', 'relacionar', 'contrastar', 'analisar'],
+        'explicar': ['esclarecer', 'justificar', 'demonstrar', 'interpretar']
+    };
+    
+    palavrasQuestao.forEach(palavra => {
+        Object.keys(conceitosSinonimos).forEach(conceito => {
+            if (conceito === palavra && palavrasHabilidade.some(h => conceitosSinonimos[conceito].includes(h))) {
+                score += 20; // Conceitos semânticos relacionados
+            }
+        });
+    });
+    
+    // 3. Análise contextual no texto completo da habilidade
+    const textoLower = textoHabilidade.toLowerCase();
+    palavrasQuestao.forEach(palavra => {
+        if (textoLower.includes(palavra)) {
+            score += 12; // Presença contextual
             
-            // Verificar no texto completo da habilidade
-            if (textoHabilidade.toLowerCase().includes(palavra)) {
-                score += 5; // 5 pontos por presença no texto
+            // Bônus se a palavra aparece no início (mais relevante)
+            if (textoLower.substring(0, 50).includes(palavra)) {
+                score += 8;
             }
         }
     });
     
-    // Bônus por densidade de correspondências
+    // 4. Análise de palavras derivadas e flexões
+    palavrasQuestao.forEach(palavra => {
+        palavrasHabilidade.forEach(habilPalavra => {
+            // Verificar radicais comuns (mínimo 4 caracteres)
+            if (palavra.length >= 4 && habilPalavra.length >= 4) {
+                const radical1 = palavra.substring(0, Math.min(palavra.length - 1, 6));
+                const radical2 = habilPalavra.substring(0, Math.min(habilPalavra.length - 1, 6));
+                
+                if (radical1 === radical2) {
+                    score += 15; // Palavras com mesmo radical
+                }
+            }
+            
+            // Inclusão parcial (uma palavra contém a outra)
+            if (palavra.includes(habilPalavra) || habilPalavra.includes(palavra)) {
+                score += 10;
+            }
+        });
+    });
+    
+    // 5. Densidade e coerência das correspondências
     if (matches > 0) {
         const densidade = matches / Math.max(palavrasQuestao.length, palavrasHabilidade.length);
-        score += densidade * 20;
+        score += densidade * 30; // Bônus significativo por densidade
+        
+        // Bônus extra para alta densidade
+        if (densidade > 0.3) {
+            score += 15;
+        }
+    }
+    
+    // 6. Análise de termos técnicos específicos por disciplina
+    const termosTecnicos = {
+        'matematica': ['equação', 'função', 'gráfico', 'área', 'volume', 'proporção', 'fração'],
+        'portugues': ['texto', 'narrativa', 'verbo', 'sujeito', 'predicado', 'coesão', 'coerência'],
+        'ciencias': ['célula', 'átomo', 'energia', 'força', 'sistema', 'organismo', 'matéria']
+    };
+    
+    // Verificar presença de termos técnicos
+    Object.values(termosTecnicos).forEach(termos => {
+        termos.forEach(termo => {
+            if (palavrasQuestao.includes(termo) && palavrasHabilidade.includes(termo)) {
+                score += 18; // Bônus para termos técnicos correspondentes
+            }
+        });
+    });
+    
+    // 7. Penalização por discrepâncias muito grandes
+    if (palavrasQuestao.length > 0 && matches === 0) {
+        score *= 0.3; // Reduz drasticamente se não há matches diretos
     }
     
     return Math.min(Math.round(score), 100);
