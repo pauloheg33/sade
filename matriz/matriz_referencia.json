@@ -1,0 +1,75 @@
+{
+    "Língua Portuguesa - Leitura": {
+        "6º ano": [
+            {
+                "codigo": "6EF01_P",
+                "descricao": "Localizar informação em textos de nível 2, quando a informação é retomada por um processo de referenciação com referente próximo.",
+                "bncc": "EF15LP03",
+                "ciclos": [
+                    "Ciclo I"
+                ]
+            },
+            {
+                "codigo": "6EF02_P",
+                "descricao": "Localizar informações explícitas em textos de nível 2 recuperando-as por meio de paráfrase estando a informação no início do texto.",
+                "bncc": "EF69LP03",
+                "ciclos": [
+                    "Ciclo II",
+                    "Ciclo III"
+                ]
+            }
+        ],
+        "7º ano": [
+            {
+                "codigo": "7EF02_P",
+                "descricao": "Localizar informações explícitas em textos de nível 3, recuperando-as por meio de paráfrase estando a informação no início do texto.",
+                "bncc": "EF69LP03",
+                "ciclos": [
+                    "Ciclo II"
+                ]
+            }
+        ]
+    },
+    "Matemática": {
+        "6º ano": [
+            {
+                "codigo": "6EF01_M",
+                "descricao": "Corresponder números racionais positivos em representação decimal finita a pontos da reta numérica.",
+                "bncc": "EF05MA05",
+                "ciclos": [
+                    "Ciclo I",
+                    "Ciclo II"
+                ]
+            },
+            {
+                "codigo": "6EF02_M",
+                "descricao": "Comparar números racionais positivos em representação fracionária indicando o menor, o maior, a ordenação crescente ou decrescente.",
+                "bncc": "EF05MA05",
+                "ciclos": [
+                    "Ciclo I",
+                    "Ciclo II"
+                ]
+            }
+        ]
+    },
+    "Ciências da Natureza": {
+        "6º ano": [
+            {
+                "codigo": "6EF01_CN",
+                "descricao": "Interpretar o ciclo da água.",
+                "bncc": "EF05CI02",
+                "ciclos": [
+                    "Ciclo I"
+                ]
+            },
+            {
+                "codigo": "6EF02_CN",
+                "descricao": "Explicar como a ação da água, atividade dos seres vivos e a retirada de cobertura vegetal influenciam no processo de erosão.",
+                "bncc": "EF05CI03",
+                "ciclos": [
+                    "Ciclo I"
+                ]
+            }
+        ]
+    }
+}

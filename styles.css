@@ -6,6 +6,7 @@
     --sade-success: #16a34a;
     --sade-warning: #f97316;
     --sade-danger: #ef4444;
+    --sade-purple: #7c3aed;
     --sade-light: #f1f5f9;
     --sade-dark: #0f172a;
     --bs-body-bg: #f8fafc;
@@ -850,4 +851,230 @@ body.dark-mode #ranking-section .stats-number {
 
 body.dark-mode #ranking-section .table-warning {
     background-color: rgba(255, 215, 0, 0.15) !important;
+}
+
+/* Purple theme classes */
+.text-purple {
+    color: var(--sade-purple) !important;
+}
+
+.btn-purple {
+    background-color: var(--sade-purple);
+    border-color: var(--sade-purple);
+    color: white;
+}
+
+.btn-purple:hover,
+.btn-purple:focus {
+    background-color: #6d28d9;
+    border-color: #6d28d9;
+    color: white;
+}
+
+.btn-purple:active {
+    background-color: #5b21b6;
+    border-color: #5b21b6;
+}
+
+.bg-purple {
+    background-color: var(--sade-purple) !important;
+}
+
+/* Gradient background for purple */
+.bg-gradient-purple {
+    background: linear-gradient(135deg, var(--sade-purple) 0%, #6d28d9 100%) !important;
+}
+
+/* Upload area styles */
+.upload-area {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.upload-area:hover {
+    border-color: var(--sade-purple) !important;
+    background-color: rgba(124, 58, 237, 0.05);
+}
+
+.upload-area.drag-over {
+    border-color: var(--sade-purple) !important;
+    background-color: rgba(124, 58, 237, 0.1);
+}
+
+/* Timeline styles */
+.timeline {
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #dee2e6;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 7px;
+    top: 3px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px #dee2e6;
+}
+
+/* Skills list styles */
+.skills-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.skill-item {
+    border-left: 4px solid var(--sade-purple);
+    background: rgba(124, 58, 237, 0.05);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+    background: rgba(124, 58, 237, 0.1);
+    transform: translateX(5px);
+}
+
+.skill-code {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: var(--sade-purple);
+}
+
+.skill-description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.skill-bncc {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+/* Matrix browser styles */
+.matrix-item {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+}
+
+.matrix-item:hover {
+    border-color: var(--sade-purple);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.15);
+}
+
+.matrix-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.matrix-code {
+    background: var(--sade-purple);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.matrix-bncc {
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+}
+
+.matrix-cycles {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.cycle-badge {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    color: #495057;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+}
+
+/* Chart container styles */
+.chart-container {
+    position: relative;
+    height: 300px;
+    margin: 20px 0;
+}
+
+/* Dark mode adjustments for matrizes */
+body.dark-mode .upload-area {
+    border-color: #30363d;
+    background-color: rgba(124, 58, 237, 0.05);
+}
+
+body.dark-mode .upload-area:hover,
+body.dark-mode .upload-area.drag-over {
+    border-color: var(--sade-purple);
+    background-color: rgba(124, 58, 237, 0.1);
+}
+
+body.dark-mode .timeline::before {
+    background: #30363d;
+}
+
+body.dark-mode .timeline-marker {
+    border-color: #161b22;
+    box-shadow: 0 0 0 2px #30363d;
+}
+
+body.dark-mode .skill-item {
+    background: rgba(124, 58, 237, 0.1);
+    border-left-color: var(--sade-purple);
+}
+
+body.dark-mode .skill-item:hover {
+    background: rgba(124, 58, 237, 0.15);
+}
+
+body.dark-mode .matrix-item {
+    border-color: #30363d;
+    background-color: #161b22;
+}
+
+body.dark-mode .matrix-item:hover {
+    border-color: var(--sade-purple);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+}
+
+body.dark-mode .matrix-bncc {
+    background: rgba(25, 118, 210, 0.2);
+    color: #64b5f6;
+}
+
+body.dark-mode .cycle-badge {
+    background: #21262d;
+    border-color: #30363d;
+    color: #c9d1d9;
 }
