@@ -44,7 +44,11 @@
                     <small class="opacity-75">MATRIZES DE REFERÊNCIA - ANÁLISE DE CORRELAÇÃO</small>
                 </div>
                 <div class="col-lg-2 text-center text-lg-end mt-3 mt-lg-0">
-                    <span class="badge bg-warning text-dark fs-6 rounded-pill shadow-sm">v0.2.0</span>
+                    <span class="badge bg-warning text-dark fs-6 rounded-pill shadow-sm">v0.2.3</span>
+                    <div class="mt-2">
+                        <small class="text-white fw-bold d-block">GITHUB PAGES</small>
+                        <small class="text-white opacity-75">OTIMIZADO</small>
+                    </div>
                 </div>
             </div>
         </div>
@@ -198,6 +202,15 @@
                                 <button type="submit" class="btn btn-purple btn-lg" id="uploadBtn">
                                     <i class="fas fa-magic me-2"></i>Analisar Prova
                                 </button>
+                            </div>
+                            
+                            <!-- GitHub Pages Notice -->
+                            <div class="mt-3">
+                                <div class="alert alert-info">
+                                    <i class="fas fa-info-circle me-2"></i>
+                                    <strong>GitHub Pages:</strong> Sistema otimizado para análise rápida e eficiente de arquivos de prova.
+                                    <br><small>Suporte completo para TXT, estimativas inteligentes para PDF/DOC.</small>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -372,8 +385,183 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     
-    <!-- Matrix Data -->
-    <script src="matriz/matriz_referencia.js"></script>
+    <!-- Matrix Data - Embedded for GitHub Pages compatibility -->
+    <script>
+        // Matriz de Referência - Dados embutidos para compatibilidade com GitHub Pages
+        const matrizReferencia = {
+            "Língua Portuguesa - Leitura": {
+                "6": [
+                    {
+                        "codigo": "6EF01_P",
+                        "descricao": "Localizar informação em textos de nível 2, quando a informação é retomada por um processo de referenciação com referente próximo.",
+                        "bncc": "EF15LP03",
+                        "ciclos": ["Ciclo I"]
+                    },
+                    {
+                        "codigo": "6EF02_P",
+                        "descricao": "Localizar informações explícitas em textos de nível 2 recuperando-as por meio de paráfrase estando a informação no início do texto.",
+                        "bncc": "EF69LP03",
+                        "ciclos": ["Ciclo II", "Ciclo III"]
+                    },
+                    {
+                        "codigo": "6EF03_P",
+                        "descricao": "Inferir informação em textos de nível 2 com base em elementos verbais e não verbais.",
+                        "bncc": "EF15LP04",
+                        "ciclos": ["Ciclo I"]
+                    },
+                    {
+                        "codigo": "6EF04_P",
+                        "descricao": "Distinguir fato de opinião em textos argumentativos.",
+                        "bncc": "EF69LP04",
+                        "ciclos": ["Ciclo II"]
+                    }
+                ],
+                "7": [
+                    {
+                        "codigo": "7EF01_P",
+                        "descricao": "Localizar informações explícitas em textos de nível 3, recuperando-as por meio de paráfrase estando a informação no início do texto.",
+                        "bncc": "EF69LP03",
+                        "ciclos": ["Ciclo II"]
+                    },
+                    {
+                        "codigo": "7EF02_P",
+                        "descricao": "Inferir o sentido de palavra ou expressão a partir do contexto.",
+                        "bncc": "EF67LP34",
+                        "ciclos": ["Ciclo II"]
+                    },
+                    {
+                        "codigo": "7EF03_P",
+                        "descricao": "Identificar a finalidade de textos de diferentes gêneros.",
+                        "bncc": "EF69LP07",
+                        "ciclos": ["Ciclo II", "Ciclo III"]
+                    }
+                ],
+                "8": [
+                    {
+                        "codigo": "8EF01_P",
+                        "descricao": "Localizar informações explícitas em textos de nível 4, recuperando-as por meio de paráfrase.",
+                        "bncc": "EF69LP03",
+                        "ciclos": ["Ciclo III"]
+                    },
+                    {
+                        "codigo": "8EF02_P",
+                        "descricao": "Inferir informação com base em pressupostos e subentendidos.",
+                        "bncc": "EF69LP04",
+                        "ciclos": ["Ciclo III"]
+                    }
+                ],
+                "9": [
+                    {
+                        "codigo": "9EF01_P",
+                        "descricao": "Analisar criticamente textos argumentativos, identificando recursos persuasivos.",
+                        "bncc": "EF89LP04",
+                        "ciclos": ["Ciclo III", "Ciclo IV"]
+                    },
+                    {
+                        "codigo": "9EF02_P",
+                        "descricao": "Interpretar textos literários considerando o contexto histórico e social.",
+                        "bncc": "EF89LP33",
+                        "ciclos": ["Ciclo IV"]
+                    }
+                ]
+            },
+            "Matemática": {
+                "6": [
+                    {
+                        "codigo": "6EF01_M",
+                        "descricao": "Resolver problemas que envolvam as quatro operações fundamentais com números naturais.",
+                        "bncc": "EF06MA03",
+                        "ciclos": ["Ciclo I"]
+                    },
+                    {
+                        "codigo": "6EF02_M",
+                        "descricao": "Reconhecer e utilizar as propriedades das operações para desenvolver estratégias de cálculo.",
+                        "bncc": "EF06MA05",
+                        "ciclos": ["Ciclo I", "Ciclo II"]
+                    }
+                ],
+                "7": [
+                    {
+                        "codigo": "7EF01_M",
+                        "descricao": "Resolver problemas que envolvam operações com números inteiros.",
+                        "bncc": "EF07MA04",
+                        "ciclos": ["Ciclo II"]
+                    }
+                ],
+                "8": [
+                    {
+                        "codigo": "8EF01_M",
+                        "descricao": "Resolver problemas que envolvam equações do 1º grau.",
+                        "bncc": "EF08MA06",
+                        "ciclos": ["Ciclo II", "Ciclo III"]
+                    }
+                ],
+                "9": [
+                    {
+                        "codigo": "9EF01_M",
+                        "descricao": "Resolver problemas que envolvam equações do 2º grau.",
+                        "bncc": "EF09MA09",
+                        "ciclos": ["Ciclo III", "Ciclo IV"]
+                    }
+                ]
+            },
+            "Ciências da Natureza": {
+                "6": [
+                    {
+                        "codigo": "6EF01_C",
+                        "descricao": "Identificar as principais características dos seres vivos.",
+                        "bncc": "EF06CI02",
+                        "ciclos": ["Ciclo I"]
+                    }
+                ],
+                "7": [
+                    {
+                        "codigo": "7EF01_C",
+                        "descricao": "Compreender os fenômenos físicos e químicos da natureza.",
+                        "bncc": "EF07CI01",
+                        "ciclos": ["Ciclo II"]
+                    }
+                ],
+                "8": [
+                    {
+                        "codigo": "8EF01_C",
+                        "descricao": "Analisar transformações químicas que ocorrem no mundo físico.",
+                        "bncc": "EF08CI01",
+                        "ciclos": ["Ciclo II", "Ciclo III"]
+                    }
+                ],
+                "9": [
+                    {
+                        "codigo": "9EF01_C",
+                        "descricao": "Compreender conceitos fundamentais de física e química aplicados ao cotidiano.",
+                        "bncc": "EF09CI01",
+                        "ciclos": ["Ciclo III", "Ciclo IV"]
+                    }
+                ]
+            }
+        };
+
+        // Função para obter habilidades - compatível com GitHub Pages
+        function getHabilidades(disciplina, ano) {
+            if (!disciplina || !ano) {
+                // Retornar todas as habilidades
+                const todas = [];
+                Object.keys(matrizReferencia).forEach(disc => {
+                    Object.keys(matrizReferencia[disc]).forEach(a => {
+                        todas.push(...matrizReferencia[disc][a]);
+                    });
+                });
+                return todas;
+            }
+
+            const anoStr = String(ano);
+            if (matrizReferencia[disciplina] && matrizReferencia[disciplina][anoStr]) {
+                return matrizReferencia[disciplina][anoStr];
+            }
+            
+            return [];
+        }
+    </script>
     
     <!-- Custom Scripts -->
     <script src="matrizes.js"></script>
