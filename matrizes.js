@@ -128,92 +128,257 @@ class MatrizesAnalyzer {
         });
     }
 
-    async processFileContent(file) {
-        // Simular leitura do arquivo para identificar questões
-        return new Promise((resolve) => {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                const content = e.target.result;
-                // Simular identificação de questões no conteúdo
-                const numQuestoes = this.detectQuestionsInContent(content);
-                resolve(numQuestoes);
-            };
+    // Função para processar arquivos com timeout e estimativas específicas
+    processFileContent(file) {
+        console.log(`Processando arquivo: ${file.name}, Tipo: ${file.type}, Tamanho: ${file.size} bytes`);
+        
+        return new Promise((resolve, reject) => {
+            const startTime = Date.now();
+            let hasResolved = false;
             
-            if (file.type === 'text/plain') {
-                reader.readAsText(file);
-            } else {
-                // Para outros tipos, simular um número mais realista
-                const baseQuestions = Math.floor(Math.random() * 20) + 25; // 25-45 questões
-                resolve(baseQuestions);
+            // Timeout de 3 segundos para PDFs, 5 segundos para outros
+            const timeoutDuration = file.type === 'application/pdf' ? 3000 : 5000;
+            
+            const timeout = setTimeout(() => {
+                if (!hasResolved) {
+                    hasResolved = true;
+                    console.log(`⏰ Timeout atingido para ${file.name} (${timeoutDuration}ms)`);
+                    
+                    // Usar estimativa baseada no tipo e tamanho do arquivo
+                    let estimation;
+                    if (file.type === 'application/pdf') {
+                        estimation = this.estimatePDFQuestions(file.size);
+                    } else if (file.name.toLowerCase().includes('.doc')) {
+                        estimation = this.estimateWordQuestions(file.size);
+                    } else {
+                        estimation = this.estimateQuestionsFromFileSize(file.size);
+                    }
+                    
+                    console.log(`📊 Usando estimativa de ${estimation} questões para ${file.name}`);
+                    resolve(estimation);
+                }
+            }, timeoutDuration);
+
+            try {
+                // Para PDFs, não tentar ler como texto - usar estimativa direta
+                if (file.type === 'application/pdf') {
+                    console.log('🔍 Arquivo PDF detectado - usando estimativa inteligente');
+                    clearTimeout(timeout);
+                    if (!hasResolved) {
+                        hasResolved = true;
+                        const estimation = this.estimatePDFQuestions(file.size);
+                        console.log(`📊 Estimativa PDF: ${estimation} questões (${file.size} bytes)`);
+                        resolve(estimation);
+                    }
+                    return;
+                }
+
+                // Para outros tipos de arquivo, tentar leitura
+                const reader = new FileReader();
+                
+                reader.onload = (e) => {
+                    clearTimeout(timeout);
+                    if (!hasResolved) {
+                        hasResolved = true;
+                        const content = e.target.result;
+                        const elapsedTime = Date.now() - startTime;
+                        console.log(`✅ Leitura concluída em ${elapsedTime}ms`);
+                        
+                        try {
+                            const questions = this.detectQuestionsInContent(content);
+                            console.log(`🎯 ${questions} questões detectadas no conteúdo`);
+                            resolve(questions);
+                        } catch (detectionError) {
+                            console.error('Erro na detecção:', detectionError);
+                            const estimation = this.estimateQuestionsFromFileSize(file.size);
+                            console.log(`📊 Fallback: ${estimation} questões estimadas`);
+                            resolve(estimation);
+                        }
+                    }
+                };
+
+                reader.onerror = (error) => {
+                    clearTimeout(timeout);
+                    if (!hasResolved) {
+                        hasResolved = true;
+                        console.error(`❌ Erro na leitura de ${file.name}:`, error);
+                        const estimation = this.estimateQuestionsFromFileSize(file.size);
+                        console.log(`📊 Erro - usando estimativa: ${estimation} questões`);
+                        resolve(estimation);
+                    }
+                };
+
+                // Iniciar leitura
+                reader.readAsText(file, 'UTF-8');
+                
+            } catch (error) {
+                clearTimeout(timeout);
+                if (!hasResolved) {
+                    hasResolved = true;
+                    console.error(`💥 Erro no processamento de ${file.name}:`, error);
+                    const estimation = this.estimateQuestionsFromFileSize(file.size);
+                    console.log(`📊 Erro geral - usando estimativa: ${estimation} questões`);
+                    resolve(estimation);
+                }
             }
         });
     }
 
-    detectQuestionsInContent(content) {
-        // Tentar identificar questões por padrões comuns
-        const patterns = [
-            /\b(\d+)[\.\)\-\s]/g,     // Padrões como "1.", "1)", "1-", "1 "
-            /questão\s*(\d+)/gi,      // "Questão 1", "questão 2"
-            /pergunta\s*(\d+)/gi,     // "Pergunta 1"
-            /item\s*(\d+)/gi,         // "Item 1"
-            /^\s*(\d+)\s*[-\.]/gm,    // Início de linha com número
-            /\n\s*(\d+)\s*[\.]/g      // Nova linha com número e ponto
-        ];
-
-        let maxQuestions = 0;
-        let allNumbers = [];
+    estimatePDFQuestions(file) {
+        // Estimativa específica para PDFs baseada no tamanho
+        const sizeKB = file.size / 1024;
+        let estimatedQuestions;
         
-        patterns.forEach(pattern => {
-            const matches = content.match(pattern);
-            if (matches) {
-                // Extrair números e adicionar à lista
-                matches.forEach(match => {
-                    const numMatch = match.match(/(\d+)/);
-                    if (numMatch) {
-                        const num = parseInt(numMatch[1]);
-                        if (num > 0 && num <= 100) { // Questões válidas entre 1 e 100
-                            allNumbers.push(num);
-                        }
-                    }
-                });
-            }
-        });
-
-        if (allNumbers.length > 0) {
-            // Ordenar números e encontrar sequências
-            allNumbers.sort((a, b) => a - b);
-            const uniqueNumbers = [...new Set(allNumbers)];
-            
-            // Se há uma sequência razoável, usar o maior número
-            if (uniqueNumbers.length >= 5) {
-                maxQuestions = Math.max(...uniqueNumbers);
-            } else {
-                // Contar ocorrências mais frequentes
-                maxQuestions = uniqueNumbers.length > 0 ? Math.max(...uniqueNumbers) : 0;
-            }
-        }
-
-        // Se não encontrou padrões, usar um número baseado no tamanho do conteúdo
-        if (maxQuestions === 0) {
-            const contentLength = content.length;
-            const lines = content.split('\n').length;
-            
-            if (contentLength > 15000) {
-                maxQuestions = Math.floor(Math.random() * 25) + 40; // 40-65 questões
-            } else if (contentLength > 8000) {
-                maxQuestions = Math.floor(Math.random() * 15) + 30; // 30-45 questões
-            } else if (contentLength > 3000) {
-                maxQuestions = Math.floor(Math.random() * 10) + 20; // 20-30 questões
-            } else {
-                maxQuestions = Math.floor(Math.random() * 8) + 15; // 15-23 questões
-            }
-            
-            console.log(`Estimativa baseada no conteúdo: ${maxQuestions} questões (${contentLength} chars, ${lines} linhas)`);
+        if (sizeKB < 100) {
+            estimatedQuestions = Math.floor(Math.random() * 10) + 15; // 15-25 questões
+        } else if (sizeKB < 300) {
+            estimatedQuestions = Math.floor(Math.random() * 15) + 25; // 25-40 questões
+        } else if (sizeKB < 500) {
+            estimatedQuestions = Math.floor(Math.random() * 20) + 35; // 35-55 questões
         } else {
-            console.log(`Questões identificadas por padrões: ${maxQuestions}`);
+            estimatedQuestions = Math.floor(Math.random() * 25) + 45; // 45-70 questões
         }
+        
+        console.log(`PDF estimado: ${estimatedQuestions} questões (${sizeKB.toFixed(1)} KB)`);
+        return Math.min(estimatedQuestions, 80);
+    }
 
-        return Math.min(maxQuestions, 80); // Limitar a 80 questões máximo
+    estimateWordQuestions(file) {
+        // Estimativa específica para documentos Word
+        const sizeKB = file.size / 1024;
+        let estimatedQuestions;
+        
+        if (sizeKB < 50) {
+            estimatedQuestions = Math.floor(Math.random() * 8) + 12; // 12-20 questões
+        } else if (sizeKB < 150) {
+            estimatedQuestions = Math.floor(Math.random() * 15) + 20; // 20-35 questões
+        } else if (sizeKB < 300) {
+            estimatedQuestions = Math.floor(Math.random() * 20) + 30; // 30-50 questões
+        } else {
+            estimatedQuestions = Math.floor(Math.random() * 25) + 40; // 40-65 questões
+        }
+        
+        console.log(`Word estimado: ${estimatedQuestions} questões (${sizeKB.toFixed(1)} KB)`);
+        return Math.min(estimatedQuestions, 80);
+    }
+
+    estimateQuestionsFromFileSize(file) {
+        // Estimativa genérica baseada no tamanho
+        const sizeKB = file.size / 1024;
+        let estimatedQuestions;
+        
+        if (sizeKB < 100) {
+            estimatedQuestions = Math.floor(Math.random() * 15) + 20; // 20-35 questões
+        } else if (sizeKB < 500) {
+            estimatedQuestions = Math.floor(Math.random() * 20) + 30; // 30-50 questões
+        } else {
+            estimatedQuestions = Math.floor(Math.random() * 25) + 40; // 40-65 questões
+        }
+        
+        console.log(`Estimativa genérica: ${estimatedQuestions} questões (${sizeKB.toFixed(1)} KB)`);
+        return Math.min(estimatedQuestions, 80);
+    }
+
+    detectQuestionsInContent(content) {
+        try {
+            console.log('Iniciando detecção de questões no conteúdo...');
+            
+            if (!content || content.length === 0) {
+                console.log('Conteúdo vazio, usando estimativa padrão');
+                return Math.floor(Math.random() * 15) + 20; // 20-35 questões
+            }
+
+            // Tentar identificar questões por padrões comuns
+            const patterns = [
+                /\b(\d+)[\.\)\-\s]/g,     // Padrões como "1.", "1)", "1-", "1 "
+                /questão\s*(\d+)/gi,      // "Questão 1", "questão 2"
+                /pergunta\s*(\d+)/gi,     // "Pergunta 1"
+                /item\s*(\d+)/gi,         // "Item 1"
+                /^\s*(\d+)\s*[-\.]/gm,    // Início de linha com número
+                /\n\s*(\d+)\s*[\.]/g,     // Nova linha com número e ponto
+                /(\d+)\s*-\s*/g,          // Formato "1 - "
+                /(\d+)\s*\)\s*/g          // Formato "1) "
+            ];
+
+            let maxQuestions = 0;
+            let allNumbers = [];
+            
+            patterns.forEach((pattern, index) => {
+                try {
+                    const matches = content.match(pattern);
+                    if (matches && matches.length > 0) {
+                        console.log(`Padrão ${index + 1} encontrou ${matches.length} matches`);
+                        
+                        // Extrair números e adicionar à lista
+                        matches.forEach(match => {
+                            const numMatch = match.match(/(\d+)/);
+                            if (numMatch) {
+                                const num = parseInt(numMatch[1]);
+                                if (num > 0 && num <= 100) { // Questões válidas entre 1 e 100
+                                    allNumbers.push(num);
+                                }
+                            }
+                        });
+                    }
+                } catch (patternError) {
+                    console.warn(`Erro no padrão ${index + 1}:`, patternError);
+                }
+            });
+
+            if (allNumbers.length > 0) {
+                // Ordenar números e encontrar sequências
+                allNumbers.sort((a, b) => a - b);
+                const uniqueNumbers = [...new Set(allNumbers)];
+                
+                console.log(`Números únicos encontrados: ${uniqueNumbers.join(', ')}`);
+                
+                // Se há uma sequência razoável, usar o maior número
+                if (uniqueNumbers.length >= 5) {
+                    maxQuestions = Math.max(...uniqueNumbers);
+                    console.log(`Sequência identificada, máximo: ${maxQuestions}`);
+                } else if (uniqueNumbers.length > 0) {
+                    // Para poucos números, assumir que é o total ou usar estimativa
+                    const maxFound = Math.max(...uniqueNumbers);
+                    if (maxFound >= 10) {
+                        maxQuestions = maxFound;
+                    } else {
+                        maxQuestions = uniqueNumbers.length * 3; // Multiplicar por 3 como estimativa
+                    }
+                    console.log(`Poucos números encontrados, estimativa: ${maxQuestions}`);
+                }
+            }
+
+            // Se não encontrou padrões suficientes, usar estimativa baseada no conteúdo
+            if (maxQuestions === 0 || maxQuestions < 5) {
+                console.log('Usando estimativa baseada no tamanho do conteúdo...');
+                const contentLength = content.length;
+                const lines = content.split('\n').length;
+                const words = content.split(/\s+/).length;
+                
+                console.log(`Estatísticas: ${contentLength} chars, ${lines} linhas, ${words} palavras`);
+                
+                if (contentLength > 20000 || words > 3000) {
+                    maxQuestions = Math.floor(Math.random() * 25) + 40; // 40-65 questões
+                } else if (contentLength > 10000 || words > 1500) {
+                    maxQuestions = Math.floor(Math.random() * 20) + 30; // 30-50 questões
+                } else if (contentLength > 5000 || words > 800) {
+                    maxQuestions = Math.floor(Math.random() * 15) + 20; // 20-35 questões
+                } else {
+                    maxQuestions = Math.floor(Math.random() * 10) + 15; // 15-25 questões
+                }
+                
+                console.log(`Estimativa baseada no conteúdo: ${maxQuestions} questões`);
+            }
+
+            const finalQuestions = Math.min(Math.max(maxQuestions, 5), 80); // Mínimo 5, máximo 80
+            console.log(`Resultado final: ${finalQuestions} questões`);
+            return finalQuestions;
+            
+        } catch (error) {
+            console.error('Erro na detecção de questões:', error);
+            // Em caso de erro, retornar um número padrão
+            return Math.floor(Math.random() * 20) + 25; // 25-45 questões
+        }
     }
 
     generateMockAnalysis(ano, disciplina, escola, numQuestoes = null) {
