@@ -205,39 +205,6 @@
                                 </div>
                             </div>
 
-                            <!-- OpenAI API Configuration -->
-                            <div class="row g-3 mb-4">
-                                <div class="col-12">
-                                    <div class="card border-info">
-                                        <div class="card-header bg-info text-white">
-                                            <h6 class="mb-0"><i class="fas fa-robot me-2"></i>Configuração da IA (OpenAI)</h6>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="row g-3">
-                                                <div class="col-md-8">
-                                                    <label class="form-label fw-bold">
-                                                        <i class="fas fa-key me-1"></i>Chave da API OpenAI
-                                                    </label>
-                                                    <input type="password" id="openaiKey" class="form-control" 
-                                                           placeholder="sk-..." 
-                                                           autocomplete="off">
-                                                    <small class="text-muted">
-                                                        <i class="fas fa-info-circle me-1"></i>
-                                                        Necessário para análise inteligente da prova. 
-                                                        <a href="https://platform.openai.com/api-keys" target="_blank">Obter chave gratuita</a>
-                                                    </small>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label class="form-label fw-bold">Status da API</label>
-                                                    <div id="apiStatus" class="badge bg-secondary">Não configurada</div>
-                                                    <br><small class="text-muted">Modo de análise atual</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                             <!-- File Upload -->
                             <div class="mb-4">
                                 <label class="form-label fw-bold">
@@ -674,7 +641,31 @@ IMPORTANTE: Retorne APENAS o JSON, sem texto adicional.
 
         function selectFile() {
             console.log('📂 Abrindo seletor de arquivos...');
-            document.getElementById('fileInput').click();
+            const fileInput = document.getElementById('fileInput');
+            console.log('🔍 Elemento fileInput encontrado:', fileInput);
+            if (fileInput) {
+                // Tentar diferentes métodos para abrir o seletor
+                try {
+                    fileInput.click();
+                    console.log('✅ Comando click() executado');
+                } catch (error) {
+                    console.error('❌ Erro no click():', error);
+                    // Método alternativo
+                    try {
+                        const event = new MouseEvent('click', {
+                            view: window,
+                            bubbles: true,
+                            cancelable: true
+                        });
+                        fileInput.dispatchEvent(event);
+                        console.log('✅ Evento click alternativo executado');
+                    } catch (error2) {
+                        console.error('❌ Erro no evento alternativo:', error2);
+                    }
+                }
+            } else {
+                console.error('❌ Elemento fileInput não encontrado!');
+            }
         }
 
         function clearFile() {
@@ -1040,6 +1031,33 @@ IMPORTANTE: Retorne APENAS o JSON, sem texto adicional.
             console.log('🚀 Página Matrizes de Referência carregada - v0.2.4');
             console.log('✅ Todas as funcionalidades ativas');
             console.log('🤖 IA disponível - será configurada quando necessário');
+            
+            // Verificar elementos de upload
+            const fileInput = document.getElementById('fileInput');
+            const uploadArea = document.getElementById('uploadArea');
+            console.log('🔍 Verificando elementos de upload:');
+            console.log('  - fileInput:', fileInput);
+            console.log('  - uploadArea:', uploadArea);
+            
+            if (!fileInput) {
+                console.error('❌ Elemento fileInput não encontrado!');
+            }
+            if (!uploadArea) {
+                console.error('❌ Elemento uploadArea não encontrado!');
+            }
+            
+            // Adicionar event listener alternativo ao botão
+            const selectButton = document.querySelector('button[onclick="selectFile()"]');
+            if (selectButton) {
+                console.log('✅ Botão "Escolher Arquivo" encontrado');
+                selectButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('🖱️ Botão clicado via addEventListener');
+                    selectFile();
+                });
+            } else {
+                console.error('❌ Botão "Escolher Arquivo" não encontrado!');
+            }
         });
     </script>
 </body>
