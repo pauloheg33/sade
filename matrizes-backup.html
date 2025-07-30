@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrizes de Referência - SADE v0.2.0</title>
+    <meta name="description" content="Análise de correlação entre questões e habilidades das Matrizes de Referência - SADE v0.2.0">
+    <meta name="keywords" content="SADE, Ararendá, Educação, Matrizes de Referência, Habilidades, Análise">
+    <meta name="author" content="Paulo Henrique">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    
+    <!-- Preconnect for performance optimization -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    
+    <!-- Libs CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Estilos específicos para upload -->
+    <style>
+        .upload-area {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(124, 58, 237, 0.05);
+        }
+        
+        .upload-area:hover {
+            background: rgba(124, 58, 237, 0.1);
+            border-color: #7c3aed !important;
+        }
+        
+        .upload-area.drag-over {
+            background: rgba(124, 58, 237, 0.15);
+            border-color: #7c3aed !important;
+            transform: scale(1.02);
+        }
+        
+        .btn-purple {
+            background-color: #7c3aed;
+            border-color: #7c3aed;
+            color: white;
+        }
+        
+        .btn-outline-purple {
+            border-color: #7c3aed;
+            color: #7c3aed;
+        }
+        
+        .btn-outline-purple:hover {
+            background-color: #7c3aed;
+            border-color: #7c3aed;
+            color: white;
+        }
+    </style>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+</head>
+<body class="bg-light">
+    <!-- Header -->
+    <header class="sade-header text-center text-lg-start">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-2 text-center mb-3 mb-lg-0">
+                    <img src="assets/logo.png" alt="Brasão de Ararendá" class="img-fluid" style="max-height: 90px;" onerror="this.src='assets/logo-arara.svg'">
+                    <div class="mt-2">
+                        <small class="text-white fw-bold d-block">SECRETARIA DA EDUCAÇÃO</small>
+                        <small class="text-white fw-bold d-block">DE ARARENDÁ</small>
+                    </div>
+                </div>
+                <div class="col-lg-8 text-center">
+                    <h1 class="display-4 fw-bold mb-1">SADE</h1>
+                    <p class="lead mb-0">Sistema de Avaliação e Desempenho Escolar</p>
+                    <small class="opacity-75">MATRIZES DE REFERÊNCIA - ANÁLISE DE CORRELAÇÃO</small>
+                </div>
+                <div class="col-lg-2 text-center text-lg-end mt-3 mt-lg-0">
+                    <span class="badge bg-warning text-dark fs-6 rounded-pill shadow-sm">v0.2.3</span>
+                    <div class="mt-2">
+                        <small class="text-white fw-bold d-block">GITHUB PAGES</small>
+                        <small class="text-white opacity-75">OTIMIZADO</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">SADE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)" onclick="window.location.href='index.html'">
+                            <i class="fas fa-trophy me-2"></i>Ranking
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="proea.html">
+                            <i class="fas fa-graduation-cap me-2"></i>PROEA
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cnca.html">
+                            <i class="fas fa-child me-2"></i>CNCA
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="An_lise_Gr_ficos_Desempenho_1_/graficos_consolidados/analise_desempenho_consolidada.html" target="_blank">
+                            <i class="fas fa-chart-line me-2"></i>Análise Consolidada
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-images me-2"></i>Galeria
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="matrizes.html">
+                            <i class="fas fa-puzzle-piece me-2"></i>Matrizes
+                        </a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button id="theme-toggle" class="btn btn-outline-light">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container my-4">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Matrizes de Referência</li>
+            </ol>
+        </nav>
+
+        <!-- Page Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="sade-card card border-0 shadow-sm bg-gradient-purple">
+                    <div class="card-body text-center text-white p-5">
+                        <div class="mb-3">
+                            <i class="fas fa-puzzle-piece fa-4x opacity-75"></i>
+                        </div>
+                        <h2 class="fw-bold mb-3">Matrizes de Referência</h2>
+                        <p class="lead mb-0">
+                            Análise de correlação entre questões de provas e habilidades das Matrizes de Referência<br>
+                            <small class="opacity-75">Upload de provas • Mapeamento automático • Gráficos interativos</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upload Section -->
+        <div class="row g-4 mb-4">
+            <div class="col-lg-8">
+                <div class="sade-card card h-100">
+                    <div class="card-header bg-purple text-white">
+                        <h4 class="mb-0"><i class="fas fa-upload me-2"></i>Upload de Prova para Análise</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="provaUploadForm" enctype="multipart/form-data">
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-4">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-layer-group me-1"></i>Ano Escolar
+                                    </label>
+                                    <select id="anoEscolar" class="form-select" required>
+                                        <option value="">Selecione o ano</option>
+                                        <option value="6">6º ano</option>
+                                        <option value="7">7º ano</option>
+                                        <option value="8">8º ano</option>
+                                        <option value="9">9º ano</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-book me-1"></i>Disciplina
+                                    </label>
+                                    <select id="disciplina" class="form-select" required>
+                                        <option value="">Selecione a disciplina</option>
+                                        <option value="Língua Portuguesa - Leitura">Língua Portuguesa</option>
+                                        <option value="Matemática">Matemática</option>
+                                        <option value="Ciências da Natureza">Ciências da Natureza</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-school me-1"></i>Escola
+                                    </label>
+                                    <input type="text" id="escola" class="form-control" placeholder="Nome da escola" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fw-bold">
+                                    <i class="fas fa-file-upload me-1"></i>Arquivo da Prova
+                                </label>
+                                <div class="upload-area border border-3 border-dashed rounded p-4 text-center" id="uploadArea">
+                                    <i class="fas fa-cloud-upload-alt fa-3x text-muted mb-3"></i>
+                                    <p class="mb-2">Arraste e solte o arquivo aqui ou use os botões abaixo</p>
+                                    <small class="text-muted">Formatos aceitos: PDF, DOC, DOCX, TXT (máx. 10MB)</small>
+                                    
+                                    <!-- Input de arquivo oculto -->
+                                    <input type="file" id="fileInput" class="d-none" accept=".pdf,.doc,.docx,.txt" required>
+                                    
+                                    <!-- Botões múltiplos para garantir funcionamento -->
+                                    <div class="mt-3">
+                                        <button type="button" class="btn btn-purple btn-lg me-2" onclick="document.getElementById('fileInput').click()">
+                                            <i class="fas fa-folder-open me-2"></i>Selecionar Arquivo
+                                        </button>
+                                        <button type="button" class="btn btn-outline-purple" onclick="window.forceFileSelect()">
+                                            <i class="fas fa-upload me-2"></i>Forçar Seleção
+                                        </button>
+                                    </div>
+                                    
+                                    <!-- Input visível como fallback -->
+                                    <div class="mt-3">
+                                        <label class="form-label small text-muted">Ou use o seletor direto:</label>
+                                        <input type="file" id="fileInputVisible" class="form-control form-control-sm" accept=".pdf,.doc,.docx,.txt">
+                                    </div>
+                                </div>
+                                <div id="filePreview" class="mt-3" style="display: none;">
+                                    <div class="alert alert-info">
+                                        <i class="fas fa-file me-2"></i>
+                                        <span id="fileName"></span>
+                                        <button type="button" class="btn btn-sm btn-outline-danger ms-2" id="removeFile">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-purple btn-lg" id="uploadBtn">
+                                    <i class="fas fa-magic me-2"></i>Analisar Prova
+                                </button>
+                                
+                                <!-- Botão de teste adicional -->
+                                <button type="button" class="btn btn-outline-purple btn-sm mt-2" onclick="testAnalysis()">
+                                    <i class="fas fa-bug me-2"></i>Teste Rápido
+                                </button>
+                            </div>
+                            
+                            <!-- GitHub Pages Notice -->
+                            <div class="mt-3">
+                                <div class="alert alert-info">
+                                    <i class="fas fa-info-circle me-2"></i>
+                                    <strong>GitHub Pages:</strong> Sistema otimizado para análise rápida e eficiente de arquivos de prova.
+                                    <br><small>Suporte completo para TXT, estimativas inteligentes para PDF/DOC.</small>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="sade-card card h-100">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Como Funciona</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="timeline">
+                            <div class="timeline-item mb-3">
+                                <div class="timeline-marker bg-purple"></div>
+                                <div class="timeline-content">
+                                    <h6 class="fw-bold">1. Upload da Prova</h6>
+                                    <small class="text-muted">Faça upload do arquivo da prova (PDF, DOC, etc.)</small>
+                                </div>
+                            </div>
+                            <div class="timeline-item mb-3">
+                                <div class="timeline-marker bg-info"></div>
+                                <div class="timeline-content">
+                                    <h6 class="fw-bold">2. Análise Automática</h6>
+                                    <small class="text-muted">Sistema identifica questões e conteúdos</small>
+                                </div>
+                            </div>
+                            <div class="timeline-item mb-3">
+                                <div class="timeline-marker bg-success"></div>
+                                <div class="timeline-content">
+                                    <h6 class="fw-bold">3. Correlação</h6>
+                                    <small class="text-muted">Mapeia questões com habilidades da matriz</small>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker bg-warning"></div>
+                                <div class="timeline-content">
+                                    <h6 class="fw-bold">4. Relatório</h6>
+                                    <small class="text-muted">Gera gráficos e análises detalhadas</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analysis Results Section -->
+        <div id="analysisResults" style="display: none;">
+            <div class="row g-4 mb-4">
+                <div class="col-12">
+                    <div class="sade-card card">
+                        <div class="card-header bg-success text-white">
+                            <h4 class="mb-0"><i class="fas fa-chart-line me-2"></i>Resultados da Análise</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-4">
+                                <div class="col-lg-8">
+                                    <canvas id="correlationChart"></canvas>
+                                </div>
+                                <div class="col-lg-4">
+                                    <h5 class="mb-3"><i class="fas fa-list me-2"></i>Habilidades Identificadas</h5>
+                                    <div id="habilidadesList" class="skills-list">
+                                        <!-- Habilidades serão inseridas aqui via JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="sade-card card h-100">
+                        <div class="card-header bg-info text-white">
+                            <h5 class="mb-0"><i class="fas fa-chart-pie me-2"></i>Distribuição por Ciclo</h5>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="cycleChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="sade-card card h-100">
+                        <div class="card-header bg-warning text-white">
+                            <h5 class="mb-0"><i class="fas fa-bullseye me-2"></i>Cobertura da Matriz</h5>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="coverageChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Matrix Reference Browser -->
+        <div class="row g-4 mt-4">
+            <div class="col-12">
+                <div class="sade-card card">
+                    <div class="card-header bg-secondary text-white">
+                        <h4 class="mb-0"><i class="fas fa-search me-2"></i>Explorar Matrizes de Referência</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-4">
+                                <select id="browserAno" class="form-select">
+                                    <option value="">Todos os anos</option>
+                                    <option value="6">6º ano</option>
+                                    <option value="7">7º ano</option>
+                                    <option value="8">8º ano</option>
+                                    <option value="9">9º ano</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select id="browserDisciplina" class="form-select">
+                                    <option value="">Todas as disciplinas</option>
+                                    <option value="Língua Portuguesa - Leitura">Língua Portuguesa</option>
+                                    <option value="Matemática">Matemática</option>
+                                    <option value="Ciências da Natureza">Ciências da Natureza</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" id="browserSearch" class="form-control" placeholder="Buscar por descrição...">
+                            </div>
+                        </div>
+
+                        <div id="matrixBrowser">
+                            <!-- Conteúdo das matrizes será carregado aqui -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>SADE v0.2.0</h5>
+                    <p class="mb-0">Sistema de Avaliação e Desempenho Escolar</p>
+                    <small>Secretaria da Educação de Ararendá</small>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small>&copy; 2024 SADE. Desenvolvido por Paulo Henrique.</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Modal -->
+    <div class="modal fade" id="loadingModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center p-4">
+                    <div class="spinner-border text-purple mb-3" role="status" style="width: 3rem; height: 3rem;">
+                        <span class="visually-hidden">Carregando...</span>
+                    </div>
+                    <h5 id="loadingTitle">Processando arquivo...</h5>
+                    <p class="text-muted mb-0" id="loadingMessage">Analisando conteúdo e identificando questões</p>
+                    <div class="mt-3">
+                        <small class="text-muted" id="loadingDetails"></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    
+    <!-- Matrix Data - Embedded for GitHub Pages compatibility -->
+    <script>
+        // Matriz de Referência - Dados embutidos para compatibilidade com GitHub Pages
+        const matrizReferencia = {
+            "Língua Portuguesa - Leitura": {
+                "6": [
+                    {
+                        "codigo": "6EF01_P",
+                        "descricao": "Localizar informação em textos de nível 2, quando a informação é retomada por um processo de referenciação com referente próximo.",
+                        "bncc": "EF15LP03",
+                        "ciclos": ["Ciclo I"]
+                    },
+                    {
+                        "codigo": "6EF02_P",
+                        "descricao": "Localizar informações explícitas em textos de nível 2 recuperando-as por meio de paráfrase estando a informação no início do texto.",
+                        "bncc": "EF69LP03",
+                        "ciclos": ["Ciclo II", "Ciclo III"]
+                    },
+                    {
+                        "codigo": "6EF03_P",
+                        "descricao": "Inferir informação em textos de nível 2 com base em elementos verbais e não verbais.",
+                        "bncc": "EF15LP04",
+                        "ciclos": ["Ciclo I"]
+                    },
+                    {
+                        "codigo": "6EF04_P",
+                        "descricao": "Distinguir fato de opinião em textos argumentativos.",
+                        "bncc": "EF69LP04",
+                        "ciclos": ["Ciclo II"]
+                    }
+                ],
+                "7": [
+                    {
+                        "codigo": "7EF01_P",
+                        "descricao": "Localizar informações explícitas em textos de nível 3, recuperando-as por meio de paráfrase estando a informação no início do texto.",
+                        "bncc": "EF69LP03",
+                        "ciclos": ["Ciclo II"]
+                    },
+                    {
+                        "codigo": "7EF02_P",
+                        "descricao": "Inferir o sentido de palavra ou expressão a partir do contexto.",
+                        "bncc": "EF67LP34",
+                        "ciclos": ["Ciclo II"]
+                    },
+                    {
+                        "codigo": "7EF03_P",
+                        "descricao": "Identificar a finalidade de textos de diferentes gêneros.",
+                        "bncc": "EF69LP07",
+                        "ciclos": ["Ciclo II", "Ciclo III"]
+                    }
+                ],
+                "8": [
+                    {
+                        "codigo": "8EF01_P",
+                        "descricao": "Localizar informações explícitas em textos de nível 4, recuperando-as por meio de paráfrase.",
+                        "bncc": "EF69LP03",
+                        "ciclos": ["Ciclo III"]
+                    },
+                    {
+                        "codigo": "8EF02_P",
+                        "descricao": "Inferir informação com base em pressupostos e subentendidos.",
+                        "bncc": "EF69LP04",
+                        "ciclos": ["Ciclo III"]
+                    }
+                ],
+                "9": [
+                    {
+                        "codigo": "9EF01_P",
+                        "descricao": "Analisar criticamente textos argumentativos, identificando recursos persuasivos.",
+                        "bncc": "EF89LP04",
+                        "ciclos": ["Ciclo III", "Ciclo IV"]
+                    },
+                    {
+                        "codigo": "9EF02_P",
+                        "descricao": "Interpretar textos literários considerando o contexto histórico e social.",
+                        "bncc": "EF89LP33",
+                        "ciclos": ["Ciclo IV"]
+                    }
+                ]
+            },
+            "Matemática": {
+                "6": [
+                    {
+                        "codigo": "6EF01_M",
+                        "descricao": "Resolver problemas que envolvam as quatro operações fundamentais com números naturais.",
+                        "bncc": "EF06MA03",
+                        "ciclos": ["Ciclo I"]
+                    },
+                    {
+                        "codigo": "6EF02_M",
+                        "descricao": "Reconhecer e utilizar as propriedades das operações para desenvolver estratégias de cálculo.",
+                        "bncc": "EF06MA05",
+                        "ciclos": ["Ciclo I", "Ciclo II"]
+                    }
+                ],
+                "7": [
+                    {
+                        "codigo": "7EF01_M",
+                        "descricao": "Resolver problemas que envolvam operações com números inteiros.",
+                        "bncc": "EF07MA04",
+                        "ciclos": ["Ciclo II"]
+                    }
+                ],
+                "8": [
+                    {
+                        "codigo": "8EF01_M",
+                        "descricao": "Resolver problemas que envolvam equações do 1º grau.",
+                        "bncc": "EF08MA06",
+                        "ciclos": ["Ciclo II", "Ciclo III"]
+                    }
+                ],
+                "9": [
+                    {
+                        "codigo": "9EF01_M",
+                        "descricao": "Resolver problemas que envolvam equações do 2º grau.",
+                        "bncc": "EF09MA09",
+                        "ciclos": ["Ciclo III", "Ciclo IV"]
+                    }
+                ]
+            },
+            "Ciências da Natureza": {
+                "6": [
+                    {
+                        "codigo": "6EF01_C",
+                        "descricao": "Identificar as principais características dos seres vivos.",
+                        "bncc": "EF06CI02",
+                        "ciclos": ["Ciclo I"]
+                    }
+                ],
+                "7": [
+                    {
+                        "codigo": "7EF01_C",
+                        "descricao": "Compreender os fenômenos físicos e químicos da natureza.",
+                        "bncc": "EF07CI01",
+                        "ciclos": ["Ciclo II"]
+                    }
+                ],
+                "8": [
+                    {
+                        "codigo": "8EF01_C",
+                        "descricao": "Analisar transformações químicas que ocorrem no mundo físico.",
+                        "bncc": "EF08CI01",
+                        "ciclos": ["Ciclo II", "Ciclo III"]
+                    }
+                ],
+                "9": [
+                    {
+                        "codigo": "9EF01_C",
+                        "descricao": "Compreender conceitos fundamentais de física e química aplicados ao cotidiano.",
+                        "bncc": "EF09CI01",
+                        "ciclos": ["Ciclo III", "Ciclo IV"]
+                    }
+                ]
+            }
+        };
+
+        // Função para obter habilidades - compatível com GitHub Pages
+        function getHabilidades(disciplina, ano) {
+            if (!disciplina || !ano) {
+                // Retornar todas as habilidades
+                const todas = [];
+                Object.keys(matrizReferencia).forEach(disc => {
+                    Object.keys(matrizReferencia[disc]).forEach(a => {
+                        todas.push(...matrizReferencia[disc][a]);
+                    });
+                });
+                return todas;
+            }
+
+            const anoStr = String(ano);
+            if (matrizReferencia[disciplina] && matrizReferencia[disciplina][anoStr]) {
+                return matrizReferencia[disciplina][anoStr];
+            }
+            
+            return [];
+        }
+    </script>
+    
+    <!-- Custom Scripts -->
+    <script src="matrizes.js"></script>
+    
+    <!-- Script de fallback para upload -->
+    <script>
+        console.log('🔧 Carregando script de fallback para upload...');
+        
+        // Função global para forçar seleção de arquivo
+        window.forceFileSelect = function() {
+            console.log('🚀 Função forceFileSelect executada');
+            
+            const fileInput = document.getElementById('fileInput');
+            const fileInputVisible = document.getElementById('fileInputVisible');
+            
+            // Tentar múltiplas abordagens
+            try {
+                if (fileInput) {
+                    console.log('📂 Tentando fileInput.click()...');
+                    fileInput.click();
+                }
+            } catch (e) {
+                console.error('❌ Erro fileInput:', e);
+            }
+            
+            try {
+                if (fileInputVisible) {
+                    console.log('📂 Tentando fileInputVisible.click()...');
+                    fileInputVisible.click();
+                }
+            } catch (e) {
+                console.error('❌ Erro fileInputVisible:', e);
+            }
+            
+            // Disparar evento artificial
+            try {
+                const event = new MouseEvent('click', {
+                    view: window,
+                    bubbles: true,
+                    cancelable: true
+                });
+                fileInput.dispatchEvent(event);
+                console.log('✅ Evento artificial disparado');
+            } catch (e) {
+                console.error('❌ Erro evento artificial:', e);
+            }
+        };
+        
+        // Configurar quando DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 DOM pronto, configurando upload fallback...');
+            
+            const fileInput = document.getElementById('fileInput');
+            const fileInputVisible = document.getElementById('fileInputVisible');
+            const uploadArea = document.getElementById('uploadArea');
+            
+            // Configurar input visível
+            if (fileInputVisible) {
+                fileInputVisible.addEventListener('change', function(e) {
+                    const file = e.target.files[0];
+                    if (file) {
+                        console.log('📁 Arquivo selecionado via input visível:', file.name);
+                        
+                        // Copiar para o input principal
+                        if (fileInput) {
+                            fileInput.files = e.target.files;
+                        }
+                        
+                        // Mostrar preview
+                        const fileName = document.getElementById('fileName');
+                        const filePreview = document.getElementById('filePreview');
+                        
+                        if (fileName && filePreview) {
+                            fileName.textContent = file.name;
+                            filePreview.style.display = 'block';
+                        }
+                        
+                        // Tentar chamar a função do MatrizesAnalyzer se existir
+                        if (window.matrizesAnalyzer && window.matrizesAnalyzer.processFile) {
+                            window.matrizesAnalyzer.processFile(file);
+                        }
+                    }
+                });
+                console.log('✅ Input visível configurado');
+            }
+            
+            // Configurar clique na área
+            if (uploadArea) {
+                uploadArea.style.cursor = 'pointer';
+                uploadArea.addEventListener('click', function(e) {
+                    // Evitar duplo clique se clicar no botão
+                    if (e.target.tagName === 'BUTTON' || e.target.closest('button')) {
+                        return;
+                    }
+                    
+                    console.log('🖱️ Área de upload clicada');
+                    window.forceFileSelect();
+                });
+                console.log('✅ Área de upload configurada');
+            }
+            
+            // Adicionar botão de debug
+            if (uploadArea) {
+                const debugBtn = document.createElement('button');
+                debugBtn.innerHTML = '<i class="fas fa-bug me-1"></i>Debug';
+                debugBtn.className = 'btn btn-sm btn-warning mt-2';
+                debugBtn.type = 'button';
+                debugBtn.onclick = function() {
+                    console.log('🔍 Debug Info:');
+                    console.log('- fileInput:', document.getElementById('fileInput'));
+                    console.log('- fileInputVisible:', document.getElementById('fileInputVisible'));
+                    console.log('- uploadArea:', document.getElementById('uploadArea'));
+                    
+                    // Tentar abrir
+                    window.forceFileSelect();
+                };
+                
+                uploadArea.appendChild(debugBtn);
+                console.log('✅ Botão de debug adicionado');
+            }
+        });
+    </script>
+</body>
+</html>
