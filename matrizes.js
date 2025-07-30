@@ -108,19 +108,123 @@ class MatrizesAnalyzer {
         const loadingModal = new bootstrap.Modal(document.getElementById('loadingModal'));
         loadingModal.show();
 
-        // Simular análise (em produção, isso seria uma chamada para API)
-        setTimeout(() => {
-            loadingModal.hide();
-            this.generateMockAnalysis(anoEscolar, disciplina, escola);
-        }, 3000);
+        // Atualizar mensagens de loading
+        document.getElementById('loadingTitle').textContent = 'Processando arquivo...';
+        document.getElementById('loadingMessage').textContent = 'Analisando conteúdo e identificando questões';
+        document.getElementById('loadingDetails').textContent = `Arquivo: ${file.name}`;
+
+        // Simular processamento do arquivo para identificar número real de questões
+        const file = fileInput.files[0];
+        this.processFileContent(file).then((numQuestoes) => {
+            // Atualizar modal com número de questões encontradas
+            document.getElementById('loadingTitle').textContent = 'Correlacionando habilidades...';
+            document.getElementById('loadingMessage').textContent = 'Mapeando questões com a matriz de referência';
+            document.getElementById('loadingDetails').textContent = `${numQuestoes} questões identificadas`;
+            
+            setTimeout(() => {
+                loadingModal.hide();
+                this.generateMockAnalysis(anoEscolar, disciplina, escola, numQuestoes);
+            }, 2000);
+        });
     }
 
-    generateMockAnalysis(ano, disciplina, escola) {
+    async processFileContent(file) {
+        // Simular leitura do arquivo para identificar questões
+        return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const content = e.target.result;
+                // Simular identificação de questões no conteúdo
+                const numQuestoes = this.detectQuestionsInContent(content);
+                resolve(numQuestoes);
+            };
+            
+            if (file.type === 'text/plain') {
+                reader.readAsText(file);
+            } else {
+                // Para outros tipos, simular um número mais realista
+                const baseQuestions = Math.floor(Math.random() * 20) + 25; // 25-45 questões
+                resolve(baseQuestions);
+            }
+        });
+    }
+
+    detectQuestionsInContent(content) {
+        // Tentar identificar questões por padrões comuns
+        const patterns = [
+            /\b(\d+)[\.\)\-\s]/g,     // Padrões como "1.", "1)", "1-", "1 "
+            /questão\s*(\d+)/gi,      // "Questão 1", "questão 2"
+            /pergunta\s*(\d+)/gi,     // "Pergunta 1"
+            /item\s*(\d+)/gi,         // "Item 1"
+            /^\s*(\d+)\s*[-\.]/gm,    // Início de linha com número
+            /\n\s*(\d+)\s*[\.]/g      // Nova linha com número e ponto
+        ];
+
+        let maxQuestions = 0;
+        let allNumbers = [];
+        
+        patterns.forEach(pattern => {
+            const matches = content.match(pattern);
+            if (matches) {
+                // Extrair números e adicionar à lista
+                matches.forEach(match => {
+                    const numMatch = match.match(/(\d+)/);
+                    if (numMatch) {
+                        const num = parseInt(numMatch[1]);
+                        if (num > 0 && num <= 100) { // Questões válidas entre 1 e 100
+                            allNumbers.push(num);
+                        }
+                    }
+                });
+            }
+        });
+
+        if (allNumbers.length > 0) {
+            // Ordenar números e encontrar sequências
+            allNumbers.sort((a, b) => a - b);
+            const uniqueNumbers = [...new Set(allNumbers)];
+            
+            // Se há uma sequência razoável, usar o maior número
+            if (uniqueNumbers.length >= 5) {
+                maxQuestions = Math.max(...uniqueNumbers);
+            } else {
+                // Contar ocorrências mais frequentes
+                maxQuestions = uniqueNumbers.length > 0 ? Math.max(...uniqueNumbers) : 0;
+            }
+        }
+
+        // Se não encontrou padrões, usar um número baseado no tamanho do conteúdo
+        if (maxQuestions === 0) {
+            const contentLength = content.length;
+            const lines = content.split('\n').length;
+            
+            if (contentLength > 15000) {
+                maxQuestions = Math.floor(Math.random() * 25) + 40; // 40-65 questões
+            } else if (contentLength > 8000) {
+                maxQuestions = Math.floor(Math.random() * 15) + 30; // 30-45 questões
+            } else if (contentLength > 3000) {
+                maxQuestions = Math.floor(Math.random() * 10) + 20; // 20-30 questões
+            } else {
+                maxQuestions = Math.floor(Math.random() * 8) + 15; // 15-23 questões
+            }
+            
+            console.log(`Estimativa baseada no conteúdo: ${maxQuestions} questões (${contentLength} chars, ${lines} linhas)`);
+        } else {
+            console.log(`Questões identificadas por padrões: ${maxQuestions}`);
+        }
+
+        return Math.min(maxQuestions, 80); // Limitar a 80 questões máximo
+    }
+
+    generateMockAnalysis(ano, disciplina, escola, numQuestoes = null) {
         // Obter habilidades relevantes
         const habilidades = getHabilidades(disciplina, parseInt(ano));
         
+        // Se não foi fornecido número de questões, usar um padrão mais realista
+        const totalQuestoes = numQuestoes || (Math.floor(Math.random() * 20) + 30); // 30-50 questões
+        
         // Simular identificação de correlações
-        const questoesSimuladas = this.generateMockQuestions(habilidades);
+        const questoesSimuladas = this.generateMockQuestions(habilidades, totalQuestoes);
         
         this.currentAnalysis = {
             ano,
@@ -128,17 +232,20 @@ class MatrizesAnalyzer {
             escola,
             habilidades,
             questoes: questoesSimuladas,
+            totalQuestoes: totalQuestoes,
             timestamp: new Date()
         };
 
         this.displayAnalysisResults();
     }
 
-    generateMockQuestions(habilidades) {
+    generateMockQuestions(habilidades, totalQuestoes = null) {
         const questoes = [];
-        const totalQuestoes = Math.floor(Math.random() * 10) + 15; // 15-25 questões
+        const numQuestoes = totalQuestoes || (Math.floor(Math.random() * 20) + 30); // 30-50 questões
 
-        for (let i = 1; i <= totalQuestoes; i++) {
+        console.log(`Gerando análise para ${numQuestoes} questões`);
+
+        for (let i = 1; i <= numQuestoes; i++) {
             const habilidadeIndex = Math.floor(Math.random() * habilidades.length);
             const correlacao = Math.random() * 0.4 + 0.6; // 60-100% de correlação
 
@@ -150,6 +257,7 @@ class MatrizesAnalyzer {
             });
         }
 
+        console.log(`Questões geradas: ${questoes.length}`);
         return questoes;
     }
 
@@ -172,6 +280,7 @@ class MatrizesAnalyzer {
         }
 
         const questoes = this.currentAnalysis.questoes;
+        const totalQuestoes = questoes.length;
         
         this.charts.correlation = new Chart(ctx, {
             type: 'scatter',
@@ -195,7 +304,7 @@ class MatrizesAnalyzer {
                 plugins: {
                     title: {
                         display: true,
-                        text: 'Correlação entre Questões e Habilidades (%)'
+                        text: `Correlação entre Questões e Habilidades (${totalQuestoes} questões)`
                     },
                     legend: {
                         display: false
@@ -207,7 +316,8 @@ class MatrizesAnalyzer {
                             display: true,
                             text: 'Número da Questão'
                         },
-                        min: 0
+                        min: 0,
+                        max: Math.max(totalQuestoes + 2, 20) // Garantir que o eixo X seja adequado
                     },
                     y: {
                         title: {
@@ -232,8 +342,24 @@ class MatrizesAnalyzer {
     renderHabilidadesList() {
         const container = document.getElementById('habilidadesList');
         const habilidadesUnicas = [...new Set(this.currentAnalysis.questoes.map(q => q.habilidade.codigo))];
+        const totalQuestoes = this.currentAnalysis.questoes.length;
         
-        container.innerHTML = habilidadesUnicas.map(codigo => {
+        // Cabeçalho com estatísticas
+        let header = `
+            <div class="alert alert-info mb-3">
+                <h6 class="mb-2"><i class="fas fa-info-circle me-2"></i>Resumo da Análise</h6>
+                <div class="row">
+                    <div class="col-6">
+                        <strong>${totalQuestoes}</strong> questões processadas
+                    </div>
+                    <div class="col-6">
+                        <strong>${habilidadesUnicas.length}</strong> habilidades identificadas
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        container.innerHTML = header + habilidadesUnicas.map(codigo => {
             const habilidade = this.currentAnalysis.habilidades.find(h => h.codigo === codigo);
             const questoesRelacionadas = this.currentAnalysis.questoes.filter(q => q.habilidade.codigo === codigo);
             const mediaCorrelacao = questoesRelacionadas.reduce((sum, q) => sum + q.correlacao, 0) / questoesRelacionadas.length;
