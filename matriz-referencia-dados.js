@@ -1,7 +1,7 @@
 // Matriz de Referência Completa - SADE v0.3.0
 // Gerado automaticamente a partir do arquivo oficial
 
-const matrizReferencia = {
+window.matrizReferencia = {
   "portugues_leitura": {
     "6": [
       {
@@ -5633,7 +5633,7 @@ function encontrarPalavrasCorrespondentes(palavrasQuestao, palavrasHabilidade) {
 }
 
 // Estatísticas da matriz
-const estatisticasMatriz = {
+window.estatisticasMatriz = {
     total: Object.values(matrizReferencia).reduce((total, disciplina) => 
         total + Object.values(disciplina).reduce((subTotal, ano) => subTotal + ano.length, 0), 0
     ),
