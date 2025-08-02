@@ -265,10 +265,10 @@
                                     <p class="text-muted mb-3">Formato aceito: apenas PDF (máx. 15MB)</p>
                                     <p class="text-sm text-muted">Sistema avançado com PDF.js para máxima precisão</p>
                                     
-                                    <input type="file" id="fileInput" accept=".pdf" style="display: none;">
+                                    <input type="file" id="fileInput" accept=".pdf,.txt" style="position: absolute; opacity: 0; width: 1px; height: 1px; overflow: hidden;">
                                     
                                     <div class="d-flex justify-content-center gap-2">
-                                        <button type="button" class="btn btn-purple mb-0" style="cursor: pointer;" onclick="selectFile(); event.stopPropagation();">
+                                        <button type="button" class="btn btn-purple mb-0" style="cursor: pointer; z-index: 10;" onclick="event.preventDefault(); event.stopPropagation(); setTimeout(function() { document.getElementById('fileInput').click(); }, 0);">
                                             <i class="fas fa-folder-open me-2"></i>Escolher Arquivo
                                         </button>
                                         <button type="button" class="btn btn-outline-purple" onclick="clearFile(); event.stopPropagation();">
@@ -418,9 +418,28 @@
         let selectedFile = null;
         let analysisResults = null;
         
+        // Polyfill para garantir que o método click() funcione em todos os navegadores
+        (function() {
+            if (!HTMLElement.prototype._click) {
+                HTMLElement.prototype._click = HTMLElement.prototype.click;
+            }
+            
+            HTMLElement.prototype.click = function() {
+                try {
+                    this._click();
+                } catch (e) {
+                    console.log('Usando método alternativo para click');
+                    // Criar e disparar um evento de clique manualmente
+                    var clickEvent = document.createEvent('MouseEvents');
+                    clickEvent.initEvent('click', true, true);
+                    this.dispatchEvent(clickEvent);
+                }
+            };
+        })();
+        
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🚀 SADE Matrizes v0.3.0 - Sistema Especializado em PDF');
+            console.log('🚀 SADE Matrizes v0.3.1 - Sistema Especializado em PDF');
             
             try {
                 // Verificar se estatísticas estão carregadas
@@ -473,6 +492,10 @@
                 
                 // File input change
                 fileInput.addEventListener('change', handleFileSelect);
+                // Adicionar evento de clique diretamente no input
+                fileInput.addEventListener('click', function(e) {
+                    console.log('🖱️ Clique direto no input de arquivo');
+                });
                 console.log('✅ Event listener para fileInput configurado');
                 
                 // Drag and drop
@@ -481,15 +504,20 @@
                 uploadArea.addEventListener('drop', handleDrop);
                 uploadArea.addEventListener('click', function(e) {
                     console.log('🖱️ Click na área de upload', e.target);
-                    // Verificar se o clique foi no botão de limpar
-                    if (e.target.tagName === 'BUTTON' || e.target.closest('button.btn-outline-purple')) {
-                        // Não fazer nada, deixar o botão de limpar funcionar normalmente
+                    // Verificar se o clique foi em algum botão
+                    if (e.target.tagName === 'BUTTON' || e.target.closest('button')) {
+                        // Não fazer nada, deixar os botões funcionarem normalmente
+                        console.log('🖱️ Clique em botão, ignorando');
                         return;
                     }
                     // Para qualquer outro clique na área de upload, abrir o seletor de arquivo
+                    console.log('🖱️ Clique na área de upload, abrindo seletor');
                     e.preventDefault();
                     e.stopPropagation();
-                    selectFile();
+                    // Usar setTimeout para garantir que o evento de clique seja processado completamente
+                    setTimeout(function() {
+                        selectFile();
+                    }, 10);
                 });
                 console.log('✅ Event listeners para upload area configurados');
                 
@@ -510,13 +538,18 @@
             const fileInput = document.getElementById('fileInput');
             if (fileInput) {
                 try {
-                    fileInput.click();
-                    console.log('✅ Diálogo de seleção de arquivo aberto');
+                    // Usar setTimeout para evitar problemas com eventos de clique
+                    setTimeout(function() {
+                        fileInput.click();
+                        console.log('✅ Diálogo de seleção de arquivo aberto');
+                    }, 0);
                 } catch (error) {
                     console.error('❌ Erro ao abrir diálogo de seleção de arquivo:', error);
+                    alert('Erro ao abrir seletor de arquivo. Por favor, tente novamente ou use arrastar e soltar.');
                 }
             } else {
                 console.error('❌ Elemento fileInput não encontrado');
+                alert('Erro: Elemento de input de arquivo não encontrado.');
             }
         }
         
@@ -525,15 +558,20 @@
             const fileInput = document.getElementById('fileInput');
             if (fileInput) {
                 try {
-                    fileInput.click();
-                    console.log('✅ Diálogo de seleção de arquivo aberto via abrirSeletorArquivo');
+                    // Usar setTimeout para evitar problemas com eventos de clique
+                    setTimeout(function() {
+                        fileInput.click();
+                        console.log('✅ Diálogo de seleção de arquivo aberto via abrirSeletorArquivo');
+                    }, 0);
                     return true;
                 } catch (error) {
                     console.error('❌ Erro ao abrir diálogo de seleção de arquivo via abrirSeletorArquivo:', error);
+                    alert('Erro ao abrir seletor de arquivo. Por favor, tente novamente ou use arrastar e soltar.');
                     return false;
                 }
             }
             console.error('❌ Elemento fileInput não encontrado em abrirSeletorArquivo');
+            alert('Erro: Elemento de input de arquivo não encontrado.');
             return false;
         }
         
