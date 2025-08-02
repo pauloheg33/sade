@@ -865,11 +865,23 @@
                 
                 // Validar questão
                 if (textoQuestao.length >= 10 && textoQuestao.length <= 3000) {
+                    // Extrair palavras-chave avançadas
+                    const palavrasChaveAvancadas = extrairPalavrasChaveAvancadas(textoQuestao);
+                    
+                    // Detectar categoria da questão
+                    const categoria = detectarCategoria(textoQuestao);
+                    
+                    // Analisar contexto pedagógico
+                    const contextoPedagogico = analisarContextoPedagogico(textoQuestao);
+                    
                     questoes.push({
                         numero: numero,
                         texto: textoQuestao,
                         posicao: index + 1,
-                        origem: `Padrão ${melhorPadrao}`
+                        origem: `Padrão ${melhorPadrao}`,
+                        palavrasChaveAvancadas: palavrasChaveAvancadas,
+                        categoria: categoria,
+                        contextoPedagogico: contextoPedagogico
                     });
                 } else {
                     console.warn(`❌ Questão ${numero} descartada (tamanho: ${textoQuestao.length})`);
@@ -932,11 +944,23 @@
                 if (inicioQuestao) {
                     // Salvar questão anterior se existir
                     if (questaoAtual && textoAtual.trim()) {
+                        // Extrair palavras-chave avançadas
+                        const palavrasChaveAvancadas = extrairPalavrasChaveAvancadas(textoAtual.trim());
+                        
+                        // Detectar categoria da questão
+                        const categoria = detectarCategoria(textoAtual.trim());
+                        
+                        // Analisar contexto pedagógico
+                        const contextoPedagogico = analisarContextoPedagogico(textoAtual.trim());
+                        
                         questoes.push({
                             numero: questaoAtual,
                             texto: textoAtual.trim(),
                             posicao: questoes.length + 1,
-                            origem: 'Detecção alternativa'
+                            origem: 'Detecção alternativa',
+                            palavrasChaveAvancadas: palavrasChaveAvancadas,
+                            categoria: categoria,
+                            contextoPedagogico: contextoPedagogico
                         });
                     }
                     
@@ -951,11 +975,23 @@
             
             // Adicionar última questão
             if (questaoAtual && textoAtual.trim()) {
+                // Extrair palavras-chave avançadas
+                const palavrasChaveAvancadas = extrairPalavrasChaveAvancadas(textoAtual.trim());
+                
+                // Detectar categoria da questão
+                const categoria = detectarCategoria(textoAtual.trim());
+                
+                // Analisar contexto pedagógico
+                const contextoPedagogico = analisarContextoPedagogico(textoAtual.trim());
+                
                 questoes.push({
                     numero: questaoAtual,
                     texto: textoAtual.trim(),
                     posicao: questoes.length + 1,
-                    origem: 'Detecção alternativa'
+                    origem: 'Detecção alternativa',
+                    palavrasChaveAvancadas: palavrasChaveAvancadas,
+                    categoria: categoria,
+                    contextoPedagogico: contextoPedagogico
                 });
             }
             
@@ -963,12 +999,6 @@
             return questoes.filter(q => q.texto.length >= 10);
         }
         
-        // Detecta categoria da questão baseada no conteúdo
-        function detectarCategoria(texto) {
-            const textoLower = texto.toLowerCase();
-            
-            if (textoLower.match(/calcul|matemática|número|operação|soma|subtração|multiplicação|divisão|fração|porcentagem|equação|gráfico/)) {
-                return 'matematica';
         // Detecta categoria da questão baseada no conteúdo
         function detectarCategoria(texto) {
             const textoLower = texto.toLowerCase();

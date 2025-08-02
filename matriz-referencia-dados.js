@@ -5222,6 +5222,47 @@ function buscarHabilidades(disciplina, ano) {
     return matrizReferencia[disciplina] && matrizReferencia[disciplina][ano] || [];
 }
 
+// Função para extrair palavras-chave avançado
+function extrairPalavrasChaveAvancado(texto) {
+    const stopWords = new Set([
+        'o', 'a', 'os', 'as', 'um', 'uma', 'uns', 'umas', 'de', 'da', 'do', 'das', 'dos',
+        'em', 'na', 'no', 'nas', 'nos', 'para', 'por', 'com', 'sem', 'sob', 'sobre',
+        'que', 'qual', 'quais', 'como', 'quando', 'onde', 'por que', 'porque',
+        'e', 'ou', 'mas', 'se', 'então', 'assim', 'também', 'já', 'ainda',
+        'é', 'são', 'foi', 'foram', 'ser', 'estar', 'ter', 'haver',
+        'este', 'esta', 'estes', 'estas', 'esse', 'essa', 'esses', 'essas',
+        'aquele', 'aquela', 'aqueles', 'aquelas', 'isso', 'isto', 'aquilo',
+        'texto', 'questão', 'pergunta', 'resposta', 'letra', 'item', 'alternativa',
+        'pode', 'podem', 'deve', 'devem', 'vai', 'vão', 'mais', 'menos', 'muito', 'pouco'
+    ]);
+    
+    // Extrai substantivos, verbos e conceitos importantes
+    const palavras = texto.toLowerCase()
+        .replace(/[^\w\sáéíóúàèìòùâêîôûãõç]/g, ' ')
+        .split(/\s+/)
+        .filter(palavra => palavra.length > 3 && !stopWords.has(palavra));
+    
+    // Identifica termos compostos importantes
+    const termosCompostos = [];
+    const textoLower = texto.toLowerCase();
+    
+    const conceitosImportantes = [
+        'meio ambiente', 'desenvolvimento sustentável', 'recursos naturais',
+        'sistema solar', 'ciclo da água', 'cadeia alimentar',
+        'fração equivalente', 'regra de três', 'porcentagem',
+        'sujeito oculto', 'predicado verbal', 'figura de linguagem',
+        'função sintática', 'processo de formação'
+    ];
+    
+    conceitosImportantes.forEach(conceito => {
+        if (textoLower.includes(conceito)) {
+            termosCompostos.push(conceito.replace(' ', '_'));
+        }
+    });
+    
+    return [...new Set([...palavras, ...termosCompostos])].slice(0, 15);
+}
+
 // Função para correlacionar questão com habilidades - VERSÃO INTELIGENTE
 function correlacionarQuestao(textoQuestao, disciplina, ano, precisaoMinima = 25) {
     const habilidades = buscarHabilidades(disciplina, ano);
@@ -5257,6 +5298,114 @@ function correlacionarQuestao(textoQuestao, disciplina, ano, precisaoMinima = 25
         if (b.contexto_pedagogico !== a.contexto_pedagogico) return b.contexto_pedagogico - a.contexto_pedagogico;
         return b.score_base - a.score_base;
     });
+}
+
+// Função para calcular similaridade entre palavras-chave
+function calcularSimilaridade(palavrasQuestao, palavrasHabilidade, textoHabilidade) {
+    // Normaliza as palavras-chave da habilidade
+    const palavrasHabilidadeArray = Array.isArray(palavrasHabilidade) ? 
+        palavrasHabilidade : 
+        textoHabilidade.toLowerCase()
+            .replace(/[^\w\sáéíóúàèìòùâêîôûãõç]/g, ' ')
+            .split(/\s+/)
+            .filter(p => p.length > 3);
+    
+    // Conta correspondências exatas
+    let correspondencias = 0;
+    palavrasQuestao.forEach(palavra => {
+        if (palavrasHabilidadeArray.includes(palavra)) {
+            correspondencias++;
+        }
+    });
+    
+    // Calcula score base
+    const totalPalavras = Math.max(palavrasQuestao.length, 1);
+    const scoreProporcional = (correspondencias / totalPalavras) * 100;
+    
+    // Ajusta score com base na densidade de correspondências
+    const densidadeBonus = correspondencias > 0 ? 
+        Math.min(20, (correspondencias / Math.sqrt(totalPalavras)) * 10) : 0;
+    
+    return Math.min(Math.round(scoreProporcional + densidadeBonus), 100);
+}
+
+// Função para analisar contexto pedagógico
+function analisarContextoPedagogico(textoQuestao, textoHabilidade) {
+    const textoQuestaoLower = textoQuestao.toLowerCase();
+    const textoHabilidadeLower = textoHabilidade.toLowerCase();
+    let score = 0;
+    
+    // Análise de habilidades cognitivas (Taxonomia de Bloom)
+    const habilidadesCognitivas = {
+        'lembrar': ['identifique', 'liste', 'nomeie', 'reconheça', 'recordar', 'definir'],
+        'compreender': ['explique', 'interprete', 'descreva', 'compare', 'diferencie', 'exemplifique'],
+        'aplicar': ['aplique', 'demonstre', 'calcule', 'resolva', 'use', 'desenvolva'],
+        'analisar': ['analise', 'categorize', 'compare', 'contraste', 'diferencie', 'examine'],
+        'avaliar': ['avalie', 'julgue', 'justifique', 'critique', 'recomende', 'defenda'],
+        'criar': ['crie', 'elabore', 'desenvolva', 'formule', 'projete', 'construa']
+    };
+    
+    // Verifica correspondência de habilidades cognitivas
+    Object.entries(habilidadesCognitivas).forEach(([nivel, verbos]) => {
+        const questaoTemNivel = verbos.some(verbo => textoQuestaoLower.includes(verbo));
+        const habilidadeTemNivel = verbos.some(verbo => textoHabilidadeLower.includes(verbo));
+        
+        if (questaoTemNivel && habilidadeTemNivel) {
+            score += 15; // Forte correspondência de nível cognitivo
+        }
+    });
+    
+    // Análise de tipo de questão (objetiva/discursiva)
+    const tiposQuestao = {
+        'objetiva': ['alternativa', 'marque', 'assinale', 'escolha', 'selecione'],
+        'discursiva': ['explique', 'justifique', 'descreva', 'elabore', 'redija']
+    };
+    
+    // Verifica correspondência de tipo de questão
+    Object.entries(tiposQuestao).forEach(([tipo, indicadores]) => {
+        const questaoEhTipo = indicadores.some(ind => textoQuestaoLower.includes(ind));
+        const habilidadeParaTipo = indicadores.some(ind => textoHabilidadeLower.includes(ind));
+        
+        if (questaoEhTipo && habilidadeParaTipo) {
+            score += 10; // Correspondência de tipo de questão
+        }
+    });
+    
+    // Análise de complexidade
+    const complexidades = {
+        'alta': ['complexo', 'avançado', 'aprofundado', 'sofisticado', 'elaborado'],
+        'media': ['intermediário', 'moderado', 'parcial', 'relativo'],
+        'baixa': ['simples', 'básico', 'elementar', 'fundamental', 'introdutório']
+    };
+    
+    // Verifica correspondência de complexidade
+    Object.entries(complexidades).forEach(([nivel, indicadores]) => {
+        const questaoTemComplexidade = indicadores.some(ind => textoQuestaoLower.includes(ind));
+        const habilidadeTemComplexidade = indicadores.some(ind => textoHabilidadeLower.includes(ind));
+        
+        if (questaoTemComplexidade && habilidadeTemComplexidade) {
+            score += 10; // Correspondência de complexidade
+        }
+    });
+    
+    return Math.min(score, 35); // Limita o score de contexto pedagógico
+}
+
+// Função para encontrar palavras correspondentes
+function encontrarPalavrasCorrespondentes(palavrasQuestao, palavrasHabilidade) {
+    const palavrasHabilidadeArray = Array.isArray(palavrasHabilidade) ? 
+        palavrasHabilidade : 
+        [];
+    
+    return palavrasQuestao.filter(palavra => 
+        palavrasHabilidadeArray.includes(palavra)
+    );
+}
+
+// Função para gerar justificativa de correlação
+function gerarJustificativaCorrelacao(textoQuestao, habilidade) {
+    return `Esta questão aborda conceitos relacionados à habilidade "${habilidade.habilidade}", 
+    com correspondência de palavras-chave e contexto pedagógico compatível.`;
 }
 
 // Função para extração avançada de palavras-chave
