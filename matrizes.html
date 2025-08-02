@@ -268,9 +268,9 @@
                                     <input type="file" id="fileInput" accept=".pdf" style="display: none;">
                                     
                                     <div class="d-flex justify-content-center gap-2">
-                                        <label for="fileInput" class="btn btn-purple mb-0" style="cursor: pointer;">
+                                        <button type="button" class="btn btn-purple mb-0" style="cursor: pointer;" onclick="selectFile(); event.stopPropagation();">
                                             <i class="fas fa-folder-open me-2"></i>Escolher Arquivo
-                                        </label>
+                                        </button>
                                         <button type="button" class="btn btn-outline-purple" onclick="clearFile(); event.stopPropagation();">
                                             <i class="fas fa-times me-2"></i>Limpar
                                         </button>
@@ -481,12 +481,15 @@
                 uploadArea.addEventListener('drop', handleDrop);
                 uploadArea.addEventListener('click', function(e) {
                     console.log('🖱️ Click na área de upload', e.target);
-                    // Só ativar se não for clique no label ou botão
-                    if (e.target.tagName !== 'LABEL' && e.target.tagName !== 'BUTTON' && !e.target.closest('label') && !e.target.closest('button')) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        selectFile();
+                    // Verificar se o clique foi no botão de limpar
+                    if (e.target.tagName === 'BUTTON' || e.target.closest('button.btn-outline-purple')) {
+                        // Não fazer nada, deixar o botão de limpar funcionar normalmente
+                        return;
                     }
+                    // Para qualquer outro clique na área de upload, abrir o seletor de arquivo
+                    e.preventDefault();
+                    e.stopPropagation();
+                    selectFile();
                 });
                 console.log('✅ Event listeners para upload area configurados');
                 
@@ -506,7 +509,14 @@
             console.log('🔍 Abrindo seletor de arquivo...');
             const fileInput = document.getElementById('fileInput');
             if (fileInput) {
-                fileInput.click();
+                try {
+                    fileInput.click();
+                    console.log('✅ Diálogo de seleção de arquivo aberto');
+                } catch (error) {
+                    console.error('❌ Erro ao abrir diálogo de seleção de arquivo:', error);
+                }
+            } else {
+                console.error('❌ Elemento fileInput não encontrado');
             }
         }
         
@@ -514,9 +524,16 @@
         function abrirSeletorArquivo() {
             const fileInput = document.getElementById('fileInput');
             if (fileInput) {
-                fileInput.click();
-                return true;
+                try {
+                    fileInput.click();
+                    console.log('✅ Diálogo de seleção de arquivo aberto via abrirSeletorArquivo');
+                    return true;
+                } catch (error) {
+                    console.error('❌ Erro ao abrir diálogo de seleção de arquivo via abrirSeletorArquivo:', error);
+                    return false;
+                }
             }
+            console.error('❌ Elemento fileInput não encontrado em abrirSeletorArquivo');
             return false;
         }
         
