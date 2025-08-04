@@ -411,8 +411,8 @@
     <!-- PDF.js Library for enhanced PDF reading -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     
-    <script src="matriz-referencia-dados.js"></script>
-    <script src="verificar-matriz.js"></script>
+    <script src="assets/js/matriz-referencia-dados.js"></script>
+    <script src="assets/js/verificar-matriz.js"></script>
     
     <script>
         // Global variables
@@ -1518,7 +1518,7 @@ d) O ciclo da água não é importante para a vida`;
         
         function verificarMatriz() {
             if (typeof matrizReferencia === 'undefined') {
-                alert('❌ Matriz de Referência não carregada! Verifique se o arquivo matriz-referencia-dados.js está presente.');
+                alert('❌ Matriz de Referência não carregada! Verifique se o arquivo assets/js/matriz-referencia-dados.js está presente.');
                 return;
             }
             
