@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """
-Verificador de Integridade do SADE v0.2.0
+Verifi    paginas_principais = [
+        "index.html",
+        "proea.html", 
+        "cnca.html"
+    ]de Integridade do SADE v0.2.0
 Testa se todas as rotas e arquivos estão funcionando corretamente
 """
 

@@ -107,8 +107,6 @@ python3 -m http.server 8000
 ### Funcionalidades Base
 - Dashboard principal
 - Módulos PROEA e CNCA
-- Sistema de ranking
-- Matrizes de referência
 - Galeria de gráficos
 - Interface responsiva
 

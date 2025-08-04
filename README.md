@@ -9,7 +9,6 @@ O **SADE** (Sistema de Avaliação e Desempenho Escolar) é uma plataforma web m
 - **Dashboard Integrado**: Visão geral com estatísticas consolidadas
 - **PROEA**: Avaliação das Aprendizagens dos Anos Finais (6º ao 9º ano)
 - **CNCA**: Compromisso Criança Alfabetizada (1º ao 5º ano)
-- **Ranking das Escolas**: Classificação por desempenho
 - **Galeria de Gráficos**: Visualização completa de todos os dados
 
 ## 🗂️ Estrutura do Projeto (Reorganizada em 2025)
@@ -19,7 +18,6 @@ sade/
 ├── 📄 index.html                    # Dashboard principal
 ├── 📄 proea.html                    # PROEA - Anos Finais
 ├── 📄 cnca.html                     # CNCA - Anos Iniciais
-├── 📄 ranking.html                  # Ranking das Escolas
 ├── 📁 assets/                       # Recursos organizados
 │   ├── css/
 │   │   └── styles.css               # Estilos customizados
@@ -46,7 +44,6 @@ sade/
 ├── 📁 scripts/                      # Scripts auxiliares
 │   ├── process_data.py              # Processamento de dados
 │   └── outros scripts .py/.sh/.bat
-├── 📁 ranking-static/               # Versão estática do ranking
 ├── 📁 An_lise_Gr_ficos_Desempenho_1_/ # Análise consolidada
 └── 📁 .github/                      # Configurações GitHub
 ```
@@ -150,7 +147,7 @@ O sistema está automaticamente disponível em:
 - Média geral por escola/disciplina
 - Distribuição de notas
 - Comparativos entre anos
-- Rankings automatizados
+- Análises automatizadas
 
 ### Visualizações
 - Gráficos de barras e pizza
