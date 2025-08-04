@@ -5,11 +5,11 @@
 ### **1. Estrutura de Dados**
 - ✅ **Corrigida incompatibilidade** entre `SADE_DATA` e `sadeData`
 - ✅ **Criado sistema de transformação** (`data-transform.js`)
-- ✅ **Padronizada estrutura** para ambas as páginas (PROEA/CNCA)
+- ✅ **Padronizada estrutura** para ambas as páginas (P-II-2025/C-II-2025)
 
 ### **2. Páginas Separadas**
 - ✅ **PROEA dedicado** (`proea.html`) - Anos finais (6º-9º)
-- ✅ **CNCA dedicado** (`cnca.html`) - Anos iniciais (1º-5º)
+- ✅ **C-II-2025 dedicado** (`cnca.html`) - Anos iniciais (1º-5º)
 - ✅ **Dashboard centralizado** (`index.html`) - Visão geral
 
 ### **3. Otimizações de Performance**
@@ -29,7 +29,7 @@
 ### **Core do Sistema**
 - `index.html` - Dashboard principal
 - `proea.html` - Página PROEA dedicada  
-- `cnca.html` - Página CNCA dedicada
+- `cnca.html` - Página C-II-2025 dedicada
 - `styles.css` - Estilos unificados e responsivos
 
 ### **JavaScript**
@@ -53,7 +53,7 @@
 - 🎯 **Ordenação**: Por escola, média, alunos
 - 🏫 **Turmas**: Gestão de classes A/B
 
-### **CNCA (Anos Iniciais)**  
+### **C-II-2025 (Anos Iniciais)**  
 - 📚 **Filtros**: Ano (1º-5º), Disciplina (LP/MAT), Escola
 - 📊 **Layout específico**: Cores e design para alfabetização
 - 🎨 **Tema verde**: Identidade visual própria

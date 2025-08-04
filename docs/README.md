@@ -1,6 +1,6 @@
 # SADE v0.2.0 🎓
 
-## Sistema de Avaliação e Desempenho Escolar
+## Sistema de A- 🏠 **Acesso rápido**: Cards para P-II-2025 e C-II-2025aliação e Desempenho Escolar
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://pauloheg33.github.io/sade/)
 [![Version](https://img.shields.io/badge/Version-0.2.0-blue)](https://github.com/pauloheg33/sade)
@@ -14,7 +14,7 @@
 
 ## 📊 **Funcionalidades**
 
-### **PROEA - Anos Finais (6º ao 9º ano)**
+### **P-II-2025 - Anos Finais (6º ao 9º ano)**
 - 🎯 **Filtros Avançados**: Ano escolar, disciplina (CN, LP, MAT) e escola
 - 📈 **Estatísticas em Tempo Real**: Total de avaliações, escolas, alunos e média geral
 - 🔍 **Busca Inteligente**: Pesquisa por escola, ano ou disciplina
@@ -22,7 +22,7 @@
 - 🏫 **Gestão de Turmas**: Diferenciação entre turmas A/B da mesma escola
 - 📄 **Download PDF**: Relatórios profissionais das imagens filtradas ⭐ **NOVO**
 
-### **CNCA - Anos Iniciais (1º ao 5º ano)** 
+### **C-II-2025 - Anos Iniciais (1º ao 5º ano)** 
 - 📚 **Compromisso Criança Alfabetizada**: Foco em Língua Portuguesa e Matemática
 - 📊 **Interface Dedicada**: Layout otimizado para alfabetização
 - 🎨 **Design Diferenciado**: Cores e ícones específicos para o programa
@@ -31,7 +31,7 @@
 
 ### **Dashboard Unificado**
 - 🏠 **Visão Geral**: Estatísticas consolidadas de todo o sistema
-- 🎯 **Acesso Rápido**: Links diretos para PROEA e CNCA
+- 🎯 **Acesso Rápido**: Links diretos para P-II-2025 e C-II-2025
 - 📊 **Gráficos Resumidos**: Performance por ano e distribuição por disciplina
 - 🖼️ **Galeria Completa**: Acesso a todos os gráficos do sistema
 
@@ -50,7 +50,7 @@
 ```
 sade/
 ├── 📄 index.html          # Dashboard principal
-├── 📄 proea.html          # Página dedicada PROEA  
+├── 📄 proea.html          # Página dedicada P-II-2025  
 ├── 📄 cnca.html           # Página dedicada CNCA
 ├── 📄 styles.css          # Estilos personalizados
 ├── 📄 app-modern.js       # JavaScript do dashboard
@@ -60,7 +60,7 @@ sade/
 ├── 📄 process_data.py     # Processador de dados Python
 ├── 📁 assets/             # Logos, ícones e imagens
 ├── 📁 data/               # Gráficos originais por programa
-│   ├── 📁 PROEA/          # Anos finais (6º-9º)
+│   ├── 📁 P-II-2025/          # Anos finais (6º-9º)
 │   └── 📁 CNCA/           # Anos iniciais (1º-5º)
 └── 📄 README.md           # Documentação
 ```
@@ -88,7 +88,7 @@ sade/
 - **3 Disciplinas** principais (LP, MAT, CN)
 
 ### **Programas Educacionais**
-- **PROEA**: Avaliação das Aprendizagens dos Anos Finais
+- **P-II-2025**: Avaliação das Aprendizagens dos Anos Finais
 - **CNCA**: Compromisso Criança Alfabetizada
 
 ## 🚀 **Como Usar**
@@ -98,7 +98,7 @@ Visite: **[https://pauloheg33.github.io/sade/](https://pauloheg33.github.io/sade
 
 ### **2. Navegação**
 - **Dashboard**: Visão geral do sistema
-- **PROEA**: Clique para acessar dados dos anos finais  
+- **P-II-2025**: Clique para acessar dados dos anos finais  
 - **CNCA**: Clique para acessar dados dos anos iniciais
 - **Galeria**: Visualize todos os gráficos disponíveis
 

@@ -3,11 +3,11 @@
 ## 📄 Nova Funcionalidade: Download de Relatórios em PDF
 
 ### Descrição
-O SADE agora permite aos usuários baixar relatórios em PDF das imagens filtradas nas páginas PROEA e CNCA. Esta funcionalidade gera um documento PDF profissional contendo todas as imagens visíveis após aplicação dos filtros.
+O SADE agora permite aos usuários baixar relatórios em PDF das imagens filtradas nas páginas P-II-2025 e C-II-2025. Esta funcionalidade gera um documento PDF profissional contendo todas as imagens visíveis após aplicação dos filtros.
 
 ### Como Usar
 
-1. **Acesse a página PROEA ou CNCA**
+1. **Acesse a página P-II-2025 ou C-II-2025**
 2. **Aplique os filtros desejados** (ano, disciplina, escola, busca)
 3. **Clique no botão "Download PDF"** (botão verde com ícone de PDF)
 4. **Aguarde o processamento** (botão mostrará "Gerando PDF...")
@@ -16,7 +16,7 @@ O SADE agora permite aos usuários baixar relatórios em PDF das imagens filtrad
 ### Características do PDF Gerado
 
 #### Estrutura do Documento
-- **Cabeçalho**: Título do relatório com programa (PROEA/CNCA) e data
+- **Cabeçalho**: Título do relatório com programa (P-II-2025/C-II-2025) e data
 - **Filtros Aplicados**: Lista dos filtros ativos no momento da geração
 - **Imagens**: Todas as imagens visíveis com seus títulos
 - **Rodapé**: Informações de versão, página e data/hora de geração
@@ -33,7 +33,7 @@ O arquivo é salvo automaticamente com o formato:
 ```
 SADE_[PROGRAMA]_[DATA].pdf
 ```
-Exemplo: `SADE_PROEA_2024-01-15.pdf`
+Exemplo: `SADE_P-II-2025_2024-01-15.pdf`
 
 ### Funcionalidades Técnicas
 
