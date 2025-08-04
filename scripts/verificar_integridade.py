@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """
-Verifi    paginas_principais = [
-        "index.html",
-        "proea.html", 
-        "cnca.html"
-    ]de Integridade do SADE v0.2.0
+SADE v0.2.0 - Sistema de Avaliação e Desempenho Escolar
+Script de Verificação de Integridade
+
+Copyright (c) 2024-2025 Paulo Henrique
+Licensed under MIT License
+
 Testa se todas as rotas e arquivos estão funcionando corretamente
+Desenvolvido para Secretaria da Educação de Ararendá - CE
 """
 
 import os

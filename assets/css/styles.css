@@ -1,4 +1,15 @@
-/* SADE v4.1 - Custom Stylesheet */
+/*!
+ * SADE v0.2.0 - Sistema de Avaliação e Desempenho Escolar
+ * Custom Stylesheet
+ * 
+ * Copyright (c) 2024-2025 Paulo Henrique
+ * Licensed under MIT License
+ * 
+ * Desenvolvido para Secretaria da Educação de Ararendá - CE
+ * GitHub: https://github.com/pauloheg33/sade
+ * 
+ * Todos os direitos reservados.
+ */
 
 :root {
     --sade-primary: #2563eb;

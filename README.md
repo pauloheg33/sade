@@ -226,10 +226,35 @@ Modifique `assets/js/config.js` para:
 **Secretaria da Educação de Ararendá - CE**
 - Coordenadoria de Formação, Estatística e Avaliação
 
-## 📝 Licença
+## 📝 **Licença**
 
-Este projeto é propriedade da Secretaria da Educação de Ararendá - CE.
-Todos os direitos reservados.
+Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+**© 2024-2025 Paulo Henrique. Todos os direitos reservados.**
+
+### Resumo da Licença MIT:
+- ✅ **Uso comercial permitido**
+- ✅ **Modificação permitida** 
+- ✅ **Distribuição permitida**
+- ✅ **Uso privado permitido**
+- ⚠️ **Atribuição obrigatória** - Créditos ao autor devem ser mantidos
+
+## 🏆 **Créditos e Reconhecimentos**
+
+**Sistema SADE** desenvolvido integralmente por **Paulo Henrique** para a Secretaria da Educação de Ararendá - CE.
+
+### Tecnologias e Bibliotecas:
+- **Frontend**: HTML5, CSS3, JavaScript ES6+
+- **Framework**: Bootstrap 5.3.3
+- **Gráficos**: Chart.js
+- **Componentes**: Select2, Fancybox
+- **Ícones**: Font Awesome 6.5.2
+- **Hospedagem**: GitHub Pages
+
+### Contato do Desenvolvedor:
+- **Nome**: Paulo Henrique
+- **GitHub**: [@pauloheg33](https://github.com/pauloheg33)
+- **Repositório**: [github.com/pauloheg33/sade](https://github.com/pauloheg33/sade)
 
 ## 🔄 Changelog
 

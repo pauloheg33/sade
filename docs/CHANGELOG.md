@@ -1,5 +1,10 @@
 # CHANGELOG - SADE v0.2.0
 
+**© 2024-2025 Paulo Henrique. Todos os direitos reservados.**  
+*Sistema de Avaliação e Desempenho Escolar - Licenciado sob MIT License*
+
+---
+
 ## [0.2.0] - 2025-08-04
 
 ### 🗂️ REORGANIZAÇÃO ESTRUTURAL COMPLETA
