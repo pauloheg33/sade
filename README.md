@@ -10,7 +10,6 @@ O **SADE** (Sistema de Avaliação e Desempenho Escolar) é uma plataforma web m
 - **PROEA**: Avaliação das Aprendizagens dos Anos Finais (6º ao 9º ano)
 - **CNCA**: Compromisso Criança Alfabetizada (1º ao 5º ano)
 - **Ranking das Escolas**: Classificação por desempenho
-- **Matrizes de Referência**: Análise de correlação questões x habilidades
 - **Galeria de Gráficos**: Visualização completa de todos os dados
 
 ## 🗂️ Estrutura do Projeto (Reorganizada em 2025)
@@ -20,7 +19,6 @@ sade/
 ├── 📄 index.html                    # Dashboard principal
 ├── 📄 proea.html                    # PROEA - Anos Finais
 ├── 📄 cnca.html                     # CNCA - Anos Iniciais
-├── 📄 matrizes.html                 # Matrizes de Referência
 ├── 📄 ranking.html                  # Ranking das Escolas
 ├── 📁 assets/                       # Recursos organizados
 │   ├── css/
@@ -29,9 +27,7 @@ sade/
 │   │   ├── app-modern.js            # App principal
 │   │   ├── config.js                # Configurações
 │   │   ├── data-transform.js        # Transformação de dados
-│   │   ├── integrity-check.js       # Verificação de integridade
-│   │   ├── matriz-referencia-dados.js # Dados das matrizes
-│   │   └── verificar-matriz.js      # Verificação de matrizes
+│   │   └── integrity-check.js       # Verificação de integridade
 │   ├── data/
 │   │   └── sade_data.js             # Base de dados principal
 │   ├── images/
@@ -47,10 +43,8 @@ sade/
 │   ├── NAVEGACAO-INTEGRADA.md       # Guia de navegação
 │   └── outros arquivos .md
 ├── 📁 tests/                        # Arquivos de teste
-│   └── teste-final-matrizes.html
 ├── 📁 scripts/                      # Scripts auxiliares
 │   ├── process_data.py              # Processamento de dados
-│   ├── converter_matriz.py          # Conversão de matrizes
 │   └── outros scripts .py/.sh/.bat
 ├── 📁 ranking-static/               # Versão estática do ranking
 ├── 📁 An_lise_Gr_ficos_Desempenho_1_/ # Análise consolidada
@@ -149,12 +143,6 @@ O sistema está automaticamente disponível em:
 - Múltiplos gráficos por página
 - Cabeçalhos e metadados
 - Download direto
-
-### Matrizes de Referência
-- Upload de PDFs de provas
-- Análise automática de correlações
-- Gráficos de correlação interativos
-- Exportação de resultados
 
 ## 🔍 Análise de Desempenho
 

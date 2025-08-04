@@ -35,7 +35,6 @@ def main():
         "index.html",
         "proea.html", 
         "cnca.html",
-        "matrizes.html",
         "ranking.html"
     ]
     
