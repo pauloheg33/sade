@@ -1,0 +1,720 @@
+CICLO II - 9º MATEMÁTICA
+Variante A (Identificador: UDT891415)
+
+Nome e sobrenome
+Observação: Certifique-se de que o identificador na folha de respostas corresponda ao identificador na folha de teste.
+Marque as respostas corretas preenchendo inteiramente o círculo correspondente.
+Se você errar, preencha todo o quadrado da resposta incorreta e depois preencha o círculo da resposta correta.
+Exemplo: resposta marcada é B
+
+Exemplo: resposta marcada é D
+
+zona de varredura
+
+1
+
+A
+
+B
+
+C
+
+D
+
+21
+
+A
+
+B
+
+C
+
+D
+
+2
+
+A
+
+B
+
+C
+
+D
+
+22
+
+A
+
+B
+
+C
+
+D
+
+3
+
+A
+
+B
+
+C
+
+D
+
+23
+
+A
+
+B
+
+C
+
+D
+
+4
+
+A
+
+B
+
+C
+
+D
+
+24
+
+A
+
+B
+
+C
+
+D
+
+5
+
+A
+
+B
+
+C
+
+D
+
+25
+
+A
+
+B
+
+C
+
+D
+
+6
+
+A
+
+B
+
+C
+
+D
+
+26
+
+A
+
+B
+
+C
+
+D
+
+7
+
+A
+
+B
+
+C
+
+D
+
+8
+
+A
+
+B
+
+C
+
+D
+
+9
+
+A
+
+B
+
+C
+
+D
+
+10
+
+A
+
+B
+
+C
+
+D
+
+11
+
+A
+
+B
+
+C
+
+D
+
+12
+
+A
+
+B
+
+C
+
+D
+
+13
+
+A
+
+B
+
+C
+
+D
+
+14
+
+A
+
+B
+
+C
+
+D
+
+15
+
+A
+
+B
+
+C
+
+D
+
+16
+
+A
+
+B
+
+C
+
+D
+
+17
+
+A
+
+B
+
+C
+
+D
+
+18
+
+A
+
+B
+
+C
+
+D
+
+19
+
+A
+
+B
+
+C
+
+D
+
+20
+
+A
+
+B
+
+C
+
+D
+
+zona de varredura
+
+M0902
+
+Leia e observe as informações do quadro abaixo para responder às cinco questões a seguir.
+Observe, na figura abaixo, uma representação de Alice e alguns colegas em reunião, discutindo as
+estratégias que serão usadas na organização das atividades para a feira cultural da escola.
+
+(M00128238_CEN)
+
+01) (M00128243) Para orientar a organização dessa feira cultural, uma comissão com 3 professores será
+formada. Essa comissão será composta por 1 professor de matemática, 1 professor de ciências e
+1 de português. Para definir essa comissão, será feito um sorteio em que 8 professores podem ser
+sorteados para ocupar o cargo de professor de matemática, 7 podem ser sorteados para ocupar o cargo
+de professor de ciências e 6 professores podem ser sorteados para ocupar o cargo de professor de
+português.
+Quantas comissões diferentes, no máximo, podem ser formadas?
+A) 21.
+B) 56.
+C) 112.
+D) 336.
+02) (M00128242) Ao orientar os estudantes para as atividades dessa feira cultural, uma das professoras
+sugeriu que seja inserida uma rampa em todas as salas. Observe abaixo o esquema elaborado por essa
+professora para auxiliar na construção dessa rampa.
+P
+
+m
+
+75 c
+S
+
+R
+
+39 cm
+
+25 cm
+T
+
+Q
+
+60 cm
+X
+W T e PQR
+Nesse esquema, os ângulos R S
+possuem a mesma medida. Além disso, a medida do
+comprimento do segmento ST representa a medida de uma haste de sustentação.
+Qual é a medida, em centímetro, dessa haste de sustentação?
+
+A) 13 cm.
+B) 16 cm.
+C) 25 cm.
+D) 48 cm.
+
+1
+
+BL02M09
+
+M0902
+
+03) (M00128239) Para a organização dessa feira cultural, os estudantes foram separados em dois grupos.
+Os dois grupos juntos têm, no total, 20 membros. Cada membro do grupo de Alice, incluindo ela, convidou
+10 pessoas para visitar a feira cultural, enquanto cada membro do outro grupo convidou 15 pessoas.
+No total, 240 pessoas foram convidadas.
+Quantos membros possui o grupo de Alice?
+A) 6.
+B) 8.
+C) 10.
+D) 12.
+04) (M00128241) Alice e seus colegas organizaram uma apresentação para a feira cultural chamada “Vista
+Superior e Projeções no Plano”. Para isso, cada estudante vai propor um objeto e expor a representação
+de sua vista superior. Observe abaixo uma representação do primeiro objeto que será usado e a seta
+indicando sua vista superior.
+
+Qual é a vista superior desse objeto?
+A)
+
+B)
+
+C)
+
+D)
+
+05) (M00128238) Na feira cultural, haverá uma apresentação sobre a história das equações algébricas.
+Motivada pelo tema, Alice escreveu no quadro uma equação e solicitou aos colegas presentes na reunião
+que identificassem o seu conjunto solução. Observe, na figura abaixo, uma representação desse quadro
+com a equação proposta por Alice.
+
+Qual é o conjunto solução dessa equação?
+A) {2, 5}.
+B) {–9, 9}.
+C) {–7, 10}.
+D) {–5, –2}.
+2
+
+BL02M09
+
+M0902
+
+Leia e observe as informações do quadro abaixo para responder às cinco questões a seguir.
+Caroline possui uma loja especializada na venda e no reparo de aparelhos de ar-condicionado. Observe,
+na figura abaixo, uma representação de Caroline em sua loja, ao lado de um de seus funcionários.
+
+(M00128244_CEN)
+
+06) (M00128248) Observe, na figura abaixo, uma representação da logomarca circular da loja de Caroline
+que está presente em seu balcão, com a medida do seu diâmetro indicada em centímetro.
+Considere:
+=3
+
+30 cm
+
+Qual é a medida da área, em centímetro quadrado, da logomarca que está presente no balcão de Caroline?
+A) 90 cm2.
+B) 228 cm2.
+C) 675 cm2.
+D) 2 700 cm2.
+3
+
+BL03M09
+
+M0902
+
+07) (M00128244) A loja possui um quadro em que apresenta uma simulação do valor a ser pago pelo consumo
+de energia elétrica de um aparelho de ar-condicionado, de acordo com o seu tempo de funcionamento.
+Observe uma representação desse quadro abaixo.
+Horas
+
+Dias
+
+Valor a ser pago pelo consumo de energia elétrica
+
+8
+
+30
+
+R$ 80,00
+
+Mantendo a proporcionalidade entre os dados desse quadro, um cliente solicitou à Caroline que fosse
+feita uma simulação do valor que ele pagaria pelo consumo de energia desse mesmo modelo de aparelho
+de ar-condicionado, considerando seu funcionamento por 6 horas, durante 25 dias.
+Nessa simulação, qual é o valor a ser pago pelo consumo de energia do aparelho de ar-condicionado?
+A) R$ 50,00.
+B) R$ 60,00.
+C) R$ 75,00.
+D) R$ 78,00.
+08) (M00128245) Caroline fez uma promoção em que, a cada R$ 3 000,00 em compras, o cliente ganha um
+cupom para participar de um sorteio e o deposita em uma urna. Cada cupom é formado por três partes, e
+cada parte informa uma característica do aparelho de ar‑condicionado a ser sorteado. Observe abaixo a
+representação de um desses cupons.
+
+A urna possui todos os cupons distintos que podem ser produzidos com 4 modelos de aparelhos de
+ar‑condicionado, 3 cores e 2 tipos de potências. Nessa urna não há cupons repetidos.
+Qual é a probabilidade de um cliente que participa dessa promoção com somente um cupom ser sorteado?
+A) 1 .
+24
+B) 1 .
+10
+C) 3 .
+24
+D) 1 .
+3
+
+4
+
+BL03M09
+
+M0902
+
+09) (M00128249) Para instalar um dos aparelhos de ar-condicionado que Caroline vende em sua loja, é
+usado um tipo de suporte que possui o formato triangular. Observe abaixo uma representação feita por
+Caroline de dois desses suportes representados pelo Triângulo I e pelo Triângulo II.
+24 cm
+
+P
+
+S
+
+U
+
+R
+
+30 cm
+
+40 cm
+
+
+
+
+
+Q
+T
+Triângulo I
+
+Triângulo II
+
+Nessa representação feita por Caroline, ela se esqueceu de indicar a medida do lado SU do suporte
+representado pelo Triângulo II.
+Essa medida que Caroline se esqueceu de indicar é igual a
+A) 30 cm.
+B) 32 cm.
+C) 34 cm.
+D) 50 cm.
+10) (M00128247) Durante uma instalação, o funcionário da loja de Caroline precisou fazer um reparo em
+um tubo de cobre, colando uma fita no contorno de uma de suas extremidades com formato circular.
+Observe, na figura abaixo, uma representação dessa extremidade, em que a medida de seu diâmetro é
+apresentada em milímetro.
+Considere:
+=3
+
+6,2 mm
+
+Quantos milímetros de fita, no mínimo, esse funcionário de Caroline utilizou para fazer esse reparo?
+A) 57,6 mm.
+B) 37,2 mm.
+C) 29,8 mm.
+D) 18,6 mm.
+5
+
+BL03M09
+
+M0902
+
+Leia e observe as informações do quadro abaixo para responder às cinco questões a seguir.
+Observe, na figura abaixo, uma representação de um canteiro de obras em que está sendo construído um
+prédio. Nesse canteiro, estão apresentados alguns funcionários desempenhando suas funções de trabalho.
+
+(M00128250_CEN)
+
+11) (M00128252) Um dos engenheiros que trabalha nessa construção comunicou ao mestre de obras que
+uma região desse terreno não pode ser usada no projeto porque apresenta um tipo de solo inadequado.
+Para calcular a medida dos lados dessa região, o engenheiro identificou o conjunto solução da equação
+de 2º grau apresentada no quadro abaixo.
+x2 – 12x + 32 = 0
+Qual é o conjunto solução dessa equação?
+A) {4, 8}.
+B) {4, 16}.
+C) {12, 32}.
+D) {70, 74}.
+12) (M00128250) Um dos funcionários que participou do planejamento dessa construção é o mestre de obras.
+Inicialmente, ele estimou que a obra seria finalizada em um prazo total de 300 dias. Devido a problemas
+climáticos, a quantidade de dias para a finalização dessa obra foi atualizada para um prazo 20% maior
+do que o da estimativa inicial.
+Após essa atualização, a quantidade de dias para a finalização da obra passou a ser de
+A) 306.
+B) 315.
+C) 320.
+D) 360.
+6
+
+BL04M09
+
+M0902
+
+13) (M00128251) Em determinado dia, um dos funcionários precisou encomendar alguns pacotes com 20 kg
+de areia e alguns pacotes com 50 kg de cimento. A encomenda de areia e de cimento, juntos, totalizou
+600 kg. Esse funcionário verificou que o preço de cada pacote de areia era igual a R$ 5,00, enquanto cada
+pacote de cimento era igual a R$ 40,00. O custo total dessa encomenda foi de R$ 370,00.
+Nesse dia, quantos pacotes de cimento foram encomendados por esse funcionário?
+A) 8.
+B) 9.
+C) 10.
+D) 12.
+14) (M00128253) Uma das ferramentas que está sendo usada na obra é a betoneira. Ela pode ser representada
+pelo sólido geométrico apresentado na figura abaixo, em que sua vista superior está indicada.
+
+A vista superior desse sólido geométrico está representada em
+A)
+
+B)
+
+C)
+
+D)
+
+15) (M00128254) A equipe responsável pela pintura dos apartamentos do primeiro andar e do último andar
+era formada, inicialmente, por 8 membros. Trabalhando em um mesmo ritmo, eles conseguiram terminar
+a pintura dos 12 apartamentos do primeiro andar em 9 dias. Para terminar a pintura dos 10 apartamentos
+do último andar do prédio, que são iguais aos do primeiro andar, eles terão somente 6 dias. Com isso, o
+mestre de obras decidiu alterar a quantidade de membros e pediu que todos trabalhem no mesmo ritmo
+usado na pintura dos apartamentos do primeiro andar.
+Nessas condições, de quantos membros essa equipe precisa para terminar a pintura dos 10 apartamentos
+do último andar em 6 dias?
+A) 10.
+B) 11.
+C) 12.
+D) 13.
+7
+
+BL04M09
+
+M0902
+
+16) (M016827) Observe a reta numérica abaixo, que está dividida em partes iguais.
+R
+–180
+
+–80
+
+Qual é o número que o ponto R representa nessa reta?
+A) –155.
+B) –160.
+C) –179.
+D) –200.
+17) (M00128393) Observe a equação polinomial apresentada no quadro abaixo.
+–3x + 1 = 0
+Qual é o conjunto solução dessa equação?
+A) ! - 2 + .
+1
+B) & - 0 .
+3
+1
+C) & 0 .
+3
+D) ! 2 + .
+18) (M00034028) Observe, na figura abaixo, as retas paralelas r e s cortadas pela transversal t com alguns
+ângulos destacados.
+
+t
+α
+r
+s
+127°
+
+Nessa figura, qual é a medida, em grau, do ângulo indicado por α?
+A) 37°.
+B) 53°.
+C) 127°.
+D) 233°.
+
+8
+
+BL06M09
+
+M0902
+
+19) (M00128399) Observe, no quadro abaixo, as pontuações de Daiane em 5 avaliações distintas em uma
+disciplina de Matemática que ela cursou na faculdade.
+46, 88, 58, 44, 44
+Qual foi a pontuação média de Daiane nessas avaliações?
+A) 66.
+B) 59.
+C) 56.
+D) 46.
+20) (M00128395) Bruna vai fazer uma horta em seu quintal. Observe, na figura abaixo, uma representação
+da região em que será feita a horta com algumas medidas indicadas.
+
+5m
+3m
+
+4m
+
+4m
+
+4m
+
+Ela irá inserir uma cerca em todo o contorno da região destinada à horta.
+Quantos metros de cerca, no mínimo, Bruna vai precisar para cercar toda essa região?
+A) 20 m.
+B) 28 m.
+C) 32 m.
+D) 38 m.
+
+9
+
+BL06M09
+
+M0902
+
+21) (M00128312) No cardápio de uma pizzaria, há 24 opções de sabores de pizza e 3 opções de tamanho.
+Caroline vai encomendar uma pizza e, por isso, precisa escolher 1 opção de sabor e 1 opção de tamanho.
+Quantos tipos diferentes de pizza, no máximo, Caroline pode escolher?
+A) 2.
+B) 8.
+C) 27.
+D) 72.
+22) (M00128373) Observe a equação polinomial apresentada no quadro abaixo.
+2x2 + 4x – 30 = 0
+Qual é o conjunto solução dessa equação?
+A) S = {–10, 6}.
+B) S = {–5, 3}.
+C) S = {2, 4}.
+D) S = {15, 26}.
+23) (M00128381) Marcelo desenvolveu um aplicativo para realizar o cálculo de ângulos internos de
+quadriláteros. Ele decidiu testar seu aplicativo utilizando o quadrilátero PQRS, que está inscrito em uma
+circunferência de centro O, com as linhas tracejadas ligando os vértices Q e S ao centro da circunferência.
+Observe a representação desse quadrilátero abaixo.
+P
+
+O
+116°
+Q
+S
+
+R
+
+Qual é a medida, em grau, do ângulo interno
+A) 58°.
+B) 64°.
+C) 232°.
+D) 244°.
+
+desse quadrilátero?
+
+24) (M017822) O preço do ingresso de um parque de diversões custava 80 reais. O preço desse ingresso
+aumentou em 30% sobre o valor inicial.
+Qual foi o aumento, em reais, no preço do ingresso desse parque de diversões?
+A) 240 reais.
+B) 104 reais.
+C) 30 reais.
+D) 24 reais.
+10
+
+BL08M09
+
+M0902
+
+25) (M00128384) Jorge realizou uma pesquisa sobre uma tuneladora, que é uma máquina em formato
+cilíndrico de base circular utilizada na construção dos túneis de metrô. Observe, na figura abaixo, o
+esboço que ele fez de uma das extremidades dessa máquina com a medida do seu diâmetro.
+Considere:
+=3
+
+16 m
+
+Jorge identificou que essa máquina possui uma fita colorida contornando toda a sua extremidade.
+Quantos metros de fita colorida, no mínimo, foram utilizados para contornar a extremidade dessa máquina?
+A) 48 m.
+B) 96 m.
+C) 192 m.
+D) 384 m.
+26) (M00128376) Observe o sólido geométrico representado abaixo.
+Vista superior
+
+Qual é a vista superior desse sólido?
+A)
+
+B)
+
+C)
+
+D)
+
+11
+
+BL08M09
+
+

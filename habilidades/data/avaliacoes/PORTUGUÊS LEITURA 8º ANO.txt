@@ -1,0 +1,798 @@
+CICLO II - 8º PORTUGUÊS - LEITURA
+Variante A (Identificador: FNM742567)
+
+Nome e sobrenome
+Observação: Certifique-se de que o identificador na folha de respostas corresponda ao identificador na folha de teste.
+Marque as respostas corretas preenchendo inteiramente o círculo correspondente.
+Se você errar, preencha todo o quadrado da resposta incorreta e depois preencha o círculo da resposta correta.
+Exemplo: resposta marcada é B
+
+Exemplo: resposta marcada é D
+
+zona de varredura
+
+1
+
+A
+
+B
+
+C
+
+D
+
+21
+
+A
+
+B
+
+C
+
+D
+
+2
+
+A
+
+B
+
+C
+
+D
+
+22
+
+A
+
+B
+
+C
+
+D
+
+3
+
+A
+
+B
+
+C
+
+D
+
+23
+
+A
+
+B
+
+C
+
+D
+
+4
+
+A
+
+B
+
+C
+
+D
+
+24
+
+A
+
+B
+
+C
+
+D
+
+5
+
+A
+
+B
+
+C
+
+D
+
+25
+
+A
+
+B
+
+C
+
+D
+
+6
+
+A
+
+B
+
+C
+
+D
+
+26
+
+A
+
+B
+
+C
+
+D
+
+7
+
+A
+
+B
+
+C
+
+D
+
+8
+
+A
+
+B
+
+C
+
+D
+
+9
+
+A
+
+B
+
+C
+
+D
+
+10
+
+A
+
+B
+
+C
+
+D
+
+11
+
+A
+
+B
+
+C
+
+D
+
+12
+
+A
+
+B
+
+C
+
+D
+
+13
+
+A
+
+B
+
+C
+
+D
+
+14
+
+A
+
+B
+
+C
+
+D
+
+15
+
+A
+
+B
+
+C
+
+D
+
+16
+
+A
+
+B
+
+C
+
+D
+
+17
+
+A
+
+B
+
+C
+
+D
+
+18
+
+A
+
+B
+
+C
+
+D
+
+19
+
+A
+
+B
+
+C
+
+D
+
+20
+
+A
+
+B
+
+C
+
+D
+
+zona de varredura
+
+P0802
+
+Leia o texto abaixo.
+Em tempos de comunicação digital, as amizades verdadeiras fortalecem afetos
+Em tempos em que a conectividade digital se tornou parte essencial de nossas vidas, a amizade
+ganhou novos contornos. A internet e as redes sociais facilitaram o encontro de pessoas que
+compartilham interesses em comum, rompendo barreiras geográficas e aproximando indivíduos de
+diferentes culturas. No entanto, é crucial lembrar que a verdadeira amizade vai além do mundo virtual.
+Ela se sustenta no apoio mútuo, na empatia e na presença física, ainda que virtualmente viabilizada. [...]
+Segundo o psicólogo Jeffersson Sales, ter amigos de verdade é um suporte emocional eficaz. [...]
+O Dia do Amigo é celebrado de diversas maneiras ao redor do globo. Em alguns lugares, é comum a
+troca de presentes, cartas e mensagens de carinho. Outros preferem organizar encontros para desfrutar
+da companhia dos amigos. A troca de experiências e histórias vividas [...] também é uma prática
+comum nessa data, relembrando momentos marcantes que os tornaram amigos para sempre. [...]
+“Neste Dia do Amigo, é importante refletir sobre a qualidade das amizades em nossas vidas.
+Amigos verdadeiros nos apoiam, celebram nossas conquistas e nos ajudam a enfrentar desafios.
+Eles estão ao nosso lado, independentemente das circunstâncias, demonstrando lealdade e
+compreensão. É fundamental reconhecer que a amizade não é apenas uma relação que traz
+benefícios pessoais, mas também implica responsabilidades e cuidados mútuos. A base de
+qualquer amizade sólida é a reciprocidade e a sinceridade”, defende Jeffersson.
+O Dia do Amigo é um convite para valorizar as pessoas especiais de nossas vidas. “Se eu
+pudesse dar uma dica, diria que podemos aproveitar para nos reconectar com velhos amigos e
+fazer novas amizades, pois nunca é tarde para conhecer alguém especial que possa transformar
+sua vida de forma positiva”, orienta o psicólogo.
+VERAS, Lara. Em tempos de comunicação digital, as amizades verdadeiras fortalecem afetos. O Otimista, 20 jul. 2023. Disponível em:
+https://meulink.fit/VeMDPWJMbCgyiXC. Acesso em: 11 mar. 2025. Fragmento. (P00127344_SUP)
+
+01) (P00127347) De acordo com esse texto, o Dia do Amigo é comemorado
+A) em livros de história.
+B) em vários lugares do mundo.
+C) nos consultórios de psicólogos.
+D) nos convites para festas.
+02) (P00127346) O assunto desse texto é
+A) a celebração de uma data comemorativa.
+B) a comemoração de um encontro entre amigos.
+C) a orientação de um psicólogo sobre um tema.
+D) a valorização da amizade nos dias atuais.
+03) (P00127348) Nesse texto, no trecho “‘... pois nunca é tarde para conhecer alguém...’” (5º parágrafo), o
+termo destacado estabelece uma relação de
+A) concessão.
+B) condição.
+C) explicação.
+D) finalidade.
+
+1
+
+BL02P08
+
+P0802
+
+Leia o texto abaixo.
+Amigos Imaginários celebra criatividade com espetáculo universal [...]
+O ditado “não julgue um livro pela capa” é sábio, mas costuma ser deixado de lado no momento
+em que o espectador precisa escolher algo para assistir. Afinal de contas, cartazes, trailers e
+afins geralmente são os responsáveis por despertar ou afastar o interesse do público. Com isso,
+Amigos Imaginários é um curioso projeto que proporciona exatamente o que promete [...].
+O filme acompanha Bea (Cailey Fleming), uma jovem que passa por um momento complicado
+que a leva de volta à casa da avó (Fiona Shaw). Tudo muda quando ela passa a ver amigos
+imaginários [...] que perderam contato com as crianças que os criaram. Ela então parte em uma
+jornada para ajudar essas criaturas junto a Cal (Ryan Reynolds), um vizinho que também os
+enxerga.
+O conceito de “amigo imaginário” é tão amplo e universal que, a essa altura, o público já tem uma
+bagagem sobre ele, adquirida com vivência pessoal e em várias outras obras. Esse conhecimento
+não escapa ao filme, que inclusive incorpora e celebra alguns de seus predecessores no tema,
+direcionando esforços para tornar a experiência marcante, mesmo que não seja revolucionária.
+[...]
+Como todo “filme família”, Amigos Imaginários conta uma história que fala diretamente a
+crianças e adultos. Ao primeiro grupo, a produção oferece uma aventura fantástica, cheia de
+personagens coloridos, e um alerta sobre a importância da infância. Afinal de contas, todas as
+gerações passam pelo mesmo processo de querer crescer o mais rápido possível, abandonando
+“coisas de criança” por vergonha – um processo que parece acelerado no momento em que telas
+hipnotizam e se tornam companheiras para todas as horas.
+AVILA, Gabriel. Amigos Imaginários celebra criatividade com espetáculo universal [...]. Jovem Nerd, 2024. Disponível em:
+https://meulink.fit/PyIFhWYxryxUBfO. Acesso em: 12 mar. 2025. Adaptado para fins didáticos. Fragmento. (P00127353_SUP)
+
+04) (P00127353) Qual é o objetivo desse texto?
+A) Apresentar uma opinião.
+B) Narrar uma história.
+C) Noticiar um fato.
+D) Vender um produto.
+05) (P00127354) Nesse texto, há uma opinião no trecho:
+A) “O filme acompanha Bea (Cailey Fleming), uma jovem...”. (2º parágrafo)
+B) “Ela então parte em uma jornada para ajudar essas criaturas junto a Cal (Ryan Reynolds),...”. (2º parágrafo)
+C) “Ao primeiro grupo, a produção oferece uma aventura fantástica,...”. (4º parágrafo)
+D) “Afinal de contas, todas as gerações passam pelo mesmo processo de querer crescer o mais rápido
+possível...”. (4º parágrafo)
+
+2
+
+BL02P08
+
+P0802
+
+Leia o texto abaixo.
+As verdadeiras amizades nascem na escola
+Nem me lembro de quando a vi pela primeira vez, mas sei enumerar com muitos detalhes,
+ao menos cem ocasiões em que compartilhamos sorrisos, abraços, lágrimas e brincadeiras. Sei
+dizer em quais momentos da minha vida fragmentada precisei correr para um colo e era o dela
+que me aguardava, sólido e caótico como só pode ser mesmo o colo da amizade.
+Foi entre os cadernos e lápis de cor que eu e ela estabelecemos um pacto silencioso que dura
+até hoje. Estaríamos juntas, ainda que a milhares de quilômetros de distância, ainda que não
+nos encontrássemos por meses ou anos a fio, ainda que nem nos falássemos e acabássemos
+trocando apenas piadas pela internet na maioria dos dias. Porque assim são as amizades que
+nascem nos bons anos da infância. Elas permanecem ali, ao seu lado, mesmo que a velocidade
+da vida cotidiana sufoque os contatos frequentes e profundos. [...]
+É na escola que nascem essas amizades, na maioria das vezes. Há algo no ambiente escolar,
+uma magia que corre entre as carteiras de madeira e os corredores cobertos de cartazes com
+letras, números e trabalhos feitos por crianças de todas as idades, algo que permite o nascer e
+crescer de conexões humanas e sociais muito superiores a qualquer outra que se conquiste na
+vida adulta. [...]
+Encontramos muitos amigos depois disso, é claro. Alguns nos acompanham pelo resto da vida,
+enquanto outros se limitam a algumas fases ou períodos. Há aqueles que fazemos na faculdade,
+no trabalho, na aula de pilates. E sua lealdade é, por vezes, muito verdadeira e duradoura.
+Nenhum deles, no entanto, tem o frescor daqueles que conhecemos na escola, quando tínhamos
+ainda tudo a descobrir, e que nos acompanharam em muitas dessas descobertas.
+É com eles que aprendemos a resolver aquelas contas matemáticas que pareciam impossíveis
+em um primeiro momento, mas também a resolver os pequenos nós da existência, que se tornam
+mais e mais apertados conforme crescemos. É com a companhia deles que conseguimos absorver
+um pequeno universo de palavras, expressões e frases que se tornam úteis [...].
+Essa é a beleza das amizades que os muitos anos letivos nos dão. Elas nos permitem florescer
+quando ainda não passamos de pequenas sementes de ideias e personalidades.
+SPRADA, Tatiane. As verdadeiras amizades nascem na escola. Gazeta do Povo, 16 set. 2023. Disponível em:
+https://meulink.fit/dhprFNjDhAliBKw. Acesso 23 março 2025. Fragmento. (P00127208_SUP)
+
+06) (P00127211) Nesse texto, o trecho que apresenta uma opinião é:
+A) “... era o dela que me aguardava, sólido e caótico...“. (1º parágrafo)
+B) “... ainda que a milhares de quilômetros de distância,...”. (2º parágrafo)
+C) “... nos acompanham pelo resto da vida,...”. (4º parágrafo)
+D) “... aprendemos a resolver aquelas contas...”. (5º parágrafo)
+07) (P00127209) Qual é a ideia defendida pela autora desse texto?
+A) É com os amigos que aprendemos matemática.
+B) É difícil arranjar tempo para encontrar os amigos.
+C) É na escola que nascem as verdadeiras amizades.
+D) É na faculdade que fazemos a maioria dos amigos.
+08) (P00127208) A finalidade desse texto é
+A) defender uma opinião.
+B) divulgar um serviço.
+C) narrar uma história.
+D) vender um produto.
+3
+
+BL03P08
+
+P0802
+
+Leia o texto abaixo.
+Faça uma lista de grandes amigos…
+Sábado foi um grande dia. O motivo? Reencontrei um amigo do peito. Um cara que considero
+pacas, com quem vivi inúmeros momentos memoráveis.
+Passamos bons anos grudados, juntos para cima e para baixo, até que ele se mudou para
+Curitiba e, aos poucos – ano a ano –, fomos nos afastando. E sabe o pior? Não lutamos contra
+as variáveis que aumentaram a distância entre nós. [...]
+Agora, olhando para trás, fica fácil dizer o que poderíamos ter feito. Mas [...] não fizemos o
+bastante. Apesar da consideração e carinho que sempre tivemos um pelo outro, deixamos que
+nossas histórias corressem de maneira praticamente paralela [...].
+E sabe o mais bizarro? Eu nunca deixei de citá‑lo quando me perguntavam sobre meus
+verdadeiros amigos. Mesmo na época em que eu não o via há mais de cinco anos. Minha
+namorada, certa vez, até estranhou quando eu o coloquei no seletíssimo time dos meus melhores
+amigos. Ela me perguntou: “Ele está entre seus melhores amigos e você nunca sai com ele?”.
+Deve, inclusive, ter desconfiado da minha sanidade, achado que eu possuía um amigo imaginário
+ou alguma maluquice do tipo. Só que não! A prova: ontem, após [...] muito papo com ele, eu
+descobri que nossa amizade é real. Ou melhor: notei que ela continua real.
+Não sei se já passou por algo assim, mas revê‑lo me deu a sensação de que as coisas,
+apesar dos pesares, não mudaram. Foi como se estivéssemos continuando do exato ponto em
+que paramos de nos procurar. Apesar dos jeitos que não demos e das desculpas esfarrapadas
+que arrumamos, acredite: o sentimento de amizade e respeito que nos uniu um pouco depois do
+início deste século não morreu. Manteve‑se pulsando, firme e forte, independente da nossa falta
+de atitude e excesso de preguiça. E assim, acredito, são as amizades verdadeiras. Saca? Elas
+simplesmente sobrevivem [...].
+COIRO, Ricardo. Faça uma lista de grandes amigos... Ricardo Coiro, 2020. Disponível em: https://meulink.fit/oPzodVyjGCVsVxw.
+Acesso em: 12 mar. 2025. Fragmento. (P00127350_SUP)
+
+09) (P00127351) O fato que dá origem a essa história é
+A) a mudança do amigo do autor para outra cidade.
+B) a namorada estranhar que o autor não sai com o amigo.
+C) o afastamento dos personagens no decorrer dos anos.
+D) o reencontro de dois amigos após anos sem se verem.
+10) (P00127352) No último parágrafo desse texto, o termo “deste” refere‑se à palavra
+A) início.
+B) ponto.
+C) século.
+D) sentimento.
+
+4
+
+BL03P08
+
+P0802
+
+Leia o texto abaixo.
+O vento e a lua
+[...] Era uma vez um leão e um tigre que moravam numa floresta muito tranquila, sem lojas,
+sem poluição e sem consumo. Eles já se conheciam há muito tempo, desde que eram filhotes.
+Como eram muito amigos, não sabiam bem a diferença entre leões e tigres, então cultivaram
+esta amizade. Mas um dia, o leão e o tigre discutiram.
+O tigre disse:
+– Todo mundo sabe que o frio chega quando a Lua Cheia se transforma em Lua Nova!
+E o leão disse:
+– [...] Todo mundo sabe que o frio chega quando a Lua Nova se transforma em Lua Cheia!
+O leão e o tigre continuaram a lutar. Como não sabiam quem estava certo, [...] foram perguntar
+[...] a um monge muito sábio e gentil que morava na floresta.
+O leão e o tigre cumprimentaram o monge e perguntaram quando é que o frio chega.
+O monge pensou e então respondeu:
+– Pode fazer frio em qualquer fase da Lua, desde a Lua Nova até a Lua Cheia.
+É o vento que traz o frio do norte, do sul, do leste ou do oeste.
+Então vocês dois estão certos! E nenhum de vocês foi derrotado pelo outro.
+A coisa mais importante é viverem sem lutar e sem querer ter razão.
+O leão e o tigre agradeceram ao sábio monge. Eles ficaram felizes porque continuaram a
+ser amigos.
+O tempo vem e vai, mas a amizade permanece.
+O VENTO e a lua. Mensagens com amor. Disponível em: https://meulink.fit/lOSFQZjPCYBIxJn. Acesso em: 15 mar. 2025.
+Adaptado para fins didáticos. Fragmento. (P00127196_SUP)
+
+11) (P00127197) Nesse texto, no trecho “... o frio do norte, do sul, do leste ou do oeste.” (11º parágrafo), a
+palavra destacada foi usada para
+A) apontar alternância.
+B) indicar adição.
+C) marcar conclusão.
+D) mostrar comparação.
+12) (P00127198) O desfecho desse texto ocorre quando o tigre e o leão
+A) cumprimentam o monge ao encontrá‑lo.
+B) discutem sobre quando o frio chega.
+C) ficam felizes por continuarem a ser amigos.
+D) saem para procurar o monge em busca de respostas.
+13) (P00127201) Entende‑se desse texto que
+A) a amizade deve ser preservada.
+B) é necessário conhecer as fases da lua.
+C) é necessário saber a direção do vento.
+D) o frio na floresta é muito intenso.
+14) (P00127200) Nesse texto, o trecho que apresenta uma opinião é:
+A) “Era uma vez um leão e um tigre...”. (1º parágrafo)
+B) “O leão e o tigre continuaram a lutar.”. (7º parágrafo)
+C) “O monge pensou e então respondeu:...”. (9º parágrafo)
+D) “Então vocês dois estão certos!”. (12º parágrafo)
+5
+
+BL04P08
+
+P0802
+
+Leia o texto abaixo.
+Amizade
+A amizade, em sua essência, é um dos pilares mais sólidos para a construção de uma vida
+emocionalmente equilibrada e mentalmente saudável. Mais do que uma simples conexão entre
+indivíduos, a verdadeira amizade é um espaço de aprendizado mútuo, onde as diferenças
+são celebradas, as limitações são compreendidas e os pontos fortes são potencializados. A
+convivência coletiva com pessoas diferentes ensina, a cada um, que todos nós temos fragilidades
+e potencialidades, e que só unidos podemos superar os desafios da vida.
+Nesse sentido, a amizade se revela como uma força transformadora, capaz de nos ensinar a
+arte da escuta atenta, da empatia e da colaboração, elementos essenciais para a prosperidade
+humana. Em resumo, a amizade genuína permite que, juntos, possamos superar os desafios da
+vida, construindo relações pautadas na “escutatória” e na valorização do outro. [...].
+Os amigos desejam que cada um se desenvolva à sua maneira, tornando‑se protagonistas de
+sua própria história. Os verdadeiros amigos não querem moldar ou dominar uns aos outros, mas
+sim encorajar a autenticidade e apoiar o crescimento mútuo. Essa liberdade é fundamental para a
+sanidade mental, pois nos permite crescer sem medo de julgamentos ou cobranças excessivas. [...]
+Celebrar as conquistas dos amigos, por exemplo, é um exercício de generosidade que nos
+lembra que a verdadeira prosperidade não está nos bens materiais, mas na riqueza dos afetos que
+cultivamos. A paz interior e a sensação de pertencimento são frutos dessa rede de apoio, que nos
+sustenta nos momentos de dificuldade e nos alegra nas horas de felicidade. Ou seja, a amizade
+também desempenha um papel fundamental na superação das dificuldades cotidianas. Ao
+conviver com diferenças, aprendemos a rir de nossos próprios desafios, a celebrar as conquistas
+dos amigos e a compreender que a prosperidade real não se mede pelos bens materiais, mas
+sim pela rede de afetos que nos sustenta. A verdadeira prosperidade reside na paz e na amizade,
+elementos que nos fortalecem e nos tornam mais resilientes. [...]
+Cultivar a amizade é, acima de tudo, um ato de amor pela vida e por nós mesmos.
+NAVES, André. Amizade. Gazeta digital, 2025. Disponível em: https://meulink.fit/nuBKBiwXaZKsXTq.
+Acesso em: 22 mar. 2025. Fragmento. (P00127202_SUP)
+
+15) (P00127204) A tese desse texto está no trecho:
+A) “A amizade, em sua essência, é um dos pilares mais sólidos para a construção de uma vida
+emocionalmente equilibrada e mentalmente saudável.”. (1º parágrafo)
+B) “Essa liberdade é fundamental para a sanidade mental, pois nos permite crescer sem medo de
+julgamentos ou cobranças...”. (3º parágrafo)
+C) “A paz interior e a sensação de pertencimento são frutos dessa rede de apoio, que nos sustenta nos
+momentos de dificuldade...”. (4º parágrafo)
+D) “A verdadeira prosperidade reside na paz e na amizade, elementos que nos fortalecem e nos tornam
+mais resilientes.”. (4º parágrafo)
+
+6
+
+BL04P08
+
+P0802
+
+Leia o texto abaixo.
+A sinfonia da dona cutia
+Dona cutia acordou agitada naquele dia.
+Estava disposta a acabar com a calmaria.
+Queria mudar a rotina entediada da floresta.
+Então, decidiu convidar a bicharada para uma festa.
+A ideia se espalhava e logo repercutia1.
+A festa da dona cutia seria uma grande sinfonia.
+Não se falava outra coisa, aquele era o assunto principal.
+Algazarra, por ali, nunca se viu igual.
+Na festa, cada bicho mostraria seu talento.
+Para isso, cada um levaria seu instrumento. [...]
+A saracura se encarregou da partitura.
+O mico‑leão entoou seu violão.
+O tatu‑bola dedilhou sua viola.
+O tamanduá‑mirim batucou seu tamborim.
+Quando o espetáculo terminou, a plateia se alvoroçou.
+O jacaré saudava a orquestra de pé.
+O muriqui não parava de aplaudir.
+A onça‑pintada estava muito impressionada. [...]
+O lagarto teiú aclamava com a surucucu.
+A suçuarana tietava2 com a iguana.
+E dona cutia, exultante de alegria,
+levantou do seu lugar para a orquestra cumprimentar.
+*Vocabulário:
+1
+repercutia: reproduziu, se espalhou.
+2
+tietava: agia como fã.
+BRITO, Frederico Martins. A sinfonia da dona cutia. Seduc CE. Disponível em: https://meulink.fit/nvfkuJcKmcskBID. Acesso em:
+14 mar. 2025. Fragmento. (P00127618_SUP)
+
+16) (P00127618) O que dá origem a essa história é
+A) a dona cutia convidar a bicharada para a festa.
+B) a onça‑pintada ficar impressionada.
+C) a plateia ficar alvoraçada com o fim do espetáculo.
+D) a suçuarana admirar a iguana.
+17) (P00127619) Esse texto é
+A) um diário.
+B) um poema narrativo.
+C) uma carta de leitor.
+D) uma notícia.
+18) (P00127620) Na última estrofe desse texto, no verso “levantou do seu lugar para a orquestra cumprimentar.”,
+a palavra destacada foi utilizada para
+A) apontar causa.
+B) indicar condição.
+C) marcar finalidade.
+D) mostrar tempo.
+BL06P08
+7
+
+P0802
+
+Leia o texto abaixo.
+Eles criaram pastel em formato de capivara, faturam R$ 1 milhão por ano e abriram
+franquia
+[...] Uma pastelaria de Curitiba (PR) resolveu homenagear a capivara, que é mascote da
+cidade, criando pastéis no formato do roedor. O pastel virou o maior sucesso deles e ajudou a
+loja a faturar mais de R$ 1 milhão no ano passado. E agora estão expandindo o negócio [...].
+O “capistel”, como foi batizado, tem o formato de capivara [...]. O recheio é tradicional como
+carne, queijo e outros sabores disponíveis na pastelaria. O pastel se tornou até um atrativo
+turístico e agora representa 70% das vendas [...].
+A capivara é considerada o maior roedor do mundo e se tornou a mascote de Curitiba após
+virar meme nas redes sociais. Desde então, alguns comerciantes locais adotaram o animal em
+seus produtos.
+A ideia de criar o capistel não foi original dos amigos Alysson Wiinsch, 39 anos, e Robson
+Pawlak, 43 anos [...]. “Já existia, mas não era tão conhecido assim”, afirma Pawlak.
+Após lançarem a versão diferenciada do pastel durante o aniversário de Curitiba em março de
+2023, o produto se tornou um sucesso.
+ELES criaram pastel em formato de capivara, faturam R$ 1 milhão por ano e abriram franquia. Estadão, 11 ago. 2024. Disponível em:
+https://meulink.fit/hnoHKehBPaGraJH. Acesso em: 14 mar. 2025. Adaptado para fins didáticos. Fragmento. (P00127617_SUP)
+
+19) (P00127617) Qual é o assunto desse texto?
+A) A criação de um pastel no formato de capivara em Curitiba.
+B) As pastelarias que mais vendem pastéis em Curitiba.
+C) O lucro obtido com a venda de pastéis em Curitiba.
+D) Os sabores de pastel mais pedidos nas pastelarias de Curitiba.
+20) (P00127687) No segundo parágrafo desse texto, as aspas foram utilizadas para
+A) acrescentar uma informação.
+B) apresentar uma palavra inventada.
+C) destacar uma palavra estrangeira.
+D) indicar uma expressão popular.
+
+8
+
+BL06P08
+
+P0802
+
+Leia o texto abaixo.
+Entrevista: Conversamos com a banda Melim sobre seu álbum de estreia, influências e
+aquela coisa de serem irmãos em uma banda
+[...] Catapultados para a fama durante sua participação no programa Superstar, a banda Melim,
+composta pelos irmãos Rodrigo e Diogo, gêmeos, e a caçula Gabriela, já escrevia sucessos para
+outros grandes artistas da música brasileira, como Ivete Sangalo e Luan Santana.
+Vocês já têm uma base de fãs muito grande, mas ainda tem muita gente que não conhece
+vocês, o som de vocês e eu queria começar essa conversa com vocês contando pra gente
+como a música entrou na vida de vocês e quando vocês decidiram se lançar como uma
+banda juntos os três…
+Então, a música sempre fez parte da vida da gente [...]. Mas depois que a gente foi crescendo,
+a gente começou a levar isso de uma maneira mais profissional. [...]
+Então, esse processo de encontrar a musicalidade de vocês, essa coisa “good vibes”,
+reggaeton, reggae, foi algo natural pra vocês…
+Sim! A gente tem muita influência de vários artistas e eu sempre gostei muito de MPB, surf
+music, R&B, jazz, blues e os meninos sempre gostaram muito de música Pop e de R&B também..
+então acho que a gente mistura um pouco de tudo, a gente gosta muito de reggae. [...]
+Nesse primeiro álbum vocês não contaram com participações especiais, foi uma escolha
+ciente de vocês ou foi algo que simplesmente aconteceu?
+Simplesmente aconteceu, porque na verdade a gente pensou em chamar algumas pessoas,
+mas foi um processo meio corrido, sabe? [...]
+Tem algum nome que você poderia dizer pra gente que vocês quase convidaram?
+A gente quase falou com a galera do Maneva, porque tinha uma música que tinha tudo a ver
+com eles, mas aí ficou corrido.
+E se vocês pudessem escolher apenas um artista ou banda para fazer uma colaboração,
+quem seria?
+Só um? Um é muito pouco! (Risos) [...].
+MEDEIROS, Kavad. Entrevista: Conversamos com a banda Melim sobre seu álbum de estreia, influências e aquela coisa de serem irmãos em
+uma banda. Popline, 2018. Disponível em: https://meulink.fit/vVdlLhWWqlwIMPo. Acesso em: 3 fev. 2022. Fragmento. (P081464I7_SUP)
+
+21) (P081467I7) Nesse texto, no trecho “Simplesmente aconteceu, porque na verdade a gente pensou...”, o
+termo destacado indica
+A) adição.
+B) alternância.
+C) concessão.
+D) explicação.
+22) (P081464I7) Nesse texto, no trecho “... começou a levar isso de uma maneira mais profissional.”, o termo
+destacado retoma
+A) conversa.
+B) estreia.
+C) música.
+D) vida.
+
+9
+
+BL08P08
+
+P0802
+
+Leia o texto abaixo.
+Copo de cristal
+Naquele quarto estreito e abandonado,
+Onde passo estirado numa rede,
+Horas de tédio, enquanto o sol despede
+As setas de ouro sobre o campo ao lado.
+Esquecido num canto, e, da parede
+Junto, entre flores, vasos e um bordado,
+Há um velho copo de cristal lavrado1,
+Em que, às vezes, aplaco2 o ardor da sede.
+*Vocabulário:
+1
+lavrado: listrado.
+2
+aplaco: reduzo.
+GRIECO, Agripino. Copo de cristal. Sonetário. Disponível em: https://meulink.fit/BRmbjgDXhvyLfYz. Acesso em: 18 out. 2024. (P00099221_SUP)
+
+23) (P00099221) Nesse texto, a expressão “o sol despede” significa
+A) brilha a luz.
+B) chega a noite.
+C) clareia o quarto.
+D) esfria o copo.
+Leia o texto abaixo.
+Setembro terá chuva de estrelas cadentes e planetas brilhantes no céu
+Que o céu de agosto foi de encher os olhos, isso a gente não duvida, mas setembro chegou
+e também traz grandes espetáculos, incluindo chuva de estrelas cadentes, meteoros, planetas
+brilhantes e um equinócio, dois deles já esta semana.
+A notícia boa é que vários desses espetáculos estarão visíveis aqui no Hemisfério Sul, além de
+não precisarem, obrigatoriamente, de um equipamento para vê‑los. A agenda dos apaixonados
+por astronomia será cheia!
+Quem perdeu os dois primeiros eventos do mês – a chuva de meteoros Aurigídeos e a
+conjunção de Lua e Júpiter – é só marcar na agenda os eventos que acontecerão até o próximo
+dia 30 e torcer para o céu estar limpo por aí. [...]
+CARVALHO, Monique de. Setembro terá chuva de estrelas cadentes e planetas brilhantes no céu. SóNotíciaBoa, 5 set. 2023.
+Disponível em: <https://shre.ink/2oe9>. Acesso em: 6 set. 2023. Fragmento. (P00035857_SUP)
+
+24) (P00035857) O assunto desse texto é
+A) o céu propício para a observação dos fenômenos astronômicos.
+B) o hemisfério que possui maior número de eventos astronômicos.
+C) os equipamentos que podem ser usados para observar o céu.
+D) os fenômenos astronômicos que ocorrerão em setembro.
+
+10
+
+BL08P08
+
+P0802
+
+Leia o texto abaixo.
+Resenha da Dani: O mistério da fábrica de livros, Pedro Bandeira [...]
+O mistério da fábrica de livros do Pedro Bandeira é um livro infanto‑juvenil que precisa ser lido
+por todos os amantes dos livros, [...] independentemente da idade. É lindo, é mágico em seus
+detalhes e esclarecimentos tão reais. [...]
+Pedro Bandeira usa um romance suave para contar sobre os profissionais que ficam apenas
+nos bastidores, desde o que coleta as árvores, ao escritor, ilustrador, editor. Com palavras fáceis
+e figuras para ilustrar algumas das explicações, nos vemos deliciados com a grandeza do serviço
+e enxergamos além de autor/editora.
+Um livro fininho que você lê rapidinho e descobre o mundo por trás do seu querido livro. Leiam
+para vocês, para as crianças da família, assim você cultiva o amor pela leitura e o respeito por
+todos os profissionais que vão do tratamento do papel à venda dos livros nas prateleiras das
+livrarias. [...]
+SOUZA, Dani. Resenha da Dani: O mistério da fábrica de livros, Pedro Bandeira. In: Minha velha estante. 2014.
+Disponível em: <https://www.minhavelhaestante.com.br/2014/08/resenha‑da‑dani-o-misterio-da-fabrica.html>.
+Acesso em: 29 jul. 2021. Adaptado para fins didáticos. Fragmento. (P070594I7_SUP)
+
+25) (P070597I7) Nesse texto, para defender a ideia de que “O mistério da fábrica de livros” precisa ser lido
+por todos os amantes dos livros, independentemente da idade, a autora utiliza o trecho:
+A) “O mistério da fábrica de livros do Pedro Bandeira é um livro infanto‑juvenil...”. (1º parágrafo)
+B) “É lindo, é mágico em seus detalhes e esclarecimentos...”. (1º parágrafo)
+C) “Um livrinho fininho que você lê rapidinho...”. (3º parágrafo)
+D) “Leiam para vocês, para as crianças da família,...”. (3º parágrafo)
+Leia o texto abaixo.
+[...] Diretrizes e Bases da Educação
+SEÇÃO II – Da Educação Infantil
+Art. 29. A educação infantil, primeira etapa da educação básica, tem como finalidade o
+desenvolvimento integral da criança de até 5 (cinco) anos, em seus aspectos físico, psicológico,
+intelectual e social, complementando a ação da família e da comunidade.
+Art. 30. A educação infantil será oferecida em:
+I – creches, ou entidades equivalentes, para crianças de até três anos de idade;
+II – pré‑escolas, para as crianças de 4 (quatro) a 5 (cinco) anos de idade.
+Art. 31. A educação infantil será organizada de acordo com as seguintes regras comuns:
+I – avaliação mediante acompanhamento e registro do desenvolvimento das crianças, sem o
+objetivo de promoção, mesmo para o acesso ao ensino fundamental;
+II – carga horária mínima anual de 800 (oitocentas) horas, distribuída por um mínimo de 200
+(duzentos) dias de trabalho educacional;
+III – atendimento à criança de, no mínimo, 4 (quatro) horas diárias para o turno parcial e de
+7 (sete) horas para a jornada integral; [...]
+BRASIL. Disponível: https://meulink.fit/yzGRmCQwhNBTyzm. Acesso em: 27 mar. 2025. Fragmento. (P00127212_SUP)
+
+26) (P00127212) Esse texto é
+A) um anúncio
+B) um manual.
+C) uma ata.
+D) uma lei.
+
+11
+
+BL08P08
+
+

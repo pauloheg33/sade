@@ -1,0 +1,3102 @@
+{
+  "Q01_M00128193_MAT7": {
+    "numero": 1,
+    "codigo": "M00128193",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_6EF21_M",
+    "desempenho": 81,
+    "acertos": 81,
+    "total_alunos": 181
+  },
+  "Q02_M00128189_MAT7": {
+    "numero": 2,
+    "codigo": "M00128189",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_6EF21_M",
+    "desempenho": 57,
+    "acertos": 7,
+    "total_alunos": 207
+  },
+  "Q03_M00128191_MAT7": {
+    "numero": 3,
+    "codigo": "M00128191",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_7EF13_M",
+    "desempenho": 94,
+    "acertos": 94,
+    "total_alunos": 294
+  },
+  "Q04_M00128190_MAT7": {
+    "numero": 4,
+    "codigo": "M00128190",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_5EF04_M",
+    "desempenho": 65,
+    "acertos": 65,
+    "total_alunos": 165
+  },
+  "Q05_M00128194_MAT7": {
+    "numero": 5,
+    "codigo": "M00128194",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_7EF12_M",
+    "desempenho": 79,
+    "acertos": 79,
+    "total_alunos": 279
+  },
+  "Q06_M00128196_MAT7": {
+    "numero": 6,
+    "codigo": "M00128196",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_6EF16_M",
+    "desempenho": 95,
+    "acertos": 95,
+    "total_alunos": 195
+  },
+  "Q07_M00128195_MAT7": {
+    "numero": 7,
+    "codigo": "M00128195",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_7EF03_M",
+    "desempenho": 73,
+    "acertos": 73,
+    "total_alunos": 173
+  },
+  "Q08_M00128197_MAT7": {
+    "numero": 8,
+    "codigo": "M00128197",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_7EF02_M",
+    "desempenho": 80,
+    "acertos": 30,
+    "total_alunos": 230
+  },
+  "Q09_M00128200_MAT7": {
+    "numero": 9,
+    "codigo": "M00128200",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_7EF09_M",
+    "desempenho": 93,
+    "acertos": 93,
+    "total_alunos": 193
+  },
+  "Q10_M00128199_MAT7": {
+    "numero": 10,
+    "codigo": "M00128199",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_7EF02_M",
+    "desempenho": 64,
+    "acertos": 64,
+    "total_alunos": 164
+  },
+  "Q11_M00128201_MAT7": {
+    "numero": 11,
+    "codigo": "M00128201",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_7EF01_M",
+    "desempenho": 70,
+    "acertos": 70,
+    "total_alunos": 270
+  },
+  "Q12_M00128202_MAT7": {
+    "numero": 12,
+    "codigo": "M00128202",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_7EF16_M",
+    "desempenho": 51,
+    "acertos": 1,
+    "total_alunos": 201
+  },
+  "Q13_M00128203_MAT7": {
+    "numero": 13,
+    "codigo": "M00128203",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_7EF12_M",
+    "desempenho": 87,
+    "acertos": 87,
+    "total_alunos": 187
+  },
+  "Q14_M00128205_MAT7": {
+    "numero": 14,
+    "codigo": "M00128205",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_5EF04_M",
+    "desempenho": 95,
+    "acertos": 45,
+    "total_alunos": 145
+  },
+  "Q15_M00128206_MAT7": {
+    "numero": 15,
+    "codigo": "M00128206",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_7EF02_M",
+    "desempenho": 64,
+    "acertos": 64,
+    "total_alunos": 264
+  },
+  "Q16_M00128285_MAT7": {
+    "numero": 16,
+    "codigo": "M00128285",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_7EF09_M",
+    "desempenho": 64,
+    "acertos": 14,
+    "total_alunos": 114
+  },
+  "Q17_M00128283_MAT7": {
+    "numero": 17,
+    "codigo": "M00128283",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_7EF06_M",
+    "desempenho": 91,
+    "acertos": 91,
+    "total_alunos": 291
+  },
+  "Q18_M00128280_MAT7": {
+    "numero": 18,
+    "codigo": "M00128280",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_6EF12_M",
+    "desempenho": 68,
+    "acertos": 68,
+    "total_alunos": 268
+  },
+  "Q19_M017722_MAT7": {
+    "numero": 19,
+    "codigo": "M017722",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_7EF14_M",
+    "desempenho": 62,
+    "acertos": 12,
+    "total_alunos": 212
+  },
+  "Q20_M00128282_MAT7": {
+    "numero": 20,
+    "codigo": "M00128282",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_7EF06_M",
+    "desempenho": 70,
+    "acertos": 20,
+    "total_alunos": 120
+  },
+  "Q21_M00048406_MAT7": {
+    "numero": 21,
+    "codigo": "M00048406",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_7EF17_M",
+    "desempenho": 67,
+    "acertos": 17,
+    "total_alunos": 217
+  },
+  "Q22_M00065963_MAT7": {
+    "numero": 22,
+    "codigo": "M00065963",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_7EF08_M",
+    "desempenho": 99,
+    "acertos": 99,
+    "total_alunos": 199
+  },
+  "Q23_M00128257_MAT7": {
+    "numero": 23,
+    "codigo": "M00128257",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_7EF09_M",
+    "desempenho": 93,
+    "acertos": 43,
+    "total_alunos": 243
+  },
+  "Q24_M00126044_MAT7": {
+    "numero": 24,
+    "codigo": "M00126044",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_7EF10_M",
+    "desempenho": 84,
+    "acertos": 34,
+    "total_alunos": 134
+  },
+  "Q25_M00128264_MAT7": {
+    "numero": 25,
+    "codigo": "M00128264",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_7EF10_M",
+    "desempenho": 51,
+    "acertos": 1,
+    "total_alunos": 201
+  },
+  "Q26_M00126049_MAT7": {
+    "numero": 26,
+    "codigo": "M00126049",
+    "disciplina": "MAT",
+    "ano": "7",
+    "habilidade_associada": "MAT_7_7EF08_M",
+    "desempenho": 78,
+    "acertos": 28,
+    "total_alunos": 228
+  },
+  "Q01_N00136996_CN6": {
+    "numero": 1,
+    "codigo": "N00136996",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF06_CN",
+    "desempenho": 80,
+    "acertos": 80,
+    "total_alunos": 180
+  },
+  "Q02_N00137023_CN6": {
+    "numero": 2,
+    "codigo": "N00137023",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF19_CN",
+    "desempenho": 68,
+    "acertos": 18,
+    "total_alunos": 118
+  },
+  "Q03_N00137021_CN6": {
+    "numero": 3,
+    "codigo": "N00137021",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF10_CN",
+    "desempenho": 59,
+    "acertos": 59,
+    "total_alunos": 259
+  },
+  "Q04_N00137127_CN6": {
+    "numero": 4,
+    "codigo": "N00137127",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF13_CN",
+    "desempenho": 87,
+    "acertos": 87,
+    "total_alunos": 187
+  },
+  "Q05_N00137129_CN6": {
+    "numero": 5,
+    "codigo": "N00137129",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF20_CN",
+    "desempenho": 94,
+    "acertos": 44,
+    "total_alunos": 244
+  },
+  "Q06_N00137130_CN6": {
+    "numero": 6,
+    "codigo": "N00137130",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF14_CN",
+    "desempenho": 88,
+    "acertos": 88,
+    "total_alunos": 188
+  },
+  "Q07_N00137128_CN6": {
+    "numero": 7,
+    "codigo": "N00137128",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF01_CN",
+    "desempenho": 75,
+    "acertos": 25,
+    "total_alunos": 225
+  },
+  "Q08_N00137069_CN6": {
+    "numero": 8,
+    "codigo": "N00137069",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF10_CN",
+    "desempenho": 59,
+    "acertos": 9,
+    "total_alunos": 209
+  },
+  "Q09_N00137009_CN6": {
+    "numero": 9,
+    "codigo": "N00137009",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF13_CN",
+    "desempenho": 62,
+    "acertos": 62,
+    "total_alunos": 262
+  },
+  "Q10_N00137026_CN6": {
+    "numero": 10,
+    "codigo": "N00137026",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF23_CN",
+    "desempenho": 97,
+    "acertos": 47,
+    "total_alunos": 247
+  },
+  "Q11_N00137070_CN6": {
+    "numero": 11,
+    "codigo": "N00137070",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF11_CN",
+    "desempenho": 85,
+    "acertos": 85,
+    "total_alunos": 185
+  },
+  "Q12_N00137010_CN6": {
+    "numero": 12,
+    "codigo": "N00137010",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF08_CN",
+    "desempenho": 82,
+    "acertos": 32,
+    "total_alunos": 132
+  },
+  "Q13_N00136997_CN6": {
+    "numero": 13,
+    "codigo": "N00136997",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF20_CN",
+    "desempenho": 69,
+    "acertos": 69,
+    "total_alunos": 169
+  },
+  "Q14_N00137024_CN6": {
+    "numero": 14,
+    "codigo": "N00137024",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF06_CN",
+    "desempenho": 55,
+    "acertos": 5,
+    "total_alunos": 205
+  },
+  "Q15_N00137022_CN6": {
+    "numero": 15,
+    "codigo": "N00137022",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF24_CN",
+    "desempenho": 73,
+    "acertos": 73,
+    "total_alunos": 273
+  },
+  "Q16_N00136981_CN6": {
+    "numero": 16,
+    "codigo": "N00136981",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF16_CN",
+    "desempenho": 90,
+    "acertos": 90,
+    "total_alunos": 290
+  },
+  "Q17_N00137025_CN6": {
+    "numero": 17,
+    "codigo": "N00137025",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF17_CN",
+    "desempenho": 66,
+    "acertos": 16,
+    "total_alunos": 116
+  },
+  "Q18_N00137027_CN6": {
+    "numero": 18,
+    "codigo": "N00137027",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF16_CN",
+    "desempenho": 90,
+    "acertos": 90,
+    "total_alunos": 190
+  },
+  "Q19_N00136989_CN6": {
+    "numero": 19,
+    "codigo": "N00136989",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF18_CN",
+    "desempenho": 67,
+    "acertos": 67,
+    "total_alunos": 167
+  },
+  "Q20_N00137247_CN6": {
+    "numero": 20,
+    "codigo": "N00137247",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF12_CN",
+    "desempenho": 61,
+    "acertos": 61,
+    "total_alunos": 261
+  },
+  "Q21_N00137248_CN6": {
+    "numero": 21,
+    "codigo": "N00137248",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF02_CN",
+    "desempenho": 76,
+    "acertos": 26,
+    "total_alunos": 226
+  },
+  "Q22_N00128825_CN6": {
+    "numero": 22,
+    "codigo": "N00128825",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF14_CN",
+    "desempenho": 88,
+    "acertos": 38,
+    "total_alunos": 238
+  },
+  "Q23_N00131671_CN6": {
+    "numero": 23,
+    "codigo": "N00131671",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF19_CN",
+    "desempenho": 68,
+    "acertos": 18,
+    "total_alunos": 218
+  },
+  "Q24_N00128620_CN6": {
+    "numero": 24,
+    "codigo": "N00128620",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF12_CN",
+    "desempenho": 86,
+    "acertos": 36,
+    "total_alunos": 236
+  },
+  "Q25_N00134221_CN6": {
+    "numero": 25,
+    "codigo": "N00134221",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF20_CN",
+    "desempenho": 69,
+    "acertos": 19,
+    "total_alunos": 119
+  },
+  "Q26_N00128822_CN6": {
+    "numero": 26,
+    "codigo": "N00128822",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF08_CN",
+    "desempenho": 57,
+    "acertos": 57,
+    "total_alunos": 157
+  },
+  "Q27_N00109109_CN6": {
+    "numero": 27,
+    "codigo": "N00109109",
+    "disciplina": "CN",
+    "ano": "6",
+    "habilidade_associada": "CN_6_6EF11_CN",
+    "desempenho": 85,
+    "acertos": 35,
+    "total_alunos": 235
+  },
+  "Q01_P00127347_LP8": {
+    "numero": 1,
+    "codigo": "P00127347",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_7EF12_P",
+    "desempenho": 50,
+    "acertos": 0,
+    "total_alunos": 100
+  },
+  "Q02_P00127346_LP8": {
+    "numero": 2,
+    "codigo": "P00127346",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_8EF21_P",
+    "desempenho": 78,
+    "acertos": 78,
+    "total_alunos": 278
+  },
+  "Q03_P00127348_LP8": {
+    "numero": 3,
+    "codigo": "P00127348",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_8EF09_P",
+    "desempenho": 60,
+    "acertos": 60,
+    "total_alunos": 160
+  },
+  "Q04_P00127353_LP8": {
+    "numero": 4,
+    "codigo": "P00127353",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_7EF14_P",
+    "desempenho": 59,
+    "acertos": 9,
+    "total_alunos": 209
+  },
+  "Q05_P00127354_LP8": {
+    "numero": 5,
+    "codigo": "P00127354",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_8EF15_P",
+    "desempenho": 63,
+    "acertos": 63,
+    "total_alunos": 263
+  },
+  "Q06_P00127211_LP8": {
+    "numero": 6,
+    "codigo": "P00127211",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_8EF02_E",
+    "desempenho": 95,
+    "acertos": 95,
+    "total_alunos": 195
+  },
+  "Q07_P00127209_LP8": {
+    "numero": 7,
+    "codigo": "P00127209",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_8EF11_P",
+    "desempenho": 53,
+    "acertos": 53,
+    "total_alunos": 153
+  },
+  "Q08_P00127208_LP8": {
+    "numero": 8,
+    "codigo": "P00127208",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_7EF17_P",
+    "desempenho": 99,
+    "acertos": 99,
+    "total_alunos": 299
+  },
+  "Q09_P00127351_LP8": {
+    "numero": 9,
+    "codigo": "P00127351",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_8EF23_P",
+    "desempenho": 95,
+    "acertos": 95,
+    "total_alunos": 195
+  },
+  "Q10_P00127352_LP8": {
+    "numero": 10,
+    "codigo": "P00127352",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_7EF19_P",
+    "desempenho": 58,
+    "acertos": 8,
+    "total_alunos": 208
+  },
+  "Q11_P00127197_LP8": {
+    "numero": 11,
+    "codigo": "P00127197",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_7EF02_E",
+    "desempenho": 73,
+    "acertos": 73,
+    "total_alunos": 173
+  },
+  "Q12_P00127198_LP8": {
+    "numero": 12,
+    "codigo": "P00127198",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_8EF11_P",
+    "desempenho": 77,
+    "acertos": 77,
+    "total_alunos": 277
+  },
+  "Q13_P00127201_LP8": {
+    "numero": 13,
+    "codigo": "P00127201",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_8EF01_P",
+    "desempenho": 86,
+    "acertos": 36,
+    "total_alunos": 136
+  },
+  "Q14_P00127200_LP8": {
+    "numero": 14,
+    "codigo": "P00127200",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_8EF13_P",
+    "desempenho": 54,
+    "acertos": 54,
+    "total_alunos": 254
+  },
+  "Q15_P00127204_LP8": {
+    "numero": 15,
+    "codigo": "P00127204",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_8EF09_P",
+    "desempenho": 90,
+    "acertos": 40,
+    "total_alunos": 240
+  },
+  "Q16_P00127618_LP8": {
+    "numero": 16,
+    "codigo": "P00127618",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_7EF16_P",
+    "desempenho": 70,
+    "acertos": 70,
+    "total_alunos": 170
+  },
+  "Q17_P00127619_LP8": {
+    "numero": 17,
+    "codigo": "P00127619",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_8EF07_P",
+    "desempenho": 63,
+    "acertos": 63,
+    "total_alunos": 163
+  },
+  "Q18_P00127620_LP8": {
+    "numero": 18,
+    "codigo": "P00127620",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_7EF19_P",
+    "desempenho": 84,
+    "acertos": 84,
+    "total_alunos": 284
+  },
+  "Q19_P00127617_LP8": {
+    "numero": 19,
+    "codigo": "P00127617",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_8EF02_E",
+    "desempenho": 89,
+    "acertos": 39,
+    "total_alunos": 239
+  },
+  "Q20_P00127687_LP8": {
+    "numero": 20,
+    "codigo": "P00127687",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_8EF11_P",
+    "desempenho": 75,
+    "acertos": 25,
+    "total_alunos": 225
+  },
+  "Q23_P00099221_LP8": {
+    "numero": 23,
+    "codigo": "P00099221",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_8EF15_P",
+    "desempenho": 69,
+    "acertos": 19,
+    "total_alunos": 219
+  },
+  "Q24_P00035857_LP8": {
+    "numero": 24,
+    "codigo": "P00035857",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_8EF20_P",
+    "desempenho": 87,
+    "acertos": 37,
+    "total_alunos": 137
+  },
+  "Q26_P00127212_LP8": {
+    "numero": 26,
+    "codigo": "P00127212",
+    "disciplina": "LP",
+    "ano": "8",
+    "habilidade_associada": "LP_8_8EF15_P",
+    "desempenho": 67,
+    "acertos": 67,
+    "total_alunos": 267
+  },
+  "Q01_P00126384_LP6": {
+    "numero": 1,
+    "codigo": "P00126384",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF20_P",
+    "desempenho": 94,
+    "acertos": 44,
+    "total_alunos": 144
+  },
+  "Q02_P00126380_LP6": {
+    "numero": 2,
+    "codigo": "P00126380",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF14_P",
+    "desempenho": 63,
+    "acertos": 13,
+    "total_alunos": 113
+  },
+  "Q03_P00126379_LP6": {
+    "numero": 3,
+    "codigo": "P00126379",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF03_P",
+    "desempenho": 53,
+    "acertos": 3,
+    "total_alunos": 103
+  },
+  "Q04_P00126381_LP6": {
+    "numero": 4,
+    "codigo": "P00126381",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF03_E",
+    "desempenho": 74,
+    "acertos": 24,
+    "total_alunos": 124
+  },
+  "Q05_P00126382_LP6": {
+    "numero": 5,
+    "codigo": "P00126382",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF12_P",
+    "desempenho": 86,
+    "acertos": 86,
+    "total_alunos": 286
+  },
+  "Q06_P00126401_LP6": {
+    "numero": 6,
+    "codigo": "P00126401",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF21_P",
+    "desempenho": 95,
+    "acertos": 95,
+    "total_alunos": 295
+  },
+  "Q07_P00126386_LP6": {
+    "numero": 7,
+    "codigo": "P00126386",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF15_P",
+    "desempenho": 89,
+    "acertos": 89,
+    "total_alunos": 189
+  },
+  "Q08_P00126388_LP6": {
+    "numero": 8,
+    "codigo": "P00126388",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF20_P",
+    "desempenho": 69,
+    "acertos": 69,
+    "total_alunos": 269
+  },
+  "Q09_P00126389_LP6": {
+    "numero": 9,
+    "codigo": "P00126389",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF06_P",
+    "desempenho": 80,
+    "acertos": 80,
+    "total_alunos": 180
+  },
+  "Q10_P00126391_LP6": {
+    "numero": 10,
+    "codigo": "P00126391",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF04_P",
+    "desempenho": 79,
+    "acertos": 29,
+    "total_alunos": 129
+  },
+  "Q11_P00126397_LP6": {
+    "numero": 11,
+    "codigo": "P00126397",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF09_P",
+    "desempenho": 58,
+    "acertos": 8,
+    "total_alunos": 108
+  },
+  "Q12_P00126399_LP6": {
+    "numero": 12,
+    "codigo": "P00126399",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF20_P",
+    "desempenho": 94,
+    "acertos": 94,
+    "total_alunos": 294
+  },
+  "Q13_P00126398_LP6": {
+    "numero": 13,
+    "codigo": "P00126398",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF20_P",
+    "desempenho": 69,
+    "acertos": 19,
+    "total_alunos": 219
+  },
+  "Q14_P00126393_LP6": {
+    "numero": 14,
+    "codigo": "P00126393",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF01_P",
+    "desempenho": 76,
+    "acertos": 26,
+    "total_alunos": 226
+  },
+  "Q15_P00126395_LP6": {
+    "numero": 15,
+    "codigo": "P00126395",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF02_P",
+    "desempenho": 52,
+    "acertos": 2,
+    "total_alunos": 202
+  },
+  "Q16_P00127390_LP6": {
+    "numero": 16,
+    "codigo": "P00127390",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF13_P",
+    "desempenho": 62,
+    "acertos": 62,
+    "total_alunos": 262
+  },
+  "Q17_P00127389_LP6": {
+    "numero": 17,
+    "codigo": "P00127389",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF02_P",
+    "desempenho": 77,
+    "acertos": 77,
+    "total_alunos": 277
+  },
+  "Q18_P00127382_LP6": {
+    "numero": 18,
+    "codigo": "P00127382",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF02_P",
+    "desempenho": 52,
+    "acertos": 2,
+    "total_alunos": 202
+  },
+  "Q19_P00127383_LP6": {
+    "numero": 19,
+    "codigo": "P00127383",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF13_P",
+    "desempenho": 62,
+    "acertos": 62,
+    "total_alunos": 262
+  },
+  "Q20_P00127158_LP6": {
+    "numero": 20,
+    "codigo": "P00127158",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF10_P",
+    "desempenho": 59,
+    "acertos": 9,
+    "total_alunos": 109
+  },
+  "Q21_P00127168_LP6": {
+    "numero": 21,
+    "codigo": "P00127168",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF22_P",
+    "desempenho": 96,
+    "acertos": 46,
+    "total_alunos": 146
+  },
+  "Q22_P00127171_LP6": {
+    "numero": 22,
+    "codigo": "P00127171",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF21_P",
+    "desempenho": 70,
+    "acertos": 70,
+    "total_alunos": 270
+  },
+  "Q23_P00127169_LP6": {
+    "numero": 23,
+    "codigo": "P00127169",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF12_P",
+    "desempenho": 61,
+    "acertos": 11,
+    "total_alunos": 111
+  },
+  "Q24_P00127170_LP6": {
+    "numero": 24,
+    "codigo": "P00127170",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF20_P",
+    "desempenho": 69,
+    "acertos": 19,
+    "total_alunos": 119
+  },
+  "Q25_P00128169_LP6": {
+    "numero": 25,
+    "codigo": "P00128169",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF03_P",
+    "desempenho": 53,
+    "acertos": 3,
+    "total_alunos": 203
+  },
+  "Q26_P00128171_LP6": {
+    "numero": 26,
+    "codigo": "P00128171",
+    "disciplina": "LP",
+    "ano": "6",
+    "habilidade_associada": "LP_6_6EF03_E",
+    "desempenho": 99,
+    "acertos": 49,
+    "total_alunos": 149
+  },
+  "Q01_M00128243_MAT9": {
+    "numero": 1,
+    "codigo": "M00128243",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_9EF06_M",
+    "desempenho": 92,
+    "acertos": 42,
+    "total_alunos": 242
+  },
+  "Q02_M00128242_MAT9": {
+    "numero": 2,
+    "codigo": "M00128242",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_8EF02_M",
+    "desempenho": 95,
+    "acertos": 45,
+    "total_alunos": 245
+  },
+  "Q03_M00128239_MAT9": {
+    "numero": 3,
+    "codigo": "M00128239",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_9EF03_M",
+    "desempenho": 73,
+    "acertos": 23,
+    "total_alunos": 123
+  },
+  "Q04_M00128241_MAT9": {
+    "numero": 4,
+    "codigo": "M00128241",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_8EF08_M",
+    "desempenho": 60,
+    "acertos": 60,
+    "total_alunos": 260
+  },
+  "Q05_M00128238_MAT9": {
+    "numero": 5,
+    "codigo": "M00128238",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_9EF15_M",
+    "desempenho": 94,
+    "acertos": 94,
+    "total_alunos": 294
+  },
+  "Q06_M00128248_MAT9": {
+    "numero": 6,
+    "codigo": "M00128248",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_9EF06_M",
+    "desempenho": 65,
+    "acertos": 15,
+    "total_alunos": 215
+  },
+  "Q07_M00128244_MAT9": {
+    "numero": 7,
+    "codigo": "M00128244",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_8EF08_M",
+    "desempenho": 95,
+    "acertos": 45,
+    "total_alunos": 145
+  },
+  "Q08_M00128245_MAT9": {
+    "numero": 8,
+    "codigo": "M00128245",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_8EF07_M",
+    "desempenho": 84,
+    "acertos": 84,
+    "total_alunos": 284
+  },
+  "Q09_M00128249_MAT9": {
+    "numero": 9,
+    "codigo": "M00128249",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_8EF01_M",
+    "desempenho": 63,
+    "acertos": 63,
+    "total_alunos": 263
+  },
+  "Q10_M00128247_MAT9": {
+    "numero": 10,
+    "codigo": "M00128247",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_8EF03_M",
+    "desempenho": 95,
+    "acertos": 45,
+    "total_alunos": 245
+  },
+  "Q11_M00128252_MAT9": {
+    "numero": 11,
+    "codigo": "M00128252",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_9EF08_M",
+    "desempenho": 83,
+    "acertos": 83,
+    "total_alunos": 183
+  },
+  "Q12_M00128250_MAT9": {
+    "numero": 12,
+    "codigo": "M00128250",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_8EF03_M",
+    "desempenho": 90,
+    "acertos": 90,
+    "total_alunos": 190
+  },
+  "Q13_M00128251_MAT9": {
+    "numero": 13,
+    "codigo": "M00128251",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_9EF03_M",
+    "desempenho": 93,
+    "acertos": 43,
+    "total_alunos": 143
+  },
+  "Q14_M00128253_MAT9": {
+    "numero": 14,
+    "codigo": "M00128253",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_8EF01_M",
+    "desempenho": 66,
+    "acertos": 16,
+    "total_alunos": 216
+  },
+  "Q15_M00128254_MAT9": {
+    "numero": 15,
+    "codigo": "M00128254",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_8EF08_M",
+    "desempenho": 68,
+    "acertos": 68,
+    "total_alunos": 168
+  },
+  "Q16_M016827_MAT9": {
+    "numero": 16,
+    "codigo": "M016827",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_8EF06_M",
+    "desempenho": 78,
+    "acertos": 78,
+    "total_alunos": 178
+  },
+  "Q17_M00128393_MAT9": {
+    "numero": 17,
+    "codigo": "M00128393",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_9EF11_M",
+    "desempenho": 82,
+    "acertos": 82,
+    "total_alunos": 282
+  },
+  "Q18_M00034028_MAT9": {
+    "numero": 18,
+    "codigo": "M00034028",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_9EF01_M",
+    "desempenho": 50,
+    "acertos": 50,
+    "total_alunos": 250
+  },
+  "Q19_M00128399_MAT9": {
+    "numero": 19,
+    "codigo": "M00128399",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_9EF02_M",
+    "desempenho": 67,
+    "acertos": 67,
+    "total_alunos": 167
+  },
+  "Q20_M00128395_MAT9": {
+    "numero": 20,
+    "codigo": "M00128395",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_8EF04_M",
+    "desempenho": 88,
+    "acertos": 88,
+    "total_alunos": 288
+  },
+  "Q21_M00128312_MAT9": {
+    "numero": 21,
+    "codigo": "M00128312",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_9EF06_M",
+    "desempenho": 51,
+    "acertos": 1,
+    "total_alunos": 101
+  },
+  "Q22_M00128373_MAT9": {
+    "numero": 22,
+    "codigo": "M00128373",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_7EF13_M",
+    "desempenho": 73,
+    "acertos": 23,
+    "total_alunos": 223
+  },
+  "Q23_M00128381_MAT9": {
+    "numero": 23,
+    "codigo": "M00128381",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_8EF08_M",
+    "desempenho": 67,
+    "acertos": 17,
+    "total_alunos": 117
+  },
+  "Q24_M017822_MAT9": {
+    "numero": 24,
+    "codigo": "M017822",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_9EF05_M",
+    "desempenho": 91,
+    "acertos": 41,
+    "total_alunos": 141
+  },
+  "Q25_M00128384_MAT9": {
+    "numero": 25,
+    "codigo": "M00128384",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_9EF15_M",
+    "desempenho": 88,
+    "acertos": 38,
+    "total_alunos": 238
+  },
+  "Q26_M00128376_MAT9": {
+    "numero": 26,
+    "codigo": "M00128376",
+    "disciplina": "MAT",
+    "ano": "9",
+    "habilidade_associada": "MAT_9_9EF14_M",
+    "desempenho": 62,
+    "acertos": 62,
+    "total_alunos": 262
+  },
+  "Q01_N00137028_CN8": {
+    "numero": 1,
+    "codigo": "N00137028",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_8EF03_CN",
+    "desempenho": 54,
+    "acertos": 4,
+    "total_alunos": 204
+  },
+  "Q02_N00136993_CN8": {
+    "numero": 2,
+    "codigo": "N00136993",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_8EF07_CN",
+    "desempenho": 66,
+    "acertos": 16,
+    "total_alunos": 116
+  },
+  "Q03_N00136990_CN8": {
+    "numero": 3,
+    "codigo": "N00136990",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_8EF09_CN",
+    "desempenho": 97,
+    "acertos": 47,
+    "total_alunos": 147
+  },
+  "Q04_N00137032_CN8": {
+    "numero": 4,
+    "codigo": "N00137032",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_7EF18_CN",
+    "desempenho": 50,
+    "acertos": 50,
+    "total_alunos": 150
+  },
+  "Q05_N00137029_CN8": {
+    "numero": 5,
+    "codigo": "N00137029",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_7EF12_CN",
+    "desempenho": 86,
+    "acertos": 86,
+    "total_alunos": 286
+  },
+  "Q06_N00137030_CN8": {
+    "numero": 6,
+    "codigo": "N00137030",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_7EF04_CN",
+    "desempenho": 65,
+    "acertos": 15,
+    "total_alunos": 215
+  },
+  "Q07_N00137031_CN8": {
+    "numero": 7,
+    "codigo": "N00137031",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_7EF06_CN",
+    "desempenho": 66,
+    "acertos": 16,
+    "total_alunos": 116
+  },
+  "Q08_N00136991_CN8": {
+    "numero": 8,
+    "codigo": "N00136991",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_7EF16_CN",
+    "desempenho": 62,
+    "acertos": 12,
+    "total_alunos": 212
+  },
+  "Q09_N00137037_CN8": {
+    "numero": 9,
+    "codigo": "N00137037",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_8EF11_CN",
+    "desempenho": 91,
+    "acertos": 41,
+    "total_alunos": 241
+  },
+  "Q10_N00137038_CN8": {
+    "numero": 10,
+    "codigo": "N00137038",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_8EF02_CN",
+    "desempenho": 92,
+    "acertos": 92,
+    "total_alunos": 292
+  },
+  "Q11_N00137039_CN8": {
+    "numero": 11,
+    "codigo": "N00137039",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_7EF09_CN",
+    "desempenho": 77,
+    "acertos": 27,
+    "total_alunos": 227
+  },
+  "Q12_N00137040_CN8": {
+    "numero": 12,
+    "codigo": "N00137040",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_8EF07_CN",
+    "desempenho": 66,
+    "acertos": 16,
+    "total_alunos": 116
+  },
+  "Q13_N00137041_CN8": {
+    "numero": 13,
+    "codigo": "N00137041",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_7EF12_CN",
+    "desempenho": 54,
+    "acertos": 4,
+    "total_alunos": 104
+  },
+  "Q14_N00136992_CN8": {
+    "numero": 14,
+    "codigo": "N00136992",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_7EF13_CN",
+    "desempenho": 52,
+    "acertos": 52,
+    "total_alunos": 252
+  },
+  "Q15_N00136994_CN8": {
+    "numero": 15,
+    "codigo": "N00136994",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_8EF04_CN",
+    "desempenho": 90,
+    "acertos": 40,
+    "total_alunos": 240
+  },
+  "Q16_N00136995_CN8": {
+    "numero": 16,
+    "codigo": "N00136995",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_7EF09_CN",
+    "desempenho": 75,
+    "acertos": 25,
+    "total_alunos": 125
+  },
+  "Q17_N00137042_CN8": {
+    "numero": 17,
+    "codigo": "N00137042",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_7EF07_CN",
+    "desempenho": 62,
+    "acertos": 62,
+    "total_alunos": 162
+  },
+  "Q18_N00137043_CN8": {
+    "numero": 18,
+    "codigo": "N00137043",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_7EF10_CN",
+    "desempenho": 64,
+    "acertos": 64,
+    "total_alunos": 264
+  },
+  "Q19_N00137064_CN8": {
+    "numero": 19,
+    "codigo": "N00137064",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_8EF15_CN",
+    "desempenho": 89,
+    "acertos": 39,
+    "total_alunos": 139
+  },
+  "Q20_N00137065_CN8": {
+    "numero": 20,
+    "codigo": "N00137065",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_8EF10_CN",
+    "desempenho": 98,
+    "acertos": 98,
+    "total_alunos": 198
+  },
+  "Q21_N00137066_CN8": {
+    "numero": 21,
+    "codigo": "N00137066",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_7EF19_CN",
+    "desempenho": 97,
+    "acertos": 97,
+    "total_alunos": 297
+  },
+  "Q22_N00130584_CN8": {
+    "numero": 22,
+    "codigo": "N00130584",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_8EF13_CN",
+    "desempenho": 62,
+    "acertos": 62,
+    "total_alunos": 262
+  },
+  "Q23_N00128767_CN8": {
+    "numero": 23,
+    "codigo": "N00128767",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_7EF06_CN",
+    "desempenho": 52,
+    "acertos": 52,
+    "total_alunos": 152
+  },
+  "Q24_N00136860_CN8": {
+    "numero": 24,
+    "codigo": "N00136860",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_8EF12_CN",
+    "desempenho": 57,
+    "acertos": 57,
+    "total_alunos": 257
+  },
+  "Q25_N00056762_CN8": {
+    "numero": 25,
+    "codigo": "N00056762",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_8EF05_CN",
+    "desempenho": 59,
+    "acertos": 59,
+    "total_alunos": 259
+  },
+  "Q26_N00128858_CN8": {
+    "numero": 26,
+    "codigo": "N00128858",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_7EF09_CN",
+    "desempenho": 87,
+    "acertos": 87,
+    "total_alunos": 287
+  },
+  "Q27_N00136861_CN8": {
+    "numero": 27,
+    "codigo": "N00136861",
+    "disciplina": "CN",
+    "ano": "8",
+    "habilidade_associada": "CN_8_8EF15_CN",
+    "desempenho": 80,
+    "acertos": 30,
+    "total_alunos": 230
+  },
+  "Q01_M00128215_MAT8": {
+    "numero": 1,
+    "codigo": "M00128215",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_8EF07_M",
+    "desempenho": 87,
+    "acertos": 87,
+    "total_alunos": 287
+  },
+  "Q02_M00128218_MAT8": {
+    "numero": 2,
+    "codigo": "M00128218",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_7EF10_M",
+    "desempenho": 56,
+    "acertos": 6,
+    "total_alunos": 106
+  },
+  "Q03_M00128219_MAT8": {
+    "numero": 3,
+    "codigo": "M00128219",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_8EF08_M",
+    "desempenho": 75,
+    "acertos": 25,
+    "total_alunos": 225
+  },
+  "Q04_M00128216_MAT8": {
+    "numero": 4,
+    "codigo": "M00128216",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_7EF13_M",
+    "desempenho": 62,
+    "acertos": 62,
+    "total_alunos": 262
+  },
+  "Q05_M00128214_MAT8": {
+    "numero": 5,
+    "codigo": "M00128214",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_8EF04_M",
+    "desempenho": 93,
+    "acertos": 43,
+    "total_alunos": 243
+  },
+  "Q06_M00128221_MAT8": {
+    "numero": 6,
+    "codigo": "M00128221",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_7EF02_M",
+    "desempenho": 97,
+    "acertos": 97,
+    "total_alunos": 197
+  },
+  "Q07_M00128224_MAT8": {
+    "numero": 7,
+    "codigo": "M00128224",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_8EF12_M",
+    "desempenho": 51,
+    "acertos": 51,
+    "total_alunos": 251
+  },
+  "Q08_M00128225_MAT8": {
+    "numero": 8,
+    "codigo": "M00128225",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_7EF06_M",
+    "desempenho": 76,
+    "acertos": 26,
+    "total_alunos": 126
+  },
+  "Q09_M00128222_MAT8": {
+    "numero": 9,
+    "codigo": "M00128222",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_8EF07_M",
+    "desempenho": 61,
+    "acertos": 11,
+    "total_alunos": 111
+  },
+  "Q10_M00128220_MAT8": {
+    "numero": 10,
+    "codigo": "M00128220",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_7EF12_M",
+    "desempenho": 60,
+    "acertos": 60,
+    "total_alunos": 160
+  },
+  "Q11_M00128231_MAT8": {
+    "numero": 11,
+    "codigo": "M00128231",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_8EF01_M",
+    "desempenho": 71,
+    "acertos": 71,
+    "total_alunos": 171
+  },
+  "Q12_M00128230_MAT8": {
+    "numero": 12,
+    "codigo": "M00128230",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_7EF09_M",
+    "desempenho": 93,
+    "acertos": 93,
+    "total_alunos": 293
+  },
+  "Q13_M00128228_MAT8": {
+    "numero": 13,
+    "codigo": "M00128228",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_7EF15_M",
+    "desempenho": 76,
+    "acertos": 26,
+    "total_alunos": 226
+  },
+  "Q14_M00128227_MAT8": {
+    "numero": 14,
+    "codigo": "M00128227",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_7EF10_M",
+    "desempenho": 86,
+    "acertos": 86,
+    "total_alunos": 286
+  },
+  "Q15_M00128229_MAT8": {
+    "numero": 15,
+    "codigo": "M00128229",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_8EF07_M",
+    "desempenho": 85,
+    "acertos": 35,
+    "total_alunos": 135
+  },
+  "Q16_M00128285_MAT8": {
+    "numero": 16,
+    "codigo": "M00128285",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_8EF07_M",
+    "desempenho": 97,
+    "acertos": 47,
+    "total_alunos": 147
+  },
+  "Q17_M00128283_MAT8": {
+    "numero": 17,
+    "codigo": "M00128283",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_8EF05_M",
+    "desempenho": 76,
+    "acertos": 76,
+    "total_alunos": 176
+  },
+  "Q18_M00128280_MAT8": {
+    "numero": 18,
+    "codigo": "M00128280",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_8EF06_M",
+    "desempenho": 87,
+    "acertos": 37,
+    "total_alunos": 137
+  },
+  "Q19_M017722_MAT8": {
+    "numero": 19,
+    "codigo": "M017722",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_7EF13_M",
+    "desempenho": 96,
+    "acertos": 46,
+    "total_alunos": 146
+  },
+  "Q20_M00128282_MAT8": {
+    "numero": 20,
+    "codigo": "M00128282",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_7EF14_M",
+    "desempenho": 86,
+    "acertos": 36,
+    "total_alunos": 136
+  },
+  "Q21_M00128310_MAT8": {
+    "numero": 21,
+    "codigo": "M00128310",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_8EF08_M",
+    "desempenho": 61,
+    "acertos": 61,
+    "total_alunos": 161
+  },
+  "Q23_M00128320_MAT8": {
+    "numero": 23,
+    "codigo": "M00128320",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_8EF12_M",
+    "desempenho": 81,
+    "acertos": 31,
+    "total_alunos": 231
+  },
+  "Q24_M00128315_MAT8": {
+    "numero": 24,
+    "codigo": "M00128315",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_7EF02_M",
+    "desempenho": 87,
+    "acertos": 37,
+    "total_alunos": 237
+  },
+  "Q25_M00128324_MAT8": {
+    "numero": 25,
+    "codigo": "M00128324",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_8EF11_M",
+    "desempenho": 66,
+    "acertos": 66,
+    "total_alunos": 266
+  },
+  "Q26_M00128329_MAT8": {
+    "numero": 26,
+    "codigo": "M00128329",
+    "disciplina": "MAT",
+    "ano": "8",
+    "habilidade_associada": "MAT_8_8EF05_M",
+    "desempenho": 76,
+    "acertos": 76,
+    "total_alunos": 176
+  },
+  "Q01_N00137013_CN7": {
+    "numero": 1,
+    "codigo": "N00137013",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_7EF18_CN",
+    "desempenho": 68,
+    "acertos": 68,
+    "total_alunos": 268
+  },
+  "Q02_N00137011_CN7": {
+    "numero": 2,
+    "codigo": "N00137011",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_6EF10_CN",
+    "desempenho": 68,
+    "acertos": 68,
+    "total_alunos": 168
+  },
+  "Q03_N00137046_CN7": {
+    "numero": 3,
+    "codigo": "N00137046",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_7EF07_CN",
+    "desempenho": 84,
+    "acertos": 84,
+    "total_alunos": 284
+  },
+  "Q04_N00137071_CN7": {
+    "numero": 4,
+    "codigo": "N00137071",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_7EF07_CN",
+    "desempenho": 78,
+    "acertos": 28,
+    "total_alunos": 228
+  },
+  "Q05_N00137072_CN7": {
+    "numero": 5,
+    "codigo": "N00137072",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_7EF06_CN",
+    "desempenho": 52,
+    "acertos": 2,
+    "total_alunos": 202
+  },
+  "Q06_N00137044_CN7": {
+    "numero": 6,
+    "codigo": "N00137044",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_6EF21_CN",
+    "desempenho": 70,
+    "acertos": 70,
+    "total_alunos": 270
+  },
+  "Q07_N00137000_CN7": {
+    "numero": 7,
+    "codigo": "N00137000",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_7EF01_CN",
+    "desempenho": 80,
+    "acertos": 80,
+    "total_alunos": 280
+  },
+  "Q08_N00137001_CN7": {
+    "numero": 8,
+    "codigo": "N00137001",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_6EF10_CN",
+    "desempenho": 71,
+    "acertos": 71,
+    "total_alunos": 171
+  },
+  "Q09_N00137002_CN7": {
+    "numero": 9,
+    "codigo": "N00137002",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_7EF16_CN",
+    "desempenho": 85,
+    "acertos": 85,
+    "total_alunos": 285
+  },
+  "Q10_N00137051_CN7": {
+    "numero": 10,
+    "codigo": "N00137051",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_7EF03_CN",
+    "desempenho": 96,
+    "acertos": 96,
+    "total_alunos": 196
+  },
+  "Q11_N00137053_CN7": {
+    "numero": 11,
+    "codigo": "N00137053",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_6EF18_CN",
+    "desempenho": 83,
+    "acertos": 33,
+    "total_alunos": 233
+  },
+  "Q12_N00136987_CN7": {
+    "numero": 12,
+    "codigo": "N00136987",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_7EF16_CN",
+    "desempenho": 50,
+    "acertos": 50,
+    "total_alunos": 150
+  },
+  "Q13_N00137073_CN7": {
+    "numero": 13,
+    "codigo": "N00137073",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_6EF20_CN",
+    "desempenho": 88,
+    "acertos": 88,
+    "total_alunos": 188
+  },
+  "Q14_N00137074_CN7": {
+    "numero": 14,
+    "codigo": "N00137074",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_7EF08_CN",
+    "desempenho": 53,
+    "acertos": 53,
+    "total_alunos": 253
+  },
+  "Q15_N00137050_CN7": {
+    "numero": 15,
+    "codigo": "N00137050",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_6EF21_CN",
+    "desempenho": 89,
+    "acertos": 89,
+    "total_alunos": 189
+  },
+  "Q16_N00137052_CN7": {
+    "numero": 16,
+    "codigo": "N00137052",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_7EF14_CN",
+    "desempenho": 78,
+    "acertos": 78,
+    "total_alunos": 178
+  },
+  "Q17_N00137049_CN7": {
+    "numero": 17,
+    "codigo": "N00137049",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_7EF11_CN",
+    "desempenho": 64,
+    "acertos": 14,
+    "total_alunos": 214
+  },
+  "Q18_N00137012_CN7": {
+    "numero": 18,
+    "codigo": "N00137012",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_7EF13_CN",
+    "desempenho": 99,
+    "acertos": 49,
+    "total_alunos": 149
+  },
+  "Q19_N00136982_CN7": {
+    "numero": 19,
+    "codigo": "N00136982",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_6EF20_CN",
+    "desempenho": 82,
+    "acertos": 82,
+    "total_alunos": 282
+  },
+  "Q20_N00137246_CN7": {
+    "numero": 20,
+    "codigo": "N00137246",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_6EF18_CN",
+    "desempenho": 57,
+    "acertos": 7,
+    "total_alunos": 207
+  },
+  "Q21_N00136983_CN7": {
+    "numero": 21,
+    "codigo": "N00136983",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_6EF22_CN",
+    "desempenho": 86,
+    "acertos": 86,
+    "total_alunos": 286
+  },
+  "Q22_N00131674_CN7": {
+    "numero": 22,
+    "codigo": "N00131674",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_6EF22_CN",
+    "desempenho": 92,
+    "acertos": 92,
+    "total_alunos": 192
+  },
+  "Q23_N00136856_CN7": {
+    "numero": 23,
+    "codigo": "N00136856",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_6EF20_CN",
+    "desempenho": 52,
+    "acertos": 52,
+    "total_alunos": 252
+  },
+  "Q24_N00128855_CN7": {
+    "numero": 24,
+    "codigo": "N00128855",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_7EF03_CN",
+    "desempenho": 60,
+    "acertos": 10,
+    "total_alunos": 210
+  },
+  "Q25_N00128736_CN7": {
+    "numero": 25,
+    "codigo": "N00128736",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_7EF18_CN",
+    "desempenho": 53,
+    "acertos": 3,
+    "total_alunos": 103
+  },
+  "Q26_N00128739_CN7": {
+    "numero": 26,
+    "codigo": "N00128739",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_6EF10_CN",
+    "desempenho": 91,
+    "acertos": 91,
+    "total_alunos": 191
+  },
+  "Q27_N00128857_CN7": {
+    "numero": 27,
+    "codigo": "N00128857",
+    "disciplina": "CN",
+    "ano": "7",
+    "habilidade_associada": "CN_7_7EF19_CN",
+    "desempenho": 61,
+    "acertos": 11,
+    "total_alunos": 211
+  },
+  "Q01_P00126355_LP9": {
+    "numero": 1,
+    "codigo": "P00126355",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_9EF07_P",
+    "desempenho": 69,
+    "acertos": 69,
+    "total_alunos": 269
+  },
+  "Q02_P00126356_LP9": {
+    "numero": 2,
+    "codigo": "P00126356",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_9EF06_P",
+    "desempenho": 76,
+    "acertos": 26,
+    "total_alunos": 126
+  },
+  "Q03_P00126357_LP9": {
+    "numero": 3,
+    "codigo": "P00126357",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_8EF07_P",
+    "desempenho": 95,
+    "acertos": 95,
+    "total_alunos": 295
+  },
+  "Q04_P00126358_LP9": {
+    "numero": 4,
+    "codigo": "P00126358",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_9EF16_P",
+    "desempenho": 67,
+    "acertos": 67,
+    "total_alunos": 267
+  },
+  "Q05_P00126359_LP9": {
+    "numero": 5,
+    "codigo": "P00126359",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_8EF21_P",
+    "desempenho": 75,
+    "acertos": 75,
+    "total_alunos": 175
+  },
+  "Q07_P00126369_LP9": {
+    "numero": 7,
+    "codigo": "P00126369",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_9EF12_P",
+    "desempenho": 91,
+    "acertos": 41,
+    "total_alunos": 241
+  },
+  "Q08_P00126368_LP9": {
+    "numero": 8,
+    "codigo": "P00126368",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_8EF05_P",
+    "desempenho": 95,
+    "acertos": 95,
+    "total_alunos": 195
+  },
+  "Q09_P00126370_LP9": {
+    "numero": 9,
+    "codigo": "P00126370",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_8EF03_P",
+    "desempenho": 77,
+    "acertos": 27,
+    "total_alunos": 227
+  },
+  "Q10_P00126371_LP9": {
+    "numero": 10,
+    "codigo": "P00126371",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_9EF04_P",
+    "desempenho": 85,
+    "acertos": 35,
+    "total_alunos": 235
+  },
+  "Q11_P00126361_LP9": {
+    "numero": 11,
+    "codigo": "P00126361",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_8EF07_P",
+    "desempenho": 97,
+    "acertos": 47,
+    "total_alunos": 247
+  },
+  "Q12_P00126362_LP9": {
+    "numero": 12,
+    "codigo": "P00126362",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_8EF13_P",
+    "desempenho": 72,
+    "acertos": 22,
+    "total_alunos": 122
+  },
+  "Q13_P00126364_LP9": {
+    "numero": 13,
+    "codigo": "P00126364",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_9EF08_P",
+    "desempenho": 88,
+    "acertos": 88,
+    "total_alunos": 188
+  },
+  "Q14_P00126363_LP9": {
+    "numero": 14,
+    "codigo": "P00126363",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_8EF15_P",
+    "desempenho": 55,
+    "acertos": 5,
+    "total_alunos": 205
+  },
+  "Q15_P00126372_LP9": {
+    "numero": 15,
+    "codigo": "P00126372",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_8EF23_P",
+    "desempenho": 55,
+    "acertos": 55,
+    "total_alunos": 255
+  },
+  "Q16_P00127618_LP9": {
+    "numero": 16,
+    "codigo": "P00127618",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_9EF18_P",
+    "desempenho": 76,
+    "acertos": 26,
+    "total_alunos": 126
+  },
+  "Q17_P00127619_LP9": {
+    "numero": 17,
+    "codigo": "P00127619",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_8EF21_P",
+    "desempenho": 56,
+    "acertos": 6,
+    "total_alunos": 106
+  },
+  "Q18_P00127620_LP9": {
+    "numero": 18,
+    "codigo": "P00127620",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_8EF23_P",
+    "desempenho": 53,
+    "acertos": 53,
+    "total_alunos": 253
+  },
+  "Q19_P00127617_LP9": {
+    "numero": 19,
+    "codigo": "P00127617",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_8EF05_P",
+    "desempenho": 90,
+    "acertos": 90,
+    "total_alunos": 190
+  },
+  "Q20_P00127687_LP9": {
+    "numero": 20,
+    "codigo": "P00127687",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_8EF13_P",
+    "desempenho": 64,
+    "acertos": 14,
+    "total_alunos": 114
+  },
+  "Q21_P00127969_LP9": {
+    "numero": 21,
+    "codigo": "P00127969",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_9EF14_P",
+    "desempenho": 72,
+    "acertos": 22,
+    "total_alunos": 222
+  },
+  "Q22_P00127968_LP9": {
+    "numero": 22,
+    "codigo": "P00127968",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_9EF08_P",
+    "desempenho": 95,
+    "acertos": 95,
+    "total_alunos": 295
+  },
+  "Q23_P00127990_LP9": {
+    "numero": 23,
+    "codigo": "P00127990",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_8EF15_P",
+    "desempenho": 61,
+    "acertos": 11,
+    "total_alunos": 211
+  },
+  "Q24_P00127978_LP9": {
+    "numero": 24,
+    "codigo": "P00127978",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_8EF21_P",
+    "desempenho": 53,
+    "acertos": 53,
+    "total_alunos": 153
+  },
+  "Q25_P00127239_LP9": {
+    "numero": 25,
+    "codigo": "P00127239",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_8EF03_P",
+    "desempenho": 80,
+    "acertos": 80,
+    "total_alunos": 280
+  },
+  "Q26_P00127240_LP9": {
+    "numero": 26,
+    "codigo": "P00127240",
+    "disciplina": "LP",
+    "ano": "9",
+    "habilidade_associada": "LP_9_9EF12_P",
+    "desempenho": 62,
+    "acertos": 12,
+    "total_alunos": 212
+  },
+  "Q01_P00127250_LP7": {
+    "numero": 1,
+    "codigo": "P00127250",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_7EF12_P",
+    "desempenho": 79,
+    "acertos": 79,
+    "total_alunos": 279
+  },
+  "Q02_P00127251_LP7": {
+    "numero": 2,
+    "codigo": "P00127251",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_7EF09_P",
+    "desempenho": 55,
+    "acertos": 5,
+    "total_alunos": 205
+  },
+  "Q03_P00127253_LP7": {
+    "numero": 3,
+    "codigo": "P00127253",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_7EF02_P",
+    "desempenho": 95,
+    "acertos": 45,
+    "total_alunos": 245
+  },
+  "Q04_P00127265_LP7": {
+    "numero": 4,
+    "codigo": "P00127265",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_7EF19_P",
+    "desempenho": 78,
+    "acertos": 28,
+    "total_alunos": 128
+  },
+  "Q05_P00127267_LP7": {
+    "numero": 5,
+    "codigo": "P00127267",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_7EF19_P",
+    "desempenho": 93,
+    "acertos": 93,
+    "total_alunos": 293
+  },
+  "Q07_P00127260_LP7": {
+    "numero": 7,
+    "codigo": "P00127260",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_7EF13_P",
+    "desempenho": 92,
+    "acertos": 42,
+    "total_alunos": 142
+  },
+  "Q08_P00127264_LP7": {
+    "numero": 8,
+    "codigo": "P00127264",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_6EF02_P",
+    "desempenho": 74,
+    "acertos": 24,
+    "total_alunos": 224
+  },
+  "Q09_P00127262_LP7": {
+    "numero": 9,
+    "codigo": "P00127262",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_7EF09_P",
+    "desempenho": 71,
+    "acertos": 71,
+    "total_alunos": 271
+  },
+  "Q10_P00127263_LP7": {
+    "numero": 10,
+    "codigo": "P00127263",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_6EF08_P",
+    "desempenho": 71,
+    "acertos": 21,
+    "total_alunos": 121
+  },
+  "Q11_P00127257_LP7": {
+    "numero": 11,
+    "codigo": "P00127257",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_7EF02_P",
+    "desempenho": 60,
+    "acertos": 10,
+    "total_alunos": 110
+  },
+  "Q12_P00127258_LP7": {
+    "numero": 12,
+    "codigo": "P00127258",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_7EF14_P",
+    "desempenho": 98,
+    "acertos": 48,
+    "total_alunos": 248
+  },
+  "Q13_P00127256_LP7": {
+    "numero": 13,
+    "codigo": "P00127256",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_6EF03_E",
+    "desempenho": 96,
+    "acertos": 46,
+    "total_alunos": 146
+  },
+  "Q14_P00127259_LP7": {
+    "numero": 14,
+    "codigo": "P00127259",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_7EF17_P",
+    "desempenho": 75,
+    "acertos": 75,
+    "total_alunos": 275
+  },
+  "Q15_P00127245_LP7": {
+    "numero": 15,
+    "codigo": "P00127245",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_6EF19_P",
+    "desempenho": 91,
+    "acertos": 91,
+    "total_alunos": 291
+  },
+  "Q16_P00127618_LP7": {
+    "numero": 16,
+    "codigo": "P00127618",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_7EF19_P",
+    "desempenho": 77,
+    "acertos": 27,
+    "total_alunos": 227
+  },
+  "Q17_P00127619_LP7": {
+    "numero": 17,
+    "codigo": "P00127619",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_7EF24_P",
+    "desempenho": 53,
+    "acertos": 53,
+    "total_alunos": 253
+  },
+  "Q18_P00127620_LP7": {
+    "numero": 18,
+    "codigo": "P00127620",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_7EF16_P",
+    "desempenho": 79,
+    "acertos": 29,
+    "total_alunos": 129
+  },
+  "Q19_P00127617_LP7": {
+    "numero": 19,
+    "codigo": "P00127617",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_7EF09_P",
+    "desempenho": 88,
+    "acertos": 38,
+    "total_alunos": 138
+  },
+  "Q20_P00127687_LP7": {
+    "numero": 20,
+    "codigo": "P00127687",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_7EF19_P",
+    "desempenho": 99,
+    "acertos": 99,
+    "total_alunos": 299
+  },
+  "Q21_P00127195_LP7": {
+    "numero": 21,
+    "codigo": "P00127195",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_6EF02_P",
+    "desempenho": 74,
+    "acertos": 24,
+    "total_alunos": 124
+  },
+  "Q22_P00127194_LP7": {
+    "numero": 22,
+    "codigo": "P00127194",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_7EF06_P",
+    "desempenho": 55,
+    "acertos": 55,
+    "total_alunos": 155
+  },
+  "Q23_P00127182_LP7": {
+    "numero": 23,
+    "codigo": "P00127182",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_6EF02_P",
+    "desempenho": 73,
+    "acertos": 73,
+    "total_alunos": 273
+  },
+  "Q24_P00127190_LP7": {
+    "numero": 24,
+    "codigo": "P00127190",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_6EF19_P",
+    "desempenho": 72,
+    "acertos": 22,
+    "total_alunos": 122
+  },
+  "Q25_P00127191_LP7": {
+    "numero": 25,
+    "codigo": "P00127191",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_7EF23_P",
+    "desempenho": 65,
+    "acertos": 65,
+    "total_alunos": 265
+  },
+  "Q26_P00127174_LP7": {
+    "numero": 26,
+    "codigo": "P00127174",
+    "disciplina": "LP",
+    "ano": "7",
+    "habilidade_associada": "LP_7_6EF06_P",
+    "desempenho": 56,
+    "acertos": 6,
+    "total_alunos": 106
+  },
+  "Q01_N00138420_CN9": {
+    "numero": 1,
+    "codigo": "N00138420",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_8EF11_CN",
+    "desempenho": 87,
+    "acertos": 87,
+    "total_alunos": 187
+  },
+  "Q02_N00138421_CN9": {
+    "numero": 2,
+    "codigo": "N00138421",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_9EF13_CN",
+    "desempenho": 62,
+    "acertos": 12,
+    "total_alunos": 212
+  },
+  "Q03_N00138422_CN9": {
+    "numero": 3,
+    "codigo": "N00138422",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_8EF14_CN",
+    "desempenho": 77,
+    "acertos": 27,
+    "total_alunos": 227
+  },
+  "Q04_N00137057_CN9": {
+    "numero": 4,
+    "codigo": "N00137057",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_9EF07_CN",
+    "desempenho": 64,
+    "acertos": 14,
+    "total_alunos": 214
+  },
+  "Q05_N00137006_CN9": {
+    "numero": 5,
+    "codigo": "N00137006",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_8EF01_CN",
+    "desempenho": 60,
+    "acertos": 10,
+    "total_alunos": 210
+  },
+  "Q06_N00137007_CN9": {
+    "numero": 6,
+    "codigo": "N00137007",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_9EF04_CN",
+    "desempenho": 59,
+    "acertos": 9,
+    "total_alunos": 109
+  },
+  "Q07_N00137008_CN9": {
+    "numero": 7,
+    "codigo": "N00137008",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_9EF12_CN",
+    "desempenho": 73,
+    "acertos": 23,
+    "total_alunos": 223
+  },
+  "Q08_N00137249_CN9": {
+    "numero": 8,
+    "codigo": "N00137249",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_9EF09_CN",
+    "desempenho": 66,
+    "acertos": 66,
+    "total_alunos": 166
+  },
+  "Q09_N00137058_CN9": {
+    "numero": 9,
+    "codigo": "N00137058",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_9EF16_CN",
+    "desempenho": 61,
+    "acertos": 11,
+    "total_alunos": 111
+  },
+  "Q10_N00137017_CN9": {
+    "numero": 10,
+    "codigo": "N00137017",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_9EF18_CN",
+    "desempenho": 68,
+    "acertos": 68,
+    "total_alunos": 168
+  },
+  "Q11_N00137059_CN9": {
+    "numero": 11,
+    "codigo": "N00137059",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_9EF17_CN",
+    "desempenho": 57,
+    "acertos": 57,
+    "total_alunos": 257
+  },
+  "Q12_N00137061_CN9": {
+    "numero": 12,
+    "codigo": "N00137061",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_8EF04_CN",
+    "desempenho": 64,
+    "acertos": 64,
+    "total_alunos": 164
+  },
+  "Q13_N00137063_CN9": {
+    "numero": 13,
+    "codigo": "N00137063",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_8EF01_CN",
+    "desempenho": 76,
+    "acertos": 26,
+    "total_alunos": 226
+  },
+  "Q14_N00137015_CN9": {
+    "numero": 14,
+    "codigo": "N00137015",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_9EF18_CN",
+    "desempenho": 77,
+    "acertos": 77,
+    "total_alunos": 177
+  },
+  "Q15_N00137067_CN9": {
+    "numero": 15,
+    "codigo": "N00137067",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_9EF08_CN",
+    "desempenho": 75,
+    "acertos": 75,
+    "total_alunos": 275
+  },
+  "Q16_N00137068_CN9": {
+    "numero": 16,
+    "codigo": "N00137068",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_9EF19_CN",
+    "desempenho": 88,
+    "acertos": 38,
+    "total_alunos": 138
+  },
+  "Q17_N00137018_CN9": {
+    "numero": 17,
+    "codigo": "N00137018",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_8EF17_CN",
+    "desempenho": 86,
+    "acertos": 36,
+    "total_alunos": 236
+  },
+  "Q18_N00137060_CN9": {
+    "numero": 18,
+    "codigo": "N00137060",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_9EF05_CN",
+    "desempenho": 65,
+    "acertos": 15,
+    "total_alunos": 115
+  },
+  "Q19_N00137062_CN9": {
+    "numero": 19,
+    "codigo": "N00137062",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_9EF12_CN",
+    "desempenho": 50,
+    "acertos": 50,
+    "total_alunos": 250
+  },
+  "Q20_N00137250_CN9": {
+    "numero": 20,
+    "codigo": "N00137250",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_8EF13_CN",
+    "desempenho": 72,
+    "acertos": 72,
+    "total_alunos": 172
+  },
+  "Q21_N00137251_CN9": {
+    "numero": 21,
+    "codigo": "N00137251",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_9EF03_CN",
+    "desempenho": 90,
+    "acertos": 40,
+    "total_alunos": 240
+  },
+  "Q22_N00130880_CN9": {
+    "numero": 22,
+    "codigo": "N00130880",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_9EF01_CN",
+    "desempenho": 51,
+    "acertos": 1,
+    "total_alunos": 101
+  },
+  "Q23_N00130881_CN9": {
+    "numero": 23,
+    "codigo": "N00130881",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_8EF09_CN",
+    "desempenho": 66,
+    "acertos": 66,
+    "total_alunos": 166
+  },
+  "Q24_N00128770_CN9": {
+    "numero": 24,
+    "codigo": "N00128770",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_9EF16_CN",
+    "desempenho": 63,
+    "acertos": 13,
+    "total_alunos": 213
+  },
+  "Q25_N00128769_CN9": {
+    "numero": 25,
+    "codigo": "N00128769",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_9EF11_CN",
+    "desempenho": 82,
+    "acertos": 82,
+    "total_alunos": 282
+  },
+  "Q26_N00131676_CN9": {
+    "numero": 26,
+    "codigo": "N00131676",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_8EF13_CN",
+    "desempenho": 70,
+    "acertos": 20,
+    "total_alunos": 120
+  },
+  "Q27_N00134226_CN9": {
+    "numero": 27,
+    "codigo": "N00134226",
+    "disciplina": "CN",
+    "ano": "9",
+    "habilidade_associada": "CN_9_9EF06_CN",
+    "desempenho": 97,
+    "acertos": 97,
+    "total_alunos": 297
+  },
+  "Q01_M00127572_MAT6": {
+    "numero": 1,
+    "codigo": "M00127572",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_5EF06_M",
+    "desempenho": 92,
+    "acertos": 92,
+    "total_alunos": 192
+  },
+  "Q02_M00127573_MAT6": {
+    "numero": 2,
+    "codigo": "M00127573",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_6EF10_M",
+    "desempenho": 98,
+    "acertos": 48,
+    "total_alunos": 248
+  },
+  "Q03_M00127577_MAT6": {
+    "numero": 3,
+    "codigo": "M00127577",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_4EF09_M",
+    "desempenho": 81,
+    "acertos": 31,
+    "total_alunos": 231
+  },
+  "Q04_M00127574_MAT6": {
+    "numero": 4,
+    "codigo": "M00127574",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_6EF01_M",
+    "desempenho": 68,
+    "acertos": 68,
+    "total_alunos": 168
+  },
+  "Q05_M00127576_MAT6": {
+    "numero": 5,
+    "codigo": "M00127576",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_6EF02_M",
+    "desempenho": 51,
+    "acertos": 1,
+    "total_alunos": 101
+  },
+  "Q06_M00127578_MAT6": {
+    "numero": 6,
+    "codigo": "M00127578",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_6EF02_M",
+    "desempenho": 67,
+    "acertos": 17,
+    "total_alunos": 217
+  },
+  "Q07_M00127582_MAT6": {
+    "numero": 7,
+    "codigo": "M00127582",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_6EF12_M",
+    "desempenho": 68,
+    "acertos": 18,
+    "total_alunos": 218
+  },
+  "Q08_M00127579_MAT6": {
+    "numero": 8,
+    "codigo": "M00127579",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_5EF02_M",
+    "desempenho": 95,
+    "acertos": 95,
+    "total_alunos": 295
+  },
+  "Q09_M00127581_MAT6": {
+    "numero": 9,
+    "codigo": "M00127581",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_6EF19_M",
+    "desempenho": 55,
+    "acertos": 5,
+    "total_alunos": 105
+  },
+  "Q10_M00127583_MAT6": {
+    "numero": 10,
+    "codigo": "M00127583",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_6EF09_M",
+    "desempenho": 80,
+    "acertos": 30,
+    "total_alunos": 130
+  },
+  "Q11_M00127587_MAT6": {
+    "numero": 11,
+    "codigo": "M00127587",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_6EF19_M",
+    "desempenho": 53,
+    "acertos": 53,
+    "total_alunos": 253
+  },
+  "Q12_M00127586_MAT6": {
+    "numero": 12,
+    "codigo": "M00127586",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_6EF01_M",
+    "desempenho": 72,
+    "acertos": 72,
+    "total_alunos": 172
+  },
+  "Q13_M00127589_MAT6": {
+    "numero": 13,
+    "codigo": "M00127589",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_4EF07_M",
+    "desempenho": 54,
+    "acertos": 54,
+    "total_alunos": 254
+  },
+  "Q14_M00127588_MAT6": {
+    "numero": 14,
+    "codigo": "M00127588",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_6EF04_M",
+    "desempenho": 73,
+    "acertos": 73,
+    "total_alunos": 173
+  },
+  "Q15_M00127584_MAT6": {
+    "numero": 15,
+    "codigo": "M00127584",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_6EF06_M",
+    "desempenho": 53,
+    "acertos": 3,
+    "total_alunos": 203
+  },
+  "Q16_M00128404_MAT6": {
+    "numero": 16,
+    "codigo": "M00128404",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_6EF13_M",
+    "desempenho": 79,
+    "acertos": 79,
+    "total_alunos": 279
+  },
+  "Q17_M00128428_MAT6": {
+    "numero": 17,
+    "codigo": "M00128428",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_6EF18_M",
+    "desempenho": 97,
+    "acertos": 47,
+    "total_alunos": 147
+  },
+  "Q18_M00128424_MAT6": {
+    "numero": 18,
+    "codigo": "M00128424",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_6EF05_M",
+    "desempenho": 68,
+    "acertos": 18,
+    "total_alunos": 118
+  },
+  "Q19_M00128429_MAT6": {
+    "numero": 19,
+    "codigo": "M00128429",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_6EF08_M",
+    "desempenho": 89,
+    "acertos": 89,
+    "total_alunos": 289
+  },
+  "Q20_M00128405_MAT6": {
+    "numero": 20,
+    "codigo": "M00128405",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_6EF16_M",
+    "desempenho": 51,
+    "acertos": 1,
+    "total_alunos": 101
+  },
+  "Q21_M00098427_MAT6": {
+    "numero": 21,
+    "codigo": "M00098427",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_6EF20_M",
+    "desempenho": 74,
+    "acertos": 74,
+    "total_alunos": 174
+  },
+  "Q22_M00127851_MAT6": {
+    "numero": 22,
+    "codigo": "M00127851",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_6EF18_M",
+    "desempenho": 93,
+    "acertos": 43,
+    "total_alunos": 243
+  },
+  "Q23_M00127837_MAT6": {
+    "numero": 23,
+    "codigo": "M00127837",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_6EF14_M",
+    "desempenho": 80,
+    "acertos": 80,
+    "total_alunos": 180
+  },
+  "Q24_M00127857_MAT6": {
+    "numero": 24,
+    "codigo": "M00127857",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_6EF08_M",
+    "desempenho": 65,
+    "acertos": 65,
+    "total_alunos": 165
+  },
+  "Q25_M00127860_MAT6": {
+    "numero": 25,
+    "codigo": "M00127860",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_6EF09_M",
+    "desempenho": 92,
+    "acertos": 42,
+    "total_alunos": 242
+  },
+  "Q26_M00127843_MAT6": {
+    "numero": 26,
+    "codigo": "M00127843",
+    "disciplina": "MAT",
+    "ano": "6",
+    "habilidade_associada": "MAT_6_5EF05_M",
+    "desempenho": 62,
+    "acertos": 12,
+    "total_alunos": 112
+  }
+}

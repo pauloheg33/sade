@@ -1,0 +1,717 @@
+CICLO II - 8º MATEMÁTICA
+Variante A (Identificador: UQM906615)
+
+Nome e sobrenome
+Observação: Certifique-se de que o identificador na folha de respostas corresponda ao identificador na folha de teste.
+Marque as respostas corretas preenchendo inteiramente o círculo correspondente.
+Se você errar, preencha todo o quadrado da resposta incorreta e depois preencha o círculo da resposta correta.
+Exemplo: resposta marcada é B
+
+Exemplo: resposta marcada é D
+
+zona de varredura
+
+1
+
+A
+
+B
+
+C
+
+D
+
+21
+
+A
+
+B
+
+C
+
+D
+
+2
+
+A
+
+B
+
+C
+
+D
+
+22
+
+A
+
+B
+
+C
+
+D
+
+3
+
+A
+
+B
+
+C
+
+D
+
+23
+
+A
+
+B
+
+C
+
+D
+
+4
+
+A
+
+B
+
+C
+
+D
+
+24
+
+A
+
+B
+
+C
+
+D
+
+5
+
+A
+
+B
+
+C
+
+D
+
+25
+
+A
+
+B
+
+C
+
+D
+
+6
+
+A
+
+B
+
+C
+
+D
+
+26
+
+A
+
+B
+
+C
+
+D
+
+7
+
+A
+
+B
+
+C
+
+D
+
+8
+
+A
+
+B
+
+C
+
+D
+
+9
+
+A
+
+B
+
+C
+
+D
+
+10
+
+A
+
+B
+
+C
+
+D
+
+11
+
+A
+
+B
+
+C
+
+D
+
+12
+
+A
+
+B
+
+C
+
+D
+
+13
+
+A
+
+B
+
+C
+
+D
+
+14
+
+A
+
+B
+
+C
+
+D
+
+15
+
+A
+
+B
+
+C
+
+D
+
+16
+
+A
+
+B
+
+C
+
+D
+
+17
+
+A
+
+B
+
+C
+
+D
+
+18
+
+A
+
+B
+
+C
+
+D
+
+19
+
+A
+
+B
+
+C
+
+D
+
+20
+
+A
+
+B
+
+C
+
+D
+
+zona de varredura
+
+M0802
+
+Leia e observe as informações do quadro abaixo para responder às cinco questões a seguir.
+Uma livraria possui um setor em que são vendidos uma variedade de produtos colecionáveis, como
+cartões, revistas de histórias em quadrinhos, broches, chaveiros, entre outros. Observe abaixo uma
+figura representando esse setor da livraria.
+
+(M00128214_CEN)
+
+01) (M00128215) Ao receber caixas com produtos para o estoque da livraria, o gerente notou que a quantidade x
+de broches e a quantidade y de chaveiros poderiam ser determinadas pelo sistema de equações polinomiais
+abaixo.
+x + y = 28
+*
+2x + y = 44
+O par ordenado (x, y) que é solução desse sistema de equações polinomiais é
+A) (12, 16).
+B) (16, 12).
+C) (24, 36).
+D) (28, 44).
+02) (M00128218) Os clientes dessa livraria podem montar um pacote com itens para colecionadores. Esse
+pacote é composto por 1 broche dentre 5 disponíveis, 1 cartão dentre 8 disponíveis e 1 miniatura dentre
+5 disponíveis.
+Quantos pacotes diferentes, no máximo, podem ser montados?
+A) 8.
+B) 18.
+C) 40.
+D) 200.
+
+1
+
+BL02M08
+
+M0802
+
+03) (M00128219) O gerente dessa livraria pretende colocar um adesivo em toda a região lateral de uma
+prateleira. O custo desse adesivo é calculado pela medida da área da região que será coberta. Observe, na
+figura abaixo, uma representação da lateral dessa prateleira com algumas de suas medidas destacadas.
+50 cm
+
+40 cm
+
+90 cm
+
+120 cm
+
+Qual é a medida da área, em centímetro quadrado, da região dessa prateleira que será coberta
+pelo adesivo?
+A) 300 cm2.
+B) 500 cm2.
+C) 12 800 cm2.
+D) 15 600 cm2.
+04) (M00128216) O gerente dessa livraria fez alguns pacotes promocionais contendo uma revista de histórias
+em quadrinhos e alguns cartões colecionáveis. O preço total de cada um desses pacotes foi dado pelo
+valor numérico da expressão algébrica n + (0,8 ∙ 8m), em que n é o valor da revista, e m é o valor de cada
+cartão colecionável nesse pacote. Em cada pacote, o valor da revista utilizada foi de R$ 25,00, e o valor
+de cada cartão foi de R$ 2,50.
+Qual é o valor total de cada pacote promocional?
+A) R$ 41,00.
+B) R$ 31,40.
+C) R$ 27,50.
+D) R$ 16,00.
+05) (M00128214) O gerente dessa livraria registrou a quantidade de broches de personagens de desenho
+animado vendidos durante uma semana. Foram vendidos 21 broches no domingo, 15 na segunda‑feira,
+11 na terça‑feira, 15 na quarta‑feira, 18 na quinta‑feira, 19 na sexta‑feira e 20 no sábado.
+Qual foi a média aritmética do número de broches vendidos por dia nessa semana?
+A) 10.
+B) 15.
+C) 17.
+D) 18.
+
+2
+
+BL02M08
+
+M0802
+
+Leia e observe as informações do quadro abaixo para responder às cinco questões a seguir.
+A gerência de um parque aquático decidiu ampliar e realizar reformas durante o mês de celebração
+do aniversário desse parque. Devido a isso, a gerência também decidiu realizar promoções com
+descontos nos ingressos. Observe, na figura abaixo, uma representação de um dos espaços desse
+parque aquático.
+
+(M00128220_CEN)
+
+06) (M00128221) A quantidade de funcionários que trabalham nos setores de vendas e administrativo desse
+parque aquático é dada pelo par ordenado, que é solução do sistema de equações polinomiais de 1° grau
+abaixo.
+
+*
+
+2x + 3y = 35
+x + y = 13
+
+O par ordenado (x, y) solução desse sistema é
+A) (3, 4).
+B) (4, 9).
+C) (13, 35).
+D) (16, 12).
+
+3
+
+BL03M08
+
+M0802
+
+07) (M00128224) Com o objetivo de cercar a região onde a nova piscina será construída, foram colocados
+tapumes. Para isso, foi necessário determinar o perímetro dessa região. Observe, na figura abaixo, a
+representação dessa região.
+
+Qual é a medida do perímetro, em metro, da região onde será feita a obra dessa piscina?
+A) 68 m.
+B) 96 m.
+C) 104 m.
+D) 544 m.
+08) (M00128225) Devido ao aniversário desse parque aquático, alguns sorteios de cupons foram realizados
+nas redes sociais. Durante um certo dia, a cada 6 minutos, ocorria o sorteio de um cupom de 10%
+desconto; a cada 8 minutos, o sorteio de um cupom de 15% de desconto; e a cada 18 minutos, o sorteio
+de um cupom de 40% de desconto. Os sorteios para os cupons de 10%, 15% e 40% começaram ao
+mesmo tempo na manhã desse dia.
+Após quantos minutos, no mínimo, os sorteios para os cupons de 10%, 15% e 40% ocorrerão juntos
+novamente?
+A) 864 minutos.
+B) 144 minutos.
+C) 72 minutos.
+D) 32 minutos.
+09) (M00128222) O valor de 12 ingressos nesse parque é igual a R$ 600,00. Durante o mês de celebração
+de aniversário, houve um desconto de 15% nesse valor.
+Qual foi o valor do desconto nesses ingressos?
+A) R$ 90,00.
+B) R$ 50,00.
+C) R$ 40,00.
+D) R$ 15,00.
+
+4
+
+BL03M08
+
+M0802
+
+10) (M00128220) A gerência desse parque aquático pretende construir uma nova piscina. No projeto, é
+prevista a instalação de uma faixa decorativa na borda circular dessa piscina e, para isso, foi necessária a
+determinação de seu perímetro. Observe, na figura abaixo, a representação da borda dessa piscina com
+a medida do diâmetro.
+Considere:
+=3
+
+16 m
+Qual é a medida do perímetro, em metro, da borda dessa piscina?
+A) 24 m.
+B) 48 m.
+C) 192 m.
+D) 384 m.
+
+5
+
+BL03M08
+
+M0802
+
+Leia e observe as informações do quadro abaixo para responder às cinco questões a seguir.
+Uma agência de viagens promove excursões e vende pacotes de viagem para vários destinos. Observe,
+na figura abaixo, essa agência de viagens.
+
+(M00128226_CEN)
+
+11) (M00128231) Em uma excursão, havia a possibilidade de os participantes irem a um museu ou a uma
+galeria de arte em determinado dia. Desses participantes, 30 optaram por visitar um museu, e 48 uma
+galeria de arte. Para esses passeios, a agência de viagem contratou guias que ficariam responsáveis,
+cada um, por um grupo com a mesma quantidade de pessoas, de modo que cada grupo tivesse a maior
+quantidade possível de pessoas, independentemente do passeio.
+No total, quantas pessoas havia em cada grupo?
+A) 2.
+B) 6.
+C) 30.
+D) 78.
+
+6
+
+BL04M08
+
+M0802
+
+12) (M00128230) Um painel digital foi instalado nessa agência para expor os novos pacotes de viagens
+disponíveis. Será feita uma moldura que irá contornar todo esse painel, então foi necessário determinar
+o comprimento da barra de metal que será utilizada. Observe, na figura abaixo, a representação desse
+painel.
+110 cm
+
+54 cm
+
+114 cm
+
+54 cm
+
+Qual é o comprimento mínimo, em centímetro, da barra de metal que será utilizada para fazer essa
+moldura?
+A) 224 cm.
+B) 332 cm.
+C) 448 cm.
+D) 452 cm.
+13) (M00128228) Para definir a quantidade de copos de água mineral necessários para uma excursão, a
+gerente notou que seria necessário determinar o conjunto solução da equação apresentada abaixo.
+3x2 = 432
+Qual é o conjunto solução dessa equação?
+A) {–144, 144}.
+B) {–12, 12}.
+C) {1, 144}.
+D) {3, 432}.
+
+7
+
+BL04M08
+
+M0802
+
+14) (M00128227) Essa agência de viagens irá fazer uma promoção e, para realizar a divulgação, encomendou
+um cartaz com formato circular. Observe, na figura abaixo, uma representação desse cartaz.
+Considere:
+=3
+
+60 cm
+
+O custo de produção desse cartaz foi definido a partir da área que o cartaz produzido possui.
+Qual é a área, em centímetro quadrado, desse cartaz?
+A) 90 cm2.
+B) 180 cm2.
+C) 2 700 cm2.
+D) 10 800 cm2.
+15) (M00128229) A gerente dessa agência de viagens gerou um relatório sobre a quantidade de pacotes
+vendidos nos cinco dias da semana anterior. Observe, no quadro abaixo, a quantidade de pacotes
+vendidos nesses cinco dias.
+Dia da semana
+
+Quantidade
+de pacotes
+
+Segunda‑feira
+
+17
+
+Terça‑feira
+
+14
+
+Quarta‑feira
+
+21
+
+Quinta‑feira
+
+22
+
+Sexta‑feira
+
+14
+
+Após construir esse quadro, ela notou que 2 dos pacotes vendidos na quinta‑feira foram, na verdade,
+vendidos na quarta‑feira e ajustou as quantidades desse quadro.
+Com esse ajuste, qual medida de tendência central referente à quantidade de pacotes foi alterada?
+A) Amplitude.
+B) Média.
+C) Mediana.
+D) Moda.
+
+8
+
+BL04M08
+
+M0802
+
+16) (M00128285) Observe, no quadro abaixo, a decomposição de um número.
+4 unidades de milhar, 3 centenas, 6 dezenas e 9 unidades
+Essa é a decomposição de qual número?
+A) 4 300.
+B) 4 369.
+C) 9 364.
+D) 9 634.
+17) (M00128283) Observe o sólido geométrico representado abaixo.
+
+Uma das planificações desse sólido está apresentada em
+A)
+
+B)
+
+C)
+
+D)
+
+9
+
+BL06M08
+
+M0802
+
+18) (M00128280) Observe, no quadro abaixo, a medida da altura do prédio em que Hélio trabalha.
+70 metros
+A medida da altura desse prédio, em centímetro, equivale a
+A) 70 000 cm.
+B) 7 000 cm.
+C) 700 cm.
+D) 70 cm.
+19) (M017722) Lucas comprou 6 pacotes de prendedores de roupa, cada um deles contendo 16 prendedores
+de roupa.
+Quantos prendedores de roupa Lucas comprou no total?
+A) 16.
+B) 22.
+C) 66.
+D) 96.
+20) (M00128282) Uma academia possui 4 unidades em uma cidade e oferece duas opções de planos
+para seus alunos: o plano apenas com musculação e o plano completo. Observe, no gráfico abaixo, a
+quantidade de alunos por unidade de acordo com os planos em que estão matriculados.
+
+Quantidade de alunos por plano
+
+Quantidade de alunos por unidade
+160
+140
+
+140
+
+124
+
+112
+
+120
+100
+80
+
+82
+
+125
+
+118
+96
+
+74
+
+60
+40
+20
+0
+
+Unidade 1
+
+Unidade 2
+
+Unidade 3
+
+Unidade 4
+
+Unidades
+Musculação
+
+Plano completo
+
+De acordo com esse gráfico, qual é a quantidade total de alunos que estão matriculados no plano completo?
+A) 140.
+B) 399.
+C) 472.
+D) 871.
+
+10
+
+BL06M08
+
+M0802
+
+21) (M00128310) Observe a reta numérica abaixo, que está dividida em partes iguais.
+
+P
+–0,4
+
+2,8
+
+Qual é o número que o ponto P representa nessa reta?
+A) –1,6.
+B) –0,1.
+C) 0,5.
+D) 0,8.
+22) (M061073H6) André deseja contornar com barbante o perímetro do molde circular de madeira que tem
+em sua casa, que possui 30 cm de raio.
+Quantos centímetros de barbante, no mínimo, André precisa utilizar?
+A) 2 700 cm.
+Considere:
+B) 360 cm.
+=3
+C) 180 cm.
+D) 90 cm.
+23) (M00128320) Observe a equação polinomial de 2° grau apresentada no quadro abaixo.
+8x2 = 72
+Qual é o conjunto solução S dessa equação?
+A) S = {9}.
+B) S = {72}.
+C) S = {–8, 8}.
+D) S = {–3, 3}.
+24) (M00128315) Júlio comprou uma peça para o seu carro em uma concessionária. Ele foi informado que,
+na tabela de preços, essa peça custava R$ 280,00, mas que a loja oferece um desconto de 5% para
+pagamento à vista. Júlio optou pelo pagamento à vista.
+Qual foi o valor do desconto que Júlio recebeu ao fazer o pagamento dessa peça à vista?
+A) R$ 5,00.
+B) R$ 14,00.
+C) R$ 56,00.
+D) R$ 140,00.
+
+11
+
+BL08M08
+
+M0802
+
+25) (M00128324) Olga fez uma representação plana do piso de seu apartamento. Observe abaixo essa
+representação com algumas medidas indicadas.
+
+3m
+
+4m
+
+5m
+
+5m
+
+5,5 m
+Qual é a medida da área, em metro quadrado, do piso do apartamento de Olga?
+A) 22,5 m2.
+B) 39,5 m2.
+C) 44,5 m2.
+D) 49,5 m2.
+26) (M00128329) Gael está testando a velocidade de um robô na execução de uma tarefa. No primeiro teste,
+esse robô demorou 50 segundos para concluir a tarefa. No segundo teste, 45 segundos. No terceiro, 50.
+No quarto, 48. E, no último, 32.
+Qual é a média de tempo que o robô demorou para concluir essas tarefas?
+A) 41 segundos.
+B) 45 segundos.
+C) 48 segundos.
+D) 50 segundos.
+
+12
+
+BL08M08
+
+

@@ -1,0 +1,778 @@
+CICLO II 6º MATEMÁTICA
+Variante A (Identificador: FOR476614)
+
+Nome e sobrenome
+Observação: Certifique-se de que o identificador na folha de respostas corresponda ao identificador na folha de teste.
+Marque as respostas corretas preenchendo inteiramente o círculo correspondente.
+Se você errar, preencha todo o quadrado da resposta incorreta e depois preencha o círculo da resposta correta.
+Exemplo: resposta marcada é B
+
+Exemplo: resposta marcada é D
+
+zona de varredura
+
+1
+
+A
+
+B
+
+C
+
+D
+
+21
+
+A
+
+B
+
+C
+
+D
+
+2
+
+A
+
+B
+
+C
+
+D
+
+22
+
+A
+
+B
+
+C
+
+D
+
+3
+
+A
+
+B
+
+C
+
+D
+
+23
+
+A
+
+B
+
+C
+
+D
+
+4
+
+A
+
+B
+
+C
+
+D
+
+24
+
+A
+
+B
+
+C
+
+D
+
+5
+
+A
+
+B
+
+C
+
+D
+
+25
+
+A
+
+B
+
+C
+
+D
+
+6
+
+A
+
+B
+
+C
+
+D
+
+26
+
+A
+
+B
+
+C
+
+D
+
+7
+
+A
+
+B
+
+C
+
+D
+
+8
+
+A
+
+B
+
+C
+
+D
+
+9
+
+A
+
+B
+
+C
+
+D
+
+10
+
+A
+
+B
+
+C
+
+D
+
+11
+
+A
+
+B
+
+C
+
+D
+
+12
+
+A
+
+B
+
+C
+
+D
+
+13
+
+A
+
+B
+
+C
+
+D
+
+14
+
+A
+
+B
+
+C
+
+D
+
+15
+
+A
+
+B
+
+C
+
+D
+
+16
+
+A
+
+B
+
+C
+
+D
+
+17
+
+A
+
+B
+
+C
+
+D
+
+18
+
+A
+
+B
+
+C
+
+D
+
+19
+
+A
+
+B
+
+C
+
+D
+
+20
+
+A
+
+B
+
+C
+
+D
+
+zona de varredura
+
+M0602
+
+Leia e observe as informações do quadro abaixo para responder às cinco questões a seguir.
+Observe, na figura abaixo, Paulo abastecendo seu automóvel em um posto de combustível.
+
+(M00127572_CEN)
+
+01) (M00127572) Para chegar ao posto de combustível, Paulo utilizou um sistema de localização representado
+em um plano cartesiano. Observe abaixo esse plano cartesiano, em que a localização de alguns
+estabelecimentos, incluindo a do posto de combustível, está indicada por pontos.
+y
+7
+6
+IGREJA POSTO
+5
+4
+ESCOLA
+
+3
+2
+BANCO
+
+1
+0
+
+1
+
+2
+
+4
+
+3
+
+5
+
+6
+
+7 x
+
+Qual é o par ordenado que representa a localização do posto de combustível nesse plano cartesiano?
+A) (5, 3).
+B) (5, 1).
+C) (3, 5).
+D) (3, 1).
+1
+
+BL02M06
+
+M0602
+
+02) (M00127573) Em conversa com o dono desse posto de combustível, Paulo descobriu que um
+estacionamento será construído nas redondezas. Observe, na figura abaixo, um esboço do projeto, em
+que o polígono colorido de cinza representa a área que será ocupada pelo estacionamento.
+1m
+1m
+
+De acordo com esse esboço, quantos metros quadrados de área esse estacionamento vai ocupar?
+A) 24 m2.
+B) 39 m2.
+C) 40 m2.
+D) 70 m2.
+03) (M00127577) A bomba utilizada para colocar gasolina no automóvel de Paulo consegue colocar 60 litros
+em 3 minutos de funcionamento. Mantendo essa proporção, ele fez o cálculo de quantos minutos, no total,
+essa bomba precisa para encher um tanque vazio que armazena, no máximo, 70 litros.
+De quantos minutos essa bomba vai precisar para encher esse tanque de 70 litros?
+A) 3,5 minutos.
+B) 5 minutos.
+C) 23 minutos.
+D) 46,6 minutos.
+04) (M00127574) Nesse posto, Paulo abasteceu seu automóvel com 37 litros de gasolina.
+Essa quantidade de gasolina, em mililitro, é igual a
+A) 37 mL.
+B) 370 mL.
+C) 3 700 mL.
+D) 37 000 mL.
+05) (M00127576) No dia em que Paulo abasteceu seu automóvel com 37 litros de gasolina, o preço de cada
+litro era de R$ 4,50. Ele pagou essa compra com R$ 200,00.
+Quantos reais Paulo recebeu de troco por esse abastecimento?
+A) R$ 33,50.
+B) R$ 41,50.
+C) R$ 44,00.
+D) R$ 52,00.
+
+2
+
+BL02M06
+
+M0602
+
+Leia e observe as informações do quadro abaixo para responder às cinco questões a seguir.
+Observe, na figura abaixo, uma parte de um autódromo onde está acontecendo uma competição
+automobilística.
+
+(M00127578_CEN)
+
+06) (M00127578) As posições de algumas bandeiras de sinalização dispostas ao longo do autódromo foram
+representadas a partir de uma reta numérica, dividida em partes iguais, conforme apresentado na figura abaixo.
+P
+
+227,5 228
+
+A bandeira em que está a letra P está localizada sobre qual número dessa reta numérica?
+A) 229,5.
+B) 230.
+C) 230,5.
+D) 231.
+
+3
+
+BL03M06
+
+M0602
+
+07) (M00127582) Um dos sinalizadores usados na pista desse autódromo possui o formato de um sólido
+geométrico. Observe abaixo uma representação desse sólido.
+
+Uma planificação desse sólido geométrico está apresentada em
+A)
+
+B)
+
+C)
+
+D)
+
+08) (M00127579) Um piloto que estava disputando essa competição verificou ter percorrido 6 597 metros na
+primeira volta que completou nessa pista. Após percorrer essa distância, o piloto teve um problema com
+seu carro e percorreu somente mais 947,25 metros.
+Qual foi a distância total, em metro, que esse piloto percorreu?
+A) 5 649,75 m.
+B) 6 434,25 m.
+C) 7 544,00 m.
+D) 7 544,25 m.
+4
+
+BL03M06
+
+M0602
+
+09) (M00127581) O diretor do autódromo registrou, na forma de fração, a distância percorrida por quatro
+pilotos em relação à extensão total que eles precisam correr para finalizar a competição. Observe esses
+registros nos quadros abaixo.
+6
+15
+
+2
+15
+
+6
+45
+
+3
+16
+
+I
+
+II
+
+III
+
+IV
+
+Quais dessas frações são equivalentes?
+A) I e II.
+B) I e III.
+C) II e III.
+D) II e IV.
+10) (M00127583) Ao final da competição, foi verificado que o vencedor percorreu um total de 96 quilômetros
+com seu carro.
+Quantos metros, no total, esse piloto percorreu com seu carro?
+A) 96 metros.
+B) 960 metros.
+C) 9 600 metros.
+D) 96 000 metros.
+
+5
+
+BL03M06
+
+M0602
+
+Leia e observe as informações do quadro abaixo para responder às cinco questões a seguir.
+Observe a representação de parte de um estádio, onde ocorrem eventos artísticos e esportivos,
+especialmente jogos de futebol.
+
+(M00127584_CEN)
+
+11) (M00127587) Para estimar quantos reais serão obtidos com a venda dos ingressos para o evento, um dos
+organizadores calculou o resultado da expressão numérica apresentada abaixo.
+50 × 5 000 + 25 × 750
+De acordo com esse cálculo, quantos reais serão arrecadados com a venda desses ingressos?
+A) 5 825 reais.
+B) 7 000 reais.
+C) 268 750 reais.
+D) 431 250 reais.
+12) (M00127586) No evento infantil que será realizado nesse estádio, será colocado um tapete na região
+central do gramado para que alguns artistas se apresentem. Observe, na malha quadriculada abaixo,
+uma representação, em cinza, da região que esse tapete ocupará.
+1m
+
+1m
+
+Qual é a medida da área, em metro quadrado, que esse tapete ocupará no gramado?
+A) 56 m2.
+B) 54 m2.
+C) 40 m2.
+D) 26 m2.
+6
+
+BL04M06
+
+M0602
+
+13) (M00127589) Os kits de futebol a serem sorteados nesse evento serão distribuídos em caixas com o
+formato do sólido apresentado abaixo.
+
+Uma planificação desse sólido está representada em
+A)
+
+B)
+
+C)
+
+D)
+
+14) (M00127588) Nesse evento, serão sorteados kits formados por uma bola de futebol e por um uniforme de
+um time de futebol. Para formar esses kits, os organizadores do evento têm 5 opções de bolas de futebol
+e 15 opções de uniformes de times.
+Quantos kits distintos, no máximo, os organizadores desse evento poderão formar?
+A) 75.
+B) 56.
+C) 20.
+D) 15.
+7
+
+BL04M06
+
+M0602
+
+15) (M00127584) Nesse estádio, será realizado um evento esportivo dedicado ao público infantil. Foram
+disponibilizados ingressos para as regiões norte, sul, leste e oeste da arquibancada. Observe, no gráfico
+abaixo, a quantidade de ingressos vendidos para cada uma dessas regiões na primeira hora de venda.
+
+Quantidade
+
+Quantidade de ingressos vendidos na primeira
+hora de venda
+500
+450
+400
+350
+300
+250
+200
+150
+100
+50
+0
+
+Norte
+
+Sul
+
+Leste
+
+Oeste
+
+Região da arquibancada
+
+Quantos ingressos foram vendidos para esse evento, no total, na primeira hora de venda?
+A) 400.
+B) 800.
+C) 1 050.
+D) 1 100.
+
+8
+
+BL04M06
+
+M0602
+
+16) (M00128404) Observe a figura geométrica apresentada abaixo.
+
+Essa figura geométrica é um
+A) círculo.
+B) quadrado.
+C) trapézio.
+D) triângulo.
+17) (M00128428) A diretora de um curso de idiomas fez um levantamento para saber quantos estudantes
+estão matriculados em cada um dos idiomas oferecidos pelo curso, nos turnos da manhã e da tarde.
+Observe, na tabela abaixo, o levantamento feito por essa diretora.
+Estudantes matriculados
+Idiomas
+
+Manhã
+
+Tarde
+
+Alemão
+
+76
+
+85
+
+Espanhol
+
+89
+
+61
+
+Francês
+
+77
+
+98
+
+Inglês
+
+90
+
+101
+
+De acordo com essa tabela, quantos estudantes de francês o turno da tarde tem a mais do que o turno
+da manhã?
+A) 9.
+B) 13.
+C) 21.
+D) 175.
+18) (M00128424) Observe, no quadro abaixo, o padrão de uma sequência numérica.
+740 – 743 – 746 – ____ – 752
+Qual é o número que está faltando nessa sequência?
+A) 747.
+B) 749.
+C) 751.
+D) 755.
+9
+
+BL06M06
+
+M0602
+
+19) (M00128429) Observe, na imagem abaixo, Tadeu andando de bicicleta em um parque.
+
+Quem está à esquerda de Tadeu?
+A) Flávia.
+B) Olívia.
+C) Sandra.
+D) Sávio.
+20) (M00128405) Observe a figura geométrica apresentada abaixo.
+
+Essa figura geométrica é um
+A) círculo.
+B) quadrado.
+C) retângulo.
+D) triângulo.
+10
+
+BL06M06
+
+M0602
+
+21) (M00098427) Observe as frações apresentadas no quadro abaixo.
+1
+3
+
+2
+9
+
+4
+6
+
+3
+4
+
+Qual dessas frações é a maior?
+A) 1 .
+3
+B) 2 .
+9
+C) 3 .
+4
+D) 4 .
+6
+22) (M00127851) Observe o ponto F apresentado no plano cartesiano abaixo.
+y
+6
+5
+
+F
+
+4
+3
+2
+1
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6 x
+
+Qual é o par ordenado (x, y) que corresponde à localização do ponto F nesse plano cartesiano?
+A) (3, 3).
+B) (3, 4).
+C) (4, 3).
+D) (4, 4).
+23) (M00127837) Durante uma viagem, Marcos abasteceu seu carro duas vezes. Na primeira vez, ele colocou
+24,70 litros de gasolina no carro, e na segunda vez, Marcos colocou mais 36,05 litros de gasolina.
+No total, quantos litros de gasolina Marcos colocou em seu carro durante essa viagem?
+A) 11,35 litros.
+B) 38,52 litros.
+C) 50,75 litros.
+D) 60,75 litros.
+
+11
+
+BL08M06
+
+M0602
+
+24) (M00127857) Observe, na malha quadriculada abaixo, uma figura colorida de cinza.
+1 cm
+1 cm
+
+Qual é a medida da área dessa figura colorida de cinza, em centímetro quadrado?
+A) 30 cm2.
+B) 40 cm2.
+C) 56 cm2.
+D) 80 cm2.
+25) (M00127860) Uma empresa de publicidade realizou uma pesquisa com jovens e adultos para identificar
+quais são as categorias de vídeos que eles mais assistem. Observe o resultado dessa pesquisa no
+gráfico abaixo.
+
+800
+
+Quantidade
+
+700
+600
+
+Quantidade de jovens e de adultos por categoria
+de vídeo
+700
+
+690
+560
+
+680
+
+600
+
+670 660
+
+520
+
+500
+
+Jovem
+
+400
+
+Adulto
+
+300
+200
+100
+0
+
+Arte
+
+Culinária
+
+Educação
+
+Esporte
+
+Categoria de vídeo
+
+Com base nesse gráfico, qual dessas categorias teve uma diferença maior entre a quantidade de jovens
+e a quantidade de adultos?
+A) Arte.
+B) Culinária.
+C) Educação.
+D) Esporte.
+26) (M00127843) Caroline comprou 3 travesseiros para sua família, custando R$ 74,80 cada um. Ela pagou
+R$ 300,00 por essa compra e receberá de troco uma quantia em dinheiro.
+Qual é a quantia que Caroline deve receber de troco por essa compra?
+A) R$ 75,60.
+B) R$ 87,60.
+C) R$ 224,40.
+D) R$ 225,20.
+12
+
+BL08M06
+
+

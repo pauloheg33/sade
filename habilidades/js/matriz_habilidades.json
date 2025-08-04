@@ -1,0 +1,5320 @@
+{
+  "LP_6_5EF06_P": {
+    "codigo": "5EF06_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Inferir, em textos de nível 2, o sentido de palavras ou expressões não coloquiais, com apoio de pistas co-textuais.",
+    "bncc": "EF35LP05",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 87,
+    "media_acertos": 67,
+    "alunos_adequado": 87,
+    "num_questoes": 4
+  },
+  "LP_6_6EF01_P": {
+    "codigo": "6EF01_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Localizar informação em textos de nível 2, quando a informação é retomada, no texto, por um processo de referenciação com referente próximo.",
+    "bncc": "EF15LP03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q14_P00126393_LP6"
+    ],
+    "desempenho": 91,
+    "media_acertos": 96,
+    "alunos_adequado": 71,
+    "num_questoes": 1
+  },
+  "LP_6_6EF02_P": {
+    "codigo": "6EF02_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Localizar informações explícitas, em textos de nível 2, recuperando-as por meio de paráfrase, estando a informação no início do texto.",
+    "bncc": "EF69LP03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q15_P00126395_LP6",
+      "Q17_P00127389_LP6",
+      "Q18_P00127382_LP6"
+    ],
+    "desempenho": 75,
+    "media_acertos": 80,
+    "alunos_adequado": 75,
+    "num_questoes": 3
+  },
+  "LP_6_6EF03_P": {
+    "codigo": "6EF03_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Reconhecer o assunto de textos de nível 2 nos quais tal reconhecimento requeira a leitura global do texto.",
+    "bncc": "EF35LP05",
+    "questoes": [],
+    "questoes_ids": [
+      "Q03_P00126379_LP6",
+      "Q25_P00128169_LP6"
+    ],
+    "desempenho": 90,
+    "media_acertos": 85,
+    "alunos_adequado": 70,
+    "num_questoes": 2
+  },
+  "LP_6_6EF04_P": {
+    "codigo": "6EF04_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Reconhecer o assunto de textos de nível 3 nos quais o assunto é apontado indiretamente pelo título.",
+    "bncc": "EF69LP03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q10_P00126391_LP6"
+    ],
+    "desempenho": 86,
+    "media_acertos": 71,
+    "alunos_adequado": 56,
+    "num_questoes": 1
+  },
+  "LP_6_6EF06_P": {
+    "codigo": "6EF06_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Inferir, em textos de nível 2, o sentido de palavras ou expressões não coloquiais, a partir da leitura global do texto.",
+    "bncc": "EF67LP06",
+    "questoes": [],
+    "questoes_ids": [
+      "Q09_P00126389_LP6"
+    ],
+    "desempenho": 63,
+    "media_acertos": 88,
+    "alunos_adequado": 63,
+    "num_questoes": 1
+  },
+  "LP_6_6EF07_P": {
+    "codigo": "6EF07_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Inferir informação em textos de nível 2 a partir de uma palavra-chave.",
+    "bncc": "EF35LP04",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 66,
+    "media_acertos": 96,
+    "alunos_adequado": 86,
+    "num_questoes": 3
+  },
+  "LP_6_6EF08_P": {
+    "codigo": "6EF08_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Inferir informação em textos de nível 2 por dedução a partir de um enunciado ou na articulação entre dois enunciados.",
+    "bncc": "EF69LP03",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 92,
+    "media_acertos": 97,
+    "alunos_adequado": 72,
+    "num_questoes": 1
+  },
+  "LP_6_6EF09_P": {
+    "codigo": "6EF09_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Identificar a finalidade de textos de nível 2 que circulam no campo de atuação da vida pública ou de estudos e pesquisas.",
+    "bncc": "EF15LP01",
+    "questoes": [],
+    "questoes_ids": [
+      "Q11_P00126397_LP6"
+    ],
+    "desempenho": 80,
+    "media_acertos": 80,
+    "alunos_adequado": 50,
+    "num_questoes": 1
+  },
+  "LP_6_6EF10_P": {
+    "codigo": "6EF10_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Identificar a finalidade de gêneros publicitários e jornalísticos (cartazes, notícias, charges, cartas do leitor).",
+    "bncc": "EF69LP17",
+    "questoes": [],
+    "questoes_ids": [
+      "Q20_P00127158_LP6"
+    ],
+    "desempenho": 80,
+    "media_acertos": 65,
+    "alunos_adequado": 80,
+    "num_questoes": 1
+  },
+  "LP_6_6EF11_P": {
+    "codigo": "6EF11_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Reconhecer o gênero de textos de nível 2 que circulam no campo de atuação artístico literário, da vida pública ou de estudos e pesquisas.",
+    "bncc": "EF15LP02",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 61,
+    "media_acertos": 76,
+    "alunos_adequado": 51,
+    "num_questoes": 2
+  },
+  "LP_6_6EF12_P": {
+    "codigo": "6EF12_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Reconhecer o gênero de textos publicitários e jornalísticos (cartazes, notícias, charges, cartas do leitor).",
+    "bncc": "EF69LP02",
+    "questoes": [],
+    "questoes_ids": [
+      "Q05_P00126382_LP6",
+      "Q23_P00127169_LP6"
+    ],
+    "desempenho": 70,
+    "media_acertos": 90,
+    "alunos_adequado": 80,
+    "num_questoes": 2
+  },
+  "LP_6_6EF13_P": {
+    "codigo": "6EF13_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Reconhecer o conflito gerador do enredo em narrativas lineares de nível 2, quando o conflito se apresenta no início do texto e/ou há pistas que o sinalizam.",
+    "bncc": "EF35LP29",
+    "questoes": [],
+    "questoes_ids": [
+      "Q16_P00127390_LP6",
+      "Q19_P00127383_LP6"
+    ],
+    "desempenho": 90,
+    "media_acertos": 90,
+    "alunos_adequado": 60,
+    "num_questoes": 2
+  },
+  "LP_6_6EF14_P": {
+    "codigo": "6EF14_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Reconhecer o narrador em 1ª pessoa (personagem) ou em 3ª pessoa em narrativas lineares de nível 3.",
+    "bncc": "EF69LP47",
+    "questoes": [],
+    "questoes_ids": [
+      "Q02_P00126380_LP6"
+    ],
+    "desempenho": 60,
+    "media_acertos": 90,
+    "alunos_adequado": 80,
+    "num_questoes": 1
+  },
+  "LP_6_6EF15_P": {
+    "codigo": "6EF15_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Identificar a opinião de um personagem em texto de nível 2, sendo os enunciados opinativos marcados por frase exclamativa ou estrutura predicativa.",
+    "bncc": "EF04LP15",
+    "questoes": [],
+    "questoes_ids": [
+      "Q07_P00126386_LP6"
+    ],
+    "desempenho": 65,
+    "media_acertos": 65,
+    "alunos_adequado": 85,
+    "num_questoes": 1
+  },
+  "LP_6_6EF16_P": {
+    "codigo": "6EF16_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Identificar opinião em textos de estrutura expositiva de níveis 2 e 3, sendo os enunciados opinativos marcados por verbo opinativo (acho que, penso que).",
+    "bncc": "EF67LP04",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 75,
+    "media_acertos": 80,
+    "alunos_adequado": 85,
+    "num_questoes": 4
+  },
+  "LP_6_6EF17_P": {
+    "codigo": "6EF17_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Inferir efeitos de crítica em textos que articulam linguagem verbal e não verbal (multissemióticos).",
+    "bncc": "EF15LP18",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 79,
+    "media_acertos": 79,
+    "alunos_adequado": 99,
+    "num_questoes": 4
+  },
+  "LP_6_6EF18_P": {
+    "codigo": "6EF18_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Reconhecer, em textos de nível 2, relações lógico-discursivas adição, oposição, condição marcadas por conjunções mais usuais.",
+    "bncc": "EF05LP07",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 87,
+    "media_acertos": 67,
+    "alunos_adequado": 77,
+    "num_questoes": 4
+  },
+  "LP_6_6EF19_P": {
+    "codigo": "6EF19_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Reconhecer relações lógico-discursivas de adição, oposição, tempo, causa, em texto de nível 3, marcadas por conjunções mais usuais: e, mas, quando, enquanto, porque, pois.",
+    "bncc": "EF69LP18",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 92,
+    "media_acertos": 92,
+    "alunos_adequado": 62,
+    "num_questoes": 1
+  },
+  "LP_6_6EF20_P": {
+    "codigo": "6EF20_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Identificar, em textos de nível 2, o referente de uma expressão nominal com pronome adjetivo (possessivo, demonstrativo, indefinido) ou de elipses.",
+    "bncc": "EF35LP14",
+    "questoes": [],
+    "questoes_ids": [
+      "Q01_P00126384_LP6",
+      "Q08_P00126388_LP6",
+      "Q12_P00126399_LP6",
+      "Q13_P00126398_LP6",
+      "Q24_P00127170_LP6"
+    ],
+    "desempenho": 80,
+    "media_acertos": 75,
+    "alunos_adequado": 70,
+    "num_questoes": 5
+  },
+  "LP_6_6EF21_P": {
+    "codigo": "6EF21_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Identificar, em texto de nível 3, o referente de pronomes pessoais do caso reto (anafórico), quando próximo ou saliente (tópico do texto) e de substituições lexicais (substantivos por sinônimos).",
+    "bncc": "EF35LP14",
+    "questoes": [],
+    "questoes_ids": [
+      "Q06_P00126401_LP6",
+      "Q22_P00127171_LP6"
+    ],
+    "desempenho": 72,
+    "media_acertos": 67,
+    "alunos_adequado": 72,
+    "num_questoes": 2
+  },
+  "LP_6_6EF22_P": {
+    "codigo": "6EF22_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Reconhecer, em textos multissemióticos de nível 3, o efeito de sentido da articulação entre recursos gráficos e verbais.",
+    "bncc": "EF67LP08",
+    "questoes": [],
+    "questoes_ids": [
+      "Q21_P00127168_LP6"
+    ],
+    "desempenho": 85,
+    "media_acertos": 90,
+    "alunos_adequado": 55,
+    "num_questoes": 1
+  },
+  "LP_7_6EF02_P": {
+    "codigo": "6EF02_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Localizar informações explícitas, em textos de nível 2, recuperando-as por meio de paráfrase, estando a informação no início do texto.",
+    "bncc": "EF69LP03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q08_P00127264_LP7",
+      "Q21_P00127195_LP7",
+      "Q23_P00127182_LP7"
+    ],
+    "desempenho": 60,
+    "media_acertos": 75,
+    "alunos_adequado": 70,
+    "num_questoes": 3
+  },
+  "LP_7_6EF04_P": {
+    "codigo": "6EF04_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Reconhecer o assunto de textos de nível 3 nos quais o assunto é apontado indiretamente pelo título.",
+    "bncc": "EF69LP03",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 77,
+    "media_acertos": 72,
+    "alunos_adequado": 87,
+    "num_questoes": 2
+  },
+  "LP_7_6EF06_P": {
+    "codigo": "6EF06_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Inferir, em textos de nível 2, o sentido de palavras ou expressões não coloquiais, a partir da leitura global do texto.",
+    "bncc": "EF67LP06",
+    "questoes": [],
+    "questoes_ids": [
+      "Q26_P00127174_LP7"
+    ],
+    "desempenho": 99,
+    "media_acertos": 89,
+    "alunos_adequado": 99,
+    "num_questoes": 1
+  },
+  "LP_7_6EF08_P": {
+    "codigo": "6EF08_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Inferir informação em textos de nível 2 por dedução a partir de um enunciado ou na articulação entre dois enunciados.",
+    "bncc": "EF69LP03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q10_P00127263_LP7"
+    ],
+    "desempenho": 92,
+    "media_acertos": 82,
+    "alunos_adequado": 82,
+    "num_questoes": 1
+  },
+  "LP_7_6EF16_P": {
+    "codigo": "6EF16_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Identificar opinião em textos de estrutura expositiva de níveis 2 e 3, sendo os enunciados opinativos marcados por verbo opinativo (acho que, penso que).",
+    "bncc": "EF67LP04",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 93,
+    "media_acertos": 78,
+    "alunos_adequado": 73,
+    "num_questoes": 2
+  },
+  "LP_7_6EF19_P": {
+    "codigo": "6EF19_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Reconhecer relações lógico-discursivas de adição, oposição, tempo, causa, em texto de nível 3, marcadas por conjunções mais usuais: e, mas, quando, enquanto, porque, pois.",
+    "bncc": "EF69LP18",
+    "questoes": [],
+    "questoes_ids": [
+      "Q15_P00127245_LP7",
+      "Q24_P00127190_LP7"
+    ],
+    "desempenho": 69,
+    "media_acertos": 99,
+    "alunos_adequado": 99,
+    "num_questoes": 2
+  },
+  "LP_7_6EF21_P": {
+    "codigo": "6EF21_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Identificar, em texto de nível 3, o referente de pronomes pessoais do caso reto (anafórico), quando próximo ou saliente (tópico do texto) e de substituições lexicais (substantivos por sinônimos).",
+    "bncc": "EF35LP14",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 79,
+    "media_acertos": 99,
+    "alunos_adequado": 89,
+    "num_questoes": 4
+  },
+  "LP_7_7EF02_P": {
+    "codigo": "7EF02_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Localizar informações explícitas, em textos de nível 3, recuperando-as por meio de paráfrase, estando a informação no início do texto.",
+    "bncc": "EF69LP03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q03_P00127253_LP7",
+      "Q11_P00127257_LP7"
+    ],
+    "desempenho": 67,
+    "media_acertos": 72,
+    "alunos_adequado": 97,
+    "num_questoes": 2
+  },
+  "LP_7_7EF04_P": {
+    "codigo": "7EF04_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Reconhecer o assunto de textos de nível 3 quando ele é tópico do primeiro parágrafo.",
+    "bncc": "EF67LP02",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 88,
+    "media_acertos": 68,
+    "alunos_adequado": 98,
+    "num_questoes": 1
+  },
+  "LP_7_7EF06_P": {
+    "codigo": "7EF06_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Inferir, em textos de nível 3, o sentido de metáforas com apoio de pistas co-textuais.",
+    "bncc": "EF67LP06",
+    "questoes": [],
+    "questoes_ids": [
+      "Q22_P00127194_LP7"
+    ],
+    "desempenho": 92,
+    "media_acertos": 72,
+    "alunos_adequado": 62,
+    "num_questoes": 1
+  },
+  "LP_7_7EF08_P": {
+    "codigo": "7EF08_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Inferir informação em textos de nível 3 por dedução a partir de um enunciado ou na articulação entre dois enunciados.",
+    "bncc": "EF69LP20",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 95,
+    "media_acertos": 70,
+    "alunos_adequado": 85,
+    "num_questoes": 4
+  },
+  "LP_7_7EF09_P": {
+    "codigo": "7EF09_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Identificar a finalidade de gêneros publicitários e jornalísticos (crônicas, reportagens, artigos de opinião, cartas do leitor).",
+    "bncc": "EF69LP17",
+    "questoes": [],
+    "questoes_ids": [
+      "Q02_P00127251_LP7",
+      "Q09_P00127262_LP7",
+      "Q19_P00127617_LP7"
+    ],
+    "desempenho": 99,
+    "media_acertos": 94,
+    "alunos_adequado": 59,
+    "num_questoes": 3
+  },
+  "LP_7_7EF10_P": {
+    "codigo": "7EF10_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Identificar a finalidade de textos normativos.",
+    "bncc": "EF69LP20",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 78,
+    "media_acertos": 88,
+    "alunos_adequado": 58,
+    "num_questoes": 3
+  },
+  "LP_7_7EF11_P": {
+    "codigo": "7EF11_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Reconhecer o gênero de textos publicitários e jornalísticos (crônicas, reportagens, artigos de opinião, cartas do leitor).",
+    "bncc": "EF69LP02",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 84,
+    "media_acertos": 94,
+    "alunos_adequado": 74,
+    "num_questoes": 1
+  },
+  "LP_7_7EF12_P": {
+    "codigo": "7EF12_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Reconhecer o gênero de textos normativos.",
+    "bncc": "EF69LP20",
+    "questoes": [],
+    "questoes_ids": [
+      "Q01_P00127250_LP7"
+    ],
+    "desempenho": 68,
+    "media_acertos": 98,
+    "alunos_adequado": 68,
+    "num_questoes": 1
+  },
+  "LP_7_7EF13_P": {
+    "codigo": "7EF13_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Reconhecer o narrador onisciente em narrativas lineares de nível 3.",
+    "bncc": "EF69LP47",
+    "questoes": [],
+    "questoes_ids": [
+      "Q07_P00127260_LP7"
+    ],
+    "desempenho": 76,
+    "media_acertos": 96,
+    "alunos_adequado": 96,
+    "num_questoes": 1
+  },
+  "LP_7_7EF14_P": {
+    "codigo": "7EF14_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Identificar elementos característicos do texto dramático de nível 3.",
+    "bncc": "EF69LP47",
+    "questoes": [],
+    "questoes_ids": [
+      "Q12_P00127258_LP7"
+    ],
+    "desempenho": 86,
+    "media_acertos": 76,
+    "alunos_adequado": 56,
+    "num_questoes": 1
+  },
+  "LP_7_7EF16_P": {
+    "codigo": "7EF16_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Identificar opinião em textos de nível 3, de estrutura narrativa ou de relato, estando a opinião marcada por uma estrutura predicativa.",
+    "bncc": "EF67LP04",
+    "questoes": [],
+    "questoes_ids": [
+      "Q18_P00127620_LP7"
+    ],
+    "desempenho": 76,
+    "media_acertos": 91,
+    "alunos_adequado": 56,
+    "num_questoes": 1
+  },
+  "LP_7_7EF17_P": {
+    "codigo": "7EF17_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Inferir efeitos de ironia em textos que articulam linguagem verbal e não verbal (multissemióticos).",
+    "bncc": "EF69LP05",
+    "questoes": [],
+    "questoes_ids": [
+      "Q14_P00127259_LP7"
+    ],
+    "desempenho": 81,
+    "media_acertos": 91,
+    "alunos_adequado": 71,
+    "num_questoes": 1
+  },
+  "LP_7_7EF19_P": {
+    "codigo": "7EF19_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Reconhecer, em textos de nível 3, relações lógico-discursivas de comparação, finalidade, condição, conclusão marcadas por conjunções mais usuais: para que, como, mais que, se, então, portanto.",
+    "bncc": "EF69LP18",
+    "questoes": [],
+    "questoes_ids": [
+      "Q04_P00127265_LP7",
+      "Q05_P00127267_LP7",
+      "Q16_P00127618_LP7",
+      "Q20_P00127687_LP7"
+    ],
+    "desempenho": 89,
+    "media_acertos": 84,
+    "alunos_adequado": 79,
+    "num_questoes": 4
+  },
+  "LP_7_7EF21_P": {
+    "codigo": "7EF21_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Identificar, em textos de nível 3, o referente de uma expressão nominal com pronome adjetivo (possessivo, demonstrativo, indefinido) e de elipses.",
+    "bncc": "EF07LP12",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 60,
+    "media_acertos": 75,
+    "alunos_adequado": 80,
+    "num_questoes": 1
+  },
+  "LP_7_7EF22_P": {
+    "codigo": "7EF22_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Identificar, em textos de nível 2 ou 3, um posicionamento explícito no título ou no primeiro parágrafo do texto argumentativo.",
+    "bncc": "EF67LP05",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 98,
+    "media_acertos": 73,
+    "alunos_adequado": 78,
+    "num_questoes": 3
+  },
+  "LP_7_7EF23_P": {
+    "codigo": "7EF23_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Identificar, num texto de nível 3, a tese quando explícita no título ou no primeiro parágrafo do texto.",
+    "bncc": "EF67LP05",
+    "questoes": [],
+    "questoes_ids": [
+      "Q25_P00127191_LP7"
+    ],
+    "desempenho": 96,
+    "media_acertos": 81,
+    "alunos_adequado": 66,
+    "num_questoes": 1
+  },
+  "LP_7_7EF24_P": {
+    "codigo": "7EF24_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Identificar, em um texto de nível 3, o argumento de uma tese (explícita no comando), estando o argumento próximo à tese ou sinalizado por um operador argumentativo (porque, pois).",
+    "bncc": "EF67LP05",
+    "questoes": [],
+    "questoes_ids": [
+      "Q17_P00127619_LP7"
+    ],
+    "desempenho": 88,
+    "media_acertos": 88,
+    "alunos_adequado": 78,
+    "num_questoes": 1
+  },
+  "LP_8_7EF04_P": {
+    "codigo": "7EF04_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Reconhecer o assunto de textos de nível 3 quando ele é tópico do primeiro parágrafo.",
+    "bncc": "EF67LP02",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 71,
+    "media_acertos": 86,
+    "alunos_adequado": 81,
+    "num_questoes": 4
+  },
+  "LP_8_7EF06_P": {
+    "codigo": "7EF06_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Inferir, em textos de nível 3, o sentido de metáforas com apoio de pistas co-textuais.",
+    "bncc": "EF67LP06",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 73,
+    "media_acertos": 78,
+    "alunos_adequado": 83,
+    "num_questoes": 2
+  },
+  "LP_8_7EF08_P": {
+    "codigo": "7EF08_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Inferir informação em textos de nível 3 por dedução a partir de um enunciado ou na articulação entre dois enunciados.",
+    "bncc": "EF69LP20",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 90,
+    "media_acertos": 70,
+    "alunos_adequado": 70,
+    "num_questoes": 3
+  },
+  "LP_8_7EF10_P": {
+    "codigo": "7EF10_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Identificar a finalidade de textos normativos.",
+    "bncc": "EF69LP20",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 78,
+    "media_acertos": 98,
+    "alunos_adequado": 98,
+    "num_questoes": 3
+  },
+  "LP_8_7EF12_P": {
+    "codigo": "7EF12_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Reconhecer o gênero de textos normativos.",
+    "bncc": "EF69LP20",
+    "questoes": [],
+    "questoes_ids": [
+      "Q01_P00127347_LP8"
+    ],
+    "desempenho": 62,
+    "media_acertos": 97,
+    "alunos_adequado": 62,
+    "num_questoes": 1
+  },
+  "LP_8_7EF14_P": {
+    "codigo": "7EF14_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Identificar elementos característicos do texto dramático de nível 3.",
+    "bncc": "EF69LP47",
+    "questoes": [],
+    "questoes_ids": [
+      "Q04_P00127353_LP8"
+    ],
+    "desempenho": 77,
+    "media_acertos": 97,
+    "alunos_adequado": 77,
+    "num_questoes": 1
+  },
+  "LP_8_7EF16_P": {
+    "codigo": "7EF16_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Identificar opinião em textos de nível 3, de estrutura narrativa ou de relato, estando a opinião marcada por uma estrutura predicativa.",
+    "bncc": "EF67LP04",
+    "questoes": [],
+    "questoes_ids": [
+      "Q16_P00127618_LP8"
+    ],
+    "desempenho": 75,
+    "media_acertos": 70,
+    "alunos_adequado": 55,
+    "num_questoes": 1
+  },
+  "LP_8_7EF17_P": {
+    "codigo": "7EF17_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Inferir efeitos de ironia em textos que articulam linguagem verbal e não verbal (multissemióticos).",
+    "bncc": "EF69LP05",
+    "questoes": [],
+    "questoes_ids": [
+      "Q08_P00127208_LP8"
+    ],
+    "desempenho": 71,
+    "media_acertos": 66,
+    "alunos_adequado": 51,
+    "num_questoes": 1
+  },
+  "LP_8_7EF19_P": {
+    "codigo": "7EF19_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Reconhecer, em textos de nível 3, relações lógico-discursivas de comparação, finalidade, condição, conclusão marcadas por conjunções mais usuais: para que, como, mais que, se, então, portanto.",
+    "bncc": "EF69LP18",
+    "questoes": [],
+    "questoes_ids": [
+      "Q10_P00127352_LP8",
+      "Q18_P00127620_LP8"
+    ],
+    "desempenho": 69,
+    "media_acertos": 69,
+    "alunos_adequado": 59,
+    "num_questoes": 2
+  },
+  "LP_8_7EF21_P": {
+    "codigo": "7EF21_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Identificar, em textos de nível 3, o referente de uma expressão nominal com pronome adjetivo (possessivo, demonstrativo, indefinido) e de elipses.",
+    "bncc": "EF07LP12",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 62,
+    "media_acertos": 87,
+    "alunos_adequado": 62,
+    "num_questoes": 3
+  },
+  "LP_8_7EF23_P": {
+    "codigo": "7EF23_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Identificar, num texto de nível 3, a tese quando explícita no título ou no primeiro parágrafo do texto.",
+    "bncc": "EF67LP05",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 66,
+    "media_acertos": 96,
+    "alunos_adequado": 76,
+    "num_questoes": 3
+  },
+  "LP_8_7EF24_P": {
+    "codigo": "7EF24_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Identificar, em um texto de nível 3, o argumento de uma tese (explícita no comando), estando o argumento próximo à tese ou sinalizado por um operador argumentativo (porque, pois).",
+    "bncc": "EF67LP05",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 72,
+    "media_acertos": 97,
+    "alunos_adequado": 72,
+    "num_questoes": 1
+  },
+  "LP_8_8EF01_P": {
+    "codigo": "8EF01_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Localizar informações explícitas, em textos de nível 3, recuperando-as por meio de paráfrase, estando a informação em outra posição que não o início do texto.",
+    "bncc": "EF69LP03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q13_P00127201_LP8"
+    ],
+    "desempenho": 66,
+    "media_acertos": 66,
+    "alunos_adequado": 86,
+    "num_questoes": 1
+  },
+  "LP_8_8EF03_P": {
+    "codigo": "8EF03_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Reconhecer o assunto de textos de nível 3, considerando a recorrência de tópicos ou de um tópico.",
+    "bncc": "EF69LP03",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 65,
+    "media_acertos": 75,
+    "alunos_adequado": 85,
+    "num_questoes": 2
+  },
+  "LP_8_8EF05_P": {
+    "codigo": "8EF05_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Inferir, em textos de nível 3, o sentido de metáforas, a partir da leitura global do texto.",
+    "bncc": "EF89LP03",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 64,
+    "media_acertos": 94,
+    "alunos_adequado": 74,
+    "num_questoes": 1
+  },
+  "LP_8_8EF07_P": {
+    "codigo": "8EF07_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Inferir informação em textos de nível 3 considerando a relação entre enunciados de um trecho ou parágrafo do texto.",
+    "bncc": "EF69LP20",
+    "questoes": [],
+    "questoes_ids": [
+      "Q17_P00127619_LP8"
+    ],
+    "desempenho": 78,
+    "media_acertos": 78,
+    "alunos_adequado": 98,
+    "num_questoes": 1
+  },
+  "LP_8_8EF09_P": {
+    "codigo": "8EF09_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Identificar a finalidade de textos de opinião.",
+    "bncc": "EF89LP03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q03_P00127348_LP8",
+      "Q15_P00127204_LP8"
+    ],
+    "desempenho": 98,
+    "media_acertos": 73,
+    "alunos_adequado": 88,
+    "num_questoes": 2
+  },
+  "LP_8_8EF11_P": {
+    "codigo": "8EF11_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Reconhecer o gênero de textos de opinião.",
+    "bncc": "EF69LP17",
+    "questoes": [],
+    "questoes_ids": [
+      "Q07_P00127209_LP8",
+      "Q12_P00127198_LP8",
+      "Q20_P00127687_LP8"
+    ],
+    "desempenho": 99,
+    "media_acertos": 84,
+    "alunos_adequado": 99,
+    "num_questoes": 3
+  },
+  "LP_8_8EF13_P": {
+    "codigo": "8EF13_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Identificar as partes estruturantes de uma narrativa linear de nível 3 (orientação, conflito/complicação, clímax/desfecho).",
+    "bncc": "EF69LP47",
+    "questoes": [],
+    "questoes_ids": [
+      "Q14_P00127200_LP8"
+    ],
+    "desempenho": 66,
+    "media_acertos": 96,
+    "alunos_adequado": 66,
+    "num_questoes": 1
+  },
+  "LP_8_8EF15_P": {
+    "codigo": "8EF15_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Identificar opinião em textos de nível 3, de estrutura expositiva ou estando os enunciados opinativos marcados por frase exclamativa ou estrutura predicativa.",
+    "bncc": "EF89LP31",
+    "questoes": [],
+    "questoes_ids": [
+      "Q05_P00127354_LP8",
+      "Q23_P00099221_LP8",
+      "Q26_P00127212_LP8"
+    ],
+    "desempenho": 68,
+    "media_acertos": 73,
+    "alunos_adequado": 68,
+    "num_questoes": 3
+  },
+  "LP_8_8EF18_P": {
+    "codigo": "8EF18_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Reconhecer, em texto de nível 3, relações lógico-discursivas de explicação, alternância, consequência, proporção, concessão marcadas por conjunções mais usuais: pois, porque, ou, que, tanto que, à medida que, apesar de.",
+    "bncc": "EF08LP13",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 83,
+    "media_acertos": 98,
+    "alunos_adequado": 53,
+    "num_questoes": 4
+  },
+  "LP_8_8EF20_P": {
+    "codigo": "8EF20_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Identificar, em texto de nível 3, o referente de um pronome relativo ou de pronome pessoal do caso oblíquo (o, a, lhe etc.).",
+    "bncc": "EF08LP15",
+    "questoes": [],
+    "questoes_ids": [
+      "Q24_P00035857_LP8"
+    ],
+    "desempenho": 81,
+    "media_acertos": 96,
+    "alunos_adequado": 91,
+    "num_questoes": 1
+  },
+  "LP_8_8EF21_P": {
+    "codigo": "8EF21_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Reconhecer, em textos de nível 3, o efeito de sentido de seleção lexical que visa a persuadir o leitor em textos argumentativos.",
+    "bncc": "EF89LP06",
+    "questoes": [],
+    "questoes_ids": [
+      "Q02_P00127346_LP8"
+    ],
+    "desempenho": 95,
+    "media_acertos": 80,
+    "alunos_adequado": 85,
+    "num_questoes": 1
+  },
+  "LP_8_8EF23_P": {
+    "codigo": "8EF23_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Identificar, em um texto de nível 3, a tese quando apresentada por meio de paráfrase.",
+    "bncc": "EF89LP04",
+    "questoes": [],
+    "questoes_ids": [
+      "Q09_P00127351_LP8"
+    ],
+    "desempenho": 93,
+    "media_acertos": 78,
+    "alunos_adequado": 93,
+    "num_questoes": 1
+  },
+  "LP_8_8EF25_P": {
+    "codigo": "8EF25_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Identificar, em texto de nível 3, o argumento de uma tese (explícita no comando), estando o argumento em qualquer parte do texto, sinalizado ou não sinalizado por um operador argumentativo.",
+    "bncc": "EF89LP04",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 89,
+    "media_acertos": 84,
+    "alunos_adequado": 59,
+    "num_questoes": 2
+  },
+  "LP_9_8EF01_P": {
+    "codigo": "8EF01_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Localizar informações explícitas, em textos de nível 3, recuperando-as por meio de paráfrase, estando a informação em outra posição que não o início do texto.",
+    "bncc": "EF69LP03",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 61,
+    "media_acertos": 86,
+    "alunos_adequado": 51,
+    "num_questoes": 2
+  },
+  "LP_9_8EF03_P": {
+    "codigo": "8EF03_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Reconhecer o assunto de textos de nível 3, considerando a recorrência de tópicos ou de um tópico.",
+    "bncc": "EF69LP03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q09_P00126370_LP9",
+      "Q25_P00127239_LP9"
+    ],
+    "desempenho": 96,
+    "media_acertos": 91,
+    "alunos_adequado": 76,
+    "num_questoes": 2
+  },
+  "LP_9_8EF05_P": {
+    "codigo": "8EF05_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Inferir, em textos de nível 3, o sentido de metáforas, a partir da leitura global do texto.",
+    "bncc": "EF89LP03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q08_P00126368_LP9",
+      "Q19_P00127617_LP9"
+    ],
+    "desempenho": 97,
+    "media_acertos": 92,
+    "alunos_adequado": 67,
+    "num_questoes": 2
+  },
+  "LP_9_8EF07_P": {
+    "codigo": "8EF07_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Inferir informação em textos de nível 3 considerando a relação entre enunciados de um trecho ou parágrafo do texto.",
+    "bncc": "EF69LP20",
+    "questoes": [],
+    "questoes_ids": [
+      "Q03_P00126357_LP9",
+      "Q11_P00126361_LP9"
+    ],
+    "desempenho": 80,
+    "media_acertos": 80,
+    "alunos_adequado": 80,
+    "num_questoes": 2
+  },
+  "LP_9_8EF09_P": {
+    "codigo": "8EF09_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Identificar a finalidade de textos de opinião.",
+    "bncc": "EF89LP03",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 79,
+    "media_acertos": 94,
+    "alunos_adequado": 79,
+    "num_questoes": 4
+  },
+  "LP_9_8EF11_P": {
+    "codigo": "8EF11_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Reconhecer o gênero de textos de opinião.",
+    "bncc": "EF69LP17",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 61,
+    "media_acertos": 66,
+    "alunos_adequado": 91,
+    "num_questoes": 2
+  },
+  "LP_9_8EF13_P": {
+    "codigo": "8EF13_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Identificar as partes estruturantes de uma narrativa linear de nível 3 (orientação, conflito/complicação, clímax/desfecho).",
+    "bncc": "EF69LP47",
+    "questoes": [],
+    "questoes_ids": [
+      "Q12_P00126362_LP9",
+      "Q20_P00127687_LP9"
+    ],
+    "desempenho": 86,
+    "media_acertos": 71,
+    "alunos_adequado": 96,
+    "num_questoes": 2
+  },
+  "LP_9_8EF15_P": {
+    "codigo": "8EF15_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Identificar opinião em textos de nível 3, de estrutura expositiva ou estando os enunciados opinativos marcados por frase exclamativa ou estrutura predicativa.",
+    "bncc": "EF89LP31",
+    "questoes": [],
+    "questoes_ids": [
+      "Q14_P00126363_LP9",
+      "Q23_P00127990_LP9"
+    ],
+    "desempenho": 65,
+    "media_acertos": 95,
+    "alunos_adequado": 55,
+    "num_questoes": 2
+  },
+  "LP_9_8EF18_P": {
+    "codigo": "8EF18_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Reconhecer, em texto de nível 3, relações lógico-discursivas de explicação, alternância, consequência, proporção, concessão marcadas por conjunções mais usuais: pois, porque, ou, que, tanto que, à medida que, apesar de.",
+    "bncc": "EF08LP13",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 80,
+    "media_acertos": 85,
+    "alunos_adequado": 60,
+    "num_questoes": 1
+  },
+  "LP_9_8EF20_P": {
+    "codigo": "8EF20_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Identificar, em texto de nível 3, o referente de um pronome relativo ou de pronome pessoal do caso oblíquo (o, a, lhe etc.).",
+    "bncc": "EF08LP15",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 81,
+    "media_acertos": 86,
+    "alunos_adequado": 51,
+    "num_questoes": 2
+  },
+  "LP_9_8EF21_P": {
+    "codigo": "8EF21_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Reconhecer, em textos de nível 3, o efeito de sentido de seleção lexical que visa a persuadir o leitor em textos argumentativos.",
+    "bncc": "EF89LP06",
+    "questoes": [],
+    "questoes_ids": [
+      "Q05_P00126359_LP9",
+      "Q17_P00127619_LP9",
+      "Q24_P00127978_LP9"
+    ],
+    "desempenho": 79,
+    "media_acertos": 99,
+    "alunos_adequado": 89,
+    "num_questoes": 3
+  },
+  "LP_9_8EF23_P": {
+    "codigo": "8EF23_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Identificar, em um texto de nível 3, a tese quando apresentada por meio de paráfrase.",
+    "bncc": "EF89LP04",
+    "questoes": [],
+    "questoes_ids": [
+      "Q15_P00126372_LP9",
+      "Q18_P00127620_LP9"
+    ],
+    "desempenho": 75,
+    "media_acertos": 80,
+    "alunos_adequado": 55,
+    "num_questoes": 2
+  },
+  "LP_9_8EF25_P": {
+    "codigo": "8EF25_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Identificar, em texto de nível 3, o argumento de uma tese (explícita no comando), estando o argumento em qualquer parte do texto, sinalizado ou não sinalizado por um operador argumentativo.",
+    "bncc": "EF89LP04",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 92,
+    "media_acertos": 82,
+    "alunos_adequado": 62,
+    "num_questoes": 1
+  },
+  "LP_9_9EF02_P": {
+    "codigo": "9EF02_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Localizar informação a partir de procedimento de referenciação quando o referente está distante.",
+    "bncc": "EF69LP03",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 74,
+    "media_acertos": 74,
+    "alunos_adequado": 94,
+    "num_questoes": 3
+  },
+  "LP_9_9EF04_P": {
+    "codigo": "9EF04_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Reconhecer o assunto de textos de nível 3, a partir da leitura global do texto.",
+    "bncc": "EF69LP03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q10_P00126371_LP9"
+    ],
+    "desempenho": 88,
+    "media_acertos": 83,
+    "alunos_adequado": 68,
+    "num_questoes": 1
+  },
+  "LP_9_9EF06_P": {
+    "codigo": "9EF06_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Inferir o sentido de termos técnicos ou especializados, com apoio de pistas co-textuais.",
+    "bncc": "EF89LP03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q02_P00126356_LP9"
+    ],
+    "desempenho": 74,
+    "media_acertos": 94,
+    "alunos_adequado": 64,
+    "num_questoes": 1
+  },
+  "LP_9_9EF07_P": {
+    "codigo": "9EF07_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Inferir o sentido de termos técnicos ou especializados, a partir da leitura global do texto.",
+    "bncc": "EF89LP03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q01_P00126355_LP9"
+    ],
+    "desempenho": 98,
+    "media_acertos": 83,
+    "alunos_adequado": 78,
+    "num_questoes": 1
+  },
+  "LP_9_9EF08_P": {
+    "codigo": "9EF08_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Inferir o sentido de vocabulário erudito, com apoio de pistas co-textuais.",
+    "bncc": "EF89LP03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q13_P00126364_LP9",
+      "Q22_P00127968_LP9"
+    ],
+    "desempenho": 63,
+    "media_acertos": 78,
+    "alunos_adequado": 73,
+    "num_questoes": 2
+  },
+  "LP_9_9EF10_P": {
+    "codigo": "9EF10_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Inferir informação em textos de nível 3 considerando a leitura global do texto.",
+    "bncc": "EF89LP03",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 71,
+    "media_acertos": 96,
+    "alunos_adequado": 71,
+    "num_questoes": 4
+  },
+  "LP_9_9EF12_P": {
+    "codigo": "9EF12_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Identificar a finalidade de textos de opinião que tratam de temas especializados.",
+    "bncc": "EF89LP03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q07_P00126369_LP9",
+      "Q26_P00127240_LP9"
+    ],
+    "desempenho": 70,
+    "media_acertos": 90,
+    "alunos_adequado": 50,
+    "num_questoes": 2
+  },
+  "LP_9_9EF14_P": {
+    "codigo": "9EF14_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Reconhecer o gênero de textos de opinião que tratam de temas especializados.",
+    "bncc": "EF69LP17",
+    "questoes": [],
+    "questoes_ids": [
+      "Q21_P00127969_LP9"
+    ],
+    "desempenho": 68,
+    "media_acertos": 93,
+    "alunos_adequado": 98,
+    "num_questoes": 1
+  },
+  "LP_9_9EF16_P": {
+    "codigo": "9EF16_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Identificar elementos de uma narrativa não linear/não canônica de nível 3: personagem principal, tempo/lugar, conflito, narrador.",
+    "bncc": "EF69LP47",
+    "questoes": [],
+    "questoes_ids": [
+      "Q04_P00126358_LP9"
+    ],
+    "desempenho": 63,
+    "media_acertos": 83,
+    "alunos_adequado": 83,
+    "num_questoes": 1
+  },
+  "LP_9_9EF18_P": {
+    "codigo": "9EF18_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Identificar opinião em textos de nível 3, de estrutura expositiva ou híbrida, estando a opinião implícita numa adjetivação.",
+    "bncc": "EF89LP31",
+    "questoes": [],
+    "questoes_ids": [
+      "Q16_P00127618_LP9"
+    ],
+    "desempenho": 78,
+    "media_acertos": 68,
+    "alunos_adequado": 88,
+    "num_questoes": 1
+  },
+  "LP_9_9EF20_P": {
+    "codigo": "9EF20_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Reconhecer, em textos de nível 3 ou discursivas (todas as relações semânticas), não marcadas ou marcadas por conjunções menos usuais (contudo, porquanto, embora etc.).",
+    "bncc": "EF09LP11",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 69,
+    "media_acertos": 94,
+    "alunos_adequado": 59,
+    "num_questoes": 2
+  },
+  "LP_9_9EF22_P": {
+    "codigo": "9EF22_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Identificar, em texto de nível 3, o referente de um pronome relativo.",
+    "bncc": "EF08LP15",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 63,
+    "media_acertos": 73,
+    "alunos_adequado": 73,
+    "num_questoes": 4
+  },
+  "LP_9_9EF25_P": {
+    "codigo": "9EF25_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Identificar a tese de um texto de nível 3, a partir de sua leitura global.",
+    "bncc": "EF89LP04",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 67,
+    "media_acertos": 97,
+    "alunos_adequado": 57,
+    "num_questoes": 4
+  },
+  "LP_9_9EF27_P": {
+    "codigo": "9EF27_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Identificar, em texto de nível 3, o contra-argumento de uma tese (explícita no comando), estando o contra-argumento em qualquer parte do texto e não sinalizado por operadores argumentativos.",
+    "bncc": "EF89LP04",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 72,
+    "media_acertos": 67,
+    "alunos_adequado": 82,
+    "num_questoes": 1
+  },
+  "LP_9_9EF28_P": {
+    "codigo": "9EF28_P",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Reconhecer, em texto de nível 3, o dado estatístico e a citação de autoridade como estratégias argumentativas.",
+    "bncc": "EF89LP04",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 65,
+    "media_acertos": 95,
+    "alunos_adequado": 65,
+    "num_questoes": 2
+  },
+  "LP_6_6EF01_E": {
+    "codigo": "6EF01_E",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Produzir um relato de experiência (uma experiência vivida, uma experiência de leitura, por exemplo).",
+    "bncc": "",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 96,
+    "media_acertos": 71,
+    "alunos_adequado": 86,
+    "num_questoes": 1
+  },
+  "LP_6_6EF02_E": {
+    "codigo": "6EF02_E",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Produzir uma notícia (de um fato do cotidiano ou da vida escolar, por exemplo).",
+    "bncc": "",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 71,
+    "media_acertos": 91,
+    "alunos_adequado": 71,
+    "num_questoes": 4
+  },
+  "LP_6_6EF03_E": {
+    "codigo": "6EF03_E",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "6",
+    "habilidade": "Produzir um comentário argumentativo a partir da leitura de um texto de nível 2 (uma notícia, conto, texto de opinião, reportagem, por exemplo), sobre temática da vida cotidiano ou do universo escolar.",
+    "bncc": "",
+    "questoes": [],
+    "questoes_ids": [
+      "Q04_P00126381_LP6",
+      "Q26_P00128171_LP6"
+    ],
+    "desempenho": 85,
+    "media_acertos": 65,
+    "alunos_adequado": 75,
+    "num_questoes": 2
+  },
+  "LP_7_6EF03_E": {
+    "codigo": "6EF03_E",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Produzir um comentário argumentativo a partir da leitura de um texto de nível 2 (uma notícia, conto, texto de opinião, reportagem, por exemplo), sobre temática da vida cotidiano ou do universo escolar.",
+    "bncc": "",
+    "questoes": [],
+    "questoes_ids": [
+      "Q13_P00127256_LP7"
+    ],
+    "desempenho": 65,
+    "media_acertos": 70,
+    "alunos_adequado": 85,
+    "num_questoes": 1
+  },
+  "LP_7_7EF01_E": {
+    "codigo": "7EF01_E",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Elaborar esquema e/ou resumo de texto didático, de nível 3 (expositivo ou de relato), recorrendo à paráfrase.",
+    "bncc": "",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 97,
+    "media_acertos": 97,
+    "alunos_adequado": 97,
+    "num_questoes": 2
+  },
+  "LP_7_7EF02_E": {
+    "codigo": "7EF02_E",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "7",
+    "habilidade": "Produzir uma carta de leitor, com tese e argumento, a partir da leitura de um texto de nível 3 (uma notícia, uma reportagem, um texto de opinião, por exemplo).",
+    "bncc": "",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 75,
+    "media_acertos": 80,
+    "alunos_adequado": 95,
+    "num_questoes": 4
+  },
+  "LP_8_7EF02_E": {
+    "codigo": "7EF02_E",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Produzir uma carta de leitor, com tese e argumento, a partir da leitura de um texto de nível 3 (uma notícia, uma reportagem, um texto de opinião, por exemplo).",
+    "bncc": "",
+    "questoes": [],
+    "questoes_ids": [
+      "Q11_P00127197_LP8"
+    ],
+    "desempenho": 91,
+    "media_acertos": 76,
+    "alunos_adequado": 91,
+    "num_questoes": 1
+  },
+  "LP_8_8EF01_E": {
+    "codigo": "8EF01_E",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Produzir uma resenha de livro ou filme (com introdução, posicionamento/apreciação e argumento).",
+    "bncc": "",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 77,
+    "media_acertos": 72,
+    "alunos_adequado": 57,
+    "num_questoes": 2
+  },
+  "LP_8_8EF02_E": {
+    "codigo": "8EF02_E",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "8",
+    "habilidade": "Produzir um texto/artigo de opinião que contenha uma introdução, a exposição da tese, um argumento e a conclusão, sobre tema da vida pública.",
+    "bncc": "",
+    "questoes": [],
+    "questoes_ids": [
+      "Q06_P00127211_LP8",
+      "Q19_P00127617_LP8"
+    ],
+    "desempenho": 72,
+    "media_acertos": 82,
+    "alunos_adequado": 82,
+    "num_questoes": 2
+  },
+  "LP_9_8EF02_E": {
+    "codigo": "8EF02_E",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Produzir um texto/artigo de opinião que contenha uma introdução, a exposição da tese, um argumento e a conclusão, sobre tema da vida pública.",
+    "bncc": "",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 95,
+    "media_acertos": 85,
+    "alunos_adequado": 95,
+    "num_questoes": 4
+  },
+  "LP_9_9EF01_E": {
+    "codigo": "9EF01_E",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Produzir um resumo de um texto expositivo de nível 3 (texto didático, reportagem ou artigo de divulgação científica, por exemplo).",
+    "bncc": "",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 75,
+    "media_acertos": 80,
+    "alunos_adequado": 85,
+    "num_questoes": 4
+  },
+  "LP_9_9EF02_E": {
+    "codigo": "9EF02_E",
+    "disciplina": "LP",
+    "disciplina_nome": "Língua Portuguesa",
+    "ano": "9",
+    "habilidade": "Produzir um texto de opinião que contenha introdução, tese, dois ou mais argumentos e conclusão, sobre tema da vida pública.",
+    "bncc": "",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 73,
+    "media_acertos": 83,
+    "alunos_adequado": 63,
+    "num_questoes": 2
+  },
+  "MAT_6_6EF01_M": {
+    "codigo": "6EF01_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Corresponder números racionais positivos, em representação decimal finita, a pontos da reta numérica.",
+    "bncc": "EF05MA05",
+    "questoes": [],
+    "questoes_ids": [
+      "Q04_M00127574_MAT6",
+      "Q12_M00127586_MAT6"
+    ],
+    "desempenho": 82,
+    "media_acertos": 92,
+    "alunos_adequado": 92,
+    "num_questoes": 2
+  },
+  "MAT_6_6EF02_M": {
+    "codigo": "6EF02_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Comparar números racionais positivos, em representação fracionária, indicando o menor, o maior, a ordenação crescente ou a decrescente deles.",
+    "bncc": "EF05MA05",
+    "questoes": [],
+    "questoes_ids": [
+      "Q05_M00127576_MAT6",
+      "Q06_M00127578_MAT6"
+    ],
+    "desempenho": 82,
+    "media_acertos": 72,
+    "alunos_adequado": 82,
+    "num_questoes": 2
+  },
+  "MAT_6_4EF07_M": {
+    "codigo": "4EF07_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Utilizar a operação de multiplicação entre números naturais, formados por até quatro algarismos, envolvendo o significado de adição de parcelas iguais, de organização retangular ou de proporcionalidade, na resolução de problema.",
+    "bncc": "EF04MA06",
+    "questoes": [],
+    "questoes_ids": [
+      "Q13_M00127589_MAT6"
+    ],
+    "desempenho": 74,
+    "media_acertos": 94,
+    "alunos_adequado": 54,
+    "num_questoes": 1
+  },
+  "MAT_6_4EF09_M": {
+    "codigo": "4EF09_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Utilizar a operação de divisão de um número natural, formado por até quatro algarismos, por outro, formado por até dois algarismos, envolvendo o significado de repartição equitativa ou de medida, na resolução de problema.",
+    "bncc": "EF03MA08 EF04MA07",
+    "questoes": [],
+    "questoes_ids": [
+      "Q03_M00127577_MAT6"
+    ],
+    "desempenho": 93,
+    "media_acertos": 83,
+    "alunos_adequado": 53,
+    "num_questoes": 1
+  },
+  "MAT_6_6EF03_M": {
+    "codigo": "6EF03_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Utilizar a operação de adição ou de subtração entre natural e racional positivo, o primeiro formado por até seis algarismos e, o segundo, em representação decimal finita, na resolução de problema.",
+    "bncc": "EF05MA07",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 86,
+    "media_acertos": 76,
+    "alunos_adequado": 96,
+    "num_questoes": 3
+  },
+  "MAT_6_6EF04_M": {
+    "codigo": "6EF04_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Utilizar a operação de adição ou de subtração entre números racionais positivos, em representação decimal finita, na resolução de problema.",
+    "bncc": "EF05MA07",
+    "questoes": [],
+    "questoes_ids": [
+      "Q14_M00127588_MAT6"
+    ],
+    "desempenho": 69,
+    "media_acertos": 69,
+    "alunos_adequado": 59,
+    "num_questoes": 1
+  },
+  "MAT_6_6EF05_M": {
+    "codigo": "6EF05_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Utilizar a operação de adição ou de subtração entre números racionais positivos, em representação fracionária, na resolução de problema.",
+    "bncc": "EF06MA10",
+    "questoes": [],
+    "questoes_ids": [
+      "Q18_M00128424_MAT6"
+    ],
+    "desempenho": 60,
+    "media_acertos": 70,
+    "alunos_adequado": 80,
+    "num_questoes": 1
+  },
+  "MAT_6_6EF06_M": {
+    "codigo": "6EF06_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Utilizar a operação de multiplicação ou de divisão de números racionais postivos, em representação decimal finita, por números naturais, formados por até dois algarismos, na resolução de problema.",
+    "bncc": "EF05MA08",
+    "questoes": [],
+    "questoes_ids": [
+      "Q15_M00127584_MAT6"
+    ],
+    "desempenho": 75,
+    "media_acertos": 95,
+    "alunos_adequado": 65,
+    "num_questoes": 1
+  },
+  "MAT_6_6EF07_M": {
+    "codigo": "6EF07_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Determinar o valor de uma expressão numérica envolvendo pelo menos duas das seguintes operações entre números naturais: adição, subtração, multiplicação, divisão e potenciação.",
+    "bncc": "EF06MA03",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 89,
+    "media_acertos": 94,
+    "alunos_adequado": 59,
+    "num_questoes": 2
+  },
+  "MAT_6_6EF08_M": {
+    "codigo": "6EF08_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Utilizar pelo menos duas das seguintes operações entre números naturais ou racionais positivos, em representação decimal finita: adição, subtração, multiplicação, dvisão e potenciação, na resolução de problema.",
+    "bncc": "EF06MA03 EF06MA11",
+    "questoes": [],
+    "questoes_ids": [
+      "Q19_M00128429_MAT6",
+      "Q24_M00127857_MAT6"
+    ],
+    "desempenho": 75,
+    "media_acertos": 65,
+    "alunos_adequado": 85,
+    "num_questoes": 2
+  },
+  "MAT_6_6EF09_M": {
+    "codigo": "6EF09_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Determinar a quantidade de agrupamentos possíveis entre elementos de duas coleções, combinando cada elemento de uma com os da outra, na resolução de problema.",
+    "bncc": "EF04MA08 EF05MA09",
+    "questoes": [],
+    "questoes_ids": [
+      "Q10_M00127583_MAT6",
+      "Q25_M00127860_MAT6"
+    ],
+    "desempenho": 97,
+    "media_acertos": 97,
+    "alunos_adequado": 87,
+    "num_questoes": 2
+  },
+  "MAT_6_5EF02_M": {
+    "codigo": "5EF02_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Representar fração associada ao significado de parte de um todo.",
+    "bncc": "EF05MA03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q08_M00127579_MAT6"
+    ],
+    "desempenho": 64,
+    "media_acertos": 74,
+    "alunos_adequado": 64,
+    "num_questoes": 1
+  },
+  "MAT_6_6EF10_M": {
+    "codigo": "6EF10_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Identificar frações equivalentes.",
+    "bncc": "EF05MA04",
+    "questoes": [],
+    "questoes_ids": [
+      "Q02_M00127573_MAT6"
+    ],
+    "desempenho": 76,
+    "media_acertos": 86,
+    "alunos_adequado": 96,
+    "num_questoes": 1
+  },
+  "MAT_6_6EF11_M": {
+    "codigo": "6EF11_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Corresponder representações decimal e fracionária de números racionais positivos, que possuem representação decimal finita.",
+    "bncc": "EF06MA08",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 66,
+    "media_acertos": 71,
+    "alunos_adequado": 76,
+    "num_questoes": 3
+  },
+  "MAT_6_6EF12_M": {
+    "codigo": "6EF12_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Utilizar o cálculo da fração de uma quantidade, cujo resultado seja um número natural, na resolução de problema.",
+    "bncc": "EF06MA09",
+    "questoes": [],
+    "questoes_ids": [
+      "Q07_M00127582_MAT6"
+    ],
+    "desempenho": 73,
+    "media_acertos": 73,
+    "alunos_adequado": 73,
+    "num_questoes": 1
+  },
+  "MAT_6_6EF13_M": {
+    "codigo": "6EF13_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Utilizar operações entre números naturais em que se conheça o resultado dessas operações e que um desses números seja desconhecido, na resolução de problema.",
+    "bncc": "EF05MA11 EF06MA14",
+    "questoes": [],
+    "questoes_ids": [
+      "Q16_M00128404_MAT6"
+    ],
+    "desempenho": 61,
+    "media_acertos": 71,
+    "alunos_adequado": 91,
+    "num_questoes": 1
+  },
+  "MAT_6_6EF14_M": {
+    "codigo": "6EF14_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Utilizar proporcionalidade direta entre duas grandezas, na resolução de problema.",
+    "bncc": "EF05MA12",
+    "questoes": [],
+    "questoes_ids": [
+      "Q23_M00127837_MAT6"
+    ],
+    "desempenho": 85,
+    "media_acertos": 75,
+    "alunos_adequado": 85,
+    "num_questoes": 1
+  },
+  "MAT_6_5EF03_M": {
+    "codigo": "5EF03_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Identificar objeto ou sua localização em representação no plano, referenciada por linhas e colunas.",
+    "bncc": "EF05MA14",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 99,
+    "media_acertos": 79,
+    "alunos_adequado": 59,
+    "num_questoes": 4
+  },
+  "MAT_6_6EF15_M": {
+    "codigo": "6EF15_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Corresponder pares ordenados a pontos do plano cartesiano, que representam a localização de objetos (1º quadrante).",
+    "bncc": "EF05MA15",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 74,
+    "media_acertos": 79,
+    "alunos_adequado": 54,
+    "num_questoes": 3
+  },
+  "MAT_6_5EF04_M": {
+    "codigo": "5EF04_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Corresponder figuras geométricas espaciais (cilindro, cone, prisma ou pirâmide) à uma de suas planificações.",
+    "bncc": "EF03MA14 EF04MA17",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 64,
+    "media_acertos": 99,
+    "alunos_adequado": 64,
+    "num_questoes": 1
+  },
+  "MAT_6_5EF05_M": {
+    "codigo": "5EF05_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Reconhecer polígonos em relação à quantidade de lados, vértices ou ângulos.",
+    "bncc": "EF05MA17",
+    "questoes": [],
+    "questoes_ids": [
+      "Q26_M00127843_MAT6"
+    ],
+    "desempenho": 96,
+    "media_acertos": 86,
+    "alunos_adequado": 76,
+    "num_questoes": 1
+  },
+  "MAT_6_6EF16_M": {
+    "codigo": "6EF16_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Classificar triângulos em relação às medidas de seus lados e/ou de seus ângulos internos.",
+    "bncc": "EF06MA19",
+    "questoes": [],
+    "questoes_ids": [
+      "Q20_M00128405_MAT6"
+    ],
+    "desempenho": 75,
+    "media_acertos": 85,
+    "alunos_adequado": 75,
+    "num_questoes": 1
+  },
+  "MAT_6_6EF17_M": {
+    "codigo": "6EF17_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Classificar quadriláteros em relação às medidas de seus lados, de seus ângulos internos e da posição relativa de seus lados.",
+    "bncc": "EF06MA20",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 65,
+    "media_acertos": 85,
+    "alunos_adequado": 65,
+    "num_questoes": 2
+  },
+  "MAT_6_6EF18_M": {
+    "codigo": "6EF18_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Medir área de figuras planas, desenhadas em malha quadriculada, cujos lados se posicionam sobre linhas de grade e/ou diagonais de quadradinhos da malha.",
+    "bncc": "EF04MA21",
+    "questoes": [],
+    "questoes_ids": [
+      "Q17_M00128428_MAT6",
+      "Q22_M00127851_MAT6"
+    ],
+    "desempenho": 80,
+    "media_acertos": 90,
+    "alunos_adequado": 50,
+    "num_questoes": 2
+  },
+  "MAT_6_5EF06_M": {
+    "codigo": "5EF06_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Converter unidades de medida padronizadas mais usuais das grandezas comprimento, massa, tempo ou capacidade.",
+    "bncc": "EF05MA19",
+    "questoes": [],
+    "questoes_ids": [
+      "Q01_M00127572_MAT6"
+    ],
+    "desempenho": 88,
+    "media_acertos": 78,
+    "alunos_adequado": 78,
+    "num_questoes": 1
+  },
+  "MAT_6_6EF19_M": {
+    "codigo": "6EF19_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Utilizar conversão entre unidades de medida padronizadas mais usuais das grandezas comprimento, massa, tempo ou capacidade, na resolução de problema.",
+    "bncc": "EF05MA19",
+    "questoes": [],
+    "questoes_ids": [
+      "Q09_M00127581_MAT6",
+      "Q11_M00127587_MAT6"
+    ],
+    "desempenho": 80,
+    "media_acertos": 75,
+    "alunos_adequado": 60,
+    "num_questoes": 2
+  },
+  "MAT_6_6EF20_M": {
+    "codigo": "6EF20_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Determinar a probabilidade de ocorrência de um evento, associado a um experimento aleatório, em um espaço amostral equiprovável, cujos quantitativos necessários para o cálculo da probabilidade não demandem técnicas de contagem.",
+    "bncc": "EF05MA23",
+    "questoes": [],
+    "questoes_ids": [
+      "Q21_M00098427_MAT6"
+    ],
+    "desempenho": 98,
+    "media_acertos": 73,
+    "alunos_adequado": 88,
+    "num_questoes": 1
+  },
+  "MAT_6_6EF21_M": {
+    "codigo": "6EF21_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "6",
+    "habilidade": "Interpretar dados estatísticos dispostos em gráficos de colunas, de barras agrupadas, pictóricos ou de linhas.",
+    "bncc": "EF04MA27 EF05MA24",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 71,
+    "media_acertos": 81,
+    "alunos_adequado": 71,
+    "num_questoes": 4
+  },
+  "MAT_7_7EF01_M": {
+    "codigo": "7EF01_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Corresponder números inteiros ou racionais a pontos da reta numérica.",
+    "bncc": "EF05MA05 EF06MA01 EF06MA08 EF07MA03 EF07MA10",
+    "questoes": [],
+    "questoes_ids": [
+      "Q11_M00128201_MAT7"
+    ],
+    "desempenho": 72,
+    "media_acertos": 72,
+    "alunos_adequado": 62,
+    "num_questoes": 1
+  },
+  "MAT_7_6EF04_M": {
+    "codigo": "6EF04_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Utilizar a operação de adição ou de subtração entre números racionais positivos, em representação decimal finita, na resolução de problema.",
+    "bncc": "EF05MA07",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 74,
+    "media_acertos": 69,
+    "alunos_adequado": 64,
+    "num_questoes": 3
+  },
+  "MAT_7_6EF05_M": {
+    "codigo": "6EF05_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Utilizar a operação de adição ou de subtração entre números racionais positivos, em representação fracionária, na resolução de problema.",
+    "bncc": "EF06MA10",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 78,
+    "media_acertos": 98,
+    "alunos_adequado": 98,
+    "num_questoes": 3
+  },
+  "MAT_7_6EF07_M": {
+    "codigo": "6EF07_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Determinar o valor de uma expressão numérica envolvendo pelo menos duas das seguintes operações entre números naturais: adição, subtração, multiplicação, divisão e potenciação.",
+    "bncc": "EF06MA03",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 65,
+    "media_acertos": 90,
+    "alunos_adequado": 85,
+    "num_questoes": 2
+  },
+  "MAT_7_6EF08_M": {
+    "codigo": "6EF08_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Utilizar pelo menos duas das seguintes operações entre números naturais ou racionais positivos, em representação decimal finita: adição, subtração, multiplicação, dvisão e potenciação, na resolução de problema.",
+    "bncc": "EF06MA03 EF06MA11",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 61,
+    "media_acertos": 66,
+    "alunos_adequado": 81,
+    "num_questoes": 2
+  },
+  "MAT_7_7EF02_M": {
+    "codigo": "7EF02_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Utilizar operações fundamentais entre números inteiros, na resolução de problema.",
+    "bncc": "EF07MA04",
+    "questoes": [],
+    "questoes_ids": [
+      "Q08_M00128197_MAT7",
+      "Q10_M00128199_MAT7",
+      "Q15_M00128206_MAT7"
+    ],
+    "desempenho": 60,
+    "media_acertos": 65,
+    "alunos_adequado": 60,
+    "num_questoes": 3
+  },
+  "MAT_7_6EF10_M": {
+    "codigo": "6EF10_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Identificar frações equivalentes.",
+    "bncc": "EF05MA04",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 60,
+    "media_acertos": 80,
+    "alunos_adequado": 70,
+    "num_questoes": 1
+  },
+  "MAT_7_7EF03_M": {
+    "codigo": "7EF03_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Efetuar operação de mulitplicação ou de divisão entre números racionais, em representação fracionária.",
+    "bncc": "EF07MA11 EF07MA12",
+    "questoes": [],
+    "questoes_ids": [
+      "Q07_M00128195_MAT7"
+    ],
+    "desempenho": 96,
+    "media_acertos": 91,
+    "alunos_adequado": 86,
+    "num_questoes": 1
+  },
+  "MAT_7_6EF11_M": {
+    "codigo": "6EF11_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Corresponder representações decimal e fracionária de números racionais positivos, que possuem representação decimal finita.",
+    "bncc": "EF06MA08",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 81,
+    "media_acertos": 86,
+    "alunos_adequado": 81,
+    "num_questoes": 2
+  },
+  "MAT_7_6EF12_M": {
+    "codigo": "6EF12_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Utilizar o cálculo da fração de uma quantidade, cujo resultado seja um número natural, na resolução de problema.",
+    "bncc": "EF06MA09",
+    "questoes": [],
+    "questoes_ids": [
+      "Q18_M00128280_MAT7"
+    ],
+    "desempenho": 74,
+    "media_acertos": 84,
+    "alunos_adequado": 54,
+    "num_questoes": 1
+  },
+  "MAT_7_7EF04_M": {
+    "codigo": "7EF04_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Utilizar máximo divisor comum ou mínimo múltiplo comum entre números naturais na resolução de problema.",
+    "bncc": "EF07MA01",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 74,
+    "media_acertos": 94,
+    "alunos_adequado": 64,
+    "num_questoes": 3
+  },
+  "MAT_7_7EF05_M": {
+    "codigo": "7EF05_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Utilizar porcentagem, sem envolver aplicação de percentuais sucessivos, na resolução de problema.",
+    "bncc": "EF07MA02",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 60,
+    "media_acertos": 70,
+    "alunos_adequado": 90,
+    "num_questoes": 1
+  },
+  "MAT_7_6EF13_M": {
+    "codigo": "6EF13_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Utilizar operações entre números naturais em que se conheça o resultado dessas operações e que um desses números seja desconhecido, na resolução de problema.",
+    "bncc": "EF05MA11 EF06MA14",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 95,
+    "media_acertos": 90,
+    "alunos_adequado": 75,
+    "num_questoes": 4
+  },
+  "MAT_7_6EF14_M": {
+    "codigo": "6EF14_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Utilizar proporcionalidade direta entre duas grandezas, na resolução de problema.",
+    "bncc": "EF05MA12",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 68,
+    "media_acertos": 93,
+    "alunos_adequado": 88,
+    "num_questoes": 1
+  },
+  "MAT_7_7EF06_M": {
+    "codigo": "7EF06_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Utilizar proporcionalidade inversa entre duas grandezas, na resolução de problema.",
+    "bncc": "EF07MA17",
+    "questoes": [],
+    "questoes_ids": [
+      "Q17_M00128283_MAT7",
+      "Q20_M00128282_MAT7"
+    ],
+    "desempenho": 94,
+    "media_acertos": 74,
+    "alunos_adequado": 84,
+    "num_questoes": 2
+  },
+  "MAT_7_7EF07_M": {
+    "codigo": "7EF07_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Determinar conjunto solução de equação polinomial de 1º grau.",
+    "bncc": "EF07MA18",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 87,
+    "media_acertos": 92,
+    "alunos_adequado": 67,
+    "num_questoes": 4
+  },
+  "MAT_7_7EF08_M": {
+    "codigo": "7EF08_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Utilizar equação polinomial de 1º grau, representando uma situação por meio de modelagem matemática, na resolução de problema.",
+    "bncc": "EF07MA18",
+    "questoes": [],
+    "questoes_ids": [
+      "Q22_M00065963_MAT7",
+      "Q26_M00126049_MAT7"
+    ],
+    "desempenho": 84,
+    "media_acertos": 94,
+    "alunos_adequado": 74,
+    "num_questoes": 2
+  },
+  "MAT_7_6EF16_M": {
+    "codigo": "6EF16_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Classificar triângulos em relação às medidas de seus lados e/ou de seus ângulos internos.",
+    "bncc": "EF06MA19",
+    "questoes": [],
+    "questoes_ids": [
+      "Q06_M00128196_MAT7"
+    ],
+    "desempenho": 61,
+    "media_acertos": 81,
+    "alunos_adequado": 81,
+    "num_questoes": 1
+  },
+  "MAT_7_6EF17_M": {
+    "codigo": "6EF17_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Classificar quadriláteros em relação às medidas de seus lados, de seus ângulos internos e da posição relativa de seus lados.",
+    "bncc": "EF06MA20",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 64,
+    "media_acertos": 74,
+    "alunos_adequado": 74,
+    "num_questoes": 1
+  },
+  "MAT_7_7EF09_M": {
+    "codigo": "7EF09_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Corresponder pontos do plano cartesiano a pares ordenados.",
+    "bncc": "EF05MA15 EF07MA19 EF07MA20 EF07MA21",
+    "questoes": [],
+    "questoes_ids": [
+      "Q09_M00128200_MAT7",
+      "Q16_M00128285_MAT7",
+      "Q23_M00128257_MAT7"
+    ],
+    "desempenho": 78,
+    "media_acertos": 68,
+    "alunos_adequado": 98,
+    "num_questoes": 3
+  },
+  "MAT_7_5EF04_M": {
+    "codigo": "5EF04_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Corresponder figuras geométricas espaciais (cilindro, cone, prisma ou pirâmide) à uma de suas planificações.",
+    "bncc": "EF03MA14 EF04MA17",
+    "questoes": [],
+    "questoes_ids": [
+      "Q04_M00128190_MAT7",
+      "Q14_M00128205_MAT7"
+    ],
+    "desempenho": 77,
+    "media_acertos": 67,
+    "alunos_adequado": 97,
+    "num_questoes": 2
+  },
+  "MAT_7_7EF10_M": {
+    "codigo": "7EF10_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Reconhecer relações entre os ângulos que um reta transversal forma com um feixe de retas paralelas.",
+    "bncc": "EF07MA23",
+    "questoes": [],
+    "questoes_ids": [
+      "Q24_M00126044_MAT7",
+      "Q25_M00128264_MAT7"
+    ],
+    "desempenho": 95,
+    "media_acertos": 75,
+    "alunos_adequado": 55,
+    "num_questoes": 2
+  },
+  "MAT_7_7EF11_M": {
+    "codigo": "7EF11_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Determinar a medida de um ângulo interno de um triângulo, a partir das medidas dos outros dois.",
+    "bncc": "EF07MA24",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 74,
+    "media_acertos": 69,
+    "alunos_adequado": 84,
+    "num_questoes": 3
+  },
+  "MAT_7_7EF12_M": {
+    "codigo": "7EF12_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Utilizar medidas de ângulos internos e/ou externos de polígonos regulares, na resolução de problema.",
+    "bncc": "EF07MA27",
+    "questoes": [],
+    "questoes_ids": [
+      "Q05_M00128194_MAT7",
+      "Q13_M00128203_MAT7"
+    ],
+    "desempenho": 73,
+    "media_acertos": 73,
+    "alunos_adequado": 53,
+    "num_questoes": 2
+  },
+  "MAT_7_7EF13_M": {
+    "codigo": "7EF13_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Utilizar cálculo de medida de perímetro de polígonos na resolução de problema.",
+    "bncc": "EF04MA20 EF06MA29",
+    "questoes": [],
+    "questoes_ids": [
+      "Q03_M00128191_MAT7"
+    ],
+    "desempenho": 68,
+    "media_acertos": 98,
+    "alunos_adequado": 78,
+    "num_questoes": 1
+  },
+  "MAT_7_7EF14_M": {
+    "codigo": "7EF14_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Utilizar cálculo de medida de área de figuras planas: quadrados, retângulos, triângulos ou outras figuras planas que podem ser decompostas em quadrados, retângulos e/ou triângulos, na resolução de problema.",
+    "bncc": "EF07MA32",
+    "questoes": [],
+    "questoes_ids": [
+      "Q19_M017722_MAT7"
+    ],
+    "desempenho": 82,
+    "media_acertos": 67,
+    "alunos_adequado": 72,
+    "num_questoes": 1
+  },
+  "MAT_7_7EF15_M": {
+    "codigo": "7EF15_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Utilizar cálculo de medida de volume de blocos retangulares, envolvendo unidades mais usuais (metro cúbico, decímetro cúbico ou centímetro cúbico), na resolução de problema.",
+    "bncc": "EF07MA30",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 95,
+    "media_acertos": 75,
+    "alunos_adequado": 65,
+    "num_questoes": 4
+  },
+  "MAT_7_6EF20_M": {
+    "codigo": "6EF20_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Determinar a probabilidade de ocorrência de um evento, associado a um experimento aleatório, em um espaço amostral equiprovável, cujos quantitativos necessários para o cálculo da probabilidade não demandem técnicas de contagem.",
+    "bncc": "EF05MA23",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 90,
+    "media_acertos": 65,
+    "alunos_adequado": 70,
+    "num_questoes": 3
+  },
+  "MAT_7_6EF21_M": {
+    "codigo": "6EF21_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Interpretar dados estatísticos dispostos em gráficos de colunas, de barras agrupadas, pictóricos ou de linhas.",
+    "bncc": "EF04MA27 EF05MA24",
+    "questoes": [],
+    "questoes_ids": [
+      "Q01_M00128193_MAT7",
+      "Q02_M00128189_MAT7"
+    ],
+    "desempenho": 88,
+    "media_acertos": 83,
+    "alunos_adequado": 68,
+    "num_questoes": 2
+  },
+  "MAT_7_7EF16_M": {
+    "codigo": "7EF16_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Interpretar dados estatísticos dispostos em gráficos de setores.",
+    "bncc": "EF07MA37",
+    "questoes": [],
+    "questoes_ids": [
+      "Q12_M00128202_MAT7"
+    ],
+    "desempenho": 92,
+    "media_acertos": 77,
+    "alunos_adequado": 52,
+    "num_questoes": 1
+  },
+  "MAT_7_7EF17_M": {
+    "codigo": "7EF17_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "7",
+    "habilidade": "Determinar a média aritmética simples de um conjunto de dados estatísticos.",
+    "bncc": "EF07MA35",
+    "questoes": [],
+    "questoes_ids": [
+      "Q21_M00048406_MAT7"
+    ],
+    "desempenho": 68,
+    "media_acertos": 83,
+    "alunos_adequado": 88,
+    "num_questoes": 1
+  },
+  "MAT_8_7EF01_M": {
+    "codigo": "7EF01_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Corresponder números inteiros ou racionais a pontos da reta numérica.",
+    "bncc": "EF05MA05 EF06MA01 EF06MA08 EF07MA03 EF07MA10",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 73,
+    "media_acertos": 88,
+    "alunos_adequado": 53,
+    "num_questoes": 2
+  },
+  "MAT_8_7EF02_M": {
+    "codigo": "7EF02_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Utilizar operações fundamentais entre números inteiros, na resolução de problema.",
+    "bncc": "EF07MA04",
+    "questoes": [],
+    "questoes_ids": [
+      "Q06_M00128221_MAT8",
+      "Q24_M00128315_MAT8"
+    ],
+    "desempenho": 87,
+    "media_acertos": 87,
+    "alunos_adequado": 67,
+    "num_questoes": 2
+  },
+  "MAT_8_7EF03_M": {
+    "codigo": "7EF03_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Efetuar operação de mulitplicação ou de divisão entre números racionais, em representação fracionária.",
+    "bncc": "EF07MA11 EF07MA12",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 91,
+    "media_acertos": 71,
+    "alunos_adequado": 91,
+    "num_questoes": 4
+  },
+  "MAT_8_8EF01_M": {
+    "codigo": "8EF01_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Utilizar o princípio multiplicativo de contagem na resolução de problema.",
+    "bncc": "EF08MA03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q11_M00128231_MAT8"
+    ],
+    "desempenho": 90,
+    "media_acertos": 75,
+    "alunos_adequado": 80,
+    "num_questoes": 1
+  },
+  "MAT_8_7EF04_M": {
+    "codigo": "7EF04_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Utilizar máximo divisor comum ou mínimo múltiplo comum entre números naturais na resolução de problema.",
+    "bncc": "EF07MA01",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 71,
+    "media_acertos": 81,
+    "alunos_adequado": 81,
+    "num_questoes": 4
+  },
+  "MAT_8_7EF05_M": {
+    "codigo": "7EF05_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Utilizar porcentagem, sem envolver aplicação de percentuais sucessivos, na resolução de problema.",
+    "bncc": "EF07MA02",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 92,
+    "media_acertos": 97,
+    "alunos_adequado": 92,
+    "num_questoes": 1
+  },
+  "MAT_8_7EF06_M": {
+    "codigo": "7EF06_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Utilizar proporcionalidade inversa entre duas grandezas, na resolução de problema.",
+    "bncc": "EF07MA17",
+    "questoes": [],
+    "questoes_ids": [
+      "Q08_M00128225_MAT8"
+    ],
+    "desempenho": 88,
+    "media_acertos": 98,
+    "alunos_adequado": 78,
+    "num_questoes": 1
+  },
+  "MAT_8_8EF02_M": {
+    "codigo": "8EF02_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Utilizar cálculo de valor numérico de expressões algébricas na resolução de problema.",
+    "bncc": "EF08MA06",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 97,
+    "media_acertos": 87,
+    "alunos_adequado": 77,
+    "num_questoes": 2
+  },
+  "MAT_8_7EF07_M": {
+    "codigo": "7EF07_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Determinar conjunto solução de equação polinomial de 1º grau.",
+    "bncc": "EF07MA18",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 62,
+    "media_acertos": 92,
+    "alunos_adequado": 62,
+    "num_questoes": 3
+  },
+  "MAT_8_7EF08_M": {
+    "codigo": "7EF08_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Utilizar equação polinomial de 1º grau, representando uma situação por meio de modelagem matemática, na resolução de problema.",
+    "bncc": "EF07MA18",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 73,
+    "media_acertos": 68,
+    "alunos_adequado": 63,
+    "num_questoes": 2
+  },
+  "MAT_8_8EF03_M": {
+    "codigo": "8EF03_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Determinar conjunto solução de um sistema de equações polinomiais de 1º grau, com duas incógnitas.",
+    "bncc": "EF08MA08",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 85,
+    "media_acertos": 65,
+    "alunos_adequado": 65,
+    "num_questoes": 2
+  },
+  "MAT_8_8EF04_M": {
+    "codigo": "8EF04_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Utilizar sistema de equações polinomiais de 1º grau, com duas incógnitas, representando uma situação por meio de modelagem matemática, na resolução de problema.",
+    "bncc": "EF08MA08",
+    "questoes": [],
+    "questoes_ids": [
+      "Q05_M00128214_MAT8"
+    ],
+    "desempenho": 91,
+    "media_acertos": 96,
+    "alunos_adequado": 61,
+    "num_questoes": 1
+  },
+  "MAT_8_8EF05_M": {
+    "codigo": "8EF05_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Determinar conjunto solução de equação polinomial de 2º grau, do tipo ax² = b.",
+    "bncc": "EF08MA09",
+    "questoes": [],
+    "questoes_ids": [
+      "Q17_M00128283_MAT8",
+      "Q26_M00128329_MAT8"
+    ],
+    "desempenho": 63,
+    "media_acertos": 83,
+    "alunos_adequado": 93,
+    "num_questoes": 2
+  },
+  "MAT_8_7EF09_M": {
+    "codigo": "7EF09_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Corresponder pontos do plano cartesiano a pares ordenados.",
+    "bncc": "EF05MA15 EF07MA19 EF07MA20 EF07MA21",
+    "questoes": [],
+    "questoes_ids": [
+      "Q12_M00128230_MAT8"
+    ],
+    "desempenho": 88,
+    "media_acertos": 83,
+    "alunos_adequado": 98,
+    "num_questoes": 1
+  },
+  "MAT_8_7EF10_M": {
+    "codigo": "7EF10_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Reconhecer relações entre os ângulos que um reta transversal forma com um feixe de retas paralelas.",
+    "bncc": "EF07MA23",
+    "questoes": [],
+    "questoes_ids": [
+      "Q02_M00128218_MAT8",
+      "Q14_M00128227_MAT8"
+    ],
+    "desempenho": 64,
+    "media_acertos": 69,
+    "alunos_adequado": 64,
+    "num_questoes": 2
+  },
+  "MAT_8_7EF11_M": {
+    "codigo": "7EF11_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Determinar a medida de um ângulo interno de um triângulo, a partir das medidas dos outros dois.",
+    "bncc": "EF07MA24",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 69,
+    "media_acertos": 99,
+    "alunos_adequado": 99,
+    "num_questoes": 2
+  },
+  "MAT_8_7EF12_M": {
+    "codigo": "7EF12_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Utilizar medidas de ângulos internos e/ou externos de polígonos regulares, na resolução de problema.",
+    "bncc": "EF07MA27",
+    "questoes": [],
+    "questoes_ids": [
+      "Q10_M00128220_MAT8"
+    ],
+    "desempenho": 80,
+    "media_acertos": 90,
+    "alunos_adequado": 50,
+    "num_questoes": 1
+  },
+  "MAT_8_8EF06_M": {
+    "codigo": "8EF06_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Utilizar o conceito de mediatriz ou de bissetriz, como lugar geométrico, na resolução de problema.",
+    "bncc": "EF08MA17",
+    "questoes": [],
+    "questoes_ids": [
+      "Q18_M00128280_MAT8"
+    ],
+    "desempenho": 90,
+    "media_acertos": 95,
+    "alunos_adequado": 50,
+    "num_questoes": 1
+  },
+  "MAT_8_7EF13_M": {
+    "codigo": "7EF13_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Utilizar cálculo de medida de perímetro de polígonos na resolução de problema.",
+    "bncc": "EF04MA20 EF06MA29",
+    "questoes": [],
+    "questoes_ids": [
+      "Q04_M00128216_MAT8",
+      "Q19_M017722_MAT8"
+    ],
+    "desempenho": 84,
+    "media_acertos": 89,
+    "alunos_adequado": 54,
+    "num_questoes": 2
+  },
+  "MAT_8_8EF07_M": {
+    "codigo": "8EF07_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Utilizar cálculo de medida de comprimento de circunferência na resolução de problema.",
+    "bncc": "EF07MA33",
+    "questoes": [],
+    "questoes_ids": [
+      "Q01_M00128215_MAT8",
+      "Q09_M00128222_MAT8",
+      "Q15_M00128229_MAT8",
+      "Q16_M00128285_MAT8"
+    ],
+    "desempenho": 69,
+    "media_acertos": 99,
+    "alunos_adequado": 79,
+    "num_questoes": 4
+  },
+  "MAT_8_7EF14_M": {
+    "codigo": "7EF14_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Utilizar cálculo de medida de área de figuras planas: quadrados, retângulos, triângulos ou outras figuras planas que podem ser decompostas em quadrados, retângulos e/ou triângulos, na resolução de problema.",
+    "bncc": "EF07MA32",
+    "questoes": [],
+    "questoes_ids": [
+      "Q20_M00128282_MAT8"
+    ],
+    "desempenho": 65,
+    "media_acertos": 95,
+    "alunos_adequado": 65,
+    "num_questoes": 1
+  },
+  "MAT_8_8EF08_M": {
+    "codigo": "8EF08_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Utilizar cálculo de medida de área de círculos na resolução de problema.",
+    "bncc": "EF08MA19",
+    "questoes": [],
+    "questoes_ids": [
+      "Q03_M00128219_MAT8",
+      "Q21_M00128310_MAT8"
+    ],
+    "desempenho": 87,
+    "media_acertos": 72,
+    "alunos_adequado": 77,
+    "num_questoes": 2
+  },
+  "MAT_8_7EF15_M": {
+    "codigo": "7EF15_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Utilizar cálculo de medida de volume de blocos retangulares, envolvendo unidades mais usuais (metro cúbico, decímetro cúbico ou centímetro cúbico), na resolução de problema.",
+    "bncc": "EF07MA30",
+    "questoes": [],
+    "questoes_ids": [
+      "Q13_M00128228_MAT8"
+    ],
+    "desempenho": 91,
+    "media_acertos": 71,
+    "alunos_adequado": 51,
+    "num_questoes": 1
+  },
+  "MAT_8_8EF09_M": {
+    "codigo": "8EF09_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Utilizar conversão entre unidades de medida da grandeza capacidade: litro e decímetro cúbico ou litro e metro cúbico, na resolução de problema.",
+    "bncc": "EF08MA20",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 94,
+    "media_acertos": 79,
+    "alunos_adequado": 54,
+    "num_questoes": 3
+  },
+  "MAT_8_8EF10_M": {
+    "codigo": "8EF10_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Determinar a probabilidade de ocorrência de um evento, associado a um experimento aleatório, em um espaço amostral equiprovável, em que pelo menos um dos quantitativos necessários para o cálculo da probabilidade demande técnicas de contagem.",
+    "bncc": "EF08MA22",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 83,
+    "media_acertos": 78,
+    "alunos_adequado": 63,
+    "num_questoes": 4
+  },
+  "MAT_8_7EF16_M": {
+    "codigo": "7EF16_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Interpretar dados estatísticos dispostos em gráficos de setores.",
+    "bncc": "EF07MA37",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 90,
+    "media_acertos": 75,
+    "alunos_adequado": 60,
+    "num_questoes": 3
+  },
+  "MAT_8_8EF11_M": {
+    "codigo": "8EF11_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Determinar média aritmética simples, moda, mediana ou amplitude de um conjunto de dados estatísticos.",
+    "bncc": "EF07MA35 EF08MA25",
+    "questoes": [],
+    "questoes_ids": [
+      "Q25_M00128324_MAT8"
+    ],
+    "desempenho": 83,
+    "media_acertos": 78,
+    "alunos_adequado": 93,
+    "num_questoes": 1
+  },
+  "MAT_8_8EF12_M": {
+    "codigo": "8EF12_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "8",
+    "habilidade": "Interpretar o significado das medidas de tendência central (média aritmética simples, moda ou mediana) ou da amplitude de um conjunto de dados estatísticos.",
+    "bncc": "EF08MA25",
+    "questoes": [],
+    "questoes_ids": [
+      "Q07_M00128224_MAT8",
+      "Q23_M00128320_MAT8"
+    ],
+    "desempenho": 82,
+    "media_acertos": 97,
+    "alunos_adequado": 72,
+    "num_questoes": 2
+  },
+  "MAT_9_8EF01_M": {
+    "codigo": "8EF01_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Utilizar o princípio multiplicativo de contagem na resolução de problema.",
+    "bncc": "EF08MA03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q09_M00128249_MAT9",
+      "Q14_M00128253_MAT9"
+    ],
+    "desempenho": 93,
+    "media_acertos": 98,
+    "alunos_adequado": 53,
+    "num_questoes": 2
+  },
+  "MAT_9_9EF01_M": {
+    "codigo": "9EF01_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Utilizar porcentagem, envolvendo ou não aplicação de percentuais sucessivos, na resolução de problema.",
+    "bncc": "EF07MA02 EF09MA05",
+    "questoes": [],
+    "questoes_ids": [
+      "Q18_M00034028_MAT9"
+    ],
+    "desempenho": 69,
+    "media_acertos": 99,
+    "alunos_adequado": 59,
+    "num_questoes": 1
+  },
+  "MAT_9_9EF02_M": {
+    "codigo": "9EF02_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Utilizar proporcionalidade direta e/ou inversa entre, pelo menos, três grandezas, na resolução de problema.",
+    "bncc": "EF09MA08",
+    "questoes": [],
+    "questoes_ids": [
+      "Q19_M00128399_MAT9"
+    ],
+    "desempenho": 69,
+    "media_acertos": 69,
+    "alunos_adequado": 79,
+    "num_questoes": 1
+  },
+  "MAT_9_8EF02_M": {
+    "codigo": "8EF02_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Utilizar cálculo de valor numérico de expressões algébricas na resolução de problema.",
+    "bncc": "EF08MA06",
+    "questoes": [],
+    "questoes_ids": [
+      "Q02_M00128242_MAT9"
+    ],
+    "desempenho": 85,
+    "media_acertos": 70,
+    "alunos_adequado": 75,
+    "num_questoes": 1
+  },
+  "MAT_9_8EF03_M": {
+    "codigo": "8EF03_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Determinar conjunto solução de um sistema de equações polinomiais de 1º grau, com duas incógnitas.",
+    "bncc": "EF08MA08",
+    "questoes": [],
+    "questoes_ids": [
+      "Q10_M00128247_MAT9",
+      "Q12_M00128250_MAT9"
+    ],
+    "desempenho": 78,
+    "media_acertos": 73,
+    "alunos_adequado": 58,
+    "num_questoes": 2
+  },
+  "MAT_9_8EF04_M": {
+    "codigo": "8EF04_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Utilizar sistema de equações polinomiais de 1º grau, com duas incógnitas, representando uma situação por meio de modelagem matemática, na resolução de problema.",
+    "bncc": "EF08MA08",
+    "questoes": [],
+    "questoes_ids": [
+      "Q20_M00128395_MAT9"
+    ],
+    "desempenho": 67,
+    "media_acertos": 97,
+    "alunos_adequado": 87,
+    "num_questoes": 1
+  },
+  "MAT_9_8EF05_M": {
+    "codigo": "8EF05_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Determinar conjunto solução de equação polinomial de 2º grau, do tipo ax² = b.",
+    "bncc": "EF08MA09",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 89,
+    "media_acertos": 99,
+    "alunos_adequado": 69,
+    "num_questoes": 2
+  },
+  "MAT_9_9EF03_M": {
+    "codigo": "9EF03_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Determinar conjunto solução de equação polinomial de 2º grau, do tipo ax² + bx + c = 0, com a ≠ 0 e b ≠ 0.",
+    "bncc": "EF09MA09",
+    "questoes": [],
+    "questoes_ids": [
+      "Q03_M00128239_MAT9",
+      "Q13_M00128251_MAT9"
+    ],
+    "desempenho": 78,
+    "media_acertos": 93,
+    "alunos_adequado": 98,
+    "num_questoes": 2
+  },
+  "MAT_9_9EF04_M": {
+    "codigo": "9EF04_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Utilizar equação polinomial de 2º grau, do tipo ax² + bx + c = 0, com a ≠ 0 e b ≠ 0, representando uma situação por meio de modelagem matemática, na resolução de problema.",
+    "bncc": "EF09MA09",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 84,
+    "media_acertos": 94,
+    "alunos_adequado": 84,
+    "num_questoes": 1
+  },
+  "MAT_9_9EF05_M": {
+    "codigo": "9EF05_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Utilizar grandeza representada como razão entre duas grandezas de espécies diferentes, na resolução de problema.",
+    "bncc": "EF09MA07",
+    "questoes": [],
+    "questoes_ids": [
+      "Q24_M017822_MAT9"
+    ],
+    "desempenho": 80,
+    "media_acertos": 80,
+    "alunos_adequado": 80,
+    "num_questoes": 1
+  },
+  "MAT_9_9EF06_M": {
+    "codigo": "9EF06_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Associar figura geométrica espacial à uma de suas vistas ortogonais (superior, frontal ou lateral).",
+    "bncc": "EF09MA17",
+    "questoes": [],
+    "questoes_ids": [
+      "Q01_M00128243_MAT9",
+      "Q06_M00128248_MAT9",
+      "Q21_M00128312_MAT9"
+    ],
+    "desempenho": 61,
+    "media_acertos": 66,
+    "alunos_adequado": 51,
+    "num_questoes": 3
+  },
+  "MAT_9_9EF07_M": {
+    "codigo": "9EF07_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Utilizar semelhança de triângulos na resolução de problema.",
+    "bncc": "EF09MA12",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 88,
+    "media_acertos": 88,
+    "alunos_adequado": 88,
+    "num_questoes": 1
+  },
+  "MAT_9_9EF08_M": {
+    "codigo": "9EF08_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Utilizar relações métricas do triângulo retângulo na resolução de problema.",
+    "bncc": "EF09MA14",
+    "questoes": [],
+    "questoes_ids": [
+      "Q11_M00128252_MAT9"
+    ],
+    "desempenho": 90,
+    "media_acertos": 95,
+    "alunos_adequado": 90,
+    "num_questoes": 1
+  },
+  "MAT_9_9EF09_M": {
+    "codigo": "9EF09_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Utilizar o teorema de Tales na resolução de problema.",
+    "bncc": "EF09MA14",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 72,
+    "media_acertos": 97,
+    "alunos_adequado": 82,
+    "num_questoes": 1
+  },
+  "MAT_9_9EF10_M": {
+    "codigo": "9EF10_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Determinar as coordenadas do ponto médio de um segmento de reta, a partir das coordenadas de seus pontos extremos no plano cartesiano.",
+    "bncc": "EF09MA16",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 76,
+    "media_acertos": 96,
+    "alunos_adequado": 66,
+    "num_questoes": 1
+  },
+  "MAT_9_9EF11_M": {
+    "codigo": "9EF11_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Determinar a distância entre dois pontos quaisquer, dadas as coordenadas desses pontos no plano cartesiano.",
+    "bncc": "EF09MA16",
+    "questoes": [],
+    "questoes_ids": [
+      "Q17_M00128393_MAT9"
+    ],
+    "desempenho": 70,
+    "media_acertos": 65,
+    "alunos_adequado": 60,
+    "num_questoes": 1
+  },
+  "MAT_9_9EF12_M": {
+    "codigo": "9EF12_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Utilizar cálculo de medida de perímetro de figura poligonal, representada no plano cartesiano, a partir das coordenadas de seus vértices, na resolução de problema.",
+    "bncc": "EF09MA16",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 72,
+    "media_acertos": 97,
+    "alunos_adequado": 72,
+    "num_questoes": 1
+  },
+  "MAT_9_9EF13_M": {
+    "codigo": "9EF13_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Utilizar cálculo de medida de área de figura poligonal, representada no plano cartesiano, a partir das coordenadas de seus vértices, na resolução de problema.",
+    "bncc": "EF09MA16",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 72,
+    "media_acertos": 77,
+    "alunos_adequado": 82,
+    "num_questoes": 1
+  },
+  "MAT_9_9EF14_M": {
+    "codigo": "9EF14_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Utilizar relações entre medidas de arcos, ângulos centrais e ângulos inscritos em uma circunferência, na resolução de problema.",
+    "bncc": "EF09MA11",
+    "questoes": [],
+    "questoes_ids": [
+      "Q26_M00128376_MAT9"
+    ],
+    "desempenho": 81,
+    "media_acertos": 96,
+    "alunos_adequado": 81,
+    "num_questoes": 1
+  },
+  "MAT_9_8EF06_M": {
+    "codigo": "8EF06_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Utilizar o conceito de mediatriz ou de bissetriz, como lugar geométrico, na resolução de problema.",
+    "bncc": "EF08MA17",
+    "questoes": [],
+    "questoes_ids": [
+      "Q16_M016827_MAT9"
+    ],
+    "desempenho": 79,
+    "media_acertos": 79,
+    "alunos_adequado": 79,
+    "num_questoes": 1
+  },
+  "MAT_9_7EF13_M": {
+    "codigo": "7EF13_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Utilizar cálculo de medida de perímetro de polígonos na resolução de problema.",
+    "bncc": "EF04MA20 EF06MA29",
+    "questoes": [],
+    "questoes_ids": [
+      "Q22_M00128373_MAT9"
+    ],
+    "desempenho": 64,
+    "media_acertos": 69,
+    "alunos_adequado": 54,
+    "num_questoes": 1
+  },
+  "MAT_9_8EF07_M": {
+    "codigo": "8EF07_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Utilizar cálculo de medida de comprimento de circunferência na resolução de problema.",
+    "bncc": "EF07MA33",
+    "questoes": [],
+    "questoes_ids": [
+      "Q08_M00128245_MAT9"
+    ],
+    "desempenho": 83,
+    "media_acertos": 83,
+    "alunos_adequado": 73,
+    "num_questoes": 1
+  },
+  "MAT_9_7EF14_M": {
+    "codigo": "7EF14_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Utilizar cálculo de medida de área de figuras planas: quadrados, retângulos, triângulos ou outras figuras planas que podem ser decompostas em quadrados, retângulos e/ou triângulos, na resolução de problema.",
+    "bncc": "EF07MA32",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 69,
+    "media_acertos": 89,
+    "alunos_adequado": 69,
+    "num_questoes": 2
+  },
+  "MAT_9_8EF08_M": {
+    "codigo": "8EF08_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Utilizar cálculo de medida de área de círculos na resolução de problema.",
+    "bncc": "EF08MA19",
+    "questoes": [],
+    "questoes_ids": [
+      "Q04_M00128241_MAT9",
+      "Q07_M00128244_MAT9",
+      "Q15_M00128254_MAT9",
+      "Q23_M00128381_MAT9"
+    ],
+    "desempenho": 84,
+    "media_acertos": 99,
+    "alunos_adequado": 54,
+    "num_questoes": 4
+  },
+  "MAT_9_9EF15_M": {
+    "codigo": "9EF15_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Utilizar cálculo de medida de volume de prismas retos ou de cilindros retos, na resolução de problema.",
+    "bncc": "EF09MA19",
+    "questoes": [],
+    "questoes_ids": [
+      "Q05_M00128238_MAT9",
+      "Q25_M00128384_MAT9"
+    ],
+    "desempenho": 71,
+    "media_acertos": 96,
+    "alunos_adequado": 81,
+    "num_questoes": 2
+  },
+  "MAT_9_8EF09_M": {
+    "codigo": "8EF09_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Utilizar conversão entre unidades de medida da grandeza capacidade: litro e decímetro cúbico ou litro e metro cúbico, na resolução de problema.",
+    "bncc": "EF08MA20",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 95,
+    "media_acertos": 90,
+    "alunos_adequado": 85,
+    "num_questoes": 4
+  },
+  "MAT_9_8EF10_M": {
+    "codigo": "8EF10_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Determinar a probabilidade de ocorrência de um evento, associado a um experimento aleatório, em um espaço amostral equiprovável, em que pelo menos um dos quantitativos necessários para o cálculo da probabilidade demande técnicas de contagem.",
+    "bncc": "EF08MA22",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 76,
+    "media_acertos": 91,
+    "alunos_adequado": 96,
+    "num_questoes": 1
+  },
+  "MAT_9_9EF16_M": {
+    "codigo": "9EF16_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Determinar a probabilidade de ocorrência de dois eventos, independentes ou dependentes, associados a um experimento aleatório, em um espaço amostral equiprovável.",
+    "bncc": "EF09MA20",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 95,
+    "media_acertos": 95,
+    "alunos_adequado": 95,
+    "num_questoes": 4
+  },
+  "MAT_9_8EF12_M": {
+    "codigo": "8EF12_M",
+    "disciplina": "MAT",
+    "disciplina_nome": "Matemática",
+    "ano": "9",
+    "habilidade": "Interpretar o significado das medidas de tendência central (média aritmética simples, moda ou mediana) ou da amplitude de um conjunto de dados estatísticos.",
+    "bncc": "EF08MA25",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 70,
+    "media_acertos": 65,
+    "alunos_adequado": 50,
+    "num_questoes": 3
+  },
+  "CN_6_6EF01_CN": {
+    "codigo": "6EF01_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Interpretar o ciclo da água.",
+    "bncc": "EF05CI02",
+    "questoes": [],
+    "questoes_ids": [
+      "Q07_N00137128_CN6"
+    ],
+    "desempenho": 74,
+    "media_acertos": 74,
+    "alunos_adequado": 84,
+    "num_questoes": 1
+  },
+  "CN_6_6EF02_CN": {
+    "codigo": "6EF02_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Explicar como a ação da água, a atividade dos seres vivos e a retirada de cobertura vegetal influenciam no processo de erosão.",
+    "bncc": "EF05CI03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q21_N00137248_CN6"
+    ],
+    "desempenho": 77,
+    "media_acertos": 67,
+    "alunos_adequado": 67,
+    "num_questoes": 1
+  },
+  "CN_6_6EF03_CN": {
+    "codigo": "6EF03_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Interpretar comportamentos voltados para a preservação dos recursos naturais.",
+    "bncc": "EF05CI04",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 64,
+    "media_acertos": 79,
+    "alunos_adequado": 64,
+    "num_questoes": 1
+  },
+  "CN_6_6EF04_CN": {
+    "codigo": "6EF04_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Reconhecer as propriedades de materiais como plásticos, metais, papel e vidro que estão relacionadas ao uso, reaproveitamento e reciclagem desses materiais.",
+    "bncc": "EF05CI05",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 87,
+    "media_acertos": 77,
+    "alunos_adequado": 87,
+    "num_questoes": 4
+  },
+  "CN_6_6EF05_CN": {
+    "codigo": "6EF05_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Interpretar as relações estabelecidas entre os diferentes sistemas do corpo humano para a execução das funções de nutrição, excreção, relação, reprodução e coordenação.",
+    "bncc": "EF05CI06 EF05CI07",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 62,
+    "media_acertos": 72,
+    "alunos_adequado": 62,
+    "num_questoes": 3
+  },
+  "CN_6_6EF06_CN": {
+    "codigo": "6EF06_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Explicar a necessidade de ingestão de diferentes nutrientes frente às demandas do organismo humano.",
+    "bncc": "EF05CI08 EF05CI09",
+    "questoes": [],
+    "questoes_ids": [
+      "Q01_N00136996_CN6",
+      "Q14_N00137024_CN6"
+    ],
+    "desempenho": 94,
+    "media_acertos": 79,
+    "alunos_adequado": 84,
+    "num_questoes": 2
+  },
+  "CN_6_6EF07_CN": {
+    "codigo": "6EF07_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Reconhecer os movimentos realizados pela Terra e pela Lua.",
+    "bncc": "EF05CI11",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 69,
+    "media_acertos": 94,
+    "alunos_adequado": 59,
+    "num_questoes": 2
+  },
+  "CN_6_6EF08_CN": {
+    "codigo": "6EF08_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Reconhecer as fases da Lua.",
+    "bncc": "EF05CI12",
+    "questoes": [],
+    "questoes_ids": [
+      "Q12_N00137010_CN6",
+      "Q26_N00128822_CN6"
+    ],
+    "desempenho": 71,
+    "media_acertos": 96,
+    "alunos_adequado": 51,
+    "num_questoes": 2
+  },
+  "CN_6_6EF09_CN": {
+    "codigo": "6EF09_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Comparar instrumentos ópticos ao tipo de observação que ele proporciona.",
+    "bncc": "EF05CI13",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 70,
+    "media_acertos": 80,
+    "alunos_adequado": 70,
+    "num_questoes": 3
+  },
+  "CN_6_6EF10_CN": {
+    "codigo": "6EF10_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Classificar como homogênea ou heterogênea a mistura de dois ou mais materiais.",
+    "bncc": "EF06CI01",
+    "questoes": [],
+    "questoes_ids": [
+      "Q03_N00137021_CN6",
+      "Q08_N00137069_CN6"
+    ],
+    "desempenho": 85,
+    "media_acertos": 90,
+    "alunos_adequado": 55,
+    "num_questoes": 2
+  },
+  "CN_6_6EF11_CN": {
+    "codigo": "6EF11_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Reconhecer, a partir de características observáveis, a ocorrência de misturas.",
+    "bncc": "EF06CI01",
+    "questoes": [],
+    "questoes_ids": [
+      "Q11_N00137070_CN6",
+      "Q27_N00109109_CN6"
+    ],
+    "desempenho": 91,
+    "media_acertos": 71,
+    "alunos_adequado": 81,
+    "num_questoes": 2
+  },
+  "CN_6_6EF12_CN": {
+    "codigo": "6EF12_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Classificar os métodos de separação de misturas de sistemas heterogêneos.",
+    "bncc": "EF06CI03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q20_N00137247_CN6",
+      "Q24_N00128620_CN6"
+    ],
+    "desempenho": 71,
+    "media_acertos": 71,
+    "alunos_adequado": 81,
+    "num_questoes": 2
+  },
+  "CN_6_6EF13_CN": {
+    "codigo": "6EF13_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Classificar os métodos de separação de misturas de sistemas homogêneos.",
+    "bncc": "EF06CI03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q04_N00137127_CN6",
+      "Q09_N00137009_CN6"
+    ],
+    "desempenho": 78,
+    "media_acertos": 68,
+    "alunos_adequado": 78,
+    "num_questoes": 2
+  },
+  "CN_6_6EF14_CN": {
+    "codigo": "6EF14_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Reconhecer a origem natural ou sintética de materiais.",
+    "bncc": "EF06CI04",
+    "questoes": [],
+    "questoes_ids": [
+      "Q06_N00137130_CN6",
+      "Q22_N00128825_CN6"
+    ],
+    "desempenho": 90,
+    "media_acertos": 75,
+    "alunos_adequado": 70,
+    "num_questoes": 2
+  },
+  "CN_6_6EF15_CN": {
+    "codigo": "6EF15_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Inferir a relação entre o uso de materiais sintéticos e seus impactos socioambientais.",
+    "bncc": "EF06CI04",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 98,
+    "media_acertos": 68,
+    "alunos_adequado": 68,
+    "num_questoes": 3
+  },
+  "CN_6_6EF16_CN": {
+    "codigo": "6EF16_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Reconhecer a célula como a unidade morfofisiológica dos seres vivos.",
+    "bncc": "EF06CI05",
+    "questoes": [],
+    "questoes_ids": [
+      "Q16_N00136981_CN6",
+      "Q18_N00137027_CN6"
+    ],
+    "desempenho": 77,
+    "media_acertos": 97,
+    "alunos_adequado": 77,
+    "num_questoes": 2
+  },
+  "CN_6_6EF17_CN": {
+    "codigo": "6EF17_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Reconhecer os níveis de organização dos seres vivos.",
+    "bncc": "EF06CI06",
+    "questoes": [],
+    "questoes_ids": [
+      "Q17_N00137025_CN6"
+    ],
+    "desempenho": 69,
+    "media_acertos": 94,
+    "alunos_adequado": 79,
+    "num_questoes": 1
+  },
+  "CN_6_6EF18_CN": {
+    "codigo": "6EF18_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Reconhecer as estruturas que compõem o sistema nervoso.",
+    "bncc": "EF06CI07",
+    "questoes": [],
+    "questoes_ids": [
+      "Q19_N00136989_CN6"
+    ],
+    "desempenho": 94,
+    "media_acertos": 69,
+    "alunos_adequado": 74,
+    "num_questoes": 1
+  },
+  "CN_6_6EF19_CN": {
+    "codigo": "6EF19_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Classificar os defeitos da visão.",
+    "bncc": "EF06CI08",
+    "questoes": [],
+    "questoes_ids": [
+      "Q02_N00137023_CN6",
+      "Q23_N00131671_CN6"
+    ],
+    "desempenho": 64,
+    "media_acertos": 74,
+    "alunos_adequado": 64,
+    "num_questoes": 2
+  },
+  "CN_6_6EF20_CN": {
+    "codigo": "6EF20_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Reconhecer as estruturas do olho humano e suas funcionalidades.",
+    "bncc": "EF06CI08",
+    "questoes": [],
+    "questoes_ids": [
+      "Q05_N00137129_CN6",
+      "Q13_N00136997_CN6",
+      "Q25_N00134221_CN6"
+    ],
+    "desempenho": 88,
+    "media_acertos": 73,
+    "alunos_adequado": 88,
+    "num_questoes": 3
+  },
+  "CN_6_6EF21_CN": {
+    "codigo": "6EF21_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Comparar as estruturas do olho humano ao princípio de funcionamento de instrumentos ópticos.",
+    "bncc": "EF06CI08",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 60,
+    "media_acertos": 80,
+    "alunos_adequado": 60,
+    "num_questoes": 1
+  },
+  "CN_6_6EF22_CN": {
+    "codigo": "6EF22_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Reconhecer a estrutura da Terra.",
+    "bncc": "EF06CI11",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 61,
+    "media_acertos": 66,
+    "alunos_adequado": 81,
+    "num_questoes": 2
+  },
+  "CN_6_6EF23_CN": {
+    "codigo": "6EF23_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Reconhecer a forma esférica da Terra.",
+    "bncc": "EF06CI13",
+    "questoes": [],
+    "questoes_ids": [
+      "Q10_N00137026_CN6"
+    ],
+    "desempenho": 83,
+    "media_acertos": 68,
+    "alunos_adequado": 63,
+    "num_questoes": 1
+  },
+  "CN_6_6EF24_CN": {
+    "codigo": "6EF24_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Explicar argumentos e evidências que demonstram a esfericidade da Terra.",
+    "bncc": "EF06CI13",
+    "questoes": [],
+    "questoes_ids": [
+      "Q15_N00137022_CN6"
+    ],
+    "desempenho": 99,
+    "media_acertos": 99,
+    "alunos_adequado": 79,
+    "num_questoes": 1
+  },
+  "CN_6_6EF25_CN": {
+    "codigo": "6EF25_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "6",
+    "habilidade": "Interpretar a relação entre os movimentos do planeta Terra e a mudança na sombra de objetos e instrumentos (gnômon).",
+    "bncc": "EF06CI14",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 97,
+    "media_acertos": 67,
+    "alunos_adequado": 87,
+    "num_questoes": 2
+  },
+  "CN_7_6EF10_CN": {
+    "codigo": "6EF10_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Classificar como homogênea ou heterogênea a mistura de dois ou mais materiais.",
+    "bncc": "EF06CI01",
+    "questoes": [],
+    "questoes_ids": [
+      "Q02_N00137011_CN7",
+      "Q08_N00137001_CN7",
+      "Q26_N00128739_CN7"
+    ],
+    "desempenho": 63,
+    "media_acertos": 83,
+    "alunos_adequado": 93,
+    "num_questoes": 3
+  },
+  "CN_7_6EF12_CN": {
+    "codigo": "6EF12_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Classificar os métodos de separação de misturas de sistemas heterogêneos.",
+    "bncc": "EF06CI03",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 88,
+    "media_acertos": 73,
+    "alunos_adequado": 58,
+    "num_questoes": 1
+  },
+  "CN_7_6EF13_CN": {
+    "codigo": "6EF13_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Classificar os métodos de separação de misturas de sistemas homogêneos.",
+    "bncc": "EF06CI03",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 75,
+    "media_acertos": 65,
+    "alunos_adequado": 95,
+    "num_questoes": 4
+  },
+  "CN_7_6EF15_CN": {
+    "codigo": "6EF15_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Inferir a relação entre o uso de materiais sintéticos e seus impactos socioambientais.",
+    "bncc": "EF06CI04",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 76,
+    "media_acertos": 96,
+    "alunos_adequado": 96,
+    "num_questoes": 1
+  },
+  "CN_7_6EF17_CN": {
+    "codigo": "6EF17_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Reconhecer os níveis de organização dos seres vivos.",
+    "bncc": "EF06CI06",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 80,
+    "media_acertos": 80,
+    "alunos_adequado": 60,
+    "num_questoes": 1
+  },
+  "CN_7_6EF18_CN": {
+    "codigo": "6EF18_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Reconhecer as estruturas que compõem o sistema nervoso.",
+    "bncc": "EF06CI07",
+    "questoes": [],
+    "questoes_ids": [
+      "Q11_N00137053_CN7",
+      "Q20_N00137246_CN7"
+    ],
+    "desempenho": 78,
+    "media_acertos": 88,
+    "alunos_adequado": 68,
+    "num_questoes": 2
+  },
+  "CN_7_6EF20_CN": {
+    "codigo": "6EF20_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Reconhecer as estruturas do olho humano e suas funcionalidades.",
+    "bncc": "EF06CI08",
+    "questoes": [],
+    "questoes_ids": [
+      "Q13_N00137073_CN7",
+      "Q19_N00136982_CN7",
+      "Q23_N00136856_CN7"
+    ],
+    "desempenho": 67,
+    "media_acertos": 97,
+    "alunos_adequado": 77,
+    "num_questoes": 3
+  },
+  "CN_7_6EF21_CN": {
+    "codigo": "6EF21_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Comparar as estruturas do olho humano ao princípio de funcionamento de instrumentos ópticos.",
+    "bncc": "EF06CI08",
+    "questoes": [],
+    "questoes_ids": [
+      "Q06_N00137044_CN7",
+      "Q15_N00137050_CN7"
+    ],
+    "desempenho": 70,
+    "media_acertos": 95,
+    "alunos_adequado": 90,
+    "num_questoes": 2
+  },
+  "CN_7_6EF22_CN": {
+    "codigo": "6EF22_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Reconhecer a estrutura da Terra.",
+    "bncc": "EF06CI11",
+    "questoes": [],
+    "questoes_ids": [
+      "Q21_N00136983_CN7",
+      "Q22_N00131674_CN7"
+    ],
+    "desempenho": 69,
+    "media_acertos": 69,
+    "alunos_adequado": 89,
+    "num_questoes": 2
+  },
+  "CN_7_6EF24_CN": {
+    "codigo": "6EF24_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Explicar argumentos e evidências que demonstram a esfericidade da Terra.",
+    "bncc": "EF06CI13",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 92,
+    "media_acertos": 77,
+    "alunos_adequado": 92,
+    "num_questoes": 1
+  },
+  "CN_7_6EF25_CN": {
+    "codigo": "6EF25_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Interpretar a relação entre os movimentos do planeta Terra e a mudança na sombra de objetos e instrumentos (gnômon).",
+    "bncc": "EF06CI14",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 81,
+    "media_acertos": 96,
+    "alunos_adequado": 61,
+    "num_questoes": 2
+  },
+  "CN_7_7EF01_CN": {
+    "codigo": "7EF01_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Inferir os conceitos de força e trabalho em situações que envolvam o funcionamento de máquinas simples.",
+    "bncc": "EF07CI01",
+    "questoes": [],
+    "questoes_ids": [
+      "Q07_N00137000_CN7"
+    ],
+    "desempenho": 72,
+    "media_acertos": 82,
+    "alunos_adequado": 52,
+    "num_questoes": 1
+  },
+  "CN_7_7EF02_CN": {
+    "codigo": "7EF02_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Reconhecer dispositivos mecânicos que facilitam a realização do trabalho.",
+    "bncc": "EF07CI01",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 96,
+    "media_acertos": 71,
+    "alunos_adequado": 56,
+    "num_questoes": 1
+  },
+  "CN_7_7EF03_CN": {
+    "codigo": "7EF03_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Interpretar, em situações cotidianas, os conceitos de calor, temperatura e sensação térmica.",
+    "bncc": "EF07CI02",
+    "questoes": [],
+    "questoes_ids": [
+      "Q10_N00137051_CN7",
+      "Q24_N00128855_CN7"
+    ],
+    "desempenho": 72,
+    "media_acertos": 92,
+    "alunos_adequado": 62,
+    "num_questoes": 2
+  },
+  "CN_7_7EF04_CN": {
+    "codigo": "7EF04_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Inferir, em situações cotidianas, as formas de propagação de calor envolvidas na utilização de determinados materiais e equipamentos.",
+    "bncc": "EF07CI03",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 97,
+    "media_acertos": 82,
+    "alunos_adequado": 97,
+    "num_questoes": 2
+  },
+  "CN_7_7EF05_CN": {
+    "codigo": "7EF05_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Classificar os processos de transferência de calor.",
+    "bncc": "EF07CI03",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 68,
+    "media_acertos": 68,
+    "alunos_adequado": 88,
+    "num_questoes": 1
+  },
+  "CN_7_7EF06_CN": {
+    "codigo": "7EF06_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Explicar o funcionamento de máquinas térmicas (conversão de calor em trabalho, fluxo de calor, equilíbrio térmico, fonte de energia, perdas de energia).",
+    "bncc": "EF07CI04",
+    "questoes": [],
+    "questoes_ids": [
+      "Q05_N00137072_CN7"
+    ],
+    "desempenho": 79,
+    "media_acertos": 94,
+    "alunos_adequado": 59,
+    "num_questoes": 1
+  },
+  "CN_7_7EF07_CN": {
+    "codigo": "7EF07_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Interpretar o papel dos combustíveis em máquinas térmicas.",
+    "bncc": "EF07CI05",
+    "questoes": [],
+    "questoes_ids": [
+      "Q03_N00137046_CN7",
+      "Q04_N00137071_CN7"
+    ],
+    "desempenho": 88,
+    "media_acertos": 98,
+    "alunos_adequado": 68,
+    "num_questoes": 2
+  },
+  "CN_7_7EF08_CN": {
+    "codigo": "7EF08_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Reconhecer os diferentes biomas brasileiros.",
+    "bncc": "EF07CI07",
+    "questoes": [],
+    "questoes_ids": [
+      "Q14_N00137074_CN7"
+    ],
+    "desempenho": 79,
+    "media_acertos": 84,
+    "alunos_adequado": 99,
+    "num_questoes": 1
+  },
+  "CN_7_7EF09_CN": {
+    "codigo": "7EF09_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Interpretar a forma com que os fatores abióticos regem a diversidade dos diferentes biomas brasileiros.",
+    "bncc": "EF07CI07",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 90,
+    "media_acertos": 95,
+    "alunos_adequado": 70,
+    "num_questoes": 3
+  },
+  "CN_7_7EF10_CN": {
+    "codigo": "7EF10_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Inferir como as intervenções humanas no ambiente causam desequilíbrios ambientais.",
+    "bncc": "EF07CI08",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 60,
+    "media_acertos": 90,
+    "alunos_adequado": 90,
+    "num_questoes": 1
+  },
+  "CN_7_7EF11_CN": {
+    "codigo": "7EF11_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Interpretar indicadores de saúde de um grupo populacional.",
+    "bncc": "EF07CI09",
+    "questoes": [],
+    "questoes_ids": [
+      "Q17_N00137049_CN7"
+    ],
+    "desempenho": 70,
+    "media_acertos": 70,
+    "alunos_adequado": 50,
+    "num_questoes": 1
+  },
+  "CN_7_7EF12_CN": {
+    "codigo": "7EF12_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Reconhecer a relação estabelecida entre as ações de saneamento básico e a saúde humana.",
+    "bncc": "EF07CI09",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 81,
+    "media_acertos": 81,
+    "alunos_adequado": 71,
+    "num_questoes": 2
+  },
+  "CN_7_7EF13_CN": {
+    "codigo": "7EF13_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Inferir o mecanismo de ação das vacinas nos organismos.",
+    "bncc": "EF07CI10",
+    "questoes": [],
+    "questoes_ids": [
+      "Q18_N00137012_CN7"
+    ],
+    "desempenho": 82,
+    "media_acertos": 97,
+    "alunos_adequado": 82,
+    "num_questoes": 1
+  },
+  "CN_7_7EF14_CN": {
+    "codigo": "7EF14_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Reconhecer a importância da adesão às campanhas de vacinação.",
+    "bncc": "EF07CI10",
+    "questoes": [],
+    "questoes_ids": [
+      "Q16_N00137052_CN7"
+    ],
+    "desempenho": 64,
+    "media_acertos": 79,
+    "alunos_adequado": 74,
+    "num_questoes": 1
+  },
+  "CN_7_7EF15_CN": {
+    "codigo": "7EF15_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Reconhecer o ar como uma mistura de gases.",
+    "bncc": "EF07CI12",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 67,
+    "media_acertos": 77,
+    "alunos_adequado": 97,
+    "num_questoes": 4
+  },
+  "CN_7_7EF16_CN": {
+    "codigo": "7EF16_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Reconhecer a composição do ar e o modo como a poluição afeta suas características.",
+    "bncc": "EF07CI12",
+    "questoes": [],
+    "questoes_ids": [
+      "Q09_N00137002_CN7",
+      "Q12_N00136987_CN7"
+    ],
+    "desempenho": 94,
+    "media_acertos": 69,
+    "alunos_adequado": 74,
+    "num_questoes": 2
+  },
+  "CN_7_7EF17_CN": {
+    "codigo": "7EF17_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Reconhecer a atuação do efeito estufa no planeta Terra.",
+    "bncc": "EF07CI13",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 88,
+    "media_acertos": 98,
+    "alunos_adequado": 58,
+    "num_questoes": 1
+  },
+  "CN_7_7EF18_CN": {
+    "codigo": "7EF18_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Interpretar propostas de controle ou de reversão do aumento artificial do efeito estufa no planeta Terra.",
+    "bncc": "EF07CI13",
+    "questoes": [],
+    "questoes_ids": [
+      "Q01_N00137013_CN7",
+      "Q25_N00128736_CN7"
+    ],
+    "desempenho": 81,
+    "media_acertos": 86,
+    "alunos_adequado": 51,
+    "num_questoes": 2
+  },
+  "CN_7_7EF19_CN": {
+    "codigo": "7EF19_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Interpretar ações voltadas para a preservação da camada de ozônio.",
+    "bncc": "EF07CI14",
+    "questoes": [],
+    "questoes_ids": [
+      "Q27_N00128857_CN7"
+    ],
+    "desempenho": 81,
+    "media_acertos": 96,
+    "alunos_adequado": 71,
+    "num_questoes": 1
+  },
+  "CN_7_7EF20_CN": {
+    "codigo": "7EF20_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "7",
+    "habilidade": "Reconhecer a participação da camada de ozônio no fenômeno da vida na Terra.",
+    "bncc": "EF07CI14",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 93,
+    "media_acertos": 93,
+    "alunos_adequado": 53,
+    "num_questoes": 2
+  },
+  "CN_8_7EF01_CN": {
+    "codigo": "7EF01_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Inferir os conceitos de força e trabalho em situações que envolvam o funcionamento de máquinas simples.",
+    "bncc": "EF07CI01",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 66,
+    "media_acertos": 91,
+    "alunos_adequado": 86,
+    "num_questoes": 3
+  },
+  "CN_8_7EF04_CN": {
+    "codigo": "7EF04_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Inferir, em situações cotidianas, as formas de propagação de calor envolvidas na utilização de determinados materiais e equipamentos.",
+    "bncc": "EF07CI03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q06_N00137030_CN8"
+    ],
+    "desempenho": 93,
+    "media_acertos": 68,
+    "alunos_adequado": 73,
+    "num_questoes": 1
+  },
+  "CN_8_7EF06_CN": {
+    "codigo": "7EF06_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Explicar o funcionamento de máquinas térmicas (conversão de calor em trabalho, fluxo de calor, equilíbrio térmico, fonte de energia, perdas de energia).",
+    "bncc": "EF07CI04",
+    "questoes": [],
+    "questoes_ids": [
+      "Q07_N00137031_CN8",
+      "Q23_N00128767_CN8"
+    ],
+    "desempenho": 73,
+    "media_acertos": 88,
+    "alunos_adequado": 63,
+    "num_questoes": 2
+  },
+  "CN_8_7EF07_CN": {
+    "codigo": "7EF07_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Interpretar o papel dos combustíveis em máquinas térmicas.",
+    "bncc": "EF07CI05",
+    "questoes": [],
+    "questoes_ids": [
+      "Q17_N00137042_CN8"
+    ],
+    "desempenho": 97,
+    "media_acertos": 82,
+    "alunos_adequado": 57,
+    "num_questoes": 1
+  },
+  "CN_8_7EF09_CN": {
+    "codigo": "7EF09_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Interpretar a forma com que os fatores abióticos regem a diversidade dos diferentes biomas brasileiros.",
+    "bncc": "EF07CI07",
+    "questoes": [],
+    "questoes_ids": [
+      "Q11_N00137039_CN8",
+      "Q16_N00136995_CN8",
+      "Q26_N00128858_CN8"
+    ],
+    "desempenho": 63,
+    "media_acertos": 93,
+    "alunos_adequado": 73,
+    "num_questoes": 3
+  },
+  "CN_8_7EF10_CN": {
+    "codigo": "7EF10_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Inferir como as intervenções humanas no ambiente causam desequilíbrios ambientais.",
+    "bncc": "EF07CI08",
+    "questoes": [],
+    "questoes_ids": [
+      "Q18_N00137043_CN8"
+    ],
+    "desempenho": 61,
+    "media_acertos": 86,
+    "alunos_adequado": 61,
+    "num_questoes": 1
+  },
+  "CN_8_7EF11_CN": {
+    "codigo": "7EF11_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Interpretar indicadores de saúde de um grupo populacional.",
+    "bncc": "EF07CI09",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 72,
+    "media_acertos": 92,
+    "alunos_adequado": 92,
+    "num_questoes": 1
+  },
+  "CN_8_7EF12_CN": {
+    "codigo": "7EF12_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Reconhecer a relação estabelecida entre as ações de saneamento básico e a saúde humana.",
+    "bncc": "EF07CI09",
+    "questoes": [],
+    "questoes_ids": [
+      "Q05_N00137029_CN8",
+      "Q13_N00137041_CN8"
+    ],
+    "desempenho": 73,
+    "media_acertos": 68,
+    "alunos_adequado": 73,
+    "num_questoes": 2
+  },
+  "CN_8_7EF13_CN": {
+    "codigo": "7EF13_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Inferir o mecanismo de ação das vacinas nos organismos.",
+    "bncc": "EF07CI10",
+    "questoes": [],
+    "questoes_ids": [
+      "Q14_N00136992_CN8"
+    ],
+    "desempenho": 83,
+    "media_acertos": 78,
+    "alunos_adequado": 53,
+    "num_questoes": 1
+  },
+  "CN_8_7EF16_CN": {
+    "codigo": "7EF16_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Reconhecer a composição do ar e o modo como a poluição afeta suas características.",
+    "bncc": "EF07CI12",
+    "questoes": [],
+    "questoes_ids": [
+      "Q08_N00136991_CN8"
+    ],
+    "desempenho": 75,
+    "media_acertos": 65,
+    "alunos_adequado": 85,
+    "num_questoes": 1
+  },
+  "CN_8_7EF18_CN": {
+    "codigo": "7EF18_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Interpretar propostas de controle ou de reversão do aumento artificial do efeito estufa no planeta Terra.",
+    "bncc": "EF07CI13",
+    "questoes": [],
+    "questoes_ids": [
+      "Q04_N00137032_CN8"
+    ],
+    "desempenho": 72,
+    "media_acertos": 87,
+    "alunos_adequado": 82,
+    "num_questoes": 1
+  },
+  "CN_8_7EF19_CN": {
+    "codigo": "7EF19_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Interpretar ações voltadas para a preservação da camada de ozônio.",
+    "bncc": "EF07CI14",
+    "questoes": [],
+    "questoes_ids": [
+      "Q21_N00137066_CN8"
+    ],
+    "desempenho": 92,
+    "media_acertos": 87,
+    "alunos_adequado": 92,
+    "num_questoes": 1
+  },
+  "CN_8_8EF01_CN": {
+    "codigo": "8EF01_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Classificar os recursos energéticos em renováveis e não renováveis.",
+    "bncc": "EF08CI01",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 69,
+    "media_acertos": 74,
+    "alunos_adequado": 89,
+    "num_questoes": 2
+  },
+  "CN_8_8EF02_CN": {
+    "codigo": "8EF02_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Reconhecer diferentes fontes de energia.",
+    "bncc": "EF08CI01",
+    "questoes": [],
+    "questoes_ids": [
+      "Q10_N00137038_CN8"
+    ],
+    "desempenho": 60,
+    "media_acertos": 75,
+    "alunos_adequado": 50,
+    "num_questoes": 1
+  },
+  "CN_8_8EF03_CN": {
+    "codigo": "8EF03_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Reconhecer diferentes tipos de energia.",
+    "bncc": "EF08CI01",
+    "questoes": [],
+    "questoes_ids": [
+      "Q01_N00137028_CN8"
+    ],
+    "desempenho": 62,
+    "media_acertos": 72,
+    "alunos_adequado": 92,
+    "num_questoes": 1
+  },
+  "CN_8_8EF04_CN": {
+    "codigo": "8EF04_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Reconhecer os componentes de um circuito.",
+    "bncc": "EF08CI02",
+    "questoes": [],
+    "questoes_ids": [
+      "Q15_N00136994_CN8"
+    ],
+    "desempenho": 70,
+    "media_acertos": 75,
+    "alunos_adequado": 60,
+    "num_questoes": 1
+  },
+  "CN_8_8EF05_CN": {
+    "codigo": "8EF05_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Classificar os processos de transformação da energia nos aparelhos residenciais.",
+    "bncc": "EF08CI03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q25_N00056762_CN8"
+    ],
+    "desempenho": 65,
+    "media_acertos": 65,
+    "alunos_adequado": 65,
+    "num_questoes": 1
+  },
+  "CN_8_8EF06_CN": {
+    "codigo": "8EF06_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Verificar o consumo de energia elétrica de aparelhos eletroeletrônicos, assim como as grandezas e as ações que influenciam nesse consumo.",
+    "bncc": "EF08CI04",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 88,
+    "media_acertos": 98,
+    "alunos_adequado": 78,
+    "num_questoes": 1
+  },
+  "CN_8_8EF07_CN": {
+    "codigo": "8EF07_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Reconhecer as atitudes que contribuem para redução do consumo de energia.",
+    "bncc": "EF08CI05",
+    "questoes": [],
+    "questoes_ids": [
+      "Q02_N00136993_CN8",
+      "Q12_N00137040_CN8"
+    ],
+    "desempenho": 94,
+    "media_acertos": 74,
+    "alunos_adequado": 84,
+    "num_questoes": 2
+  },
+  "CN_8_8EF08_CN": {
+    "codigo": "8EF08_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Inferir o mecanismo de geração de energia elétrica nas diferentes usinas.",
+    "bncc": "EF08CI06",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 61,
+    "media_acertos": 66,
+    "alunos_adequado": 61,
+    "num_questoes": 2
+  },
+  "CN_8_8EF09_CN": {
+    "codigo": "8EF09_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Reconhecer os impactos ambientais resultantes da construção e do uso de diferentes usinas de geração de energia elétrica.",
+    "bncc": "EF08CI06",
+    "questoes": [],
+    "questoes_ids": [
+      "Q03_N00136990_CN8"
+    ],
+    "desempenho": 91,
+    "media_acertos": 96,
+    "alunos_adequado": 91,
+    "num_questoes": 1
+  },
+  "CN_8_8EF10_CN": {
+    "codigo": "8EF10_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Reconhecer os tipos de usinas de geração de energia elétrica.",
+    "bncc": "EF08CI06",
+    "questoes": [],
+    "questoes_ids": [
+      "Q20_N00137065_CN8"
+    ],
+    "desempenho": 77,
+    "media_acertos": 82,
+    "alunos_adequado": 57,
+    "num_questoes": 1
+  },
+  "CN_8_8EF11_CN": {
+    "codigo": "8EF11_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Reconhecer os diferentes processos reprodutivos dos seres vivos.",
+    "bncc": "EF08CI07",
+    "questoes": [],
+    "questoes_ids": [
+      "Q09_N00137037_CN8"
+    ],
+    "desempenho": 81,
+    "media_acertos": 76,
+    "alunos_adequado": 81,
+    "num_questoes": 1
+  },
+  "CN_8_8EF12_CN": {
+    "codigo": "8EF12_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Reconhecer as estruturas que compõem o sistema endócrino.",
+    "bncc": "EF08CI08",
+    "questoes": [],
+    "questoes_ids": [
+      "Q24_N00136860_CN8"
+    ],
+    "desempenho": 67,
+    "media_acertos": 92,
+    "alunos_adequado": 97,
+    "num_questoes": 1
+  },
+  "CN_8_8EF13_CN": {
+    "codigo": "8EF13_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Explicar a ação do sistema endócrino sobre as características sexuais secundárias.",
+    "bncc": "EF08CI08",
+    "questoes": [],
+    "questoes_ids": [
+      "Q22_N00130584_CN8"
+    ],
+    "desempenho": 82,
+    "media_acertos": 92,
+    "alunos_adequado": 52,
+    "num_questoes": 1
+  },
+  "CN_8_8EF14_CN": {
+    "codigo": "8EF14_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Reconhecer o princípio de ação dos métodos contraceptivos.",
+    "bncc": "EF08CI09",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 99,
+    "media_acertos": 74,
+    "alunos_adequado": 69,
+    "num_questoes": 4
+  },
+  "CN_8_8EF15_CN": {
+    "codigo": "8EF15_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Reconhecer as características das infecções sexualmente transmissíveis (IST).",
+    "bncc": "EF08CI10",
+    "questoes": [],
+    "questoes_ids": [
+      "Q19_N00137064_CN8",
+      "Q27_N00136861_CN8"
+    ],
+    "desempenho": 74,
+    "media_acertos": 69,
+    "alunos_adequado": 64,
+    "num_questoes": 2
+  },
+  "CN_8_8EF16_CN": {
+    "codigo": "8EF16_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Reconhecer as posições relativas entre Sol, Terra e Lua associadas às fases da Lua e à ocorrência de eclipses.",
+    "bncc": "EF08CI12",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 69,
+    "media_acertos": 69,
+    "alunos_adequado": 79,
+    "num_questoes": 2
+  },
+  "CN_8_8EF17_CN": {
+    "codigo": "8EF17_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "8",
+    "habilidade": "Explicar os movimentos do planeta Terra relacionando-os à ocorrência do dia e da noite e às estações do ano.",
+    "bncc": "EF08CI13",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 92,
+    "media_acertos": 72,
+    "alunos_adequado": 52,
+    "num_questoes": 1
+  },
+  "CN_9_8EF01_CN": {
+    "codigo": "8EF01_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Classificar os recursos energéticos em renováveis e não renováveis.",
+    "bncc": "EF08CI01",
+    "questoes": [],
+    "questoes_ids": [
+      "Q05_N00137006_CN9",
+      "Q13_N00137063_CN9"
+    ],
+    "desempenho": 89,
+    "media_acertos": 74,
+    "alunos_adequado": 79,
+    "num_questoes": 2
+  },
+  "CN_9_8EF04_CN": {
+    "codigo": "8EF04_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Reconhecer os componentes de um circuito.",
+    "bncc": "EF08CI02",
+    "questoes": [],
+    "questoes_ids": [
+      "Q12_N00137061_CN9"
+    ],
+    "desempenho": 75,
+    "media_acertos": 95,
+    "alunos_adequado": 55,
+    "num_questoes": 1
+  },
+  "CN_9_8EF05_CN": {
+    "codigo": "8EF05_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Classificar os processos de transformação da energia nos aparelhos residenciais.",
+    "bncc": "EF08CI03",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 96,
+    "media_acertos": 96,
+    "alunos_adequado": 96,
+    "num_questoes": 1
+  },
+  "CN_9_8EF06_CN": {
+    "codigo": "8EF06_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Verificar o consumo de energia elétrica de aparelhos eletroeletrônicos, assim como as grandezas e as ações que influenciam nesse consumo.",
+    "bncc": "EF08CI04",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 70,
+    "media_acertos": 70,
+    "alunos_adequado": 90,
+    "num_questoes": 3
+  },
+  "CN_9_8EF08_CN": {
+    "codigo": "8EF08_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Inferir o mecanismo de geração de energia elétrica nas diferentes usinas.",
+    "bncc": "EF08CI06",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 67,
+    "media_acertos": 97,
+    "alunos_adequado": 97,
+    "num_questoes": 4
+  },
+  "CN_9_8EF09_CN": {
+    "codigo": "8EF09_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Reconhecer os impactos ambientais resultantes da construção e do uso de diferentes usinas de geração de energia elétrica.",
+    "bncc": "EF08CI06",
+    "questoes": [],
+    "questoes_ids": [
+      "Q23_N00130881_CN9"
+    ],
+    "desempenho": 97,
+    "media_acertos": 92,
+    "alunos_adequado": 67,
+    "num_questoes": 1
+  },
+  "CN_9_8EF10_CN": {
+    "codigo": "8EF10_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Reconhecer os tipos de usinas de geração de energia elétrica.",
+    "bncc": "EF08CI06",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 95,
+    "media_acertos": 80,
+    "alunos_adequado": 55,
+    "num_questoes": 4
+  },
+  "CN_9_8EF11_CN": {
+    "codigo": "8EF11_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Reconhecer os diferentes processos reprodutivos dos seres vivos.",
+    "bncc": "EF08CI07",
+    "questoes": [],
+    "questoes_ids": [
+      "Q01_N00138420_CN9"
+    ],
+    "desempenho": 80,
+    "media_acertos": 85,
+    "alunos_adequado": 80,
+    "num_questoes": 1
+  },
+  "CN_9_8EF13_CN": {
+    "codigo": "8EF13_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Explicar a ação do sistema endócrino sobre as características sexuais secundárias.",
+    "bncc": "EF08CI08",
+    "questoes": [],
+    "questoes_ids": [
+      "Q20_N00137250_CN9",
+      "Q26_N00131676_CN9"
+    ],
+    "desempenho": 75,
+    "media_acertos": 80,
+    "alunos_adequado": 75,
+    "num_questoes": 2
+  },
+  "CN_9_8EF14_CN": {
+    "codigo": "8EF14_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Reconhecer o princípio de ação dos métodos contraceptivos.",
+    "bncc": "EF08CI09",
+    "questoes": [],
+    "questoes_ids": [
+      "Q03_N00138422_CN9"
+    ],
+    "desempenho": 80,
+    "media_acertos": 85,
+    "alunos_adequado": 50,
+    "num_questoes": 1
+  },
+  "CN_9_8EF15_CN": {
+    "codigo": "8EF15_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Reconhecer as características das infecções sexualmente transmissíveis (IST).",
+    "bncc": "EF08CI10",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 99,
+    "media_acertos": 99,
+    "alunos_adequado": 59,
+    "num_questoes": 4
+  },
+  "CN_9_8EF17_CN": {
+    "codigo": "8EF17_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Explicar os movimentos do planeta Terra relacionando-os à ocorrência do dia e da noite e às estações do ano.",
+    "bncc": "EF08CI13",
+    "questoes": [],
+    "questoes_ids": [
+      "Q17_N00137018_CN9"
+    ],
+    "desempenho": 87,
+    "media_acertos": 82,
+    "alunos_adequado": 97,
+    "num_questoes": 1
+  },
+  "CN_9_9EF01_CN": {
+    "codigo": "9EF01_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Classificar, com base nos modelos de constituição submicroscópica, os estados físicos da matéria.",
+    "bncc": "EF09CI01",
+    "questoes": [],
+    "questoes_ids": [
+      "Q22_N00130880_CN9"
+    ],
+    "desempenho": 63,
+    "media_acertos": 73,
+    "alunos_adequado": 53,
+    "num_questoes": 1
+  },
+  "CN_9_9EF02_CN": {
+    "codigo": "9EF02_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Inferir as mudanças de estado físico da matéria a partir da observação dos modelos de constituição submicroscópica.",
+    "bncc": "EF09CI01",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 60,
+    "media_acertos": 75,
+    "alunos_adequado": 60,
+    "num_questoes": 1
+  },
+  "CN_9_9EF03_CN": {
+    "codigo": "9EF03_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Inferir, em situações que ocorrem transformações químicas, a relação estabelecida entre a conservação das massas e as propriedades dos átomos.",
+    "bncc": "EF09CI02",
+    "questoes": [],
+    "questoes_ids": [
+      "Q21_N00137251_CN9"
+    ],
+    "desempenho": 81,
+    "media_acertos": 91,
+    "alunos_adequado": 71,
+    "num_questoes": 1
+  },
+  "CN_9_9EF04_CN": {
+    "codigo": "9EF04_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Interpretar, em uma equação química, a conservação da massa entre reagentes e produtos.",
+    "bncc": "EF09CI02",
+    "questoes": [],
+    "questoes_ids": [
+      "Q06_N00137007_CN9"
+    ],
+    "desempenho": 76,
+    "media_acertos": 96,
+    "alunos_adequado": 56,
+    "num_questoes": 1
+  },
+  "CN_9_9EF05_CN": {
+    "codigo": "9EF05_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Interpretar, a partir da evolução histórica de teorias e de tecnologias, os diferentes modelos atômicos.",
+    "bncc": "EF09CI03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q18_N00137060_CN9"
+    ],
+    "desempenho": 60,
+    "media_acertos": 95,
+    "alunos_adequado": 80,
+    "num_questoes": 1
+  },
+  "CN_9_9EF06_CN": {
+    "codigo": "9EF06_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Reconhecer que os materiais são constituídos por partículas muito pequenas, com diferentes níveis de organização e espaços vazios.",
+    "bncc": "EF09CI03",
+    "questoes": [],
+    "questoes_ids": [
+      "Q27_N00134226_CN9"
+    ],
+    "desempenho": 69,
+    "media_acertos": 84,
+    "alunos_adequado": 59,
+    "num_questoes": 1
+  },
+  "CN_9_9EF07_CN": {
+    "codigo": "9EF07_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Explicar as cores dos objetos estabelecendo uma relação com a luz que os ilumina.",
+    "bncc": "EF09CI04",
+    "questoes": [],
+    "questoes_ids": [
+      "Q04_N00137057_CN9"
+    ],
+    "desempenho": 98,
+    "media_acertos": 83,
+    "alunos_adequado": 58,
+    "num_questoes": 1
+  },
+  "CN_9_9EF08_CN": {
+    "codigo": "9EF08_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Reconhecer as cores primárias e secundárias.",
+    "bncc": "EF09CI04",
+    "questoes": [],
+    "questoes_ids": [
+      "Q15_N00137067_CN9"
+    ],
+    "desempenho": 88,
+    "media_acertos": 78,
+    "alunos_adequado": 78,
+    "num_questoes": 1
+  },
+  "CN_9_9EF09_CN": {
+    "codigo": "9EF09_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Classificar as radiações eletromagnéticas.",
+    "bncc": "EF09CI06",
+    "questoes": [],
+    "questoes_ids": [
+      "Q08_N00137249_CN9"
+    ],
+    "desempenho": 83,
+    "media_acertos": 93,
+    "alunos_adequado": 83,
+    "num_questoes": 1
+  },
+  "CN_9_9EF10_CN": {
+    "codigo": "9EF10_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Reconhecer as aplicações das radiações eletromagnéticas.",
+    "bncc": "EF09CI06",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 65,
+    "media_acertos": 65,
+    "alunos_adequado": 65,
+    "num_questoes": 2
+  },
+  "CN_9_9EF11_CN": {
+    "codigo": "9EF11_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Interpretar como as características hereditárias são transmitidas às gerações seguintes.",
+    "bncc": "EF09CI08",
+    "questoes": [],
+    "questoes_ids": [
+      "Q25_N00128769_CN9"
+    ],
+    "desempenho": 78,
+    "media_acertos": 88,
+    "alunos_adequado": 68,
+    "num_questoes": 1
+  },
+  "CN_9_9EF12_CN": {
+    "codigo": "9EF12_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Verificar, a partir da aplicação da 1ª lei de Mendel, a expressão de características genéticas em uma população.",
+    "bncc": "EF09CI09",
+    "questoes": [],
+    "questoes_ids": [
+      "Q07_N00137008_CN9",
+      "Q19_N00137062_CN9"
+    ],
+    "desempenho": 79,
+    "media_acertos": 79,
+    "alunos_adequado": 69,
+    "num_questoes": 2
+  },
+  "CN_9_9EF13_CN": {
+    "codigo": "9EF13_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Reconhecer a contribuição de Mendel para os estudos da genética.",
+    "bncc": "EF09CI09",
+    "questoes": [],
+    "questoes_ids": [
+      "Q02_N00138421_CN9"
+    ],
+    "desempenho": 95,
+    "media_acertos": 95,
+    "alunos_adequado": 65,
+    "num_questoes": 1
+  },
+  "CN_9_9EF14_CN": {
+    "codigo": "9EF14_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Reconhecer os conceitos básicos para o estudo da hereditariedade.",
+    "bncc": "EF09CI09",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 93,
+    "media_acertos": 68,
+    "alunos_adequado": 93,
+    "num_questoes": 2
+  },
+  "CN_9_9EF15_CN": {
+    "codigo": "9EF15_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Comparar as ideias evolucionistas de Lamarck e Darwin.",
+    "bncc": "EF09CI10",
+    "questoes": [],
+    "questoes_ids": [],
+    "desempenho": 69,
+    "media_acertos": 69,
+    "alunos_adequado": 99,
+    "num_questoes": 2
+  },
+  "CN_9_9EF16_CN": {
+    "codigo": "9EF16_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Explicar o processo de evolução e o fenômeno da biodiversidade com base no conceito de seleção natural.",
+    "bncc": "EF09CI11",
+    "questoes": [],
+    "questoes_ids": [
+      "Q09_N00137058_CN9",
+      "Q24_N00128770_CN9"
+    ],
+    "desempenho": 80,
+    "media_acertos": 85,
+    "alunos_adequado": 50,
+    "num_questoes": 2
+  },
+  "CN_9_9EF17_CN": {
+    "codigo": "9EF17_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Reconhecer fatores que determinam o processo de especiação.",
+    "bncc": "EF09CI11",
+    "questoes": [],
+    "questoes_ids": [
+      "Q11_N00137059_CN9"
+    ],
+    "desempenho": 77,
+    "media_acertos": 97,
+    "alunos_adequado": 97,
+    "num_questoes": 1
+  },
+  "CN_9_9EF18_CN": {
+    "codigo": "9EF18_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Reconhecer os corpos que compõem o Sistema Solar.",
+    "bncc": "EF09CI14",
+    "questoes": [],
+    "questoes_ids": [
+      "Q10_N00137017_CN9",
+      "Q14_N00137015_CN9"
+    ],
+    "desempenho": 74,
+    "media_acertos": 79,
+    "alunos_adequado": 64,
+    "num_questoes": 2
+  },
+  "CN_9_9EF19_CN": {
+    "codigo": "9EF19_CN",
+    "disciplina": "CN",
+    "disciplina_nome": "Ciências da Natureza",
+    "ano": "9",
+    "habilidade": "Organizar o ciclo evolutivo de uma estrela.",
+    "bncc": "EF09CI17",
+    "questoes": [],
+    "questoes_ids": [
+      "Q16_N00137068_CN9"
+    ],
+    "desempenho": 89,
+    "media_acertos": 74,
+    "alunos_adequado": 89,
+    "num_questoes": 1
+  }
+}

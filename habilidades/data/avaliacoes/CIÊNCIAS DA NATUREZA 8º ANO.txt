@@ -1,0 +1,602 @@
+CICLO II 8º CIÊNCIAS DA NATUREZA
+Variante A (Identificador: LPF131628)
+
+Nome e sobrenome
+Observação: Certifique-se de que o identificador na folha de respostas corresponda ao identificador na folha de teste.
+Marque as respostas corretas preenchendo inteiramente o círculo correspondente.
+Se você errar, preencha todo o quadrado da resposta incorreta e depois preencha o círculo da resposta correta.
+Exemplo: resposta marcada é B
+
+Exemplo: resposta marcada é D
+
+zona de varredura
+
+1
+
+A
+
+B
+
+C
+
+D
+
+21
+
+A
+
+B
+
+C
+
+D
+
+2
+
+A
+
+B
+
+C
+
+D
+
+22
+
+A
+
+B
+
+C
+
+D
+
+3
+
+A
+
+B
+
+C
+
+D
+
+23
+
+A
+
+B
+
+C
+
+D
+
+4
+
+A
+
+B
+
+C
+
+D
+
+24
+
+A
+
+B
+
+C
+
+D
+
+5
+
+A
+
+B
+
+C
+
+D
+
+25
+
+A
+
+B
+
+C
+
+D
+
+6
+
+A
+
+B
+
+C
+
+D
+
+26
+
+A
+
+B
+
+C
+
+D
+
+7
+
+A
+
+B
+
+C
+
+D
+
+27
+
+A
+
+B
+
+C
+
+D
+
+8
+
+A
+
+B
+
+C
+
+D
+
+9
+
+A
+
+B
+
+C
+
+D
+
+10
+
+A
+
+B
+
+C
+
+D
+
+11
+
+A
+
+B
+
+C
+
+D
+
+12
+
+A
+
+B
+
+C
+
+D
+
+13
+
+A
+
+B
+
+C
+
+D
+
+14
+
+A
+
+B
+
+C
+
+D
+
+15
+
+A
+
+B
+
+C
+
+D
+
+16
+
+A
+
+B
+
+C
+
+D
+
+17
+
+A
+
+B
+
+C
+
+D
+
+18
+
+A
+
+B
+
+C
+
+D
+
+19
+
+A
+
+B
+
+C
+
+D
+
+20
+
+A
+
+B
+
+C
+
+D
+
+zona de varredura
+
+N0802
+
+Leia e observe as informações do quadro abaixo para responder às cinco questões a seguir.
+O vento é um recurso natural que é resultado de variações nas pressões atmosféricas. Ele tem
+diferentes importâncias para os seres vivos, por exemplo a regulação da temperatura e da umidade
+dos ambientes. Além disso, diferentes organismos dependem do vento para a sua reprodução, como é
+o caso de muitas plantas com flores que dependem dele para a sua polinização.
+Para o ser humano, o vento também é importante para atender a uma série de necessidades da vida
+cotidiana. Observe, na imagem abaixo, uma parte de uma usina no Rio Grande do Norte, um estado do
+litoral brasileiro, que utiliza esse recurso.
+
+ROSA, Albari/Gazeta do Povo. Disponível em: https://meulink.fit/erzYPuqsAHeKRjy. Acesso em: 22 abr. 2025.
+(N00136990_CEN)
+
+01) (N00137028) Qual é a fonte de energia utilizada por essa usina?
+A) Deslocamento de massas de ar.
+B) Movimento das marés.
+C) Mudança no fluxo de água.
+D) Radiação solar.
+02) (N00136993) O processo reprodutivo mencionado nesse texto é um tipo de reprodução
+A) partenogenética.
+B) propagativa.
+C) regenerativa.
+D) sexuada.
+03) (N00136990) Esse recurso é classificado como
+A) esgotável.
+B) fóssil.
+C) renovável.
+D) sujo.
+04) (N00137032) Qual é o nome do tipo de usina apresentado nessa imagem?
+A) Eólica.
+B) Hidrelétrica.
+C) Maremotriz.
+D) Solar.
+05) (N00137029) Qual tipo de energia é captada pela estrutura apresentada nessa imagem?
+A) Térmica.
+B) Química.
+C) Potencial.
+D) Cinética.
+1
+
+BL02N08
+
+N0802
+
+Leia as informações do quadro abaixo para responder às duas questões a seguir.
+O Ministério de Minas e Energia promoveu uma chamada pública para desenvolver um programa
+denominado Procel Reluz. Esse programa contempla cidades brasileiras fornecendo lâmpadas de LED
+para serem usadas na iluminação pública.
+Esse programa visa substituir as lâmpadas comuns por lâmpadas de LED, que possuem maior
+eficiência energética.
+(N00137030_CEN)
+
+06) (N00137030) O que ocorre com a energia elétrica ao passar pelo eletrodoméstico mencionado no texto?
+A) É transformada em energia luminosa e térmica.
+B) É eliminada pela energia luminosa.
+C) É destruída para a criação de energia térmica.
+D) É armazenada nas formas de energia luminosa e térmica.
+07) (N00137031) O programa mencionado nesse texto tem como objetivo reduzir
+A) a emissão de agentes poluentes.
+B) a utilização da luz natural.
+C) o desgaste do aparelho.
+D) o desperdício de energia elétrica.
+
+2
+
+BL02N08
+
+N0802
+
+Leia as informações do quadro abaixo para responder às sete questões a seguir.
+A maior parte das usinas do Brasil utiliza água para gerar energia. Em momentos de seca, essas usinas
+não conseguem suprir a demanda energética, sendo necessária que algumas atitudes sejam tomadas
+para ajudar na economia da energia.
+A construção desse tipo de usina pode causar impactos ambientais ao alagar grandes áreas, o que
+pode levar diversos organismos à extinção. Nesse caso, as obras devem ser impedidas, como ocorreu
+no estado do Rio Grande do Sul, em que a construção de uma dessas usinas ameaçava uma espécie
+de anfíbio, o sapinho‑admirável‑de‑barriga‑vermelha (Melanophryniscus admirabilis).
+Essa espécie é encontrada em apenas um lugar do planeta: às margens do rio Forqueta, em uma
+pequena região desse ambiente, onde as condições de vida são favoráveis a essa espécie.
+A reprodução do sapinho ocorre com os machos vocalizando para atrair as fêmeas, mas é restrita a
+poças que se formam nas margens do rio após as chuvas, lugar em que as fêmeas liberam os óvulos.
+Com o alagamento do rio, além das mudanças constantes no nível da água, o sapinho não teria o
+ambiente necessário para desenvolver o seu ciclo de vida e seria extinto.
+Uma vez instalada, esse tipo de usina necessita de um equipamento denominado gerador para seu
+funcionamento. Em caso de falta de energia em regiões atendidas por essas usinas, existe a possibilidade
+da utilização de uma versão residencial desse equipamento para o funcionamento dos eletrodomésticos.
+(N00136991_CEN)
+
+08) (N00136991) As usinas mencionadas nesse texto utilizam um recurso energético classificado como
+A) esgotável.
+B) fóssil.
+C) orgânico.
+D) renovável.
+09) (N00137037) A energia gerada por essa usina é produzida por meio da
+A) variação do estado físico da água.
+B) movimentação natural da água.
+C) alteração no nível da água.
+D) alta pressão do vapor da água.
+10) (N00137038) Nesse tipo de usina, a energia extraída da água está na forma de energia
+A) cinética.
+B) nuclear.
+C) química.
+D) térmica.
+11) (N00137039) Ao passar pelo equipamento mencionado nesse texto, a energia
+A) elétrica é destruída.
+B) elétrica é armazenada.
+C) cinética é transformada em energia elétrica.
+D) cinética é eliminada para armazenar energia elétrica.
+12) (N00137040) Uma atitude que contribui para a economia mencionada nesse texto é
+A) usar o chuveiro na posição inverno o ano todo.
+B) manter lâmpadas acesas durante o dia.
+C) dormir com a televisão ligada.
+D) desligar os aparelhos da tomada.
+3
+
+BL03N08
+
+N0802
+
+13) (N00137041) Com base nesse texto, a usina que teve sua construção impedida é do tipo
+A) eólica.
+B) hidrelétrica.
+C) ondomotriz.
+D) termoelétrica.
+14) (N00136992) A espécie descrita nesse texto se reproduz por meio da fecundação
+A) autógama.
+B) cruzada.
+C) externa.
+D) interna.
+
+4
+
+BL03N08
+
+N0802
+
+Leia as informações do quadro abaixo para responder às duas questões a seguir.
+Staphylococcus aureus é uma bactéria que comumente está em contato com o organismo humano. Ao
+entrar em contato com a corrente sanguínea, essa bactéria pode provocar infecções graves. Raramente,
+essa bactéria pode atingir a glândula localizada na parte anterior do pescoço, que produz hormônios
+relacionados ao controle do metabolismo. Nessa glândula, o microrganismo se divide, originando mais
+indivíduos sem a necessidade de troca de material genético, levando à infecção e provocando dores no
+pescoço, que irradiam para a mandíbula e ouvido, além de causar febre e mal‑estar.
+(N00136994_CEN)
+
+15) (N00136994) O processo reprodutivo realizado pelo microrganismo mencionado nesse texto é denominado
+A) brotamento.
+B) cissiparidade.
+C) esporulação.
+D) fecundação.
+16) (N00136995) A glândula descrita nesse texto é denominada
+A) tireoide.
+B) pâncreas.
+C) hipotálamo.
+D) hipófise.
+Leia as informações do quadro abaixo para responder às duas questões a seguir.
+Uma das formas de gerar energia elétrica é utilizando a variação regular do nível do mar, que é
+decorrente da atração gravitacional entre o oceano, o Sol e a Lua. A mudança da posição relativa entre
+Sol, Terra e Lua altera essa atração gravitacional, gerando correntes de água que movimentam grandes
+turbinas instaladas no fundo do mar.
+O nível mais alto do mar ocorre quando esses astros estão alinhados, e esse alinhamento acontece
+em duas fases da Lua. Em uma dessas fases, a Lua está posicionada entre o Sol e a Terra, não sendo
+possível visualizá‑la, pois, devido a essa posição, a face da Lua que recebe a luz solar não está voltada
+para a Terra.
+(N00137042_CEN)
+
+17) (N00137042) Qual é o tipo de usina mencionada nesse texto?
+A) Termoelétrica.
+B) Ondomotriz.
+C) Maremotriz.
+D) Hidrelétrica.
+18) (N00137043) O alinhamento descrito nesse texto ocorre em qual fase da Lua?
+A) Cheia.
+B) Nova.
+C) Quarto crescente.
+D) Quarto minguante.
+
+5
+
+BL04N08
+
+N0802
+
+Leia e observe as informações do quadro abaixo para responder às três questões a seguir.
+Observe, na imagem abaixo, Bernardo assistindo ao seu desenho favorito na televisão de sua casa.
+
+Disponível em: https://meulink.fit/AbJUEafPPnosdQW. Acesso em: 25 abr. 2025. Adaptado para fins didáticos.
+
+Um tempo depois, seu amigo Caio o chamou para jogar futebol no campinho do bairro onde moram.
+Bernardo, então, interrompeu seu desenho, desligando o aparelho da tomada para ir ao encontro de
+seu amigo.
+(N00137064_CEN)
+
+19) (N00137064) Com base nessa imagem, qual é a energia transmitida para esse aparelho?
+A) Térmica.
+B) Química.
+C) Elétrica.
+D) Cinética.
+20) (N00137065) O que ocorre com a energia ao passar por esse aparelho?
+A) A energia elétrica é transformada nas energias luminosa e sonora.
+B) A energia luminosa é dissipada nas formas de energia elétrica e química.
+C) A energia química é armazenada na forma de energia elétrica.
+D) A energia térmica é produzida a partir da energia sonora.
+21) (N00137066) De acordo com esse texto, a forma como Bernardo desligou o aparelho contribui para
+A) conter o aumento da poluição.
+B) evitar o desperdício de água.
+C) impedir o aquecimento do ambiente.
+D) reduzir o consumo de energia.
+
+6
+
+BL04N08
+
+N0802
+
+22) (N00130584) Observe, na imagem abaixo, a representação de determinado processo reprodutivo.
+
+Disponível em: https://meulink.fit/zrsYxGQBuhHlDxn. Acesso em: 10 mar. 2025. Adaptado para fins didáticos.
+
+Esse processo é denominado
+A) partenogênese.
+B) gemiparidade.
+C) esporulação.
+D) cissiparidade.
+23) (N00128767) Leia o texto abaixo.
+[...] é uma glândula de 15 a 25 cm de extensão localizada no abdômen, atrás do estômago e
+entre o duodeno e o baço [...].
+Possui duas funções distintas: a [...] produção de insulina (hormônio que controla o nível
+de glicemia no sangue), e a [...] produção de enzimas envolvidas na digestão e absorção dos
+alimentos.
+VARELLA, Mariana. Dráuzio Varella, 2020. Disponível em: https://meulink.fit/AgLRgZYOyVFMijw. Acesso em: 7 mar. 2025. Adaptado para fins
+didáticos. Fragmento.
+
+A glândula descrita nesse texto é denominada
+A) hipófise.
+B) ovário.
+C) pâncreas.
+D) suprarrenal.
+
+7
+
+BL06N08
+
+N0802
+
+24) (N00136860) Observe, na imagem abaixo, uma estrutura que faz parte de um tipo de usina para geração
+de energia elétrica.
+
+Disponível em: https://meulink.fit/P1038. Acesso em: 11 abr. 2025.
+
+Com base nessa imagem, essa estrutura faz parte de qual usina?
+A) Eólica.
+B) Fotovoltaica.
+C) Hidroelétrica.
+D) Termoelétrica.
+25) (N00056762) Leia, no quadro abaixo, sobre algumas fontes energéticas.
+Fonte energética
+I
+
+Movimento das marés
+
+II
+
+Calor do interior da Terra
+
+III
+
+Quebra de átomos
+
+IV
+
+Força dos ventos
+
+Qual número indica uma fonte energética não renovável?
+A) I.
+B) II.
+C) III.
+D) IV.
+
+8
+
+BL06N08
+
+N0802
+
+26) (N00128858) Leia, no texto abaixo, sobre determinadas atitudes que devem ser tomadas pela população.
+1º Ao utilizar o ar‑condicionado, procure manter as portas e janelas fechadas;
+2º Quando houver uma pausa muito grande no uso do computador, procure desligá‑lo;
+3º Ao usar o chuveiro elétrico, opte por colocar a chave seletora na posição verão;
+4º Não abra a geladeira várias vezes. Procure retirar ou guardar vários itens de uma vez só;
+5º Prefira utilizar as lâmpadas de LED ou fluorescentes, evite utilizar as incandescentes;
+6º Acumule o maior número de roupas para passar de uma só vez, para evitar ligar o ferro
+várias vezes;
+7º Ao sair de um ambiente, sempre apague as luzes;
+8º Tire os aparelhos eletrônicos da tomada quando não estiverem em uso.
+Pequenas atitudes como essas podem alcançar ótimos resultados! [...]
+TAYSE, Edmara. Escola verde, 2021. Disponível em: https://meulink.fit/R0375. Acesso em: 25 mar. 2025. Adaptado para fins didáticos. Fragmento.
+
+Essas atitudes têm o objetivo de evitar o
+A) aquecimento do ambiente.
+B) aumento da poluição.
+C) desperdício de alimentos.
+D) desperdício de energia.
+27) (N00136861) Observe, na imagem abaixo, as posições relativas entre os objetos celestes.
+
+Com base nessa imagem, qual fase da Lua é observada a partir da Terra?
+A) Cheia.
+B) Nova.
+C) Quarto crescente.
+D) Quarto minguante.
+
+9
+
+BL06N08
+
+

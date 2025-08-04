@@ -7,17 +7,24 @@ O **SADE** (Sistema de Avaliação e Desempenho Escolar) é uma plataforma web m
 ### 🎯 Funcionalidades Principais
 
 - **Dashboard Integrado**: Visão geral com estatísticas consolidadas
-- **PROEA**: Avaliação das Aprendizagens dos Anos Finais (6º ao 9º ano)
-- **CNCA**: Compromisso Criança Alfabetizada (1º ao 5º ano)
+- **P-II-2025**: Avaliação das Aprendizagens dos Anos Finais (6º ao 9º ano)
+- **C-II-2025**: Compromisso Criança Alfabetizada (1º ao 5º ano)
+- **Habilidades**: Análise de Competências e Habilidades por disciplina
 - **Galeria de Gráficos**: Visualização completa de todos os dados
+- **Análise Consolidada**: Relatórios avançados de desempenho
 
 ## 🗂️ Estrutura do Projeto (Reorganizada em 2025)
 
 ```
 sade/
 ├── 📄 index.html                    # Dashboard principal
-├── 📄 proea.html                    # PROEA - Anos Finais
-├── 📄 cnca.html                     # CNCA - Anos Iniciais
+├── 📄 proea.html                    # P-II-2025 - Anos Finais
+├── 📄 cnca.html                     # C-II-2025 - Anos Iniciais
+├── 📁 habilidades/                  # Análise de Habilidades
+│   ├── index.html                   # Página principal de habilidades
+│   ├── css/                         # Estilos específicos
+│   ├── js/                          # Scripts JavaScript
+│   └── data/                        # Dados de habilidades
 ├── 📁 assets/                       # Recursos organizados
 │   ├── css/
 │   │   └── styles.css               # Estilos customizados

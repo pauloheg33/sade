@@ -1,0 +1,726 @@
+CICLO II - 7º MATEMÁTICA
+Variante A (Identificador: LNI935328)
+
+Nome e sobrenome
+Observação: Certifique-se de que o identificador na folha de respostas corresponda ao identificador na folha de teste.
+Marque as respostas corretas preenchendo inteiramente o círculo correspondente.
+Se você errar, preencha todo o quadrado da resposta incorreta e depois preencha o círculo da resposta correta.
+Exemplo: resposta marcada é B
+
+Exemplo: resposta marcada é D
+
+zona de varredura
+
+1
+
+A
+
+B
+
+C
+
+D
+
+21
+
+A
+
+B
+
+C
+
+D
+
+2
+
+A
+
+B
+
+C
+
+D
+
+22
+
+A
+
+B
+
+C
+
+D
+
+3
+
+A
+
+B
+
+C
+
+D
+
+23
+
+A
+
+B
+
+C
+
+D
+
+4
+
+A
+
+B
+
+C
+
+D
+
+24
+
+A
+
+B
+
+C
+
+D
+
+5
+
+A
+
+B
+
+C
+
+D
+
+25
+
+A
+
+B
+
+C
+
+D
+
+6
+
+A
+
+B
+
+C
+
+D
+
+26
+
+A
+
+B
+
+C
+
+D
+
+7
+
+A
+
+B
+
+C
+
+D
+
+8
+
+A
+
+B
+
+C
+
+D
+
+9
+
+A
+
+B
+
+C
+
+D
+
+10
+
+A
+
+B
+
+C
+
+D
+
+11
+
+A
+
+B
+
+C
+
+D
+
+12
+
+A
+
+B
+
+C
+
+D
+
+13
+
+A
+
+B
+
+C
+
+D
+
+14
+
+A
+
+B
+
+C
+
+D
+
+15
+
+A
+
+B
+
+C
+
+D
+
+16
+
+A
+
+B
+
+C
+
+D
+
+17
+
+A
+
+B
+
+C
+
+D
+
+18
+
+A
+
+B
+
+C
+
+D
+
+19
+
+A
+
+B
+
+C
+
+D
+
+20
+
+A
+
+B
+
+C
+
+D
+
+zona de varredura
+
+M0702
+
+Leia e observe as informações do quadro abaixo para responder às cinco questões a seguir.
+Diego e seu filho estão no saguão de um aeroporto esperando para embarcar no voo que irá para o
+Canadá. Enquanto esperam, eles observam a torre de controle e as pistas de pouso e decolagem,
+como apresentado na figura abaixo.
+
+(M00128189_CEN)
+
+01) (M00128193) Na área anterior à cabeceira da pista desse aeroporto, estão sendo pintadas sinalizações
+de segurança semelhante a setas. Para isso, foram utilizadas linhas guias paralelas que dão continuidade
+às bordas e ao centro da pista. Também foram utilizadas linhas guias transversais que dão continuidade
+às sinalizações. Observe, na figura abaixo, a representação dessas linhas guias com algumas medidas
+indicadas.
+Início da cabeceira
+
+135°
+
+02
+
+
+
+De acordo com essa figura, qual é a medida do ângulo , em grau, formado entre a linha guia do centro
+da pista e a parte superior da sinalização?
+A) 45°.
+B) 90°.
+C) 135°.
+D) 225°.
+
+1
+
+BL02M07
+
+M0702
+
+02) (M00128189) Diego pagou a sua passagem de avião e a de seu filho, além de algumas taxas. Uma
+equação que permite determinar o preço, x, de cada passagem comprada por Diego está apresentada no
+quadro abaixo.
+2x + 1 050 = 5 220
+Quantos reais Diego pagou em cada uma dessas passagens?
+A) R$ 4 170,00.
+B) R$ 3 135,00.
+C) R$ 2 110,00.
+D) R$ 2 085,00.
+03) (M00128191) No saguão em que Diego e seu filho estão esperando pelo voo, os assentos preferenciais
+foram sinalizados por meio de adesivos com o formato de uma figura geométrica, como representado na
+malha quadriculada abaixo.
+
+PREFERENCIAL
+
+Qual é o nome dessa figura geométrica?
+A) Losango.
+B) Paralelogramo.
+C) Trapézio isósceles.
+D) Trapézio retângulo.
+04) (M00128190) A previsão da temperatura mínima durante o período que Diego e seu filho ficarão no
+Canadá é de –6 °C. Observe os pontos R, S, T e U na reta numérica abaixo, que está dividida em partes
+iguais.
+R S
+–8
+
+T
+
+U
+0
+
+–4
+
+Qual é o ponto dessa reta que corresponde à temperatura mínima prevista para o período em que Diego
+e seu filho ficarão no Canadá?
+A) R.
+B) S.
+C) T.
+D) U.
+05) (M00128194) Devido à chuva intensa, as decolagens de cinco voos que partem desse aeroporto atrasaram.
+As durações dos atrasos das decolagens desses voos foram de 55, 20, 40, 50 e 55 minutos.
+Em média, quantos minutos as decolagens desses voos atrasaram?
+A) 40 minutos.
+B) 44 minutos.
+C) 50 minutos.
+D) 55 minutos.
+2
+
+BL02M07
+
+M0702
+
+Leia e observe as informações do quadro abaixo para responder às cinco questões a seguir.
+Pedro é dono de uma horta que produz alimentos orgânicos. Alguns de seus canteiros estão em época
+de colheita. Observe abaixo alguns dos canteiros da horta de Pedro.
+
+(M00128195_CEN)
+
+06) (M00128196) Pedro havia produzido 600 pés de alface ao todo. Na colheita atual, ele percebeu que 20%
+dessa produção foi danificada devido a alterações climáticas.
+Ao todo, quantos pés de alface dessa produção foram danificados?
+A) 20.
+B) 30.
+C) 120.
+D) 480.
+07) (M00128195) Na última colheita, os 2 canteiros de tomate da horta de Pedro produziram 30 caixas de
+tomate. Em um próximo plantio, Pedro planeja replantar esses 2 canteiros e plantar mais 3 canteiros de
+tomate com a mesma produtividade dos demais.
+Ao todo, qual será a quantidade de caixas de tomate que Pedro planeja colher?
+A) 12 caixas.
+B) 33 caixas.
+C) 45 caixas.
+D) 75 caixas.
+08) (M00128197) Os canteiros da horta de Pedro têm formato retangular e são cercados com placas de
+madeira. As placas de um dos canteiros estão quebradas e, como Pedro deseja substituí‑las, ele precisou
+tirar algumas medidas do canteiro. Após fazer a medição, ele percebeu que esse canteiro possui 4 metros
+de largura e 8 metros de comprimento.
+Quantos metros mede o perímetro desse canteiro?
+A) 12 m.
+B) 16 m.
+C) 24 m.
+D) 32 m.
+3
+
+BL03M07
+
+M0702
+
+09) (M00128200) Pedro quer produzir alguns produtos com os alimentos colhidos em sua horta e, para isso,
+testou algumas receitas. De cada um de seus 7 morangueiros, Pedro colheu 8, 3, 9, 2, 3, 6 e 4 morangos
+maduros para fazer a primeira receita.
+Qual foi a média de morangos colhidos por morangueiro?
+A) 2.
+B) 3.
+C) 4.
+D) 5.
+10) (M00128199) Para um teste de qualidade, foi colhida uma amostra com 20 abóboras. Essas abóboras
+foram analisadas a partir de alguns critérios, e apenas 5 delas foram reprovadas. Por descuido, tanto
+as abóboras reprovadas quanto as demais foram armazenadas em uma mesma caixa. Posteriormente,
+uma das abóboras dessa caixa foi retirada, aleatoriamente, para que suas sementes fossem utilizadas
+no replantio.
+Qual é a probabilidade de a abóbora retirada ser uma das reprovadas no teste de qualidade?
+A) 1 .
+20
+B) 1 .
+5
+C) 5 .
+20
+D) 15 .
+20
+
+4
+
+BL03M07
+
+M0702
+
+Leia e observe as informações do quadro abaixo para responder às cinco questões a seguir.
+Fernanda e Miguel estão visitando imóveis para alugar. Observe abaixo o último imóvel que eles
+foram visitar.
+
+(M00128201_CEN)
+
+11) (M00128201) Fernanda e Miguel visitaram 40 imóveis disponíveis para aluguel. Dos imóveis visitados por
+eles, 1 são apartamentos.
+8
+Dos imóveis visitados por Fernanda e Miguel, quantos são apartamentos?
+A) 4.
+B) 5.
+C) 32.
+D) 35.
+12) (M00128202) O chaveiro de uma casa que Fernanda e Miguel foram visitar possui 7 chaves de mesmo
+formato e tamanho com segredos diferentes, e somente uma delas abre o portão de entrada. Para abrir
+esse portão, Fernanda escolheu, aleatoriamente, uma das chaves desse chaveiro.
+Qual é a probabilidade de a chave escolhida por Fernanda abrir o portão de entrada dessa casa?
+A) 7 .
+1
+B) 6 .
+7
+C) 1 .
+6
+D) 1 .
+7
+5
+
+BL04M07
+
+M0702
+
+13) (M00128203) Observe, no plano cartesiano abaixo, os pontos N, O, P e Q que representam as casas que
+Fernanda e Miguel visitaram hoje.
+N
+
+y
+2
+
+O
+
+1
+–1
+
+0
+–1
+–2
+
+1
+
+P
+
+2 x
+
+Q
+
+Após essas visitas, a casa que eles escolheram para alugar corresponde ao ponto de coordenadas (–1, 2)
+nesse plano cartesiano.
+Qual é o ponto que representa a casa que eles escolheram para alugar?
+A) N.
+B) O.
+C) P.
+D) Q.
+14) (M00128205) A casa alugada tem um quintal de formato retangular que será reformado. Parte da região
+do quintal que tem formato quadrado será gramada, e a região restante será coberta com pisos. Observe
+abaixo a representação desse quintal com algumas medidas indicadas.
+2m
+
+Piso
+
+Gramado
+
+Piso
+
+Piso
+
+2m
+
+6m
+
+8m
+
+Qual é a medida da área, em metro quadrado, da região que será coberta com pisos?
+A) 48 m2.
+B) 44 m2.
+C) 28 m2.
+D) 24 m2.
+
+6
+
+BL04M07
+
+M0702
+
+15) (M00128206) Para determinar a quantidade de tinta necessária para pintar as paredes externas da casa
+alugada, Miguel precisou resolver a operação apresentada no quadro abaixo.
+6 ' 3
+15 10
+Qual é a fração que representa a quantidade de tinta necessária para essa pintura?
+A) 60 .
+45
+B) 45 .
+60
+C) 21 .
+30
+D) 18 .
+150
+
+7
+
+BL04M07
+
+M0702
+
+16) (M00128285) Observe, no quadro abaixo, a decomposição de um número.
+4 unidades de milhar, 3 centenas, 6 dezenas e 9 unidades
+Essa é a decomposição de qual número?
+A) 4 300.
+B) 4 369.
+C) 9 364.
+D) 9 634.
+17) (M00128283) Observe o sólido geométrico representado abaixo.
+
+Uma das planificações desse sólido está apresentada em
+A)
+
+B)
+
+C)
+
+D)
+
+8
+
+BL06M07
+
+M0702
+
+18) (M00128280) Observe, no quadro abaixo, a medida da altura do prédio em que Hélio trabalha.
+70 metros
+A medida da altura desse prédio, em centímetro, equivale a
+A) 70 000 cm.
+B) 7 000 cm.
+C) 700 cm.
+D) 70 cm.
+19) (M017722) Lucas comprou 6 pacotes de prendedores de roupa, cada um deles contendo 16 prendedores
+de roupa.
+Quantos prendedores de roupa Lucas comprou no total?
+A) 16.
+B) 22.
+C) 66.
+D) 96.
+20) (M00128282) Uma academia possui 4 unidades em uma cidade e oferece duas opções de planos
+para seus alunos: o plano apenas com musculação e o plano completo. Observe, no gráfico abaixo, a
+quantidade de alunos por unidade de acordo com os planos em que estão matriculados.
+
+Quantidade de alunos por plano
+
+Quantidade de alunos por unidade
+160
+140
+
+140
+
+124
+
+112
+
+120
+100
+80
+
+82
+
+125
+
+118
+96
+
+74
+
+60
+40
+20
+0
+
+Unidade 1
+
+Unidade 2
+
+Unidade 3
+
+Unidade 4
+
+Unidades
+Musculação
+
+Plano completo
+
+De acordo com esse gráfico, qual é a quantidade total de alunos que estão matriculados no plano completo?
+A) 140.
+B) 399.
+C) 472.
+D) 871.
+
+9
+
+BL06M07
+
+M0702
+
+21) (M00048406) No último domingo, Theo ganhou R$ 30,60 de sua mãe e essa mesma quantia de seu pai.
+Com esse dinheiro, ele comprou um pincel que custou R$ 7,90 e guardou o restante para comprar tinta.
+Qual foi a quantia que Theo guardou para comprar tinta?
+A) R$ 22,70.
+B) R$ 45,40.
+C) R$ 53,30.
+D) R$ 69,10.
+22) (M00065963) Observe, na figura abaixo, os ângulos formados pela reta t, transversal às retas paralelas
+v e u.
+u
+
+v
+
+t
+62°
+x
+
+A medida, em grau, do ângulo x é
+A) 28°.
+B) 62°.
+C) 90°.
+D) 118°.
+23) (M00128257) Observe os pontos P, Q, R e S na reta numérica abaixo, que está dividida em partes iguais.
+P
+
+Q
+
+0
+
+R
+
+S
+
+1
+
+Qual desses pontos corresponde ao número 1,4?
+A) P.
+B) Q.
+C) R.
+D) S.
+
+10
+
+BL08M07
+
+M0702
+
+24) (M00126044) Um artista está montando um painel retangular para um evento e precisa encomendar ripas
+de madeira para criar a moldura que será colocada no contorno desse painel. Observe, na figura abaixo,
+o formato desse painel e suas medidas.
+
+6m
+
+9m
+Quantos metros de ripa, no mínimo, esse artista precisa para fazer a moldura desse painel?
+A) 15 m.
+B) 24 m.
+C) 30 m.
+D) 54 m.
+25) (M00128264) Daniel é vendedor em uma loja de produtos eletrônicos. Nessa loja, ele recebe um valor
+bônus proporcional à quantidade de vendas que faz. Em janeiro, Daniel recebeu um bônus de R$ 1 200,00
+por 6 vendas que realizou. Já no mês de fevereiro, ele realizou 12 vendas.
+Qual foi o valor do bônus recebido por Daniel em fevereiro?
+A) R$ 12,00.
+B) R$ 600,00.
+C) R$ 1 206,00.
+D) R$ 2 400,00.
+26) (M00126049) O dono de uma banca de revista fez uma promoção: na compra de um envelope de
+figurinhas, a pessoa ganha uma de brinde, que deve ser escolhida aleatoriamente de dentro de um pote.
+As figurinhas têm todas o mesmo formato, tamanho e textura. Marcos comprou um envelope fechado
+nessa banca e ganhou o direito de retirar seu brinde em um pote que continha 5 figurinhas com imagens
+de jogadores brasileiros, 7 com jogadores franceses e 6 com jogadores croatas.
+Qual é a probabilidade de Marcos retirar uma figurinha com a imagem de um jogador brasileiro?
+A) 1 .
+18
+B) 1 .
+
+5
+C) 5 .
+18
+D) 5 .
+13
+
+11
+
+BL08M07
+
+

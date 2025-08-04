@@ -1,0 +1,420 @@
+
+/* SADE Habilidades - Estilos CSS */
+:root {
+    --sade-primary: #4472c4;
+    --sade-secondary: #70ad47;
+    --sade-warning: #ffc000;
+    --sade-danger: #c5504b;
+    --sade-info: #44c4a1;
+    --sade-dark: #2c3e50;
+    --sade-light: #f8f9fa;
+    --sade-shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* Header */
+.sade-header {
+    background: var(--sade-primary);
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 4px 20px var(--sade-shadow);
+}
+
+.brasao {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.header-info {
+    line-height: 1.2;
+}
+
+.secretaria-titulo {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.municipio {
+    font-size: 11px;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+.sade-title {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.sade-subtitle {
+    font-size: 1.1rem;
+    margin: 0;
+    opacity: 0.95;
+    font-weight: 400;
+}
+
+.coordenadoria {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    font-weight: 300;
+}
+
+.version-badge {
+    background: rgba(255,255,255,0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+
+/* Navbar */
+.sade-navbar {
+    background: var(--sade-dark) !important;
+    padding: 12px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.sade-navbar .nav-link {
+    color: rgba(255,255,255,0.8) !important;
+    font-weight: 500;
+    padding: 8px 16px !important;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    margin: 0 4px;
+}
+
+.sade-navbar .nav-link:hover,
+.sade-navbar .nav-link.active {
+    color: white !important;
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-1px);
+}
+
+/* Cards */
+.sade-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    background: white;
+    overflow: hidden;
+}
+
+.sade-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+}
+
+.sade-card .card-header {
+    border: none;
+    padding: 20px;
+    font-weight: 600;
+}
+
+.sade-card .card-body {
+    padding: 25px;
+}
+
+/* Filtros */
+.filter-select, .form-control {
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.filter-select:focus, .form-control:focus {
+    border-color: var(--sade-primary);
+    box-shadow: 0 0 0 0.2rem rgba(68, 114, 196, 0.25);
+    outline: none;
+}
+
+.form-label {
+    color: var(--sade-dark);
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+/* Botões */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 12px 20px;
+    transition: all 0.3s ease;
+    border: none;
+    text-transform: none;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn-primary {
+    background: var(--sade-primary);
+}
+
+.btn-success {
+    background: var(--sade-secondary);
+}
+
+.btn-warning {
+    background: var(--sade-warning);
+    color: var(--sade-dark);
+}
+
+.btn-info {
+    background: var(--sade-info);
+}
+
+/* Estatísticas */
+.stat-box {
+    padding: 20px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    transition: all 0.3s ease;
+}
+
+.stat-box:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #e9ecef, #dee2e6);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--sade-primary);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #6c757d;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Habilidades */
+.habilidade-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    background: white;
+    height: 100%;
+    overflow: hidden;
+}
+
+.habilidade-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.habilidade-header {
+    background: linear-gradient(135deg, var(--sade-primary), #5a7bc4);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 12px 12px 0 0;
+}
+
+.habilidade-codigo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.habilidade-disciplina {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.habilidade-body {
+    padding: 20px;
+}
+
+.habilidade-descricao {
+    font-size: 0.95rem;
+    color: var(--sade-dark);
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.habilidade-bncc {
+    font-size: 0.85rem;
+    color: #6c757d;
+    background: #f8f9fa;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--sade-info);
+}
+
+.habilidade-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.stat-item {
+    text-align: center;
+    flex: 1;
+}
+
+.stat-valor {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--sade-primary);
+}
+
+.stat-titulo {
+    font-size: 0.75rem;
+    color: #6c757d;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.questoes-badge {
+    background: var(--sade-warning);
+    color: var(--sade-dark);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.desempenho-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.desempenho-alto {
+    background: rgba(112, 173, 71, 0.2);
+    color: var(--sade-secondary);
+}
+
+.desempenho-medio {
+    background: rgba(255, 192, 0, 0.2);
+    color: #b8860b;
+}
+
+.desempenho-baixo {
+    background: rgba(197, 80, 75, 0.2);
+    color: var(--sade-danger);
+}
+
+/* Loading */
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    background: rgba(255,255,255,0.8);
+    border-radius: 8px;
+    padding: 12px 20px;
+    backdrop-filter: blur(10px);
+}
+
+.breadcrumb-item a {
+    color: var(--sade-primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.sade-footer {
+    background: var(--sade-dark);
+    color: white;
+    padding: 30px 0;
+    margin-top: auto;
+}
+
+.sade-footer p {
+    margin: 0;
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .sade-title {
+        font-size: 2rem;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .habilidade-card {
+        margin-bottom: 20px;
+    }
+    
+    .row.g-4 {
+        gap: 1rem !important;
+    }
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Chart containers */
+#chart-disciplinas, #chart-desempenho {
+    max-height: 300px;
+}
+
+/* No results */
+.no-results {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6c757d;
+}
+
+.no-results i {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
