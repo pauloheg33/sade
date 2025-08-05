@@ -720,29 +720,30 @@ class SADEModern {
         
         const sortedGrades = Object.keys(gradeAverages).sort();
 
-        // Array de cores vibrantes para cada barra
-        const barColors = [
-            '#3b82f6', // Azul vibrante - 1º Ano
-            '#10b981', // Verde esmeralda - 2º Ano
-            '#f59e0b', // Âmbar - 3º Ano
-            '#ef4444', // Vermelho - 4º Ano
-            '#8b5cf6', // Violeta - 5º Ano
-            '#06b6d4', // Ciano - 6º Ano
-            '#f97316', // Laranja - 7º Ano
-            '#ec4899', // Rosa - 8º Ano
-            '#84cc16'  // Lima - 9º Ano
-        ];
+        // Função para gerar cor baseada no desempenho (azul para alto, vermelho para baixo)
+        const getPerformanceColor = (percentage) => {
+            // Normalizar a porcentagem entre 0 e 1
+            const normalized = Math.max(0, Math.min(1, percentage / 100));
+            
+            // Interpolação entre vermelho (baixo desempenho) e azul (alto desempenho)
+            const red = Math.round(255 * (1 - normalized));
+            const green = Math.round(100 * normalized);
+            const blue = Math.round(255 * normalized);
+            
+            return `rgb(${red}, ${green}, ${blue})`;
+        };
 
-        // Cores correspondentes a cada ano
-        const backgroundColors = sortedGrades.map((_, index) => barColors[index % barColors.length]);
+        // Cores baseadas no desempenho de cada série
+        const backgroundColors = sortedGrades.map(grade => getPerformanceColor(gradeAverages[grade]));
         
-        // Cores de borda mais escuras para melhor definição
+        // Cores de borda mais escuras
         const borderColors = backgroundColors.map(color => {
-            // Converter hex para RGB e escurecer
-            const r = parseInt(color.slice(1, 3), 16);
-            const g = parseInt(color.slice(3, 5), 16);
-            const b = parseInt(color.slice(5, 7), 16);
-            return `rgb(${Math.max(0, r - 30)}, ${Math.max(0, g - 30)}, ${Math.max(0, b - 30)})`;
+            const rgbMatch = color.match(/rgb\((\d+), (\d+), (\d+)\)/);
+            if (rgbMatch) {
+                const [, r, g, b] = rgbMatch.map(Number);
+                return `rgb(${Math.max(0, r - 30)}, ${Math.max(0, g - 30)}, ${Math.max(0, b - 30)})`;
+            }
+            return color;
         });
 
         if (this.charts.grade) this.charts.grade.destroy();
@@ -760,6 +761,54 @@ class SADEModern {
                     borderSkipped: false,
                 }]
             },
+            plugins: [{
+                id: 'percentageLabels',
+                afterDatasetsDraw(chart) {
+                    const { ctx, data, scales: { x, y } } = chart;
+                    
+                    ctx.save();
+                    ctx.font = 'bold 12px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    
+                    data.datasets[0].data.forEach((value, index) => {
+                        const barX = x.getPixelForValue(index);
+                        const barY = y.getPixelForValue(value);
+                        
+                        // Calcular dimensões da caixinha
+                        const text = `${value.toFixed(1)}%`;
+                        const textWidth = ctx.measureText(text).width;
+                        const boxWidth = textWidth + 16;
+                        const boxHeight = 24;
+                        const boxX = barX - boxWidth / 2;
+                        const boxY = barY - boxHeight - 12;
+                        
+                        // Desenhar caixinha preta com bordas arredondadas
+                        ctx.fillStyle = 'rgba(0, 0, 0, 0.9)';
+                        ctx.beginPath();
+                        
+                        // Implementação alternativa para bordas arredondadas
+                        const radius = 4;
+                        ctx.moveTo(boxX + radius, boxY);
+                        ctx.lineTo(boxX + boxWidth - radius, boxY);
+                        ctx.quadraticCurveTo(boxX + boxWidth, boxY, boxX + boxWidth, boxY + radius);
+                        ctx.lineTo(boxX + boxWidth, boxY + boxHeight - radius);
+                        ctx.quadraticCurveTo(boxX + boxWidth, boxY + boxHeight, boxX + boxWidth - radius, boxY + boxHeight);
+                        ctx.lineTo(boxX + radius, boxY + boxHeight);
+                        ctx.quadraticCurveTo(boxX, boxY + boxHeight, boxX, boxY + boxHeight - radius);
+                        ctx.lineTo(boxX, boxY + radius);
+                        ctx.quadraticCurveTo(boxX, boxY, boxX + radius, boxY);
+                        ctx.closePath();
+                        ctx.fill();
+                        
+                        // Desenhar o texto em branco
+                        ctx.fillStyle = 'white';
+                        ctx.fillText(text, barX, boxY + boxHeight / 2);
+                    });
+                    
+                    ctx.restore();
+                }
+            }],
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
