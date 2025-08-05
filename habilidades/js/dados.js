@@ -396,6 +396,36 @@ function downloadPDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
     
+    // Obter habilidades filtradas com a mesma lógica da exibição
+    const habilidadesFiltradas = Object.keys(habilidadesData).filter(key => {
+        const hab = habilidadesData[key];
+        
+        // Aplicar filtros
+        if (currentFilters.ano && hab.ano !== currentFilters.ano) return false;
+        if (currentFilters.disciplina && hab.disciplina !== currentFilters.disciplina) return false;
+        if (currentFilters.search && 
+            !hab.habilidade.toLowerCase().includes(currentFilters.search) &&
+            !hab.codigo.toLowerCase().includes(currentFilters.search)) return false;
+        
+        return true;
+    });
+    
+    // Ordenar da mesma forma que na exibição
+    const ordenacao = document.getElementById('ordenar').value;
+    habilidadesFiltradas.sort((a, b) => {
+        const habA = habilidadesData[a];
+        const habB = habilidadesData[b];
+        
+        switch (ordenacao) {
+            case 'desempenho':
+                return habB.media_acertos - habA.media_acertos;
+            case 'questoes':
+                return habB.num_questoes - habA.num_questoes;
+            default: // codigo
+                return habA.codigo.localeCompare(habB.codigo);
+        }
+    });
+    
     // Título
     doc.setFontSize(16);
     doc.text('SADE - Relatório de Habilidades', 20, 20);
@@ -433,11 +463,64 @@ function downloadPDF() {
     // Estatísticas
     doc.text('Estatísticas:', 20, y);
     y += 10;
-    doc.text(`Total de Habilidades: ${document.getElementById('total-habilidades').textContent}`, 25, y);
+    doc.text(`Total de Habilidades: ${habilidadesFiltradas.length}`, 25, y);
     y += 5;
-    doc.text(`Total de Questões: ${document.getElementById('total-questoes').textContent}`, 25, y);
+    const totalQuestoes = habilidadesFiltradas.reduce((sum, key) => 
+        sum + (habilidadesData[key].num_questoes || 0), 0);
+    doc.text(`Total de Questões: ${totalQuestoes}`, 25, y);
     y += 5;
-    doc.text(`Média Geral: ${document.getElementById('media-geral').textContent}`, 25, y);
+    const mediaGeral = habilidadesFiltradas.length > 0 ? 
+        habilidadesFiltradas.reduce((sum, key) => 
+            sum + habilidadesData[key].media_acertos, 0) / habilidadesFiltradas.length : 0;
+    doc.text(`Média Geral: ${mediaGeral.toFixed(1)}%`, 25, y);
+    
+    y += 15;
+    
+    // Lista das habilidades
+    if (habilidadesFiltradas.length > 0) {
+        doc.setFontSize(12);
+        doc.text('Habilidades Encontradas:', 20, y);
+        y += 10;
+        
+        doc.setFontSize(8);
+        habilidadesFiltradas.forEach((key, index) => {
+            const hab = habilidadesData[key];
+            
+            // Verificar se precisa de nova página
+            if (y > 270) {
+                doc.addPage();
+                y = 20;
+            }
+            
+            // Código e disciplina
+            doc.setFont(undefined, 'bold');
+            doc.text(`${hab.codigo} - ${hab.disciplina_nome} (${hab.ano}º Ano)`, 20, y);
+            y += 5;
+            
+            // Descrição da habilidade
+            doc.setFont(undefined, 'normal');
+            const descricao = hab.habilidade;
+            const linhasDescricao = doc.splitTextToSize(descricao, 170);
+            doc.text(linhasDescricao, 20, y);
+            y += linhasDescricao.length * 4;
+            
+            // BNCC
+            doc.text(`BNCC: ${hab.bncc}`, 20, y);
+            y += 4;
+            
+            // Estatísticas
+            doc.text(`Questões: ${hab.num_questoes || 0} | Média: ${hab.media_acertos.toFixed(1)}% | Adequado: ${hab.alunos_adequado.toFixed(1)}%`, 20, y);
+            y += 8;
+            
+            // Separador
+            if (index < habilidadesFiltradas.length - 1) {
+                doc.line(20, y, 190, y);
+                y += 5;
+            }
+        });
+    } else {
+        doc.text('Nenhuma habilidade encontrada com os filtros aplicados.', 20, y);
+    }
     
     // Salvar
     doc.save('relatorio-habilidades-sade.pdf');
