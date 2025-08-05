@@ -720,6 +720,31 @@ class SADEModern {
         
         const sortedGrades = Object.keys(gradeAverages).sort();
 
+        // Array de cores vibrantes para cada barra
+        const barColors = [
+            '#3b82f6', // Azul vibrante - 1º Ano
+            '#10b981', // Verde esmeralda - 2º Ano
+            '#f59e0b', // Âmbar - 3º Ano
+            '#ef4444', // Vermelho - 4º Ano
+            '#8b5cf6', // Violeta - 5º Ano
+            '#06b6d4', // Ciano - 6º Ano
+            '#f97316', // Laranja - 7º Ano
+            '#ec4899', // Rosa - 8º Ano
+            '#84cc16'  // Lima - 9º Ano
+        ];
+
+        // Cores correspondentes a cada ano
+        const backgroundColors = sortedGrades.map((_, index) => barColors[index % barColors.length]);
+        
+        // Cores de borda mais escuras para melhor definição
+        const borderColors = backgroundColors.map(color => {
+            // Converter hex para RGB e escurecer
+            const r = parseInt(color.slice(1, 3), 16);
+            const g = parseInt(color.slice(3, 5), 16);
+            const b = parseInt(color.slice(5, 7), 16);
+            return `rgb(${Math.max(0, r - 30)}, ${Math.max(0, g - 30)}, ${Math.max(0, b - 30)})`;
+        });
+
         if (this.charts.grade) this.charts.grade.destroy();
         this.charts.grade = new Chart(ctx, {
             type: 'bar',
@@ -728,17 +753,57 @@ class SADEModern {
                 datasets: [{
                     label: 'Média de Performance',
                     data: sortedGrades.map(grade => gradeAverages[grade]),
-                    backgroundColor: '#2563eb',
-                    borderRadius: 4,
+                    backgroundColor: backgroundColors,
+                    borderColor: borderColors,
+                    borderWidth: 2,
+                    borderRadius: 6,
+                    borderSkipped: false,
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
+                plugins: { 
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        titleColor: 'white',
+                        bodyColor: 'white',
+                        borderColor: 'rgba(255, 255, 255, 0.1)',
+                        borderWidth: 1,
+                        cornerRadius: 8,
+                        displayColors: true,
+                        callbacks: {
+                            label: function(context) {
+                                return `Média: ${context.parsed.y.toFixed(1)}%`;
+                            }
+                        }
+                    }
+                },
                 scales: {
-                    y: { beginAtZero: true, max: 100, grid: { color: document.body.classList.contains('dark-mode') ? '#30363d' : '#e2e8f0' }, ticks: { color: document.body.classList.contains('dark-mode') ? '#c9d1d9' : '#333' } },
-                    x: { grid: { display: false }, ticks: { color: document.body.classList.contains('dark-mode') ? '#c9d1d9' : '#333' } }
+                    y: { 
+                        beginAtZero: true, 
+                        max: 100, 
+                        grid: { color: document.body.classList.contains('dark-mode') ? '#30363d' : '#e2e8f0' }, 
+                        ticks: { 
+                            color: document.body.classList.contains('dark-mode') ? '#c9d1d9' : '#333',
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    },
+                    x: { 
+                        grid: { display: false }, 
+                        ticks: { color: document.body.classList.contains('dark-mode') ? '#c9d1d9' : '#333' }
+                    }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index'
+                },
+                animation: {
+                    duration: 1000,
+                    easing: 'easeOutQuart'
                 }
             }
         });
