@@ -233,6 +233,9 @@ const dadosAV2 = {
 };
 
 // Variáveis globais para controle do estado
+let filtroAnoAtual = '';
+let filtroMateriaAtual = '';
+let graficosInicializados = false;
 let chartDescritores = null;
 let chartDesempenho = null;
 let chartEscolas = null;
@@ -271,21 +274,15 @@ function configurarEventos() {
 function atualizarEstatisticas() {
     const stats = calcularEstatisticas();
     
-    const elementTotalEscolas = document.getElementById('escolas-participantes');
-    const elementTotalAlunos = document.getElementById('total-alunos');
-    const elementMediaMunicipio = document.getElementById('media-geral-av2');
-    const elementNumeroAvaliacoes = document.getElementById('questoes-analisadas');
+    const elementTotalEscolas = document.getElementById('total-escolas-av2');
+    const elementTotalAlunos = document.getElementById('total-alunos-av2');
+    const elementMediaMunicipio = document.getElementById('media-municipio-av2');
+    const elementNumeroAvaliacoes = document.getElementById('numero-avaliacoes-av2');
     
     if (elementTotalEscolas) elementTotalEscolas.textContent = stats.totalEscolas;
     if (elementTotalAlunos) elementTotalAlunos.textContent = stats.totalAlunos;
     if (elementMediaMunicipio) elementMediaMunicipio.textContent = `${stats.mediaMunicipio}%`;
     if (elementNumeroAvaliacoes) elementNumeroAvaliacoes.textContent = stats.numeroAvaliacoes;
-    
-    // Mostrar container de estatísticas
-    const statsContainer = document.getElementById('stats-container');
-    if (statsContainer && stats.numeroAvaliacoes > 0) {
-        statsContainer.style.display = 'flex';
-    }
 }
 
 function calcularEstatisticas() {
@@ -336,6 +333,10 @@ function analisarDados() {
         return;
     }
     
+    // Atualizar dados filtrados
+    filtroAnoAtual = ano;
+    filtroMateriaAtual = disciplina;
+    
     // Gerar análises
     gerarAnaliseDescritores(ano, disciplina);
     gerarAnaliseEscolas(ano, disciplina, escola);
@@ -346,338 +347,225 @@ function analisarDados() {
         resultadosSection.style.display = 'block';
     }
 }
+    
+    mostrarLoading(true);
+    
+    // Simular delay de carregamento
+    setTimeout(() => {
+        const chave = `${ano}_${disciplina}`;
+        let dados = dadosAV2.resultados[chave] || [];
+        
+        // Filtrar por escola se selecionada
+        if (escola) {
+            dados = dados.filter(item => item.escola === escola);
+        }
+        
+        if (dados.length === 0) {
+            mostrarMensagemSemDados();
+            return;
+        }
+        
+        exibirResultados(dados, ano, disciplina);
+        mostrarLoading(false);
+    }, 1000);
+}
 
-function gerarAnaliseDescritores(ano, disciplina) {
-    const dadosResultados = dadosAV2.resultados[ano];
-    if (!dadosResultados || !dadosResultados[disciplina]) {
-        console.warn(`Dados não encontrados para ${ano}º ano - ${disciplina}`);
-        return;
+function mostrarLoading(mostrar) {
+    document.getElementById('loading-av2').style.display = mostrar ? 'block' : 'none';
+    document.getElementById('resultados-av2').style.display = mostrar ? 'none' : 'block';
+    document.getElementById('stats-container').style.display = mostrar ? 'none' : 'flex';
+    document.getElementById('placeholder-av2').style.display = mostrar ? 'none' : 'none';
+}
+
+function mostrarMensagemSemDados() {
+    document.getElementById('loading-av2').style.display = 'none';
+    document.getElementById('resultados-av2').style.display = 'none';
+    document.getElementById('stats-container').style.display = 'none';
+    
+    const placeholder = document.getElementById('placeholder-av2');
+    placeholder.innerHTML = `
+        <i class="fas fa-exclamation-triangle" style="font-size: 4rem; color: #ffc107; margin-bottom: 1rem;"></i>
+        <h4 class="text-warning">Nenhum dado encontrado</h4>
+        <p class="text-muted mb-0">
+            Não foram encontrados dados para os filtros selecionados
+        </p>
+    `;
+    placeholder.style.display = 'block';
+}
+
+function exibirResultados(dados, ano, disciplina) {
+    const disciplinaTexto = disciplina === 'portugues' ? 'Português' : 'Matemática';
+    
+    // Atualizar título
+    document.getElementById('resultado-titulo').textContent = 
+        `${disciplinaTexto} - ${ano}º Ano`;
+    
+    // Calcular estatísticas
+    const totalAlunos = dados.reduce((sum, item) => sum + item.alunos, 0);
+    const mediaGeral = dados.reduce((sum, item) => sum + (item.media * item.alunos), 0) / totalAlunos;
+    const totalEscolas = dados.length;
+    const totalQuestoes = Math.floor(Math.random() * 20) + 15; // Simulado
+    
+    // Atualizar estatísticas
+    document.getElementById('total-alunos').textContent = totalAlunos;
+    document.getElementById('media-geral-av2').textContent = mediaGeral.toFixed(1) + '%';
+    document.getElementById('escolas-participantes').textContent = totalEscolas;
+    document.getElementById('questoes-analisadas').textContent = totalQuestoes;
+    
+    // Criar gráficos
+    criarGraficoDesempenho(dados);
+    criarGraficoEscolas(dados);
+    
+    // Preencher tabela
+    preencherTabela(dados, ano, disciplinaTexto);
+    
+    // Mostrar seções
+    document.getElementById('placeholder-av2').style.display = 'none';
+    document.getElementById('stats-container').style.display = 'flex';
+    document.getElementById('resultados-av2').style.display = 'block';
+}
+
+function criarGraficoDesempenho(dados) {
+    const ctx = document.getElementById('chart-desempenho-av2').getContext('2d');
+    
+    if (chartDesempenho) {
+        chartDesempenho.destroy();
     }
-
-    const descritores = dadosResultados[disciplina].descritores;
-    const totalQuestoes = dadosResultados[disciplina].totalQuestoes;
     
-    // Preparar dados para o gráfico de descritores
-    const labels = [];
-    const valores = [];
-    const cores = [];
+    // Categorizar desempenho
+    const categorias = { 'Baixo (< 60%)': 0, 'Médio (60-75%)': 0, 'Alto (> 75%)': 0 };
     
-    Object.entries(descritores).forEach(([codigo, descritor]) => {
-        labels.push(codigo.replace('_P', '').replace('_M', ''));
-        valores.push(descritor.questoes);
-        cores.push(gerarCorAleatoria());
+    dados.forEach(item => {
+        if (item.media < 60) categorias['Baixo (< 60%)']++;
+        else if (item.media <= 75) categorias['Médio (60-75%)']++;
+        else categorias['Alto (> 75%)']++;
     });
     
-    // Criar gráfico de descritores
-    criarGraficoDescritores(labels, valores, cores);
-    
-    // Atualizar tabela de descritores
-    atualizarTabelaDescritores(descritores, totalQuestoes);
-    
-    // Atualizar informações resumo
-    atualizarResumoDescritores(Object.keys(descritores).length, totalQuestoes, ano, disciplina);
-}
-
-function gerarAnaliseEscolas(ano, disciplina, escolaFiltro = null) {
-    const dadosEscolas = dadosAV2.desempenhoEscolas[ano];
-    if (!dadosEscolas || !dadosEscolas[disciplina]) {
-        console.warn(`Dados de escolas não encontrados para ${ano}º ano - ${disciplina}`);
-        return;
-    }
-
-    let escolas = dadosEscolas[disciplina];
-    
-    // Filtrar por escola específica se solicitado
-    if (escolaFiltro && escolas[escolaFiltro]) {
-        escolas = { [escolaFiltro]: escolas[escolaFiltro] };
-    }
-    
-    // Preparar dados para gráficos
-    const nomesEscolas = Object.keys(escolas);
-    const medias = nomesEscolas.map(escola => escolas[escola].media);
-    const alunos = nomesEscolas.map(escola => escolas[escola].alunos);
-    
-    // Criar gráficos de desempenho das escolas
-    criarGraficoDesempenhoEscolas(nomesEscolas, medias, alunos);
-    
-    // Atualizar tabela de escolas
-    atualizarTabelaEscolas(escolas, ano, disciplina);
-}
-
-function criarGraficoDescritores(labels, valores, cores) {
-    const ctx = document.getElementById('chart-desempenho-av2');
-    if (!ctx) return;
-
-    // Destruir gráfico existente se houver
-    if (chartDescritores) {
-        chartDescritores.destroy();
-    }
-
-    chartDescritores = new Chart(ctx, {
+    chartDesempenho = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: labels,
+            labels: Object.keys(categorias),
             datasets: [{
-                data: valores,
-                backgroundColor: cores,
-                borderWidth: 2,
-                borderColor: '#fff'
+                data: Object.values(categorias),
+                backgroundColor: ['#dc3545', '#ffc107', '#28a745'],
+                borderWidth: 2
             }]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-                title: {
-                    display: true,
-                    text: 'Distribuição de Questões por Descritor',
-                    font: { size: 16, weight: 'bold' }
-                },
                 legend: {
-                    position: 'right',
-                    labels: { padding: 15, usePointStyle: true }
-                },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            return `${context.label}: ${context.parsed} questões`;
-                        }
-                    }
+                    position: 'bottom'
                 }
             }
         }
     });
 }
 
-function criarGraficoDesempenhoEscolas(escolas, medias, alunos) {
-    const ctx = document.getElementById('chart-escolas-av2');
-    if (!ctx) return;
-
-    // Destruir gráfico existente se houver
-    if (chartDesempenho) {
-        chartDesempenho.destroy();
+function criarGraficoEscolas(dados) {
+    const ctx = document.getElementById('chart-escolas-av2').getContext('2d');
+    
+    if (chartEscolas) {
+        chartEscolas.destroy();
     }
-
-    chartDesempenho = new Chart(ctx, {
+    
+    // Ordenar por média
+    const dadosOrdenados = [...dados].sort((a, b) => b.media - a.media);
+    
+    chartEscolas = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: escolas.map(escola => escola.length > 15 ? escola.substring(0, 15) + '...' : escola),
-            datasets: [
-                {
-                    label: 'Média (%)',
-                    data: medias,
-                    backgroundColor: 'rgba(54, 162, 235, 0.8)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1,
-                    yAxisID: 'y'
-                },
-                {
-                    label: 'Nº Alunos',
-                    data: alunos,
-                    type: 'line',
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 2,
-                    fill: false,
-                    yAxisID: 'y1'
-                }
-            ]
+            labels: dadosOrdenados.map(item => item.escola),
+            datasets: [{
+                label: 'Média (%)',
+                data: dadosOrdenados.map(item => item.media),
+                backgroundColor: 'rgba(54, 162, 235, 0.8)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            interaction: {
-                mode: 'index',
-                intersect: false,
-            },
             plugins: {
-                title: {
-                    display: true,
-                    text: 'Desempenho das Escolas',
-                    font: { size: 16, weight: 'bold' }
-                },
                 legend: {
-                    display: true,
-                    position: 'top'
+                    display: false
                 }
             },
             scales: {
-                x: {
-                    display: true,
-                    title: {
-                        display: true,
-                        text: 'Escolas'
-                    }
-                },
                 y: {
-                    type: 'linear',
-                    display: true,
-                    position: 'left',
-                    title: {
-                        display: true,
-                        text: 'Média (%)'
-                    },
-                    min: 0,
+                    beginAtZero: true,
                     max: 100
-                },
-                y1: {
-                    type: 'linear',
-                    display: true,
-                    position: 'right',
-                    title: {
-                        display: true,
-                        text: 'Número de Alunos'
-                    },
-                    grid: {
-                        drawOnChartArea: false,
-                    },
                 }
             }
         }
     });
 }
 
-function atualizarTabelaDescritores(descritores, totalQuestoes) {
-    const tbody = document.getElementById('tabela-descritores-body-av2');
-    if (!tbody) return;
-
+function preencherTabela(dados, ano, disciplina) {
+    const tbody = document.querySelector('#tabela-resultados-av2 tbody');
     tbody.innerHTML = '';
     
-    Object.entries(descritores).forEach(([codigo, descritor]) => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td><strong>${codigo.replace('_P', '').replace('_M', '')}</strong></td>
-            <td>${descritor.nome}</td>
-            <td class="text-center">
-                <span class="badge bg-primary">${descritor.questoes}</span>
-            </td>
-            <td class="text-center">
-                <span class="badge bg-success">${descritor.percentual.toFixed(1)}%</span>
-            </td>
-        `;
-        tbody.appendChild(row);
-    });
-}
-
-function atualizarTabelaEscolas(escolas, ano, disciplina) {
-    const tbody = document.getElementById('tabela-escolas-body-av2');
-    if (!tbody) return;
-
-    tbody.innerHTML = '';
+    // Ordenar por média (decrescente)
+    const dadosOrdenados = [...dados].sort((a, b) => b.media - a.media);
     
-    // Converter para array e ordenar por média decrescente
-    const escolasArray = Object.entries(escolas).map(([nome, dados]) => ({
-        nome,
-        ...dados
-    })).sort((a, b) => b.media - a.media);
-    
-    escolasArray.forEach((escola, index) => {
-        const row = document.createElement('tr');
-        const posicao = index + 1;
-        let badgeClass = 'bg-success';
-        if (posicao === 1) badgeClass = 'bg-warning';
-        else if (posicao === 2) badgeClass = 'bg-info';
-        else if (posicao === 3) badgeClass = 'bg-secondary';
+    dadosOrdenados.forEach(item => {
+        const tr = document.createElement('tr');
         
-        row.innerHTML = `
-            <td class="text-center">
-                <span class="badge ${badgeClass}">${posicao}º</span>
-            </td>
-            <td>${escola.nome}</td>
-            <td class="text-center">
-                <span class="badge bg-primary">${escola.alunos}</span>
-            </td>
-            <td class="text-center">
-                <span class="badge bg-success">${escola.media.toFixed(1)}%</span>
-            </td>
+        // Determinar classe de desempenho
+        let classeDesempenho = 'badge bg-success';
+        let textoDesempenho = 'Alto';
+        
+        if (item.media < 60) {
+            classeDesempenho = 'badge bg-danger';
+            textoDesempenho = 'Baixo';
+        } else if (item.media <= 75) {
+            classeDesempenho = 'badge bg-warning';
+            textoDesempenho = 'Médio';
+        }
+        
+        tr.innerHTML = `
+            <td>${item.escola}</td>
+            <td>${ano}º Ano</td>
+            <td>${disciplina}</td>
+            <td>${item.alunos}</td>
+            <td>${item.media.toFixed(1)}%</td>
+            <td><span class="${classeDesempenho}">${textoDesempenho}</span></td>
         `;
-        tbody.appendChild(row);
+        
+        tbody.appendChild(tr);
     });
-}
-
-function atualizarResumoDescritores(totalDescritores, totalQuestoes, ano, disciplina) {
-    const resumoElement = document.getElementById('resumo-descritores-av2');
-    if (!resumoElement) return;
-
-    resumoElement.innerHTML = `
-        <div class="alert alert-info">
-            <h5 class="alert-heading">
-                <i class="fas fa-chart-pie me-2"></i>Análise ${ano}º Ano - ${disciplina}
-            </h5>
-            <p class="mb-2">
-                <strong>Total de Descritores Avaliados:</strong> ${totalDescritores}<br>
-                <strong>Total de Questões:</strong> ${totalQuestoes}<br>
-                <strong>Média de Questões por Descritor:</strong> ${(totalQuestoes / totalDescritores).toFixed(1)}
-            </p>
-        </div>
-    `;
 }
 
 function limparFiltros() {
-    // Limpar selects
     document.getElementById('filter-ano-av2').value = '';
     document.getElementById('filter-disciplina-av2').value = '';
     document.getElementById('filter-escola-av2').value = '';
     
-    // Esconder resultados
-    const resultadosSection = document.getElementById('av2-resultados');
-    if (resultadosSection) {
-        resultadosSection.style.display = 'none';
-    }
+    // Resetar interface
+    document.getElementById('loading-av2').style.display = 'none';
+    document.getElementById('resultados-av2').style.display = 'none';
+    document.getElementById('stats-container').style.display = 'none';
+    
+    const placeholder = document.getElementById('placeholder-av2');
+    placeholder.innerHTML = `
+        <i class="fas fa-chart-line" style="font-size: 4rem; color: #dee2e6; margin-bottom: 1rem;"></i>
+        <h4 class="text-muted">Selecione os filtros e clique em "Analisar Dados"</h4>
+        <p class="text-muted mb-0">
+            Escolha o ano escolar e a disciplina para visualizar os resultados da avaliação AV2
+        </p>
+    `;
+    placeholder.style.display = 'block';
     
     // Destruir gráficos
-    if (chartDescritores) {
-        chartDescritores.destroy();
-        chartDescritores = null;
-    }
     if (chartDesempenho) {
         chartDesempenho.destroy();
         chartDesempenho = null;
     }
     
-    // Limpar tabelas
-    const tabelaDescritores = document.getElementById('tabela-descritores-body-av2');
-    const tabelaEscolas = document.getElementById('tabela-escolas-body-av2');
-    const resumoDescritores = document.getElementById('resumo-descritores-av2');
-    
-    if (tabelaDescritores) tabelaDescritores.innerHTML = '';
-    if (tabelaEscolas) tabelaEscolas.innerHTML = '';
-    if (resumoDescritores) resumoDescritores.innerHTML = '';
-}
-
-function gerarCorAleatoria() {
-    const cores = [
-        '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF',
-        '#FF9F40', '#FF6384', '#C9CBCF', '#4BC0C0', '#FF6384',
-        '#36A2EB', '#FFCE56', '#E74C3C', '#3498DB', '#2ECC71',
-        '#F39C12', '#9B59B6', '#1ABC9C', '#E67E22', '#95A5A6'
-    ];
-    return cores[Math.floor(Math.random() * cores.length)];
-}
-
-// Função para exportar dados (funcionalidade adicional)
-function exportarDados() {
-    const ano = document.getElementById('filter-ano-av2').value;
-    const disciplina = document.getElementById('filter-disciplina-av2').value;
-    
-    if (!ano || !disciplina) {
-        alert('Selecione o ano e a disciplina para exportar os dados');
-        return;
+    if (chartEscolas) {
+        chartEscolas.destroy();
+        chartEscolas = null;
     }
-    
-    const dados = {
-        filtros: { ano, disciplina },
-        descritores: dadosAV2.resultados[ano] ? dadosAV2.resultados[ano][disciplina] : null,
-        escolas: dadosAV2.desempenhoEscolas[ano] ? dadosAV2.desempenhoEscolas[ano][disciplina] : null
-    };
-    
-    const blob = new Blob([JSON.stringify(dados, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `av2_${ano}_${disciplina.toLowerCase()}_${new Date().getTime()}.json`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
 }

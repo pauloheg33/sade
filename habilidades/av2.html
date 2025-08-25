@@ -275,7 +275,12 @@
         </div>
 
         <!-- Resultados -->
-        <div class="results-section" id="resultados-av2" style="display: none;">
+        <div class="results-section" id="av2-resultados" style="display: none;">
+            <!-- Resumo da Análise -->
+            <div id="resumo-descritores-av2" class="mb-4">
+                <!-- Conteúdo será preenchido via JavaScript -->
+            </div>
+
             <div class="row">
                 <div class="col-12">
                     <h3 class="mb-4">
@@ -292,11 +297,11 @@
                     <div class="av2-card card">
                         <div class="card-header bg-primary text-white">
                             <h6 class="mb-0">
-                                <i class="fas fa-chart-pie me-2"></i>Distribuição de Desempenho
+                                <i class="fas fa-chart-pie me-2"></i>Distribuição de Descritores
                             </h6>
                         </div>
                         <div class="card-body">
-                            <canvas id="chart-desempenho-av2" height="300"></canvas>
+                            <canvas id="chart-descritores-av2" height="300"></canvas>
                         </div>
                     </div>
                 </div>
@@ -305,11 +310,68 @@
                     <div class="av2-card card">
                         <div class="card-header bg-success text-white">
                             <h6 class="mb-0">
-                                <i class="fas fa-chart-bar me-2"></i>Comparativo por Escola
+                                <i class="fas fa-chart-bar me-2"></i>Desempenho das Escolas
                             </h6>
                         </div>
                         <div class="card-body">
                             <canvas id="chart-escolas-av2" height="300"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tabelas de Resultados -->
+            <div class="row mt-4 g-4">
+                <div class="col-md-6">
+                    <div class="av2-card card">
+                        <div class="card-header bg-info text-white">
+                            <h6 class="mb-0">
+                                <i class="fas fa-list me-2"></i>Descritores Avaliados
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-sm table-hover">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Código</th>
+                                            <th>Descrição</th>
+                                            <th class="text-center">Questões</th>
+                                            <th class="text-center">%</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tabela-descritores-body-av2">
+                                        <!-- Resultados serão preenchidos via JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="av2-card card">
+                        <div class="card-header bg-warning text-dark">
+                            <h6 class="mb-0">
+                                <i class="fas fa-trophy me-2"></i>Ranking das Escolas
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-sm table-hover">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th class="text-center">Pos.</th>
+                                            <th>Escola</th>
+                                            <th class="text-center">Alunos</th>
+                                            <th class="text-center">Média</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tabela-escolas-body-av2">
+                                        <!-- Resultados serão preenchidos via JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
