@@ -132,12 +132,7 @@ const dadosAV2 = {
                     'D128_M': { nome: 'Calcular probabilidade de um evento', questoes: 1, percentual: 3.8 },
                     'D129_M': { nome: 'Calcular média aritmética', questoes: 2, percentual: 7.7 },
                     'D130_M': { nome: 'Resolver sistema de equações do 1º grau', questoes: 2, percentual: 7.7 },
-                    'D131_M': { nome: 'Calcular porcentagem', questoes: 2, percentual: 7.7 },
-                    'D132_M': { nome: 'Resolver problemas de contagem', questoes: 1, percentual: 3.8 },
-                    'D133_M': { nome: 'Utilizar expressões algébricas na resolução de problemas', questoes: 1, percentual: 3.8 },
-                    'D134_M': { nome: 'Representar graficamente equação do 1º grau', questoes: 1, percentual: 3.8 },
-                    'D135_M': { nome: 'Calcular volume de sólidos geométricos', questoes: 1, percentual: 3.8 },
-                    'D136_M': { nome: 'Aplicar transformações geométricas', questoes: 1, percentual: 3.8 }
+                    'D131_M': { nome: 'Calcular porcentagem', questoes: 2, percentual: 7.7 }
                 }
             }
         },
@@ -189,539 +184,294 @@ const dadosAV2 = {
                 }
             }
         }
+    }
+};
+
+// Dados de desempenho das escolas
+const desempenhoEscolas = {
+    '2º': {
+        'Português': {
+            'FIRMINO JOSÉ': { media: 70.1, alunos: 19 },
+            'JOAQUIM FERREIRA': { media: 65.8, alunos: 21 },
+            'JOSE ALVES DE SENA': { media: 61.6, alunos: 22 },
+            'MOURÃO LIMA': { media: 80.4, alunos: 25 },
+            'ANTONIO DE SOUSA BARROS': { media: 67.7, alunos: 18 },
+            '03 DE DEZEMBRO': { media: 83.9, alunos: 6 },
+            'MARIA AMELIA': { media: 69.9, alunos: 7 }
+        },
+        'Matemática': {
+            'FIRMINO JOSÉ': { media: 71.3, alunos: 19 },
+            'JOAQUIM FERREIRA': { media: 72.0, alunos: 21 },
+            'JOSE ALVES DE SENA': { media: 54.0, alunos: 22 },
+            'MOURÃO LIMA': { media: 69.8, alunos: 25 },
+            'ANTONIO DE SOUSA BARROS': { media: 60.8, alunos: 18 },
+            '03 DE DEZEMBRO': { media: 74.6, alunos: 6 },
+            'MARIA AMELIA': { media: 68.0, alunos: 7 }
+        }
     },
-    
-    // Dados de desempenho das escolas (baseados nos dados reais fornecidos)
-    desempenhoEscolas: {
-        '2º': {
-            'Português': {
-                '03 DE DEZEMBRO': { media: 83.9, alunos: 6 },
-                'FIRMINO JOSÉ': { media: 70.1, alunos: 19 },
-                'JOAQUIM FERREIRA': { media: 65.8, alunos: 21 },
-                'JOSE ALVES DE SENA': { media: 61.6, alunos: 22 },
-                'MOURÃO LIMA': { media: 80.4, alunos: 25 },
-                'ANTONIO DE SOUSA BARROS': { media: 67.7, alunos: 18 },
-                'MARIA AMELIA': { media: 69.9, alunos: 7 }
-            },
-            'Matemática': {
-                '03 DE DEZEMBRO': { media: 74.6, alunos: 6 },
-                'FIRMINO JOSÉ': { media: 71.3, alunos: 19 },
-                'JOAQUIM FERREIRA': { media: 72.0, alunos: 21 },
-                'JOSE ALVES DE SENA': { media: 54.0, alunos: 22 },
-                'MOURÃO LIMA': { media: 69.8, alunos: 25 },
-                'ANTONIO DE SOUSA BARROS': { media: 60.8, alunos: 18 },
-                'MARIA AMELIA': { media: 68.0, alunos: 7 }
-            }
+    '4º': {
+        'Português': {
+            'FIRMINO JOSÉ': { media: 72.5, alunos: 20 },
+            'JOAQUIM FERREIRA': { media: 68.3, alunos: 24 },
+            'JOSE ALVES DE SENA': { media: 59.8, alunos: 26 },
+            'MOURÃO LIMA': { media: 75.2, alunos: 22 },
+            'ANTONIO DE SOUSA BARROS': { media: 71.4, alunos: 19 },
+            '03 DE DEZEMBRO': { media: 80.1, alunos: 8 }
         },
-        '4º': {
-            'Português': {
-                'FIRMINO JOSÉ': { media: 72.5, alunos: 20 },
-                'JOAQUIM FERREIRA': { media: 68.3, alunos: 24 },
-                'JOSE ALVES DE SENA': { media: 59.8, alunos: 26 },
-                'MOURÃO LIMA': { media: 75.2, alunos: 22 },
-                'ANTONIO DE SOUSA BARROS': { media: 71.4, alunos: 19 },
-                '03 DE DEZEMBRO': { media: 80.1, alunos: 8 }
-            },
-            'Matemática': {
-                'FIRMINO JOSÉ': { media: 68.9, alunos: 20 },
-                'JOAQUIM FERREIRA': { media: 65.7, alunos: 24 },
-                'JOSE ALVES DE SENA': { media: 56.4, alunos: 26 },
-                'MOURÃO LIMA': { media: 72.8, alunos: 22 },
-                'ANTONIO DE SOUSA BARROS': { media: 69.2, alunos: 19 },
-                '03 DE DEZEMBRO': { media: 77.3, alunos: 8 }
-            }
+        'Matemática': {
+            'FIRMINO JOSÉ': { media: 68.9, alunos: 20 },
+            'JOAQUIM FERREIRA': { media: 65.7, alunos: 24 },
+            'JOSE ALVES DE SENA': { media: 56.4, alunos: 26 },
+            'MOURÃO LIMA': { media: 72.8, alunos: 22 },
+            'ANTONIO DE SOUSA BARROS': { media: 69.2, alunos: 19 },
+            '03 DE DEZEMBRO': { media: 77.3, alunos: 8 }
+        }
+    },
+    '5º': {
+        'Português': {
+            'FIRMINO JOSÉ': { media: 68.2, alunos: 18 },
+            'JOAQUIM FERREIRA': { media: 71.4, alunos: 28 },
+            'JOSE ALVES DE SENA': { media: 54.1, alunos: 24 },
+            'MOURÃO LIMA': { media: 70.9, alunos: 19 },
+            'ANTONIO DE SOUSA BARROS': { media: 71.5, alunos: 12 },
+            '03 DE DEZEMBRO': { media: 82.1, alunos: 11 }
         },
-        '5º': {
-            'Português': {
-                'FIRMINO JOSÉ': { media: 68.2, alunos: 18 },
-                'JOAQUIM FERREIRA': { media: 71.4, alunos: 28 },
-                'JOSE ALVES DE SENA': { media: 54.1, alunos: 24 },
-                'MOURÃO LIMA': { media: 70.9, alunos: 19 },
-                'ANTONIO DE SOUSA BARROS': { media: 71.5, alunos: 12 },
-                '03 DE DEZEMBRO': { media: 82.1, alunos: 11 }
-            },
-            'Matemática': {
-                'FIRMINO JOSÉ': { media: 66.0, alunos: 18 },
-                'JOAQUIM FERREIRA': { media: 70.6, alunos: 28 },
-                'JOSE ALVES DE SENA': { media: 55.3, alunos: 24 },
-                'MOURÃO LIMA': { media: 72.6, alunos: 19 },
-                'ANTONIO DE SOUSA BARROS': { media: 66.3, alunos: 12 },
-                '03 DE DEZEMBRO': { media: 85.5, alunos: 11 }
-            }
+        'Matemática': {
+            'FIRMINO JOSÉ': { media: 66.0, alunos: 18 },
+            'JOAQUIM FERREIRA': { media: 70.6, alunos: 28 },
+            'JOSE ALVES DE SENA': { media: 55.3, alunos: 24 },
+            'MOURÃO LIMA': { media: 72.6, alunos: 19 },
+            'ANTONIO DE SOUSA BARROS': { media: 66.3, alunos: 12 },
+            '03 DE DEZEMBRO': { media: 85.5, alunos: 11 }
+        }
+    },
+    '8º': {
+        'Português': {
+            'FIRMINO JOSÉ': { media: 65.8, alunos: 18 },
+            'JOAQUIM FERREIRA': { media: 66.2, alunos: 21 },
+            'MOURÃO LIMA': { media: 70.4, alunos: 25 }
         },
-        '8º': {
-            'Português': {
-                'FIRMINO JOSÉ': { media: 65.8, alunos: 20 },
-                'JOAQUIM FERREIRA': { media: 66.2, alunos: 21 },
-                'MOURÃO LIMA': { media: 70.4, alunos: 25 }
-            },
-            'Matemática': {
-                'FIRMINO JOSÉ': { media: 68.1, alunos: 20 },
-                'JOAQUIM FERREIRA': { media: 65.2, alunos: 21 },
-                'MOURÃO LIMA': { media: 73.0, alunos: 25 }
-            }
+        'Matemática': {
+            'FIRMINO JOSÉ': { media: 68.1, alunos: 20 },
+            'JOAQUIM FERREIRA': { media: 65.2, alunos: 21 },
+            'MOURÃO LIMA': { media: 73.0, alunos: 25 }
+        }
+    },
+    '9º': {
+        'Português': {
+            'FIRMINO JOSÉ': { media: 63.5, alunos: 16 },
+            'JOAQUIM FERREIRA': { media: 68.8, alunos: 19 },
+            'MOURÃO LIMA': { media: 72.1, alunos: 23 }
         },
-        '9º': {
-            'Português': {
-                'FIRMINO JOSÉ': { media: 67.3, alunos: 22 },
-                'JOAQUIM FERREIRA': { media: 69.5, alunos: 25 },
-                'ANTONIO DE SOUSA BARROS': { media: 72.8, alunos: 18 }
-            },
-            'Matemática': {
-                'FIRMINO JOSÉ': { media: 64.7, alunos: 22 },
-                'JOAQUIM FERREIRA': { media: 67.2, alunos: 25 },
-                'ANTONIO DE SOUSA BARROS': { media: 70.1, alunos: 18 }
-            }
+        'Matemática': {
+            'FIRMINO JOSÉ': { media: 61.2, alunos: 16 },
+            'JOAQUIM FERREIRA': { media: 64.7, alunos: 19 },
+            'MOURÃO LIMA': { media: 69.3, alunos: 23 }
         }
     }
 };
 
-// Variáveis globais para controle do estado
-let chartDescritores = null;
-let chartDesempenho = null;
-let chartEscolas = null;
-
-// Inicialização
+// Inicialização automática
 document.addEventListener('DOMContentLoaded', function() {
-    carregarEscolas();
-    configurarEventos();
-    atualizarEstatisticas();
+    carregarTodosDados();
 });
 
-function carregarEscolas() {
-    const selectEscola = document.getElementById('filter-escola-av2');
-    if (selectEscola) {
-        dadosAV2.escolas.forEach(escola => {
-            const option = document.createElement('option');
-            option.value = escola;
-            option.textContent = escola;
-            selectEscola.appendChild(option);
-        });
-    }
+function carregarTodosDados() {
+    console.log('Carregando todos os dados da AV2...');
+    
+    // Calcular estatísticas gerais
+    calcularEstatisticasGerais();
+    
+    // Carregar dados por ano
+    carregarDadosPorAno();
 }
 
-function configurarEventos() {
-    const btnAnalisar = document.getElementById('analisar-av2');
-    const btnLimpar = document.getElementById('limpar-filtros-av2');
-    const filterAno = document.getElementById('filter-ano-av2');
-    const filterDisciplina = document.getElementById('filter-disciplina-av2');
-    
-    if (btnAnalisar) btnAnalisar.addEventListener('click', analisarDados);
-    if (btnLimpar) btnLimpar.addEventListener('click', limparFiltros);
-    if (filterAno) filterAno.addEventListener('change', verificarAutoAnalise);
-    if (filterDisciplina) filterDisciplina.addEventListener('change', verificarAutoAnalise);
-}
-
-function atualizarEstatisticas() {
-    const stats = calcularEstatisticas();
-    
-    const elementTotalEscolas = document.getElementById('escolas-participantes');
-    const elementTotalAlunos = document.getElementById('total-alunos');
-    const elementMediaMunicipio = document.getElementById('media-geral-av2');
-    const elementNumeroAvaliacoes = document.getElementById('questoes-analisadas');
-    
-    if (elementTotalEscolas) elementTotalEscolas.textContent = stats.totalEscolas;
-    if (elementTotalAlunos) elementTotalAlunos.textContent = stats.totalAlunos;
-    if (elementMediaMunicipio) elementMediaMunicipio.textContent = `${stats.mediaMunicipio}%`;
-    if (elementNumeroAvaliacoes) elementNumeroAvaliacoes.textContent = stats.numeroAvaliacoes;
-    
-    // Mostrar container de estatísticas
-    const statsContainer = document.getElementById('stats-container');
-    if (statsContainer && stats.numeroAvaliacoes > 0) {
-        statsContainer.style.display = 'flex';
-    }
-}
-
-function calcularEstatisticas() {
+function calcularEstatisticasGerais() {
+    let totalAlunos = 0;
     let totalEscolas = new Set();
+    
+    // Percorrer todos os dados para calcular totais
+    Object.keys(dadosAV2.resultados).forEach(ano => {
+        Object.keys(dadosAV2.resultados[ano]).forEach(disciplina => {
+            if (desempenhoEscolas[ano] && desempenhoEscolas[ano][disciplina]) {
+                Object.keys(desempenhoEscolas[ano][disciplina]).forEach(escola => {
+                    totalAlunos += desempenhoEscolas[ano][disciplina][escola].alunos;
+                    totalEscolas.add(escola);
+                });
+            }
+        });
+    });
+    
+    // Atualizar estatísticas na tela
+    document.getElementById('total-alunos').textContent = totalAlunos.toLocaleString();
+    document.getElementById('total-escolas').textContent = totalEscolas.size;
+}
+
+function carregarDadosPorAno() {
+    dadosAV2.anos.forEach(ano => {
+        const anoNum = ano.replace('º', '');
+        const container = document.getElementById(`dados-${anoNum}ano`);
+        if (container) {
+            container.innerHTML = criarCardsAno(anoNum);
+        }
+    });
+}
+
+function criarCardsAno(ano) {
+    let html = '';
+    
+    // Card para Português
+    if (dadosAV2.resultados[ano] && dadosAV2.resultados[ano]['Português']) {
+        html += criarCardDisciplina(ano, 'Português', dadosAV2.resultados[ano]['Português']);
+    }
+    
+    // Card para Matemática
+    if (dadosAV2.resultados[ano] && dadosAV2.resultados[ano]['Matemática']) {
+        html += criarCardDisciplina(ano, 'Matemática', dadosAV2.resultados[ano]['Matemática']);
+    }
+    
+    return html;
+}
+
+function criarCardDisciplina(ano, disciplina, dados) {
+    const escolasData = desempenhoEscolas[ano] && desempenhoEscolas[ano][disciplina] ? desempenhoEscolas[ano][disciplina] : {};
+    
+    // Calcular média geral e total de alunos
     let totalAlunos = 0;
     let somaMedias = 0;
-    let contadorMedias = 0;
-    let numeroAvaliacoes = 0;
+    let numEscolas = 0;
     
-    // Iterar pelos dados reais organizados por ano
-    Object.entries(dadosAV2.desempenhoEscolas).forEach(([ano, materias]) => {
-        Object.entries(materias).forEach(([materia, escolas]) => {
-            Object.entries(escolas).forEach(([escola, dados]) => {
-                totalEscolas.add(escola);
-                totalAlunos += dados.alunos;
-                somaMedias += dados.media;
-                contadorMedias++;
-            });
-        });
+    Object.values(escolasData).forEach(escola => {
+        totalAlunos += escola.alunos;
+        somaMedias += escola.media * escola.alunos;
+        numEscolas++;
     });
     
-    numeroAvaliacoes = contadorMedias;
+    const mediaGeral = totalAlunos > 0 ? (somaMedias / totalAlunos).toFixed(1) : 0;
     
-    return {
-        totalEscolas: totalEscolas.size,
-        totalAlunos: totalAlunos,
-        mediaMunicipio: contadorMedias > 0 ? (somaMedias / contadorMedias).toFixed(1) : 0,
-        numeroAvaliacoes: numeroAvaliacoes
-    };
-}
-
-function verificarAutoAnalise() {
-    const ano = document.getElementById('filter-ano-av2').value;
-    const disciplina = document.getElementById('filter-disciplina-av2').value;
+    // Criar lista de descritores (limitada a 5 principais)
+    let descritoresHtml = '';
+    const descritoresOrdenados = Object.entries(dados.descritores)
+        .sort(([,a], [,b]) => b.questoes - a.questoes)
+        .slice(0, 5);
     
-    if (ano && disciplina) {
-        setTimeout(() => analisarDados(), 500);
-    }
-}
-
-function analisarDados() {
-    const ano = document.getElementById('filter-ano-av2').value;
-    const disciplina = document.getElementById('filter-disciplina-av2').value;
-    const escola = document.getElementById('filter-escola-av2').value;
-    
-    if (!ano || !disciplina) {
-        alert('Por favor, selecione o ano escolar e a disciplina');
-        return;
-    }
-    
-    // Gerar análises
-    gerarAnaliseDescritores(ano, disciplina);
-    gerarAnaliseEscolas(ano, disciplina, escola);
-    
-    // Mostrar seção de resultados
-    const resultadosSection = document.getElementById('av2-resultados');
-    if (resultadosSection) {
-        resultadosSection.style.display = 'block';
-    }
-}
-
-function gerarAnaliseDescritores(ano, disciplina) {
-    const dadosResultados = dadosAV2.resultados[ano];
-    if (!dadosResultados || !dadosResultados[disciplina]) {
-        console.warn(`Dados não encontrados para ${ano}º ano - ${disciplina}`);
-        return;
-    }
-
-    const descritores = dadosResultados[disciplina].descritores;
-    const totalQuestoes = dadosResultados[disciplina].totalQuestoes;
-    
-    // Preparar dados para o gráfico de descritores
-    const labels = [];
-    const valores = [];
-    const cores = [];
-    
-    Object.entries(descritores).forEach(([codigo, descritor]) => {
-        labels.push(codigo.replace('_P', '').replace('_M', ''));
-        valores.push(descritor.questoes);
-        cores.push(gerarCorAleatoria());
-    });
-    
-    // Criar gráfico de descritores
-    criarGraficoDescritores(labels, valores, cores);
-    
-    // Atualizar tabela de descritores
-    atualizarTabelaDescritores(descritores, totalQuestoes);
-    
-    // Atualizar informações resumo
-    atualizarResumoDescritores(Object.keys(descritores).length, totalQuestoes, ano, disciplina);
-}
-
-function gerarAnaliseEscolas(ano, disciplina, escolaFiltro = null) {
-    const dadosEscolas = dadosAV2.desempenhoEscolas[ano];
-    if (!dadosEscolas || !dadosEscolas[disciplina]) {
-        console.warn(`Dados de escolas não encontrados para ${ano}º ano - ${disciplina}`);
-        return;
-    }
-
-    let escolas = dadosEscolas[disciplina];
-    
-    // Filtrar por escola específica se solicitado
-    if (escolaFiltro && escolas[escolaFiltro]) {
-        escolas = { [escolaFiltro]: escolas[escolaFiltro] };
-    }
-    
-    // Preparar dados para gráficos
-    const nomesEscolas = Object.keys(escolas);
-    const medias = nomesEscolas.map(escola => escolas[escola].media);
-    const alunos = nomesEscolas.map(escola => escolas[escola].alunos);
-    
-    // Criar gráficos de desempenho das escolas
-    criarGraficoDesempenhoEscolas(nomesEscolas, medias, alunos);
-    
-    // Atualizar tabela de escolas
-    atualizarTabelaEscolas(escolas, ano, disciplina);
-}
-
-function criarGraficoDescritores(labels, valores, cores) {
-    const ctx = document.getElementById('chart-desempenho-av2');
-    if (!ctx) return;
-
-    // Destruir gráfico existente se houver
-    if (chartDescritores) {
-        chartDescritores.destroy();
-    }
-
-    chartDescritores = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: labels,
-            datasets: [{
-                data: valores,
-                backgroundColor: cores,
-                borderWidth: 2,
-                borderColor: '#fff'
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Distribuição de Questões por Descritor',
-                    font: { size: 16, weight: 'bold' }
-                },
-                legend: {
-                    position: 'right',
-                    labels: { padding: 15, usePointStyle: true }
-                },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            return `${context.label}: ${context.parsed} questões`;
-                        }
-                    }
-                }
-            }
-        }
-    });
-}
-
-function criarGraficoDesempenhoEscolas(escolas, medias, alunos) {
-    const ctx = document.getElementById('chart-escolas-av2');
-    if (!ctx) return;
-
-    // Destruir gráfico existente se houver
-    if (chartDesempenho) {
-        chartDesempenho.destroy();
-    }
-
-    chartDesempenho = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: escolas.map(escola => escola.length > 15 ? escola.substring(0, 15) + '...' : escola),
-            datasets: [
-                {
-                    label: 'Média (%)',
-                    data: medias,
-                    backgroundColor: 'rgba(54, 162, 235, 0.8)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1,
-                    yAxisID: 'y'
-                },
-                {
-                    label: 'Nº Alunos',
-                    data: alunos,
-                    type: 'line',
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 2,
-                    fill: false,
-                    yAxisID: 'y1'
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            interaction: {
-                mode: 'index',
-                intersect: false,
-            },
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Desempenho das Escolas',
-                    font: { size: 16, weight: 'bold' }
-                },
-                legend: {
-                    display: true,
-                    position: 'top'
-                }
-            },
-            scales: {
-                x: {
-                    display: true,
-                    title: {
-                        display: true,
-                        text: 'Escolas'
-                    }
-                },
-                y: {
-                    type: 'linear',
-                    display: true,
-                    position: 'left',
-                    title: {
-                        display: true,
-                        text: 'Média (%)'
-                    },
-                    min: 0,
-                    max: 100
-                },
-                y1: {
-                    type: 'linear',
-                    display: true,
-                    position: 'right',
-                    title: {
-                        display: true,
-                        text: 'Número de Alunos'
-                    },
-                    grid: {
-                        drawOnChartArea: false,
-                    },
-                }
-            }
-        }
-    });
-}
-
-function atualizarTabelaDescritores(descritores, totalQuestoes) {
-    const tbody = document.getElementById('tabela-descritores-body-av2');
-    if (!tbody) return;
-
-    tbody.innerHTML = '';
-    
-    Object.entries(descritores).forEach(([codigo, descritor]) => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td><strong>${codigo.replace('_P', '').replace('_M', '')}</strong></td>
-            <td>${descritor.nome}</td>
-            <td class="text-center">
-                <span class="badge bg-primary">${descritor.questoes}</span>
-            </td>
-            <td class="text-center">
-                <span class="badge bg-success">${descritor.percentual.toFixed(1)}%</span>
-            </td>
+    descritoresOrdenados.forEach(([codigo, descritor]) => {
+        const cor = obterCorDescritor(codigo);
+        descritoresHtml += `
+            <div class="mb-2">
+                <div class="d-flex justify-content-between align-items-center">
+                    <small class="fw-bold text-primary">${codigo}</small>
+                    <span class="badge" style="background-color: ${cor};">${descritor.questoes} questões</span>
+                </div>
+                <small class="text-muted">${descritor.nome}</small>
+                <div class="progress mt-1" style="height: 4px;">
+                    <div class="progress-bar" style="width: ${descritor.percentual}%; background-color: ${cor};"></div>
+                </div>
+            </div>
         `;
-        tbody.appendChild(row);
     });
-}
-
-function atualizarTabelaEscolas(escolas, ano, disciplina) {
-    const tbody = document.getElementById('tabela-escolas-body-av2');
-    if (!tbody) return;
-
-    tbody.innerHTML = '';
     
-    // Converter para array e ordenar por média decrescente
-    const escolasArray = Object.entries(escolas).map(([nome, dados]) => ({
-        nome,
-        ...dados
-    })).sort((a, b) => b.media - a.media);
+    // Criar ranking de escolas
+    let escolasRanking = '';
+    const escolasOrdenadas = Object.entries(escolasData)
+        .sort(([,a], [,b]) => b.media - a.media)
+        .slice(0, 3);
     
-    escolasArray.forEach((escola, index) => {
-        const row = document.createElement('tr');
-        const posicao = index + 1;
-        let badgeClass = 'bg-success';
-        if (posicao === 1) badgeClass = 'bg-warning';
-        else if (posicao === 2) badgeClass = 'bg-info';
-        else if (posicao === 3) badgeClass = 'bg-secondary';
-        
-        row.innerHTML = `
-            <td class="text-center">
-                <span class="badge ${badgeClass}">${posicao}º</span>
-            </td>
-            <td>${escola.nome}</td>
-            <td class="text-center">
-                <span class="badge bg-primary">${escola.alunos}</span>
-            </td>
-            <td class="text-center">
-                <span class="badge bg-success">${escola.media.toFixed(1)}%</span>
-            </td>
+    escolasOrdenadas.forEach(([nomeEscola, dadosEscola], index) => {
+        const medalha = ['🥇', '🥈', '🥉'][index] || '';
+        escolasRanking += `
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <small class="fw-bold">${medalha} ${nomeEscola}</small>
+                <div class="text-end">
+                    <span class="badge bg-primary">${dadosEscola.media}%</span>
+                    <small class="text-muted d-block">${dadosEscola.alunos} alunos</small>
+                </div>
+            </div>
         `;
-        tbody.appendChild(row);
     });
-}
-
-function atualizarResumoDescritores(totalDescritores, totalQuestoes, ano, disciplina) {
-    const resumoElement = document.getElementById('resumo-descritores-av2');
-    if (!resumoElement) return;
-
-    resumoElement.innerHTML = `
-        <div class="alert alert-info">
-            <h5 class="alert-heading">
-                <i class="fas fa-chart-pie me-2"></i>Análise ${ano}º Ano - ${disciplina}
-            </h5>
-            <p class="mb-2">
-                <strong>Total de Descritores Avaliados:</strong> ${totalDescritores}<br>
-                <strong>Total de Questões:</strong> ${totalQuestoes}<br>
-                <strong>Média de Questões por Descritor:</strong> ${(totalQuestoes / totalDescritores).toFixed(1)}
-            </p>
+    
+    return `
+        <div class="col-md-6">
+            <div class="av2-card card h-100">
+                <div class="card-header ${disciplina === 'Português' ? 'bg-success' : 'bg-info'} text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h6 class="mb-0">
+                            <i class="fas ${disciplina === 'Português' ? 'fa-book' : 'fa-calculator'} me-2"></i>
+                            ${disciplina}
+                        </h6>
+                        <span class="badge bg-light text-dark">${dados.totalQuestoes} questões</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!-- Estatísticas -->
+                    <div class="row g-3 mb-3">
+                        <div class="col-4">
+                            <div class="text-center">
+                                <div class="h6 mb-0 text-primary">${totalAlunos}</div>
+                                <small class="text-muted">Alunos</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="text-center">
+                                <div class="h6 mb-0 text-success">${mediaGeral}%</div>
+                                <small class="text-muted">Média</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="text-center">
+                                <div class="h6 mb-0 text-info">${Object.keys(dados.descritores).length}</div>
+                                <small class="text-muted">Descritores</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Principais Descritores -->
+                    <div class="mb-3">
+                        <h6 class="text-primary mb-2">
+                            <i class="fas fa-list me-1"></i>Principais Descritores
+                        </h6>
+                        <div style="max-height: 200px; overflow-y: auto;">
+                            ${descritoresHtml}
+                        </div>
+                        ${Object.keys(dados.descritores).length > 5 ? 
+                            `<small class="text-muted">E mais ${Object.keys(dados.descritores).length - 5} descritores...</small>` : ''}
+                    </div>
+                    
+                    <!-- Top 3 Escolas -->
+                    <div>
+                        <h6 class="text-primary mb-2">
+                            <i class="fas fa-trophy me-1"></i>Melhores Desempenhos
+                        </h6>
+                        ${escolasRanking}
+                        ${numEscolas > 3 ? `<small class="text-muted">E mais ${numEscolas - 3} escolas...</small>` : ''}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">
+                        <i class="fas fa-school me-1"></i>${numEscolas} escolas participantes
+                    </small>
+                    <div class="mt-2">
+                        <a href="analise-detalhada.html" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-microscope me-1"></i>Análise Detalhada
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     `;
 }
 
-function limparFiltros() {
-    // Limpar selects
-    document.getElementById('filter-ano-av2').value = '';
-    document.getElementById('filter-disciplina-av2').value = '';
-    document.getElementById('filter-escola-av2').value = '';
-    
-    // Esconder resultados
-    const resultadosSection = document.getElementById('av2-resultados');
-    if (resultadosSection) {
-        resultadosSection.style.display = 'none';
-    }
-    
-    // Destruir gráficos
-    if (chartDescritores) {
-        chartDescritores.destroy();
-        chartDescritores = null;
-    }
-    if (chartDesempenho) {
-        chartDesempenho.destroy();
-        chartDesempenho = null;
-    }
-    
-    // Limpar tabelas
-    const tabelaDescritores = document.getElementById('tabela-descritores-body-av2');
-    const tabelaEscolas = document.getElementById('tabela-escolas-body-av2');
-    const resumoDescritores = document.getElementById('resumo-descritores-av2');
-    
-    if (tabelaDescritores) tabelaDescritores.innerHTML = '';
-    if (tabelaEscolas) tabelaEscolas.innerHTML = '';
-    if (resumoDescritores) resumoDescritores.innerHTML = '';
-}
-
-function gerarCorAleatoria() {
+function obterCorDescritor(codigo) {
     const cores = [
         '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF',
-        '#FF9F40', '#FF6384', '#C9CBCF', '#4BC0C0', '#FF6384',
-        '#36A2EB', '#FFCE56', '#E74C3C', '#3498DB', '#2ECC71',
-        '#F39C12', '#9B59B6', '#1ABC9C', '#E67E22', '#95A5A6'
+        '#FF9F40', '#C9CBCF', '#FF6B6B', '#4ECDC4', '#45B7D1'
     ];
-    return cores[Math.floor(Math.random() * cores.length)];
-}
-
-// Função para exportar dados (funcionalidade adicional)
-function exportarDados() {
-    const ano = document.getElementById('filter-ano-av2').value;
-    const disciplina = document.getElementById('filter-disciplina-av2').value;
     
-    if (!ano || !disciplina) {
-        alert('Selecione o ano e a disciplina para exportar os dados');
-        return;
+    // Gerar cor baseada no código
+    let hash = 0;
+    for (let i = 0; i < codigo.length; i++) {
+        hash = codigo.charCodeAt(i) + ((hash << 5) - hash);
     }
     
-    const dados = {
-        filtros: { ano, disciplina },
-        descritores: dadosAV2.resultados[ano] ? dadosAV2.resultados[ano][disciplina] : null,
-        escolas: dadosAV2.desempenhoEscolas[ano] ? dadosAV2.desempenhoEscolas[ano][disciplina] : null
-    };
-    
-    const blob = new Blob([JSON.stringify(dados, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `av2_${ano}_${disciplina.toLowerCase()}_${new Date().getTime()}.json`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    return cores[Math.abs(hash) % cores.length];
 }
