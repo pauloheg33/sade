@@ -520,6 +520,50 @@ body {
     display: inline-block;
 }
 
+/* Questões Modal */
+.questao-card {
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.questao-card:hover {
+    border-color: var(--sade-primary);
+    box-shadow: 0 2px 8px rgba(68, 114, 196, 0.1);
+}
+
+.questao-texto {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--sade-dark);
+}
+
+.descritor-info {
+    background: #f8f9fa !important;
+    border-left: 4px solid var(--sade-primary);
+}
+
+.questoes-container {
+    padding-right: 10px;
+}
+
+.questoes-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.questoes-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.questoes-container::-webkit-scrollbar-thumb {
+    background: var(--sade-primary);
+    border-radius: 3px;
+}
+
+.questoes-container::-webkit-scrollbar-thumb:hover {
+    background: #3a5ba0;
+}
+
 /* No results */
 .no-results {
     text-align: center;

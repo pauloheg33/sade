@@ -3,6 +3,28 @@ const dadosAV2 = {
     anos: ['2º', '4º', '5º', '8º', '9º'],
     materias: ['Português', 'Matemática'],
     
+    // Mapeamento dos arquivos de análise
+    arquivosAnalise: {
+        '2º': {
+            'Português': 'correlacao_questoes_descritores_P0201.txt',
+            'Matemática': 'correlacao_questoes_descritores_M0201.txt'
+        },
+        '4º': {
+            'Português': 'correlacao_questoes_descritores_C0401.txt',
+            'Matemática': 'correlacao_questoes_descritores_C0401.txt' // Mesmo arquivo contém ambas
+        },
+        '5º': {
+            'Português': 'correlacao_questoes_descritores_C0501.txt',
+            'Matemática': 'correlacao_questoes_descritores_C0501.txt'
+        },
+        '8º': {
+            'Português': 'correlacao_questoes_descritores_C0801.txt'
+        },
+        '9º': {
+            'Português': 'correlacao_questoes_descritores_C0901.txt'
+        }
+    },
+    
     // Dados extraídos dos arquivos de correlação questões x descritores
     resultados: {
         '2º': {
@@ -376,7 +398,7 @@ function obterCorDescritor(codigo) {
 }
 
 // Função para mostrar detalhes (corrige o problema dos links)
-function mostrarDetalhes(ano, disciplina) {
+async function mostrarDetalhes(ano, disciplina) {
     const dados = dadosAV2.resultados[ano] && dadosAV2.resultados[ano][disciplina];
     
     if (!dados) {
@@ -384,82 +406,220 @@ function mostrarDetalhes(ano, disciplina) {
         return;
     }
     
-    // Criar modal com detalhes
-    const modalHtml = `
-        <div class="modal fade" id="detalhesModal" tabindex="-1">
-            <div class="modal-dialog modal-lg">
+    // Mostrar loading
+    mostrarModalLoading();
+    
+    try {
+        // Carregar questões do arquivo de análise
+        const questoes = await carregarQuestoesDoArquivo(ano, disciplina);
+        
+        // Criar modal com detalhes das questões
+        const modalHtml = `
+            <div class="modal fade" id="detalhesModal" tabindex="-1">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">
+                                <i class="fas ${disciplina === 'Português' ? 'fa-book' : 'fa-calculator'} me-2"></i>
+                                ${disciplina} - ${ano} Ano - Questões e Descritores
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <div class="stat-box text-center">
+                                        <div class="stat-number">${questoes.length}</div>
+                                        <div class="stat-label">Questões</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="stat-box text-center">
+                                        <div class="stat-number">${Object.keys(dados.descritores).length}</div>
+                                        <div class="stat-label">Descritores</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="stat-box text-center">
+                                        <div class="stat-number">${dados.caderno}</div>
+                                        <div class="stat-label">Caderno</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h6 class="mb-3">
+                                <i class="fas fa-list-ol me-2"></i>Questões e Correlações com Descritores:
+                            </h6>
+                            <div class="questoes-container" style="max-height: 500px; overflow-y: auto;">
+                                ${criarListaQuestoes(questoes)}
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Remover modal existente se houver
+        const existingModal = document.getElementById('detalhesModal');
+        if (existingModal) {
+            existingModal.remove();
+        }
+        
+        // Adicionar modal ao DOM
+        document.body.insertAdjacentHTML('beforeend', modalHtml);
+        
+        // Mostrar modal
+        const modal = new bootstrap.Modal(document.getElementById('detalhesModal'));
+        modal.show();
+        
+    } catch (error) {
+        console.error('Erro ao carregar questões:', error);
+        alert('Erro ao carregar os detalhes das questões. Verifique o console para mais informações.');
+    }
+}
+
+function mostrarModalLoading() {
+    const loadingHtml = `
+        <div class="modal fade" id="loadingModal" tabindex="-1">
+            <div class="modal-dialog modal-sm">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">
-                            <i class="fas ${disciplina === 'Português' ? 'fa-book' : 'fa-calculator'} me-2"></i>
-                            ${disciplina} - ${ano} Ano
-                        </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row mb-3">
-                            <div class="col-md-4">
-                                <div class="stat-box text-center">
-                                    <div class="stat-number">${dados.totalQuestoes}</div>
-                                    <div class="stat-label">Questões</div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="stat-box text-center">
-                                    <div class="stat-number">${Object.keys(dados.descritores).length}</div>
-                                    <div class="stat-label">Descritores</div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="stat-box text-center">
-                                    <div class="stat-number">${dados.caderno}</div>
-                                    <div class="stat-label">Caderno</div>
-                                </div>
-                            </div>
+                    <div class="modal-body text-center p-4">
+                        <div class="spinner-border text-primary mb-3" role="status">
+                            <span class="visually-hidden">Carregando...</span>
                         </div>
-                        
-                        <h6>Todos os Descritores Avaliados:</h6>
-                        <div class="table-responsive">
-                            <table class="table table-sm">
-                                <thead>
-                                    <tr>
-                                        <th>Código</th>
-                                        <th>Descrição</th>
-                                        <th>Questões</th>
-                                        <th>%</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    ${Object.entries(dados.descritores).map(([codigo, desc]) => `
-                                        <tr>
-                                            <td><span class="badge bg-primary">${codigo}</span></td>
-                                            <td>${desc.nome}</td>
-                                            <td class="text-center">${desc.questoes}</td>
-                                            <td class="text-center">${desc.percentual}%</td>
-                                        </tr>
-                                    `).join('')}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <p class="mb-0">Carregando questões...</p>
                     </div>
                 </div>
             </div>
         </div>
     `;
     
-    // Remover modal existente se houver
-    const existingModal = document.getElementById('detalhesModal');
-    if (existingModal) {
-        existingModal.remove();
+    document.body.insertAdjacentHTML('beforeend', loadingHtml);
+    const modal = new bootstrap.Modal(document.getElementById('loadingModal'));
+    modal.show();
+}
+
+async function carregarQuestoesDoArquivo(ano, disciplina) {
+    const nomeArquivo = dadosAV2.arquivosAnalise[ano] && dadosAV2.arquivosAnalise[ano][disciplina];
+    
+    if (!nomeArquivo) {
+        throw new Error(`Arquivo não encontrado para ${ano} - ${disciplina}`);
     }
     
-    // Adicionar modal ao DOM
-    document.body.insertAdjacentHTML('beforeend', modalHtml);
+    try {
+        const response = await fetch(`./analises/${nomeArquivo}`);
+        if (!response.ok) {
+            throw new Error(`Erro ao carregar arquivo: ${response.status}`);
+        }
+        
+        const conteudo = await response.text();
+        return parseQuestoesDoConteudo(conteudo, disciplina);
+        
+    } catch (error) {
+        console.error(`Erro ao carregar ${nomeArquivo}:`, error);
+        
+        // Fallback: usar questões simuladas baseadas nos descritores conhecidos
+        return gerarQuestoesFallback(ano, disciplina);
+    }
+}
+
+function parseQuestoesDoConteudo(conteudo, disciplina) {
+    const questoes = [];
+    const linhas = conteudo.split('\n');
     
-    // Mostrar modal
-    const modal = new bootstrap.Modal(document.getElementById('detalhesModal'));
-    modal.show();
+    let questaoAtual = null;
+    let numeroQuestao = 0;
+    
+    for (let linha of linhas) {
+        linha = linha.trim();
+        
+        // Identificar início de questão
+        const matchQuestao = linha.match(/^(\d+)\)\s*\(([^)]+)\)\s*(.+)/);
+        if (matchQuestao) {
+            numeroQuestao = parseInt(matchQuestao[1]);
+            const codigo = matchQuestao[2];
+            const textoQuestao = matchQuestao[3];
+            
+            questaoAtual = {
+                numero: numeroQuestao,
+                codigo: codigo,
+                texto: textoQuestao,
+                descritor: null
+            };
+        }
+        
+        // Identificar descritor
+        const matchDescritor = linha.match(/Descritor:\s*(D\d+_[PM])\s*-\s*(.+)/);
+        if (matchDescritor && questaoAtual) {
+            questaoAtual.descritor = {
+                codigo: matchDescritor[1],
+                nome: matchDescritor[2]
+            };
+            
+            questoes.push(questaoAtual);
+            questaoAtual = null;
+        }
+    }
+    
+    return questoes;
+}
+
+function gerarQuestoesFallback(ano, disciplina) {
+    const dados = dadosAV2.resultados[ano] && dadosAV2.resultados[ano][disciplina];
+    if (!dados) return [];
+    
+    const questoes = [];
+    let numeroQuestao = 1;
+    
+    // Gerar questões baseadas nos descritores conhecidos
+    Object.entries(dados.descritores).forEach(([codigo, info]) => {
+        for (let i = 0; i < info.questoes; i++) {
+            questoes.push({
+                numero: numeroQuestao++,
+                codigo: `SIM${numeroQuestao.toString().padStart(3, '0')}`,
+                texto: `Questão simulada para o descritor ${codigo}`,
+                descritor: {
+                    codigo: codigo,
+                    nome: info.nome
+                }
+            });
+        }
+    });
+    
+    return questoes;
+}
+
+function criarListaQuestoes(questoes) {
+    if (!questoes || questoes.length === 0) {
+        return '<div class="alert alert-info">Nenhuma questão encontrada.</div>';
+    }
+    
+    return questoes.map(questao => `
+        <div class="card mb-3 questao-card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span class="fw-bold">
+                    <i class="fas fa-question-circle me-2 text-primary"></i>
+                    Questão ${questao.numero.toString().padStart(2, '0')}
+                </span>
+                <span class="badge bg-secondary">${questao.codigo}</span>
+            </div>
+            <div class="card-body">
+                <p class="questao-texto mb-3">${questao.texto}</p>
+                <div class="descritor-info p-3 bg-light rounded">
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <span class="badge bg-primary fs-6">${questao.descritor.codigo}</span>
+                        </div>
+                        <div class="col-md-9">
+                            <small class="text-muted fw-bold">Descritor:</small>
+                            <div>${questao.descritor.nome}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `).join('');
 }
