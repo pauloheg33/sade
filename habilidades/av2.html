@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AV2 - Análise de Avaliação - SADE v0.2.0</title>
+    <meta name="description" content="AV2 - Análise de Avaliação 2º, 4º, 5º, 8º e 9º ano - SADE v0.2.0">
+    <meta name="keywords" content="AV2, Avaliação, SADE, Ararendá, Educação">
+    <meta name="author" content="Paulo Henrique">
+    <meta name="copyright" content="© 2024-2025 Paulo Henrique. Todos os direitos reservados.">
+    <meta name="license" content="MIT License">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <style>
+        .av2-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .av2-card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .av2-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .filter-section {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .results-section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+        
+        .year-badge {
+            background: #007bff;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin: 0.2rem;
+            display: inline-block;
+        }
+        
+        .subject-badge {
+            background: #28a745;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin: 0.2rem;
+            display: inline-block;
+        }
+        
+        .stat-card {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .analysis-placeholder {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Principal -->
+    <header class="sade-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <div class="d-flex align-items-center">
+                        <img src="images/brasao-ararenda.png" alt="Brasão Ararendá" class="brasao me-3">
+                        <div class="header-info">
+                            <div class="secretaria-titulo">SECRETARIA DA</div>
+                            <div class="secretaria-titulo">EDUCAÇÃO</div>
+                            <div class="municipio">DE ARARENDÁ</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <h1 class="sade-title">SADE</h1>
+                    <p class="sade-subtitle">Sistema de Avaliação e Desempenho Escolar</p>
+                    <small class="coordenadoria">COORDENADORIA DE FORMAÇÃO, ESTATÍSTICA E AVALIAÇÃO</small>
+                </div>
+                <div class="col-md-3 text-end">
+                    <span class="version-badge">v0.2.0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sade-navbar">
+        <div class="container-fluid">
+            <span class="navbar-brand">SADE</span>
+            <div class="navbar-nav">
+                <a class="nav-link" href="https://pauloheg33.github.io/sade/">
+                    <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                </a>
+                <a class="nav-link" href="https://pauloheg33.github.io/sade/proea.html">
+                    <i class="fas fa-graduation-cap me-2"></i>P-II-2025
+                </a>
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-brain me-2"></i>Habilidades
+                </a>
+                <a class="nav-link active" href="#">
+                    <i class="fas fa-clipboard-check me-2"></i>AV2
+                </a>
+                <a class="nav-link" href="https://pauloheg33.github.io/sade/An_lise_Gr_ficos_Desempenho_1_/graficos_consolidados/analise_desempenho_consolidada.html">
+                    <i class="fas fa-chart-line me-2"></i>Análise Consolidada
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container-fluid mt-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="https://pauloheg33.github.io/sade/">Home</a></li>
+                <li class="breadcrumb-item"><a href="index.html">Habilidades</a></li>
+                <li class="breadcrumb-item active" aria-current="page">AV2</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="av2-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-3">
+                        <i class="fas fa-clipboard-check me-3"></i>Análise AV2
+                    </h1>
+                    <p class="lead mb-4">
+                        Avaliação das provas do 2º, 4º, 5º, 8º e 9º ano - Português e Matemática
+                    </p>
+                    <div class="d-flex flex-wrap">
+                        <span class="year-badge">2º Ano</span>
+                        <span class="year-badge">4º Ano</span>
+                        <span class="year-badge">5º Ano</span>
+                        <span class="year-badge">8º Ano</span>
+                        <span class="year-badge">9º Ano</span>
+                    </div>
+                    <div class="d-flex flex-wrap mt-2">
+                        <span class="subject-badge">Português</span>
+                        <span class="subject-badge">Matemática</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fas fa-chart-line" style="font-size: 8rem; opacity: 0.3;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <div class="container-fluid">
+        <!-- Filtros -->
+        <div class="filter-section">
+            <div class="row g-4 align-items-end">
+                <div class="col-md-3">
+                    <label class="form-label fw-bold">
+                        <i class="fas fa-layer-group me-2"></i>Ano Escolar
+                    </label>
+                    <select id="filter-ano-av2" class="form-select">
+                        <option value="">Selecione o ano</option>
+                        <option value="2">2º Ano</option>
+                        <option value="4">4º Ano</option>
+                        <option value="5">5º Ano</option>
+                        <option value="8">8º Ano</option>
+                        <option value="9">9º Ano</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-3">
+                    <label class="form-label fw-bold">
+                        <i class="fas fa-book me-2"></i>Disciplina
+                    </label>
+                    <select id="filter-disciplina-av2" class="form-select">
+                        <option value="">Selecione a disciplina</option>
+                        <option value="portugues">Português</option>
+                        <option value="matematica">Matemática</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-3">
+                    <label class="form-label fw-bold">
+                        <i class="fas fa-school me-2"></i>Escola
+                    </label>
+                    <select id="filter-escola-av2" class="form-select">
+                        <option value="">Todas as escolas</option>
+                        <!-- As escolas serão carregadas dinamicamente -->
+                    </select>
+                </div>
+                
+                <div class="col-md-3">
+                    <button class="btn btn-success w-100 btn-lg" id="analisar-av2">
+                        <i class="fas fa-search me-2"></i>Analisar Dados
+                    </button>
+                </div>
+            </div>
+            
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <button class="btn btn-warning" id="limpar-filtros-av2">
+                        <i class="fas fa-eraser me-2"></i>Limpar Filtros
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Estatísticas -->
+        <div class="row g-4 mb-4" id="stats-container" style="display: none;">
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <div class="stat-number" id="total-alunos">0</div>
+                    <div class="stat-label">Total de Alunos</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <div class="stat-number" id="media-geral-av2">0%</div>
+                    <div class="stat-label">Média Geral</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <div class="stat-number" id="escolas-participantes">0</div>
+                    <div class="stat-label">Escolas</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <div class="stat-number" id="questoes-analisadas">0</div>
+                    <div class="stat-label">Questões</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resultados -->
+        <div class="results-section" id="resultados-av2" style="display: none;">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="mb-4">
+                        <i class="fas fa-chart-bar me-2"></i>
+                        Resultados da Análise: 
+                        <span id="resultado-titulo">-</span>
+                    </h3>
+                </div>
+            </div>
+            
+            <!-- Gráficos -->
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="av2-card card">
+                        <div class="card-header bg-primary text-white">
+                            <h6 class="mb-0">
+                                <i class="fas fa-chart-pie me-2"></i>Distribuição de Desempenho
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="chart-desempenho-av2" height="300"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="av2-card card">
+                        <div class="card-header bg-success text-white">
+                            <h6 class="mb-0">
+                                <i class="fas fa-chart-bar me-2"></i>Comparativo por Escola
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="chart-escolas-av2" height="300"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tabela de Resultados -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="av2-card card">
+                        <div class="card-header bg-info text-white">
+                            <h6 class="mb-0">
+                                <i class="fas fa-table me-2"></i>Detalhamento dos Resultados
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover" id="tabela-resultados-av2">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th>Escola</th>
+                                            <th>Ano</th>
+                                            <th>Disciplina</th>
+                                            <th>Nº Alunos</th>
+                                            <th>Média</th>
+                                            <th>Desempenho</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Resultados serão inseridos aqui -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Placeholder quando não há dados -->
+        <div class="analysis-placeholder" id="placeholder-av2">
+            <i class="fas fa-chart-line" style="font-size: 4rem; color: #dee2e6; margin-bottom: 1rem;"></i>
+            <h4 class="text-muted">Selecione os filtros e clique em "Analisar Dados"</h4>
+            <p class="text-muted mb-0">
+                Escolha o ano escolar e a disciplina para visualizar os resultados da avaliação AV2
+            </p>
+        </div>
+    </div>
+
+    <!-- Loading -->
+    <div id="loading-av2" class="text-center my-5" style="display: none;">
+        <div class="spinner-border text-primary" role="status"></div>
+        <p class="mt-3 fs-5">Carregando dados da AV2...</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="sade-footer mt-5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <p class="mb-1">&copy; 2024-2025 Paulo Henrique. Todos os direitos reservados.</p>
+                    <small class="text-muted">SADE v0.2.0 - Sistema licenciado sob MIT License</small>
+                </div>
+                <div class="col-md-4 text-end">
+                    <small class="text-muted">Secretaria da Educação de Ararendá - CE</small><br>
+                    <small class="text-muted">Desenvolvido com <i class="fas fa-heart text-danger"></i> por Paulo Henrique</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/av2.js"></script>
+</body>
+</html>

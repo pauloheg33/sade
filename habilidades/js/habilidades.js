@@ -224,3 +224,14 @@ window.HabilidadesFunctions = {
     exportarDadosAnalise,
     gerarInsights
 };
+
+// Event listeners para botões
+document.addEventListener('DOMContentLoaded', function() {
+    // Botão AV2
+    const av2Button = document.getElementById('av2-button');
+    if (av2Button) {
+        av2Button.addEventListener('click', function() {
+            window.location.href = 'av2.html';
+        });
+    }
+});
