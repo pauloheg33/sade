@@ -1,0 +1,203 @@
+CORRELAÇÃO QUESTÕES x DESCRITORES - CARDENO C0801 (8º ANO)
+======================================================================
+
+LÍNGUA PORTUGUESA (Questões 1-26):
+--------------------------------------------------
+
+QUESTÃO 01 → D019_P: Reconhecer formas de tratar uma informação na comparação de textos que tratam do mesmo tema
+
+QUESTÃO 02 → D026_P: Reconhecer efeitos de sentido decorrentes da exploração de recursos linguísticos
+
+QUESTÃO 03 → D043_P: Reconhecer recursos estilísticos utilizados na construção de textos
+
+QUESTÃO 04 → D017_P: Reconhecer o gênero de um texto
+
+QUESTÃO 05 → D037_P: Reconhecer as relações entre partes de um texto, identificando os recursos coesivos que contribuem para a sua continuidade
+
+QUESTÃO 06 → D028_P: Reconhecer o assunto de um texto lido
+
+QUESTÃO 07 → D026_P: Reconhecer efeitos de sentido decorrentes da exploração de recursos linguísticos
+
+QUESTÃO 08 → D023_P: Inferir informações em textos
+
+QUESTÃO 09 → D016_P: Identificar a finalidade de textos de diferentes gêneros
+
+QUESTÃO 10 → D025_P: Reconhecer efeitos de sentido decorrentes do uso ou função da pontuação e de outras notações
+
+QUESTÃO 11 → D022_P: Inferir o sentido de palavra ou expressão a partir do contexto
+
+QUESTÃO 12 → D016_P: Identificar a finalidade de textos de diferentes gêneros
+
+QUESTÃO 13 → D024_P: Reconhecer efeito de humor ou de ironia em um texto
+
+QUESTÃO 14 → D037_P: Reconhecer as relações entre partes de um texto, identificando os recursos coesivos que contribuem para a sua continuidade
+
+QUESTÃO 15 → D038_P: Distinguir um fato da opinião
+
+QUESTÃO 16 → D016_P: Identificar a finalidade de textos de diferentes gêneros
+
+QUESTÃO 17 → D044_P: Identificar marcas linguísticas em um texto
+
+QUESTÃO 18 → D023_P: Inferir informações em textos
+
+QUESTÃO 19 → D017_P: Reconhecer o gênero de um texto
+
+QUESTÃO 20 → D039_P: Reconhecer o sentido das relações lógico-discursivas em um texto
+
+QUESTÃO 21 → D019_P: Reconhecer formas de tratar uma informação na comparação de textos que tratam do mesmo tema
+
+QUESTÃO 22 → D026_P: Reconhecer efeitos de sentido decorrentes da exploração de recursos linguísticos
+
+QUESTÃO 23 → D025_P: Reconhecer efeitos de sentido decorrentes do uso ou função da pontuação e de outras notações
+
+QUESTÃO 24 → D017_P: Reconhecer o gênero de um texto
+
+QUESTÃO 25 → D039_P: Reconhecer o sentido das relações lógico-discursivas em um texto
+
+QUESTÃO 26 → D044_P: Identificar marcas linguísticas em um texto
+
+
+MATEMÁTICA (Questões 27-52):
+--------------------------------------------------
+
+QUESTÃO 27 → D002_M: Reconhecer características do sistema de numeração decimal (notação científica)
+
+QUESTÃO 28 → D122_M: Utilizar cálculos, envolvendo a igualdade de uma operação em que um dos termos é desconhecido na resolução de problemas
+
+QUESTÃO 29 → D025_M: Utilizar área de figuras bidimensionais na resolução de problema
+
+QUESTÃO 30 → D005_M: Utilizar números naturais, envolvendo diferentes significados da adição ou da subtração, na resolução de problemas
+
+QUESTÃO 31 → D128_M: Calcular probabilidade de um evento (descritor estimado para 8º ano)
+
+QUESTÃO 32 → D002_M: Reconhecer características do sistema de numeração decimal (notação científica)
+
+QUESTÃO 33 → D086_M: Executar multiplicação ou divisão com números naturais
+
+QUESTÃO 34 → D030_M: Utilizar conversão entre unidades de medida, na resolução de problema
+
+QUESTÃO 35 → D122_M: Utilizar cálculos, envolvendo a igualdade de uma operação em que um dos termos é desconhecido na resolução de problemas
+
+QUESTÃO 36 → D129_M: Calcular média aritmética (descritor estimado para 8º ano)
+
+QUESTÃO 37 → D130_M: Resolver sistema de equações do 1º grau (descritor estimado para 8º ano)
+
+QUESTÃO 38 → D131_M: Calcular porcentagem (descritor estimado para 8º ano)
+
+QUESTÃO 39 → D130_M: Resolver sistema de equações do 1º grau (descritor estimado para 8º ano)
+
+QUESTÃO 40 → D132_M: Resolver problemas de contagem (descritor estimado para 8º ano)
+
+QUESTÃO 41 → D133_M: Utilizar expressões algébricas na resolução de problemas (descritor estimado para 8º ano)
+
+QUESTÃO 42 → D086_M: Executar multiplicação ou divisão com números naturais
+
+QUESTÃO 43 → D020_M: Corresponder figuras tridimensionais às suas planificações
+
+QUESTÃO 44 → D021_M: Utilizar informações apresentadas em tabelas ou gráficos na resolução de problemas
+
+QUESTÃO 45 → D127_M: Reconhecer e nomear polígonos conforme as características dos seus lados, vértices e ângulos internos
+
+QUESTÃO 46 → D030_M: Utilizar conversão entre unidades de medida, na resolução de problema
+
+QUESTÃO 47 → D131_M: Calcular porcentagem (descritor estimado para 8º ano)
+
+QUESTÃO 48 → D134_M: Representar graficamente equação do 1º grau (descritor estimado para 8º ano)
+
+QUESTÃO 49 → D135_M: Calcular volume de sólidos geométricos (descritor estimado para 8º ano)
+
+QUESTÃO 50 → D136_M: Aplicar transformações geométricas (descritor estimado para 8º ano)
+
+QUESTÃO 51 → D129_M: Calcular média aritmética (descritor estimado para 8º ano)
+
+QUESTÃO 52 → D030_M: Utilizar conversão entre unidades de medida, na resolução de problema
+
+
+======================================================================
+FREQUÊNCIA DOS DESCRITORES
+======================================================================
+
+LÍNGUA PORTUGUESA:
+------------------------------
+D016_P: 3 questão(ões)
+D017_P: 3 questão(ões)
+D019_P: 2 questão(ões)
+D022_P: 1 questão(ões)
+D023_P: 2 questão(ões)
+D024_P: 1 questão(ões)
+D025_P: 2 questão(ões)
+D026_P: 3 questão(ões)
+D028_P: 1 questão(ões)
+D037_P: 2 questão(ões)
+D038_P: 1 questão(ões)
+D039_P: 2 questão(ões)
+D043_P: 1 questão(ões)
+D044_P: 2 questão(ões)
+
+MATEMÁTICA:
+------------------------------
+D002_M: 2 questão(ões)
+D005_M: 1 questão(ões)
+D020_M: 1 questão(ões)
+D021_M: 1 questão(ões)
+D025_M: 1 questão(ões)
+D030_M: 3 questão(ões)
+D086_M: 2 questão(ões)
+D122_M: 2 questão(ões)
+D127_M: 1 questão(ões)
+D128_M: 1 questão(ões)
+D129_M: 2 questão(ões)
+D130_M: 2 questão(ões)
+D131_M: 2 questão(ões)
+D132_M: 1 questão(ões)
+D133_M: 1 questão(ões)
+D134_M: 1 questão(ões)
+D135_M: 1 questão(ões)
+D136_M: 1 questão(ões)
+
+TOTAL GERAL:
+------------------------------
+D002_M: 2 questão(ões)
+D005_M: 1 questão(ões)
+D016_P: 3 questão(ões)
+D017_P: 3 questão(ões)
+D019_P: 2 questão(ões)
+D020_M: 1 questão(ões)
+D021_M: 1 questão(ões)
+D022_P: 1 questão(ões)
+D023_P: 2 questão(ões)
+D024_P: 1 questão(ões)
+D025_M: 1 questão(ões)
+D025_P: 2 questão(ões)
+D026_P: 3 questão(ões)
+D028_P: 1 questão(ões)
+D030_M: 3 questão(ões)
+D037_P: 2 questão(ões)
+D038_P: 1 questão(ões)
+D039_P: 2 questão(ões)
+D043_P: 1 questão(ões)
+D044_P: 2 questão(ões)
+D086_M: 2 questão(ões)
+D122_M: 2 questão(ões)
+D127_M: 1 questão(ões)
+D128_M: 1 questão(ões)
+D129_M: 2 questão(ões)
+D130_M: 2 questão(ões)
+D131_M: 2 questão(ões)
+D132_M: 1 questão(ões)
+D133_M: 1 questão(ões)
+D134_M: 1 questão(ões)
+D135_M: 1 questão(ões)
+D136_M: 1 questão(ões)
+
+TOTAL DE QUESTÕES ANALISADAS: 52
+LÍNGUA PORTUGUESA: 26 questões
+MATEMÁTICA: 26 questões
+
+======================================================================
+OBSERVAÇÕES:
+======================================================================
+- As matrizes específicas do 8º ano não estavam completas nos arquivos fornecidos.
+- Foram utilizados descritores da 3ª série do EM para Língua Portuguesa.
+- Para Matemática, foram utilizados descritores disponíveis e estimados para o 8º ano.
+- Alguns descritores foram estimados com base no conteúdo típico do 8º ano.

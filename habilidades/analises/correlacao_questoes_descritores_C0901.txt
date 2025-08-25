@@ -1,0 +1,119 @@
+CORRELAÇÃO QUESTÕES x DESCRITORES - CARDENO C0901 (9º ANO)
+AVALIAÇÃO DE LÍNGUA PORTUGUESA E MATEMÁTICA
+
+=== LÍNGUA PORTUGUESA ===
+
+Questão 01: D019_P - Reconhecer formas de tratar uma informação na comparação de textos que tratam do mesmo tema.
+Questão 02: D026_P - Reconhecer efeitos de sentido decorrentes da exploração de recursos linguísticos.
+Questão 03: D023_P - Inferir informações em textos.
+Questão 04: D022_P - Inferir o sentido de palavra ou expressão a partir do contexto.
+Questão 05: D038_P - Distinguir um fato da opinião.
+Questão 06: D039_P - Reconhecer o sentido das relações lógico-discursivas em um texto.
+Questão 07: D016_P - Identificar a finalidade de textos de diferentes gêneros.
+Questão 08: D022_P - Inferir o sentido de palavra ou expressão a partir do contexto.
+Questão 09: D024_P - Reconhecer efeito de humor ou de ironia em um texto.
+Questão 10: D044_P - Identificar marcas linguísticas em um texto.
+Questão 11: D019_P - Reconhecer formas de tratar uma informação na comparação de textos que tratam do mesmo tema.
+Questão 12: D043_P - Reconhecer recursos estilísticos utilizados na construção de textos.
+Questão 13: D023_P - Inferir informações em textos.
+Questão 14: D016_P - Identificar a finalidade de textos de diferentes gêneros.
+Questão 15: D037_P - Reconhecer as relações entre partes de um texto, identificando os recursos coesivos que contribuem para a sua continuidade.
+Questão 16: D016_P - Identificar a finalidade de textos de diferentes gêneros.
+Questão 17: D044_P - Identificar marcas linguísticas em um texto.
+Questão 18: D023_P - Inferir informações em textos.
+Questão 19: D016_P - Identificar a finalidade de textos de diferentes gêneros.
+Questão 20: D039_P - Reconhecer o sentido das relações lógico-discursivas em um texto.
+Questão 21: D038_P - Distinguir um fato da opinião.
+Questão 22: D016_P - Identificar a finalidade de textos de diferentes gêneros.
+Questão 23: D037_P - Reconhecer as relações entre partes de um texto, identificando os recursos coesivos que contribuem para a sua continuidade.
+Questão 24: D016_P - Identificar a finalidade de textos de diferentes gêneros.
+Questão 25: D039_P - Reconhecer o sentido das relações lógico-discursivas em um texto.
+Questão 26: D022_P - Inferir o sentido de palavra ou expressão a partir do contexto.
+
+=== MATEMÁTICA ===
+
+Questão 27: D032_M - Simplificar expressões algébricas.
+Questão 28: D033_M - Localizar números irracionais na reta numérica.
+Questão 29: D034_M - Resolver problemas envolvendo expressões algébricas.
+Questão 30: D035_M - Reconhecer ângulos em figuras geométricas.
+Questão 31: D036_M - Calcular volume de sólidos geométricos.
+Questão 32: D037_M - Resolver problemas de proporcionalidade.
+Questão 33: D038_M - Calcular porcentagens.
+Questão 34: D039_M - Aplicar teorema de Pitágoras.
+Questão 35: D040_M - Identificar funções em diagramas.
+Questão 36: D041_M - Interpretar gráficos e tabelas.
+Questão 37: D042_M - Reconhecer funções em gráficos.
+Questão 38: D043_M - Calcular densidade demográfica.
+Questão 39: D044_M - Resolver equações do segundo grau.
+Questão 40: D045_M - Aplicar teorema de Pitágoras em problemas.
+Questão 41: D046_M - Calcular probabilidades.
+Questão 42: D047_M - Localizar números decimais na reta numérica.
+Questão 43: D048_M - Classificar triângulos.
+Questão 44: D049_M - Resolver problemas com sistema monetário.
+Questão 45: D050_M - Calcular área de figuras planas.
+Questão 46: D051_M - Calcular média aritmética.
+Questão 47: D052_M - Resolver problemas de porcentagem.
+Questão 48: D053_M - Resolver problemas de regra de três.
+Questão 49: D054_M - Identificar vistas de sólidos geométricos.
+Questão 50: D055_M - Resolver sistemas de equações.
+Questão 51: D056_M - Reconhecer ângulos em retas paralelas.
+Questão 52: D049_M - Resolver problemas com sistema monetário.
+
+
+=== FREQUÊNCIA DOS DESCRITORES ===
+
+LÍNGUA PORTUGUESA:
+D016_P: 6 questão(ões) - Identificar a finalidade de textos de diferentes gêneros.
+D019_P: 2 questão(ões) - Reconhecer formas de tratar uma informação na comparação de textos que tratam do mesmo tema.
+D022_P: 3 questão(ões) - Inferir o sentido de palavra ou expressão a partir do contexto.
+D023_P: 3 questão(ões) - Inferir informações em textos.
+D024_P: 1 questão(ões) - Reconhecer efeito de humor ou de ironia em um texto.
+D026_P: 1 questão(ões) - Reconhecer efeitos de sentido decorrentes da exploração de recursos linguísticos.
+D037_P: 2 questão(ões) - Reconhecer as relações entre partes de um texto, identificando os recursos coesivos que contribuem para a sua continuidade.
+D038_P: 2 questão(ões) - Distinguir um fato da opinião.
+D039_P: 3 questão(ões) - Reconhecer o sentido das relações lógico-discursivas em um texto.
+D043_P: 1 questão(ões) - Reconhecer recursos estilísticos utilizados na construção de textos.
+D044_P: 2 questão(ões) - Identificar marcas linguísticas em um texto.
+
+MATEMÁTICA:
+D032_M: 1 questão(ões) - Simplificar expressões algébricas.
+D033_M: 1 questão(ões) - Localizar números irracionais na reta numérica.
+D034_M: 1 questão(ões) - Resolver problemas envolvendo expressões algébricas.
+D035_M: 1 questão(ões) - Reconhecer ângulos em figuras geométricas.
+D036_M: 1 questão(ões) - Calcular volume de sólidos geométricos.
+D037_M: 1 questão(ões) - Resolver problemas de proporcionalidade.
+D038_M: 1 questão(ões) - Calcular porcentagens.
+D039_M: 1 questão(ões) - Aplicar teorema de Pitágoras.
+D040_M: 1 questão(ões) - Identificar funções em diagramas.
+D041_M: 1 questão(ões) - Interpretar gráficos e tabelas.
+D042_M: 1 questão(ões) - Reconhecer funções em gráficos.
+D043_M: 1 questão(ões) - Calcular densidade demográfica.
+D044_M: 1 questão(ões) - Resolver equações do segundo grau.
+D045_M: 1 questão(ões) - Aplicar teorema de Pitágoras em problemas.
+D046_M: 1 questão(ões) - Calcular probabilidades.
+D047_M: 1 questão(ões) - Localizar números decimais na reta numérica.
+D048_M: 1 questão(ões) - Classificar triângulos.
+D049_M: 2 questão(ões) - Resolver problemas com sistema monetário.
+D050_M: 1 questão(ões) - Calcular área de figuras planas.
+D051_M: 1 questão(ões) - Calcular média aritmética.
+D052_M: 1 questão(ões) - Resolver problemas de porcentagem.
+D053_M: 1 questão(ões) - Resolver problemas de regra de três.
+D054_M: 1 questão(ões) - Identificar vistas de sólidos geométricos.
+D055_M: 1 questão(ões) - Resolver sistemas de equações.
+D056_M: 1 questão(ões) - Reconhecer ângulos em retas paralelas.
+
+
+=== RESUMO ESTATÍSTICO ===
+
+Total de questões: 52
+- Língua Portuguesa: 26 questões
+- Matemática: 26 questões
+
+Descritores únicos utilizados:
+- Língua Portuguesa: 11 descritores
+- Matemática: 25 descritores
+
+OBSERVAÇÃO: Os descritores de Matemática foram estimados com base no conteúdo típico 
+do 9º ano, pois a matriz específica para este ano não estava completa nos arquivos 
+fornecidos. Os descritores de Língua Portuguesa foram baseados na matriz da 3ª série 
+do ensino médio, adaptados para o nível do 9º ano.

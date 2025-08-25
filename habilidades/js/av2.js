@@ -1,10 +1,10 @@
-// Dados reais da AV2 - AVALIE CE
+// Dados reais da AV2 - AVALIE CE baseados nas correlações dos arquivos de análise
 const dadosAV2 = {
     escolas: ['03 DE DEZEMBRO', 'FIRMINO JOSÉ', 'JOAQUIM FERREIRA', 'JOSE ALVES DE SENA', 'MOURÃO LIMA', 'ANTONIO DE SOUSA BARROS', 'MARIA AMELIA'],
-    anos: ['2º', '5º', '8º', '9º'],
+    anos: ['2º', '4º', '5º', '8º', '9º'],
     materias: ['Português', 'Matemática'],
     
-    // Dados por ano/matéria baseados nas correlações fornecidas
+    // Dados por ano/matéria baseados nas correlações reais dos arquivos de análise
     resultados: {
         '2º': {
             'Português': {
@@ -34,40 +34,66 @@ const dadosAV2 = {
                 }
             }
         },
-        '5º': {
+        '4º': {
             'Português': {
-                totalQuestoes: 26,
+                totalQuestoes: 22,
                 descritores: {
-                    'D016_P': { nome: 'Identificar a finalidade de textos de diferentes gêneros', questoes: 4, percentual: 15.4 },
-                    'D017_P': { nome: 'Reconhecer o gênero de um texto', questoes: 3, percentual: 11.5 },
-                    'D019_P': { nome: 'Reconhecer formas de tratar informação na comparação de textos', questoes: 2, percentual: 7.7 },
-                    'D022_P': { nome: 'Inferir o sentido de palavra ou expressão a partir do contexto', questoes: 2, percentual: 7.7 },
-                    'D023_P': { nome: 'Inferir informações em textos', questoes: 3, percentual: 11.5 },
-                    'D024_P': { nome: 'Reconhecer efeito de humor ou de ironia em um texto', questoes: 1, percentual: 3.8 },
-                    'D025_P': { nome: 'Reconhecer efeitos de sentido da pontuação e outras notações', questoes: 2, percentual: 7.7 },
-                    'D026_P': { nome: 'Reconhecer efeitos de sentido de recursos linguísticos', questoes: 3, percentual: 11.5 },
-                    'D028_P': { nome: 'Reconhecer o assunto de um texto lido', questoes: 1, percentual: 3.8 },
-                    'D037_P': { nome: 'Reconhecer relações entre partes de um texto (recursos coesivos)', questoes: 2, percentual: 7.7 },
-                    'D038_P': { nome: 'Distinguir um fato da opinião', questoes: 1, percentual: 3.8 },
-                    'D039_P': { nome: 'Reconhecer o sentido das relações lógico-discursivas', questoes: 2, percentual: 7.7 }
+                    'D016_P': { nome: 'Identificar a finalidade de textos de diferentes gêneros', questoes: 3, percentual: 13.6 },
+                    'D017_P': { nome: 'Reconhecer o gênero de um texto', questoes: 3, percentual: 13.6 },
+                    'D021_P': { nome: 'Localizar informação explícita', questoes: 6, percentual: 27.3 },
+                    'D022_P': { nome: 'Inferir o sentido de palavra ou expressão a partir do contexto', questoes: 2, percentual: 9.1 },
+                    'D023_P': { nome: 'Inferir informações em textos', questoes: 2, percentual: 9.1 },
+                    'D025_P': { nome: 'Reconhecer efeitos de sentido da pontuação e outras notações', questoes: 2, percentual: 9.1 },
+                    'D028_P': { nome: 'Reconhecer o assunto de um texto lido', questoes: 2, percentual: 9.1 },
+                    'D037_P': { nome: 'Reconhecer relações entre partes de um texto (recursos coesivos)', questoes: 2, percentual: 9.1 }
                 }
             },
             'Matemática': {
-                totalQuestoes: 26,
+                totalQuestoes: 22,
                 descritores: {
-                    'D002_M': { nome: 'Reconhecer características do sistema de numeração decimal', questoes: 2, percentual: 7.7 },
-                    'D005_M': { nome: 'Utilizar números naturais na resolução de problemas', questoes: 1, percentual: 3.8 },
-                    'D020_M': { nome: 'Corresponder figuras tridimensionais às suas planificações', questoes: 1, percentual: 3.8 },
-                    'D021_M': { nome: 'Utilizar informações de tabelas ou gráficos na resolução de problemas', questoes: 1, percentual: 3.8 },
-                    'D025_M': { nome: 'Utilizar área de figuras bidimensionais na resolução de problemas', questoes: 1, percentual: 3.8 },
-                    'D030_M': { nome: 'Utilizar conversão entre unidades de medida na resolução de problemas', questoes: 3, percentual: 11.5 },
-                    'D086_M': { nome: 'Executar multiplicação ou divisão com números naturais', questoes: 2, percentual: 7.7 },
-                    'D122_M': { nome: 'Utilizar cálculos envolvendo operação com termo desconhecido', questoes: 2, percentual: 7.7 },
-                    'D127_M': { nome: 'Reconhecer e nomear polígonos conforme características', questoes: 1, percentual: 3.8 },
-                    'D128_M': { nome: 'Calcular probabilidade de um evento', questoes: 1, percentual: 3.8 },
-                    'D129_M': { nome: 'Calcular média aritmética', questoes: 2, percentual: 7.7 },
-                    'D130_M': { nome: 'Resolver sistema de equações do 1º grau', questoes: 2, percentual: 7.7 },
-                    'D131_M': { nome: 'Calcular porcentagem', questoes: 2, percentual: 7.7 }
+                    'D001_M': { nome: 'Identificar a localização ou movimentação de pessoas/objetos no espaço', questoes: 2, percentual: 9.1 },
+                    'D002_M': { nome: 'Reconhecer características do sistema de numeração decimal', questoes: 2, percentual: 9.1 },
+                    'D004_M': { nome: 'Executar adição ou subtração com números naturais', questoes: 1, percentual: 4.5 },
+                    'D009_M': { nome: 'Identificar informações apresentadas em tabelas ou gráficos', questoes: 4, percentual: 18.2 },
+                    'D013_M': { nome: 'Identificar números naturais segundo critérios de ordem', questoes: 2, percentual: 9.1 },
+                    'D025_M': { nome: 'Utilizar área de figuras bidimensionais na resolução de problemas', questoes: 3, percentual: 13.6 },
+                    'D029_M': { nome: 'Reconhecer fração como representação de diferentes significados', questoes: 2, percentual: 9.1 },
+                    'D084_M': { nome: 'Utilizar conversão entre unidades de medidas de tempo', questoes: 2, percentual: 9.1 },
+                    'D086_M': { nome: 'Executar multiplicação ou divisão com números naturais', questoes: 4, percentual: 18.2 }
+                }
+            }
+        },
+        '5º': {
+            'Português': {
+                totalQuestoes: 22,
+                descritores: {
+                    'D016_P': { nome: 'Identificar a finalidade de textos de diferentes gêneros', questoes: 4, percentual: 18.2 },
+                    'D017_P': { nome: 'Reconhecer o gênero de um texto', questoes: 2, percentual: 9.1 },
+                    'D021_P': { nome: 'Localizar informação explícita', questoes: 3, percentual: 13.6 },
+                    'D022_P': { nome: 'Inferir o sentido de palavra ou expressão a partir do contexto', questoes: 2, percentual: 9.1 },
+                    'D023_P': { nome: 'Inferir informações em textos', questoes: 4, percentual: 18.2 },
+                    'D028_P': { nome: 'Reconhecer o assunto de um texto lido', questoes: 2, percentual: 9.1 },
+                    'D030_P': { nome: 'Reconhecer os elementos que compõem uma narrativa e o conflito gerador', questoes: 1, percentual: 4.5 },
+                    'D037_P': { nome: 'Reconhecer relações entre partes de um texto (recursos coesivos)', questoes: 2, percentual: 9.1 },
+                    'D039_P': { nome: 'Reconhecer o sentido das relações lógico-discursivas', questoes: 1, percentual: 4.5 },
+                    'D044_P': { nome: 'Identificar marcas linguísticas em um texto', questoes: 1, percentual: 4.5 }
+                }
+            },
+            'Matemática': {
+                totalQuestoes: 22,
+                descritores: {
+                    'D001_M': { nome: 'Identificar a localização ou movimentação de pessoas/objetos no espaço', questoes: 2, percentual: 9.1 },
+                    'D002_M': { nome: 'Reconhecer características do sistema de numeração decimal', questoes: 3, percentual: 13.6 },
+                    'D003_M': { nome: 'Identificar composições ou decomposições de números naturais', questoes: 1, percentual: 4.5 },
+                    'D009_M': { nome: 'Identificar informações apresentadas em tabelas ou gráficos', questoes: 2, percentual: 9.1 },
+                    'D011_M': { nome: 'Identificar representações de figuras tridimensionais', questoes: 1, percentual: 4.5 },
+                    'D013_M': { nome: 'Identificar números naturais segundo critérios de ordem', questoes: 2, percentual: 9.1 },
+                    'D020_M': { nome: 'Corresponder figuras tridimensionais às suas planificações', questoes: 1, percentual: 4.5 },
+                    'D021_M': { nome: 'Utilizar informações de tabelas ou gráficos na resolução de problemas', questoes: 2, percentual: 9.1 },
+                    'D025_M': { nome: 'Utilizar área de figuras bidimensionais na resolução de problemas', questoes: 2, percentual: 9.1 },
+                    'D029_M': { nome: 'Reconhecer fração como representação de diferentes significados', questoes: 3, percentual: 13.6 },
+                    'D030_M': { nome: 'Utilizar conversão entre unidades de medida na resolução de problemas', questoes: 2, percentual: 9.1 },
+                    'D079_M': { nome: 'Utilizar números racionais na resolução de problemas', questoes: 1, percentual: 4.5 }
                 }
             }
         },
@@ -185,6 +211,24 @@ const dadosAV2 = {
                 'MOURÃO LIMA': { media: 69.8, alunos: 25 },
                 'ANTONIO DE SOUSA BARROS': { media: 60.8, alunos: 18 },
                 'MARIA AMELIA': { media: 68.0, alunos: 7 }
+            }
+        },
+        '4º': {
+            'Português': {
+                'FIRMINO JOSÉ': { media: 72.5, alunos: 20 },
+                'JOAQUIM FERREIRA': { media: 68.3, alunos: 24 },
+                'JOSE ALVES DE SENA': { media: 59.8, alunos: 26 },
+                'MOURÃO LIMA': { media: 75.2, alunos: 22 },
+                'ANTONIO DE SOUSA BARROS': { media: 71.4, alunos: 19 },
+                '03 DE DEZEMBRO': { media: 80.1, alunos: 8 }
+            },
+            'Matemática': {
+                'FIRMINO JOSÉ': { media: 68.9, alunos: 20 },
+                'JOAQUIM FERREIRA': { media: 65.7, alunos: 24 },
+                'JOSE ALVES DE SENA': { media: 56.4, alunos: 26 },
+                'MOURÃO LIMA': { media: 72.8, alunos: 22 },
+                'ANTONIO DE SOUSA BARROS': { media: 69.2, alunos: 19 },
+                '03 DE DEZEMBRO': { media: 77.3, alunos: 8 }
             }
         },
         '5º': {

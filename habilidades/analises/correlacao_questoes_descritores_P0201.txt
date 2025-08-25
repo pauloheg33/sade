@@ -1,0 +1,126 @@
+CORRELAÇÃO QUESTÕES x DESCRITORES - CADERNO P0201
+AVALIE.CE - LÍNGUA PORTUGUESA - 2º ano do Ensino Fundamental
+======================================================================
+
+01) (P00131129) VEJA A FIGURA ABAIXO. QUAL É O NOME DESSA FIGURA?
+Descritor: D009_P - Ler palavras formadas por sílabas canônicas.
+
+--------------------------------------------------
+
+02) (P00132850) VEJA A FIGURA ABAIXO. QUAL É A FIGURA QUE TEM O NOME COM A PRIMEIRA SÍLABA (PEDAÇO) IGUAL À DO NOME DA FIGURA QUE VOCÊ VIU?
+Descritor: D008_P - Identificar sílabas de uma palavra.
+
+--------------------------------------------------
+
+03) (P00132863) NESSE TEXTO, A PALAVRA QUE RIMA COM "BRINCALHÃO" É
+Descritor: D006_P - Identificar rimas.
+
+--------------------------------------------------
+
+04) (P00132862) QUAL É A PALAVRA QUE VOCÊ OUVIU?
+Descritor: D009_P - Ler palavras formadas por sílabas canônicas.
+
+--------------------------------------------------
+
+05) (P00120957) VEJA A FIGURA ABAIXO. QUAL É A FIGURA QUE TEM O NOME COM A ÚLTIMA SÍLABA (PEDAÇO) IGUAL À DO NOME DA FIGURA QUE VOCÊ VIU?
+Descritor: D008_P - Identificar sílabas de uma palavra.
+
+--------------------------------------------------
+
+06) (P00116516) ESSE TEXTO SERVE PARA
+Descritor: D017_P - Reconhecer o gênero de um texto.
+
+--------------------------------------------------
+
+07) (P00116517) ESSE TEXTO É
+Descritor: D017_P - Reconhecer o gênero de um texto.
+
+--------------------------------------------------
+
+08) (P00037791) VEJA A FIGURA ABAIXO. QUAL É O NOME DESSA FIGURA?
+Descritor: D009_P - Ler palavras formadas por sílabas canônicas.
+
+--------------------------------------------------
+
+09) (P00117319) VEJA A FIGURA ABAIXO. QUAL É A PRIMEIRA LETRA DO NOME DA FIGURA QUE VOCÊ VIU?
+Descritor: D002_P - Reconhecer as letras do alfabeto.
+
+--------------------------------------------------
+
+10) (P00137338) DE ACORDO COM ESSE TEXTO, O MENINO DESCOBRIU QUE A SENHORA ESTAVA
+Descritor: D021_P - Localizar informação explícita.
+
+--------------------------------------------------
+
+11) (P00120965) ONDE ACONTECE ESSA HISTÓRIA?
+Descritor: D021_P - Localizar informação explícita.
+
+--------------------------------------------------
+
+12) (P00090189) QUAL É A PALAVRA QUE VOCÊ OUVIU?
+Descritor: D009_P - Ler palavras formadas por sílabas canônicas.
+
+--------------------------------------------------
+
+13) (P013455) VEJA A FIGURA ABAIXO. QUAL É A PRIMEIRA LETRA DO NOME DA FIGURA QUE VOCÊ VIU?
+Descritor: D002_P - Reconhecer as letras do alfabeto.
+
+--------------------------------------------------
+
+14) (P00061512) NESSE TEXTO, AS PALAVRAS QUE RIMAM SÃO
+Descritor: D006_P - Identificar rimas.
+
+--------------------------------------------------
+
+15) (P00075407) VEJA A FIGURA ABAIXO. QUAL É A FIGURA QUE TEM O NOME COM A ÚLTIMA SÍLABA (PEDAÇO) IGUAL À DO NOME DA FIGURA QUE VOCÊ VIU?
+Descritor: D008_P - Identificar sílabas de uma palavra.
+
+--------------------------------------------------
+
+16) (P018649) VEJA A FIGURA ABAIXO. QUAL É O NOME DESSA FIGURA?
+Descritor: D009_P - Ler palavras formadas por sílabas canônicas.
+
+--------------------------------------------------
+
+17) (P010965H6) MARQUE A ALTERNATIVA DA PALAVRA EM QUE A LETRA "G" TEM O MESMO SOM QUE NA PALAVRA GATO.
+Descritor: D014_P - Identificar variações de sons de grafemas.
+
+--------------------------------------------------
+
+18) (P00058066) QUAL É A PERSONAGEM PRINCIPAL DESSA HISTÓRIA?
+Descritor: D030_P - Reconhecer os elementos que compõem uma narrativa e o conflito gerador.
+
+--------------------------------------------------
+
+19) (P00058067) DE ACORDO COM ESSE TEXTO, O JACARÉ
+Descritor: D021_P - Localizar informação explícita.
+
+--------------------------------------------------
+
+20) (P00075421) QUAL É A PALAVRA QUE VOCÊ OUVIU?
+Descritor: D009_P - Ler palavras formadas por sílabas canônicas.
+
+--------------------------------------------------
+
+21) (P00042789) ESSE TEXTO SERVE PARA
+Descritor: D017_P - Reconhecer o gênero de um texto.
+
+--------------------------------------------------
+
+22) (P00114324) ESSE TEXTO É
+Descritor: D017_P - Reconhecer o gênero de um texto.
+
+--------------------------------------------------
+
+
+======================================================================
+RESUMO DOS DESCRITORES UTILIZADOS:
+
+D002_P: Reconhecer as letras do alfabeto.
+D006_P: Identificar rimas.
+D008_P: Identificar sílabas de uma palavra.
+D009_P: Ler palavras formadas por sílabas canônicas.
+D014_P: Identificar variações de sons de grafemas.
+D017_P: Reconhecer o gênero de um texto.
+D021_P: Localizar informação explícita.
+D030_P: Reconhecer os elementos que compõem uma narrativa e o conflito gerador.

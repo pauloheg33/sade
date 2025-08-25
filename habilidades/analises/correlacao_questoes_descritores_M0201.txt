@@ -1,0 +1,154 @@
+CORRELAÇÃO QUESTÕES x DESCRITORES - CADERNO M0201
+AVALIE.CE - MATEMÁTICA - 2º ano do Ensino Fundamental
+======================================================================
+
+01) (M00097144) QUAL DOS INSTRUMENTOS DE MEDIDA ABAIXO É UTILIZADO PARA MEDIR TEMPO?
+Descritor: D082_M - Executar a medição de grandezas por meio de medidas convencionais ou não.
+
+--------------------------------------------------
+
+02) (M00076057) OBSERVE, NO QUADRO ABAIXO, UMA SEQUÊNCIA DE NÚMEROS. ELA SEGUE UM PADRÃO.
+161 – 163 – ___ – 167 – 169
+QUAL É O NÚMERO QUE ESTÁ FALTANDO NESSA SEQUÊNCIA?
+Descritor: D097_M - Comparar ou ordenar quantidades pela contagem.
+
+--------------------------------------------------
+
+03) (M00068556) LÚCIA E FELIPE ESTÃO ARRUMANDO UM SALÃO DE FESTAS. NESSE SALÃO, LÚCIA ORGANIZOU 62 CADEIRAS, E FELIPE ORGANIZOU 34 CADEIRAS.
+QUANTAS CADEIRAS LÚCIA E FELIPE ORGANIZARAM, NO TOTAL, NESSE SALÃO?
+Descritor: D005_M - Utilizar números naturais, envolvendo diferentes significados da adição ou da subtração, na resolução de problemas.
+
+--------------------------------------------------
+
+04) (M00063829) OBSERVE ABAIXO A DECOMPOSIÇÃO DE UM NÚMERO.
+1 CENTENA, 2 DEZENAS E 4 UNIDADES
+ESSA É A DECOMPOSIÇÃO DE QUAL NÚMERO?
+Descritor: D002_M - Reconhecer características do sistema de numeração decimal.
+
+--------------------------------------------------
+
+05) (M00097124) OBSERVE ABAIXO A IMAGEM DE UM SABONETE.
+A FORMA DESSE SABONETE LEMBRA QUAL SÓLIDO GEOMÉTRICO?
+Descritor: D011_M - Identificar representações de figuras tridimensionais.
+
+--------------------------------------------------
+
+06) (M00076059) RESOLVA A OPERAÇÃO ABAIXO.
+36 + 20
+QUAL É O RESULTADO DESSA OPERAÇÃO?
+Descritor: D004_M - Executar adição ou subtração com números naturais.
+
+--------------------------------------------------
+
+07) (M013985) LUCAS COMPROU ALGUNS PÃES. OBSERVE ABAIXO A CÉDULA QUE LUCAS UTILIZOU PARA PAGAR ESSES PÃES.
+QUAL O VALOR, EM MOEDAS, QUE CORRESPONDE À CÉDULA QUE LUCAS UTILIZOU?
+Descritor: D015_M - Corresponder cédulas e/ou moedas do Sistema Monetário Brasileiro.
+
+--------------------------------------------------
+
+08) (M00045812) OBSERVE O NÚMERO NO QUADRO ABAIXO.
+627
+QUAL É O VALOR POSICIONAL DO ALGARISMO 2 NESSE NÚMERO?
+Descritor: D002_M - Reconhecer características do sistema de numeração decimal.
+
+--------------------------------------------------
+
+09) (M00075280) OBSERVE, NA TABELA ABAIXO, AS NOTAS DE QUATRO AMIGOS NAS PROVAS DE PORTUGUÊS E MATEMÁTICA.
+DE ACORDO COM ESSA TABELA, QUAL FOI A NOTA DE CARLOS NA PROVA DE MATEMÁTICA?
+Descritor: D009_M - Identificar informações apresentadas em tabelas ou gráficos.
+
+--------------------------------------------------
+
+10) (M00117837) RESOLVA A OPERAÇÃO APRESENTADA NO QUADRO ABAIXO.
+16 + 2
+QUAL É O RESULTADO DESSA OPERAÇÃO?
+Descritor: D004_M - Executar adição ou subtração com números naturais.
+
+--------------------------------------------------
+
+11) (M00068554) OBSERVE OS NÚMEROS NO QUADRO ABAIXO.
+321 - 235 - 123 - 368
+EM QUAL DESSES NÚMEROS O ALGARISMO 3 OCUPA A ORDEM DAS UNIDADES?
+Descritor: D002_M - Reconhecer características do sistema de numeração decimal.
+
+--------------------------------------------------
+
+12) (M00058836) QUAL DOS INSTRUMENTOS DE MEDIDA ABAIXO É USADO PARA MEDIR A TEMPERATURA?
+Descritor: D082_M - Executar a medição de grandezas por meio de medidas convencionais ou não.
+
+--------------------------------------------------
+
+13) (M013951) OBSERVE ABAIXO O BANCO QUE FELIPE COMPROU.
+A FORMA DESSE BANCO SE ASSEMELHA A QUAL FIGURA GEOMÉTRICA?
+Descritor: D011_M - Identificar representações de figuras tridimensionais.
+
+--------------------------------------------------
+
+14) (M00051314) OBSERVE, NA TABELA ABAIXO, A QUANTIDADE DE CRIANÇAS QUE PARTICIPARAM DAS OFICINAS DE UM CLUBE.
+DE ACORDO COM ESSA TABELA, QUANTAS CRIANÇAS PARTICIPARAM DA OFICINA DE PINTURA?
+Descritor: D009_M - Identificar informações apresentadas em tabelas ou gráficos.
+
+--------------------------------------------------
+
+15) (M00076066) OBSERVE ABAIXO A QUANTIA QUE MIGUEL RECEBEU PELA VENDA DE UM BOLO.
+QUAL FOI A QUANTIA QUE MIGUEL RECEBEU PELA VENDA DESSE BOLO?
+Descritor: D015_M - Corresponder cédulas e/ou moedas do Sistema Monetário Brasileiro.
+
+--------------------------------------------------
+
+16) (M00032088) OBSERVE ABAIXO UMA DAS DECOMPOSIÇÕES DE UM NÚMERO.
+90 + 2
+ESSA É UMA DAS DECOMPOSIÇÕES DE QUAL NÚMERO?
+Descritor: D002_M - Reconhecer características do sistema de numeração decimal.
+
+--------------------------------------------------
+
+17) (M021860H6) QUAL DOS INSTRUMENTOS DE MEDIDA ABAIXO É UTILIZADO PARA MEDIR COMPRIMENTO?
+Descritor: D082_M - Executar a medição de grandezas por meio de medidas convencionais ou não.
+
+--------------------------------------------------
+
+18) (M00056988) RESOLVA A OPERAÇÃO ABAIXO.
+64 - 23
+QUAL É O RESULTADO DESSA OPERAÇÃO?
+Descritor: D004_M - Executar adição ou subtração com números naturais.
+
+--------------------------------------------------
+
+19) (M018662) OBSERVE OS NÚMEROS NO QUADRO ABAIXO.
+71 - 66 - 73 - 62 - 74
+QUAL É A ORDEM CRESCENTE DESSES NÚMEROS?
+Descritor: D097_M - Comparar ou ordenar quantidades pela contagem.
+
+--------------------------------------------------
+
+20) (M00075518) O NÚMERO 52 PODE SER DECOMPOSTO EM
+Descritor: D002_M - Reconhecer características do sistema de numeração decimal.
+
+--------------------------------------------------
+
+21) (M016412) BEATRIZ FEZ 27 PÃES DE QUEIJO PARA O LANCHE. SEUS FILHOS COMERAM 13 DESSES PÃES DE QUEIJO.
+QUANTOS PÃES DE QUEIJO SOBRARAM?
+Descritor: D005_M - Utilizar números naturais, envolvendo diferentes significados da adição ou da subtração, na resolução de problemas.
+
+--------------------------------------------------
+
+22) (M00076058) OBSERVE OS ALGARISMOS NO QUADRO ABAIXO.
+6 - 8 - 2
+QUAL É O MENOR NÚMERO QUE PODE SER FORMADO COM TODOS OS ALGARISMOS DESSE QUADRO?
+Descritor: D097_M - Comparar ou ordenar quantidades pela contagem.
+
+--------------------------------------------------
+
+
+======================================================================
+RESUMO DOS DESCRITORES UTILIZADOS:
+
+D002_M: Reconhecer características do sistema de numeração decimal.
+D004_M: Executar adição ou subtração com números naturais.
+D005_M: Utilizar números naturais, envolvendo diferentes significados da adição ou da subtração, na resolução de problemas.
+D009_M: Identificar informações apresentadas em tabelas ou gráficos.
+D011_M: Identificar representações de figuras tridimensionais.
+D015_M: Corresponder cédulas e/ou moedas do Sistema Monetário Brasileiro.
+D082_M: Executar a medição de grandezas por meio de medidas convencionais ou não.
+D097_M: Comparar ou ordenar quantidades pela contagem.

@@ -1,0 +1,288 @@
+CORRELAÇÃO QUESTÕES x DESCRITORES - CADERNO C0401
+AVALIE.CE - LÍNGUA PORTUGUESA E MATEMÁTICA - 4º ano do Ensino Fundamental
+================================================================================
+
+LÍNGUA PORTUGUESA (Questões 1-22)
+==================================================
+
+01) (P050393I7) No trecho "Quando estou numa boa.", a expressão destacada significa
+Descritor: D022_P - Inferir o sentido de palavra ou expressão a partir do contexto.
+
+--------------------------------------------------
+
+02) (P00115863) Nesse texto, ao cuidar de sua plantação, Sophia demonstrou
+Descritor: D023_P - Inferir informações em textos.
+
+--------------------------------------------------
+
+03) (P00115864) Onde acontece essa história?
+Descritor: D021_P - Localizar informação explícita.
+
+--------------------------------------------------
+
+04) (P00115862) No trecho ". nasce um amor por ela aqui no peito.", a palavra "ela" está no lugar de
+Descritor: D037_P - Reconhecer as relações entre partes de um texto, identificando os recursos coesivos que contribuem para a sua continuidade.
+
+--------------------------------------------------
+
+05) (P00115673) Nesse texto, a expressão "UHUUL!" foi usada para indicar que o menino estava
+Descritor: D025_P - Reconhecer efeitos de sentido decorrentes do uso ou função da pontuação e de outras notações.
+
+--------------------------------------------------
+
+06) (P00115674) Esse texto é
+Descritor: D017_P - Reconhecer o gênero de um texto.
+
+--------------------------------------------------
+
+07) (P00115675) De acordo com esse texto, o que o vento derrubou?
+Descritor: D021_P - Localizar informação explícita.
+
+--------------------------------------------------
+
+08) (P00115676) No trecho "Ela atingiu o canto do nosso telhado.", a palavra "atingiu" significa
+Descritor: D022_P - Inferir o sentido de palavra ou expressão a partir do contexto.
+
+--------------------------------------------------
+
+09) (P00089197) Esse texto é
+Descritor: D017_P - Reconhecer o gênero de um texto.
+
+--------------------------------------------------
+
+10) (P00107526) No terceiro quadrinho, a expressão "SLAP!" foi usada para indicar
+Descritor: D025_P - Reconhecer efeitos de sentido decorrentes do uso ou função da pontuação e de outras notações.
+
+--------------------------------------------------
+
+11) (P00058434) Qual é o assunto desse texto?
+Descritor: D028_P - Reconhecer o assunto de um texto lido.
+
+--------------------------------------------------
+
+12) (P00058435) Esse texto serve para
+Descritor: D016_P - Identificar a finalidade de textos de diferentes gêneros.
+
+--------------------------------------------------
+
+13) (P00062994) Esse texto é
+Descritor: D017_P - Reconhecer o gênero de um texto.
+
+--------------------------------------------------
+
+14) (P04115017) De acordo com esse texto, o que aconteceu quando a menina abriu a caixa?
+Descritor: D021_P - Localizar informação explícita.
+
+--------------------------------------------------
+
+15) (P04115417) Onde acontece essa história?
+Descritor: D021_P - Localizar informação explícita.
+
+--------------------------------------------------
+
+16) (P02019517) Esse texto serve para
+Descritor: D016_P - Identificar a finalidade de textos de diferentes gêneros.
+
+--------------------------------------------------
+
+17) (P00107698) Qual é o assunto desse texto?
+Descritor: D028_P - Reconhecer o assunto de um texto lido.
+
+--------------------------------------------------
+
+18) (P00107699) De acordo com esse texto, o livro reúne
+Descritor: D021_P - Localizar informação explícita.
+
+--------------------------------------------------
+
+19) (P018697) Essa história acontece em uma
+Descritor: D021_P - Localizar informação explícita.
+
+--------------------------------------------------
+
+20) (P018249) Nesse texto, ao fazer perguntas à mãe, Lili demonstrou ser
+Descritor: D023_P - Inferir informações em textos.
+
+--------------------------------------------------
+
+21) (P018250) No trecho "Elas têm luz, calor e água." (6° parágrafo), a palavra "elas" está no lugar de
+Descritor: D037_P - Reconhecer as relações entre partes de um texto, identificando os recursos coesivos que contribuem para a sua continuidade.
+
+--------------------------------------------------
+
+22) (P041484H6) Esse texto serve para
+Descritor: D016_P - Identificar a finalidade de textos de diferentes gêneros.
+
+--------------------------------------------------
+
+
+==================================================
+MATEMÁTICA (Questões 23-44)
+==================================================
+
+23) (M00121542) Para a construção de um chafariz, Mário cercará uma região de uma praça. Observe, na malha quadriculada abaixo, a região dessa praça representada em cinza.
+Qual é a medida do perímetro, em metro, da região dessa praça que será cercada?
+Descritor: D025_M - Utilizar área de figuras bidimensionais na resolução de problema.
+
+--------------------------------------------------
+
+24) (M00068588) Observe os números no quadro abaixo.
+5,6 – 8,6 – 4,2 – 5,9
+Qual é a ordem crescente desses números?
+Descritor: D013_M - Identificar números naturais segundo critérios de ordem.
+
+--------------------------------------------------
+
+25) (M041015H6) Observe o número no quadro abaixo.
+213
+Qual é o valor posicional do algarismo 2 nesse número?
+Descritor: D002_M - Reconhecer características do sistema de numeração decimal.
+
+--------------------------------------------------
+
+26) (M0410135H6) Observe, na imagem abaixo, a pizza que Julieta fez para lanchar. As partes riscadas representam as fatias que Julieta já comeu.
+Qual é a fração que representa as fatias que Julieta comeu?
+Descritor: D029_M - Reconhecer fração como representação associada a diferentes significados.
+
+--------------------------------------------------
+
+27) (M041382H6) Observe abaixo o gráfico que apresenta o resultado de uma pesquisa, feita por uma professora, sobre os aniversariantes do quarto ano nos meses de janeiro a abril.
+De acordo com esse gráfico, qual mês possui a menor quantidade de aniversariantes?
+Descritor: D009_M - Identificar informações apresentadas em tabelas ou gráficos.
+
+--------------------------------------------------
+
+28) (M00068594) Observe a operação apresentada no quadro abaixo.
+15 + 3 = 18
+Para confirmar esse resultado, qual é a operação inversa que deve ser feita?
+Descritor: D004_M - Executar adição ou subtração com números naturais.
+
+--------------------------------------------------
+
+29) (M00073045) Observe, na tabela abaixo, a quantidade de cadeiras das salas de reunião de uma casa de eventos.
+De acordo com essa tabela, qual sala de reunião tem mais de 150 cadeiras?
+Descritor: D009_M - Identificar informações apresentadas em tabelas ou gráficos.
+
+--------------------------------------------------
+
+30) (M045527I7) Observe os números no quadro abaixo.
+5,5 - 6,3 - 2,6 - 3,3
+Qual desses números é o maior?
+Descritor: D013_M - Identificar números naturais segundo critérios de ordem.
+
+--------------------------------------------------
+
+31) (M04045717) Resolva a operação abaixo.
+2 × 240
+Qual é o resultado dessa operação?
+Descritor: D086_M - Executar multiplicação ou divisão com números naturais.
+
+--------------------------------------------------
+
+32) (M00079978) Joana foi assistir a uma partida de futebol. Essa partida terminou às 10h30min e teve duração de 2 horas.
+Qual foi o horário de início da partida a que Joana assistiu?
+Descritor: D084_M - Utilizar conversão entre unidades de medidas de tempo na resolução de problema.
+
+--------------------------------------------------
+
+33) (M00038174) Helena recortou uma letra para decorar a mesa de seu aniversário. Observe, na malha quadriculada abaixo, a representação da letra que Helena recortou.
+A área de cada quadradinho dessa malha é igual a 1 cm².
+Qual é a área, em centímetro quadrado, da letra que Helena recortou?
+Descritor: D025_M - Utilizar área de figuras bidimensionais na resolução de problema.
+
+--------------------------------------------------
+
+34) (M00057014) Henrique comprou 5 pacotes com 72 lenços em cada um.
+Quantos lenços Henrique comprou ao todo?
+Descritor: D086_M - Executar multiplicação ou divisão com números naturais.
+
+--------------------------------------------------
+
+35) (M045980I7) Observe abaixo o gráfico que apresenta o resultado de uma pesquisa feita por uma agência de viagens sobre os passeios preferidos de seus clientes durante o mês de janeiro.
+De acordo com esse gráfico, quantos clientes preferem passear na fazenda?
+Descritor: D009_M - Identificar informações apresentadas em tabelas ou gráficos.
+
+--------------------------------------------------
+
+36) (M041394H6) Observe abaixo Renan e seus colegas em uma palestra na faculdade.
+Quem está à esquerda de Renan?
+Descritor: D001_M - Identificar a localização ou a movimentação de pessoas, ou objetos em uma representação plana do espaço.
+
+--------------------------------------------------
+
+37) (M00057007) Observe os números no quadro abaixo.
+986 - 876 - 765 - 657
+Em qual desses números o algarismo 6 ocupa a ordem das dezenas?
+Descritor: D002_M - Reconhecer características do sistema de numeração decimal.
+
+--------------------------------------------------
+
+38) (M00076111) Observe, na tabela abaixo, os complementos e tamanhos de copos de açaí que Marcelo vendeu em sua lanchonete em um dia.
+De acordo com essa tabela, quantos copos de açaí de 300 mL com complemento de leite em pó Marcelo vendeu nesse dia?
+Descritor: D009_M - Identificar informações apresentadas em tabelas ou gráficos.
+
+--------------------------------------------------
+
+39) (M00039099) Resolva a operação abaixo.
+28 ÷ 4
+Qual é o resultado dessa operação?
+Descritor: D086_M - Executar multiplicação ou divisão com números naturais.
+
+--------------------------------------------------
+
+40) (M00074522) Observe a figura em cinza apresentada na malha quadriculada abaixo.
+Nessa malha quadriculada, a medida da área de cada quadradinho é de 1 metro quadrado.
+Qual é a medida da área, em metro quadrado, dessa figura?
+Descritor: D025_M - Utilizar área de figuras bidimensionais na resolução de problema.
+
+--------------------------------------------------
+
+41) (M00039097) Paula deixou o seu carro no estacionamento, às 13 horas e 10 minutos. Depois de 35 minutos, ela voltou para buscar.
+Em qual horário Paula foi buscar o seu carro?
+Descritor: D084_M - Utilizar conversão entre unidades de medidas de tempo na resolução de problema.
+
+--------------------------------------------------
+
+42) (M00068593) Gilberto utilizou alguns cestos para distribuir 369 maçãs. Em cada cesto, ele colocou 9 maçãs.
+Quantos cestos Gilberto utilizou para distribuir essas maçãs?
+Descritor: D086_M - Executar multiplicação ou divisão com números naturais.
+
+--------------------------------------------------
+
+43) (M040811H6) Observe abaixo a imagem da planta da casa de Leandro.
+Leandro passou pela porta da entrada, caminhou e entrou a sua esquerda e, em seguida, caminhou e entrou na segunda porta à direita.
+A qual cômodo da casa Leandro chegou?
+Descritor: D001_M - Identificar a localização ou a movimentação de pessoas, ou objetos em uma representação plana do espaço.
+
+--------------------------------------------------
+
+44) (M040641H6) Rafaela ganhou uma barra de chocolate e a dividiu em 2 partes iguais.
+Qual é a fração que representa a metade dessa barra de chocolate?
+Descritor: D029_M - Reconhecer fração como representação associada a diferentes significados.
+
+--------------------------------------------------
+
+
+================================================================================
+RESUMO DOS DESCRITORES UTILIZADOS:
+
+LÍNGUA PORTUGUESA:
+D016_P: Identificar a finalidade de textos de diferentes gêneros.
+D017_P: Reconhecer o gênero de um texto.
+D021_P: Localizar informação explícita.
+D022_P: Inferir o sentido de palavra ou expressão a partir do contexto.
+D023_P: Inferir informações em textos.
+D025_P: Reconhecer efeitos de sentido decorrentes do uso ou função da pontuação e de outras notações.
+D028_P: Reconhecer o assunto de um texto lido.
+D037_P: Reconhecer as relações entre partes de um texto, identificando os recursos coesivos que contribuem para a sua continuidade.
+
+MATEMÁTICA:
+D001_M: Identificar a localização ou a movimentação de pessoas, ou objetos em uma representação plana do espaço.
+D002_M: Reconhecer características do sistema de numeração decimal.
+D004_M: Executar adição ou subtração com números naturais.
+D009_M: Identificar informações apresentadas em tabelas ou gráficos.
+D013_M: Identificar números naturais segundo critérios de ordem.
+D025_M: Utilizar área de figuras bidimensionais na resolução de problema.
+D029_M: Reconhecer fração como representação associada a diferentes significados.
+D084_M: Utilizar conversão entre unidades de medidas de tempo na resolução de problema.
+D086_M: Executar multiplicação ou divisão com números naturais.
