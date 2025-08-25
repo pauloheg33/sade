@@ -273,7 +273,17 @@ const desempenhoEscolas = {
 
 // Inicialização automática
 document.addEventListener('DOMContentLoaded', function() {
-    carregarTodosDados();
+    console.log('DOM carregado. Iniciando carregamento dos dados AV2...');
+    console.log('Dados disponíveis:', {
+        anos: dadosAV2.anos,
+        resultadosKeys: Object.keys(dadosAV2.resultados),
+        desempenhoKeys: Object.keys(desempenhoEscolas)
+    });
+    
+    // Delay para garantir que todos os elementos DOM estejam prontos
+    setTimeout(() => {
+        carregarTodosDados();
+    }, 100);
 });
 
 function carregarTodosDados() {
@@ -290,6 +300,8 @@ function calcularEstatisticasGerais() {
     let totalAlunos = 0;
     let totalEscolas = new Set();
     
+    console.log('Calculando estatísticas gerais...');
+    
     // Percorrer todos os dados para calcular totais
     Object.keys(dadosAV2.resultados).forEach(ano => {
         Object.keys(dadosAV2.resultados[ano]).forEach(disciplina => {
@@ -302,9 +314,23 @@ function calcularEstatisticasGerais() {
         });
     });
     
+    console.log('Estatísticas calculadas:', { totalAlunos, totalEscolas: totalEscolas.size });
+    
     // Atualizar estatísticas na tela
-    document.getElementById('total-alunos').textContent = totalAlunos.toLocaleString();
-    document.getElementById('total-escolas').textContent = totalEscolas.size;
+    const elementoTotalAlunos = document.getElementById('total-alunos');
+    const elementoTotalEscolas = document.getElementById('total-escolas');
+    
+    if (elementoTotalAlunos) {
+        elementoTotalAlunos.textContent = totalAlunos.toLocaleString();
+    } else {
+        console.warn('Elemento total-alunos não encontrado');
+    }
+    
+    if (elementoTotalEscolas) {
+        elementoTotalEscolas.textContent = totalEscolas.size;
+    } else {
+        console.warn('Elemento total-escolas não encontrado');
+    }
 }
 
 function carregarDadosPorAno() {
