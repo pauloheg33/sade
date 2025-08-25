@@ -308,17 +308,22 @@ function calcularEstatisticasGerais() {
 }
 
 function carregarDadosPorAno() {
+    console.log('Carregando dados por ano...');
     dadosAV2.anos.forEach(ano => {
-        const anoNum = ano.replace('º', '');
-        const container = document.getElementById(`dados-${anoNum}ano`);
+        const container = document.getElementById(`dados-${ano.replace('º', '')}ano`);
         if (container) {
-            container.innerHTML = criarCardsAno(anoNum);
+            console.log(`Carregando dados para ${ano}...`);
+            container.innerHTML = criarCardsAno(ano);
+        } else {
+            console.warn(`Container não encontrado para: dados-${ano.replace('º', '')}ano`);
         }
     });
 }
 
 function criarCardsAno(ano) {
     let html = '';
+    
+    console.log(`Criando cards para ${ano}:`, dadosAV2.resultados[ano]);
     
     // Card para Português
     if (dadosAV2.resultados[ano] && dadosAV2.resultados[ano]['Português']) {

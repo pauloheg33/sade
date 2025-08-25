@@ -406,6 +406,120 @@ body {
     max-height: 300px;
 }
 
+/* AV2 Cards */
+.av2-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    background: white;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.av2-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+}
+
+.av2-card .card-header {
+    border: none;
+    padding: 20px;
+    font-weight: 600;
+}
+
+.av2-card .card-body {
+    padding: 25px;
+}
+
+.av2-card .card-footer {
+    background: #f8f9fa;
+    border: none;
+    padding: 15px 25px;
+    border-top: 1px solid #e9ecef;
+}
+
+/* Statistics Cards */
+.stat-card {
+    background: linear-gradient(135deg, var(--sade-primary), #5a7bc4);
+    color: white;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(68, 114, 196, 0.3);
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(68, 114, 196, 0.4);
+}
+
+.stat-card:nth-child(2) {
+    background: linear-gradient(135deg, var(--sade-secondary), #7fb85a);
+    box-shadow: 0 4px 15px rgba(112, 173, 71, 0.3);
+}
+
+.stat-card:nth-child(2):hover {
+    box-shadow: 0 8px 25px rgba(112, 173, 71, 0.4);
+}
+
+.stat-card:nth-child(3) {
+    background: linear-gradient(135deg, var(--sade-info), #57c4a8);
+    box-shadow: 0 4px 15px rgba(68, 196, 161, 0.3);
+}
+
+.stat-card:nth-child(3):hover {
+    box-shadow: 0 8px 25px rgba(68, 196, 161, 0.4);
+}
+
+.stat-card:nth-child(4) {
+    background: linear-gradient(135deg, var(--sade-warning), #ffcc33);
+    box-shadow: 0 4px 15px rgba(255, 192, 0, 0.3);
+    color: var(--sade-dark);
+}
+
+.stat-card:nth-child(4):hover {
+    box-shadow: 0 8px 25px rgba(255, 192, 0, 0.4);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+/* Filter Section */
+.filter-section {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* Results Section */
+.results-section {
+    margin-top: 20px;
+}
+
+/* Year Headers */
+.results-section h4 {
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--sade-primary);
+    display: inline-block;
+}
+
 /* No results */
 .no-results {
     text-align: center;
