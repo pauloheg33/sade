@@ -272,8 +272,8 @@ class AvalieCeApp {
     gerarCaminhoImagem(item) {
         let nomeArquivo = '';
         
-        // Limpar o nome da escola (remover espaços e caracteres especiais)
-        let escolaArquivo = item.escola.replace(/\s+/g, '_').replace(/[ºª]/g, '');
+        // IMPORTANTE: NÃO remover o símbolo º dos anos escolares!
+        let escolaArquivo = item.escola.replace(/\s+/g, '_');
         
         // Corrigir nomes específicos das escolas para corresponder aos arquivos
         const mapeamentoEscolas = {
@@ -289,8 +289,18 @@ class AvalieCeApp {
         
         escolaArquivo = mapeamentoEscolas[escolaArquivo] || escolaArquivo;
         
-        // Formatear a média corretamente (manter os decimais como estão nos dados)
-        let mediaFormatada = item.media.toString();
+        // Formatear a média - SEMPRE com pelo menos uma casa decimal
+        let mediaFormatada = item.media.toFixed(1);
+        
+        console.log('Debug gerarCaminhoImagem:', {
+            escola: item.escola,
+            escolaArquivo: escolaArquivo,
+            ano: item.ano,
+            turma: item.turma,
+            disciplina: item.disciplina,
+            mediaOriginal: item.media,
+            mediaFormatada: mediaFormatada
+        });
         
         if (item.disciplina === 'GERAL') {
             // Para avaliações gerais: ESCOLA_ANO_Turma_MEDIA.png
@@ -300,7 +310,11 @@ class AvalieCeApp {
             nomeArquivo = `${escolaArquivo}_${item.ano}_Ano${item.turma ? '_' + item.turma : ''}_${item.disciplina}_${mediaFormatada}.png`;
         }
         
-        return `av2/graficos_individuais/${nomeArquivo}`;
+        const caminhoCompleto = `av2/graficos_individuais/${nomeArquivo}`;
+        console.log('Caminho gerado:', caminhoCompleto);
+        console.log('Exemplo arquivo esperado: 03_DE_DEZEMBRO_2º_Ano_A_MAT_73.0.png');
+        
+        return caminhoCompleto;
     }
 
     formatarDisciplina(disciplina) {
