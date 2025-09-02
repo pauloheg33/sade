@@ -166,18 +166,10 @@ class AvalieCeApp {
                             <div class="progress mb-3" style="height: 8px;">
                                 <div class="progress-bar" style="width: ${item.media}%; background-color: ${nivelInfo.cor};"></div>
                             </div>
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-outline-primary btn-sm" onclick="avalieCeApp.visualizarGrafico('${imagemPath}', '${item.escola}', '${item.ano}', '${item.turma}', '${item.disciplina}')">
+                            <div class="text-center">
+                                <button class="btn btn-primary btn-sm" onclick="avalieCeApp.visualizarGrafico('${imagemPath}', '${item.escola}', '${item.ano}', '${item.turma}', '${item.disciplina}')">
                                     <i class="fas fa-chart-bar me-1"></i>Ver Gráfico
                                 </button>
-                                <div class="btn-group">
-                                    <button class="btn btn-outline-info btn-sm" onclick="avalieCeApp.visualizarGraficoEscola('${item.escola}')">
-                                        <i class="fas fa-chart-line me-1"></i>Escola
-                                    </button>
-                                    <button class="btn btn-outline-secondary btn-sm" onclick="avalieCeApp.verDetalhes('${index}')">
-                                        <i class="fas fa-info-circle me-1"></i>Info
-                                    </button>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -300,14 +292,28 @@ class AvalieCeApp {
     gerarCaminhoImagem(item) {
         let nomeArquivo = '';
         
-        // Usar o nome exato da escola como está nos arquivos
-        let escolaArquivo = item.escola;
+        // Limpar o nome da escola (remover espaços e caracteres especiais)
+        let escolaArquivo = item.escola.replace(/\s+/g, '_').replace(/[ºª]/g, '');
+        
+        // Corrigir nomes específicos das escolas para corresponder aos arquivos
+        const mapeamentoEscolas = {
+            '03_DE_DEZEMBRO': '03_DE_DEZEMBRO',
+            '21_DE_DEZEMBRO': '21_DE_DEZEMBRO',
+            'ANTONIO_DE_SOUSA_BARROS': 'ANTONIO_DE_SOUSA_BARROS',
+            'FIRMINO_JOSÉ': 'FIRMINO_JOSÉ',
+            'JOAQUIM_FERREIRA': 'JOAQUIM_FERREIRA',
+            'JOSE_ALVES_DE_SENA': 'JOSE_ALVES_DE_SENA',
+            'MARIA_AMELIA': 'MARIA_AMELIA',
+            'MOURÃO_LIMA': 'MOURÃO_LIMA'
+        };
+        
+        escolaArquivo = mapeamentoEscolas[escolaArquivo] || escolaArquivo;
         
         if (item.disciplina === 'GERAL') {
-            // Para avaliações gerais (4º, 5º, 8º, 9º anos)
+            // Para avaliações gerais: ESCOLA_ANO_Turma_MEDIA.png
             nomeArquivo = `${escolaArquivo}_${item.ano}_Ano${item.turma ? '_' + item.turma : ''}_${item.media}.png`;
         } else {
-            // Para disciplinas específicas (LP, MAT no 2º ano)
+            // Para disciplinas específicas: ESCOLA_ANO_Turma_DISCIPLINA_MEDIA.png
             nomeArquivo = `${escolaArquivo}_${item.ano}_Ano${item.turma ? '_' + item.turma : ''}_${item.disciplina}_${item.media}.png`;
         }
         
