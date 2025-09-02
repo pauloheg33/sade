@@ -18,10 +18,12 @@ const dadosAV2 = {
             'Matemática': 'correlacao_questoes_descritores_C0501.txt'
         },
         '8º': {
-            'Português': 'correlacao_questoes_descritores_C0801.txt'
+            'Português': 'correlacao_questoes_descritores_C0801.txt',
+            'Matemática': 'correlacao_questoes_descritores_C0801.txt'
         },
         '9º': {
-            'Português': 'correlacao_questoes_descritores_C0901.txt'
+            'Português': 'correlacao_questoes_descritores_C0901.txt',
+            'Matemática': 'correlacao_questoes_descritores_C0901.txt'
         }
     },
     
@@ -144,6 +146,30 @@ const dadosAV2 = {
                     'D043_P': { nome: 'Reconhecer recursos estilísticos utilizados na construção de textos', questoes: 1, percentual: 3.8 },
                     'D044_P': { nome: 'Identificar marcas linguísticas em um texto', questoes: 2, percentual: 7.7 }
                 }
+            },
+            'Matemática': {
+                caderno: 'C0801',
+                totalQuestoes: 26,
+                descritores: {
+                    'D002_M': { nome: 'Reconhecer características do sistema de numeração decimal', questoes: 2, percentual: 7.7 },
+                    'D005_M': { nome: 'Utilizar números naturais na resolução de problemas', questoes: 1, percentual: 3.8 },
+                    'D020_M': { nome: 'Corresponder figuras tridimensionais às suas planificações', questoes: 1, percentual: 3.8 },
+                    'D021_M': { nome: 'Utilizar informações de tabelas ou gráficos na resolução de problemas', questoes: 1, percentual: 3.8 },
+                    'D025_M': { nome: 'Utilizar área de figuras bidimensionais na resolução de problemas', questoes: 1, percentual: 3.8 },
+                    'D030_M': { nome: 'Utilizar conversão entre unidades de medida na resolução de problemas', questoes: 3, percentual: 11.5 },
+                    'D086_M': { nome: 'Executar multiplicação ou divisão com números naturais', questoes: 2, percentual: 7.7 },
+                    'D122_M': { nome: 'Utilizar cálculos com operações em que um dos termos é desconhecido', questoes: 2, percentual: 7.7 },
+                    'D127_M': { nome: 'Reconhecer e nomear polígonos', questoes: 1, percentual: 3.8 },
+                    'D128_M': { nome: 'Calcular probabilidade de um evento', questoes: 1, percentual: 3.8 },
+                    'D129_M': { nome: 'Calcular média aritmética', questoes: 2, percentual: 7.7 },
+                    'D130_M': { nome: 'Resolver sistema de equações do 1º grau', questoes: 2, percentual: 7.7 },
+                    'D131_M': { nome: 'Calcular porcentagem', questoes: 2, percentual: 7.7 },
+                    'D132_M': { nome: 'Resolver problemas de contagem', questoes: 1, percentual: 3.8 },
+                    'D133_M': { nome: 'Utilizar expressões algébricas na resolução de problemas', questoes: 1, percentual: 3.8 },
+                    'D134_M': { nome: 'Representar graficamente equação do 1º grau', questoes: 1, percentual: 3.8 },
+                    'D135_M': { nome: 'Calcular volume de sólidos geométricos', questoes: 1, percentual: 3.8 },
+                    'D136_M': { nome: 'Aplicar transformações geométricas', questoes: 1, percentual: 3.8 }
+                }
             }
         },
         '9º': {
@@ -162,6 +188,37 @@ const dadosAV2 = {
                     'D039_P': { nome: 'Reconhecer o sentido das relações lógico-discursivas', questoes: 3, percentual: 11.5 },
                     'D043_P': { nome: 'Reconhecer recursos estilísticos utilizados na construção de textos', questoes: 1, percentual: 3.8 },
                     'D044_P': { nome: 'Identificar marcas linguísticas em um texto', questoes: 2, percentual: 7.7 }
+                }
+            },
+            'Matemática': {
+                caderno: 'C0901',
+                totalQuestoes: 26,
+                descritores: {
+                    'D032_M': { nome: 'Simplificar expressões algébricas', questoes: 1, percentual: 3.8 },
+                    'D033_M': { nome: 'Localizar números irracionais na reta numérica', questoes: 1, percentual: 3.8 },
+                    'D034_M': { nome: 'Resolver problemas envolvendo expressões algébricas', questoes: 1, percentual: 3.8 },
+                    'D035_M': { nome: 'Reconhecer ângulos em figuras geométricas', questoes: 1, percentual: 3.8 },
+                    'D036_M': { nome: 'Calcular volume de sólidos geométricos', questoes: 1, percentual: 3.8 },
+                    'D037_M': { nome: 'Resolver problemas de proporcionalidade', questoes: 1, percentual: 3.8 },
+                    'D038_M': { nome: 'Calcular porcentagens', questoes: 1, percentual: 3.8 },
+                    'D039_M': { nome: 'Aplicar teorema de Pitágoras', questoes: 1, percentual: 3.8 },
+                    'D040_M': { nome: 'Identificar funções em diagramas', questoes: 1, percentual: 3.8 },
+                    'D041_M': { nome: 'Interpretar gráficos e tabelas', questoes: 1, percentual: 3.8 },
+                    'D042_M': { nome: 'Reconhecer funções em gráficos', questoes: 1, percentual: 3.8 },
+                    'D043_M': { nome: 'Calcular densidade demográfica', questoes: 1, percentual: 3.8 },
+                    'D044_M': { nome: 'Resolver equações do segundo grau', questoes: 1, percentual: 3.8 },
+                    'D045_M': { nome: 'Aplicar teorema de Pitágoras em problemas', questoes: 1, percentual: 3.8 },
+                    'D046_M': { nome: 'Calcular probabilidades', questoes: 1, percentual: 3.8 },
+                    'D047_M': { nome: 'Localizar números decimais na reta numérica', questoes: 1, percentual: 3.8 },
+                    'D048_M': { nome: 'Classificar triângulos', questoes: 1, percentual: 3.8 },
+                    'D049_M': { nome: 'Resolver problemas com sistema monetário', questoes: 2, percentual: 7.7 },
+                    'D050_M': { nome: 'Calcular área de figuras planas', questoes: 1, percentual: 3.8 },
+                    'D051_M': { nome: 'Calcular média aritmética', questoes: 1, percentual: 3.8 },
+                    'D052_M': { nome: 'Resolver problemas de porcentagem', questoes: 1, percentual: 3.8 },
+                    'D053_M': { nome: 'Resolver problemas de regra de três', questoes: 1, percentual: 3.8 },
+                    'D054_M': { nome: 'Identificar vistas de sólidos geométricos', questoes: 1, percentual: 3.8 },
+                    'D055_M': { nome: 'Resolver sistemas de equações', questoes: 1, percentual: 3.8 },
+                    'D056_M': { nome: 'Reconhecer ângulos em retas paralelas', questoes: 1, percentual: 3.8 }
                 }
             }
         }
