@@ -28,7 +28,13 @@ class AvalieCeApp {
         filtros.forEach(id => {
             const elemento = document.getElementById(id);
             if (elemento) {
-                elemento.addEventListener('change', () => this.aplicarFiltros());
+                elemento.addEventListener('change', () => {
+                    this.aplicarFiltros();
+                    // Atualizar gráfico da escola quando escola for selecionada
+                    if (id === 'av2-escola') {
+                        this.renderizarGraficoEscolaSelecionada();
+                    }
+                });
             }
         });
 
@@ -55,7 +61,7 @@ class AvalieCeApp {
         this.renderizarFiltros();
         this.renderizarCards();
         this.renderizarEstatisticasLaterais();
-        this.renderizarGraficosLinha();
+        this.renderizarGraficoEscolaSelecionada();
     }
 
     renderizarFiltros() {
@@ -478,81 +484,49 @@ class AvalieCeApp {
         this.aplicarFiltros();
     }
 
-    renderizarGraficosLinha() {
-        const container = document.getElementById('graficos-linha-escolas');
-        if (!container) return;
+    renderizarGraficoEscolaSelecionada() {
+        const container = document.getElementById('grafico-escola-container');
+        const titulo = document.getElementById('grafico-escola-titulo');
+        
+        if (!container || !titulo) return;
 
-        const escolas = [
-            '03 DE DEZEMBRO',
-            '21 DE DEZEMBRO', 
-            'ANTONIO DE SOUSA BARROS',
-            'FIRMINO JOSÉ',
-            'JOAQUIM FERREIRA',
-            'JOSE ALVES DE SENA',
-            'MARIA AMELIA',
-            'MOURÃO LIMA'
-        ];
-
-        let html = '';
-
-        escolas.forEach(escola => {
-            const escolaArquivo = escola.replace(/\s+/g, '_');
-            const caminhoImagem = `av2/linhas_por_escola_atualizado/${escolaArquivo}_linhas_atual.png`;
-            
-            html += `
-                <div class="col-lg-6 col-xl-4 mb-4 grafico-linha-item" style="display: none;">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-header bg-light">
-                            <h6 class="mb-0 fw-bold text-success">
-                                <i class="fas fa-school me-2"></i>${escola}
-                            </h6>
-                            <small class="text-muted">Evolução do Desempenho</small>
-                        </div>
-                        <div class="card-body p-0">
-                            <img src="${caminhoImagem}" 
-                                 class="img-fluid w-100 grafico-linha-img" 
-                                 alt="Gráfico de desempenho - ${escola}"
-                                 style="cursor: pointer; transition: transform 0.2s;"
-                                 onclick="avalieCeApp.visualizarGraficoLinha('${caminhoImagem}', '${escola}')"
-                                 onmouseover="this.style.transform='scale(1.02)'"
-                                 onmouseout="this.style.transform='scale(1)'">
-                        </div>
-                        <div class="card-footer bg-white border-top-0 text-center">
-                            <button class="btn btn-sm btn-success" onclick="avalieCeApp.visualizarGraficoLinha('${caminhoImagem}', '${escola}')">
-                                <i class="fas fa-search-plus me-1"></i>Ampliar
-                            </button>
-                        </div>
-                    </div>
+        const escolaSelecionada = document.getElementById('av2-escola')?.value;
+        
+        if (!escolaSelecionada || escolaSelecionada === '') {
+            // Mostrar placeholder quando nenhuma escola está selecionada
+            container.innerHTML = `
+                <div class="text-center text-muted">
+                    <i class="fas fa-chart-line fa-3x mb-3 opacity-50"></i>
+                    <p class="mb-0">Selecione uma escola nos filtros para ver o gráfico de evolução</p>
                 </div>
             `;
-        });
+            titulo.textContent = 'Evolução do Desempenho';
+            return;
+        }
 
-        container.innerHTML = html;
-        this.configurarToggleGraficos();
-    }
-
-    configurarToggleGraficos() {
-        const btnToggle = document.getElementById('toggle-graficos-linha');
-        const graficos = document.querySelectorAll('.grafico-linha-item');
-        let mostrandoTodos = false;
-
-        if (!btnToggle) return;
-
-        btnToggle.addEventListener('click', () => {
-            if (mostrandoTodos) {
-                // Esconder todos
-                graficos.forEach(item => item.style.display = 'none');
-                btnToggle.innerHTML = '<i class="fas fa-eye me-2"></i>Ver Todos os Gráficos';
-                btnToggle.className = 'btn btn-outline-success';
-                mostrandoTodos = false;
-            } else {
-                // Mostrar todos
-                graficos.forEach(item => item.style.display = 'block');
-                btnToggle.innerHTML = '<i class="fas fa-eye-slash me-2"></i>Ocultar Gráficos';
-                btnToggle.className = 'btn btn-outline-secondary';
-                mostrandoTodos = true;
-            }
-        });
+        // Gerar caminho da imagem
+        const escolaArquivo = escolaSelecionada.replace(/\s+/g, '_');
+        const caminhoImagem = `av2/linhas_por_escola_atualizado/${escolaArquivo}_linhas_atual.png`;
+        
+        // Atualizar título
+        titulo.textContent = `${escolaSelecionada} - Evolução`;
+        
+        // Renderizar o gráfico
+        container.innerHTML = `
+            <div class="w-100 h-100">
+                <img src="${caminhoImagem}" 
+                     class="img-fluid w-100 h-100" 
+                     alt="Gráfico de evolução - ${escolaSelecionada}"
+                     style="cursor: pointer; object-fit: contain; max-height: 400px;"
+                     onclick="avalieCeApp.visualizarGraficoLinha('${caminhoImagem}', '${escolaSelecionada}')"
+                     onerror="this.parentElement.innerHTML='<div class=\\'text-center text-muted\\'><i class=\\'fas fa-exclamation-triangle fa-2x mb-2\\' style=\\'color: #ffc107\\'></i><p>Gráfico não encontrado<br><small>${escolaSelecionada}</small></p></div>'">
+                <div class="text-center mt-2">
+                    <button class="btn btn-sm btn-outline-success" onclick="avalieCeApp.visualizarGraficoLinha('${caminhoImagem}', '${escolaSelecionada}')">
+                        <i class="fas fa-expand me-1"></i>Ampliar
+                    </button>
+                </div>
+            </div>
+        `;
     }
 
     visualizarGraficoLinha(caminho, escola) {
