@@ -176,110 +176,126 @@
         </nav>
 
         <!-- Seção de Filtros e Estatísticas -->
-        <div class="row mb-4">
+        <div class="row mb-3">
             <!-- Filtros -->
-            <div class="col-lg-8">
-                <div class="sade-card card h-100 av2-card">
-                    <div class="card-header" style="background: linear-gradient(135deg, #7c3aed, #a855f7); color: white;">
-                        <h4 class="mb-0"><i class="fas fa-filter me-2"></i>AVALIE CE - CICLO II - Filtros e Busca</h4>
+            <div class="col-12">
+                <div class="sade-card card av2-card">
+                    <div class="card-header py-2" style="background: linear-gradient(135deg, #7c3aed, #a855f7); color: white;">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-filter me-2"></i>AVALIE CE - CICLO II - Filtros e Busca</h5>
+                            <div class="d-flex gap-3">
+                                <!-- Estatísticas Inline -->
+                                <div class="d-flex gap-3 align-items-center small">
+                                    <div class="text-center">
+                                        <div class="fw-bold">8</div>
+                                        <div class="opacity-75" style="font-size: 0.75rem;">Escolas</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="fw-bold" id="header-turmas">53</div>
+                                        <div class="opacity-75" style="font-size: 0.75rem;">Turmas</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="fw-bold text-success" id="header-media">66.8</div>
+                                        <div class="opacity-75" style="font-size: 0.75rem;">Média</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body py-3">
                         <!-- Filtros Principais -->
-                        <div class="row g-3 mb-4">
-                            <div class="col-md-3">
-                                <label class="form-label fw-bold">
+                        <div class="row g-2 mb-3">
+                            <div class="col-md-2">
+                                <label class="form-label fw-bold small mb-1">
                                     <i class="fas fa-school me-1"></i>Escola
                                 </label>
-                                <select id="av2-escola" class="form-select filter-select">
+                                <select id="av2-escola" class="form-select form-select-sm filter-select">
                                     <option value="">Todas as escolas</option>
                                 </select>
                             </div>
-                            <div class="col-md-3">
-                                <label class="form-label fw-bold">
-                                    <i class="fas fa-layer-group me-1"></i>Ano Escolar
+                            <div class="col-md-2">
+                                <label class="form-label fw-bold small mb-1">
+                                    <i class="fas fa-layer-group me-1"></i>Ano
                                 </label>
-                                <select id="av2-ano" class="form-select filter-select">
+                                <select id="av2-ano" class="form-select form-select-sm filter-select">
                                     <option value="">Todos os anos</option>
                                 </select>
                             </div>
-                            <div class="col-md-3">
-                                <label class="form-label fw-bold">
+                            <div class="col-md-2">
+                                <label class="form-label fw-bold small mb-1">
                                     <i class="fas fa-book me-1"></i>Disciplina
                                 </label>
-                                <select id="av2-disciplina" class="form-select filter-select">
+                                <select id="av2-disciplina" class="form-select form-select-sm filter-select">
                                     <option value="">Todas as disciplinas</option>
                                     <option value="LP">Língua Portuguesa</option>
                                     <option value="MAT">Matemática</option>
                                     <option value="GERAL">Avaliação Geral</option>
                                 </select>
                             </div>
-                            <div class="col-md-3">
-                                <label class="form-label fw-bold">
+                            <div class="col-md-2">
+                                <label class="form-label fw-bold small mb-1">
                                     <i class="fas fa-chart-line me-1"></i>Nível
                                 </label>
-                                <select id="av2-nivel" class="form-select filter-select">
+                                <select id="av2-nivel" class="form-select form-select-sm filter-select">
                                     <option value="">Todos os níveis</option>
-                                    <option value="avancado">Avançado (70-100)</option>
-                                    <option value="adequado">Adequado (60-70)</option>
-                                    <option value="baixo">Baixo (50-60)</option>
-                                    <option value="critico">Crítico (0-50)</option>
+                                    <option value="avancado">Avançado</option>
+                                    <option value="adequado">Adequado</option>
+                                    <option value="baixo">Baixo</option>
+                                    <option value="critico">Crítico</option>
                                 </select>
                             </div>
-                        </div>
-
-                        <!-- Barra de Busca e Controles -->
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <div class="input-group">
+                            <div class="col-md-3">
+                                <label class="form-label fw-bold small mb-1">
+                                    <i class="fas fa-search me-1"></i>Busca
+                                </label>
+                                <div class="input-group input-group-sm">
+                                    <input type="text" id="av2-busca" class="form-control" placeholder="Buscar...">
                                     <span class="input-group-text">
                                         <i class="fas fa-search"></i>
                                     </span>
-                                    <input type="text" id="av2-busca" class="form-control" placeholder="Buscar por escola, ano ou turma...">
                                 </div>
                             </div>
+                            <div class="col-md-1">
+                                <label class="form-label small mb-1 invisible">Ação</label>
+                                <button id="av2-limpar-filtros" class="btn btn-outline-danger btn-sm w-100" title="Limpar Filtros">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Segunda linha com controles menores -->
+                        <div class="row align-items-center">
                             <div class="col-md-3">
-                                <select id="av2-ordenacao" class="form-select">
+                                <select id="av2-ordenacao" class="form-select form-select-sm">
                                     <option value="escola">Ordenar por Escola</option>
                                     <option value="media-desc">Maior Média</option>
                                     <option value="media-asc">Menor Média</option>
                                     <option value="ano">Por Ano Escolar</option>
                                 </select>
                             </div>
-                            <div class="col-md-3">
-                                <button id="av2-limpar-filtros" class="btn btn-outline-danger w-100">
-                                    <i class="fas fa-times me-1"></i>Limpar Filtros
-                                </button>
+                            <div class="col-md-4">
+                                <!-- Filtros Ativos -->
+                                <div id="av2-filtros-ativos"></div>
+                            </div>
+                            <div class="col-md-5 text-end">
+                                <!-- Níveis de Desempenho Compactos -->
+                                <div class="d-inline-flex gap-2 align-items-center">
+                                    <small class="text-muted me-2">Distribuição:</small>
+                                    <span class="badge bg-danger" id="badge-critico">0</span>
+                                    <span class="badge bg-warning" id="badge-baixo">9</span>
+                                    <span class="badge bg-info" id="badge-adequado">25</span>
+                                    <span class="badge bg-success" id="badge-avancado">19</span>
+                                </div>
                             </div>
                         </div>
-
-                        <!-- Filtros Ativos -->
-                        <div id="av2-filtros-ativos" class="mb-2"></div>
                         
                         <!-- Contador de Resultados -->
-                        <div class="d-flex justify-content-between align-items-center">
+                        <div class="mt-2 pt-2 border-top d-flex justify-content-between align-items-center">
                             <small id="av2-contador-resultados" class="text-muted">Carregando dados...</small>
                             <small class="text-muted">
                                 <i class="fas fa-info-circle me-1"></i>
                                 Clique nos cartões para ver detalhes e gráficos
                             </small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Estatísticas Laterais -->
-            <div class="col-lg-4">
-                <div class="sade-card card h-100 av2-card">
-                    <div class="card-header" style="background: linear-gradient(135deg, #7c3aed, #a855f7); color: white;">
-                        <h5 class="mb-0"><i class="fas fa-chart-bar me-2"></i>Estatísticas Gerais</h5>
-                    </div>
-                    <div class="card-body">
-                        <div id="av2-estatisticas">
-                            <!-- Estatísticas serão carregadas aqui -->
-                            <div class="text-center text-muted">
-                                <i class="fas fa-spinner fa-spin fa-2x mb-2"></i>
-                                <p>Carregando estatísticas...</p>
-                            </div>
                         </div>
                     </div>
                 </div>

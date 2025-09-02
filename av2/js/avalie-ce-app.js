@@ -113,6 +113,8 @@ class AvalieCeApp {
         this.renderizarCards();
         this.renderizarFiltrosAtivos();
         this.atualizarContadores();
+        this.atualizarEstatisticasHeader();
+        this.atualizarBadgesNiveis();
     }
 
     renderizarCards() {
@@ -182,74 +184,52 @@ class AvalieCeApp {
 
     renderizarEstatisticasLaterais() {
         console.log('Iniciando renderização das estatísticas');
-        const container = document.getElementById('av2-estatisticas');
-        if (!container) {
-            console.error('Container av2-estatisticas não encontrado');
-            return;
-        }
-
+        
         const stats = this.estatisticas;
         console.log('Dados das estatísticas:', stats);
         
-        let html = `
-            <div class="quick-stat-card mb-3">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <i class="fas fa-school text-primary"></i>
-                        <span class="ms-2">Escolas</span>
-                    </div>
-                    <strong>${avalieCeData.metadata.totalEscolas}</strong>
-                </div>
-            </div>
-            
-            <div class="quick-stat-card mb-3">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <i class="fas fa-users text-info"></i>
-                        <span class="ms-2">Turmas</span>
-                    </div>
-                    <strong>${avalieCeData.metadata.totalTurmas}</strong>
-                </div>
-            </div>
-            
-            <div class="quick-stat-card mb-3">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <i class="fas fa-chart-line text-success"></i>
-                        <span class="ms-2">Média Geral</span>
-                    </div>
-                    <strong class="text-success">${avalieCeData.metadata.mediaGeral}</strong>
-                </div>
-            </div>
-
-            <hr class="my-3">
-            
-            <h6 class="text-muted mb-3">Por Nível de Desempenho:</h6>
-        `;
-
-        // Distribuição por níveis
-        Object.keys(avalieCeData.niveis).forEach(nivel => {
-            const nivelInfo = avalieCeData.niveis[nivel];
-            const count = stats.distribuicao[nivel] || 0;
-            const percent = Math.round((count / avalieCeData.metadata.totalTurmas) * 100);
-            
-            html += `
-                <div class="quick-stat-card mb-2">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <span class="badge" style="background-color: ${nivelInfo.cor}; color: white; font-size: 0.7em;">${nivelInfo.label}</span>
-                        </div>
-                        <div class="text-end">
-                            <strong>${count}</strong>
-                            <small class="text-muted d-block">${percent}%</small>
-                        </div>
-                    </div>
-                </div>
-            `;
-        });
-
-        container.innerHTML = html;
+        // Atualizar estatísticas inline no header
+        this.atualizarEstatisticasHeader();
+        
+        // Atualizar badges de níveis
+        this.atualizarBadgesNiveis();
+        
         console.log('Estatísticas renderizadas com sucesso');
+    }
+    
+    atualizarEstatisticasHeader() {
+        const headerTurmas = document.getElementById('header-turmas');
+        const headerMedia = document.getElementById('header-media');
+        
+        if (headerTurmas) {
+            headerTurmas.textContent = this.dadosFiltrados.length;
+        }
+        
+        if (headerMedia && this.dadosFiltrados.length > 0) {
+            const mediaFiltrada = this.dadosFiltrados.reduce((sum, item) => sum + item.media, 0) / this.dadosFiltrados.length;
+            headerMedia.textContent = Math.round(mediaFiltrada * 10) / 10;
+        }
+    }
+    
+    atualizarBadgesNiveis() {
+        // Calcular distribuição dos dados filtrados
+        const distribuicao = { critico: 0, baixo: 0, adequado: 0, avancado: 0 };
+        
+        this.dadosFiltrados.forEach(item => {
+            const nivel = AvalieCeProcessor.determinarNivel(item.media);
+            distribuicao[nivel]++;
+        });
+        
+        // Atualizar badges dos níveis
+        const badgeCritico = document.getElementById('badge-critico');
+        const badgeBaixo = document.getElementById('badge-baixo');
+        const badgeAdequado = document.getElementById('badge-adequado');
+        const badgeAvancado = document.getElementById('badge-avancado');
+        
+        if (badgeCritico) badgeCritico.textContent = distribuicao.critico;
+        if (badgeBaixo) badgeBaixo.textContent = distribuicao.baixo;
+        if (badgeAdequado) badgeAdequado.textContent = distribuicao.adequado;
+        if (badgeAvancado) badgeAvancado.textContent = distribuicao.avancado;
     }
 
     renderizarFiltrosAtivos() {
