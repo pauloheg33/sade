@@ -597,19 +597,45 @@ function parseQuestoesDoConteudo(conteudo, disciplina) {
     const questoes = [];
     const linhas = conteudo.split('\n');
     
-    // Definir faixas de questões por disciplina
+    // Definir faixas de questões por disciplina e estrutura do arquivo
     const faixasQuestoes = {
-        'Português': { min: 1, max: 26 },
-        'Matemática': { min: 27, max: 52 }
+        // Anos com arquivos separados (2º ano)
+        'Português_separado': { min: 1, max: 999 }, // Todos os dados do arquivo
+        'Matemática_separado': { min: 1, max: 999 }, // Todos os dados do arquivo
+        
+        // Anos com arquivo único - 4º e 5º anos
+        'Português_4_5': { min: 1, max: 22 },
+        'Matemática_4_5': { min: 23, max: 44 },
+        
+        // Anos com arquivo único - 8º e 9º anos  
+        'Português_8_9': { min: 1, max: 26 },
+        'Matemática_8_9': { min: 27, max: 52 }
     };
     
-    const faixa = faixasQuestoes[disciplina];
+    // Determinar qual faixa usar baseado no conteúdo e disciplina
+    let tipoFaixa = '';
+    const temArquivoSeparado = conteudo.includes('CADERNO P0201') || conteudo.includes('CADERNO M0201');
+    const tem4ou5Ano = conteudo.includes('4º ano') || conteudo.includes('5º ano');
+    const tem8ou9Ano = conteudo.includes('8º ano') || conteudo.includes('9º ano');
+    
+    if (temArquivoSeparado) {
+        tipoFaixa = disciplina + '_separado';
+    } else if (tem4ou5Ano) {
+        tipoFaixa = disciplina + '_4_5';
+    } else if (tem8ou9Ano) {
+        tipoFaixa = disciplina + '_8_9';
+    } else {
+        // Fallback: usar todas as questões
+        tipoFaixa = disciplina + '_separado';
+    }
+    
+    const faixa = faixasQuestoes[tipoFaixa];
     if (!faixa) {
-        console.warn(`Disciplina não reconhecida: ${disciplina}`);
+        console.warn(`Tipo de faixa não reconhecida: ${tipoFaixa}`);
         return questoes;
     }
     
-    console.log(`Filtrando questões para ${disciplina}: ${faixa.min}-${faixa.max}`);
+    console.log(`Filtrando questões para ${disciplina} (${tipoFaixa}): ${faixa.min}-${faixa.max}`);
     
     for (let linha of linhas) {
         linha = linha.trim();
@@ -638,33 +664,38 @@ function parseQuestoesDoConteudo(conteudo, disciplina) {
             }
         }
         
-        // Padrão antigo (fallback): número) (código) texto
-        const matchQuestaoAntiga = linha.match(/^(\d+)\)\s*\(([^)]+)\)\s*(.+)/);
-        if (matchQuestaoAntiga) {
-            const numeroQuestao = parseInt(matchQuestaoAntiga[1]);
-            const codigo = matchQuestaoAntiga[2];
-            const textoQuestao = matchQuestaoAntiga[3];
+        // Padrão dos arquivos: número) (código) texto  
+        const matchQuestaoNumero = linha.match(/^(\d+)\)\s*\(([^)]+)\)\s*(.+)/);
+        if (matchQuestaoNumero) {
+            const numeroQuestao = parseInt(matchQuestaoNumero[1]);
+            const codigo = matchQuestaoNumero[2];
+            const textoQuestao = matchQuestaoNumero[3];
             
             // Filtrar apenas questões da disciplina atual
             if (numeroQuestao >= faixa.min && numeroQuestao <= faixa.max) {
-                questoes.push({
+                const questaoTemp = {
                     numero: numeroQuestao,
                     codigo: codigo,
                     texto: textoQuestao,
-                    descritor: null // Será preenchido na próxima linha
-                });
-            }
-        }
-        
-        // Identificar descritor (padrão antigo)
-        const matchDescritor = linha.match(/Descritor:\s*(D\d+_[PM])\s*-\s*(.+)/);
-        if (matchDescritor && questoes.length > 0) {
-            const ultimaQuestao = questoes[questoes.length - 1];
-            if (!ultimaQuestao.descritor) {
-                ultimaQuestao.descritor = {
-                    codigo: matchDescritor[1],
-                    nome: matchDescritor[2]
+                    descritor: null // Será preenchido na próxima iteração
                 };
+                
+                // Procurar descritor na próxima linha
+                for (let i = linhas.indexOf(linha.trim()) + 1; i < linhas.length; i++) {
+                    const linhaDescritor = linhas[i].trim();
+                    const matchDescritor = linhaDescritor.match(/Descritor:\s*(D\d+_[PM])\s*-\s*(.+)/);
+                    if (matchDescritor) {
+                        questaoTemp.descritor = {
+                            codigo: matchDescritor[1],
+                            nome: matchDescritor[2]
+                        };
+                        questoes.push(questaoTemp);
+                        console.log(`Adicionada questão ${numeroQuestao}: ${matchDescritor[1]}`);
+                        break;
+                    }
+                    // Se encontrar uma nova questão, parar de procurar
+                    if (linhaDescritor.match(/^\d+\)/)) break;
+                }
             }
         }
     }
