@@ -597,40 +597,79 @@ function parseQuestoesDoConteudo(conteudo, disciplina) {
     const questoes = [];
     const linhas = conteudo.split('\n');
     
-    let questaoAtual = null;
-    let numeroQuestao = 0;
+    // Definir faixas de questões por disciplina
+    const faixasQuestoes = {
+        'Português': { min: 1, max: 26 },
+        'Matemática': { min: 27, max: 52 }
+    };
+    
+    const faixa = faixasQuestoes[disciplina];
+    if (!faixa) {
+        console.warn(`Disciplina não reconhecida: ${disciplina}`);
+        return questoes;
+    }
+    
+    console.log(`Filtrando questões para ${disciplina}: ${faixa.min}-${faixa.max}`);
     
     for (let linha of linhas) {
         linha = linha.trim();
         
-        // Identificar início de questão
-        const matchQuestao = linha.match(/^(\d+)\)\s*\(([^)]+)\)\s*(.+)/);
-        if (matchQuestao) {
-            numeroQuestao = parseInt(matchQuestao[1]);
-            const codigo = matchQuestao[2];
-            const textoQuestao = matchQuestao[3];
+        // Novo padrão: QUESTÃO XX → DESCRITOR: Nome do descritor
+        const matchQuestaoNova = linha.match(/^QUESTÃO\s+(\d+)\s*→\s*(D\d+_[PM]):\s*(.+)/);
+        if (matchQuestaoNova) {
+            const numeroQuestao = parseInt(matchQuestaoNova[1]);
+            const codigoDescritor = matchQuestaoNova[2];
+            const nomeDescritor = matchQuestaoNova[3];
             
-            questaoAtual = {
-                numero: numeroQuestao,
-                codigo: codigo,
-                texto: textoQuestao,
-                descritor: null
-            };
+            // Filtrar apenas questões da disciplina atual
+            if (numeroQuestao >= faixa.min && numeroQuestao <= faixa.max) {
+                const questao = {
+                    numero: numeroQuestao,
+                    codigo: `Q${numeroQuestao.toString().padStart(3, '0')}`,
+                    texto: `Questão ${numeroQuestao} - ${disciplina}`,
+                    descritor: {
+                        codigo: codigoDescritor,
+                        nome: nomeDescritor
+                    }
+                };
+                
+                questoes.push(questao);
+                console.log(`Adicionada questão ${numeroQuestao}: ${codigoDescritor}`);
+            }
         }
         
-        // Identificar descritor
-        const matchDescritor = linha.match(/Descritor:\s*(D\d+_[PM])\s*-\s*(.+)/);
-        if (matchDescritor && questaoAtual) {
-            questaoAtual.descritor = {
-                codigo: matchDescritor[1],
-                nome: matchDescritor[2]
-            };
+        // Padrão antigo (fallback): número) (código) texto
+        const matchQuestaoAntiga = linha.match(/^(\d+)\)\s*\(([^)]+)\)\s*(.+)/);
+        if (matchQuestaoAntiga) {
+            const numeroQuestao = parseInt(matchQuestaoAntiga[1]);
+            const codigo = matchQuestaoAntiga[2];
+            const textoQuestao = matchQuestaoAntiga[3];
             
-            questoes.push(questaoAtual);
-            questaoAtual = null;
+            // Filtrar apenas questões da disciplina atual
+            if (numeroQuestao >= faixa.min && numeroQuestao <= faixa.max) {
+                questoes.push({
+                    numero: numeroQuestao,
+                    codigo: codigo,
+                    texto: textoQuestao,
+                    descritor: null // Será preenchido na próxima linha
+                });
+            }
+        }
+        
+        // Identificar descritor (padrão antigo)
+        const matchDescritor = linha.match(/Descritor:\s*(D\d+_[PM])\s*-\s*(.+)/);
+        if (matchDescritor && questoes.length > 0) {
+            const ultimaQuestao = questoes[questoes.length - 1];
+            if (!ultimaQuestao.descritor) {
+                ultimaQuestao.descritor = {
+                    codigo: matchDescritor[1],
+                    nome: matchDescritor[2]
+                };
+            }
         }
     }
     
+    console.log(`Total de questões carregadas para ${disciplina}:`, questoes.length);
     return questoes;
 }
 
