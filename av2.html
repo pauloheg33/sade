@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVALIE CE - CICLO II - SADE v0.2.0</title>
+    <meta name="description" content="AVALIE CE - CICLO II - Avaliação Diagnóstica do Estado do Ceará - SADE v0.2.0">
+    <meta name="keywords" content="AVALIE CE, CICLO II, Diagnósticos, Ararendá, Educação, Avaliação, 2º 4º 5º 8º 9º ano">
+    <meta name="author" content="Paulo Henrique">
+    <meta name="copyright" content="© 2024-2025 Paulo Henrique. Todos os direitos reservados.">
+    <meta name="license" content="MIT License">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    
+    <!-- Libs CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <style>
+        .av2-header {
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            color: white;
+            padding: 2rem 0;
+            border-bottom: 5px solid var(--sade-warning);
+        }
+        
+        .av2-card {
+            border-left: 4px solid #7c3aed;
+        }
+        
+        .av2-result-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .av2-result-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.15) !important;
+        }
+        
+        .quick-stat-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            border-left: 3px solid #7c3aed;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .filter-section {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .nivel-badge {
+            border-radius: 20px;
+            padding: 0.3rem 0.8rem;
+            font-weight: 500;
+            font-size: 0.85em;
+        }
+        
+        .progress-custom {
+            height: 6px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .disciplina-tag {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .av2-header h1 {
+                font-size: 2rem;
+            }
+            
+            .filter-section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light" data-program="av2">
+    <!-- Header -->
+    <header class="av2-header text-center text-lg-start">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-2 text-center mb-3 mb-lg-0">
+                    <img src="assets/logo.png" alt="Brasão de Ararendá" class="img-fluid" style="max-height: 90px;" onerror="this.src='assets/logo-arara.svg'">
+                    <div class="mt-2">
+                        <small class="text-white fw-bold d-block">SECRETARIA DA EDUCAÇÃO</small>
+                        <small class="text-white fw-bold d-block">DE ARARENDÁ</small>
+                    </div>
+                </div>
+                <div class="col-lg-8 text-center">
+                    <h1 class="display-4 fw-bold mb-1">AVALIE CE - CICLO II</h1>
+                    <p class="lead mb-0">Avaliação Diagnóstica do Estado do Ceará</p>
+                    <small class="opacity-75">ENSINO FUNDAMENTAL • 2º, 4º, 5º, 8º e 9º ANOS</small>
+                </div>
+                <div class="col-lg-2 text-center text-lg-end mt-3 mt-lg-0">
+                    <span class="badge bg-warning text-dark fs-6 rounded-pill shadow-sm">v0.2.0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">SADE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="proea.html">
+                            <i class="fas fa-graduation-cap me-2"></i>P-II-2025
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cnca.html">
+                            <i class="fas fa-child me-2"></i>C-II-2025
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="av2.html">
+                            <i class="fas fa-chart-pie me-2"></i>AVALIE CE
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="habilidades/index.html">
+                            <i class="fas fa-brain me-2"></i>Habilidades
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="An_lise_Gr_ficos_Desempenho_1_/graficos_consolidados/analise_desempenho_consolidada.html" target="_blank">
+                            <i class="fas fa-chart-line me-2"></i>Análise Consolidada
+                        </a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button id="theme-toggle" class="btn btn-outline-light">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container my-4">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                <li class="breadcrumb-item active" aria-current="page">AVALIE CE - CICLO II</li>
+            </ol>
+        </nav>
+
+        <!-- Seção de Filtros e Estatísticas -->
+        <div class="row mb-4">
+            <!-- Filtros -->
+            <div class="col-lg-8">
+                <div class="sade-card card h-100 av2-card">
+                    <div class="card-header" style="background: linear-gradient(135deg, #7c3aed, #a855f7); color: white;">
+                        <h4 class="mb-0"><i class="fas fa-filter me-2"></i>AVALIE CE - CICLO II - Filtros e Busca</h4>
+                    </div>
+                    <div class="card-body">
+                        <!-- Filtros Principais -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-3">
+                                <label class="form-label fw-bold">
+                                    <i class="fas fa-school me-1"></i>Escola
+                                </label>
+                                <select id="av2-escola" class="form-select filter-select">
+                                    <option value="">Todas as escolas</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label fw-bold">
+                                    <i class="fas fa-layer-group me-1"></i>Ano Escolar
+                                </label>
+                                <select id="av2-ano" class="form-select filter-select">
+                                    <option value="">Todos os anos</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label fw-bold">
+                                    <i class="fas fa-book me-1"></i>Disciplina
+                                </label>
+                                <select id="av2-disciplina" class="form-select filter-select">
+                                    <option value="">Todas as disciplinas</option>
+                                    <option value="LP">Língua Portuguesa</option>
+                                    <option value="MAT">Matemática</option>
+                                    <option value="GERAL">Avaliação Geral</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label fw-bold">
+                                    <i class="fas fa-chart-line me-1"></i>Nível
+                                </label>
+                                <select id="av2-nivel" class="form-select filter-select">
+                                    <option value="">Todos os níveis</option>
+                                    <option value="avancado">Avançado (70-100)</option>
+                                    <option value="adequado">Adequado (60-70)</option>
+                                    <option value="baixo">Baixo (50-60)</option>
+                                    <option value="critico">Crítico (0-50)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Barra de Busca e Controles -->
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                    <input type="text" id="av2-busca" class="form-control" placeholder="Buscar por escola, ano ou turma...">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <select id="av2-ordenacao" class="form-select">
+                                    <option value="escola">Ordenar por Escola</option>
+                                    <option value="media-desc">Maior Média</option>
+                                    <option value="media-asc">Menor Média</option>
+                                    <option value="ano">Por Ano Escolar</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <button id="av2-limpar-filtros" class="btn btn-outline-danger w-100">
+                                    <i class="fas fa-times me-1"></i>Limpar Filtros
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Filtros Ativos -->
+                        <div id="av2-filtros-ativos" class="mb-2"></div>
+                        
+                        <!-- Contador de Resultados -->
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small id="av2-contador-resultados" class="text-muted">Carregando dados...</small>
+                            <small class="text-muted">
+                                <i class="fas fa-info-circle me-1"></i>
+                                Clique nos cartões para ver detalhes e gráficos
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estatísticas Laterais -->
+            <div class="col-lg-4">
+                <div class="sade-card card h-100 av2-card">
+                    <div class="card-header" style="background: linear-gradient(135deg, #7c3aed, #a855f7); color: white;">
+                        <h5 class="mb-0"><i class="fas fa-chart-bar me-2"></i>Estatísticas Gerais</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="av2-estatisticas">
+                            <!-- Estatísticas serão carregadas aqui -->
+                            <div class="text-center text-muted">
+                                <i class="fas fa-spinner fa-spin fa-2x mb-2"></i>
+                                <p>Carregando estatísticas...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resultados -->
+        <div class="row" id="av2-resultados">
+            <!-- Cards dos resultados serão inseridos aqui dinamicamente -->
+            <div class="col-12 text-center">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Carregando...</span>
+                </div>
+                <p class="mt-3 text-muted">Carregando dados do AVALIE CE - CICLO II...</p>
+            </div>
+        </div>
+
+        <!-- Gráficos Consolidados por Escola -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="sade-card card av2-card">
+                    <div class="card-header" style="background: linear-gradient(135deg, #7c3aed, #a855f7); color: white;">
+                        <h5 class="mb-0"><i class="fas fa-chart-line me-2"></i>Gráficos Consolidados por Escola</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted mb-4">
+                            Visualize a evolução do desempenho por ano escolar de cada escola através dos gráficos de linha consolidados.
+                        </p>
+                        <div class="row" id="graficos-escolas">
+                            <!-- Gráficos por escola serão carregados aqui -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Informações sobre a Avaliação -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="sade-card card av2-card">
+                    <div class="card-header" style="background: linear-gradient(135deg, #7c3aed, #a855f7); color: white;">
+                        <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Sobre o AVALIE CE - CICLO II</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="text-primary">O que é o AVALIE CE?</h6>
+                                <p class="text-muted mb-3">
+                                    O AVALIE CE - CICLO II é uma avaliação diagnóstica externa aplicada pela 
+                                    Secretaria da Educação do Estado do Ceará, com o objetivo de verificar 
+                                    as competências e habilidades dos estudantes do Ensino Fundamental.
+                                </p>
+                                
+                                <h6 class="text-primary">Anos Avaliados:</h6>
+                                <div class="d-flex flex-wrap gap-2 mb-3">
+                                    <span class="badge bg-secondary">2º Ano</span>
+                                    <span class="badge bg-secondary">4º Ano</span>
+                                    <span class="badge bg-secondary">5º Ano</span>
+                                    <span class="badge bg-secondary">8º Ano</span>
+                                    <span class="badge bg-secondary">9º Ano</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="text-primary">Disciplinas:</h6>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check text-success me-2"></i>Língua Portuguesa (2º ano)</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Matemática (2º ano)</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Avaliação Integrada (4º, 5º, 8º, 9º anos)</li>
+                                </ul>
+                                
+                                <h6 class="text-primary mt-3">Níveis de Desempenho:</h6>
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <span class="badge w-100" style="background-color: #28a745; color: white;">Avançado: 70-100</span>
+                                    </div>
+                                    <div class="col-6">
+                                        <span class="badge w-100" style="background-color: #ffc107; color: black;">Adequado: 60-70</span>
+                                    </div>
+                                    <div class="col-6">
+                                        <span class="badge w-100" style="background-color: #fd7e14; color: white;">Baixo: 50-60</span>
+                                    </div>
+                                    <div class="col-6">
+                                        <span class="badge w-100" style="background-color: #dc3545; color: white;">Crítico: 0-50</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <p class="mb-1">&copy; 2024-2025 Paulo Henrique. Todos os direitos reservados.</p>
+                    <small class="text-muted">SADE v0.2.0 - Sistema licenciado sob MIT License</small>
+                </div>
+                <div class="col-md-4 text-end">
+                    <small class="text-muted">Secretaria da Educação de Ararendá - CE</small><br>
+                    <small class="text-muted">Desenvolvido com <i class="fas fa-heart text-danger"></i> por Paulo Henrique</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="btn btn-primary btn-lg" id="back-to-top" role="button"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <script src="assets/js/config.js"></script>
+    
+    <!-- Scripts específicos do AVALIE CE -->
+    <script src="av2/data/avalie-ce-data.js"></script>
+    <script src="av2/data/graficos-linha-escolas.js"></script>
+    <script src="av2/js/avalie-ce-app.js"></script>
+    
+    <!-- Scripts gerais do SADE -->
+    <script src="assets/js/app-modern.js"></script>
+</body>
+</html>
