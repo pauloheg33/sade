@@ -55,7 +55,6 @@ class AvalieCeApp {
         this.renderizarFiltros();
         this.renderizarCards();
         this.renderizarEstatisticasLaterais();
-        this.renderizarGraficosEscolas();
     }
 
     renderizarFiltros() {
@@ -189,51 +188,6 @@ class AvalieCeApp {
         container.innerHTML = html;
     }
 
-    renderizarGraficosEscolas() {
-        const container = document.getElementById('graficos-escolas');
-        if (!container || typeof graficosLinhaEscolas === 'undefined') return;
-
-        let html = '';
-        graficosLinhaEscolas.forEach(grafico => {
-            // Calcular média da escola
-            const dadosEscola = avalieCeData.avaliacoes.filter(item => item.escola === grafico.escola);
-            const mediaEscola = dadosEscola.length > 0 ? 
-                Math.round(dadosEscola.reduce((acc, item) => acc + item.media, 0) / dadosEscola.length * 10) / 10 : 0;
-            const totalTurmas = dadosEscola.length;
-            
-            // Determinar nível da escola
-            const nivel = AvalieCeProcessor.determinarNivel(mediaEscola);
-            const nivelInfo = avalieCeData.niveis[nivel];
-            
-            html += `
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100 border-0 shadow-sm" style="cursor: pointer;" onclick="avalieCeApp.visualizarGraficoEscola('${grafico.escola}')">
-                        <div class="card-body text-center">
-                            <div class="mb-3">
-                                <i class="fas fa-chart-line fa-2x" style="color: #7c3aed;"></i>
-                            </div>
-                            <h6 class="card-title text-primary mb-2">${grafico.escola}</h6>
-                            <div class="mb-2">
-                                <span class="badge rounded-pill" style="background-color: ${nivelInfo.cor}; color: white;">
-                                    Média: ${mediaEscola}
-                                </span>
-                            </div>
-                            <small class="text-muted d-block mb-2">${totalTurmas} turma${totalTurmas !== 1 ? 's' : ''} avaliada${totalTurmas !== 1 ? 's' : ''}</small>
-                            <small class="text-muted">${grafico.descricao}</small>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 text-center">
-                            <small class="text-primary">
-                                <i class="fas fa-click me-1"></i>Clique para visualizar
-                            </small>
-                        </div>
-                    </div>
-                </div>
-            `;
-        });
-
-        container.innerHTML = html;
-    }
-
     renderizarEstatisticasLaterais() {
         const container = document.getElementById('av2-estatisticas');
         if (!container) return;
@@ -340,10 +294,15 @@ class AvalieCeApp {
     gerarCaminhoImagem(item) {
         let nomeArquivo = '';
         
+        // Usar o nome exato da escola como está nos arquivos
+        let escolaArquivo = item.escola;
+        
         if (item.disciplina === 'GERAL') {
-            nomeArquivo = `${item.escola}_${item.ano}º_Ano${item.turma ? '_' + item.turma : ''}_${item.media}.png`;
+            // Para avaliações gerais (4º, 5º, 8º, 9º anos)
+            nomeArquivo = `${escolaArquivo}_${item.ano}º_Ano${item.turma ? '_' + item.turma : ''}_${item.media}.png`;
         } else {
-            nomeArquivo = `${item.escola}_${item.ano}º_Ano${item.turma ? '_' + item.turma : ''}_${item.disciplina}_${item.media}.png`;
+            // Para disciplinas específicas (LP, MAT no 2º ano)
+            nomeArquivo = `${escolaArquivo}_${item.ano}º_Ano${item.turma ? '_' + item.turma : ''}_${item.disciplina}_${item.media}.png`;
         }
         
         return `av2/graficos_individuais/${nomeArquivo}`;
@@ -361,17 +320,29 @@ class AvalieCeApp {
     visualizarGrafico(caminho, escola, ano, turma, disciplina) {
         const titulo = `${escola} - ${ano}º Ano ${turma ? '- Turma ' + turma : ''} - ${this.formatarDisciplina(disciplina)}`;
         
-        // Usar Fancybox para exibir a imagem
-        if (typeof Fancybox !== 'undefined') {
-            Fancybox.show([{
-                src: caminho,
-                caption: titulo,
-                thumb: caminho
-            }]);
-        } else {
-            // Fallback: abrir em nova janela
-            window.open(caminho, '_blank');
-        }
+        console.log('Tentando abrir imagem:', caminho); // Debug
+        
+        // Verificar se a imagem existe antes de tentar abrir
+        const img = new Image();
+        img.onload = () => {
+            // Imagem carregada com sucesso, usar Fancybox
+            if (typeof Fancybox !== 'undefined') {
+                Fancybox.show([{
+                    src: caminho,
+                    caption: titulo,
+                    thumb: caminho
+                }]);
+            } else {
+                // Fallback: abrir em nova janela
+                window.open(caminho, '_blank');
+            }
+        };
+        img.onerror = () => {
+            // Imagem não encontrada, mostrar erro
+            alert(`Gráfico não encontrado: ${caminho}\n\nEscola: ${escola}\nAno: ${ano}º\nTurma: ${turma || 'Única'}\nDisciplina: ${this.formatarDisciplina(disciplina)}`);
+            console.error('Imagem não encontrada:', caminho);
+        };
+        img.src = caminho;
     }
 
     visualizarGraficoEscola(escola) {
@@ -381,15 +352,28 @@ class AvalieCeApp {
                 const caminho = `av2/linhas_por_escola_atualizado/${grafico.arquivo}`;
                 const titulo = `${escola} - Evolução por Ano Escolar`;
                 
-                if (typeof Fancybox !== 'undefined') {
-                    Fancybox.show([{
-                        src: caminho,
-                        caption: titulo,
-                        thumb: caminho
-                    }]);
-                } else {
-                    window.open(caminho, '_blank');
-                }
+                console.log('Tentando abrir gráfico da escola:', caminho); // Debug
+                
+                // Verificar se a imagem existe antes de tentar abrir
+                const img = new Image();
+                img.onload = () => {
+                    if (typeof Fancybox !== 'undefined') {
+                        Fancybox.show([{
+                            src: caminho,
+                            caption: titulo,
+                            thumb: caminho
+                        }]);
+                    } else {
+                        window.open(caminho, '_blank');
+                    }
+                };
+                img.onerror = () => {
+                    alert(`Gráfico consolidado não encontrado: ${caminho}\n\nEscola: ${escola}`);
+                    console.error('Gráfico da escola não encontrado:', caminho);
+                };
+                img.src = caminho;
+            } else {
+                alert(`Gráfico consolidado não disponível para a escola: ${escola}`);
             }
         }
     }
