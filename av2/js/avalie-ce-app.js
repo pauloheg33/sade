@@ -289,12 +289,15 @@ class AvalieCeApp {
         
         escolaArquivo = mapeamentoEscolas[escolaArquivo] || escolaArquivo;
         
+        // Formatear a média corretamente (manter os decimais como estão nos dados)
+        let mediaFormatada = item.media.toString();
+        
         if (item.disciplina === 'GERAL') {
             // Para avaliações gerais: ESCOLA_ANO_Turma_MEDIA.png
-            nomeArquivo = `${escolaArquivo}_${item.ano}_Ano${item.turma ? '_' + item.turma : ''}_${item.media}.png`;
+            nomeArquivo = `${escolaArquivo}_${item.ano}_Ano${item.turma ? '_' + item.turma : ''}_${mediaFormatada}.png`;
         } else {
             // Para disciplinas específicas: ESCOLA_ANO_Turma_DISCIPLINA_MEDIA.png
-            nomeArquivo = `${escolaArquivo}_${item.ano}_Ano${item.turma ? '_' + item.turma : ''}_${item.disciplina}_${item.media}.png`;
+            nomeArquivo = `${escolaArquivo}_${item.ano}_Ano${item.turma ? '_' + item.turma : ''}_${item.disciplina}_${mediaFormatada}.png`;
         }
         
         return `av2/graficos_individuais/${nomeArquivo}`;
