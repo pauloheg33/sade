@@ -11,7 +11,7 @@ const dadosAV2 = {
         },
         '4º': {
             'Português': 'correlacao_questoes_descritores_C0401.txt',
-            'Matemática': 'correlacao_questoes_descritores_C0401.txt' // Mesmo arquivo contém ambas
+            'Matemática': 'correlacao_questoes_descritores_C0401.txt'
         },
         '5º': {
             'Português': 'correlacao_questoes_descritores_C0501.txt',
@@ -323,12 +323,22 @@ function criarCardsAno(ano) {
     // Card para cada disciplina disponível
     if (dadosAV2.resultados[ano]) {
         Object.keys(dadosAV2.resultados[ano]).forEach(disciplina => {
+            console.log(`Processando disciplina ${disciplina} para ${ano}:`);
             const dados = dadosAV2.resultados[ano][disciplina];
+            console.log(`Dados da disciplina:`, dados);
+            
             if (dados && dados.totalQuestoes) {
+                console.log(`Gerando card para ${disciplina} - ${ano}`);
                 html += criarCardDisciplina(ano, disciplina, dados);
+            } else {
+                console.log(`Dados inválidos ou sem totalQuestoes para ${disciplina} - ${ano}:`, dados);
             }
         });
+    } else {
+        console.log(`Nenhum dado encontrado para ${ano}`);
     }
+    
+    console.log(`HTML gerado para ${ano}:`, html.length > 0 ? 'Conteúdo gerado' : 'Nenhum conteúdo');
     
     return html;
 }
