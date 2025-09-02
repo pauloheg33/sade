@@ -73,7 +73,7 @@ class AvalieCeApp {
         if (selectAnos) {
             selectAnos.innerHTML = '<option value="">Todos os anos</option>';
             avalieCeData.metadata.anosAvaliados.forEach(ano => {
-                selectAnos.innerHTML += `<option value="${ano}">${ano}º Ano</option>`;
+                selectAnos.innerHTML += `<option value="${ano}">${ano} Ano</option>`;
             });
         }
     }
@@ -144,7 +144,7 @@ class AvalieCeApp {
                         <div class="card-header bg-light border-0 d-flex justify-content-between align-items-center">
                             <div>
                                 <h6 class="mb-0 fw-bold text-primary">${item.escola}</h6>
-                                <small class="text-muted">${item.ano}º Ano ${item.turma ? '- Turma ' + item.turma : ''}</small>
+                                <small class="text-muted">${item.ano} Ano ${item.turma ? '- Turma ' + item.turma : ''}</small>
                             </div>
                             <span class="badge rounded-pill" style="background-color: ${nivelInfo.cor}; color: white;">
                                 ${nivelInfo.label}
@@ -265,7 +265,7 @@ class AvalieCeApp {
         }
         
         if (this.filtrosAtivos.ano) {
-            badges.push(`<span class="badge bg-info me-1 mb-1">Ano: ${this.filtrosAtivos.ano}º <i class="fas fa-times ms-1" onclick="avalieCeApp.removerFiltro('ano')"></i></span>`);
+            badges.push(`<span class="badge bg-info me-1 mb-1">Ano: ${this.filtrosAtivos.ano} <i class="fas fa-times ms-1" onclick="avalieCeApp.removerFiltro('ano')"></i></span>`);
         }
         
         if (this.filtrosAtivos.disciplina && this.filtrosAtivos.disciplina !== 'TODAS') {
@@ -299,10 +299,10 @@ class AvalieCeApp {
         
         if (item.disciplina === 'GERAL') {
             // Para avaliações gerais (4º, 5º, 8º, 9º anos)
-            nomeArquivo = `${escolaArquivo}_${item.ano}º_Ano${item.turma ? '_' + item.turma : ''}_${item.media}.png`;
+            nomeArquivo = `${escolaArquivo}_${item.ano}_Ano${item.turma ? '_' + item.turma : ''}_${item.media}.png`;
         } else {
             // Para disciplinas específicas (LP, MAT no 2º ano)
-            nomeArquivo = `${escolaArquivo}_${item.ano}º_Ano${item.turma ? '_' + item.turma : ''}_${item.disciplina}_${item.media}.png`;
+            nomeArquivo = `${escolaArquivo}_${item.ano}_Ano${item.turma ? '_' + item.turma : ''}_${item.disciplina}_${item.media}.png`;
         }
         
         return `av2/graficos_individuais/${nomeArquivo}`;
@@ -318,7 +318,7 @@ class AvalieCeApp {
     }
 
     visualizarGrafico(caminho, escola, ano, turma, disciplina) {
-        const titulo = `${escola} - ${ano}º Ano ${turma ? '- Turma ' + turma : ''} - ${this.formatarDisciplina(disciplina)}`;
+        const titulo = `${escola} - ${ano} Ano ${turma ? '- Turma ' + turma : ''} - ${this.formatarDisciplina(disciplina)}`;
         
         console.log('Tentando abrir imagem:', caminho); // Debug
         
@@ -389,7 +389,7 @@ class AvalieCeApp {
                 <div class="row">
                     <div class="col-6">
                         <strong>Ano Escolar:</strong><br>
-                        <span class="badge bg-info fs-6">${item.ano}º Ano</span>
+                        <span class="badge bg-info fs-6">${item.ano} Ano</span>
                     </div>
                     <div class="col-6">
                         <strong>Turma:</strong><br>
@@ -422,7 +422,7 @@ class AvalieCeApp {
             // Usar modal do Bootstrap se disponível
             this.mostrarModalDetalhes(html);
         } else {
-            alert(`Detalhes da turma:\n\nEscola: ${item.escola}\nAno: ${item.ano}º\nTurma: ${item.turma || 'Única'}\nDisciplina: ${this.formatarDisciplina(item.disciplina)}\nMédia: ${item.media}\nNível: ${nivelInfo.label}`);
+            alert(`Detalhes da turma:\n\nEscola: ${item.escola}\nAno: ${item.ano}\nTurma: ${item.turma || 'Única'}\nDisciplina: ${this.formatarDisciplina(item.disciplina)}\nMédia: ${item.media}\nNível: ${nivelInfo.label}`);
         }
     }
 
