@@ -189,12 +189,17 @@ class AvalieCeApp {
     }
 
     renderizarEstatisticasLaterais() {
+        console.log('Iniciando renderização das estatísticas');
         const container = document.getElementById('av2-estatisticas');
-        if (!container) return;
+        if (!container) {
+            console.error('Container av2-estatisticas não encontrado');
+            return;
+        }
 
         const stats = this.estatisticas;
+        console.log('Dados das estatísticas:', stats);
         
-        html = `
+        let html = `
             <div class="quick-stat-card mb-3">
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
@@ -252,6 +257,7 @@ class AvalieCeApp {
         });
 
         container.innerHTML = html;
+        console.log('Estatísticas renderizadas com sucesso');
     }
 
     renderizarFiltrosAtivos() {

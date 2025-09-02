@@ -133,7 +133,7 @@ const AvalieCeProcessor = {
 
         // Distribuição por níveis de desempenho
         const distribuicao = data.reduce((acc, item) => {
-            const nivel = this.determinarNivel(item.media);
+            const nivel = AvalieCeProcessor.determinarNivel(item.media);
             acc[nivel] = (acc[nivel] || 0) + 1;
             return acc;
         }, {});
