@@ -89,6 +89,38 @@
             .filter-section {
                 padding: 1rem;
             }
+            
+            .filtros-graficos-section {
+                min-height: auto !important;
+            }
+            
+            .filtros-graficos-section .col-lg-5,
+            .filtros-graficos-section .col-lg-7 {
+                margin-bottom: 1rem;
+            }
+        }
+        
+        .filtros-graficos-section {
+            min-height: 480px;
+        }
+        
+        .section-filters {
+            max-width: 100%;
+        }
+        
+        .section-chart {
+            max-width: 100%;
+        }
+        
+        .chart-container {
+            background: #f8f9fa;
+            border-radius: 8px;
+            min-height: 400px;
+        }
+        
+        .balanced-layout {
+            display: flex;
+            align-items: stretch;
         }
     </style>
 </head>
@@ -176,10 +208,10 @@
         </nav>
 
         <!-- Seção de Filtros e Gráfico da Escola Selecionada -->
-        <div class="row mb-3">
+        <div class="row mb-4 g-3 filtros-graficos-section balanced-layout">
             <!-- Filtros Compactos -->
-            <div class="col-lg-6">
-                <div class="sade-card card av2-card">
+            <div class="col-lg-5 section-filters">
+                <div class="sade-card card av2-card h-100">
                     <div class="card-header py-2" style="background: linear-gradient(135deg, #7c3aed, #a855f7); color: white;">
                         <div class="d-flex justify-content-between align-items-center">
                             <h6 class="mb-0"><i class="fas fa-filter me-2"></i>Filtros e Busca</h6>
@@ -199,7 +231,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body py-3">
+                    <div class="card-body py-3" style="height: calc(100% - 52px); overflow-y: auto;">
                         <!-- Filtros Principais - Layout 2x2 -->
                         <div class="row g-2 mb-3">
                             <div class="col-6">
@@ -290,7 +322,7 @@
             </div>
 
             <!-- Gráfico da Escola Selecionada -->
-            <div class="col-lg-6">
+            <div class="col-lg-7 section-chart">
                 <div class="sade-card card av2-card h-100">
                     <div class="card-header py-2" style="background: linear-gradient(135deg, #28a745, #20c997); color: white;">
                         <h6 class="mb-0">
@@ -298,7 +330,7 @@
                             <span id="grafico-escola-titulo">Evolução do Desempenho</span>
                         </h6>
                     </div>
-                    <div class="card-body p-2 d-flex align-items-center justify-content-center" id="grafico-escola-container">
+                    <div class="card-body p-3 d-flex align-items-center justify-content-center" id="grafico-escola-container" style="min-height: 400px;">
                         <!-- Conteúdo será carregado dinamicamente -->
                         <div class="text-center text-muted">
                             <i class="fas fa-chart-line fa-3x mb-3 opacity-50"></i>

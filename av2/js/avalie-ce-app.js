@@ -513,16 +513,18 @@ class AvalieCeApp {
         
         // Renderizar o gráfico
         container.innerHTML = `
-            <div class="w-100 h-100">
-                <img src="${caminhoImagem}" 
-                     class="img-fluid w-100 h-100" 
-                     alt="Gráfico de evolução - ${escolaSelecionada}"
-                     style="cursor: pointer; object-fit: contain; max-height: 400px;"
-                     onclick="avalieCeApp.visualizarGraficoLinha('${caminhoImagem}', '${escolaSelecionada}')"
-                     onerror="this.parentElement.innerHTML='<div class=\\'text-center text-muted\\'><i class=\\'fas fa-exclamation-triangle fa-2x mb-2\\' style=\\'color: #ffc107\\'></i><p>Gráfico não encontrado<br><small>${escolaSelecionada}</small></p></div>'">
+            <div class="w-100 h-100 d-flex flex-column">
+                <div class="flex-grow-1 d-flex align-items-center justify-content-center">
+                    <img src="${caminhoImagem}" 
+                         class="img-fluid" 
+                         alt="Gráfico de evolução - ${escolaSelecionada}"
+                         style="cursor: pointer; max-width: 100%; max-height: 350px; object-fit: contain;"
+                         onclick="avalieCeApp.visualizarGraficoLinha('${caminhoImagem}', '${escolaSelecionada}')"
+                         onerror="this.parentElement.parentElement.innerHTML='<div class=\\'text-center text-muted d-flex flex-column align-items-center justify-content-center h-100\\'><i class=\\'fas fa-exclamation-triangle fa-2x mb-2\\' style=\\'color: #ffc107\\'></i><p class=\\'mb-0\\'>Gráfico não encontrado<br><small>${escolaSelecionada}</small></p></div>'">
+                </div>
                 <div class="text-center mt-2">
                     <button class="btn btn-sm btn-outline-success" onclick="avalieCeApp.visualizarGraficoLinha('${caminhoImagem}', '${escolaSelecionada}')">
-                        <i class="fas fa-expand me-1"></i>Ampliar
+                        <i class="fas fa-expand me-1"></i>Ampliar Gráfico
                     </button>
                 </div>
             </div>
