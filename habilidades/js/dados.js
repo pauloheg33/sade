@@ -20,7 +20,8 @@ const desempenhoEscolas = {
     '21 DE DEZEMBRO': { media: 66.9, alunos: 30 },
     'ANTONIO DE SOUSA BARROS': { media: 64.5, alunos: 12 },
     'JOAQUIM FERREIRA': { media: 68.5, alunos: 25 },
-    'MARIA AMELIA': { media: 71.4, alunos: 14 }
+    'MARIA AMELIA': { media: 71.4, alunos: 14 },
+    'MOURÃO LIMA': { media: 72.8, alunos: 28 }
 };
 
 // Cores para gráficos
