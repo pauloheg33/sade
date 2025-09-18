@@ -696,6 +696,8 @@ function parseQuestoesDoConteudo(conteudo, disciplina) {
         combinado4e5anos: isArquivo4e5Anos
     });
     
+    console.log(`Primeiras linhas do arquivo:`, linhas.slice(0, 10));
+    
     // Determinar faixas de questões baseado na disciplina e tipo de arquivo
     let faixaInicio = 1;
     let faixaFim = 999;
@@ -763,9 +765,14 @@ function parseQuestoesDoConteudo(conteudo, disciplina) {
         if (!questaoEncontrada) {
             const matchPadrao1B = linha.match(/^QUESTÃO\s+(\d+)\s*→\s*(D\d+_[PM]):\s*(.+)/);
             if (matchPadrao1B) {
+                console.log(`Testando Padrão 1B com linha: "${linha}"`);
+                console.log(`Match encontrado:`, matchPadrao1B);
+                
                 const numeroQuestao = parseInt(matchPadrao1B[1]);
                 const codigoDescritor = matchPadrao1B[2];
                 const nomeDescritor = matchPadrao1B[3];
+                
+                console.log(`Questão ${numeroQuestao}, faixa: ${faixaInicio}-${faixaFim}`);
                 
                 if (numeroQuestao >= faixaInicio && numeroQuestao <= faixaFim) {
                     questoes.push({
@@ -779,6 +786,11 @@ function parseQuestoesDoConteudo(conteudo, disciplina) {
                     });
                     console.log(`Padrão 1B - Adicionada questão ${numeroQuestao}: ${codigoDescritor}`);
                     questaoEncontrada = true;
+                }
+            } else {
+                // Debug: testar se a linha parece ser uma questão mas não fez match
+                if (linha.includes('QUESTÃO') && linha.includes('→')) {
+                    console.log(`Linha com QUESTÃO → não fez match: "${linha}"`);
                 }
             }
         }
