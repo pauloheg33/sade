@@ -478,6 +478,9 @@ async function mostrarDetalhes(ano, disciplina) {
     
     console.log('Dados encontrados:', dados);
     
+    // Remover modais existentes antes de criar novos
+    removerModaisExistentes();
+    
     // Mostrar loading
     mostrarModalLoading();
     
@@ -487,104 +490,147 @@ async function mostrarDetalhes(ano, disciplina) {
         const questoes = await carregarQuestoesDoArquivo(ano, disciplina);
         console.log(`Questões carregadas: ${questoes.length}`);
         
-        // Remover modal de loading antes de mostrar o novo modal
-        const loadingModal = document.getElementById('loadingModal');
-        if (loadingModal) {
-            const modalInstance = bootstrap.Modal.getInstance(loadingModal);
-            if (modalInstance) {
-                modalInstance.hide();
-            }
-            // Aguardar um pouco para o modal ser totalmente removido
-            setTimeout(() => {
-                loadingModal.remove();
-            }, 300);
-        }
+        // Remover modal de loading
+        removerModalLoading();
         
-        // Aguardar um pouco antes de mostrar o modal de detalhes
-        setTimeout(() => {
-            // Criar modal com detalhes das questões
-            const modalHtml = `
-                <div class="modal fade" id="detalhesModal" tabindex="-1">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">
-                                    <i class="fas ${disciplina === 'Português' ? 'fa-book' : 'fa-calculator'} me-2"></i>
-                                    ${disciplina} - ${ano} Ano - Questões e Descritores
-                                </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row mb-3">
-                                    <div class="col-md-4">
-                                        <div class="stat-box text-center">
-                                            <div class="stat-number">${questoes.length}</div>
-                                            <div class="stat-label">Questões</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="stat-box text-center">
-                                            <div class="stat-number">${Object.keys(dados.descritores).length}</div>
-                                            <div class="stat-label">Descritores</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="stat-box text-center">
-                                            <div class="stat-number">${dados.caderno}</div>
-                                            <div class="stat-label">Caderno</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <h6 class="mb-3">
-                                    <i class="fas fa-list-ol me-2"></i>Questões e Correlações com Descritores:
-                                </h6>
-                                <div class="questoes-container" style="max-height: 500px; overflow-y: auto;">
-                                    ${criarListaQuestoes(questoes)}
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            // Remover modal existente se houver
-            const existingModal = document.getElementById('detalhesModal');
-            if (existingModal) {
-                existingModal.remove();
-            }
-            
-            // Adicionar modal ao DOM
-            document.body.insertAdjacentHTML('beforeend', modalHtml);
-            
-            // Mostrar modal
-            const modal = new bootstrap.Modal(document.getElementById('detalhesModal'));
-            modal.show();
-        }, 300);
+        // Criar modal com detalhes das questões
+        criarModalDetalhes(ano, disciplina, dados, questoes);
         
     } catch (error) {
         console.error('Erro ao carregar questões:', error);
         
         // Remover modal de loading em caso de erro
-        const loadingModal = document.getElementById('loadingModal');
-        if (loadingModal) {
-            const modalInstance = bootstrap.Modal.getInstance(loadingModal);
-            if (modalInstance) {
-                modalInstance.hide();
-            }
-            setTimeout(() => loadingModal.remove(), 300);
-        }
+        removerModalLoading();
         
         alert('Erro ao carregar os detalhes das questões. Verifique o console para mais informações.');
     }
 }
 
+function removerModaisExistentes() {
+    // Remover modal de loading se existir
+    const loadingModal = document.getElementById('loadingModal');
+    if (loadingModal) {
+        const modalInstance = bootstrap.Modal.getInstance(loadingModal);
+        if (modalInstance) {
+            modalInstance.hide();
+        }
+        loadingModal.remove();
+    }
+    
+    // Remover modal de detalhes se existir
+    const detalhesModal = document.getElementById('detalhesModal');
+    if (detalhesModal) {
+        const modalInstance = bootstrap.Modal.getInstance(detalhesModal);
+        if (modalInstance) {
+            modalInstance.hide();
+        }
+        detalhesModal.remove();
+    }
+    
+    // Remover backdrop manualmente se ainda existir
+    const backdrops = document.querySelectorAll('.modal-backdrop');
+    backdrops.forEach(backdrop => backdrop.remove());
+    
+    // Garantir que o body não tenha classes de modal
+    document.body.classList.remove('modal-open');
+    document.body.style.overflow = '';
+    document.body.style.paddingRight = '';
+}
+
+function removerModalLoading() {
+    const loadingModal = document.getElementById('loadingModal');
+    if (loadingModal) {
+        const modalInstance = bootstrap.Modal.getInstance(loadingModal);
+        if (modalInstance) {
+            modalInstance.hide();
+        }
+        // Aguardar animação antes de remover
+        setTimeout(() => {
+            loadingModal.remove();
+        }, 200);
+    }
+}
+
+function criarModalDetalhes(ano, disciplina, dados, questoes) {
+    const modalHtml = `
+        <div class="modal fade" id="detalhesModal" tabindex="-1" data-bs-backdrop="true" data-bs-keyboard="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">
+                            <i class="fas ${disciplina === 'Português' ? 'fa-book' : 'fa-calculator'} me-2"></i>
+                            ${disciplina} - ${ano} Ano - Questões e Descritores
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <div class="stat-box text-center">
+                                    <div class="stat-number">${questoes.length}</div>
+                                    <div class="stat-label">Questões</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="stat-box text-center">
+                                    <div class="stat-number">${Object.keys(dados.descritores).length}</div>
+                                    <div class="stat-label">Descritores</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="stat-box text-center">
+                                    <div class="stat-number">${dados.caderno}</div>
+                                    <div class="stat-label">Caderno</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h6 class="mb-3">
+                            <i class="fas fa-list-ol me-2"></i>Questões e Correlações com Descritores:
+                        </h6>
+                        <div class="questoes-container" style="max-height: 500px; overflow-y: auto;">
+                            ${criarListaQuestoes(questoes)}
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Adicionar modal ao DOM
+    document.body.insertAdjacentHTML('beforeend', modalHtml);
+    
+    // Configurar evento para limpeza adequada ao fechar
+    const modalElement = document.getElementById('detalhesModal');
+    modalElement.addEventListener('hidden.bs.modal', function () {
+        // Limpar completamente ao fechar
+        setTimeout(() => {
+            removerModaisExistentes();
+        }, 100);
+    });
+    
+    // Mostrar modal
+    const modal = new bootstrap.Modal(modalElement, {
+        backdrop: true,
+        keyboard: true,
+        focus: true
+    });
+    
+    modal.show();
+}
+
 function mostrarModalLoading() {
+    // Remover loading modal existente primeiro
+    const existingLoadingModal = document.getElementById('loadingModal');
+    if (existingLoadingModal) {
+        existingLoadingModal.remove();
+    }
+    
     const loadingHtml = `
-        <div class="modal fade" id="loadingModal" tabindex="-1">
+        <div class="modal fade" id="loadingModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-body text-center p-4">
@@ -599,7 +645,10 @@ function mostrarModalLoading() {
     `;
     
     document.body.insertAdjacentHTML('beforeend', loadingHtml);
-    const modal = new bootstrap.Modal(document.getElementById('loadingModal'));
+    const modal = new bootstrap.Modal(document.getElementById('loadingModal'), {
+        backdrop: 'static',
+        keyboard: false
+    });
     modal.show();
 }
 
@@ -634,12 +683,23 @@ function parseQuestoesDoConteudo(conteudo, disciplina) {
     console.log(`Parseando conteúdo para ${disciplina}`);
     console.log(`Total de linhas: ${linhas.length}`);
     
-    // Determinar faixas de questões baseado na disciplina e estrutura do arquivo
+    // Detectar tipo de arquivo baseado no conteúdo
+    const isArquivoSeparado = conteudo.includes('CADERNO P0201') || conteudo.includes('CADERNO M0201');
+    const isArquivoCombinado = conteudo.includes('=== LÍNGUA PORTUGUESA ===') && conteudo.includes('=== MATEMÁTICA ===');
+    const isArquivo4e5Anos = conteudo.includes('LÍNGUA PORTUGUESA (Questões 1-22)') && conteudo.includes('MATEMÁTICA (Questões 23-44)');
+    
+    console.log(`Tipo de arquivo detectado:`, {
+        separado: isArquivoSeparado,
+        combinado9ano: isArquivoCombinado,
+        combinado4e5anos: isArquivo4e5Anos
+    });
+    
+    // Determinar faixas de questões baseado na disciplina e tipo de arquivo
     let faixaInicio = 1;
     let faixaFim = 999;
     
-    // Para arquivos combinados (8º e 9º anos), determinar faixas por disciplina
-    if (conteudo.includes('=== LÍNGUA PORTUGUESA ===') && conteudo.includes('=== MATEMÁTICA ===')) {
+    if (isArquivoCombinado) {
+        // Para 8º e 9º anos (arquivos com === LÍNGUA PORTUGUESA ===)
         if (disciplina === 'Português') {
             faixaInicio = 1;
             faixaFim = 26;
@@ -647,24 +707,34 @@ function parseQuestoesDoConteudo(conteudo, disciplina) {
             faixaInicio = 27;
             faixaFim = 52;
         }
+    } else if (isArquivo4e5Anos) {
+        // Para 4º e 5º anos (arquivos com LÍNGUA PORTUGUESA (Questões 1-22))
+        if (disciplina === 'Português') {
+            faixaInicio = 1;
+            faixaFim = 22;
+        } else if (disciplina === 'Matemática') {
+            faixaInicio = 23;
+            faixaFim = 44;
+        }
     }
+    // Para arquivos separados (2º ano), usar todas as questões (faixaInicio=1, faixaFim=999)
     
     console.log(`Faixa para ${disciplina}: ${faixaInicio}-${faixaFim}`);
     
     // Processar cada linha procurando por questões
     for (let i = 0; i < linhas.length; i++) {
         const linha = linhas[i].trim();
+        let questaoEncontrada = false;
         
-        // Padrão principal: Questão XX: DXXX_X - Descrição do descritor
-        const matchQuestao = linha.match(/^Questão\s+(\d+):\s+(D\d+_[PM])\s*-\s*(.+)/);
-        if (matchQuestao) {
-            const numeroQuestao = parseInt(matchQuestao[1]);
-            const codigoDescritor = matchQuestao[2];
-            const nomeDescritor = matchQuestao[3];
+        // PADRÃO 1: Questão 01: D019_P - Descrição (usado no 9º ano)
+        const matchPadrao1 = linha.match(/^Questão\s+(\d+):\s+(D\d+_[PM])\s*-\s*(.+)/);
+        if (matchPadrao1) {
+            const numeroQuestao = parseInt(matchPadrao1[1]);
+            const codigoDescritor = matchPadrao1[2];
+            const nomeDescritor = matchPadrao1[3];
             
-            // Verificar se a questão está na faixa da disciplina
             if (numeroQuestao >= faixaInicio && numeroQuestao <= faixaFim) {
-                const questao = {
+                questoes.push({
                     numero: numeroQuestao,
                     codigo: `Q${numeroQuestao.toString().padStart(2, '0')}`,
                     texto: `Questão ${numeroQuestao} - ${disciplina}`,
@@ -672,47 +742,48 @@ function parseQuestoesDoConteudo(conteudo, disciplina) {
                         codigo: codigoDescritor,
                         nome: nomeDescritor
                     }
-                };
+                });
+                console.log(`Padrão 1 - Adicionada questão ${numeroQuestao}: ${codigoDescritor}`);
+                questaoEncontrada = true;
+            }
+        }
+        
+        // PADRÃO 2: 01) (código) texto (usado no 2º ano e 4º-5º anos)
+        if (!questaoEncontrada) {
+            const matchPadrao2 = linha.match(/^(\d+)\)\s*\(([^)]+)\)\s*(.+)/);
+            if (matchPadrao2) {
+                const numeroQuestao = parseInt(matchPadrao2[1]);
+                const codigoQuestao = matchPadrao2[2];
+                const textoQuestao = matchPadrao2[3];
                 
-                questoes.push(questao);
-                console.log(`Adicionada questão ${numeroQuestao}: ${codigoDescritor} - ${nomeDescritor.substring(0, 50)}...`);
+                if (numeroQuestao >= faixaInicio && numeroQuestao <= faixaFim) {
+                    // Procurar descritor na próxima linha ou linhas seguintes
+                    for (let j = i + 1; j < Math.min(i + 5, linhas.length); j++) {
+                        const linhaDescritor = linhas[j].trim();
+                        const matchDescritor = linhaDescritor.match(/Descritor:\s*(D\d+_[PM])\s*-\s*(.+)/);
+                        if (matchDescritor) {
+                            questoes.push({
+                                numero: numeroQuestao,
+                                codigo: `Q${numeroQuestao.toString().padStart(2, '0')}`,
+                                texto: textoQuestao.length > 80 ? textoQuestao.substring(0, 80) + '...' : textoQuestao,
+                                descritor: {
+                                    codigo: matchDescritor[1],
+                                    nome: matchDescritor[2]
+                                }
+                            });
+                            console.log(`Padrão 2 - Adicionada questão ${numeroQuestao}: ${matchDescritor[1]}`);
+                            questaoEncontrada = true;
+                            break;
+                        }
+                        // Se encontrar uma nova questão, parar de procurar
+                        if (linhaDescritor.match(/^\d+\)/)) break;
+                    }
+                }
             }
         }
     }
     
     console.log(`Total de questões carregadas para ${disciplina}: ${questoes.length}`);
-    
-    // Se não encontrou questões com o padrão principal, tentar padrões alternativos
-    if (questoes.length === 0) {
-        console.log(`Nenhuma questão encontrada com padrão principal para ${disciplina}. Tentando padrões alternativos...`);
-        
-        // Tentar outros padrões comuns
-        for (let linha of linhas) {
-            linha = linha.trim();
-            
-            // Padrão alternativo: QUESTÃO XX → DESCRITOR: Nome
-            const matchAlternativo = linha.match(/^QUESTÃO\s+(\d+)\s*→\s*(D\d+_[PM]):\s*(.+)/);
-            if (matchAlternativo) {
-                const numeroQuestao = parseInt(matchAlternativo[1]);
-                const codigoDescritor = matchAlternativo[2];
-                const nomeDescritor = matchAlternativo[3];
-                
-                if (numeroQuestao >= faixaInicio && numeroQuestao <= faixaFim) {
-                    questoes.push({
-                        numero: numeroQuestao,
-                        codigo: `Q${numeroQuestao.toString().padStart(2, '0')}`,
-                        texto: `Questão ${numeroQuestao} - ${disciplina}`,
-                        descritor: {
-                            codigo: codigoDescritor,
-                            nome: nomeDescritor
-                        }
-                    });
-                }
-            }
-        }
-        
-        console.log(`Questões encontradas com padrões alternativos: ${questoes.length}`);
-    }
     
     return questoes;
 }
