@@ -685,12 +685,14 @@ function parseQuestoesDoConteudo(conteudo, disciplina) {
     
     // Detectar tipo de arquivo baseado no conteúdo
     const isArquivoSeparado = conteudo.includes('CADERNO P0201') || conteudo.includes('CADERNO M0201');
-    const isArquivoCombinado = conteudo.includes('=== LÍNGUA PORTUGUESA ===') && conteudo.includes('=== MATEMÁTICA ===');
+    const isArquivoCombinado9ano = conteudo.includes('=== LÍNGUA PORTUGUESA ===') && conteudo.includes('=== MATEMÁTICA ===');
+    const isArquivoCombinado8ano = conteudo.includes('LÍNGUA PORTUGUESA (Questões 1-26)') && conteudo.includes('MATEMÁTICA (Questões 27-52)');
     const isArquivo4e5Anos = conteudo.includes('LÍNGUA PORTUGUESA (Questões 1-22)') && conteudo.includes('MATEMÁTICA (Questões 23-44)');
     
     console.log(`Tipo de arquivo detectado:`, {
         separado: isArquivoSeparado,
-        combinado9ano: isArquivoCombinado,
+        combinado9ano: isArquivoCombinado9ano,
+        combinado8ano: isArquivoCombinado8ano,
         combinado4e5anos: isArquivo4e5Anos
     });
     
@@ -698,8 +700,17 @@ function parseQuestoesDoConteudo(conteudo, disciplina) {
     let faixaInicio = 1;
     let faixaFim = 999;
     
-    if (isArquivoCombinado) {
-        // Para 8º e 9º anos (arquivos com === LÍNGUA PORTUGUESA ===)
+    if (isArquivoCombinado9ano) {
+        // Para 9º ano (arquivos com === LÍNGUA PORTUGUESA ===)
+        if (disciplina === 'Português') {
+            faixaInicio = 1;
+            faixaFim = 26;
+        } else if (disciplina === 'Matemática') {
+            faixaInicio = 27;
+            faixaFim = 52;
+        }
+    } else if (isArquivoCombinado8ano) {
+        // Para 8º ano (arquivos com LÍNGUA PORTUGUESA (Questões 1-26))
         if (disciplina === 'Português') {
             faixaInicio = 1;
             faixaFim = 26;
@@ -745,6 +756,30 @@ function parseQuestoesDoConteudo(conteudo, disciplina) {
                 });
                 console.log(`Padrão 1 - Adicionada questão ${numeroQuestao}: ${codigoDescritor}`);
                 questaoEncontrada = true;
+            }
+        }
+        
+        // PADRÃO 1B: QUESTÃO 01 → D019_P: Descrição (usado no 8º ano)
+        if (!questaoEncontrada) {
+            const matchPadrao1B = linha.match(/^QUESTÃO\s+(\d+)\s*→\s*(D\d+_[PM]):\s*(.+)/);
+            if (matchPadrao1B) {
+                const numeroQuestao = parseInt(matchPadrao1B[1]);
+                const codigoDescritor = matchPadrao1B[2];
+                const nomeDescritor = matchPadrao1B[3];
+                
+                if (numeroQuestao >= faixaInicio && numeroQuestao <= faixaFim) {
+                    questoes.push({
+                        numero: numeroQuestao,
+                        codigo: `Q${numeroQuestao.toString().padStart(2, '0')}`,
+                        texto: `Questão ${numeroQuestao} - ${disciplina}`,
+                        descritor: {
+                            codigo: codigoDescritor,
+                            nome: nomeDescritor
+                        }
+                    });
+                    console.log(`Padrão 1B - Adicionada questão ${numeroQuestao}: ${codigoDescritor}`);
+                    questaoEncontrada = true;
+                }
             }
         }
         
