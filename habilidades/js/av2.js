@@ -682,6 +682,7 @@ function parseQuestoesDoConteudo(conteudo, disciplina) {
     
     console.log(`Parseando conteúdo para ${disciplina}`);
     console.log(`Total de linhas: ${linhas.length}`);
+    console.log(`Primeiras 5 linhas do conteúdo:`, linhas.slice(0, 5));
     
     // Detectar tipo de arquivo baseado no conteúdo
     const isArquivoSeparado = conteudo.includes('CADERNO P0201') || conteudo.includes('CADERNO M0201');
