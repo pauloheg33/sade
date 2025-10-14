@@ -1,182 +1,572 @@
-// Dados simulados baseados na estrutura do Power BI
+// Dados reais baseados no arquivo YAML fornecido
 const dadosCiclos = {
     escolas: [
         "03 DE DEZEMBRO",
-        "ANTONIO MARCOS PAULINO",
-        "DOMINGOS FERREIRA LIMA",
-        "FRANCISCO GADELHA LIMA",
-        "JOSE JACOME DE LIMA",
-        "JOSE NOBERTO DE OLIVEIRA",
-        "MANOEL FERREIRA LIMA",
-        "MARIA IVANISE LIMA",
-        "VICENTE PAULO CARNEIRO"
+        "ANTÔNIO DE SOUSA BARROS", 
+        "FIRMINO JOSÉ",
+        "JOAQUIM FERREIRA",
+        "JOSÉ ALVES",
+        "MARIA AMÉLIA",
+        "MOURÃO LIMA",
+        "21 DE DEZEMBRO"
     ],
     anos: ["5º Ano", "9º Ano"],
-    avaliacoes: ["CNCA 2025", "AVALIE CE 2025"],
-    componentes: ["Língua Portuguesa", "Matemática"],
-    turmas: ["5A", "5B", "5C", "9A", "9B", "9C"],
+    avaliacoes: ["CNCA 2025", "PROEA 2025"],
+    componentes: ["Língua Portuguesa", "Matemática", "Ciências da Natureza"],
+    turmas: ["Turma A", "Turma B", "Turma C"],
     ciclos: ["Ciclo I", "Ciclo II", "Ciclo III"],
 
-    // Dados de desempenho por escola/ano/componente
+    // Dados reais do arquivo YAML
     dadosDesempenho: [
+        // 5º Ano - CNCA 2025
         {
             escola: "03 DE DEZEMBRO",
             ano: "5º Ano",
             avaliacao: "CNCA 2025",
             componente: "Língua Portuguesa",
-            turma: "5A",
-            mediaCicloI: 72.5,
-            mediaCicloII: 68.3,
-            mediaCicloIII: 75.1,
-            mediaGeral: 71.9
+            turma: "Turma A",
+            mediaCicloI: 69.56,
+            mediaCicloII: 72.0,
+            mediaCicloIII: 74.6,
+            mediaGeral: 72.05
         },
         {
             escola: "03 DE DEZEMBRO",
             ano: "5º Ano",
             avaliacao: "CNCA 2025",
             componente: "Matemática",
-            turma: "5A",
-            mediaCicloI: 65.2,
-            mediaCicloII: 62.8,
-            mediaCicloIII: 69.4,
-            mediaGeral: 65.8
+            turma: "Turma A",
+            mediaCicloI: 71.23,
+            mediaCicloII: 70.1,
+            mediaCicloIII: 72.7,
+            mediaGeral: 71.34
         },
         {
-            escola: "03 DE DEZEMBRO",
+            escola: "ANTÔNIO DE SOUSA BARROS",
             ano: "5º Ano",
             avaliacao: "CNCA 2025",
             componente: "Língua Portuguesa",
-            turma: "5B",
-            mediaCicloI: 78.1,
-            mediaCicloII: 73.6,
-            mediaCicloIII: 80.2,
-            mediaGeral: 77.3
-        },
-        {
-            escola: "03 DE DEZEMBRO",
-            ano: "5º Ano",
-            avaliacao: "CNCA 2025",
-            componente: "Matemática",
-            turma: "5B",
-            mediaCicloI: 70.3,
-            mediaCicloII: 67.1,
-            mediaCicloIII: 73.5,
-            mediaGeral: 70.3
-        },
-        {
-            escola: "03 DE DEZEMBRO",
-            ano: "9º Ano",
-            avaliacao: "AVALIE CE 2025",
-            componente: "Língua Portuguesa",
-            turma: "9A",
-            mediaCicloI: 58.2,
-            mediaCicloII: 62.5,
-            mediaCicloIII: 66.8,
-            mediaGeral: 62.5
-        },
-        {
-            escola: "03 DE DEZEMBRO",
-            ano: "9º Ano",
-            avaliacao: "AVALIE CE 2025",
-            componente: "Matemática",
-            turma: "9A",
-            mediaCicloI: 52.1,
-            mediaCicloII: 56.3,
-            mediaCicloIII: 61.2,
-            mediaGeral: 56.5
-        },
-        // Dados para outras escolas...
-        {
-            escola: "ANTONIO MARCOS PAULINO",
-            ano: "5º Ano",
-            avaliacao: "CNCA 2025",
-            componente: "Língua Portuguesa",
-            turma: "5A",
-            mediaCicloI: 74.8,
+            turma: "Turma A",
+            mediaCicloI: 69.4,
             mediaCicloII: 71.2,
-            mediaCicloIII: 77.5,
-            mediaGeral: 74.5
+            mediaCicloIII: 73.5,
+            mediaGeral: 71.37
         },
         {
-            escola: "ANTONIO MARCOS PAULINO",
+            escola: "ANTÔNIO DE SOUSA BARROS",
             ano: "5º Ano",
             avaliacao: "CNCA 2025",
             componente: "Matemática",
-            turma: "5A",
-            mediaCicloI: 68.5,
-            mediaCicloII: 65.3,
-            mediaCicloIII: 71.8,
-            mediaGeral: 68.5
+            turma: "Turma A",
+            mediaCicloI: 62.8,
+            mediaCicloII: 63.9,
+            mediaCicloIII: 66.2,
+            mediaGeral: 64.30
         },
         {
-            escola: "ANTONIO MARCOS PAULINO",
-            ano: "9º Ano",
-            avaliacao: "AVALIE CE 2025",
+            escola: "FIRMINO JOSÉ",
+            ano: "5º Ano",
+            avaliacao: "CNCA 2025",
             componente: "Língua Portuguesa",
-            turma: "9A",
-            mediaCicloI: 60.3,
-            mediaCicloII: 64.1,
-            mediaCicloIII: 68.5,
-            mediaGeral: 64.3
+            turma: "Turma A",
+            mediaCicloI: 76.1,
+            mediaCicloII: 78.3,
+            mediaCicloIII: 74.5,
+            mediaGeral: 76.30
         },
         {
-            escola: "ANTONIO MARCOS PAULINO",
-            ano: "9º Ano",
-            avaliacao: "AVALIE CE 2025",
+            escola: "FIRMINO JOSÉ",
+            ano: "5º Ano",
+            avaliacao: "CNCA 2025",
             componente: "Matemática",
-            turma: "9A",
-            mediaCicloI: 54.2,
+            turma: "Turma A",
+            mediaCicloI: 77.2,
+            mediaCicloII: 79.6,
+            mediaCicloIII: 78.25,
+            mediaGeral: 78.35
+        },
+        {
+            escola: "FIRMINO JOSÉ",
+            ano: "5º Ano",
+            avaliacao: "CNCA 2025",
+            componente: "Língua Portuguesa",
+            turma: "Turma B",
+            mediaCicloI: 76.8,
+            mediaCicloII: 79.0,
+            mediaCicloIII: 77.56,
+            mediaGeral: 77.79
+        },
+        {
+            escola: "FIRMINO JOSÉ",
+            ano: "5º Ano",
+            avaliacao: "CNCA 2025",
+            componente: "Matemática",
+            turma: "Turma B",
+            mediaCicloI: 78.1,
+            mediaCicloII: 80.9,
+            mediaCicloIII: 79.93,
+            mediaGeral: 79.64
+        },
+        {
+            escola: "JOAQUIM FERREIRA",
+            ano: "5º Ano",
+            avaliacao: "CNCA 2025",
+            componente: "Língua Portuguesa",
+            turma: "Turma A",
+            mediaCicloI: 54.7,
+            mediaCicloII: 56.0,
+            mediaCicloIII: 51.22,
+            mediaGeral: 53.97
+        },
+        {
+            escola: "JOAQUIM FERREIRA",
+            ano: "5º Ano",
+            avaliacao: "CNCA 2025",
+            componente: "Matemática",
+            turma: "Turma A",
+            mediaCicloI: 56.5,
             mediaCicloII: 58.1,
-            mediaCicloIII: 63.4,
-            mediaGeral: 58.6
+            mediaCicloIII: 52.58,
+            mediaGeral: 55.73
         },
-        // Mais dados para completar o dataset...
         {
-            escola: "DOMINGOS FERREIRA LIMA",
+            escola: "JOSÉ ALVES",
             ano: "5º Ano",
             avaliacao: "CNCA 2025",
             componente: "Língua Portuguesa",
-            turma: "5A",
-            mediaCicloI: 69.2,
-            mediaCicloII: 66.8,
-            mediaCicloIII: 72.1,
-            mediaGeral: 69.4
+            turma: "Turma A",
+            mediaCicloI: 62.3,
+            mediaCicloII: 64.2,
+            mediaCicloIII: 63.54,
+            mediaGeral: 63.35
         },
         {
-            escola: "DOMINGOS FERREIRA LIMA",
+            escola: "JOSÉ ALVES",
             ano: "5º Ano",
             avaliacao: "CNCA 2025",
             componente: "Matemática",
-            turma: "5A",
+            turma: "Turma A",
             mediaCicloI: 63.1,
-            mediaCicloII: 60.5,
-            mediaCicloIII: 66.8,
-            mediaGeral: 63.5
+            mediaCicloII: 64.4,
+            mediaCicloIII: 62.52,
+            mediaGeral: 63.34
+        },
+        {
+            escola: "JOSÉ ALVES",
+            ano: "5º Ano",
+            avaliacao: "CNCA 2025",
+            componente: "Língua Portuguesa",
+            turma: "Turma B",
+            mediaCicloI: 63.6,
+            mediaCicloII: 65.1,
+            mediaCicloIII: 64.45,
+            mediaGeral: 64.38
+        },
+        {
+            escola: "JOSÉ ALVES",
+            ano: "5º Ano",
+            avaliacao: "CNCA 2025",
+            componente: "Matemática",
+            turma: "Turma B",
+            mediaCicloI: 65.2,
+            mediaCicloII: 68.3,
+            mediaCicloIII: 67.77,
+            mediaGeral: 67.09
+        },
+        {
+            escola: "MARIA AMÉLIA",
+            ano: "5º Ano",
+            avaliacao: "CNCA 2025",
+            componente: "Língua Portuguesa",
+            turma: "Turma A",
+            mediaCicloI: 67.4,
+            mediaCicloII: 69.8,
+            mediaCicloIII: 71.9,
+            mediaGeral: 69.70
+        },
+        {
+            escola: "MARIA AMÉLIA",
+            ano: "5º Ano",
+            avaliacao: "CNCA 2025",
+            componente: "Matemática",
+            turma: "Turma A",
+            mediaCicloI: 69.0,
+            mediaCicloII: 71.3,
+            mediaCicloIII: 70.01,
+            mediaGeral: 70.10
+        },
+        {
+            escola: "MOURÃO LIMA",
+            ano: "5º Ano",
+            avaliacao: "CNCA 2025",
+            componente: "Língua Portuguesa",
+            turma: "Turma A",
+            mediaCicloI: 63.9,
+            mediaCicloII: 65.6,
+            mediaCicloIII: 68.2,
+            mediaGeral: 65.90
+        },
+        {
+            escola: "MOURÃO LIMA",
+            ano: "5º Ano",
+            avaliacao: "CNCA 2025",
+            componente: "Matemática",
+            turma: "Turma A",
+            mediaCicloI: 66.1,
+            mediaCicloII: 68.9,
+            mediaCicloIII: 71.4,
+            mediaGeral: 68.80
+        },
+        {
+            escola: "MOURÃO LIMA",
+            ano: "5º Ano",
+            avaliacao: "CNCA 2025",
+            componente: "Língua Portuguesa",
+            turma: "Turma B",
+            mediaCicloI: 70.1,
+            mediaCicloII: 72.8,
+            mediaCicloIII: 75.6,
+            mediaGeral: 72.83
+        },
+        {
+            escola: "MOURÃO LIMA",
+            ano: "5º Ano",
+            avaliacao: "CNCA 2025",
+            componente: "Matemática",
+            turma: "Turma B",
+            mediaCicloI: 71.0,
+            mediaCicloII: 73.7,
+            mediaCicloIII: 76.4,
+            mediaGeral: 73.70
+        },
+
+        // 9º Ano - PROEA 2025
+        {
+            escola: "03 DE DEZEMBRO",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Ciências da Natureza",
+            turma: "Turma A",
+            mediaCicloI: 73.4,
+            mediaCicloII: 76.5,
+            mediaCicloIII: 78.8,
+            mediaGeral: 76.23
+        },
+        {
+            escola: "03 DE DEZEMBRO",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Língua Portuguesa",
+            turma: "Turma A",
+            mediaCicloI: 74.1,
+            mediaCicloII: 76.9,
+            mediaCicloIII: 79.5,
+            mediaGeral: 76.83
+        },
+        {
+            escola: "03 DE DEZEMBRO",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Matemática",
+            turma: "Turma A",
+            mediaCicloI: 73.2,
+            mediaCicloII: 75.8,
+            mediaCicloIII: 78.1,
+            mediaGeral: 75.70
+        },
+        {
+            escola: "ANTÔNIO DE SOUSA BARROS",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Ciências da Natureza",
+            turma: "Turma A",
+            mediaCicloI: 56.8,
+            mediaCicloII: 59.3,
+            mediaCicloIII: 61.5,
+            mediaGeral: 59.20
+        },
+        {
+            escola: "ANTÔNIO DE SOUSA BARROS",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Língua Portuguesa",
+            turma: "Turma A",
+            mediaCicloI: 61.2,
+            mediaCicloII: 63.5,
+            mediaCicloIII: 65.8,
+            mediaGeral: 63.50
+        },
+        {
+            escola: "ANTÔNIO DE SOUSA BARROS",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Matemática",
+            turma: "Turma A",
+            mediaCicloI: 58.4,
+            mediaCicloII: 60.7,
+            mediaCicloIII: 59.45,
+            mediaGeral: 59.52
+        },
+        {
+            escola: "FIRMINO JOSÉ",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Ciências da Natureza",
+            turma: "Turma A",
+            mediaCicloI: 60.8,
+            mediaCicloII: 63.2,
+            mediaCicloIII: 65.9,
+            mediaGeral: 63.30
+        },
+        {
+            escola: "FIRMINO JOSÉ",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Língua Portuguesa",
+            turma: "Turma A",
+            mediaCicloI: 62.5,
+            mediaCicloII: 64.4,
+            mediaCicloIII: 63.78,
+            mediaGeral: 63.56
+        },
+        {
+            escola: "FIRMINO JOSÉ",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Matemática",
+            turma: "Turma A",
+            mediaCicloI: 59.7,
+            mediaCicloII: 62.0,
+            mediaCicloIII: 60.21,
+            mediaGeral: 60.64
+        },
+        {
+            escola: "FIRMINO JOSÉ",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Ciências da Natureza",
+            turma: "Turma B",
+            mediaCicloI: 62.3,
+            mediaCicloII: 65.5,
+            mediaCicloIII: 60.15,
+            mediaGeral: 62.65
+        },
+        {
+            escola: "FIRMINO JOSÉ",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Língua Portuguesa",
+            turma: "Turma B",
+            mediaCicloI: 60.9,
+            mediaCicloII: 62.1,
+            mediaCicloIII: 64.4,
+            mediaGeral: 62.47
+        },
+        {
+            escola: "FIRMINO JOSÉ",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Matemática",
+            turma: "Turma B",
+            mediaCicloI: 59.8,
+            mediaCicloII: 61.8,
+            mediaCicloIII: 60.89,
+            mediaGeral: 60.83
+        },
+        {
+            escola: "JOSÉ ALVES",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Ciências da Natureza",
+            turma: "Turma A",
+            mediaCicloI: 60.1,
+            mediaCicloII: 62.3,
+            mediaCicloIII: 60.74,
+            mediaGeral: 61.05
+        },
+        {
+            escola: "JOSÉ ALVES",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Língua Portuguesa",
+            turma: "Turma A",
+            mediaCicloI: 63.2,
+            mediaCicloII: 65.4,
+            mediaCicloIII: 64.16,
+            mediaGeral: 64.25
+        },
+        {
+            escola: "JOSÉ ALVES",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Matemática",
+            turma: "Turma A",
+            mediaCicloI: 64.6,
+            mediaCicloII: 67.0,
+            mediaCicloIII: 69.3,
+            mediaGeral: 66.97
+        },
+        {
+            escola: "21 DE DEZEMBRO",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Ciências da Natureza",
+            turma: "Turma A",
+            mediaCicloI: 67.1,
+            mediaCicloII: 68.5,
+            mediaCicloIII: 69.2,
+            mediaGeral: 68.27
+        },
+        {
+            escola: "21 DE DEZEMBRO",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Língua Portuguesa",
+            turma: "Turma A",
+            mediaCicloI: 66.8,
+            mediaCicloII: 68.5,
+            mediaCicloIII: 69.8,
+            mediaGeral: 68.37
+        },
+        {
+            escola: "21 DE DEZEMBRO",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Matemática",
+            turma: "Turma A",
+            mediaCicloI: 59.3,
+            mediaCicloII: 60.2,
+            mediaCicloIII: 63.79,
+            mediaGeral: 61.10
+        },
+        {
+            escola: "21 DE DEZEMBRO",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Ciências da Natureza",
+            turma: "Turma B",
+            mediaCicloI: 65.6,
+            mediaCicloII: 66.3,
+            mediaCicloIII: 62.54,
+            mediaGeral: 64.81
+        },
+        {
+            escola: "21 DE DEZEMBRO",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Língua Portuguesa",
+            turma: "Turma B",
+            mediaCicloI: 64.8,
+            mediaCicloII: 66.1,
+            mediaCicloIII: 63.99,
+            mediaGeral: 64.96
+        },
+        {
+            escola: "21 DE DEZEMBRO",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Matemática",
+            turma: "Turma B",
+            mediaCicloI: 65.9,
+            mediaCicloII: 66.8,
+            mediaCicloIII: 61.94,
+            mediaGeral: 64.88
+        },
+        {
+            escola: "21 DE DEZEMBRO",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Ciências da Natureza",
+            turma: "Turma C",
+            mediaCicloI: 65.7,
+            mediaCicloII: 67.0,
+            mediaCicloIII: 68.3,
+            mediaGeral: 67.00
+        },
+        {
+            escola: "21 DE DEZEMBRO",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Língua Portuguesa",
+            turma: "Turma C",
+            mediaCicloI: 67.1,
+            mediaCicloII: 67.7,
+            mediaCicloIII: 68.4,
+            mediaGeral: 67.73
+        },
+        {
+            escola: "21 DE DEZEMBRO",
+            ano: "9º Ano",
+            avaliacao: "PROEA 2025",
+            componente: "Matemática",
+            turma: "Turma C",
+            mediaCicloI: 64.1,
+            mediaCicloII: 64.8,
+            mediaCicloIII: 65.7,
+            mediaGeral: 64.87
         }
     ],
 
-    // Dados de evolução temporal
-    evolucaoTemporal: [
-        { ciclo: "Ciclo I", escola: "03 DE DEZEMBRO", mediaGeral: 68.9 },
-        { ciclo: "Ciclo II", escola: "03 DE DEZEMBRO", mediaGeral: 65.4 },
-        { ciclo: "Ciclo III", escola: "03 DE DEZEMBRO", mediaGeral: 72.3 },
-        { ciclo: "Ciclo I", escola: "ANTONIO MARCOS PAULINO", mediaGeral: 71.5 },
-        { ciclo: "Ciclo II", escola: "ANTONIO MARCOS PAULINO", mediaGeral: 68.2 },
-        { ciclo: "Ciclo III", escola: "ANTONIO MARCOS PAULINO", mediaGeral: 74.8 }
-    ]
+    // Dados de evolução temporal calculados dinamicamente
+    calcularEvolucaoTemporal: function() {
+        const evolucao = {};
+        
+        this.dadosDesempenho.forEach(item => {
+            if (!evolucao[item.escola]) {
+                evolucao[item.escola] = {
+                    escola: item.escola,
+                    cicloI: [],
+                    cicloII: [],
+                    cicloIII: []
+                };
+            }
+            
+            evolucao[item.escola].cicloI.push(item.mediaCicloI);
+            evolucao[item.escola].cicloII.push(item.mediaCicloII);
+            evolucao[item.escola].cicloIII.push(item.mediaCicloIII);
+        });
+
+        // Calcular médias por ciclo para cada escola
+        const resultado = [];
+        Object.keys(evolucao).forEach(escola => {
+            const data = evolucao[escola];
+            
+            resultado.push({
+                ciclo: "Ciclo I",
+                escola: escola,
+                mediaGeral: (data.cicloI.reduce((a, b) => a + b, 0) / data.cicloI.length).toFixed(1)
+            });
+            
+            resultado.push({
+                ciclo: "Ciclo II", 
+                escola: escola,
+                mediaGeral: (data.cicloII.reduce((a, b) => a + b, 0) / data.cicloII.length).toFixed(1)
+            });
+            
+            resultado.push({
+                ciclo: "Ciclo III",
+                escola: escola,
+                mediaGeral: (data.cicloIII.reduce((a, b) => a + b, 0) / data.cicloIII.length).toFixed(1)
+            });
+        });
+        
+        return resultado;
+    }
 };
 
 // Funções de filtro e análise
 class DashboardCiclos {
     constructor() {
         this.filtros = {
-            escola: "03 DE DEZEMBRO",
-            ano: "5º Ano",
-            avaliacao: "CNCA 2025",
+            escola: null,
+            ano: null,
+            avaliacao: null,
             componente: null,
             turma: null
         };
         this.dados = dadosCiclos;
+        this.chartComparativo = null;
+        this.chartLinha = null;
         this.inicializar();
     }
 
@@ -283,11 +673,12 @@ class DashboardCiclos {
     }
 
     atualizarGraficoLinha() {
-        const dadosEvolucao = this.dados.evolucaoTemporal.filter(item => {
+        const dadosEvolucao = this.dados.calcularEvolucaoTemporal();
+        const dadosFiltrados = dadosEvolucao.filter(item => {
             return !this.filtros.escola || item.escola === this.filtros.escola;
         });
 
-        this.criarGraficoLinha(dadosEvolucao);
+        this.criarGraficoLinha(dadosFiltrados);
     }
 
     criarGraficoComparativo(dados) {
@@ -299,7 +690,23 @@ class DashboardCiclos {
             this.chartComparativo.destroy();
         }
 
-        const labels = dados.map(item => `${item.turma} - ${item.componente}`);
+        if (dados.length === 0) {
+            // Mostrar mensagem quando não há dados
+            ctx.getContext('2d').font = "16px Inter";
+            ctx.getContext('2d').fillStyle = "#6c757d";
+            ctx.getContext('2d').textAlign = "center";
+            ctx.getContext('2d').fillText("Nenhum dado encontrado para os filtros selecionados", 
+                                          ctx.width/2, ctx.height/2);
+            return;
+        }
+
+        const labels = dados.map(item => {
+            // Labels mais limpos
+            const turmaSimples = item.turma.replace('Turma ', '');
+            const compSimples = item.componente === 'Língua Portuguesa' ? 'LP' : 
+                               item.componente === 'Matemática' ? 'MAT' : 'CN';
+            return `${turmaSimples} - ${compSimples}`;
+        });
         
         this.chartComparativo = new Chart(ctx, {
             type: 'bar',
@@ -309,48 +716,112 @@ class DashboardCiclos {
                     {
                         label: 'Ciclo I',
                         data: dados.map(item => parseFloat(item.mediaCicloI)),
-                        backgroundColor: 'rgba(54, 162, 235, 0.8)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 1
+                        backgroundColor: '#3b82f6',
+                        borderColor: '#2563eb',
+                        borderWidth: 2,
+                        borderRadius: 4,
+                        borderSkipped: false
                     },
                     {
                         label: 'Ciclo II',
                         data: dados.map(item => parseFloat(item.mediaCicloII)),
-                        backgroundColor: 'rgba(255, 99, 132, 0.8)',
-                        borderColor: 'rgba(255, 99, 132, 1)',
-                        borderWidth: 1
+                        backgroundColor: '#ef4444',
+                        borderColor: '#dc2626',
+                        borderWidth: 2,
+                        borderRadius: 4,
+                        borderSkipped: false
                     },
                     {
                         label: 'Ciclo III',
                         data: dados.map(item => parseFloat(item.mediaCicloIII)),
-                        backgroundColor: 'rgba(75, 192, 192, 0.8)',
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 1
+                        backgroundColor: '#10b981',
+                        borderColor: '#059669',
+                        borderWidth: 2,
+                        borderRadius: 4,
+                        borderSkipped: false
                     }
                 ]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
                 plugins: {
-                    title: {
-                        display: true,
-                        text: 'Comparativo entre Ciclos',
-                        font: { size: 16, weight: 'bold' }
-                    },
                     legend: {
-                        position: 'top'
+                        position: 'top',
+                        labels: {
+                            usePointStyle: true,
+                            padding: 20,
+                            font: {
+                                family: 'Inter',
+                                size: 12,
+                                weight: '500'
+                            }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                        titleColor: '#374151',
+                        bodyColor: '#374151',
+                        borderColor: '#e5e7eb',
+                        borderWidth: 1,
+                        cornerRadius: 8,
+                        displayColors: true,
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.dataset.label}: ${context.parsed.y.toFixed(1)}%`;
+                            }
+                        }
                     }
                 },
                 scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                family: 'Inter',
+                                size: 11
+                            },
+                            color: '#6b7280'
+                        }
+                    },
                     y: {
                         beginAtZero: true,
                         max: 100,
+                        grid: {
+                            color: '#f3f4f6',
+                            lineWidth: 1
+                        },
+                        ticks: {
+                            font: {
+                                family: 'Inter',
+                                size: 11
+                            },
+                            color: '#6b7280',
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        },
                         title: {
                             display: true,
-                            text: 'Média (%)'
+                            text: 'Desempenho (%)',
+                            font: {
+                                family: 'Inter',
+                                size: 12,
+                                weight: '600'
+                            },
+                            color: '#374151'
                         }
                     }
+                },
+                animation: {
+                    duration: 1000,
+                    easing: 'easeInOutQuart'
                 }
             }
         });
@@ -365,26 +836,43 @@ class DashboardCiclos {
             this.chartLinha.destroy();
         }
 
+        if (dados.length === 0) {
+            return;
+        }
+
         // Agrupar por escola
         const escolasUnicas = [...new Set(dados.map(item => item.escola))];
-        const datasets = escolasUnicas.map((escola, index) => {
+        const cores = [
+            { border: '#ef4444', bg: '#fef2f2' },
+            { border: '#3b82f6', bg: '#eff6ff' },
+            { border: '#f59e0b', bg: '#fffbeb' },
+            { border: '#10b981', bg: '#f0fdf4' },
+            { border: '#8b5cf6', bg: '#faf5ff' },
+            { border: '#06b6d4', bg: '#f0fdfa' },
+            { border: '#84cc16', bg: '#f7fee7' },
+            { border: '#f97316', bg: '#fff7ed' }
+        ];
+        
+        const datasets = escolasUnicas.slice(0, 8).map((escola, index) => {
             const dadosEscola = dados.filter(item => item.escola === escola);
-            const cores = [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 205, 86, 1)',
-                'rgba(75, 192, 192, 1)'
-            ];
+            const escolaNome = escola.length > 15 ? escola.substring(0, 15) + '...' : escola;
             
             return {
-                label: escola,
+                label: escolaNome,
                 data: this.dados.ciclos.map(ciclo => {
                     const item = dadosEscola.find(d => d.ciclo === ciclo);
-                    return item ? item.mediaGeral : 0;
+                    return item ? parseFloat(item.mediaGeral) : null;
                 }),
-                borderColor: cores[index % cores.length],
-                backgroundColor: cores[index % cores.length].replace('1)', '0.1)'),
-                tension: 0.1
+                borderColor: cores[index].border,
+                backgroundColor: cores[index].bg,
+                borderWidth: 3,
+                pointBackgroundColor: cores[index].border,
+                pointBorderColor: '#ffffff',
+                pointBorderWidth: 2,
+                pointRadius: 6,
+                pointHoverRadius: 8,
+                tension: 0.3,
+                fill: false
             };
         });
 
@@ -397,25 +885,84 @@ class DashboardCiclos {
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
                 plugins: {
-                    title: {
-                        display: true,
-                        text: 'Evolução por Ciclo',
-                        font: { size: 16, weight: 'bold' }
-                    },
                     legend: {
-                        position: 'top'
+                        position: 'bottom',
+                        labels: {
+                            usePointStyle: true,
+                            padding: 15,
+                            font: {
+                                family: 'Inter',
+                                size: 10,
+                                weight: '500'
+                            }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                        titleColor: '#374151',
+                        bodyColor: '#374151',
+                        borderColor: '#e5e7eb',
+                        borderWidth: 1,
+                        cornerRadius: 8,
+                        displayColors: true,
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.dataset.label}: ${context.parsed.y?.toFixed(1) || 'N/A'}%`;
+                            }
+                        }
                     }
                 },
                 scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                family: 'Inter',
+                                size: 11,
+                                weight: '500'
+                            },
+                            color: '#6b7280'
+                        }
+                    },
                     y: {
                         beginAtZero: true,
                         max: 100,
+                        grid: {
+                            color: '#f3f4f6',
+                            lineWidth: 1
+                        },
+                        ticks: {
+                            font: {
+                                family: 'Inter',
+                                size: 11
+                            },
+                            color: '#6b7280',
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        },
                         title: {
                             display: true,
-                            text: 'Média Geral (%)'
+                            text: 'Média (%)',
+                            font: {
+                                family: 'Inter',
+                                size: 12,
+                                weight: '600'
+                            },
+                            color: '#374151'
                         }
                     }
+                },
+                animation: {
+                    duration: 1000,
+                    easing: 'easeInOutQuart'
                 }
             }
         });
@@ -469,9 +1016,9 @@ class DashboardCiclos {
 
     resetarFiltros() {
         this.filtros = {
-            escola: "03 DE DEZEMBRO",
-            ano: "5º Ano",
-            avaliacao: "CNCA 2025",
+            escola: null,
+            ano: null,
+            avaliacao: null,
             componente: null,
             turma: null
         };
