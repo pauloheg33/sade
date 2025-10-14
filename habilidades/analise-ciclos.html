@@ -49,25 +49,48 @@
         }
         
         .dashboard-container {
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
         
         .dashboard-wrapper {
             position: relative;
-            min-height: 600px;
+            width: 100%;
+            height: calc(100vh - 200px); /* Ocupa quase toda a altura da tela */
+            min-height: 800px;
         }
         
         .dashboard-wrapper iframe {
             border: none;
             width: 100%;
-            min-height: 600px;
+            height: 100%;
+            min-height: 800px;
+        }
+        
+        /* Remove margens desnecessárias para maximizar espaço */
+        .container-fluid {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        
+        .dashboard-full-container {
+            margin: 0;
+            padding: 0 15px;
         }
         
         @media (max-width: 768px) {
-            .dashboard-wrapper iframe {
-                height: 400px;
-                min-height: 400px;
+            .dashboard-wrapper {
+                height: calc(100vh - 150px);
+                min-height: 500px;
             }
+            
+            .dashboard-wrapper iframe {
+                min-height: 500px;
+            }
+        }
+        
+        /* Esconde elementos desnecessários em tela cheia */
+        .hide-on-fullscreen {
+            transition: opacity 0.3s ease;
         }
     </style>
 </head>
@@ -160,110 +183,108 @@
     </section>
 
     <!-- Conteúdo Principal -->
-    <div class="container-fluid">
-        <!-- Comparação dos Ciclos -->
-        <div class="comparacao-container">
-            <div class="row">
-                <div class="col-12">
-                    <h3 class="mb-4">
-                        <i class="fas fa-balance-scale me-2"></i>
-                        Comparação entre Ciclos
-                    </h3>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="ciclo-card">
-                        <div class="card-header bg-primary text-white">
-                            <h5 class="mb-0">
-                                <i class="fas fa-graduation-cap me-2"></i>
-                                5º Ano - Final do Ensino Fundamental I
-                            </h5>
-                        </div>
-                        <div class="card-body">
-                            <span class="ano-badge mb-3 d-inline-block">Ciclo de Alfabetização</span>
-                            <p class="card-text">
-                                Consolidação das habilidades básicas de leitura, escrita e cálculo matemático.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="ciclo-card">
-                        <div class="card-header bg-success text-white">
-                            <h5 class="mb-0">
-                                <i class="fas fa-user-graduate me-2"></i>
-                                9º Ano - Final do Ensino Fundamental II
-                            </h5>
-                        </div>
-                        <div class="card-body">
-                            <span class="ano-badge mb-3 d-inline-block">Ciclo de Formação</span>
-                            <p class="card-text">
-                                Desenvolvimento de competências complexas e preparação para o Ensino Médio.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Dashboard Power BI -->
+    <div class="container-fluid dashboard-full-container">
+        <!-- Dashboard Power BI - Tela Cheia -->
         <div class="dashboard-container">
-            <div class="row mb-4">
+            <div class="row mb-2">
                 <div class="col-12">
-                    <h3 class="mb-3">
-                        <i class="fas fa-chart-bar me-2"></i>
-                        Dashboard Interativo - Ciclos de Aprendizagem
-                    </h3>
-                    <div class="alert alert-info">
-                        <i class="fas fa-info-circle me-2"></i>
-                        <strong>Dashboard Completo:</strong> Utilize os filtros e controles do Power BI para explorar os dados de forma interativa.
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h4 class="mb-0">
+                            <i class="fas fa-chart-bar me-2"></i>
+                            Dashboard Interativo - Ciclos de Aprendizagem
+                        </h4>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-sm btn-outline-primary" onclick="toggleInfo()">
+                                <i class="fas fa-info-circle me-1"></i>Info
+                            </button>
+                            <button type="button" class="btn btn-sm btn-outline-success" onclick="openFullscreen()">
+                                <i class="fas fa-expand me-1"></i>Tela Cheia
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <div class="row">
+            <!-- Informações colapsáveis -->
+            <div class="row mb-2" id="info-panel" style="display: none;">
                 <div class="col-12">
-                    <div class="dashboard-wrapper" style="background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden;">
-                        <iframe 
-                            title="dashciclos" 
-                            width="100%" 
-                            height="600" 
-                            src="https://app.powerbi.com/reportEmbed?reportId=717612fe-3e62-4de9-8e6a-4a78f1090947&autoAuth=true&ctid=748b4c9a-8131-48a1-bf5c-c59f3b5724c5" 
-                            frameborder="0" 
-                            allowFullScreen="true"
-                            style="border-radius: 12px;">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="row mt-4">
-                <div class="col-12">
-                    <div class="alert alert-light">
+                    <div class="alert alert-info alert-dismissible fade show">
                         <div class="row">
                             <div class="col-md-6">
                                 <h6><i class="fas fa-lightbulb me-2"></i>Dicas de Navegação:</h6>
-                                <ul class="mb-0">
+                                <ul class="mb-0 small">
                                     <li>Clique nos gráficos para aplicar filtros</li>
                                     <li>Use os botões de zoom para visualizar detalhes</li>
                                 </ul>
                             </div>
                             <div class="col-md-6">
                                 <h6><i class="fas fa-expand-arrows-alt me-2"></i>Visualização:</h6>
-                                <ul class="mb-0">
-                                    <li>Clique no ícone de tela cheia para expandir</li>
-                                    <li>Use os filtros laterais para análises específicas</li>
+                                <ul class="mb-0 small">
+                                    <li>Use o botão "Tela Cheia" acima para maximizar</li>
+                                    <li>Navegue pelos filtros laterais do Power BI</li>
                                 </ul>
                             </div>
                         </div>
+                        <button type="button" class="btn-close" onclick="toggleInfo()" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dashboard em tela maximizada -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="dashboard-wrapper" style="background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); overflow: hidden;">
+                        <iframe 
+                            id="powerbi-iframe"
+                            title="dashciclos" 
+                            width="100%" 
+                            src="https://app.powerbi.com/reportEmbed?reportId=717612fe-3e62-4de9-8e6a-4a78f1090947&autoAuth=true&ctid=748b4c9a-8131-48a1-bf5c-c59f3b5724c5" 
+                            frameborder="0" 
+                            allowFullScreen="true">
+                        </iframe>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function toggleInfo() {
+            const infoPanel = document.getElementById('info-panel');
+            if (infoPanel.style.display === 'none') {
+                infoPanel.style.display = 'block';
+            } else {
+                infoPanel.style.display = 'none';
+            }
+        }
+
+        function openFullscreen() {
+            const iframe = document.getElementById('powerbi-iframe');
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.webkitRequestFullscreen) { /* Safari */
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { /* IE11 */
+                iframe.msRequestFullscreen();
+            }
+        }
+
+        // Ajusta altura automaticamente
+        function adjustDashboardHeight() {
+            const wrapper = document.querySelector('.dashboard-wrapper');
+            const iframe = document.querySelector('#powerbi-iframe');
+            const windowHeight = window.innerHeight;
+            const headerHeight = 200; // Aproximado do header + navbar + títulos
+            
+            const availableHeight = windowHeight - headerHeight;
+            wrapper.style.height = availableHeight + 'px';
+            iframe.style.height = availableHeight + 'px';
+        }
+
+        // Ajusta na inicialização e quando a janela é redimensionada
+        window.addEventListener('load', adjustDashboardHeight);
+        window.addEventListener('resize', adjustDashboardHeight);
+    </script>
 
     <!-- Footer -->
     <footer class="sade-footer mt-5">
