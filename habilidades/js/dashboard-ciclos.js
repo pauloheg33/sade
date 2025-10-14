@@ -682,65 +682,142 @@ class DashboardCiclos {
     }
 
     criarGraficoComparativo(dados) {
-        const ctx = document.getElementById('grafico-comparativo');
-        if (!ctx) return;
+        const container = document.getElementById('grafico-comparativo');
+        if (!container) return;
 
-        // Destruir gráfico existente se houver
-        if (this.chartComparativo) {
-            this.chartComparativo.destroy();
-        }
+        // Limpar container
+        container.innerHTML = '';
 
         if (dados.length === 0) {
-            // Mostrar mensagem quando não há dados
-            ctx.getContext('2d').font = "16px Inter";
-            ctx.getContext('2d').fillStyle = "#6c757d";
-            ctx.getContext('2d').textAlign = "center";
-            ctx.getContext('2d').fillText("Nenhum dado encontrado para os filtros selecionados", 
-                                          ctx.width/2, ctx.height/2);
+            container.innerHTML = `
+                <div class="text-center p-4">
+                    <i class="fas fa-chart-column text-muted" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                    <h5 class="text-muted">Nenhum dado encontrado</h5>
+                    <p class="text-muted mb-0">Selecione uma escola para visualizar os dados</p>
+                </div>
+            `;
             return;
         }
 
-        const labels = dados.map(item => {
-            // Labels mais limpos
-            const turmaSimples = item.turma.replace('Turma ', '');
-            const compSimples = item.componente === 'Língua Portuguesa' ? 'LP' : 
-                               item.componente === 'Matemática' ? 'MAT' : 'CN';
-            return `${turmaSimples} - ${compSimples}`;
+        // Agrupar dados por componente
+        const dadosPorComponente = {};
+        dados.forEach(item => {
+            if (!dadosPorComponente[item.componente]) {
+                dadosPorComponente[item.componente] = [];
+            }
+            dadosPorComponente[item.componente].push(item);
         });
+
+        // Cores para cada ciclo
+        const coresCiclos = {
+            'Ciclo I': { bg: '#3b82f6', border: '#2563eb' },
+            'Ciclo II': { bg: '#ef4444', border: '#dc2626' },
+            'Ciclo III': { bg: '#10b981', border: '#059669' }
+        };
+
+        // Cores de fundo para cada componente
+        const coresComponentes = {
+            'Língua Portuguesa': '#e0f2fe',
+            'Matemática': '#fef3c7', 
+            'Ciências da Natureza': '#f0fdf4'
+        };
+
+        // Criar estrutura HTML para múltiplos gráficos
+        const componentes = Object.keys(dadosPorComponente);
+        const numComponentes = componentes.length;
         
-        this.chartComparativo = new Chart(ctx, {
+        container.innerHTML = `
+            <div class="small-multiples-container">
+                <div class="legend-container mb-3">
+                    <div class="d-flex justify-content-center gap-4">
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background: #3b82f6;"></span>
+                            Ciclo I
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background: #ef4444;"></span>
+                            Ciclo II
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background: #10b981;"></span>
+                            Ciclo III
+                        </div>
+                    </div>
+                </div>
+                <div class="charts-grid" style="display: grid; grid-template-columns: repeat(${Math.min(numComponentes, 3)}, 1fr); gap: 20px;">
+                    ${componentes.map((componente, index) => `
+                        <div class="chart-panel" style="background: ${coresComponentes[componente] || '#f8f9fa'}; border-radius: 12px; padding: 15px;">
+                            <h6 class="chart-title text-center mb-3" style="font-weight: 600; color: #374151;">
+                                ${componente}
+                            </h6>
+                            <div class="chart-wrapper" style="height: 280px; position: relative;">
+                                <canvas id="chart-${index}" style="max-height: 280px;"></canvas>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+
+        // Criar gráfico para cada componente
+        componentes.forEach((componente, index) => {
+            setTimeout(() => {
+                this.criarGraficoIndividual(componente, dadosPorComponente[componente], index, coresCiclos);
+            }, index * 200); // Animação escalonada
+        });
+    }
+
+    criarGraficoIndividual(componente, dados, index, coresCiclos) {
+        const ctx = document.getElementById(`chart-${index}`);
+        if (!ctx) return;
+
+        // Preparar dados
+        const turmas = [...new Set(dados.map(item => item.turma.replace('Turma ', '')))].sort();
+        
+        const datasets = [
+            {
+                label: 'Ciclo I',
+                data: turmas.map(turma => {
+                    const item = dados.find(d => d.turma.replace('Turma ', '') === turma);
+                    return item ? parseFloat(item.mediaCicloI) : 0;
+                }),
+                backgroundColor: coresCiclos['Ciclo I'].bg,
+                borderColor: coresCiclos['Ciclo I'].border,
+                borderWidth: 2,
+                borderRadius: 4,
+                borderSkipped: false
+            },
+            {
+                label: 'Ciclo II', 
+                data: turmas.map(turma => {
+                    const item = dados.find(d => d.turma.replace('Turma ', '') === turma);
+                    return item ? parseFloat(item.mediaCicloII) : 0;
+                }),
+                backgroundColor: coresCiclos['Ciclo II'].bg,
+                borderColor: coresCiclos['Ciclo II'].border,
+                borderWidth: 2,
+                borderRadius: 4,
+                borderSkipped: false
+            },
+            {
+                label: 'Ciclo III',
+                data: turmas.map(turma => {
+                    const item = dados.find(d => d.turma.replace('Turma ', '') === turma);
+                    return item ? parseFloat(item.mediaCicloIII) : 0;
+                }),
+                backgroundColor: coresCiclos['Ciclo III'].bg,
+                borderColor: coresCiclos['Ciclo III'].border,
+                borderWidth: 2,
+                borderRadius: 4,
+                borderSkipped: false
+            }
+        ];
+
+        new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: labels,
-                datasets: [
-                    {
-                        label: 'Ciclo I',
-                        data: dados.map(item => parseFloat(item.mediaCicloI)),
-                        backgroundColor: '#3b82f6',
-                        borderColor: '#2563eb',
-                        borderWidth: 2,
-                        borderRadius: 4,
-                        borderSkipped: false
-                    },
-                    {
-                        label: 'Ciclo II',
-                        data: dados.map(item => parseFloat(item.mediaCicloII)),
-                        backgroundColor: '#ef4444',
-                        borderColor: '#dc2626',
-                        borderWidth: 2,
-                        borderRadius: 4,
-                        borderSkipped: false
-                    },
-                    {
-                        label: 'Ciclo III',
-                        data: dados.map(item => parseFloat(item.mediaCicloIII)),
-                        backgroundColor: '#10b981',
-                        borderColor: '#059669',
-                        borderWidth: 2,
-                        borderRadius: 4,
-                        borderSkipped: false
-                    }
-                ]
+                labels: turmas,
+                datasets: datasets
             },
             options: {
                 responsive: true,
@@ -751,16 +828,7 @@ class DashboardCiclos {
                 },
                 plugins: {
                     legend: {
-                        position: 'top',
-                        labels: {
-                            usePointStyle: true,
-                            padding: 20,
-                            font: {
-                                family: 'Inter',
-                                size: 12,
-                                weight: '500'
-                            }
-                        }
+                        display: false // Legenda centralizada acima
                     },
                     tooltip: {
                         backgroundColor: 'rgba(255, 255, 255, 0.95)',
@@ -771,6 +839,9 @@ class DashboardCiclos {
                         cornerRadius: 8,
                         displayColors: true,
                         callbacks: {
+                            title: function(context) {
+                                return `Turma ${context[0].label}`;
+                            },
                             label: function(context) {
                                 return `${context.dataset.label}: ${context.parsed.y.toFixed(1)}%`;
                             }
@@ -785,42 +856,33 @@ class DashboardCiclos {
                         ticks: {
                             font: {
                                 family: 'Inter',
-                                size: 11
+                                size: 12,
+                                weight: '600'
                             },
-                            color: '#6b7280'
+                            color: '#374151'
                         }
                     },
                     y: {
                         beginAtZero: true,
                         max: 100,
                         grid: {
-                            color: '#f3f4f6',
+                            color: 'rgba(0,0,0,0.1)',
                             lineWidth: 1
                         },
                         ticks: {
                             font: {
                                 family: 'Inter',
-                                size: 11
+                                size: 10
                             },
                             color: '#6b7280',
                             callback: function(value) {
                                 return value + '%';
                             }
-                        },
-                        title: {
-                            display: true,
-                            text: 'Desempenho (%)',
-                            font: {
-                                family: 'Inter',
-                                size: 12,
-                                weight: '600'
-                            },
-                            color: '#374151'
                         }
                     }
                 },
                 animation: {
-                    duration: 1000,
+                    duration: 800,
                     easing: 'easeInOutQuart'
                 }
             }
