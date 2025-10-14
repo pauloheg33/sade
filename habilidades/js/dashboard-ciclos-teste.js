@@ -124,10 +124,10 @@ class DashboardCiclos {
         new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: escolas,
+                labels: escolas.map(e => e.substring(0, 12)),
                 datasets: [{
                     label: 'Média por Escola',
-                    data: medias,
+                    data: medias.map(m => Math.round(m * 10) / 10),
                     backgroundColor: 'rgba(46, 134, 193, 0.8)',
                     borderColor: 'rgba(46, 134, 193, 1)',
                     borderWidth: 1
@@ -145,6 +145,28 @@ class DashboardCiclos {
                     y: {
                         beginAtZero: true,
                         max: 100
+                    }
+                },
+                // Animation para mostrar valores nas barras
+                animation: {
+                    onComplete: function() {
+                        const chartInstance = this;
+                        const ctx = chartInstance.ctx;
+                        
+                        ctx.font = Chart.helpers.fontString(12, 'bold', Chart.defaults.font.family);
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'bottom';
+                        ctx.fillStyle = '#000';
+                        
+                        this.data.datasets.forEach((dataset, i) => {
+                            const meta = chartInstance.getDatasetMeta(i);
+                            meta.data.forEach((bar, index) => {
+                                const data = Math.round(dataset.data[index] * 10) / 10;
+                                if (data > 0) {
+                                    ctx.fillText(data, bar.x, bar.y - 5);
+                                }
+                            });
+                        });
                     }
                 }
             }
@@ -206,42 +228,84 @@ class DashboardCiclos {
         // Limpar container
         container.innerHTML = '';
         
-        // Criar um gráfico para cada escola
-        const escolas = [...new Set(this.dados.map(d => d.escola))];
+        // Agrupar dados por componente para criar um gráfico por matéria
+        const componentes = [...new Set(this.dados.map(d => d.componente))];
         
-        escolas.forEach((escola, index) => {
-            const dadosEscola = this.dados.filter(d => d.escola === escola);
+        componentes.forEach((componente, index) => {
+            const dadosComponente = this.dados.filter(d => d.componente === componente);
             
             // Criar div do gráfico
             const chartDiv = document.createElement('div');
             chartDiv.className = 'small-multiple-chart';
             chartDiv.innerHTML = `
-                <div class="chart-title">${escola}</div>
+                <div class="chart-title">${componente}</div>
                 <canvas id="chart_${index}" width="400" height="300"></canvas>
             `;
             container.appendChild(chartDiv);
+            
+            // Preparar dados para o gráfico de barras
+            const escolas = dadosComponente.map(d => d.escola.replace(/\s+/g, ' ').substring(0, 15));
+            const ciclo1Data = dadosComponente.map(d => Math.round(d.ciclo1));
+            const ciclo2Data = dadosComponente.map(d => Math.round(d.ciclo2));
+            const ciclo3Data = dadosComponente.map(d => Math.round(d.ciclo3));
             
             // Criar gráfico
             const ctx = document.getElementById(`chart_${index}`);
             
             new Chart(ctx, {
-                type: 'line',
+                type: 'bar',
                 data: {
-                    labels: ['Ciclo I', 'Ciclo II', 'Ciclo III'],
-                    datasets: dadosEscola.map((d, i) => ({
-                        label: d.componente,
-                        data: [d.ciclo1, d.ciclo2, d.ciclo3],
-                        borderColor: this.getColor(i),
-                        backgroundColor: this.getColor(i) + '20',
-                        tension: 0.4
-                    }))
+                    labels: escolas,
+                    datasets: [
+                        {
+                            label: 'Ciclo I',
+                            data: ciclo1Data,
+                            backgroundColor: '#3498DB',
+                            borderColor: '#2980B9',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Ciclo II',
+                            data: ciclo2Data,
+                            backgroundColor: '#E74C3C',
+                            borderColor: '#C0392B',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Ciclo III',
+                            data: ciclo3Data,
+                            backgroundColor: '#F39C12',
+                            borderColor: '#E67E22',
+                            borderWidth: 1
+                        }
+                    ]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
                         legend: {
-                            display: false
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    size: 11
+                                }
+                            }
+                        },
+                        // Plugin para mostrar valores em cima das barras
+                        datalabels: {
+                            display: true,
+                            color: 'black',
+                            font: {
+                                weight: 'bold',
+                                size: 11
+                            },
+                            formatter: function(value) {
+                                return value;
+                            },
+                            anchor: 'end',
+                            align: 'top'
                         }
                     },
                     scales: {
@@ -252,14 +316,47 @@ class DashboardCiclos {
                                 font: {
                                     size: 10
                                 }
+                            },
+                            grid: {
+                                color: 'rgba(0,0,0,0.1)'
                             }
                         },
                         x: {
                             ticks: {
                                 font: {
-                                    size: 10
-                                }
+                                    size: 9
+                                },
+                                maxRotation: 45
+                            },
+                            grid: {
+                                display: false
                             }
+                        }
+                    },
+                    // Callback personalizado para mostrar valores nas barras
+                    onHover: (event, activeElements) => {
+                        event.native.target.style.cursor = activeElements.length > 0 ? 'pointer' : 'default';
+                    },
+                    // Animation para mostrar valores
+                    animation: {
+                        onComplete: function() {
+                            const chartInstance = this;
+                            const ctx = chartInstance.ctx;
+                            
+                            ctx.font = Chart.helpers.fontString(11, 'bold', Chart.defaults.font.family);
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'bottom';
+                            ctx.fillStyle = '#000';
+                            
+                            this.data.datasets.forEach((dataset, i) => {
+                                const meta = chartInstance.getDatasetMeta(i);
+                                meta.data.forEach((bar, index) => {
+                                    const data = dataset.data[index];
+                                    if (data > 0) {
+                                        ctx.fillText(data, bar.x, bar.y - 5);
+                                    }
+                                });
+                            });
                         }
                     }
                 }
