@@ -504,7 +504,7 @@ class DashboardCiclos {
         
         // Definir valores padrão
         document.getElementById('filtroEscola').value = 'FIRMINO JOSÉ';
-        document.getElementById('filtroAvaliacao').value = 'CNCA 2025';
+        document.getElementById('filtroAvaliacao').value = '';
         
         // Event listeners para filtros
         ['filtroEscola', 'filtroAno', 'filtroComponente', 'filtroTurma', 'filtroAvaliacao'].forEach(id => {
@@ -521,7 +521,7 @@ class DashboardCiclos {
         // Aplicar filtros iniciais sem recriação de gráficos
         this.dadosFiltrados = [...this.dados];
         const escola = document.getElementById('filtroEscola').value || 'FIRMINO JOSÉ';
-        const avaliacao = document.getElementById('filtroAvaliacao').value || 'CNCA 2025';
+        const avaliacao = document.getElementById('filtroAvaliacao').value || '';
         
         this.dadosFiltrados = this.dados.filter(d => {
             return (!escola || d.escola === escola) &&
