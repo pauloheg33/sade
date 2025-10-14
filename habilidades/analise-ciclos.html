@@ -29,39 +29,44 @@
         }
 
         body {
-            background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%);
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
             min-height: 100vh;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
         }
 
         .dashboard-container {
             display: flex;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
         }
 
         /* Sidebar com filtros */
         .sidebar {
             width: 280px;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
             padding: 20px;
             display: flex;
             flex-direction: column;
             gap: 15px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
         }
 
         .filter-group {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.8);
             border-radius: 8px;
             padding: 15px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .filter-group h6 {
-            color: white;
+            color: #2c3e50;
             font-weight: bold;
             margin-bottom: 10px;
             font-size: 0.9rem;
@@ -69,11 +74,12 @@
 
         .filter-group select {
             width: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
+            background: #ffffff;
+            border: 1px solid #ddd;
             border-radius: 5px;
             padding: 8px 12px;
             font-size: 0.85rem;
+            color: #2c3e50;
         }
 
         /* Main content area */
@@ -82,21 +88,21 @@
             padding: 20px;
             display: grid;
             grid-template-columns: 1fr 300px;
-            grid-template-rows: auto 1fr;
+            grid-template-rows: 120px calc(100vh - 280px);
             gap: 20px;
-            overflow: hidden;
+            max-height: 100vh;
         }
 
         /* Top metric card */
         .main-metric {
             grid-column: 1;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 12px;
             padding: 20px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .main-metric h5 {
@@ -115,12 +121,12 @@
         /* Side evolution chart */
         .evolution-chart {
             grid-column: 2;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 12px;
             padding: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .evolution-chart h6 {
@@ -134,12 +140,12 @@
         /* Bottom charts container */
         .charts-container {
             grid-column: 1 / -1;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             overflow: hidden;
         }
 
@@ -179,15 +185,18 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            height: 350px;
+            height: calc(100% - 80px);
+            max-height: 300px;
         }
 
         .chart-panel {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.8);
             border-radius: 8px;
             padding: 15px;
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
         }
 
         .chart-panel h6 {
@@ -200,7 +209,8 @@
 
         .chart-canvas {
             width: 100% !important;
-            height: calc(100% - 40px) !important;
+            height: 200px !important;
+            max-height: 200px !important;
         }
 
         /* Responsive adjustments */

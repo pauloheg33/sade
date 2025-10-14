@@ -468,12 +468,20 @@ class DashboardCiclos {
         console.log('🎯 Iniciando dashboard...');
         
         try {
+            this.isInitializing = true;
             this.setupFilters();
             this.updateMetrics();
-            this.createCharts();
-            console.log('✅ Dashboard carregado com sucesso!');
+            
+            // Aguardar que o DOM esteja completamente renderizado
+            setTimeout(() => {
+                this.createCharts();
+                this.isInitializing = false;
+                console.log('✅ Dashboard carregado com sucesso!');
+            }, 500);
+            
         } catch (error) {
             console.error('❌ Erro ao carregar dashboard:', error);
+            this.isInitializing = false;
         }
     }
     
@@ -503,13 +511,22 @@ class DashboardCiclos {
             const element = document.getElementById(id);
             if (element) {
                 element.addEventListener('change', () => {
-                    this.applyFilters();
+                    if (!this.isInitializing) {
+                        this.applyFilters();
+                    }
                 });
             }
         });
         
-        // Aplicar filtros iniciais
-        this.applyFilters();
+        // Aplicar filtros iniciais sem recriação de gráficos
+        this.dadosFiltrados = [...this.dados];
+        const escola = document.getElementById('filtroEscola').value || 'FIRMINO JOSÉ';
+        const avaliacao = document.getElementById('filtroAvaliacao').value || 'CNCA 2025';
+        
+        this.dadosFiltrados = this.dados.filter(d => {
+            return (!escola || d.escola === escola) &&
+                   (!avaliacao || d.avaliacao === avaliacao);
+        });
     }
     
     populateSelect(id, options) {
@@ -532,6 +549,11 @@ class DashboardCiclos {
     }
     
     applyFilters() {
+        // Prevenir execução durante inicialização
+        if (this.isInitializing) {
+            return;
+        }
+        
         const escola = document.getElementById('filtroEscola').value;
         const ano = document.getElementById('filtroAno').value;
         const componente = document.getElementById('filtroComponente').value;
@@ -548,8 +570,15 @@ class DashboardCiclos {
         
         console.log(`Filtros aplicados: ${this.dadosFiltrados.length} registros`);
         
-        this.updateMetrics();
-        this.createCharts();
+        // Pequeno delay para evitar múltiplas recriações
+        if (this.updateTimeout) {
+            clearTimeout(this.updateTimeout);
+        }
+        
+        this.updateTimeout = setTimeout(() => {
+            this.updateMetrics();
+            this.createCharts();
+        }, 300);
     }
     
     updateMetrics() {
@@ -578,11 +607,18 @@ class DashboardCiclos {
     
     createEvolutionChart() {
         const ctx = document.getElementById('evolutionChart');
-        if (!ctx) return;
+        if (!ctx) {
+            console.warn('Canvas evolutionChart não encontrado');
+            return;
+        }
         
         // Destruir gráfico existente
-        if (this.evolutionChart) {
-            this.evolutionChart.destroy();
+        if (this.evolutionChart && typeof this.evolutionChart.destroy === 'function') {
+            try {
+                this.evolutionChart.destroy();
+            } catch(e) {
+                console.warn('Erro ao destruir gráfico anterior:', e);
+            }
         }
         
         // Calcular médias por ciclo para a escola selecionada
@@ -590,6 +626,7 @@ class DashboardCiclos {
         const dadosEscola = this.dadosFiltrados.filter(d => d.escola === escola);
         
         if (dadosEscola.length === 0) {
+            console.warn('Nenhum dado encontrado para a escola:', escola);
             return;
         }
         
@@ -597,77 +634,93 @@ class DashboardCiclos {
         const mediaCiclo2 = dadosEscola.reduce((acc, d) => acc + d.ciclo2, 0) / dadosEscola.length;
         const mediaCiclo3 = dadosEscola.reduce((acc, d) => acc + d.ciclo3, 0) / dadosEscola.length;
         
-        this.evolutionChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Ciclo I (%)', 'Ciclo II (%)', 'Ciclo III (%)'],
-                datasets: [{
-                    label: escola,
-                    data: [mediaCiclo1, mediaCiclo2, mediaCiclo3],
-                    borderColor: '#2196F3',
-                    backgroundColor: 'rgba(33, 150, 243, 0.1)',
-                    tension: 0.4,
-                    fill: true,
-                    pointBackgroundColor: '#2196F3',
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 2,
-                    pointRadius: 5
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
+        try {
+            this.evolutionChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Ciclo I', 'Ciclo II', 'Ciclo III'],
+                    datasets: [{
+                        label: escola,
+                        data: [mediaCiclo1, mediaCiclo2, mediaCiclo3],
+                        borderColor: '#2196F3',
+                        backgroundColor: 'rgba(33, 150, 243, 0.1)',
+                        tension: 0.4,
+                        fill: true,
+                        pointBackgroundColor: '#2196F3',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 5
+                    }]
                 },
-                scales: {
-                    y: {
-                        beginAtZero: false,
-                        min: Math.min(mediaCiclo1, mediaCiclo2, mediaCiclo3) - 5,
-                        max: Math.max(mediaCiclo1, mediaCiclo2, mediaCiclo3) + 5,
-                        ticks: {
-                            font: {
-                                size: 10
-                            }
-                        },
-                        grid: {
-                            color: 'rgba(255, 255, 255, 0.2)'
-                        }
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1000
                     },
-                    x: {
-                        ticks: {
-                            font: {
-                                size: 9
-                            }
-                        },
-                        grid: {
+                    plugins: {
+                        legend: {
                             display: false
                         }
-                    }
-                },
-                animation: {
-                    onComplete: function() {
-                        const chart = this;
-                        const ctx = chart.ctx;
-                        
-                        ctx.font = '12px Arial';
-                        ctx.textAlign = 'center';
-                        ctx.textBaseline = 'bottom';
-                        ctx.fillStyle = '#1A1A1A';
-                        
-                        chart.data.datasets.forEach((dataset, i) => {
-                            const meta = chart.getDatasetMeta(i);
-                            meta.data.forEach((point, index) => {
-                                const value = dataset.data[index].toFixed(1);
-                                ctx.fillText(value, point.x, point.y - 5);
-                            });
-                        });
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: Math.min(mediaCiclo1, mediaCiclo2, mediaCiclo3) - 5,
+                            max: Math.max(mediaCiclo1, mediaCiclo2, mediaCiclo3) + 5,
+                            ticks: {
+                                font: {
+                                    size: 10
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                font: {
+                                    size: 9
+                                }
+                            },
+                            grid: {
+                                display: false
+                            }
+                        }
                     }
                 }
+            });
+            
+            // Não adicionar valores automaticamente para evitar loops
+            
+        } catch(error) {
+            console.error('Erro ao criar gráfico de evolução:', error);
+        }
+    }
+    
+    addValuesToEvolutionChart() {
+        if (!this.evolutionChart || !this.evolutionChart.ctx) return;
+        
+        const chart = this.evolutionChart;
+        const ctx = chart.ctx;
+        
+        ctx.save();
+        ctx.font = '12px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'bottom';
+        ctx.fillStyle = '#1A1A1A';
+        
+        chart.data.datasets.forEach((dataset, i) => {
+            const meta = chart.getDatasetMeta(i);
+            if (meta && meta.data) {
+                meta.data.forEach((point, index) => {
+                    const value = dataset.data[index].toFixed(1);
+                    ctx.fillText(value, point.x, point.y - 8);
+                });
             }
         });
+        
+        ctx.restore();
     }
     
     createComponentCharts() {
@@ -685,17 +738,27 @@ class DashboardCiclos {
     
     createComponentChart(canvasId, componente) {
         const ctx = document.getElementById(canvasId);
-        if (!ctx) return;
+        if (!ctx) {
+            console.warn(`Canvas ${canvasId} não encontrado`);
+            return;
+        }
         
         // Destruir gráfico existente
-        if (this[canvasId + 'Instance']) {
-            this[canvasId + 'Instance'].destroy();
+        if (this[canvasId + 'Instance'] && typeof this[canvasId + 'Instance'].destroy === 'function') {
+            try {
+                this[canvasId + 'Instance'].destroy();
+            } catch(e) {
+                console.warn(`Erro ao destruir gráfico ${canvasId}:`, e);
+            }
         }
         
         // Filtrar dados por componente
         const dadosComponente = this.dadosFiltrados.filter(d => d.componente === componente);
         
         if (dadosComponente.length === 0) {
+            console.warn(`Nenhum dado encontrado para ${componente}`);
+            // Criar gráfico vazio
+            this.createEmptyChart(ctx, canvasId, componente);
             return;
         }
         
@@ -735,68 +798,135 @@ class DashboardCiclos {
             }
         ];
         
-        this[canvasId + 'Instance'] = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: turmas,
-                datasets: datasets
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
+        try {
+            this[canvasId + 'Instance'] = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: turmas,
+                    datasets: datasets
                 },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 100,
-                        ticks: {
-                            font: {
-                                size: 10
-                            }
-                        },
-                        grid: {
-                            color: 'rgba(255, 255, 255, 0.2)'
-                        }
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1000
                     },
-                    x: {
-                        ticks: {
-                            font: {
-                                size: 10
-                            }
-                        },
-                        grid: {
+                    plugins: {
+                        legend: {
                             display: false
                         }
-                    }
-                },
-                // Animation para mostrar valores nas barras
-                animation: {
-                    onComplete: function() {
-                        const chart = this;
-                        const ctx = chart.ctx;
-                        
-                        ctx.font = '11px Arial';
-                        ctx.textAlign = 'center';
-                        ctx.textBaseline = 'bottom';
-                        ctx.fillStyle = '#1A1A1A';
-                        
-                        chart.data.datasets.forEach((dataset, i) => {
-                            const meta = chart.getDatasetMeta(i);
-                            meta.data.forEach((bar, index) => {
-                                const value = Math.round(dataset.data[index]);
-                                if (value > 0) {
-                                    ctx.fillText(value, bar.x, bar.y - 3);
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                font: {
+                                    size: 10
                                 }
-                            });
-                        });
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                font: {
+                                    size: 10
+                                }
+                            },
+                            grid: {
+                                display: false
+                            }
+                        }
                     }
                 }
+            });
+            
+            // Usar animation callback simples
+            this[canvasId + 'Instance'].options.animation = {
+                duration: 800,
+                onComplete: () => {
+                    this.addValuesToChart(this[canvasId + 'Instance']);
+                }
+            };
+            
+        } catch(error) {
+            console.error(`Erro ao criar gráfico ${canvasId}:`, error);
+        }
+    }
+    
+    createEmptyChart(ctx, canvasId, componente) {
+        try {
+            this[canvasId + 'Instance'] = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Sem dados'],
+                    datasets: [{
+                        label: 'Sem dados',
+                        data: [0],
+                        backgroundColor: '#e0e0e0',
+                        borderColor: '#ccc',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                font: {
+                                    size: 10
+                                }
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                font: {
+                                    size: 10
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        } catch(error) {
+            console.error(`Erro ao criar gráfico vazio para ${canvasId}:`, error);
+        }
+    }
+    
+    addValuesToChart(chart) {
+        if (!chart || !chart.ctx) return;
+        
+        const ctx = chart.ctx;
+        
+        ctx.save();
+        ctx.font = '11px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'bottom';
+        ctx.fillStyle = '#1A1A1A';
+        
+        chart.data.datasets.forEach((dataset, i) => {
+            const meta = chart.getDatasetMeta(i);
+            if (meta && meta.data) {
+                meta.data.forEach((bar, index) => {
+                    const value = Math.round(dataset.data[index]);
+                    if (value > 0) {
+                        ctx.fillText(value, bar.x, bar.y - 5);
+                    }
+                });
             }
         });
+        
+        ctx.restore();
     }
 }
 
